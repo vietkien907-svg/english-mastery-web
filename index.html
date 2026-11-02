@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>English Mastery Hub - Nền Tảng Học Tiếng Anh Cá Nhân</title>
+  <meta name="description" content="Ứng dụng học từ vựng, collocation, idiom, đọc hiểu và 21 tuần ngữ pháp đa thiết bị, đồng bộ vĩnh viễn.">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="https://api.iconify.design/lucide:graduation-cap.svg?color=%236366f1">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="pb-24 md:pb-8 flex flex-col min-h-screen text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- TOP NAVBAR -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-slate-800 px-4 py-3">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+          <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+        </div>
+        <div>
+          <h1 class="font-bold text-base md:text-lg leading-tight flex items-center gap-2">
+            <span>English Mastery Hub</span>
+            <span id="targetExamBadge" class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-medium">IELTS • VSTEP</span>
+          </h1>
+          <p id="userStatusText" class="text-xs text-slate-400">Đang chạy máy chủ cục bộ • Sẵn sàng đồng bộ</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <!-- Streak Counter -->
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold" title="Chuỗi ngày học liên tục (Mục tiêu tối thiểu 20 từ/ngày)">
+          <i data-lucide="flame" class="w-4 h-4 fill-amber-500 text-amber-500"></i>
+          <span id="streakCount">0 ngày</span>
+        </div>
+
+        <!-- Auth / Profile Button -->
+        <button onclick="openAuthModal()" id="userAuthBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition">
+          <i data-lucide="user" class="w-4 h-4"></i>
+          <span id="userAuthName">Tài khoản</span>
+        </button>
+
+        <!-- Mobile Connect QR Button -->
+        <button onclick="openQrModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-300 text-xs font-semibold border border-cyan-500/30 transition shadow-sm" title="Quét mã QR để mở trên điện thoại">
+          <i data-lucide="smartphone" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Dùng trên ĐT</span>
+        </button>
+
+        <!-- Quick Add Word -->
+        <button onclick="openAddWordModal()" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-md shadow-indigo-600/30 transition">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>Thêm từ</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DESKTOP NAVIGATION BAR -->
+  <nav class="hidden md:flex bg-slate-900/60 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto w-full flex items-center justify-between px-4">
+      <div class="flex gap-2 py-2">
+        <button onclick="switchTab('today')" id="nav-btn-today" class="tab-btn active px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition bg-indigo-600 text-white">
+          <i data-lucide="calendar" class="w-4 h-4"></i> Hôm nay
+        </button>
+        <button onclick="switchTab('flashcard')" id="nav-btn-flashcard" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="layers" class="w-4 h-4"></i> Lộ trình Học (Unit/Tuần)
+        </button>
+        <button onclick="switchTab('review')" id="nav-btn-review" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="rotate-cw" class="w-4 h-4"></i> Ôn tập SRS
+        </button>
+        <button onclick="switchTab('reader')" id="nav-btn-reader" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="newspaper" class="w-4 h-4"></i> Đọc hiểu ngữ cảnh
+        </button>
+        <button onclick="switchTab('grammar')" id="nav-btn-grammar" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="book-marked" class="w-4 h-4"></i> 21 Tuần Ngữ pháp
+        </button>
+        <button onclick="switchTab('profile')" id="nav-btn-profile" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Cá nhân & Thống kê
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto w-full px-4 pt-4 flex-1">
+
+    <!-- ================= TAB: HÔM NAY (TODAY OVERVIEW) ================= -->
+    <section id="tab-today" class="space-y-6">
+      <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
+        <div class="relative z-10 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span class="text-xs uppercase font-bold text-indigo-400 tracking-wider">Phiên học mục tiêu hôm nay</span>
+              <h2 class="text-2xl font-extrabold text-white mt-1">Chu trình Học & Ôn Tập Cách Quãng</h2>
+              <p class="text-xs text-slate-300 mt-1">Ôn đến hạn $\rightarrow$ Học mới $\rightarrow$ Nhớ lại $\rightarrow$ Đọc ngữ cảnh $\rightarrow$ Vận dụng</p>
+            </div>
+            <button onclick="switchTab('flashcard')" class="px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-sm text-white shadow-lg shadow-indigo-600/30 flex items-center gap-2 self-start transition">
+              <i data-lucide="play" class="w-4 h-4 fill-white"></i> Bắt đầu phiên học ngay
+            </button>
+          </div>
+
+          <!-- Metrics Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="text-slate-400 text-xs font-semibold">Cần ôn đến hạn</div>
+              <div id="metricDueCount" class="text-2xl font-black text-amber-400 mt-1">0</div>
+              <div class="text-[11px] text-slate-500">Ưu tiên hàng đầu</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="text-slate-400 text-xs font-semibold">Từ mới hôm nay</div>
+              <div id="metricNewCount" class="text-2xl font-black text-cyan-400 mt-1">20</div>
+              <div class="text-[11px] text-slate-500">Mục tiêu tối thiểu</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="text-slate-400 text-xs font-semibold">Thời gian dự kiến</div>
+              <div id="metricEstTime" class="text-2xl font-black text-indigo-300 mt-1">~6.5p</div>
+              <div class="text-[11px] text-slate-500">Khoảng 20s/thẻ</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="text-slate-400 text-xs font-semibold">Tỷ lệ nhớ 30 ngày</div>
+              <div id="metricRetention" class="text-2xl font-black text-emerald-400 mt-1">94.2%</div>
+              <div class="text-[11px] text-slate-500">Chuẩn SuperMemo-2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= DAILY DEADLINE & SPACED REPETITION ROADMAP ================= -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6 space-y-5 border border-slate-700/80">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <h3 class="font-bold text-lg text-white">Lịch Trình Deadline Hằng Ngày & Lặp Lại Ngắt Quãng</h3>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">Định lượng ít nhất <strong>20 mục/ngày</strong> (Từ vựng + Collocation + Idiom) kết hợp chu trình giãn cách SuperMemo-2.</p>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-2.5 py-1 rounded-lg bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 text-xs font-semibold">
+              🎯 Mục tiêu: 20 mục / ngày
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-xs font-semibold">
+              🔄 6 Mốc SRS Tự Động
+            </span>
+          </div>
+        </div>
+
+        <!-- 3 Daily Checkpoints / Deadlines -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <!-- Morning -->
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-amber-500/30 space-y-2 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                <i data-lucide="sun" class="w-4 h-4"></i> Chặng 1: Sáng (7:00 – 8:30)
+              </span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-semibold">15 phút</span>
+            </div>
+            <h4 class="font-bold text-white text-sm">Học Mới 20 Mục Của Ngày</h4>
+            <ul class="text-xs text-slate-300 space-y-1">
+              <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span> <strong>12 – 14</strong> Từ vựng đơn (Vocabulary)</li>
+              <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> <strong>4 – 5</strong> Cụm từ (Collocations)</li>
+              <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> <strong>2 – 3</strong> Thành ngữ (Idioms)</li>
+            </ul>
+            <p class="text-[11px] text-slate-400 pt-1 border-t border-slate-800">📌 Deadline: Lướt Flashcard, nghe audio phát âm và ghi nhớ định nghĩa ban đầu.</p>
+          </div>
+
+          <!-- Noon -->
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/30 space-y-2 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-4 h-4"></i> Chặng 2: Trưa (12:00 – 13:30)
+              </span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-semibold">10 phút</span>
+            </div>
+            <h4 class="font-bold text-white text-sm">Ôn Tập Cách Quãng (SRS Review)</h4>
+            <p class="text-xs text-slate-300">Giải quyết toàn bộ danh sách <strong>"Cần ôn đến hạn"</strong> máy chủ tự tính toán.</p>
+            <div class="grid grid-cols-4 gap-1 text-center text-[10px] pt-1">
+              <span class="p-1 rounded bg-red-500/20 text-red-300 font-semibold">Quên (1d)</span>
+              <span class="p-1 rounded bg-amber-500/20 text-amber-300 font-semibold">Khó (2d)</span>
+              <span class="p-1 rounded bg-blue-500/20 text-blue-300 font-semibold">Nhớ (4d)</span>
+              <span class="p-1 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Dễ (7d+)</span>
+            </div>
+            <p class="text-[11px] text-slate-400 pt-1 border-t border-slate-800">📌 Deadline: Không để dồn thẻ quá hạn sang ngày hôm sau.</p>
+          </div>
+
+          <!-- Evening -->
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-purple-500/30 space-y-2 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-1.5">
+                <i data-lucide="moon" class="w-4 h-4"></i> Chặng 3: Tối (20:30 – 22:00)
+              </span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-semibold">15 phút</span>
+            </div>
+            <h4 class="font-bold text-white text-sm">Vận Dụng Ngữ Cảnh & Giữ Streak</h4>
+            <ul class="text-xs text-slate-300 space-y-1">
+              <li class="flex items-center gap-1.5">✓ Làm bài <strong>Trắc nghiệm củng cố (Quiz)</strong></li>
+              <li class="flex items-center gap-1.5">✓ Đọc <strong>1 bài đọc hiểu ngữ cảnh</strong> thực tế</li>
+              <li class="flex items-center gap-1.5">✓ Chạm các từ để xem nghĩa và lưu học sau</li>
+            </ul>
+            <p class="text-[11px] text-slate-400 pt-1 border-t border-slate-800">📌 Deadline: Đạt tối thiểu 20 câu để duy trì chuỗi ngày học liên tục (Streak 🔥).</p>
+          </div>
+        </div>
+
+        <!-- 6-Stage Spaced Repetition (SRS) Timeline -->
+        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="repeat" class="w-4 h-4 text-emerald-400"></i> Bản Đồ 6 Mốc Lặp Lại Ngắt Quãng (SuperMemo-2 Intervals)
+            </span>
+            <span class="text-[11px] text-slate-400">Tự động tăng giãn cách khi trả lời đúng</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-6 gap-2 text-center text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 space-y-1">
+              <span class="text-[10px] font-bold text-indigo-400 uppercase">Mốc 0</span>
+              <div class="font-extrabold text-white text-sm">Ngày 1</div>
+              <div class="text-[10px] text-slate-400">Học mới 20 mục</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 space-y-1">
+              <span class="text-[10px] font-bold text-amber-400 uppercase">Mốc 1</span>
+              <div class="font-extrabold text-white text-sm">+1 Ngày</div>
+              <div class="text-[10px] text-slate-400">Chống quên 70%</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 space-y-1">
+              <span class="text-[10px] font-bold text-cyan-400 uppercase">Mốc 2</span>
+              <div class="font-extrabold text-white text-sm">+3 Ngày</div>
+              <div class="text-[10px] text-slate-400">Nhớ trung hạn</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 space-y-1">
+              <span class="text-[10px] font-bold text-emerald-400 uppercase">Mốc 3</span>
+              <div class="font-extrabold text-white text-sm">+7 Ngày</div>
+              <div class="text-[10px] text-slate-400">Trắc nghiệm tuần</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 space-y-1">
+              <span class="text-[10px] font-bold text-purple-400 uppercase">Mốc 4</span>
+              <div class="font-extrabold text-white text-sm">+14 Ngày</div>
+              <div class="text-[10px] text-slate-400">Bộ nhớ dài hạn</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 space-y-1">
+              <span class="text-[10px] font-bold text-rose-400 uppercase">Mốc 5</span>
+              <div class="font-extrabold text-white text-sm">+30 Ngày</div>
+              <div class="text-[10px] text-slate-400">Phản xạ vĩnh viễn</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div onclick="switchTab('reader')" class="glass-card rounded-2xl p-5 cursor-pointer hover:border-indigo-500/50 transition space-y-2">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+            <i data-lucide="newspaper" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">Đọc Hiểu Ngữ Cảnh</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Đọc bài báo Hot Reads & truyện ngắn chứa từ khóa vừa học. Chạm từ để xem nghĩa và tạo thẻ ngay.</p>
+        </div>
+
+        <div onclick="switchTab('grammar')" class="glass-card rounded-2xl p-5 cursor-pointer hover:border-indigo-500/50 transition space-y-2">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
+            <i data-lucide="book-marked" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">21 Tuần Ngữ Pháp Toàn Diện</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Trích xuất chính xác theo mục lục Khóa Ngữ Pháp 11 (Cô Trang Anh) từ cơ bản đến nâng cao.</p>
+        </div>
+
+        <div onclick="switchTab('profile')" class="glass-card rounded-2xl p-5 cursor-pointer hover:border-indigo-500/50 transition space-y-2">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+            <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">Đồng Bộ & Thiết Bị</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Học trên điện thoại, đồng bộ với máy tính tức thì. Hỗ trợ đầy đủ hàng đợi khi mất mạng.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB: FLASHCARD ================= -->
+    <section id="tab-flashcard" class="hidden space-y-4">
+      <div class="glass-card rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Quick Mode Switcher & Shuffle Controls (Clusters of 4 Units) -->
+        <div class="flex items-center justify-between gap-2 border-b border-slate-800/80 pb-2">
+          <div id="modePillsWrapper" class="flex items-center gap-1.5 p-1 rounded-xl bg-slate-900/90 border border-slate-800 overflow-x-auto max-w-[calc(100vw-130px)] sm:max-w-none">
+            <!-- Dynamically populated with 4-unit clusters by renderShufflePills() -->
+          </div>
+
+          <button onclick="reshuffleCurrentDeck()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-indigo-600/30 text-indigo-300 border border-slate-700 hover:border-indigo-500/50 text-xs font-semibold flex items-center gap-1.5 transition shrink-0" title="Đảo ngẫu nhiên lại toàn bộ thẻ hiện tại">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+            <span>Đảo thẻ</span>
+          </button>
+        </div>
+
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400">
+              <i data-lucide="layers" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span id="currentUnitTitle" class="font-bold text-base md:text-lg text-white">Unit 1: Me & Mine</span>
+                <span id="currentDayBadge" class="text-xs px-2 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 font-semibold">Ngày 1</span>
+              </div>
+              <p id="unitProgressInfo" class="text-xs text-slate-400 mt-0.5">Tiến độ ngày: 0 / 20 từ đã hoàn thành</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <select id="unitSelect" onchange="onUnitChange(this.value)" class="bg-slate-800 border border-slate-700 text-xs md:text-sm text-slate-200 rounded-xl px-3 py-2 outline-none focus:border-indigo-500 max-w-[210px] sm:max-w-xs"></select>
+            <select id="daySelect" onchange="onDayChange(this.value)" class="bg-slate-800 border border-slate-700 text-xs md:text-sm text-slate-200 rounded-xl px-3 py-2 outline-none focus:border-indigo-500"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full max-w-xl mx-auto perspective-1000 mt-4">
+        <div class="flex items-center justify-between text-xs text-slate-400 mb-2 px-1">
+          <span id="cardCounter">Thẻ 1 / 20</span>
+          <span class="flex items-center gap-1 text-slate-400">
+            <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Chạm hoặc Space để lật
+          </span>
+        </div>
+        <div class="w-full bg-slate-800 h-1.5 rounded-full mb-4 overflow-hidden">
+          <div id="flashcardProgressBar" class="bg-indigo-500 h-full rounded-full transition-all duration-300" style="width: 10%;"></div>
+        </div>
+
+        <div id="flashcardElement" onclick="flipCard()" class="flashcard-inner relative w-full h-[380px] sm:h-[400px] cursor-pointer">
+          <div class="card-face glass-panel p-6 sm:p-8 flex flex-col justify-between border border-slate-700/80 shadow-2xl shadow-indigo-950/40">
+            <div class="flex items-center justify-between">
+              <span id="cardTypeTag" class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Vocabulary</span>
+              <button onclick="event.stopPropagation(); speakCurrentWord();" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-indigo-600 flex items-center justify-center text-slate-200 hover:text-white transition shadow" title="Nghe phát âm">
+                <i data-lucide="volume-2" class="w-5 h-5"></i>
+              </button>
+            </div>
+
+            <div class="text-center my-auto space-y-3">
+              <h2 id="cardWord" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">appreciate</h2>
+              <p id="cardPron" class="text-base sm:text-lg text-indigo-300 font-mono tracking-wide">/əˈpriːʃieɪt/</p>
+              <p id="cardPos" class="text-xs uppercase tracking-widest text-slate-400 font-semibold">(v) verb</p>
+            </div>
+
+            <div class="text-center text-xs text-slate-400 flex items-center justify-center gap-1.5 pt-2 border-t border-slate-800">
+              <i data-lucide="repeat" class="w-3.5 h-3.5"></i>
+              <span>Nhấn vào thẻ để xem định nghĩa & câu ví dụ</span>
+            </div>
+          </div>
+
+          <div class="card-face card-back glass-panel p-6 sm:p-8 flex flex-col justify-between border border-indigo-500/40 shadow-2xl bg-slate-900/95">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div>
+                <span id="cardBackWord" class="font-bold text-lg text-white">appreciate</span>
+                <span id="cardBackPos" class="text-xs text-indigo-400 ml-2">v</span>
+              </div>
+              <button onclick="event.stopPropagation(); speakCurrentWord();" class="text-slate-400 hover:text-white transition">
+                <i data-lucide="volume-2" class="w-5 h-5"></i>
+              </button>
+            </div>
+
+            <div class="my-auto space-y-4 text-left">
+              <div>
+                <p class="text-xs uppercase text-slate-400 font-bold mb-1">Định nghĩa & Nghĩa tiếng Việt:</p>
+                <p id="cardDefinition" class="text-sm sm:text-base text-slate-200 leading-relaxed font-medium">understand how good or useful someone or something is (đánh giá cao, cảm kích).</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700/60">
+                <p class="text-xs uppercase text-indigo-300 font-semibold mb-1 flex items-center gap-1">
+                  <i data-lucide="quote" class="w-3 h-3"></i> Ví dụ ngữ cảnh:
+                </p>
+                <p id="cardExample" class="text-xs sm:text-sm text-slate-300 italic">"I appreciate all the hard work you've done."</p>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-800 grid grid-cols-4 gap-1.5 sm:gap-2">
+              <button onclick="event.stopPropagation(); rateSRS(1)" class="py-2 px-1 text-center rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 text-xs font-semibold transition">
+                <div>Quên</div>
+                <div class="text-[10px] text-red-400/70">1 ngày</div>
+              </button>
+              <button onclick="event.stopPropagation(); rateSRS(2)" class="py-2 px-1 text-center rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/20 text-xs font-semibold transition">
+                <div>Khó</div>
+                <div class="text-[10px] text-amber-400/70">2 ngày</div>
+              </button>
+              <button onclick="event.stopPropagation(); rateSRS(3)" class="py-2 px-1 text-center rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/20 text-xs font-semibold transition">
+                <div>Nhớ</div>
+                <div class="text-[10px] text-blue-400/70">4 ngày</div>
+              </button>
+              <button onclick="event.stopPropagation(); rateSRS(4)" class="py-2 px-1 text-center rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 text-xs font-semibold transition">
+                <div>Dễ</div>
+                <div class="text-[10px] text-emerald-400/70">7+ ngày</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-4 gap-3">
+          <button onclick="prevCard()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm flex items-center justify-center gap-1.5 transition">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i> Thẻ trước
+          </button>
+          <button onclick="nextCard()" class="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm flex items-center justify-center gap-1.5 shadow-lg shadow-indigo-600/30 transition">
+            Thẻ tiếp <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB: REVIEW & SRS QUIZ ================= -->
+    <section id="tab-review" class="hidden space-y-6">
+      <div class="glass-card rounded-2xl p-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+              <span>Phòng Ôn Tập Củng Cố Hàng Ngày</span>
+            </h2>
+            <p class="text-xs text-slate-400 mt-1">Hệ thống tạo đề trắc nghiệm và điền từ tự động dựa trên từ vựng cần ôn hôm nay hoặc xáo trộn đa Unit.</p>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <select id="quizScopeSelect" class="bg-slate-800 border border-slate-700 text-xs text-slate-200 rounded-xl px-3 py-2 outline-none focus:border-indigo-500">
+              <option value="today">⚡ Cần ôn hôm nay (SRS)</option>
+              <option value="shuffle_1_4">🔀 Đề ôn xáo trộn: Unit 1 – 4</option>
+              <option value="shuffle_4_8">🔀 Đề ôn xáo trộn: Unit 4 – 8</option>
+              <option value="current_unit">📚 Theo Unit đang chọn</option>
+            </select>
+            <button onclick="generateDailyQuiz()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center gap-2 transition shadow-md shadow-indigo-600/30">
+              <i data-lucide="sparkles" class="w-4 h-4"></i> Tạo đề ôn mới
+            </button>
+          </div>
+        </div>
+
+        <div id="quizContainer" class="mt-6 space-y-6"></div>
+
+        <div id="quizResultBox" class="hidden mt-6 p-6 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-center space-y-3">
+          <h3 class="text-lg font-bold text-white">Kết Quả Đợt Ôn Tập</h3>
+          <p id="quizScoreText" class="text-2xl font-extrabold text-indigo-400">Bạn đạt 5 / 5 điểm!</p>
+          <p class="text-xs text-slate-300">Lịch ôn cách quãng đã được cập nhật thành công lên máy chủ.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB: CONTEXT READER ================= -->
+    <section id="tab-reader" class="hidden space-y-6">
+      <div class="glass-card rounded-2xl p-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="newspaper" class="w-5 h-5 text-cyan-400"></i>
+              <span>Đọc Hiểu Ngữ Cảnh (Hot Reads & Story)</span>
+            </h2>
+            <p class="text-xs text-slate-400 mt-1">Chạm vào từ/cụm từ gạch chân để xem popup định nghĩa, nghe phát âm và tạo thẻ ngay lập tức.</p>
+          </div>
+          <select id="readingSelect" onchange="renderReadingPassage(this.value)" class="bg-slate-800 border border-slate-700 text-xs md:text-sm text-slate-200 rounded-xl px-3 py-2 outline-none focus:border-indigo-500"></select>
+        </div>
+
+        <div class="mt-6 space-y-4">
+          <h3 id="readingArticleTitle" class="text-lg md:text-xl font-bold text-white">Tiêu đề bài đọc</h3>
+          <div class="p-2 flex gap-2 flex-wrap text-xs text-slate-400">
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-indigo-300 border border-slate-700 font-semibold" id="readingUnitTag">Unit 1</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-cyan-300 border border-slate-700 font-semibold" id="readingLevelTag">Level B1+</span>
+            <button onclick="readAloudPassage()" class="ml-auto text-xs flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300">
+              <i data-lucide="volume-2" class="w-4 h-4"></i> Đọc cả bài
+            </button>
+          </div>
+
+          <div id="readingContent" class="text-base sm:text-lg text-slate-200 leading-loose p-5 rounded-2xl bg-slate-900/80 border border-slate-800/80 font-normal"></div>
+
+          <div class="mt-8 space-y-4 border-t border-slate-800 pt-6">
+            <h4 class="font-bold text-sm uppercase tracking-wider text-indigo-400 flex items-center gap-2">
+              <i data-lucide="help-circle" class="w-4 h-4"></i> Câu hỏi đọc hiểu
+            </h4>
+            <div id="readingQuestionsList" class="space-y-4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB: 21 WEEKS GRAMMAR ================= -->
+    <section id="tab-grammar" class="hidden space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card rounded-2xl p-4 space-y-2 h-[500px] overflow-y-auto md:sticky md:top-20">
+          <div class="flex items-center justify-between px-2 mb-3">
+            <h3 class="font-bold text-xs uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <i data-lucide="list-ordered" class="w-4 h-4 text-indigo-400"></i> Mục lục 21 Tuần
+            </h3>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Đã xác minh</span>
+          </div>
+          <div id="grammarTopicsNav" class="space-y-1"></div>
+        </div>
+
+        <div class="md:col-span-2 glass-card rounded-2xl p-6 space-y-6">
+          <div class="border-b border-slate-800 pb-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xs uppercase font-bold text-indigo-400 tracking-wider">Chuyên đề chi tiết</span>
+              <span class="text-[10px] text-slate-400">Nguồn: Sách Ngữ Pháp 11 - Cô Trang Anh</span>
+            </div>
+            <h2 id="grammarTopicTitle" class="text-xl md:text-2xl font-extrabold text-white mt-1">Chuyên đề Thì động từ</h2>
+            <p id="grammarTopicSummary" class="text-xs text-slate-300 mt-1.5 leading-relaxed"></p>
+          </div>
+
+          <div id="grammarContentBody" class="space-y-5 text-sm sm:text-base leading-relaxed text-slate-200"></div>
+
+          <div class="mt-8 border-t border-slate-800 pt-6 space-y-4">
+            <h4 class="font-bold text-sm uppercase tracking-wider text-amber-400 flex items-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Bài tập trắc nghiệm áp dụng
+            </h4>
+            <div id="grammarQuizList" class="space-y-4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB: PROFILE & ANALYTICS ================= -->
+    <section id="tab-profile" class="hidden space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="font-bold text-lg text-white flex items-center gap-2">
+            <i data-lucide="activity" class="w-5 h-5 text-indigo-400"></i> Tiến Độ & Thống Kê Học Tập
+          </h3>
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="flex justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-400">Tổng số thẻ đã bắt đầu học:</span>
+              <span id="statTotalStarted" class="font-bold text-white">0</span>
+            </div>
+            <div class="flex justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-400">Thẻ đã ghi nhớ vững vàng (Mature $\ge 21$ ngày):</span>
+              <span id="statMature" class="font-bold text-emerald-400">0</span>
+            </div>
+            <div class="flex justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-400">Thẻ đang trong chu kỳ học:</span>
+              <span id="statLearning" class="font-bold text-cyan-400">0</span>
+            </div>
+            <div class="flex justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-400">Mục tiêu từ mới mỗi ngày:</span>
+              <span id="statDailyTarget" class="font-bold text-indigo-300">20 từ</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="font-bold text-lg text-white flex items-center gap-2">
+            <i data-lucide="smartphone" class="w-5 h-5 text-cyan-400"></i> Thiết Bị & Phiên Đăng Nhập
+          </h3>
+          <p class="text-xs text-slate-400">Quản lý các thiết bị đang đồng bộ tài khoản của bạn (Điện thoại, Máy tính, v.v.).</p>
+          <div id="sessionsList" class="space-y-2"></div>
+          <div class="pt-2 flex gap-2">
+            <button onclick="exportPersonalData()" class="flex-1 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 transition">Xuất dữ liệu cá nhân</button>
+            <button onclick="logoutUser()" class="py-2 px-4 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-bold border border-red-500/20 transition">Đăng xuất</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= BOTTOM NAVIGATION BAR (MOBILE) ================= -->
+  <footer class="md:hidden fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-slate-800 px-2 py-1.5">
+    <div class="grid grid-cols-5 gap-1 text-center">
+      <button onclick="switchTab('today')" id="mob-btn-today" class="mob-tab active flex flex-col items-center py-1 text-indigo-400">
+        <i data-lucide="calendar" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Hôm nay</span>
+      </button>
+      <button onclick="switchTab('flashcard')" id="mob-btn-flashcard" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+        <i data-lucide="layers" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Thẻ từ</span>
+      </button>
+      <button onclick="switchTab('review')" id="mob-btn-review" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+        <i data-lucide="rotate-cw" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Ôn tập</span>
+      </button>
+      <button onclick="switchTab('reader')" id="mob-btn-reader" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+        <i data-lucide="newspaper" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Đọc hiểu</span>
+      </button>
+      <button onclick="switchTab('grammar')" id="mob-btn-grammar" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+        <i data-lucide="book-marked" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Ngữ pháp</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- ================= MODAL: AUTHENTICATION (LOGIN / REGISTER) ================= -->
+  <div id="authModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-card max-w-sm w-full rounded-2xl p-6 border border-slate-700 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 id="authModalTitle" class="font-bold text-lg text-white">Đăng Nhập Đồng Bộ</h3>
+        <button onclick="closeAuthModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        <div id="authNameField" class="hidden">
+          <label class="block text-slate-400 mb-1">Họ và tên</label>
+          <input type="text" id="authNameInput" placeholder="Nguyễn Văn A" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 outline-none focus:border-indigo-500 text-white">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">Email</label>
+          <input type="email" id="authEmailInput" placeholder="name@example.com" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 outline-none focus:border-indigo-500 text-white">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">Mật khẩu</label>
+          <input type="password" id="authPasswordInput" placeholder="••••••••" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 outline-none focus:border-indigo-500 text-white">
+        </div>
+      </div>
+
+      <div class="space-y-2 pt-2">
+        <button onclick="handleAuthSubmit()" id="authSubmitBtn" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-xs text-white shadow-lg shadow-indigo-600/30 transition">Đăng nhập</button>
+        <button onclick="toggleAuthMode()" id="authToggleBtn" class="w-full py-2 text-center text-xs text-slate-400 hover:text-indigo-300">Chưa có tài khoản? Nhấn để Đăng ký</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: WORD DEFINITION POPUP ================= -->
+  <div id="wordPopupModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeWordPopup()">
+    <div class="glass-card max-w-sm w-full rounded-2xl p-6 border border-slate-700 shadow-2xl relative space-y-4" onclick="event.stopPropagation()">
+      <button onclick="closeWordPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div class="flex items-center gap-2">
+        <h3 id="popupWord" class="text-2xl font-bold text-white">word</h3>
+        <button onclick="speakPopupWord()" class="p-1.5 rounded-full bg-slate-800 hover:bg-indigo-600 text-indigo-300 hover:text-white transition">
+          <i data-lucide="volume-2" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <p id="popupPron" class="text-xs font-mono text-indigo-300">/pron/</p>
+      <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 text-sm space-y-1">
+        <p class="text-slate-400 text-xs font-semibold uppercase">Nghĩa tiếng Việt:</p>
+        <p id="popupMeaning" class="text-slate-100 font-medium"></p>
+      </div>
+      <div class="flex gap-2 pt-2">
+        <button onclick="saveCurrentPopupWord('save_for_later')" class="flex-1 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200">Lưu học sau</button>
+        <button onclick="saveCurrentPopupWord('learn_now')" class="flex-1 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white shadow-md shadow-indigo-600/30">Học ngay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: QR & MOBILE ACCESS ================= -->
+  <div id="qrModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeQrModal()">
+    <div class="glass-card max-w-md w-full rounded-2xl p-6 border border-slate-700 shadow-2xl relative space-y-4" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="font-bold text-lg text-white flex items-center gap-2">
+          <i data-lucide="smartphone" class="w-5 h-5 text-cyan-400"></i>
+          <span>Mở Ứng Dụng Trên Điện Thoại</span>
+        </h3>
+        <button onclick="closeQrModal()" class="text-slate-400 hover:text-white transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="text-center space-y-3">
+        <p class="text-xs text-slate-300">
+          Dùng <strong>Camera điện thoại</strong> (hoặc Zalo / Google Lens) quét mã QR để mở ngay trên điện thoại:
+        </p>
+
+        <div class="inline-block p-3 rounded-2xl bg-white shadow-xl">
+          <img src="/mobile_qr.png" alt="QR Code" class="w-48 h-48 mx-auto" />
+        </div>
+
+        <div class="space-y-1.5 text-left bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs">
+          <p class="text-slate-400 font-semibold">🔗 Link trực tiếp (Hỗ trợ 4G / 5G / Wi-Fi):</p>
+          <div class="flex items-center gap-2">
+            <input type="text" readonly value="https://skiing-titles-societies-bernard.trycloudflare.com" id="mobileLinkInput" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-cyan-300 font-mono text-[11px] outline-none" />
+            <button onclick="copyMobileLink()" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs shrink-0 transition">
+              Copy
+            </button>
+          </div>
+        </div>
+
+        <div class="text-left bg-indigo-950/40 p-3 rounded-xl border border-indigo-500/30 text-xs text-slate-300 space-y-1">
+          <p class="font-semibold text-indigo-300 flex items-center gap-1">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> Cài thành App lên Màn hình chính:
+          </p>
+          <p>• <strong>iPhone (Safari)</strong>: Bấm nút <em>Chia sẻ</em> (ô vuông mũi tên lên) $\rightarrow$ Chọn <em>"Thêm vào MH chính"</em>.</p>
+          <p>• <strong>Android (Chrome)</strong>: Bấm nút <em>3 chấm</em> góc phải $\rightarrow$ Chọn <em>"Cài đặt ứng dụng"</em>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOAD APPLICATION SCRIPTS -->
+  <script src="/data.js"></script>
+  <script src="/app.js"></script>
+  <script>
+    lucide.createIcons();
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW reg failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>

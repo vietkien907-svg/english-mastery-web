@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-02T08:58:23.827932",
+  "sources": [
+    {
+      "source_name": "Speakout 3rd Edition B1+",
+      "new_imported": 341,
+      "duplicates_skipped": 3
+    },
+    {
+      "source_name": "Cô Trang Anh Bảng Từ Nền Tảng",
+      "new_imported": 498,
+      "duplicates_skipped": 21
+    },
+    {
+      "source_name": "Verified 21-Week Grammar Modules (9c6ac63de84c0af8.pdf)",
+      "new_imported": 21,
+      "total_weeks": 21
+    }
+  ]
+}

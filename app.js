@@ -631,11 +631,13 @@ function startTodayVocabMission() {
   appState.currentCardIndex = 0;
   appState.isFlipped = false;
 
-  // Tự động tick đã làm từ vựng ngay khi bắt đầu học
-  setDayMissionStatus(curDay, {
-    vocabDone: true,
-    vocabCount: Math.max(getDayMissionStatus(curDay).vocabCount, 20)
-  });
+  // Track studied cards in this session
+  if (!appState.dayVocabStudied) appState.dayVocabStudied = {};
+  if (!appState.dayVocabStudied[curDay]) appState.dayVocabStudied[curDay] = new Set();
+  appState.dayVocabStudied[curDay].add(0);
+
+  const totalWords = Math.min(20, (info.words || []).length);
+  const curStatus = getDayMissionStatus(curDay);
 
   const lockedBanner = document.getElementById("dailyMissionLockedBanner");
   if (lockedBanner) {
@@ -643,14 +645,11 @@ function startTodayVocabMission() {
     lockedBanner.innerHTML = `
       <div class="flex items-center justify-between gap-3 flex-wrap">
         <div class="flex items-center gap-2">
-          <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
-          <span class="font-bold text-emerald-300">Nhiệm Vụ Deadline Ngày ${curDay}</span>
-          <span class="text-emerald-400/90 text-xs font-semibold">(Đã tự động tick hoàn thành ✓)</span>
+          <i data-lucide="layers" class="w-4 h-4 text-indigo-400"></i>
+          <span class="font-bold text-indigo-300">Nhiệm Vụ 20 Từ Vựng Ngày ${curDay}</span>
+          <span id="bannerVocabCount" class="text-amber-300 text-xs font-semibold">(${curStatus.vocabDone ? '✓ Đã hoàn thành 20/20' : `Đã học: 1/${totalWords}`})</span>
         </div>
         <div class="flex items-center gap-2">
-          <button onclick="completeVocabMission()" class="px-2.5 py-1 rounded-lg bg-emerald-600/40 hover:bg-emerald-600 text-emerald-200 hover:text-white text-xs font-semibold border border-emerald-500/40 transition flex items-center gap-1">
-            <i data-lucide="check" class="w-3.5 h-3.5"></i> Đã hoàn thành 20 từ
-          </button>
           <button onclick="advanceToNextDay()" class="px-2.5 py-1 rounded-lg bg-indigo-600/40 hover:bg-indigo-600 text-indigo-200 hover:text-white text-xs font-semibold border border-indigo-500/40 transition flex items-center gap-1">
             Học vượt ngày kế <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
           </button>
@@ -672,27 +671,33 @@ function startTodayVocabMission() {
   switchTab("flashcard");
   renderFlashcard();
   updateDailyMissionUI();
-  showToast(`✅ Đã tự động tick hoàn thành 20 từ vựng Ngày ${curDay}!`, "success");
 }
 
-function completeVocabMission() {
-  const curDay = missionRegistry.currentDay;
-  setDayMissionStatus(curDay, {
-    vocabDone: true,
-    vocabCount: 20
-  });
-  showToast(`✅ Đã tự động tick hoàn thành 20 từ vựng Ngày ${curDay}!`, "success");
-}
+function onVocabCardViewed() {
+  if (appState.studyMode === "daily_locked") {
+    const curDay = missionRegistry.currentDay;
+    const words = getCurrentDayWords();
+    const totalWords = Math.min(20, words.length);
+    if (!appState.dayVocabStudied) appState.dayVocabStudied = {};
+    if (!appState.dayVocabStudied[curDay]) appState.dayVocabStudied[curDay] = new Set();
+    appState.dayVocabStudied[curDay].add(appState.currentCardIndex);
 
-function autoTickAllToday() {
-  const curDay = missionRegistry.currentDay;
-  setDayMissionStatus(curDay, {
-    vocabDone: true,
-    vocabCount: 20,
-    readingDone: true,
-    grammarDone: true
-  });
-  showToast(`🎉 Đã tự động tick hoàn thành 100% tất cả deadline Ngày ${curDay}!`, "success");
+    const studiedCount = appState.dayVocabStudied[curDay].size;
+    const bannerCount = document.getElementById("bannerVocabCount");
+    const curStatus = getDayMissionStatus(curDay);
+
+    if (studiedCount >= totalWords && !curStatus.vocabDone) {
+      setDayMissionStatus(curDay, {
+        vocabDone: true,
+        vocabCount: totalWords
+      });
+      if (bannerCount) bannerCount.innerText = `(✓ Đã hoàn thành ${totalWords}/${totalWords})`;
+      showToast(`🎉 Xuất sắc! Bạn đã học đủ ${totalWords} từ vựng của Ngày ${curDay}! Đã tự động đánh dấu hoàn thành!`, "success");
+    } else {
+      setDayMissionStatus(curDay, { vocabCount: studiedCount });
+      if (bannerCount) bannerCount.innerText = `(Đã học: ${studiedCount}/${totalWords})`;
+    }
+  }
 }
 
 function startGradualReview() {
@@ -755,8 +760,7 @@ function startTodayReadingMission() {
   const r = getDailyAssignedReading(missionRegistry.currentDay);
   switchTab("reader");
   renderReadingPassage(r.index);
-  setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
-  showToast(`📖 Đang mở & Tự động ghi nhận hoàn thành Bài đọc Ngày ${missionRegistry.currentDay}: ${r.title}`, "success");
+  showToast(`📖 Đang mở Bài đọc chỉ định Ngày ${missionRegistry.currentDay}: ${r.title}`, "info");
 }
 
 function startTodayGrammarMission() {
@@ -764,8 +768,7 @@ function startTodayGrammarMission() {
   const weekNum = g.week_number || (g.index + 1);
   switchTab("grammar");
   renderGrammarDetail(weekNum);
-  setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
-  showToast(`✍️ Đang mở & Tự động ghi nhận hoàn thành Chuyên đề Ngày ${missionRegistry.currentDay}: ${g.topic_title}`, "success");
+  showToast(`✍️ Đang mở Chuyên đề chỉ định Ngày ${missionRegistry.currentDay}: ${g.topic_title}`, "info");
 }
 
 function completeReadingMission() {
@@ -1328,7 +1331,16 @@ function renderFlashcard() {
   if (cardElem) cardElem.classList.remove("flipped");
 
   document.getElementById("cardWord").innerText = curWord.word;
-  document.getElementById("cardPron").innerText = curWord.pron || "/.../";
+  const pronEl = document.getElementById("cardPron");
+  if (pronEl) {
+    let cleanP = curWord.pron || "";
+    if (cleanP && !cleanP.startsWith("/")) cleanP = `/${cleanP}/`;
+    pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[11px] border border-blue-500/30 mr-1.5 align-middle">🇺🇸 US</span><span class="align-middle">${cleanP || '/.../'}</span>`;
+  }
+  const cambridgeLink = document.getElementById("cardCambridgeLink");
+  if (cambridgeLink) {
+    cambridgeLink.href = `https://dictionary.cambridge.org/dictionary/english/${encodeURIComponent(curWord.word)}`;
+  }
   document.getElementById("cardPos").innerText = `(${curWord.pos || "word"}) • ${curWord.level || "B1"}`;
   document.getElementById("cardTypeTag").innerText = curWord.type || "Vocabulary";
 
@@ -1372,6 +1384,7 @@ function prevCard() {
   const words = getCurrentDayWords();
   if (words.length <= 1) return;
   appState.currentCardIndex = (appState.currentCardIndex - 1 + words.length) % words.length;
+  onVocabCardViewed();
   renderFlashcard();
 }
 
@@ -1379,21 +1392,10 @@ function nextCard() {
   const words = getCurrentDayWords();
   if (words.length <= 1) return;
   appState.currentCardIndex = (appState.currentCardIndex + 1) % words.length;
-
-  if (appState.studyMode === "daily_locked") {
-    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
-    const newCount = Math.max(curStatus.vocabCount, appState.currentCardIndex + 1);
-    const isDone = newCount >= Math.min(20, words.length);
-    setDayMissionStatus(missionRegistry.currentDay, {
-      vocabCount: newCount,
-      vocabDone: isDone || curStatus.vocabDone
-    });
-  }
-
+  onVocabCardViewed();
   renderFlashcard();
 }
 
-// SRS Review Rating with Offline Queueing
 async function rateSRS(score) {
   const words = getCurrentDayWords();
   if (!words || words.length === 0) return;
@@ -1621,8 +1623,16 @@ function checkGrammarFillBlank(idx) {
   const normalize = (s) => s.replace(/['’]/g, "'").replace(/\s+/g, " ").trim();
   const isMatch = allCorrect.some(c => normalize(c) === normalize(val));
 
-  // Tự động tick đã làm ngữ pháp
-  setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
+  if (!appState.grammarDoneExercises) appState.grammarDoneExercises = new Set();
+  appState.grammarDoneExercises.add(`g_${appState.activeGrammarWeek}_${idx || qIdx || 0}`);
+  if (appState.grammarDoneExercises.size >= 2) {
+    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
+    if (!curStatus.grammarDone) {
+      setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
+      showToast(`🎉 Chúc mừng! Bạn đã hoàn thành các bài tập ngữ pháp hôm nay! Đã tự động đánh dấu hoàn thành!`, "success");
+      updateDailyMissionUI();
+    }
+  }
 
   if (isMatch) {
     input.classList.remove("border-slate-700", "border-red-500");
@@ -1645,8 +1655,16 @@ async function checkGrammarQuiz(qIdx, optIdx) {
   const feedback = document.getElementById(`gq-feedback-${qIdx}`);
   const btn = document.getElementById(`gq-${qIdx}-opt-${optIdx}`);
 
-  // Tự động tick đã làm ngữ pháp
-  setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
+  if (!appState.grammarDoneExercises) appState.grammarDoneExercises = new Set();
+  appState.grammarDoneExercises.add(`g_${appState.activeGrammarWeek}_${idx || qIdx || 0}`);
+  if (appState.grammarDoneExercises.size >= 2) {
+    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
+    if (!curStatus.grammarDone) {
+      setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
+      showToast(`🎉 Chúc mừng! Bạn đã hoàn thành các bài tập ngữ pháp hôm nay! Đã tự động đánh dấu hoàn thành!`, "success");
+      updateDailyMissionUI();
+    }
+  }
 
   const res = await apiCall("/api/grammar/quiz-submit", "POST", {
     week_number: appState.activeGrammarWeek,
@@ -1766,8 +1784,7 @@ function renderReadingPassage(passageIdx) {
   document.getElementById("readingUnitTag").innerText = passage.source_reference || `Bài Báo #${appState.activeReadingIndex + 1}`;
   document.getElementById("readingLevelTag").innerText = `Level ${passage.level || "B2"}`;
 
-  // Ghi nhận hoàn thành bài đọc hôm nay
-  setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
+  // Đọc bài - hoàn thành khi trả lời hết câu hỏi
 
   const targetWords = (passage.target_words || []).map(w => w.toLowerCase().trim());
   const container = document.getElementById("readingContent");
@@ -1874,8 +1891,24 @@ function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
   const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
   const qData = passage?.questions?.[qIdx];
 
-  // Ghi nhận hoàn thành bài đọc hôm nay
-  setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
+  // Track answered questions for this passage
+  if (!appState.readingAnsweredMap) appState.readingAnsweredMap = {};
+  const pIdx = appState.activeReadingIndex;
+  if (!appState.readingAnsweredMap[pIdx]) appState.readingAnsweredMap[pIdx] = new Set();
+  appState.readingAnsweredMap[pIdx].add(qIdx);
+
+  const totalQuestions = passage?.questions?.length || 0;
+  const answeredCount = appState.readingAnsweredMap[pIdx].size;
+
+  // CHỈ TICK HOÀN THÀNH KHI ĐÃ TRẢ LỜI ĐỦ CÁC CÂU HỎI
+  if (totalQuestions > 0 && answeredCount >= totalQuestions) {
+    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
+    if (!curStatus.readingDone) {
+      setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
+      showToast(`🎉 Chúc mừng! Bạn đã hoàn thành toàn bộ ${totalQuestions} câu hỏi đọc hiểu của bài hôm nay! Đã tự động đánh dấu hoàn thành!`, "success");
+      updateDailyMissionUI();
+    }
+  }
 
   const isCorrect = (selectedIdx === correctIdx);
   if (isCorrect) {
@@ -1883,7 +1916,6 @@ function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
     feedback.innerHTML = `✓ Chính xác! ${qData?.explain || ""}`;
     feedback.className = "text-xs font-semibold text-emerald-400 pt-1";
 
-    // Cập nhật ô đục lỗ nếu có
     const slotEl = document.getElementById(`cloze-slot-${qIdx + 1}`);
     if (slotEl && qData && qData.options && qData.options[selectedIdx]) {
       const optWord = qData.options[selectedIdx].replace(/^[A-D]\.\s*/, "").trim();
@@ -1904,17 +1936,25 @@ async function showWordPopup(wordText, context) {
 
   activePopupWord = cleanWord;
   activeContextSentence = context || "";
+  activePopupAudioUrl = "";
 
   document.getElementById("popupWord").innerText = cleanWord;
-  document.getElementById("popupPron").innerText = "/.../";
+  const pronEl = document.getElementById("popupPron");
+  if (pronEl) {
+    pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span><span>/.../</span>`;
+  }
   document.getElementById("popupPos").innerText = "word";
-  document.getElementById("popupMeaningVi").innerText = "Đang tra cứu từ điển...";
-  document.getElementById("popupMeaningEn").innerText = "Searching international database...";
+  document.getElementById("popupMeaningVi").innerText = "Đang tra cứu từ điển US...";
+  document.getElementById("popupMeaningEn").innerText = "Searching Cambridge & international database...";
   
+  const cambridgeLink = document.getElementById("popupCambridgeLink");
+  if (cambridgeLink) {
+    cambridgeLink.href = `https://dictionary.cambridge.org/dictionary/english/${encodeURIComponent(cleanWord)}`;
+  }
+
   const ctxBox = document.getElementById("popupContextBox");
   const ctxText = document.getElementById("popupContextText");
   if (ctxText && context) {
-    // Highlight word in sentence preview
     const regex = new RegExp(`\\b(${cleanWord})\\b`, "gi");
     ctxText.innerHTML = `"${context.replace(regex, `<strong class="text-amber-300">$1</strong>`)}"`;
     if (ctxBox) ctxBox.classList.remove("hidden");
@@ -1924,16 +1964,40 @@ async function showWordPopup(wordText, context) {
 
   document.getElementById("wordPopupModal").classList.remove("hidden");
 
-  // 1. Search in local database first
+  // Call API for authentic US IPA and human US MP3 audio
+  try {
+    const res = await apiCall(`/api/reading/lookup-word?word=${encodeURIComponent(cleanWord)}`);
+    if (res) {
+      activePopupAudioUrl = res.audio_us || "";
+      activePopupWordItem = {
+        word: res.word || cleanWord,
+        pos: res.pos || "word",
+        pron: res.pron || `/${cleanWord}/`,
+        meaning_vi: res.meaning_vi || cleanWord,
+        meaning_en: res.meaning_en || `Definition of ${cleanWord}`,
+        example: context || res.example || `Example sentence with ${cleanWord}.`
+      };
+
+      document.getElementById("popupWord").innerText = res.word || cleanWord;
+      if (pronEl) {
+        pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span><span>${res.pron || `/${cleanWord}/`}</span>`;
+      }
+      document.getElementById("popupPos").innerText = res.pos || "word";
+      document.getElementById("popupMeaningVi").innerText = res.meaning_vi || cleanWord;
+      document.getElementById("popupMeaningEn").innerText = res.meaning_en || `Definition of ${cleanWord}.`;
+      return;
+    }
+  } catch (e) {
+    console.warn("API lookup fallback to local:", e);
+  }
+
+  // Fallback to local data
   let found = null;
   if (window.APP_DATA && window.APP_DATA.units) {
     for (const u of window.APP_DATA.units) {
       for (const d of u.days) {
         const match = d.words.find(w => w.word.toLowerCase() === cleanWord.toLowerCase());
-        if (match) {
-          found = match;
-          break;
-        }
+        if (match) { found = match; break; }
       }
       if (found) break;
     }
@@ -1949,36 +2013,26 @@ async function showWordPopup(wordText, context) {
       example: found.example || context
     };
     document.getElementById("popupWord").innerText = found.word;
-    document.getElementById("popupPron").innerText = found.pron || `/${cleanWord}/`;
-    document.getElementById("popupPos").innerText = found.pos || "word";
-    document.getElementById("popupMeaningVi").innerText = found.meaning_vi || "Đang mở rộng nghĩa...";
-    document.getElementById("popupMeaningEn").innerText = found.meaning_en || "English definition available.";
-    return;
-  }
-
-  // 2. Fallback to API lookup for instant definition
-  try {
-    const res = await apiCall(`/api/reading/lookup-word?word=${encodeURIComponent(cleanWord)}`);
-    if (res) {
-      activePopupWordItem = {
-        word: res.word || cleanWord,
-        pos: res.pos || "word",
-        pron: res.pron || `/${cleanWord}/`,
-        meaning_vi: res.meaning_vi || cleanWord,
-        meaning_en: res.meaning_en || `Definition of ${cleanWord}`,
-        example: context || res.example || `Example sentence with ${cleanWord}.`
-      };
-      document.getElementById("popupWord").innerText = res.word || cleanWord;
-      document.getElementById("popupPron").innerText = res.pron || `/${cleanWord}/`;
-      document.getElementById("popupPos").innerText = res.pos || "word";
-      document.getElementById("popupMeaningVi").innerText = res.meaning_vi || cleanWord;
-      document.getElementById("popupMeaningEn").innerText = res.meaning_en || `Definition of ${cleanWord}.`;
+    if (pronEl) {
+      pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span><span>${found.pron || `/${cleanWord}/`}</span>`;
     }
-  } catch (e) {
-    console.warn("Lookup failed:", e);
-    document.getElementById("popupMeaningVi").innerText = cleanWord;
-    document.getElementById("popupMeaningEn").innerText = `Definition of ${cleanWord}`;
+    document.getElementById("popupPos").innerText = found.pos || "word";
+    document.getElementById("popupMeaningVi").innerText = found.meaning_vi || cleanWord;
+    document.getElementById("popupMeaningEn").innerText = found.meaning_en || "English definition available.";
   }
+}
+
+let activePopupAudioUrl = "";
+
+function speakPopupWord() {
+  if (activePopupAudioUrl) {
+    try {
+      const audio = new Audio(activePopupAudioUrl);
+      audio.play().catch(() => speakText(activePopupWord));
+      return;
+    } catch (e) {}
+  }
+  speakText(activePopupWord);
 }
 
 function closeWordPopup() {
@@ -2386,72 +2440,27 @@ function speakCurrentWord() {
   }
 }
 
-function speakText(text) {
+function speakText(text, audioUrl) {
+  if (audioUrl) {
+    try {
+      const snd = new Audio(audioUrl);
+      snd.play().catch(() => speakWithSynthesis(text));
+      return;
+    } catch (e) {}
+  }
+  speakWithSynthesis(text);
+}
+
+function speakWithSynthesis(text) {
   if (!("speechSynthesis" in window)) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = "en-US";
+  const voices = window.speechSynthesis.getVoices() || [];
+  const usVoice = voices.find(v => v.lang === "en-US" && (v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Samantha") || v.name.includes("US") || v.name.includes("David") || v.name.includes("Zira")));
+  if (usVoice) u.voice = usVoice;
   u.rate = 0.9;
   window.speechSynthesis.speak(u);
-}
-
-let deferredInstallPrompt = null;
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredInstallPrompt = e;
-});
-
-async function triggerPwaInstall() {
-  if (deferredInstallPrompt) {
-    deferredInstallPrompt.prompt();
-    const choice = await deferredInstallPrompt.userChoice;
-    if (choice.outcome === "accepted") {
-      showToast("🎉 Đang cài đặt ứng dụng ra màn hình chính!", "success");
-    }
-    deferredInstallPrompt = null;
-  } else {
-    openPwaInstallModal();
-  }
-}
-
-function openPwaInstallModal() {
-  const m = document.getElementById("pwaInstallModal");
-  if (m) m.classList.remove("hidden");
-  if (window.lucide) lucide.createIcons();
-}
-
-function closePwaInstallModal() {
-  const m = document.getElementById("pwaInstallModal");
-  if (m) m.classList.add("hidden");
-}
-
-function openQrModal() {
-  const m = document.getElementById("qrModal");
-  if (m) m.classList.remove("hidden");
-  if (window.lucide) lucide.createIcons();
-}
-
-function closeQrModal() {
-  const m = document.getElementById("qrModal");
-  if (m) m.classList.add("hidden");
-}
-
-function copyMobileLink() {
-  const inp = document.getElementById("mobileLinkInput");
-  if (inp) {
-    inp.select();
-    navigator.clipboard.writeText(inp.value);
-    showToast("Đã sao chép link truy cập điện thoại!", "success");
-  }
-}
-
-function copyLanLink() {
-  const inp = document.getElementById("lanLinkInput");
-  if (inp) {
-    inp.select();
-    navigator.clipboard.writeText(inp.value);
-    showToast("Đã sao chép link Wi-Fi nội bộ!", "success");
-  }
 }
 
 function setupTouchAndKeyboard() {

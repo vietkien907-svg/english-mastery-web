@@ -1,18 +1,61 @@
+import re
 import json
 import urllib.request
 import urllib.parse
 from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel
 from sqlalchemy.orm import Session
-from database import get_db
+from pydantic import BaseModel
+import sys
+import os
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import models
-import auth
+from database import get_db
 
-router = APIRouter(prefix="/api/reading", tags=["Reading Passages"])
+router = APIRouter(prefix="/api/reading", tags=["Reading"])
 
-class SaveWordFromPassageRequest(BaseModel):
-    word_or_phrase: str
-    context_sentence: str
+def fetch_us_phonetics_and_audio(word_text):
+    us_pron = ""
+    us_audio = ""
+    clean = word_text.strip().lower()
+    
+    # 1. Oxford Learner's Dictionary US
+    try:
+        url = f"https://www.oxfordlearnersdictionaries.com/definition/english/{urllib.parse.quote(clean)}"
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"})
+        with urllib.request.urlopen(req, timeout=3.5) as resp:
+            html = resp.read().decode("utf-8")
+            phon_matches = re.findall(r'<div class="phons_n_am"[^>]*>[\s\S]*?<span class="phon">([^<]+)</span>', html)
+            audio_matches = re.findall(r'<div class="phons_n_am"[^>]*>data-src-mp3="([^"]+)"', html)
+            if phon_matches:
+                us_pron = phon_matches[0].strip()
+            if audio_matches:
+                us_audio = audio_matches[0].strip()
+    except Exception:
+        pass
+
+    # 2. Fallback to FreeDictionary API
+    if not us_pron or not us_audio:
+        try:
+            url_fd = f"https://api.dictionaryapi.dev/api/v2/entries/en/{urllib.parse.quote(clean)}"
+            req_fd = urllib.request.Request(url_fd, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req_fd, timeout=2.5) as resp_fd:
+                fd_data = json.loads(resp_fd.read().decode("utf-8"))
+                for entry in fd_data:
+                    for ph in entry.get("phonetics", []):
+                        if not us_pron and ph.get("text"):
+                            us_pron = ph.get("text")
+                        if not us_audio and ph.get("audio") and ("-us.mp3" in ph.get("audio") or "us" in ph.get("audio")):
+                            us_audio = ph.get("audio")
+        except Exception:
+            pass
+
+    return us_pron, us_audio
+
+class AddWordRequest(BaseModel):
+    word: str
+    pos: str = "word"
+    pron: str = ""
     passage_id: int = None
     meaning_vi: str = ""
     save_type: str = "learn_now" # learn_now, save_for_later
@@ -27,17 +70,24 @@ def lookup_word(word: str, db: Session = Depends(get_db)):
     if not clean_word:
         raise HTTPException(status_code=400, detail="Từ cần tra cứu không hợp lệ.")
         
+    # Fetch authentic US IPA & US audio
+    us_pron, us_audio = fetch_us_phonetics_and_audio(clean_word)
+    cambridge_url = f"https://dictionary.cambridge.org/dictionary/english/{urllib.parse.quote(clean_word)}"
+
     # 1. Exact match in knowledge_items
     item = db.query(models.KnowledgeItem).filter(
         models.KnowledgeItem.word.ilike(clean_word)
     ).first()
     
     if item:
+        final_pron = us_pron or item.pron or f"/{clean_word}/"
         return {
             "found": True,
             "word": item.word,
             "pos": item.pos or "word",
-            "pron": item.pron or f"/{clean_word}/",
+            "pron": final_pron,
+            "audio_us": us_audio,
+            "cambridge_url": cambridge_url,
             "meaning_vi": item.meaning_vi or "",
             "meaning_en": item.meaning_en or "",
             "example": item.example or f"Example usage with {item.word}."
@@ -55,12 +105,15 @@ def lookup_word(word: str, db: Session = Depends(get_db)):
     ).first()
     
     if item_stem:
+        final_pron = us_pron or item_stem.pron or f"/{clean_word}/"
         return {
             "found": True,
             "word": clean_word,
             "base_word": item_stem.word,
             "pos": item_stem.pos or "word",
-            "pron": item_stem.pron or f"/{clean_word}/",
+            "pron": final_pron,
+            "audio_us": us_audio,
+            "cambridge_url": cambridge_url,
             "meaning_vi": item_stem.meaning_vi or "",
             "meaning_en": item_stem.meaning_en or "",
             "example": item_stem.example or f"Example usage with {clean_word}."
@@ -81,7 +134,9 @@ def lookup_word(word: str, db: Session = Depends(get_db)):
         "found": True,
         "word": clean_word,
         "pos": "word",
-        "pron": f"/{clean_word}/",
+        "pron": us_pron or f"/{clean_word}/",
+        "audio_us": us_audio,
+        "cambridge_url": cambridge_url,
         "meaning_vi": vi_meaning,
         "meaning_en": f"International reading definition of {clean_word}.",
         "example": f"This is an authentic context sentence containing '{clean_word}'."
@@ -97,7 +152,9 @@ def list_passages(db: Session = Depends(get_db)):
             "category": p.category,
             "level": p.level,
             "source_reference": p.source_reference,
-            "word_count": len(p.content.split())
+            "content": p.content,
+            "target_words": json.loads(p.target_words_json) if p.target_words_json else [],
+            "questions": json.loads(p.questions_json) if p.questions_json else []
         }
         for p in passages
     ]
@@ -107,139 +164,41 @@ def get_passage_detail(passage_id: int, db: Session = Depends(get_db)):
     p = db.query(models.ReadingPassage).filter(models.ReadingPassage.id == passage_id).first()
     if not p:
         raise HTTPException(status_code=404, detail="Bài đọc không tồn tại.")
-        
-    target_words = json.loads(p.target_words_json) if p.target_words_json else []
-    questions = json.loads(p.questions_json) if p.questions_json else []
-    
-    # Retrieve definition popup info for target words
-    matched_definitions = {}
-    for tw in target_words:
-        item = db.query(models.KnowledgeItem).filter(
-            models.KnowledgeItem.word.ilike(tw)
-        ).first()
-        if item:
-            matched_definitions[tw.lower()] = {
-                "id": item.id,
-                "word": item.word,
-                "pos": item.pos,
-                "pron": item.pron,
-                "meaning_vi": item.meaning_vi,
-                "meaning_en": item.meaning_en,
-                "example": item.example
-            }
-            
     return {
         "id": p.id,
         "title": p.title,
         "category": p.category,
         "level": p.level,
-        "content": p.content,
         "source_reference": p.source_reference,
-        "target_words": target_words,
-        "matched_definitions": matched_definitions,
-        "questions": [
-            {
-                "index": idx,
-                "q": q.get("question") or q.get("q", ""),
-                "options": q.get("options", []),
-                "answer": {"A": 0, "B": 1, "C": 2, "D": 3}.get(q.get("answer", "").strip().upper(), q.get("answer", 0)) if isinstance(q.get("answer"), str) else q.get("answer", 0),
-                "explain": q.get("explain", "")
-            }
-            for idx, q in enumerate(questions)
-        ]
+        "content": p.content,
+        "target_words": json.loads(p.target_words_json) if p.target_words_json else [],
+        "questions": json.loads(p.questions_json) if p.questions_json else []
     }
 
-@router.post("/passages/quiz-submit")
-def submit_reading_quiz(req: ReadingQuizSubmitRequest, db: Session = Depends(get_db)):
-    p = db.query(models.ReadingPassage).filter(models.ReadingPassage.id == req.passage_id).first()
-    if not p:
-        raise HTTPException(status_code=404, detail="Bài đọc không tồn tại.")
+@router.post("/add-word")
+def add_custom_word_to_day(req: AddWordRequest, db: Session = Depends(get_db)):
+    word = req.word.strip().lower()
+    if not word:
+        raise HTTPException(status_code=400, detail="Từ vựng không được để trống.")
         
-    questions = json.loads(p.questions_json) if p.questions_json else []
-    score = 0
-    feedback = []
-    
-    for idx, q in enumerate(questions):
-        user_choice = req.answers[idx] if idx < len(req.answers) else -1
-        ans_val = q.get("answer")
-        if isinstance(ans_val, str):
-            ans_idx = {"A": 0, "B": 1, "C": 2, "D": 3}.get(ans_val.strip().upper(), 0)
-        else:
-            ans_idx = int(ans_val) if ans_val is not None else 0
-
-        is_correct = (user_choice == ans_idx)
-        if is_correct:
-            score += 1
-            
-        feedback.append({
-            "index": idx,
-            "user_choice": user_choice,
-            "correct_choice": ans_idx,
-            "is_correct": is_correct,
-            "explain": q.get("explain", "Đáp án chính xác theo ngữ cảnh bài đọc.")
-        })
-        
-    return {
-        "score": score,
-        "total": len(questions),
-        "percentage": round((score / len(questions)) * 100, 1) if questions else 0,
-        "feedback": feedback
-    }
-
-@router.post("/save-word")
-def save_word_from_passage(req: SaveWordFromPassageRequest, current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
-    clean_word = req.word_or_phrase.strip()
-    if not clean_word:
-        raise HTTPException(status_code=400, detail="Từ hoặc cụm từ không hợp lệ.")
-        
-    # Check if this item already exists in knowledge base
-    item = db.query(models.KnowledgeItem).filter(models.KnowledgeItem.word.ilike(clean_word)).first()
-    if not item:
-        item = models.KnowledgeItem(
-            id=f"saved_{current_user.id}_{len(clean_word)}_{hash(clean_word) & 0xffffffff}",
-            word=clean_word,
-            meaning_vi=req.meaning_vi or "Từ lưu từ bài đọc ngữ cảnh",
-            example=req.context_sentence,
-            item_type="collocation" if len(clean_word.split()) > 1 else "word",
-            level="B1+",
-            status="approved",
-            is_custom=True,
-            created_by_user_id=current_user.id
-        )
-        db.add(item)
-        db.flush()
-        
-    saved_entry = models.UserSavedItem(
-        user_id=current_user.id,
-        item_id=item.id,
-        context_sentence=req.context_sentence,
-        passage_id=req.passage_id,
-        save_type=req.save_type
+    new_item = models.KnowledgeItem(
+        word=word,
+        pos=req.pos or "word",
+        pron=req.pron or f"/{word}/",
+        meaning_vi=req.meaning_vi or word,
+        meaning_en=f"Saved from context reader",
+        example=f"Added from authentic reading context.",
+        level="B2",
+        item_type="custom_word",
+        status="approved",
+        unit="Custom Items"
     )
-    db.add(saved_entry)
-    
-    # If learn_now, schedule immediately into user progress
-    if req.save_type == "learn_now":
-        existing_prog = db.query(models.UserItemProgress).filter(
-            models.UserItemProgress.user_id == current_user.id,
-            models.UserItemProgress.item_id == item.id
-        ).first()
-        if not existing_prog:
-            prog = models.UserItemProgress(
-                user_id=current_user.id,
-                item_id=item.id,
-                ease_factor=2.5,
-                interval_days=0,
-                repetitions=0,
-                lapses=0,
-                state="new"
-            )
-            db.add(prog)
-            
+    db.add(new_item)
     db.commit()
+    db.refresh(new_item)
     
     return {
         "success": True,
-        "message": f"Đã lưu '{clean_word}' vào kho học tập ({'Học ngay' if req.save_type == 'learn_now' else 'Lưu học sau'})!",
-        "item_id": item.id
+        "message": f"Đã lưu thành công từ '{word}' vào hệ thống ôn tập!",
+        "item_id": new_item.id
     }

@@ -1013,29 +1013,53 @@ function renderReadingPassage(passageIdx) {
   appState.todayReadingDone = true;
   if (typeof updateDailyGoalChecklist === "function") updateDailyGoalChecklist();
 
-  // Make EVERY SINGLE WORD clickable for instant bilingual lookup
-  const targetWordsLower = (passage.target_words || []).map(w => w.toLowerCase());
-  
-  // Split content by word boundaries while preserving punctuation and spaces
-  const tokens = passage.content.split(/(\b[A-Za-z'-]+\b)/);
-  const clickableContent = tokens.map(token => {
-    if (/^[A-Za-z'-]+$/.test(token)) {
-      const cleanLower = token.toLowerCase();
-      const isTarget = targetWordsLower.some(tw => tw === cleanLower || tw.includes(cleanLower));
-      
-      const escapedSent = passage.content.replace(/"/g, '&quot;').replace(/'/g, "\\'");
-      const escapedToken = token.replace(/'/g, "\\'");
-      
-      if (isTarget) {
-        return `<span class="target-word-pill font-bold text-amber-300 bg-amber-500/20 px-1.5 py-0.5 rounded-lg border border-amber-500/30 cursor-pointer hover:bg-amber-500/40 transition shadow-sm inline-block" onclick="showWordPopup('${escapedToken}', '${escapedSent}')" title="Từ trọng tâm bài đọc">${token}</span>`;
-      } else {
-        return `<span class="clickable-word cursor-pointer hover:text-amber-300 hover:underline decoration-amber-400 decoration-dotted transition inline-block" onclick="showWordPopup('${escapedToken}', '${escapedSent}')" title="Chạm để tra từ '${escapedToken}'">${token}</span>`;
-      }
-    }
-    return token;
-  }).join("");
+  // Target words set
+  const targetWords = (passage.target_words || []).map(w => w.toLowerCase().trim());
 
-  document.getElementById("readingContent").innerHTML = clickableContent;
+  // Safe DOM Rendering: Split paragraphs and tokens cleanly to prevent any string escaping or recursion bugs
+  const container = document.getElementById("readingContent");
+  container.innerHTML = "";
+
+  const paragraphs = (passage.content || "").split(/\n\n+/);
+  paragraphs.forEach(paraText => {
+    const pEl = document.createElement("p");
+    pEl.className = "mb-4 last:mb-0 leading-relaxed";
+
+    // Split text by word vs non-word tokens
+    const tokens = paraText.split(/(\b[A-Za-z'-]+\b)/);
+    tokens.forEach(token => {
+      if (/^[A-Za-z'-]+$/.test(token)) {
+        const cleanLower = token.toLowerCase();
+        const isTarget = targetWords.some(tw => tw === cleanLower || tw.split(/\s+/).includes(cleanLower));
+
+        const span = document.createElement("span");
+        span.textContent = token;
+
+        if (isTarget) {
+          span.className = "target-word-pill font-bold text-amber-300 bg-amber-500/20 px-1 py-0.5 rounded border border-amber-500/30 cursor-pointer hover:bg-amber-500/40 transition shadow-sm inline-block";
+          span.title = `Từ trọng tâm: ${token}`;
+        } else {
+          span.className = "clickable-word cursor-pointer hover:text-amber-300 hover:underline decoration-amber-400 decoration-dotted transition inline-block";
+          span.title = `Chạm để tra từ: ${token}`;
+        }
+
+        // Attach safe click handler via closure (no string concatenation)
+        span.addEventListener("click", () => {
+          // Extract sentence context safely
+          const sentences = paraText.split(/(?<=[.?!])\s+/);
+          const foundSent = sentences.find(s => s.toLowerCase().includes(cleanLower)) || paraText;
+          showWordPopup(token, foundSent);
+        });
+
+        pEl.appendChild(span);
+      } else {
+        // Punctuation, spaces, newlines
+        pEl.appendChild(document.createTextNode(token));
+      }
+    });
+
+    container.appendChild(pEl);
+  });
 
   const qList = document.getElementById("readingQuestionsList");
   const questions = passage.questions || [];

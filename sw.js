@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-mastery-v2';
+const CACHE_NAME = 'english-mastery-v4';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -11,11 +11,6 @@ const ASSETS_TO_CACHE = [
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
-  );
   self.skipWaiting();
 });
 
@@ -23,7 +18,7 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+        keys.map((key) => caches.delete(key))
       );
     })
   );
@@ -31,11 +26,27 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Network first for API calls, cache first for assets
-  if (event.request.url.includes('/api/')) {
-    event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
+  // Network first for HTML, JS and API to ensure immediate updates without stale caching
+  const isDynamic = event.request.url.includes('/api/') || 
+                    event.request.url.includes('.js') || 
+                    event.request.url.includes('.html') || 
+                    event.request.url.endsWith('/');
+
+  if (isDynamic) {
+    event.respondWith(
+      fetch(event.request)
+        .then((resp) => {
+          if (resp && resp.status === 200 && event.request.method === 'GET') {
+            const clone = resp.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          }
+          return resp;
+        })
+        .catch(() => caches.match(event.request))
+    );
     return;
   }
+
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);

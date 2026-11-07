@@ -1159,7 +1159,7 @@ async function showWordPopup(wordText, context) {
     activePopupWordItem = {
       word: found.word,
       pos: found.pos || "word",
-      pron: found.pron || f"/{cleanWord}/",
+      pron: found.pron || `/${cleanWord}/`,
       meaning_vi: found.meaning_vi || "",
       meaning_en: found.meaning_en || "",
       example: found.example || context

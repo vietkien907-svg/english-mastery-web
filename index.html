@@ -1025,13 +1025,13 @@
   </div>
 
   <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=3.0"></script>
-  <script src="/app.js?v=3.0"></script>
+  <script src="/data.js?v=5.0"></script>
+  <script src="/app.js?v=5.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=3.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=5.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

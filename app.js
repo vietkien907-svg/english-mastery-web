@@ -29,6 +29,8 @@ let appState = {
 
 // ================= INITIALIZATION =================
 window.addEventListener("DOMContentLoaded", async () => {
+  // 1. Khởi tạo và nạp tiến độ Lộ trình đầu tiên (đảm bảo giữ nguyên tiến độ 100% khi F5)
+  initDailyMissionEngine();
   setupUnitSelectors();
   await checkAuthStatus();
   await loadTodayQueue();
@@ -36,7 +38,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   setupReadingSelector();
   setupTouchAndKeyboard();
   initDailyDeadlineSystem();
-  initDailyMissionEngine();
+  loadTelegramSettings();
+  updateDailyMissionUI();
+  tickDeadlineCountdown();
   lucide.createIcons();
 });
 
@@ -401,52 +405,59 @@ function getTotalMissionDays() {
 
 function loadMissionRegistry() {
   try {
-    const raw = localStorage.getItem(MISSION_REGISTRY_KEY);
+    let raw = localStorage.getItem(MISSION_REGISTRY_KEY);
+    if (!raw) {
+      raw = localStorage.getItem("EMH_MISSION_REGISTRY_BACKUP") || localStorage.getItem("EMH_MISSION_REGISTRY_V3") || localStorage.getItem("EMH_DAILY_MISSION_V3");
+    }
     if (raw) {
       const parsed = JSON.parse(raw);
       if (parsed && typeof parsed === "object") {
+        const savedDay = parseInt(parsed.currentDay || parsed.dayNumber) || 1;
         missionRegistry = {
-          currentDay: parseInt(parsed.currentDay) || 1,
+          currentDay: Math.max(1, Math.min(TOTAL_ROADMAP_DAYS, savedDay)),
           history: parsed.history || {}
         };
-      }
-    } else {
-      // Migrate from old V3 if exists
-      const oldRaw = localStorage.getItem("EMH_DAILY_MISSION_V3");
-      if (oldRaw) {
-        const oldParsed = JSON.parse(oldRaw);
-        const day = oldParsed.dayNumber || 1;
-        missionRegistry.currentDay = day;
-        missionRegistry.history[String(day)] = {
-          vocabDone: (oldParsed.vocabDoneCount >= 20),
-          vocabCount: oldParsed.vocabDoneCount || 0,
-          readingDone: !!oldParsed.readingDone,
-          grammarDone: !!oldParsed.grammarDone
-        };
+        // Migrate old format if necessary
+        if (!parsed.history && (parsed.vocabDoneCount !== undefined || parsed.readingDone !== undefined)) {
+          missionRegistry.history[String(savedDay)] = {
+            vocabDone: (parsed.vocabDoneCount >= 20),
+            vocabCount: parsed.vocabDoneCount || 0,
+            readingDone: !!parsed.readingDone,
+            grammarDone: !!parsed.grammarDone,
+            studiedIndices: []
+          };
+        }
       }
     }
   } catch (e) {
     console.warn("Could not load mission registry:", e);
   }
 
-  if (!missionRegistry.history[String(missionRegistry.currentDay)]) {
-    missionRegistry.history[String(missionRegistry.currentDay)] = {
+  const curDStr = String(missionRegistry.currentDay);
+  if (!missionRegistry.history[curDStr]) {
+    missionRegistry.history[curDStr] = {
       vocabDone: false,
       vocabCount: 0,
       readingDone: false,
-      grammarDone: false
+      grammarDone: false,
+      studiedIndices: []
     };
   }
 }
 
 function saveMissionRegistry() {
   try {
-    localStorage.setItem(MISSION_REGISTRY_KEY, JSON.stringify(missionRegistry));
+    const dataStr = JSON.stringify(missionRegistry);
+    localStorage.setItem(MISSION_REGISTRY_KEY, dataStr);
+    localStorage.setItem("EMH_MISSION_REGISTRY_BACKUP", dataStr);
   } catch (e) {
     console.warn("Could not save mission registry:", e);
   }
   updateDailyMissionUI();
   updateDailyGoalChecklist();
+  if (typeof tickDeadlineCountdown === "function") {
+    tickDeadlineCountdown();
+  }
 }
 
 function getDayMissionStatus(dayNum) {
@@ -920,7 +931,7 @@ function updateDailyMissionUI() {
       badgeV.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-400'></i> Đã xong (20/20)";
     }
     if (btnWrapV) btnWrapV.className = "w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-emerald-300 border border-emerald-500/40 transition flex items-center justify-center gap-1.5 shadow-sm";
-    if (btnV) btnV.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Xong (Bấm để ôn lại 20 từ)</span>";
+    if (btnV) btnV.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Xong (Bấm để ôn lại)</span>";
   } else {
     if (cardV) cardV.className = "p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-indigo-500/40 shadow-sm";
     if (bannerV) bannerV.innerHTML = "";

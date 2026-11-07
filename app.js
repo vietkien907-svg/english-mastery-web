@@ -631,17 +631,26 @@ function startTodayVocabMission() {
   appState.currentCardIndex = 0;
   appState.isFlipped = false;
 
+  // Tự động tick đã làm từ vựng ngay khi bắt đầu học
+  setDayMissionStatus(curDay, {
+    vocabDone: true,
+    vocabCount: Math.max(getDayMissionStatus(curDay).vocabCount, 20)
+  });
+
   const lockedBanner = document.getElementById("dailyMissionLockedBanner");
   if (lockedBanner) {
     lockedBanner.classList.remove("hidden");
     lockedBanner.innerHTML = `
       <div class="flex items-center justify-between gap-3 flex-wrap">
         <div class="flex items-center gap-2">
-          <i data-lucide="lock" class="w-4 h-4 text-amber-400"></i>
-          <span class="font-bold text-amber-300">Nhiệm Vụ Deadline Cố Định: Ngày ${curDay}</span>
-          <span class="text-slate-400 text-xs">(Đang học đúng lộ trình chỉ định)</span>
+          <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+          <span class="font-bold text-emerald-300">Nhiệm Vụ Deadline Ngày ${curDay}</span>
+          <span class="text-emerald-400/90 text-xs font-semibold">(Đã tự động tick hoàn thành ✓)</span>
         </div>
         <div class="flex items-center gap-2">
+          <button onclick="completeVocabMission()" class="px-2.5 py-1 rounded-lg bg-emerald-600/40 hover:bg-emerald-600 text-emerald-200 hover:text-white text-xs font-semibold border border-emerald-500/40 transition flex items-center gap-1">
+            <i data-lucide="check" class="w-3.5 h-3.5"></i> Đã hoàn thành 20 từ
+          </button>
           <button onclick="advanceToNextDay()" class="px-2.5 py-1 rounded-lg bg-indigo-600/40 hover:bg-indigo-600 text-indigo-200 hover:text-white text-xs font-semibold border border-indigo-500/40 transition flex items-center gap-1">
             Học vượt ngày kế <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
           </button>
@@ -663,6 +672,27 @@ function startTodayVocabMission() {
   switchTab("flashcard");
   renderFlashcard();
   updateDailyMissionUI();
+  showToast(`✅ Đã tự động tick hoàn thành 20 từ vựng Ngày ${curDay}!`, "success");
+}
+
+function completeVocabMission() {
+  const curDay = missionRegistry.currentDay;
+  setDayMissionStatus(curDay, {
+    vocabDone: true,
+    vocabCount: 20
+  });
+  showToast(`✅ Đã tự động tick hoàn thành 20 từ vựng Ngày ${curDay}!`, "success");
+}
+
+function autoTickAllToday() {
+  const curDay = missionRegistry.currentDay;
+  setDayMissionStatus(curDay, {
+    vocabDone: true,
+    vocabCount: 20,
+    readingDone: true,
+    grammarDone: true
+  });
+  showToast(`🎉 Đã tự động tick hoàn thành 100% tất cả deadline Ngày ${curDay}!`, "success");
 }
 
 function startGradualReview() {
@@ -725,7 +755,8 @@ function startTodayReadingMission() {
   const r = getDailyAssignedReading(missionRegistry.currentDay);
   switchTab("reader");
   renderReadingPassage(r.index);
-  showToast(`📖 Đang mở Bài đọc chỉ định Ngày ${missionRegistry.currentDay}: ${r.title}`, "info");
+  setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
+  showToast(`📖 Đang mở & Tự động ghi nhận hoàn thành Bài đọc Ngày ${missionRegistry.currentDay}: ${r.title}`, "success");
 }
 
 function startTodayGrammarMission() {
@@ -733,7 +764,8 @@ function startTodayGrammarMission() {
   const weekNum = g.week_number || (g.index + 1);
   switchTab("grammar");
   renderGrammarDetail(weekNum);
-  showToast(`✍️ Đang mở Chuyên đề chỉ định Ngày ${missionRegistry.currentDay}: ${g.topic_title}`, "info");
+  setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
+  showToast(`✍️ Đang mở & Tự động ghi nhận hoàn thành Chuyên đề Ngày ${missionRegistry.currentDay}: ${g.topic_title}`, "success");
 }
 
 function completeReadingMission() {
@@ -1589,9 +1621,8 @@ function checkGrammarFillBlank(idx) {
   const normalize = (s) => s.replace(/['’]/g, "'").replace(/\s+/g, " ").trim();
   const isMatch = allCorrect.some(c => normalize(c) === normalize(val));
 
-  // Mark daily grammar goal complete
-  appState.todayGrammarDone = true;
-  updateDailyGoalChecklist();
+  // Tự động tick đã làm ngữ pháp
+  setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
 
   if (isMatch) {
     input.classList.remove("border-slate-700", "border-red-500");
@@ -1614,9 +1645,8 @@ async function checkGrammarQuiz(qIdx, optIdx) {
   const feedback = document.getElementById(`gq-feedback-${qIdx}`);
   const btn = document.getElementById(`gq-${qIdx}-opt-${optIdx}`);
 
-  // Mark daily grammar goal complete
-  appState.todayGrammarDone = true;
-  updateDailyGoalChecklist();
+  // Tự động tick đã làm ngữ pháp
+  setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
 
   const res = await apiCall("/api/grammar/quiz-submit", "POST", {
     week_number: appState.activeGrammarWeek,

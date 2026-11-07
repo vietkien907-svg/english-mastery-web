@@ -310,6 +310,10 @@
         <!-- Action bar: Hoc vuot deadline & On tap dan dan -->
         <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-800/80">
           <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="autoTickAllToday()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 font-bold text-xs text-white transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30">
+              <i data-lucide="check-check" class="w-4 h-4 text-white"></i>
+              <span>⚡ Tự Động Tick Hoàn Thành Hôm Nay</span>
+            </button>
             <button onclick="advanceToNextDay()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 font-bold text-xs text-white transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
               <i data-lucide="zap" class="w-4 h-4 fill-amber-300 text-amber-300"></i>
               <span>🚀 Học Vượt: Sang Ngày Kế Tiếp</span>
@@ -327,7 +331,7 @@
             <i data-lucide="calendar" class="w-3.5 h-3.5 text-indigo-400"></i>
             <span>Xem Toàn Bộ 169 Ngày Lộ Trình</span>
           </button>
-        </div>
+        </div></div>
       </div>
 
       <!-- ================= DAILY DEADLINE & SPACED REPETITION ROADMAP ================= -->
@@ -1344,13 +1348,13 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=10.0"></script>
-  <script src="/app.js?v=10.0"></script>
+  <script src="/data.js?v=11.0"></script>
+  <script src="/app.js?v=11.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=10.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=11.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

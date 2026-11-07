@@ -1309,6 +1309,21 @@ function reshuffleCurrentDeck() {
   showToast("🎲 Đã đảo ngẫu nhiên toàn bộ thứ tự các thẻ từ!", "success");
 }
 
+function formatPronHtml(pron) {
+  if (!pron) return '<span class="text-slate-400">/.../</span>';
+  let p = pron.trim();
+  if (!p.startsWith("/")) p = `/${p}`;
+  if (!p.endsWith("/")) p = `${p}/`;
+
+  let inner = p.slice(1, -1);
+  // Highlight primary stress ˈ with bold glowing amber mark
+  inner = inner.replace(/ˈ/g, '<span class="text-amber-400 font-black text-lg align-baseline px-0.5 drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" title="Nhấn âm chính (Stress)">ˈ</span>');
+  // Highlight secondary stress ˌ with cyan mark
+  inner = inner.replace(/ˌ/g, '<span class="text-cyan-300 font-bold text-sm align-baseline px-0.5" title="Nhấn âm phụ">ˌ</span>');
+
+  return `<span class="align-middle font-mono tracking-wider">/${inner}/</span>`;
+}
+
 function renderFlashcard() {
   const words = getCurrentDayWords();
   const cardElem = document.getElementById("flashcardElement");
@@ -1333,9 +1348,7 @@ function renderFlashcard() {
   document.getElementById("cardWord").innerText = curWord.word;
   const pronEl = document.getElementById("cardPron");
   if (pronEl) {
-    let cleanP = curWord.pron || "";
-    if (cleanP && !cleanP.startsWith("/")) cleanP = `/${cleanP}/`;
-    pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[11px] border border-blue-500/30 mr-1.5 align-middle">🇺🇸 US</span><span class="align-middle">${cleanP || '/.../'}</span>`;
+    pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[11px] border border-blue-500/30 mr-1.5 align-middle">🇺🇸 US</span>${formatPronHtml(curWord.pron)}`;
   }
   const cambridgeLink = document.getElementById("cardCambridgeLink");
   if (cambridgeLink) {
@@ -1980,7 +1993,7 @@ async function showWordPopup(wordText, context) {
 
       document.getElementById("popupWord").innerText = res.word || cleanWord;
       if (pronEl) {
-        pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span><span>${res.pron || `/${cleanWord}/`}</span>`;
+        pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span>${formatPronHtml(res.pron || cleanWord)}`;
       }
       document.getElementById("popupPos").innerText = res.pos || "word";
       document.getElementById("popupMeaningVi").innerText = res.meaning_vi || cleanWord;
@@ -2014,7 +2027,7 @@ async function showWordPopup(wordText, context) {
     };
     document.getElementById("popupWord").innerText = found.word;
     if (pronEl) {
-      pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span><span>${found.pron || `/${cleanWord}/`}</span>`;
+      pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span>${formatPronHtml(found.pron || cleanWord)}`;
     }
     document.getElementById("popupPos").innerText = found.pos || "word";
     document.getElementById("popupMeaningVi").innerText = found.meaning_vi || cleanWord;
@@ -2269,7 +2282,7 @@ function generateDailyQuiz() {
     if (qType === 0) {
       // Type 0: Cho từ tiếng Anh -> Tìm nghĩa tiếng Việt
       questionTitle = `Nghĩa tiếng Việt của từ / cụm từ <span class="text-amber-300 font-bold">"${item.word}"</span> là gì?`;
-      questionSubtitle = item.pron ? `Phát âm: <span class="text-slate-300 font-mono">${item.pron}</span> • (${item.pos || "word"})` : `(${item.pos || "word"})`;
+      questionSubtitle = item.pron ? `Phát âm: ${formatPronHtml(item.pron)} • (${item.pos || "word"})` : `(${item.pos || "word"})`;
       
       const distractors = allGlobalWords
         .filter(w => w.word !== item.word && w.meaning_vi)

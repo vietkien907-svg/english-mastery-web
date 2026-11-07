@@ -540,6 +540,7 @@
             <div class="text-center my-auto space-y-3">
               <h2 id="cardWord" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">appreciate</h2>
               <p id="cardPron" class="text-base sm:text-lg text-indigo-300 font-mono tracking-wide">/əˈpriːʃieɪt/</p>
+              <p class="text-[11px] text-amber-300/80 font-medium tracking-normal -mt-1"><span class="text-amber-400 font-black">ˈ</span> Nhấn mạnh âm tiết đứng sau dấu phẩy trên</p>
               <p id="cardPos" class="text-xs uppercase tracking-widest text-slate-400 font-semibold">(v) verb</p>
             </div>
 
@@ -1335,13 +1336,13 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=12.0"></script>
-  <script src="/app.js?v=12.0"></script>
+  <script src="/data.js?v=13.0"></script>
+  <script src="/app.js?v=13.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=12.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=13.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

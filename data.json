@@ -53929,7 +53929,7 @@
       "id": 1,
       "title": "Unit 1: The Emotional Value of Old Possessions",
       "category": "story",
-      "level": "B1+",
+      "level": "B1",
       "source_reference": "Cambridge Life Stories Archive",
       "content": "Last week, Alex decided to tidy up his attic because it was full of old items. While sorting through broken wooden chairs that he needed to throw out, he discovered a genuine ancient box. The box belonged to his grandfather, who was a master clockmaker. Inside lay a gold watch and a leather notebook. Alex was not a big fan of keeping clutter, but this piece was very special to him. He realized that it gave him immense pleasure just holding an artifact that has stood the test of time. He decided to hang up a picture of his grandfather right above the shelf where the box now sits.",
       "target_words": [
@@ -53965,7 +53965,8 @@
           "answer": 1,
           "explain": "Bài đọc ghi: 'it gave him immense pleasure just holding an artifact'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 2,
@@ -54007,7 +54008,8 @@
           "answer": 1,
           "explain": "Những nhân sự thiếu linh hoạt đối mặt với áp lực gay gắt từ thị trường việc làm."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 3,
@@ -54049,13 +54051,14 @@
           "answer": 1,
           "explain": "Rạn san hô nuôi dưỡng hơn 1/4 (25%) các loài sinh vật biển."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 4,
       "title": "The Guardian: The Neurological Science of Deep Sleep and Memory",
       "category": "health",
-      "level": "B1+",
+      "level": "B1",
       "source_reference": "The Guardian Science & Health",
       "content": "Sleep is far from a passive state of physical inactivity. During non-rapid eye movement (NREM) deep sleep, the brain acts as an active filing cabinet, shifting short-term experiences into permanent long-term storage in the neocortex. Neuroscientists have also identified the glymphatic system, a cellular filtration mechanism that flushes out toxic metabolic waste accumulated during waking hours. Chronic sleep deprivation impairs memory consolidation, elevates cortisol levels, and weakens immune resilience. Prioritizing seven to eight hours of regular slumber is essential for optimal cognitive longevity.",
       "target_words": [
@@ -54091,7 +54094,8 @@
           "answer": 1,
           "explain": "Hệ thống glymphatic đào thải các độc tố và chất cặn bã tích tụ trong ngày."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 5,
@@ -54133,13 +54137,14 @@
           "answer": 1,
           "explain": "Các doanh nghiệp đang đầu tư vào đội xe điện và vật liệu đóng gói tự phân hủy sinh học."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 6,
       "title": "CNN Space: The Artemis Mission and Sustainable Lunar Colonization",
       "category": "science",
-      "level": "C1",
+      "level": "B1",
       "source_reference": "CNN Tech & Space Exploration",
       "content": "Humanity stands on the precipice of a groundbreaking return to the Moon through international partnerships under the Artemis accords. Unlike the brief Apollo touchdowns of the twentieth century, contemporary lunar initiatives aspire to establish permanent infrastructure, including sustainable surface habitats and orbiting space stations. Scientists aim to extract frozen water ice buried in deep shadowed craters at the lunar south pole, converting it into drinkable hydration and hydrogen rocket fuel. This celestial outpost will serve as an indispensable stepping stone for crewed expeditions to Mars in the coming decades.",
       "target_words": [
@@ -54175,7 +54180,8 @@
           "answer": 1,
           "explain": "Băng nước ở cực nam Mặt Trăng sẽ được chiết xuất làm nước uống và nhiên liệu tên lửa hydro."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 7,
@@ -54217,13 +54223,14 @@
           "answer": 1,
           "explain": "Kiến trúc ưa sinh học tích hợp vườn trên mái và lối đi thấm nước tự nhiên."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 8,
       "title": "BBC Culture: The Nomadic Lifestyle and Cross-Cultural Perspectives",
       "category": "culture",
-      "level": "B1+",
+      "level": "B1",
       "source_reference": "BBC Travel & Global Culture",
       "content": "Fueled by high-speed internet and flexible remote employment policies, millions of adventurous individuals have embraced the digital nomad lifestyle. By trading monotonous office cubicles for coastal hostels and mountain co-working spaces, these location-independent workers gain profound cultural empathy. Navigating unfamiliar languages and local customs teaches adaptability and resilience. However, this bohemian existence carries hidden challenges, including bureaucratic visa complications and periodic bouts of loneliness. Maintaining authentic friendships and continuous work discipline remains paramount for anyone choosing to call the entire world their home.",
       "target_words": [
@@ -54259,13 +54266,14 @@
           "answer": 1,
           "explain": "Các khó khăn tiềm ẩn là thủ tục visa phức tạp và những đợt cô đơn khi xa nhà."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 9,
       "title": "Nature: Breakthroughs in Perovskite Photovoltaics and Clean Energy",
       "category": "environment",
-      "level": "C1",
+      "level": "B1",
       "source_reference": "Nature Energy Journal",
       "content": "Transitioning away from fossil fuels hinges upon enhancing the efficiency and economic affordability of solar energy capture. While traditional silicon solar panels have dominated the clean energy sector for decades, crystalline perovskite materials are heralding a technological revolution. Perovskite solar cells can be synthesized through cost-effective chemical printing and exhibit exceptional light-absorption capacities across diverse spectrum bands. Tandem configurations combining silicon with perovskite layers have shattered prior energy conversion efficiency records, providing viable pathways toward decarbonizing industrial manufacturing and heavy transportation.",
       "target_words": [
@@ -54301,7 +54309,8 @@
           "answer": 0,
           "explain": "Mục tiêu là cung cấp năng lượng sạch để khử cacbon trong công nghiệp sản xuất và giao thông vận tải."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 10,
@@ -54343,13 +54352,14 @@
           "answer": 1,
           "explain": "Học kỹ năng mới giúp củng cố dự trữ nhận thức chống lại các bệnh thoái hóa thần kinh."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 11,
       "title": "[IELTS] The Evolution of Human Language & Cognitive Linguistics",
       "category": "IELTS",
-      "level": "Band 7.5+",
+      "level": "B1",
       "source_reference": "Cambridge English IELTS Academic Reading Practice",
       "content": "Language is often cited as the ultimate cognitive hallmark distinguishing Homo sapiens from all other living species. While numerous animals possess rudimentary communication systems—ranging from the intricate waggle dance of honeybees to the warning vocalizations of vervet monkeys—none exhibit the recursive syntax and boundless expressive capacity innate to human speech.\n\nLinguist Noam Chomsky revolutionized twentieth-century linguistics by positing the existence of a Universal Grammar, an innate biological template hardwired into the human neural architecture. According to this nativist perspective, infants do not merely acquire vocabulary through rote environmental exposure; rather, their developing brains effortlessly infer abstract morphological and syntactic structures from imperfect auditory stimuli. \n\nIn contrast, evolutionary biologists and cultural anthropologists have proposed a countervailing hypothesis: that language is predominantly a cultural artifact refined over hundreds of millennia. Under this paradigm, human linguistic proficiency evolved in tandem with cooperative foraging, tool fabrication, and communal fire circles. Mirror neurons, which fire both when an individual executes an action and when observing another perform that same action, may have mediated the transition from mimetic gestures to vocal symbolism.\n\nContemporary neuroimaging studies utilizing functional MRI provide nuanced insights reconciling both paradigms. Broca's area and Wernicke's area, long heralded as discrete linguistic hubs, operate within an extensive distributed network encompassing cerebellar and subcortical pathways. Far from being a static faculty, human linguistic capacity reflects profound phenotypic plasticity, continuously sculpted by cultural innovation and communicative necessity.",
       "target_words": [
@@ -54396,13 +54406,14 @@
           "answer": "B",
           "explain": "Đoạn 3 viết: 'Mirror neurons, which fire both when an individual executes an action and when observing another perform that same action...'"
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 12,
       "title": "[IELTS] Urban Rewilding: Restoring Ecosystems in Modern Megacities",
       "category": "IELTS",
-      "level": "Band 7.0",
+      "level": "B1",
       "source_reference": "IELTS Academic Environmental Science Anthology",
       "content": "As the global human population rapidly concentrates in metropolitan centers, urban ecologists are pioneering a paradigm shift termed 'urban rewilding'. Departing from manicured ornamental parks and sterile concrete riverbanks, rewilding advocates seek to restore natural ecological processes, native flora, and spontaneous biodiversity within urban environments.\n\nIn London, Tokyo, and Singapore, municipal authorities are transforming degraded industrial canals into thriving wetlands. Concrete culverts that previously constrained stormwater are being dismantled to recreate natural meandering floodplains. These bio-retention swales not only mitigate urban flooding during extreme precipitation events but also filter toxic vehicular particulates before runoff reaches sensitive aquifers.\n\nFurthermore, introducing indigenous plant species provides vital sanctuaries for declining pollinator populations, such as solitary bees and migratory butterflies. Entomologists emphasize that native pollinators exhibit tight evolutionary synchrony with indigenous blossoms, an ecological mutualism that exotic decorative turf cannot sustain.\n\nBeyond tangible hydrological and microclimatic benefits, psychologists report significant mental health improvements among urban dwellers residing near rewilded corridors. Exposure to biologically diverse canopies triggers parasympathetic nervous system responses, diminishing cortisol secretion and alleviating chronic urban anxiety.",
       "target_words": [
@@ -54449,13 +54460,14 @@
           "answer": "C",
           "explain": "Đoạn 4 nêu: 'Exposure to biologically diverse canopies triggers parasympathetic nervous system responses, diminishing cortisol secretion and alleviating chronic urban anxiety'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 13,
       "title": "[IELTS] The Psychology of Decision Fatigue and Heuristics",
       "category": "IELTS",
-      "level": "Band 7.5+",
+      "level": "B2",
       "source_reference": "IELTS Academic Behavioral Economics Review",
       "content": "Every waking day, an average adult confronts upwards of thirty-five thousand decisions, spanning mundane dietary selections to momentous professional dilemmas. Behavioral economists and cognitive psychologists have discovered that the mental energy required for executive functioning is a finite physiological resource. When this reservoir is drained, individuals succumb to a phenomenon known as 'decision fatigue'.\n\nThe human prefrontal cortex relies heavily on glucose and metabolic sustenance to perform deliberate cognitive calculus. When forced to deliberate sequentially over prolonged durations, the brain instinctively economizes energy by shifting from analytical processing (System 2) to automated, intuitive processing (System 1). Consequently, decision fatigue typically manifests in two polar extremes: impulsive surrender to immediate gratification or paralysis by default inaction.\n\nA landmark study investigating judicial parole hearings revealed striking evidence of decision fatigue. Prisoners appearing before magistrates in the early morning or immediately following a nutritional recess were granted parole at rates surpassing sixty-five percent. Conversely, identical applications reviewed late in the afternoon, when judicial stamina was depleted, plummeted to near-zero approval rates, as granting parole demanded far greater cognitive accountability than upholding the status quo.\n\nTo circumvent decision fatigue, leaders frequently institutionalize behavioral heuristics and reduce trivial choices. By streamlining wardrobe choices, automating repetitive workflows, and prioritizing high-leverage decisions during peak morning alertness, individuals preserve cognitive capital for challenges requiring rigorous critical evaluation.",
       "target_words": [
@@ -54502,13 +54514,14 @@
           "answer": "C",
           "explain": "Đoạn cuối: 'streamlining wardrobe choices, automating repetitive workflows, and prioritizing high-leverage decisions during peak morning alertness'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 14,
       "title": "[VSTEP B2] Preserving Vietnamese Traditional Craft Villages",
       "category": "VSTEP",
-      "level": "B2",
+      "level": "B1",
       "source_reference": "VSTEP Reading Comprehension Prep Anthology - ĐHQG Hà Nội",
       "content": "Across Vietnam, more than five thousand traditional craft villages have long served as the cultural heartbeat and socio-economic backbone of rural communities. From the exquisite silk weaving of Van Phuc and the time-honored pottery of Bat Trang to the delicate bronze casting of Ngu Xa, these artisan enclaves embody ancestral craftsmanship passed down through generations.\n\nHowever, the rapid forces of industrialization, mass commercialization, and urban expansion pose formidable threats to the survival of these artisanal legacies. Cheap, factory-manufactured synthetic alternatives have flooded local and international markets, severely undermining the profit margins of handcrafted ceramics and textiles. Furthermore, younger generations in rural provinces frequently migrate to bustling industrial zones in search of higher, more predictable salaries, creating a precarious shortage of skilled apprentices.\n\nTo revitalize these heritage bastions, many craft cooperatives are embracing experiential tourism and digital e-commerce. By transforming workshops into interactive cultural destinations, international and domestic visitors can shape raw clay on pottery wheels or try their hands at traditional indigo dyeing. Concurrently, government incentives promoting the 'One Commune One Product' (OCOP) program have enabled craftsmen to standardize quality, obtain intellectual property trademarks, and export bespoke goods globally via modern digital platforms.\n\nPreserving traditional craft villages is not merely about nostalgic conservation; it is an economic imperative that ensures sustainable rural livelihoods while celebrating Vietnam's cultural identity on the global stage.",
       "target_words": [
@@ -54555,13 +54568,14 @@
           "answer": "B",
           "explain": "Đoạn 4 kết luận: 'Preserving traditional craft villages is not merely about nostalgic conservation; it is an economic imperative that ensures sustainable rural livelihoods while celebrating Vietnam's cultural identity'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 15,
       "title": "[VSTEP B2-C1] Digital Transformation and Lifelong Learning in Vietnam",
       "category": "VSTEP",
-      "level": "B2-C1",
+      "level": "B1",
       "source_reference": "VSTEP C1 English Proficiency Preparation Material",
       "content": "The rapid advent of the Fourth Industrial Revolution has propelled Vietnam into an era of unprecedented digital acceleration. From cloud computing and blockchain to automated robotic manufacturing, disruptive technologies are redefining the national labor market at a dizzying pace. In this fluid socioeconomic landscape, the traditional notion of education as a finite milestone completed in youth has become obsolete.\n\nEconomists project that over forty percent of existing occupational roles in Southeast Asia will undergo substantial automation or structural restructuring by the end of the decade. Routine administrative positions, manual assembly, and data entry are increasingly handled by cognitive algorithms. Conversely, employers are seeking candidates equipped with complex problem-solving abilities, data literacy, and emotional intelligence.\n\nTo navigate this paradigm shift, Vietnamese educational institutions and enterprise leaders are heavily investing in lifelong learning frameworks. Massive Open Online Courses (MOOCs) and micro-credentialing platforms allow working adults to upskill and reskill flexibly outside conventional office hours. Universities are partnering with technology conglomerates to establish agile curricula reflecting real-time market demands.\n\nUltimately, fostering a culture of perpetual curiosity and adaptability is paramount. Those who view continuous learning not as an intermittent burden, but as an ongoing journey of self-actualization, will lead Vietnam's emergence as an innovative knowledge-based economy.",
       "target_words": [
@@ -54608,13 +54622,14 @@
           "answer": "B",
           "explain": "Đoạn 3 chỉ ra: 'MOOCs and micro-credentialing platforms allow working adults to upskill and reskill flexibly outside conventional office hours'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 16,
       "title": "[VSTEP B1] Eco-Tourism in the Mekong Delta: Balance and Growth",
       "category": "VSTEP",
-      "level": "B1",
+      "level": "B2",
       "source_reference": "VSTEP B1 Standard Reading Exercises",
       "content": "The Mekong Delta in southwestern Vietnam is a world of lush water mazes, floating markets, and tropical fruit orchards. In recent years, community-based eco-tourism has emerged as an attractive pathway to boost household incomes while protecting the delicate riverine ecosystem.\n\nUnlike mass tourism, which often results in river pollution and overcrowding, eco-tourism encourages travelers to experience everyday rural life authentically. Guests stay in wooden homestays, paddle traditional sampans through tranquil mangrove channels, and harvest seasonal fruits such as rambutan, durian, and pomelo alongside local farmers. These activities allow visitors to appreciate local customs while generating direct revenue for farming families.\n\nHowever, developing sustainable eco-tourism requires careful management. Tour operators must avoid over-commercializing local traditions, which can diminish the authentic charm that attracts visitors in the first place. Moreover, local authorities must invest in proper waste management systems to ensure that waterways remain clean and unpolluted.\n\nWhen managed responsibly, eco-tourism provides a win-win model: it preserves the natural heritage and unique water culture of the Mekong Delta while providing a stable livelihood for generations to come.",
       "target_words": [
@@ -54661,13 +54676,14 @@
           "answer": "A",
           "explain": "Đoạn 3 nhấn mạnh: 'local authorities must invest in proper waste management systems to ensure that waterways remain clean and unpolluted'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 17,
       "title": "[TOEIC Part 7] Apex Global Logistics - Supply Chain ERP Migration Notice",
       "category": "TOEIC",
-      "level": "750+ / B2",
+      "level": "B1",
       "source_reference": "ETS TOEIC Official Test Preparation - Reading Part 7",
       "content": "MEMORANDUM\n\nTO: All Regional Warehouse Managers and Dispatch Coordinators\nFROM: Marcus Vance, Chief Operations Officer (COO)\nDATE: October 14, 2026\nSUBJECT: Scheduled Enterprise Resource Planning (ERP) Software Migration\n\nPlease be advised that Apex Global Logistics will officially transition all inventory tracking, customs clearance, and fleet routing systems to our next-generation cloud platform, Horizon ERP 4.0, effective Monday, November 2 at 12:00 AM UTC.\n\nThe transition schedule is outlined below:\n- System Freeze: Friday, October 30, 20:00 UTC. No new outbound freight orders may be entered into the legacy database.\n- Data Validation & Migration: Saturday, October 31 to Sunday, November 1. Regional IT teams will verify freight manifests across all four continental fulfillment hubs.\n- Full System Go-Live: Monday, November 2, 06:00 UTC. Dispatch teams will resume full automated cargo tracking.\n\nMandatory Training Requirements:\nAll dispatch supervisors must complete the 90-minute Horizon ERP interactive webinar by Friday, October 23. Login credentials for the training simulator have been dispatched via automated email. Failure to submit completion certificates will result in temporary suspension of administrative dispatch permissions.\n\nFor technical assistance during the weekend cutoff window, please contact the dedicated IT Command Desk at internal extension 4402 or via email at erp-support@apexlogistics.com.",
       "target_words": [
@@ -54714,13 +54730,14 @@
           "answer": "B",
           "explain": "Văn bản nêu rõ: 'Failure to submit completion certificates will result in temporary suspension of administrative dispatch permissions'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 18,
       "title": "[TOEIC Part 7] Customer Inquiry & Executive Response - Skyline Hospitality",
       "category": "TOEIC",
-      "level": "650-800",
+      "level": "B1",
       "source_reference": "TOEIC Part 7 Double Passage Practice",
       "content": "EMAIL 1: CUSTOMER INQUIRY\nFrom: Eleanor Davies (e.davies@daviescorp.co.uk)\nTo: Guest Relations (guestservices@skylinehotels.com)\nDate: August 18, 2026\nSubject: Inquiry Regarding Corporate Banquet Reservation #BK-9481\n\nDear Skyline Customer Service Team,\n\nI recently booked the Grand Ballroom at the Skyline Regency Hotel in Chicago for our annual corporate awards banquet on Friday, September 25. Our initial reservation was made for 120 guests with standard catering.\n\nDue to a merger completed earlier this week, our anticipated attendance has expanded to approximately 165 attendees. Could you please confirm if the Grand Ballroom can comfortably accommodate this revised party size? Additionally, we have several delegates who require strictly vegan and gluten-free dietary options. Please furnish an updated pricing estimate inclusive of audiovisual setup and upgraded floral centerpieces.\n\nSincerely,\nEleanor Davies\nDirector of Corporate Relations, Davies Enterprises\n\n---\n\nEMAIL 2: EXECUTIVE RESPONSE\nFrom: Julian Thorne, Senior Events Manager (j.thorne@skylinehotels.com)\nTo: Eleanor Davies (e.davies@daviescorp.co.uk)\nDate: August 19, 2026\nSubject: Re: Inquiry Regarding Corporate Banquet Reservation #BK-9481\n\nDear Ms. Davies,\n\nThank you for contacting Skyline Regency. We are delighted to accommodate your growing celebration!\n\nThe Grand Ballroom has a maximum banquet capacity of 220 guests in rounds of ten, so accommodating 165 attendees will be effortless with ample room for the stage and dance floor. Our Executive Chef has curated a premium 3-course menu featuring dedicated vegan and celiac-certified gluten-free selections at no supplemental surcharge.\n\nI have attached a revised quote reflecting the additional covers, high-definition laser projectors, dual wireless microphones, and bespoke autumnal centerpieces. Should you confirm these amendments by August 24, we will gladly extend a complimentary champagne welcome reception for all your guests.\n\nWarm regards,\nJulian Thorne\nSenior Events Coordinator, Skyline Regency Chicago",
       "target_words": [
@@ -54767,7 +54784,8 @@
           "answer": "B",
           "explain": "Cuối Email 2 ghi rõ: 'Should you confirm these amendments by August 24, we will gladly extend a complimentary champagne welcome reception for all your guests'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 19,
@@ -54820,13 +54838,14 @@
           "answer": "A",
           "explain": "Daniel (Person A) giải thích: 'Rather than cramming our calendars with tedious Zoom meetings, we document every architecture decision in writing'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 20,
       "title": "[APTIS] The Science of Intermittent Fasting and Cellular Autophagy",
       "category": "APTIS",
-      "level": "B2",
+      "level": "B1",
       "source_reference": "Aptis Advanced General Science Reading",
       "content": "In recent years, intermittent fasting (IF) has transitioned from an esoteric fitness trend to a rigorously studied nutritional paradigm. Unlike traditional caloric restriction diets that focus strictly on what foods an individual consumes, intermittent fasting focuses primarily on when nutrients are ingested.\n\nThe most common protocol, known as the 16/8 method, involves confining daily calorie intake to an eight-hour window while abstaining from caloric sustenance for the remaining sixteen hours. During prolonged fasting windows, the human body undergoes a metabolic shift: insulin levels drop precipitously, signaling adipocytes to release stored fatty acids for energy synthesis, entering mild ketosis.\n\nAt the molecular level, fasting triggers a vital cellular cleansing process known as autophagy, which earned biologist Yoshinori Ohsumi the 2016 Nobel Prize in Physiology. During autophagy, cells degrade, recycle, and eliminate dysfunctional mitochondria, oxidized protein aggregates, and intracellular debris. Scientists hypothesize that regular activation of autophagy plays a protective role against neurodegenerative ailments and age-related cardiovascular decline.\n\nNevertheless, medical professionals emphasize that fasting regimens are not universally appropriate. Pregnant individuals, adolescents in growth phases, and those with a clinical history of eating disorders must exercise caution and seek professional medical guidance before altering their nutritional schedules.",
       "target_words": [
@@ -54873,13 +54892,14 @@
           "answer": "A",
           "explain": "Đoạn cuối lưu ý: 'Pregnant individuals, adolescents in growth phases, and those with a clinical history of eating disorders must exercise caution'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 21,
       "title": "[PET] A Weekend at Highland Outdoor Adventure Camp",
       "category": "PET",
-      "level": "B1 Preliminary",
+      "level": "B1",
       "source_reference": "Cambridge English PET (B1 Preliminary) Reading Handbook",
       "content": "Last month, our school organized a three-day weekend excursion to the Highland Adventure Camp, nestled in the rugged hills of northern Scotland. Most students in my class had never spent a night outdoors in a tent, so excitement was running high when our bus pulled into the pine-scented campsite on Friday afternoon.\n\nOur instructor, Sarah, immediately gathered us for a safety briefing. She explained that our weekend would not be a lazy holiday; we would learn outdoor survival skills, including how to pitch weather-resistant tents, build a small campfire without matches using a flint striker, and navigate dense forests using only a topographic map and compass.\n\nOn Saturday morning, we faced our biggest challenge: kayaking across a mountain loch. The water was icy and choppy, and my friend Tom and I struggled to keep our double kayak straight against the wind. At one point, our kayak tipped slightly, splashing cold water over our jackets. However, by paddling in rhythm and communicating calmly, we successfully reached the rocky island at the center of the lake.\n\nBy Sunday evening, around the warm glow of the farewell campfire, everyone agreed that the trip had brought our class closer together. Not only did we conquer physical fears, but we also learned the true value of teamwork and mutual encouragement.",
       "target_words": [
@@ -54926,13 +54946,14 @@
           "answer": "B",
           "explain": "Đoạn cuối kết luận: 'the trip had brought our class closer together. Not only did we conquer physical fears, but we also learned the true value of teamwork and mutual encouragement'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 22,
       "title": "[PET] Young Innovators: Starting a Sustainable Clothing Brand",
       "category": "PET",
-      "level": "B1 Preliminary",
+      "level": "B2",
       "source_reference": "Cambridge PET B1 Reading Sample Papers",
       "content": "When seventeen-year-old Mia noticed how many discarded clothes ended up in local landfills each year, she decided to take action. Together with two classmates from her art school, she founded 'ReThread', a small community brand that redesigns second-hand denim into modern, trendy jackets and tote bags.\n\nAt first, the trio started by asking friends and family members to donate worn-out jeans that were torn or outgrown. Using sewing machines borrowed from their school craft room, they unstitched the durable fabric and combined different shades of blue denim into striking geometric patchwork designs. Each item was completely unique and stamped with a handwritten message explaining how much textile waste was saved.\n\nMia began posting short videos on social media showing their creative process—from cutting the old jeans to stitching cool patterns. Within three months, their online store gained thousands of followers, and all fifty of their handmade jackets sold out within two hours of launching.\n\nDespite their rapid success, Mia insists that 'ReThread' will remain focused on environmental education. A portion of every sale is donated to ocean cleanup charities, and the team regularly hosts free weekend workshops to teach teenagers basic sewing and mending skills.",
       "target_words": [
@@ -54979,13 +55000,14 @@
           "answer": "A",
           "explain": "Đoạn cuối nêu rõ: 'A portion of every sale is donated to ocean cleanup charities, and the team regularly hosts free weekend workshops to teach teenagers basic sewing and mending skills'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 23,
       "title": "[IELTS] Ocean Acidification & Marine Calcification Under Climate Stress",
       "category": "IELTS",
-      "level": "Band 7.5+",
+      "level": "B1",
       "source_reference": "IELTS Academic Marine Biology & Climate Anthology",
       "content": "The world's oceans have historically functioned as Earth's paramount carbon buffer, absorbing roughly thirty percent of anthropogenic carbon dioxide emissions generated since the dawn of the Industrial Revolution. While this oceanic uptake has substantially attenuated atmospheric warming, it has wrought profound chemical repercussions termed 'ocean acidification'.\n\nWhen carbon dioxide dissolves in seawater, it forms carbonic acid, which dissociates into hydrogen ions and bicarbonate. The surge in hydrogen ions reacts with ambient carbonate ions, drastically reducing the concentration of carbonate available for marine calcifiers. Organisms such as stony corals, pteropods (pelagic sea snails), and bivalves rely on carbonate ions combined with calcium to precipitate calcium carbonate shells and skeletal matrices.\n\nMarine biologists caution that pteropods, colloquially termed 'sea butterflies', represent keystone bio-indicators. Experimental exposure of pteropod shells to seawater mimicking projected 2100 carbonate chemistry revealed substantial structural dissolution within forty-eight hours. Because pteropods constitute the nutritional cornerstone for salmon, herring, and baleen whales, their potential population collapse threatens catastrophic trophic cascades across pelagic food webs.\n\nAddressing ocean acidification demands aggressive global decarbonization coupled with targeted localized interventions, such as cultivating kelp forests and eelgrass meadows, which actively sequester dissolved carbon and create localized chemical refugia for vulnerable shell-building fauna.",
       "target_words": [
@@ -55032,13 +55054,14 @@
           "answer": "B",
           "explain": "Đoạn cuối nêu rõ: 'cultivating kelp forests and eelgrass meadows, which actively sequester dissolved carbon and create localized chemical refugia'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 24,
       "title": "[VSTEP C1] Energy Transition and Offshore Wind Potential in Coastal Vietnam",
       "category": "VSTEP",
-      "level": "C1",
+      "level": "B1",
       "source_reference": "VSTEP C1 Advanced Policy & Technology Reading",
       "content": "Boasting a dramatic coastline stretching over 3,260 kilometers, Vietnam is exceptionally endowed with some of the most robust offshore wind energy resources in Southeast Asia. With average wind speeds exceeding nine meters per second in the southern coastal provinces of Ninh Thuan and Binh Thuan, the nation possesses technical wind potential estimated at hundreds of gigawatts.\n\nUnder the National Power Development Plan VIII (PDP8), the Vietnamese government has committed to phasing out unabated coal generation and quadrupling renewable energy capacity by 2045, aiming for net-zero carbon emissions by 2050. Offshore wind turbines offer superior capacity factors compared to onshore alternatives, generating clean electricity continuously without competing for precious arable land.\n\nNonetheless, transitioning from fossil fuel dependency to an offshore wind power requires overcoming formidable engineering and institutional hurdles. Subsea geological conditions in typhoon-prone zones necessitate resilient foundation designs capable of withstanding turbulent monsoons. Furthermore, Vietnam's domestic electrical transmission grid requires substantial high-voltage direct current (HVDC) upgrades to transmit bulk offshore generation from southern coastal waters to northern industrial demand centers.\n\nBy creating transparent regulatory frameworks for Power Purchase Agreements (PPAs) and fostering domestic engineering supply chains, Vietnam can establish itself as a vanguard of clean energy manufacturing and sustainable decarbonization in the Asia-Pacific region.",
       "target_words": [
@@ -55085,13 +55108,14 @@
           "answer": "A",
           "explain": "Đoạn 3 chỉ ra: 'requires substantial high-voltage direct current (HVDC) upgrades to transmit bulk offshore generation from southern coastal waters to northern industrial demand centers'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 25,
       "title": "[TOEIC Part 7] Nexis Consumer Electronics - Global Product Recall Bulletin",
       "category": "TOEIC",
-      "level": "700+",
+      "level": "B2",
       "source_reference": "TOEIC Part 7 Product Safety & Customer Assurance Announcement",
       "content": "PRODUCT SAFETY RECALL & REMEDY BULLETIN\nIssued: November 4, 2026\nProduct Line: Nexis PowerMax 65W GaN Travel Chargers (Model #NX-6500-G)\nDistribution Dates: March 15, 2026 – October 20, 2026\n\nDear Valued Customers and Retail Partners,\n\nIn voluntary cooperation with international consumer product safety commissions, Nexis Electronics Corporation is executing an immediate worldwide safety recall of the Nexis PowerMax 65W GaN Travel Fast Charger.\n\nReason for Recall:\nInternal quality assurance testing identified that an isolated batch of internal thermal cut-off capacitors manufactured between March and July 2026 may experience electrical overheating when operating under prolonged maximum load in high ambient humidity. Although zero property damage or injury incidents have been reported, Nexis has proactively halted production of the affected batch.\n\nRemedy & Replacement Options:\nConsumers owning an affected unit should immediately unplug the charger from wall outlets and verify the 10-digit serial number on the underside prongs against our online recall portal at www.nexis-safety.com/verify. \n\nAffected customers are eligible for one of the following complimentary remedies:\n1. Free Replacement: A complimentary upgraded Nexis PowerMax 70W Pro charger shipped via priority air courier (estimated delivery: 2-3 business days).\n2. Full Cash Refund: A digital prepaid Mastercard refund for the full retail purchase amount of $59.99 upon barcode submission.\n3. In addition, all participating consumers will receive a $15 discount voucher valid on any accessory at Nexis Authorized Retailers through December 31, 2026.\n\nWe deeply apologize for this inconvenience and remain steadfast in our dedication to product safety and engineering excellence.",
       "target_words": [
@@ -55138,13 +55162,14 @@
           "answer": "B",
           "explain": "Mục 3 ghi: 'In addition, all participating consumers will receive a $15 discount voucher valid on any accessory at Nexis Authorized Retailers through December 31, 2026'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 26,
       "title": "[APTIS] Urban Micro-Mobility: Solving the First-Mile Transit Dilemma",
       "category": "APTIS",
-      "level": "B2",
+      "level": "B1",
       "source_reference": "Aptis Advanced Urban Planning Reading",
       "content": "In modern urban planning, the 'first-mile, last-mile' dilemma refers to the critical gap between a commuter's doorstep and the nearest mass transit station. When metro stations are situated beyond comfortable walking distance—typically greater than eight hundred meters—urban residents frequently revert to private automobiles or ride-hailing services, exacerbating gridlock and tailpipe emissions.\n\nTo bridge this gap, shared electric scooters and dockless bicycles have swept across hundreds of global metropolitan centers over the past decade. Proponents point out that lightweight micro-mobility vehicles consume less than three percent of the energy required by a single-passenger automobile to traverse the identical distance. Furthermore, smartphone app integration and geofenced speed controls enable swift, frictionless point-to-point transit.\n\nHowever, micro-mobility has also ignited contentious municipal debates. Indiscriminately discarded scooters clutter pedestrian walkways, creating hazardous physical barriers for elderly citizens and visually impaired pedestrians. In response, cities such as Paris, Amsterdam, and Singapore have enacted stringent regulatory frameworks: mandating designated geo-fenced parking corrals, capping fleet sizes, and enforcing computerized fines for sidewalk riding.\n\nWhen effectively integrated with dedicated bike lane infrastructure and synchronized transit ticketing, micro-mobility transforms congested urban streets into vibrant, human-scale corridors.",
       "target_words": [
@@ -55191,13 +55216,14 @@
           "answer": "B",
           "explain": "Đoạn 3 giải thích: 'mandating designated geo-fenced parking corrals, capping fleet sizes, and enforcing computerized fines for sidewalk riding'."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 27,
       "title": "[PET] Exploring the Wonders of the Deep Sea: The Oceanarium Experience",
       "category": "PET",
-      "level": "B1 Preliminary",
+      "level": "B1",
       "source_reference": "Cambridge Preliminary English Test Reading",
       "content": "Visiting the national Oceanarium last Saturday was an unforgettable adventure for my twelve-year-old brother, Leo, and me. Situated on the harbor waterfront, the aquarium houses more than five hundred marine species in gigantic acrylic tanks recreating natural ocean habitats.\n\nThe most breathtaking attraction is the underwater acrylic tunnel. As you walk along the slow-moving walkway, massive sand tiger sharks, graceful manta rays, and green sea turtles glide directly over your head. Leo was mesmerized by the neon jellyfish gallery, where gentle, rhythmic blue and violet LED lights illuminate pulsing transparent jellyfish.\n\nDuring the afternoon sea otter feeding demonstration, the marine biologist explained how otters use small rocks to crack open tough clam shells while floating comfortably on their backs. The keeper also highlighted the urgent importance of reducing single-use plastic bags, which sea turtles often mistake for edible jellyfish.\n\nBefore heading home, we purchased a plush dolphin souvenir and a recycled notebook from the gift shop. Not only was the trip entertaining, but it also taught us how everyday choices can help protect vulnerable marine wildlife.",
       "target_words": [
@@ -55233,13 +55259,14 @@
           "answer": "B",
           "explain": "Đoạn 3 giải thích: otters use small rocks to crack open tough clam shells while floating on their backs."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 28,
       "title": "[TOEIC Part 7] Global FinTech Summit 2026 - Keynote Schedule & Badge Registration",
       "category": "TOEIC",
-      "level": "700+",
+      "level": "B2",
       "source_reference": "ETS TOEIC Official Preparation Part 7",
       "content": "CONFERENCE ANNOUNCEMENT & AGENDA\nThe 11th Annual Global FinTech & Banking Innovation Summit\nDates: October 12–14, 2026 | Location: Marina Bay Convention Center, Hall B\n\nWe are pleased to publish the official keynote schedule for the upcoming FinTech Summit. Over two thousand banking executives, regulatory leaders, and software developers will convene to discuss open banking, decentralized finance, and artificial intelligence fraud prevention.\n\nKeynote Highlights:\n- Monday, Oct 12, 09:30 AM: 'Algorithmic Risk Assessment in Cross-Border Lending' - Dr. Hiroshi Tanaka (Chief Risk Officer, Tokyo Metro Bank)\n- Tuesday, Oct 13, 11:00 AM: 'Next-Gen Biometrics: Eliminating Passwords in Mobile Banking' - Sarah Jenkins (VP of Security, AuthentiCore)\n- Wednesday, Oct 14, 02:00 PM: 'Decarbonizing Digital Asset Mining' - Panel Discussion moderated by Elena Rostova (GreenFinance Review)\n\nRegistration & Badge Pickup:\nThe pre-registration desk in the Main Lobby opens on Sunday, October 11, at 14:00. Attendees must present a photo ID and their digital QR confirmation to collect their access lanyards and conference welcome bags. Networking luncheons are included with all Gold and Platinum delegate passes. Please visit www.fintechsummit2026.org for live updates.",
       "target_words": [
@@ -55275,13 +55302,14 @@
           "answer": "A",
           "explain": "Mục Registration & Badge Pickup: Attendees must present a photo ID and their digital QR confirmation."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 29,
       "title": "[TOEIC Part 6 - Đục Lỗ] Corporate Fleet Electrification & Green Logistics",
       "category": "CLOZE",
-      "level": "TOEIC 700+",
+      "level": "B1",
       "source_reference": "ETS TOEIC Test Preparation - Part 6 Text Completion",
       "content": "MEMORANDUM\n\nTO: All Regional Logistics Managers\nFROM: Marcus Vance, Vice President of Operational Infrastructure\nDATE: November 12, 2026\nSUBJECT: Phase-1 Transition to Zero-Emission Delivery Fleets\n\nIn accordance with our corporate pledge to achieve carbon neutrality by 2030, Nexis Logistics will officially initiate the transition of our domestic transport fleet to commercial electric vehicles (EVs) next month. The regional pilot program will commence in Chicago, where forty diesel delivery vans will be decommissioned and replaced by high-capacity electric models.\n\nPreliminary assessments indicate that this transition will significantly [1] ______ operational expenditures over the vehicle lifecycle. Fuel consumption accounts for approximately 38 percent of our regional branch overhead, and internal financial modeling demonstrates that fleet electrification will yield an estimated 42 percent reduction in routine maintenance and charging expenses within the inaugural year.\n\nBranch supervisors are requested to prepare their depot facilities immediately. Charging stations are scheduled for installation between December 1 and December 15. [2] ______. All personnel designated to operate the new electric vans must attend a compulsory 90-minute defensive driving and energy optimization workshop conducted by certified technicians.\n\nShould any depot encounter logistical impediments during the charger deployment phase, please contact the Environmental Facilities Liaison at extension 4482 [3] ______ delay. We are deeply confident that this landmark undertaking will not only bolster our ecological sustainability [4] ______ also reinforce our brand prestige as an ethical industry vanguard.",
       "target_words": [
@@ -55339,13 +55367,14 @@
           "answer": "A",
           "explain": "ĐÁP ÁN ĐÚNG LÀ A. Cấu trúc ngữ pháp song hành kinh điển: 'not only ... BUT also ...' (không những ... mà còn ...)."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 30,
       "title": "[TOEIC Part 6 - Đục Lỗ] Annual Employee Performance Appraisal & Bonus Notification",
       "category": "CLOZE",
-      "level": "TOEIC 650+",
+      "level": "B1",
       "source_reference": "ETS TOEIC Reading - Text Completion Part 6",
       "content": "HUMAN RESOURCES INTERNAL CIRCULAR\n\nTo: Department Supervisors and Senior Team Leads\nFrom: Helena Rostova, Global Director of Human Capital\nSubject: FY2026 Annual Performance Review Guidelines\n\nAs we approach the culmination of the fiscal year, we want to express our gratitude for your dedication and exceptional stewardship. The annual employee appraisal cycle is scheduled to commence on Monday, December 1st.\n\nSupervisors are mandated to conduct a comprehensive one-on-one evaluation with each subordinate under their jurisdiction. To guarantee institutional transparency, all appraisal metrics must be submitted [1] ______ our centralized HR portal no later than 5:00 PM on Friday, December 19th.\n\nPlease remember that merit-based salary increments and annual performance bonuses are directly [2] ______ upon these evaluations. Employees who achieve an 'Exceeds Expectations' rating across core competencies will become eligible for a discretionary equity allocation. [3] ______.\n\nTo assist managers in formulating objective and constructive appraisals, Human Capital will host two virtual orientation sessions on Thursday, November 27th. Attendance is strongly recommended for newly promoted supervisors who have not yet administered an evaluation cycle. We anticipate your full [4] ______ in maintaining the integrity and punctuality of this pivotal process.",
       "target_words": [
@@ -55401,13 +55430,14 @@
           "answer": "A",
           "explain": "ĐÁP ÁN ĐÚNG LÀ A (cooperation = sự hợp tác). 'Full cooperation' = sự hợp tác trọn vẹn. B (tranh chấp), C (do dự), D (sự chểnh mảng/cẩu thả) đều sai lệch ngữ nghĩa."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 31,
       "title": "[VSTEP B2 - Đục Lỗ] The Rise of Digital Nomadism and Remote Workspaces",
       "category": "CLOZE",
-      "level": "VSTEP B2",
+      "level": "B2",
       "source_reference": "VSTEP B2-C1 Reading Practice - Cloze Test Part 1",
       "content": "The rapid expansion of high-speed wireless connectivity and cloud collaboration platforms has accelerated the phenomenon known as 'digital nomadism'. Rather than being bound to a conventional brick-and-mortar office, millions of global professionals now elect to work remotely while traveling across international [1] ______. \n\nSoutheast Asian destinations such as Da Nang, Chiang Mai, and Bali have emerged as premier hubs for remote workers, largely owing to their affordable cost of living, culinary richness, and scenic coastal landscapes. In response to this influx, municipal authorities and private enterprises have established hundreds of modern co-working hubs that provide uninterrupted fiber-optic internet, conference pods, and networking spaces. \n\nHowever, this untethered lifestyle is not [2] ______ its drawbacks. Frequent relocation often induces feelings of loneliness and chronic fatigue. Furthermore, remote professionals must navigate Byzantine tax regulations and frequently face precarious legal statuses, as standard tourist visas formally prohibit foreign nationals from engaging in [3] ______ employment while residing in the host territory.\n\nTo address these ambiguities, progressive governments are increasingly rolling out specialized 'Digital Nomad Visas'. These permits provide international knowledge workers with legal residency for up to two years [4] ______ condition that they demonstrate a stable foreign income threshold. By legalizing their status, host nations can stimulate local hospitality sectors [5] ______ mitigating the risk of unregulated tax evasion.",
       "target_words": [
@@ -55475,13 +55505,14 @@
           "answer": "A",
           "explain": "ĐÁP ÁN ĐÚNG LÀ A. 'While + V-ing' chỉ hai hành động xảy ra đồng thời mang tính hỗ trợ nhau: vừa kích thích ngành dịch vụ khách sạn địa phương đồng thời vừa giảm thiểu rủi ro trốn thuế."
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 32,
       "title": "[IELTS Academic - TFNG] The Cognitive Neuroscience of Bilingualism",
       "category": "IELTS",
-      "level": "Band 8.0",
+      "level": "B1",
       "source_reference": "Cambridge IELTS Academic Practice - Cognitive Science",
       "content": "For the greater part of the twentieth century, pedagogical theorists and child psychologists harbored the suspicion that raising children in a bilingual environment constituted a formidable cognitive impediment. It was widely feared that exposing an infant's pliable brain to competing linguistic codes would inevitably trigger cross-linguistic contamination, precipitate severe speech delays, and diminish intellectual acumen. Early twentieth-century psychometric tests appeared to validate these grim forebodings, repeatedly showing that monolingual children outperformed their bilingual counterparts in vocabulary breadth and standardized problem-solving assessments.\n\nHowever, subsequent methodological scrutiny revealed that those primitive studies were compromised by egregious systemic flaws. Early researchers routinely failed to match bilingual immigrant children with their monolingual peers in socioeconomic status, nutritional security, or formal parental schooling. When linguist Ellen Bialystok and contemporary neuroscientists re-examined the question with rigorous randomized controls in the late 1980s, the purported 'bilingual handicap' evaporated.\n\nFar from impairing intellect, lifelong bilingualism confers profound structural and executive advantages. Because both languages remain perpetually active within the bilingual brain even when only one is actively vocalized, the prefrontal cortex must continuously engage executive control mechanisms: inhibiting the non-target language, monitoring phonological shifts, and toggling cognitive attention. Over decades, this relentless mental exertion builds robust 'cognitive reserve'.\n\nAstonishingly, epidemiological surveys conducted across multiple international cohorts have demonstrated that lifelong bilingual individuals manifest symptoms of neurodegenerative pathologies—such as Alzheimer's dementia—an average of four to five years later than demographically matched monolinguals. Although bilingualism does not prevent the underlying neuropathological accumulation of amyloid plaques and tau tangles, the enhanced density of white matter tracts enables the bilingual brain to compensate for anatomical damage far more resiliently.",
       "target_words": [
@@ -55536,13 +55567,14 @@
           "answer": "B",
           "explain": "ĐÁP ÁN LÀ B. Đoạn 3 khẳng định: 'Because both languages remain perpetually active... the prefrontal cortex must continuously engage executive control mechanisms: inhibiting the non-target language... and toggling cognitive attention.'"
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 33,
       "title": "[VSTEP C1] Artificial Intelligence Ethics in Medical Diagnostics",
       "category": "VSTEP",
-      "level": "VSTEP C1",
+      "level": "B1",
       "source_reference": "VSTEP Level C1 Academic Reading Comprehension",
       "content": "The deployment of deep-learning neural networks in healthcare has yielded diagnostic breakthroughs once considered science fiction. Deep convolutional algorithms trained on millions of annotated radiography scans can now identify malignant pulmonary nodules, diabetic retinopathy, and subtle dermatological melanomas with diagnostic accuracy that matches or occasionally surpasses board-certified radiologists. \n\nProponents assert that algorithmic diagnostics democratize high-tier clinical medicine, particularly in geographically isolated or under-resourced rural clinics where specialized radiologists are virtually absent. A cloud-connected ultrasound probe paired with an on-device neural network allows an auxiliary nurse to detect congenital heart defects in newborns within seconds, facilitating prompt triage and life-saving surgical intervention.\n\nNevertheless, bioethicists and health jurists express mounting apprehension regarding the opaque 'black box' architecture of deep learning models. Unlike classical rule-based software, neural networks calibrate millions of internal weights across hundreds of hidden layers. Consequently, they cannot provide a clear deductive explanation detailing precisely why a particular diagnostic classification was reached. When an algorithm erroneously misdiagnoses an aggressive lymphoma as a benign infection, apportioning liability becomes a convoluted legal quagmire: Does culpability reside with the attending clinician, the software engineering conglomerate, or the hospital administrator who purchased the license?\n\nFurthermore, algorithmic systems inherently reflect the demographic contours of their training datasets. If an automated dermatology model is predominantly trained on clinical imagery from light-skinned patients of European descent, its diagnostic sensitivity deteriorates precipitously when evaluating lesions on individuals with deeply pigmented skin tones. Mitigating these disparities necessitates mandatory multi-center demographic auditing and strict algorithmic transparency standards prior to commercial licensure.",
       "target_words": [
@@ -55600,13 +55632,14 @@
           "answer": "B",
           "explain": "ĐÁP ÁN ĐÚNG LÀ B. Đoạn 4 chỉ rõ: 'If an automated dermatology model is predominantly trained on clinical imagery from light-skinned patients... its diagnostic sensitivity deteriorates precipitously when evaluating lesions on individuals with deeply pigmented skin tones.'"
         }
-      ]
+      ],
+      "type": "comprehension"
     },
     {
       "id": 34,
       "title": "[TOEIC Part 7] Cross-Border Supply Chain Logistics & Port Congestion Advisory",
       "category": "TOEIC",
-      "level": "TOEIC 750+",
+      "level": "C1",
       "source_reference": "ETS TOEIC Reading Part 7 - Multi-paragraph Business Advisory",
       "content": "PACIFIC MARITIME FREIGHT CONSORTIUM\nOPERATIONAL NOTICE TO IMPORTERS & EXPORTERS\n\nIssued: October 14, 2026\nDistribution: All Verified Freight Forwarding Clients\n\nDue to protracted labor renegotiations and unscheduled dredging operations at the Port of Long Beach, vessel berthing delays have reached an unprecedented average of 8.4 business days. Container dwell times at regional intermodal rail yards have similarly expanded, creating acute bottlenecks for inbound consumer electronics and automotive assemblies arriving from East Asian manufacturing centers.\n\nTo mitigate compounding demurrage charges and avoid catastrophic production standstills, Pacific Maritime Freight strongly urges all procurement directors to consider the following mitigation pathways:\n\n1. Inland Port Routing: Where feasible, consignments should be rerouted through our Pacific Northwest gateways (Tacoma or Seattle), which are currently operating at 74 percent container yard capacity with zero anchorage wait times.\n2. Expedited Air Freight Contingency: For high-value or time-sensitive components nearing production deadlines, our chartered cargo flights between Taipei, Incheon, and Chicago O'Hare are operating daily with guaranteed 48-hour customs clearance.\n3. Extended Warehousing Grace Periods: Effective immediately, Pacific Maritime Freight is waiving storage fees for the initial five business days following cargo unlading at our bonded fulfillment hubs in Ontario, California.\n\nOur 24-hour logistics taskforce remains available to restructure your routing manifests. Direct all schedule adjustment inquiries to our Maritime Operations Center at dispatch@pacificfreight-con.com.",
       "target_words": [
@@ -55650,6 +55683,937 @@
           ],
           "answer": "A",
           "explain": "ĐÁP ÁN ĐÚNG LÀ A. Mục 3 nêu rõ: '...waiving storage fees for the initial five business days following cargo unlading at our bonded fulfillment hubs...'"
+        }
+      ],
+      "type": "comprehension"
+    },
+    {
+      "id": 35,
+      "title": "Passage 1: Energy Drinks and Health Concerns (Đề thi thử THPTQG & VSTEP B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "It used to be that people would drink coffee or tea in the morning to pick them up and get them going for the day. Then cola drinks hit the market. With lots of caffeine and sugar, these beverages soon became the pick-me-up of choice for many adults and teenagers. Now drink companies are putting out so-called 'energy drinks'. These beverages have the specific aim of giving tired consumers more energy.\n\nOne example of a popular energy drink is Red Bull. The company that puts out this beverage has stated in interviews that Red Bull is not a thirst quencher, nor is it meant to be a fluid replacement drink for athletes. Instead, the beverage is meant to revitalize a tired consumer's body and mind. In order to do this, the makers of Red Bull, and other energy drinks, typically add vitamins and certain chemicals to their beverages. The added chemicals are like chemicals that the body naturally produces for energy.\n\nThe vitamins, chemicals, caffeine, and sugar found in these beverages all seem like a sure bet to give a person energy. Health professionals are not so sure, though. For one thing, there is not enough evidence to show that all of the vitamins added to energy drinks actually raise a person's energy level. Another problem is that there are so many things in the beverages. Nobody knows for sure how all of the ingredients in energy drinks work together. Dr. Brent Bauer, one of the directors at the Mayo Clinic in the US, cautions people about believing all the claims energy drinks make.",
+      "questions": [
+        {
+          "id": "p1_q1",
+          "question": "The beverages mentioned in the first paragraph aim to give consumers ______.",
+          "options": [
+            "A. caffeine",
+            "B. sugar",
+            "C. more energy",
+            "D. more choices"
+          ],
+          "answer": 2,
+          "explain": "Đoạn 1 nêu rõ: 'These beverages have the specific aim of giving tired consumers more energy.'"
+        },
+        {
+          "id": "p1_q2",
+          "question": "The word 'revitalize' in the second paragraph is closest in meaning to ______.",
+          "options": [
+            "A. refresh and energize",
+            "B. calm down",
+            "C. slow down",
+            "D. hydrate"
+          ],
+          "answer": 0,
+          "explain": "'Revitalize' nghĩa là hồi sinh, tiếp thêm sinh lực, làm mới mẻ tinh thần và thể chất (refresh and energize)."
+        },
+        {
+          "id": "p1_q3",
+          "question": "According to the passage, why are health professionals cautious about energy drinks?",
+          "options": [
+            "A. They contain too much cold water",
+            "B. There is insufficient evidence about how combined ingredients affect the human body",
+            "C. Energy drinks are illegal in most countries",
+            "D. They do not have pleasant taste"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 3 chỉ ra: 'Nobody knows for sure how all of the ingredients in energy drinks work together. ... the mix of ingredients could have a negative impact on the body.'"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "title": "Passage 2: Extreme Weather Patterns and Heatwaves (VSTEP B1 - Climate Science)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "Extreme weather events are becoming more frequent and severe worldwide. In the summer of 2003, Europe experienced one of the hottest summers on record. The heatwave was so intense that it caused thousands of heat-related deaths across France, Italy, and Spain. Rivers dried up, crops wilted in the fields, and forest fires raged across southern Europe.\n\nScientists state that extreme heatwaves like the one in 2003 are no longer isolated natural anomalies. While hot summers have always occurred occasionally, human-induced climate change has made such extreme conditions at least twice as likely. High greenhouse gas concentrations trap excess heat within the lower atmosphere, preventing overnight cooling and creating prolonged heat domes over populated continents.\n\nCities are particularly vulnerable to extreme heat due to the urban heat island effect. Concrete structures, asphalt roadways, and buildings absorb solar radiation during daylight hours and release it slowly at night. Urban planners are now actively exploring solutions such as planting tree canopies, constructing green rooftops, and using reflective pavement materials to mitigate rising temperatures and protect vulnerable populations.",
+      "questions": [
+        {
+          "id": "p2_q1",
+          "question": "What happened across Europe during the summer of 2003?",
+          "options": [
+            "A. A record-breaking freeze damaged all crops",
+            "B. A severe heatwave caused thousands of deaths and widespread agricultural damage",
+            "C. Intense rainfall flooded major river valleys",
+            "D. Strong hurricanes destroyed coastal towns"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1 nêu: 'The heatwave was so intense that it caused thousands of heat-related deaths across France, Italy, and Spain. Rivers dried up, crops wilted...'"
+        },
+        {
+          "id": "p2_q2",
+          "question": "The term 'urban heat island effect' refers to ______.",
+          "options": [
+            "A. An actual island in the Pacific ocean",
+            "B. Cities remaining significantly warmer than rural surroundings due to concrete and asphalt absorption",
+            "C. Artificial heaters used in city parks",
+            "D. Underground magma chambers near cities"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 3 giải thích: 'Concrete structures, asphalt roadways, and buildings absorb solar radiation during daylight hours and release it slowly at night.'"
+        },
+        {
+          "id": "p2_q3",
+          "question": "Which of the following is NOT mentioned as an urban cooling solution?",
+          "options": [
+            "A. Planting tree canopies",
+            "B. Building green rooftops",
+            "C. Installing outdoor air conditioners on streets",
+            "D. Using reflective pavement materials"
+          ],
+          "answer": 2,
+          "explain": "Đoạn cuối liệt kê: planting tree canopies, green rooftops, reflective pavement. Không có phương án gắn điều hòa ngoài đường phố."
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "title": "Passage 3: Marine Mammals and Whale Social Intelligence (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "Whales live in the ocean but, in terms of behavior and emotional depth, they are far more similar to humans and land mammals than to fish. They live in cohesive family pods and travel together when migrating from cold feeding grounds to warmer tropical waters for breeding. Young calves stay close to their mothers for up to fifteen years, learning navigation routes, hunting techniques, and dialect songs unique to their specific clan.\n\nMarine biologists have observed that whales possess remarkable empathy. When a member of the pod is ill, wounded, or stranded by shallow tides, other whales will often remain by its side, gently supporting it near the surface so it can continue breathing through its blowhole. In famous historical rescue operations, humans and international rescue ships have worked alongside local communities to cut channels through Arctic ice, freeing trapped gray whales and guiding them back to open waters.",
+      "questions": [
+        {
+          "id": "p3_q1",
+          "question": "How long can young whale calves remain with their mothers?",
+          "options": [
+            "A. Only a few weeks",
+            "B. Up to fifteen years",
+            "C. Until the first winter",
+            "D. For less than six months"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1 nêu: 'The young stay with their parents for as long as fifteen years.'"
+        },
+        {
+          "id": "p3_q2",
+          "question": "Whales display empathetic behavior when a pod member is injured by ______.",
+          "options": [
+            "A. Abandoning it immediately to save the rest of the pod",
+            "B. Supporting it near the surface so it can breathe through its blowhole",
+            "C. Fighting against each other",
+            "D. Swimming to the deepest parts of the ocean"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2 nêu rõ: 'other whales will often remain by its side, gently supporting it near the surface so it can continue breathing through its blowhole.'"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "title": "Passage 4: École 42 - The Tuition-free Coding Revolution (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "It's called 42 — a name inspired by the answer to the ultimate question of life, the universe, and everything from the sci-fi classic 'The Hitchhiker's Guide to the Galaxy'. 42 was founded in Paris by French technology billionaire Xavier Niel to challenge traditional educational systems.\n\nAt 42, there are no teachers, no textbooks, no tuition fees, and no formal academic prerequisites. Students do not sit in lecture halls listening to professors. Instead, the school utilizes a peer-to-peer, project-based learning model. Students are presented with challenging software development assignments — such as building a functional web server or designing an algorithm — and must collaborate, research online, and evaluate one another's source code.\n\nThe campus is open 24 hours a day, 7 days a week. Progression through the curriculum resembles a video game: students earn experience points by successfully completing programming projects and peer code reviews, advancing through 21 skill levels. Over 95% of graduates secure high-paying engineering positions at global tech firms before even finishing the final stage.",
+      "questions": [
+        {
+          "id": "p4_q1",
+          "question": "What is unique about the learning environment at École 42?",
+          "options": [
+            "A. Students have strict uniforms and mandatory daily lectures",
+            "B. There are no professors or tuition fees; learning is peer-to-peer and project-based",
+            "C. It only accepts students who already hold a PhD in computer science",
+            "D. All classes are conducted via satellite radio"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2 chỉ rõ: 'At 42, there are no teachers, no textbooks, no tuition fees... Instead, the school utilizes a peer-to-peer, project-based learning model.'"
+        },
+        {
+          "id": "p4_q2",
+          "question": "How do students advance through the school's curriculum?",
+          "options": [
+            "A. By taking monthly written paper exams",
+            "B. By earning experience points like in a video game through project completion",
+            "C. By paying tuition fees for each higher level",
+            "D. By voting for their favorite teachers"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 3 chỉ rõ: 'Progression through the curriculum resembles a video game: students earn experience points by successfully completing programming projects...'"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Passage 5: Historical Evolution of Marriage and Social Contracts (Level B2)",
+      "level": "B2",
+      "type": "comprehension",
+      "content": "Marriage nowadays is predominantly viewed in modern democratic societies as a personal choice founded on emotional compatibility and mutual affection. Historically, however, marriage was primarily an economic transaction, a political alliance, and a social contract necessary for family survival.\n\nCenturies ago, when infant mortality was high and average life expectancies rarely exceeded forty years, marriage united landholdings, agricultural labor, and family status. In medieval Europe and feudal Asia, marriages were arranged by family patriarchs while children were still young. Romantic love was often considered a dangerously volatile basis for an institution responsible for property inheritances and royal succession.\n\nIt was not until the Industrial Revolution in the late 18th and 19th centuries that wage-earning young adults gained economic independence from parental landholdings. This financial autonomy enabled individuals to choose their own partners based on personal affection, laying the foundations for the modern companionate marriage.",
+      "questions": [
+        {
+          "id": "p5_q1",
+          "question": "What was the primary function of marriage in ancient and medieval societies?",
+          "options": [
+            "A. Romantic self-expression and personal leisure",
+            "B. An economic transaction and political alliance to consolidate property and status",
+            "C. A temporary contract lasting only five years",
+            "D. A way to travel between different countries"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1 và 2 nêu: 'marriage was primarily an economic transaction, a political alliance, and a social contract necessary for family survival.'"
+        },
+        {
+          "id": "p5_q2",
+          "question": "Which historical development enabled individuals to choose partners based on personal affection?",
+          "options": [
+            "A. The invention of the printing press",
+            "B. The Industrial Revolution providing wage-earning financial autonomy",
+            "C. The collapse of all royal families",
+            "D. The discovery of Antarctica"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 3: 'It was not until the Industrial Revolution in the late 18th and 19th centuries that wage-earning young adults gained economic independence... This financial autonomy enabled individuals to choose their own partners...'"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "title": "Passage 6: Saving the Florida Panther Through Tracking Technology (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "The Florida panther is one of the most endangered felines on Earth. By the late 1980s, habitat destruction, expanding highway networks, and agricultural encroachment had reduced the wild population in southern Florida to fewer than thirty individuals. The species was on the brink of genetic collapse.\n\nWildlife conservationists initiated an ambitious recovery program utilizing modern telemetry and GPS tracking collars. Biologists safely tranquilize panthers, conduct comprehensive health checkups, and attach lightweight solar-powered collars. These transmitters broadcast hourly geographic coordinates to satellite monitoring stations, providing critical data on panther hunting corridors, territorial boundaries, and highway crossing patterns.\n\nArmed with this spatial data, highway engineers designed underpasses beneath major motorways and installed wildlife fencing. Today, the panther population has rebounded to over two hundred individuals, serving as a testament to the power of tracking technology in wildlife preservation.",
+      "questions": [
+        {
+          "id": "p6_q1",
+          "question": "What caused the Florida panther population to fall to fewer than thirty individuals?",
+          "options": [
+            "A. Extreme cold weather in the tropics",
+            "B. Habitat destruction, expanding highways, and agricultural encroachment",
+            "C. Lack of freshwater in Florida",
+            "D. Disease brought by domestic cats"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1: 'habitat destruction, expanding highway networks, and agricultural encroachment had reduced the wild population...'"
+        },
+        {
+          "id": "p6_q2",
+          "question": "How have highway engineers helped protect panthers from vehicular collisions?",
+          "options": [
+            "A. By closing all highways at night",
+            "B. By building wildlife underpasses beneath roads and installing protective fencing",
+            "C. By banning trucks across the entire state",
+            "D. By moving all panthers to zoos"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 3: 'highway engineers designed underpasses beneath major motorways and installed wildlife fencing.'"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "title": "Passage 7: Biodiversity Loss and Ecological Ethics (Level B2)",
+      "level": "B2",
+      "type": "comprehension",
+      "content": "Biodiversity loss represents one of the most profound ethical and ecological crises of our era. Unlike previous mass extinction events in Earth's geological past — which were precipitated by asteroid impacts or massive volcanic eruptions — the current sixth extinction wave is driven entirely by human activities: deforestation, industrial overfishing, pollution, and climate change.\n\nEcologists emphasize that ecosystems rely on intricate food webs. The loss of a single apex predator or pollinator species can trigger trophic cascades, destabilizing entire habitats and jeopardizing essential ecosystem services such as water purification, soil fertilization, and atmospheric carbon sequestration. Conserving biodiversity is not merely an aesthetic preference; it is a fundamental prerequisite for human survival.",
+      "questions": [
+        {
+          "id": "p7_q1",
+          "question": "How does the current extinction wave differ from previous mass extinctions?",
+          "options": [
+            "A. It affects only plants but not animals",
+            "B. It is driven primarily by anthropogenic activities rather than natural geological disasters",
+            "C. It is occurring much more slowly than ever before",
+            "D. It is confined entirely to the Arctic circle"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1: 'the current sixth extinction wave is driven entirely by human activities... Unlike previous mass extinction events...'"
+        },
+        {
+          "id": "p7_q2",
+          "question": "What is a 'trophic cascade' mentioned in the passage?",
+          "options": [
+            "A. A mountain waterfall with clean drinking water",
+            "B. An ecological chain reaction caused by the removal of a key species that destabilizes an entire ecosystem",
+            "C. A type of agricultural pesticide",
+            "D. An increase in fish populations"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2 giải thích: 'The loss of a single apex predator or pollinator species can trigger trophic cascades, destabilizing entire habitats...'"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "title": "Passage 8: The Cultural Phenomenon of Superhero Comics (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "In the late 1930s, during the economic turmoil of the Great Depression and the impending threat of World War II, a new medium emerged in American popular culture: the superhero comic book. When Superman first appeared in Action Comics #1 in 1938, followed by Batman in 1939 and Captain America in 1941, readers were captivated by colorful heroes who fought against injustice, corruption, and tyranny.\n\nDecades later, Stan Lee and Marvel Comics revolutionized the genre by introducing characters with relatable human flaws. Spider-Man was a high school student struggling with homework, relationships, and unpaid rent. The X-Men served as a powerful allegory for civil rights and tolerance in a society fearful of differences. Today, superhero stories have evolved from disposable pulp paper into multi-billion dollar cinematic franchises shaping global cultural conversations.",
+      "questions": [
+        {
+          "id": "p8_q1",
+          "question": "Why did early superhero comics resonate so strongly with readers in the 1930s?",
+          "options": [
+            "A. They provided an escape during the Great Depression and offered heroes fighting injustice",
+            "B. They were given away for free with breakfast cereal",
+            "C. They were mandatory reading in all public schools",
+            "D. They were only written in Latin"
+          ],
+          "answer": 0,
+          "explain": "Đoạn 1: 'during the economic turmoil of the Great Depression... readers were captivated by colorful heroes who fought against injustice, corruption, and tyranny.'"
+        },
+        {
+          "id": "p8_q2",
+          "question": "How did Marvel Comics innovate superhero storytelling in the 1960s?",
+          "options": [
+            "A. By making superheroes completely invulnerable aliens with no problems",
+            "B. By creating characters with relatable human vulnerabilities and everyday struggles",
+            "C. By eliminating all dialogue and using only sound effects",
+            "D. By writing comics exclusively for adults over sixty"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2: 'Stan Lee and Marvel Comics revolutionized the genre by introducing characters with relatable human flaws.'"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "title": "Passage 9: Microplastics in Marine Ecosystems and the Food Chain (Level B2)",
+      "level": "B2",
+      "type": "comprehension",
+      "content": "Every year, an estimated eight million metric tons of plastic waste enter the world's oceans. Over time, sunlight, oceanic waves, and mechanical abrasion break down large plastic bottles and fishing gear into microscopic particles known as microplastics — fragments measuring less than five millimeters across.\n\nMicroplastics represent an insidious ecological threat because they are easily ingested by zooplankton, crustaceans, and small schooling fish. As larger predatory fish, seabirds, and marine mammals consume these organisms, toxic chemicals and hydrophobic pollutants adhere to the plastics, bioaccumulating at higher trophic levels. Recent medical studies have detected microplastic particles in human bloodstream samples and sea salt, sparking international calls for enforceable plastic reduction treaties.",
+      "questions": [
+        {
+          "id": "p9_q1",
+          "question": "What are microplastics?",
+          "options": [
+            "A. Special biodegradable packaging made from seaweed",
+            "B. Tiny plastic fragments smaller than five millimeters resulting from the breakdown of larger plastics",
+            "C. Microscopic robots cleaning the ocean",
+            "D. Metal coins found on the seabed"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1: 'break down large plastic bottles and fishing gear into microscopic particles known as microplastics — fragments measuring less than five millimeters across.'"
+        },
+        {
+          "id": "p9_q2",
+          "question": "The process of 'bioaccumulation' described in paragraph 2 means that ______.",
+          "options": [
+            "A. Plastics float to the surface of the water",
+            "B. Toxins become increasingly concentrated in organisms higher up the food chain",
+            "C. Fish produce their own vitamins",
+            "D. Plastic completely dissolves into harmless water"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2 giải thích: 'toxic chemicals and hydrophobic pollutants adhere to the plastics, bioaccumulating at higher trophic levels.'"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "title": "Passage 10: Child Naming Customs Across Cultures (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "Naming a newborn child is one of the most culturally significant rituals celebrated by human societies. While naming practices vary dramatically across continents, they almost universally reflect communal values, ancestral reverence, and hopes for the child's future character.\n\nIn many East Asian cultures, names are chosen meticulously according to astrological elements, birth dates, and the meanings of Chinese characters signifying virtues such as benevolence, wisdom, or perseverance. In various West African traditions, such as among the Akan people of Ghana, infants automatically receive a 'day name' corresponding to the specific day of the week on which they were born, accompanied by beliefs regarding their innate temperament. In Western naming conventions, children are frequently given patronymics or the names of beloved grandparents to preserve intergenerational memory.",
+      "questions": [
+        {
+          "id": "p10_q1",
+          "question": "In the Akan tradition of Ghana, how are infants traditionally named?",
+          "options": [
+            "A. Based on the astrological sign of their father",
+            "B. Using a 'day name' corresponding to the specific day of the week they were born",
+            "C. By picking a random word from an ancient poem",
+            "D. By letting the child pick an object"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2 nêu rõ: 'among the Akan people of Ghana, infants automatically receive a day name corresponding to the specific day of the week on which they were born.'"
+        },
+        {
+          "id": "p10_q2",
+          "question": "What is the common underlying purpose of naming traditions across different cultures?",
+          "options": [
+            "A. To confuse foreign visitors",
+            "B. To reflect communal values, ancestral honor, and aspirations for the child's life",
+            "C. To determine the child's tax rate",
+            "D. To shorten official documents"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1 nêu: 'they almost universally reflect communal values, ancestral reverence, and hopes for the child's future character.'"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "title": "Passage 11: Cloze Test - Sustainable Architecture and Green Cities (Level B1)",
+      "level": "B1",
+      "type": "cloze",
+      "content": "As global urban populations continue to expand, architects and urban planners are reimagining how modern buildings interact with the natural environment. Sustainable architecture focuses on minimizing the negative environmental impact of buildings by improving energy (1) ______ and utilizing eco-friendly construction materials.\n\nGreen buildings often incorporate solar panels, passive cross-ventilation, and rainwater harvesting systems. (2) ______ reducing operational energy expenses, these features decrease municipal reliance on fossil fuels. Furthermore, living walls and rooftop gardens provide natural insulation while offering urban residents accessible green spaces. Studies show that proximity to indoor plants and natural sunlight significantly (3) ______ worker productivity and psychological well-being. By embracing ecological building design, future metropolises can achieve a harmonious balance between urban growth and environmental stewardship.",
+      "questions": [
+        {
+          "id": "p11_q1",
+          "question": "Fill in blank (1): 'improving energy ______'",
+          "options": [
+            "A. efficiency",
+            "B. exhaustion",
+            "C. expense",
+            "D. emptiness"
+          ],
+          "answer": 0,
+          "explain": "Collocation chuẩn: 'energy efficiency' (hiệu quả năng lượng)."
+        },
+        {
+          "id": "p11_q2",
+          "question": "Fill in blank (2): '______ reducing operational energy expenses...'",
+          "options": [
+            "A. In addition to",
+            "B. In spite of",
+            "C. Regardless of",
+            "D. Because of"
+          ],
+          "answer": 0,
+          "explain": "'In addition to + V-ing' mang nghĩa 'Bên cạnh việc / Ngoài việc giảm chi phí năng lượng...'."
+        },
+        {
+          "id": "p11_q3",
+          "question": "Fill in blank (3): 'significantly ______ worker productivity'",
+          "options": [
+            "A. boosts",
+            "B. damages",
+            "C. hinders",
+            "D. weakens"
+          ],
+          "answer": 0,
+          "explain": "Cây xanh và ánh sáng tự nhiên giúp tăng cường (boosts) năng suất làm việc."
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "title": "Passage 12: Cloze Test - Workplace Communication in Remote Teams (Level B1)",
+      "level": "B1",
+      "type": "cloze",
+      "content": "The widespread transition toward remote and hybrid work models has dramatically altered how corporate teams collaborate. Without the spontaneous watercooler chats and physical proximity of traditional offices, organizations must establish clear digital communication (1) ______.\n\nSuccessful distributed teams prioritize asynchronous communication, where team members are not pressured to provide instantaneous responses. Clear project management dashboards and documented task guidelines prevent ambiguity and allow international colleagues operating across different time (2) ______ to work cohesively. However, remote leaders must also safeguard against digital burnout by encouraging staff to completely disconnect outside designated work hours. Building an inclusive remote culture ultimately (3) ______ on trust, accountability, and psychological safety.",
+      "questions": [
+        {
+          "id": "p12_q1",
+          "question": "Fill in blank (1): 'establish clear digital communication ______'",
+          "options": [
+            "A. protocols",
+            "B. problems",
+            "C. punishments",
+            "D. delays"
+          ],
+          "answer": 0,
+          "explain": "'Communication protocols' (quy tắc / quy chuẩn giao tiếp)."
+        },
+        {
+          "id": "p12_q2",
+          "question": "Fill in blank (2): 'operating across different time ______'",
+          "options": [
+            "A. zones",
+            "B. lines",
+            "C. tracks",
+            "D. clocks"
+          ],
+          "answer": 0,
+          "explain": "Collocation chuẩn: 'time zones' (múi giờ)."
+        },
+        {
+          "id": "p12_q3",
+          "question": "Fill in blank (3): 'ultimately ______ on trust, accountability...'",
+          "options": [
+            "A. depends",
+            "B. focuses",
+            "C. insists",
+            "D. relies"
+          ],
+          "answer": 0,
+          "explain": "'Depends on' hoặc 'relies on' - ở đây 'depends on' phù hợp nhất với ngữ cảnh."
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "title": "Passage 13: Cloze Test - Sleep Hygiene and Memory Consolidation (Level B1)",
+      "level": "B1",
+      "type": "cloze",
+      "content": "Quality sleep is far from an idle state of unconsciousness; rather, it is a dynamic biological process essential for physical restoration and cognitive performance. While we sleep, the brain actively clears metabolic waste products and facilitates memory (1) ______.\n\nDuring deep slow-wave sleep and rapid eye movement (REM) cycles, newly acquired information is transferred from temporary holding areas in the hippocampus to stable neural networks in the cerebral cortex. Individuals who consistently (2) ______ sleep suffer from impaired attention spans, emotional volatility, and weakened immune defense. Establishing healthy sleep hygiene — such as maintaining a consistent bedtime schedule and avoiding blue-light screens before bed — plays an indispensable (3) ______ in lifelong brain health.",
+      "questions": [
+        {
+          "id": "p13_q1",
+          "question": "Fill in blank (1): 'facilitates memory ______'",
+          "options": [
+            "A. consolidation",
+            "B. confusion",
+            "C. deletion",
+            "D. distraction"
+          ],
+          "answer": 0,
+          "explain": "Thuật ngữ thần kinh học chuẩn: 'memory consolidation' (sự củng cố / cố định ký ức)."
+        },
+        {
+          "id": "p13_q2",
+          "question": "Fill in blank (2): 'individuals who consistently ______ sleep'",
+          "options": [
+            "A. prioritize",
+            "B. sacrifice",
+            "C. cherish",
+            "D. enjoy"
+          ],
+          "answer": 1,
+          "explain": "'Sacrifice sleep' nghĩa là hy sinh / thiếu ngủ, dẫn đến hậu quả giảm chú ý và suy yếu miễn dịch."
+        },
+        {
+          "id": "p13_q3",
+          "question": "Fill in blank (3): 'plays an indispensable ______ in lifelong brain health'",
+          "options": [
+            "A. role",
+            "B. game",
+            "C. risk",
+            "D. trap"
+          ],
+          "answer": 0,
+          "explain": "Collocation quen thuộc: 'play an indispensable role in...' (đóng vai trò không thể thiếu trong...)."
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "title": "Passage 14: Renewable Energy and Smart Grid Storage (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "The global energy sector is undergoing a profound transformation as nations shift away from polluting fossil fuels toward clean, renewable sources such as solar photovoltaics and offshore wind turbines. The cost of generating solar electricity has plummeted by over 80% over the past decade, rendering green energy cheaper than coal in most regions.\n\nHowever, a persistent obstacle confronting renewable power is intermittency: solar arrays generate electricity only when the sun is shining, and wind farms rely on changing atmospheric currents. To overcome this limitation, energy engineers are deploying utility-scale battery storage facilities and smart electrical grids. When energy production peaks during sunny mid-afternoon hours, surplus electricity is stored in lithium-ion or flow batteries. This stored power is subsequently injected into municipal power lines during evening peak demand periods, ensuring an uninterrupted and resilient supply.",
+      "questions": [
+        {
+          "id": "p14_q1",
+          "question": "What is the primary challenge associated with solar and wind energy mentioned in paragraph 2?",
+          "options": [
+            "A. The fuel is too expensive to extract",
+            "B. Intermittency, since generation depends on weather conditions and time of day",
+            "C. Solar panels emit toxic fumes",
+            "D. Windmills cannot be built near oceans"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2: 'a persistent obstacle confronting renewable power is intermittency: solar arrays generate electricity only when the sun is shining...'"
+        },
+        {
+          "id": "p14_q2",
+          "question": "How do battery storage systems solve the intermittency problem?",
+          "options": [
+            "A. By storing excess electricity during peak generation hours and releasing it during evening peak demand",
+            "B. By converting all electricity into coal",
+            "C. By making all light bulbs brighter",
+            "D. By stopping all wind completely"
+          ],
+          "answer": 0,
+          "explain": "Đoạn 2: 'surplus electricity is stored in lithium-ion or flow batteries. This stored power is subsequently injected into municipal power lines during evening peak demand...'"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "title": "Passage 15: The Psychology of Habit Formation and Dopamine (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "Why is it so effortless to scroll through social media for hours yet so arduous to maintain a daily morning exercise routine? Behavioral psychologists explain that habits are automated neurological loops formed by three core components: a cue, a routine, and a reward.\n\nWhen you encounter a familiar cue — such as hearing a notification chime or feeling momentarily bored — your brain anticipates an immediate dopamine reward. Dopamine is not simply the molecule of pleasure; it is the neurotransmitter of anticipation and motivation. Social media algorithms are deliberately engineered to provide unpredictable variable rewards, hooking the brain's reward circuitry in much the same manner as slot machines.\n\nTo build constructive habits like language learning or physical exercise, psychologists recommend 'habit stacking' — anchoring a new desired behavior immediately after an existing firmly established habit. For instance, declaring 'After I pour my morning coffee, I will review five English flashcards' creates a concrete trigger that eliminates decision fatigue and fosters consistency.",
+      "questions": [
+        {
+          "id": "p15_q1",
+          "question": "What role does dopamine play in habit formation according to behavioral psychologists?",
+          "options": [
+            "A. It puts the brain immediately to sleep",
+            "B. It acts as the neurotransmitter of anticipation, driving motivation and craving for the reward",
+            "C. It prevents humans from learning languages",
+            "D. It removes all emotional feelings"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2: 'Dopamine is not simply the molecule of pleasure; it is the neurotransmitter of anticipation and motivation.'"
+        },
+        {
+          "id": "p15_q2",
+          "question": "What is the technique of 'habit stacking'?",
+          "options": [
+            "A. Trying to do twenty different things at the same second",
+            "B. Linking a new desired habit directly to an existing established daily habit",
+            "C. Reading ten books all at once",
+            "D. Avoiding all morning routines"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 3: 'anchoring a new desired behavior immediately after an existing firmly established habit.'"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "title": "Passage 16: Telemedicine and Remote Healthcare Delivery (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "Telemedicine — the remote delivery of clinical services via high-speed telecommunications and digital video — has emerged as one of the most transformative advances in modern medicine. Accelerated by the global pandemic, virtual doctor consultations have transitioned from an experimental convenience into a standard pillar of healthcare systems.\n\nFor residents of remote rural towns or islands, accessing medical specialists once required days of burdensome travel and significant financial expense. Today, patients can securely upload vital signs recorded on home smartwatches, discuss treatment plans with top oncologists or cardiologists via encrypted video feeds, and receive electronic prescriptions at their neighborhood pharmacies within minutes.\n\nDespite its advantages, healthcare leaders note that telemedicine cannot entirely replace in-person physical examinations or complex emergency procedures. However, as diagnostic artificial intelligence and wearable health monitors become increasingly precise, remote care will expand preventative medicine and democratize medical access worldwide.",
+      "questions": [
+        {
+          "id": "p16_q1",
+          "question": "How has telemedicine benefited patients living in isolated rural communities?",
+          "options": [
+            "A. It eliminated the need for hospitals entirely",
+            "B. It allows them to consult with specialists remotely without requiring costly and exhausting long-distance travel",
+            "C. It gives them free medication without any consultation",
+            "D. It sends robotic doctors to live in their homes"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2: 'accessing medical specialists once required days of burdensome travel and significant financial expense. Today, patients can securely upload vital signs... and consult via video...'"
+        },
+        {
+          "id": "p16_q2",
+          "question": "What limitation of telemedicine is acknowledged in paragraph 3?",
+          "options": [
+            "A. It is too expensive for all doctors",
+            "B. It cannot completely replace in-person physical examinations and urgent procedures",
+            "C. It cannot be used on smartphones",
+            "D. It works only on sunny days"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 3: 'healthcare leaders note that telemedicine cannot entirely replace in-person physical examinations or complex emergency procedures.'"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "title": "Passage 17: Urban Vertical Farming and Food Security (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "By the year 2050, the human population is projected to reach approximately 9.7 billion people, requiring an estimated 70% increase in global agricultural food production. Traditional open-field agriculture already occupies nearly 40% of Earth's arable land surface and consumes 70% of freshwater withdrawals, making horizontal agricultural expansion ecologically unsustainable.\n\nIn response, agricultural technologists are developing vertical indoor farming systems located within urban warehouses and retrofitted shipping containers. In these facilities, leafy greens, herbs, and strawberries are cultivated on stacked vertical tiers without soil, utilizing aeroponic or hydroponic nutrient misting. Customized LED lighting panels supply the precise wavelengths of red and blue light required for optimal photosynthesis around the clock.\n\nVertical farms consume up to 95% less water than conventional farms, require zero chemical pesticides, and are immune to unpredictable droughts, pests, and frost. By producing crops directly inside metropolitan boundaries, vertical agriculture slashes food miles, reduces transport emissions, and ensures a stable supply of fresh nutritious food year-round.",
+      "questions": [
+        {
+          "id": "p17_q1",
+          "question": "What is the primary ecological problem with expanding traditional agriculture?",
+          "options": [
+            "A. People do not like to eat fresh fruits",
+            "B. It already uses 40% of arable land and 70% of freshwater, causing severe ecological strain",
+            "C. Traditional crops do not grow in sunlight",
+            "D. Farm tools are made only of wood"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1: 'Traditional open-field agriculture already occupies nearly 40% of Earth's arable land surface and consumes 70% of freshwater withdrawals...'"
+        },
+        {
+          "id": "p17_q2",
+          "question": "How do vertical farms achieve significant water savings?",
+          "options": [
+            "A. By not giving plants any water at all",
+            "B. By utilizing recirculating aeroponic and hydroponic nutrient misting in closed indoor environments",
+            "C. By using ocean saltwater directly on soil",
+            "D. By harvesting iceberg ice from Antarctica"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2 và 3: 'cultivated on stacked vertical tiers without soil, utilizing aeroponic or hydroponic nutrient misting... consume up to 95% less water...'"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "title": "Passage 18: The Cognitive Benefits of Bilingualism (Level B2)",
+      "level": "B2",
+      "type": "comprehension",
+      "content": "For much of the twentieth century, many educators and psychologists mistakenly believed that learning two languages during childhood was disadvantageous, arguing that managing dual vocabularies would overburden a young brain and delay cognitive development. Modern neuroscience has completely dismantled this misconception, revealing that bilingualism confers profound neurological benefits.\n\nBrain imaging studies demonstrate that when a bilingual individual communicates, both languages remain perpetually active in the subconscious mind. Consequently, the brain's executive control system — responsible for selective attention, task switching, and inhibitory control — is continually engaged in suppressing the irrelevant language while retrieving the appropriate words. This continuous mental workout strengthens the prefrontal cortex.\n\nFurthermore, epidemiological research indicates that lifelong bilingual individuals develop greater cognitive reserve, delaying the onset of Alzheimer's disease symptoms and clinical dementia by an average of four to five years compared to monolinguals with equivalent brain pathology.",
+      "questions": [
+        {
+          "id": "p18_q1",
+          "question": "What historical misconception about bilingual children is mentioned in paragraph 1?",
+          "options": [
+            "A. That bilingual children could run faster than monolinguals",
+            "B. That dual language acquisition would overburden the brain and hinder cognitive growth",
+            "C. That bilinguals could never learn mathematics",
+            "D. That bilingualism was impossible before age twenty"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1: 'many educators and psychologists mistakenly believed that learning two languages during childhood was disadvantageous, arguing that managing dual vocabularies would overburden a young brain...'"
+        },
+        {
+          "id": "p18_q2",
+          "question": "According to the passage, why do lifelong bilinguals have stronger executive function?",
+          "options": [
+            "A. Because they sleep twelve hours every night",
+            "B. Because their brain continually practices selective attention and inhibitory control to manage two active languages",
+            "C. Because they eat a specialized Mediterranean diet",
+            "D. Because they don't have to study grammar"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2: 'the brain's executive control system... is continually engaged in suppressing the irrelevant language while retrieving the appropriate words. This continuous mental workout strengthens the prefrontal cortex.'"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "title": "Passage 19: Artificial Intelligence and Medical Imaging Diagnostics (Level B2)",
+      "level": "B2",
+      "type": "comprehension",
+      "content": "Artificial intelligence and deep convolutional neural networks are catalyzing a paradigm shift in medical diagnostics, particularly in radiology, dermatology, and ophthalmology. By analyzing millions of historical chest X-rays, brain MRIs, and biopsy scans, machine learning algorithms can detect malignant tumors and micro-fractures with an accuracy rate matching or exceeding seasoned human physicians.\n\nIn diabetic retinopathy screening, AI models can inspect retinal fundus photographs in seconds, identifying microscopic microaneurysms and hemorrhages months before a patient notices visual impairment. Early detection enables timely laser intervention, preventing irreversible blindness in thousands of diabetic individuals each year.\n\nMedical ethicists emphasize that AI is designed to augment, rather than replace, human healthcare professionals. Physicians integrate AI diagnostic outputs with holistic patient clinical history, lifestyle contexts, and compassionate bedside care, establishing a powerful collaborative symbiosis between clinician empathy and computational precision.",
+      "questions": [
+        {
+          "id": "p19_q1",
+          "question": "In which medical domains has artificial intelligence demonstrated particularly high diagnostic accuracy?",
+          "options": [
+            "A. Dentistry, sports massage, and nutrition coaching",
+            "B. Radiology, dermatology, and ophthalmology (medical imaging analysis)",
+            "C. Manufacturing hospital bedframes",
+            "D. Administrative payroll accounting"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1: 'particularly in radiology, dermatology, and ophthalmology. By analyzing millions of historical chest X-rays, brain MRIs...'"
+        },
+        {
+          "id": "p19_q2",
+          "question": "What is the primary role of AI in healthcare according to medical ethicists?",
+          "options": [
+            "A. To replace human physicians and eliminate doctors' offices entirely",
+            "B. To augment human clinicians by combining computational precision with physician empathy and contextual care",
+            "C. To automatically invoice patients with higher fees",
+            "D. To prescribe random medicines"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 3: 'AI is designed to augment, rather than replace, human healthcare professionals... establishing a powerful collaborative symbiosis...'"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "title": "Passage 20: Cloze Test - Language Preservation and Indigenous Knowledge (Level B1)",
+      "level": "B1",
+      "type": "cloze",
+      "content": "Of the world's approximately 7,000 living languages, linguists estimate that nearly half could become extinct by the end of the 21st century. When an indigenous language ceases to be spoken, humanity loses more than just vocabulary; an entire library of unique cultural perspectives, oral mythologies, and environmental knowledge (1) ______.\n\nIndigenous languages often encode intricate ecological information about local medicinal plants, weather patterns, and wildlife behaviors that modern botanists and pharmacologists have not yet documented. To counteract language loss, communities and linguistic anthropologists are leveraging digital technology. Mobile apps, interactive talking dictionaries, and community immersion schools are empowering youth to (2) ______ their ancestral tongues. Preserving linguistic diversity is therefore an urgent imperative that enriches our collective human (3) ______.",
+      "questions": [
+        {
+          "id": "p20_q1",
+          "question": "Fill in blank (1): 'environmental knowledge ______'",
+          "options": [
+            "A. vanishes",
+            "B. flourishes",
+            "C. expands",
+            "D. multiplies"
+          ],
+          "answer": 0,
+          "explain": "Khi một ngôn ngữ biến mất, toàn bộ tri thức môi trường độc đáo cũng biến mất (vanishes)."
+        },
+        {
+          "id": "p20_q2",
+          "question": "Fill in blank (2): 'empowering youth to ______ their ancestral tongues'",
+          "options": [
+            "A. reclaim",
+            "B. discard",
+            "C. forget",
+            "D. reject"
+          ],
+          "answer": 0,
+          "explain": "Công nghệ giúp thế hệ trẻ lấy lại / học lại (reclaim) tiếng mẹ đẻ của tổ tiên."
+        },
+        {
+          "id": "p20_q3",
+          "question": "Fill in blank (3): 'enriches our collective human ______'",
+          "options": [
+            "A. heritage",
+            "B. garbage",
+            "C. burden",
+            "D. machinery"
+          ],
+          "answer": 0,
+          "explain": "'Human heritage' (di sản nhân loại)."
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "title": "Passage 21: CRISPR Gene Editing and Agricultural Resilience (Level C1)",
+      "level": "C1",
+      "type": "comprehension",
+      "content": "The advent of clustered regularly interspaced short palindromic repeats (CRISPR-Cas9) has ushered in an unprecedented epoch in molecular biology and genetic engineering. Derived from an ancient adaptive immune mechanism in bacteria, CRISPR operates as precise molecular scissors capable of introducing targeted double-strand breaks in genomic DNA, facilitating sequence insertion, excision, or transcriptional modification with nucleotide-level fidelity.\n\nIn agricultural agronomy, researchers are harnessing CRISPR to engineer staple crops with heightened resistance to abiotic stresses exacerbated by anthropogenic climatic shifts. By modulating specific drought-responsive genes in maize and salinity-tolerant alleles in Oryza sativa (rice), agronomists have cultivated varietals that maintain photosynthetic efficacy under severe water deficits without requiring exogenous transgenes from unrelated taxa.\n\nNotwithstanding its transformative agronomic potential, CRISPR gene editing prompts rigorous biosafety discourse. Regulatory bodies worldwide are grappling with whether gene-edited organisms lacking foreign transgenes should be classified under legacy genetically modified organism (GMO) statutes or governed by modernized, trait-based risk assessments.",
+      "questions": [
+        {
+          "id": "p21_q1",
+          "question": "What is the biological origin of the CRISPR-Cas9 mechanism?",
+          "options": [
+            "A. A synthetic chemical compound created in an industrial petroleum refinery",
+            "B. An ancient adaptive immune defense mechanism discovered in bacteria",
+            "C. A viral infection found exclusively in desert plants",
+            "D. A deep-sea coral protein"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1 nêu: 'Derived from an ancient adaptive immune mechanism in bacteria, CRISPR operates as precise molecular scissors...'"
+        },
+        {
+          "id": "p21_q2",
+          "question": "How does CRISPR enable agricultural crops to withstand severe climatic drought?",
+          "options": [
+            "A. By painting plant leaves with waterproof plastic coatings",
+            "B. By modifying endogenous drought-responsive alleles to preserve photosynthetic efficacy under water deficits",
+            "C. By making plants nocturnal so they don't need water",
+            "D. By transferring fish genes into all grain crops"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2: 'By modulating specific drought-responsive genes in maize and salinity-tolerant alleles in Oryza sativa (rice), agronomists have cultivated varietals that maintain photosynthetic efficacy under severe water deficits...'"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "title": "Passage 22: Quantum Computing and Cryptographic Paradigms (Level C1)",
+      "level": "C1",
+      "type": "comprehension",
+      "content": "Quantum computation diverges fundamentally from classical binary computing architectures. While silicon-based microprocessors manipulate discrete bits that exist deterministically as either 0 or 1, quantum computers leverage the principles of quantum mechanics — specifically superposition, entanglement, and quantum interference — to operate with quantum bits, or qubits.\n\nBecause a qubit can exist in a linear combination of states simultaneously, a quantum processor with N entangled qubits can represent 2^N states concurrently, unlocking exponential computational parallelism for specific problem domains. In cryptographic analysis, Shor's quantum algorithm can factorize large prime integers in polynomial time, rendering widespread public-key cryptosystems such as RSA and Elliptic Curve Cryptography (ECC) fundamentally vulnerable once fault-tolerant quantum hardware reaches adequate gate fidelities.\n\nIn response to this impending architectural obsolescence, government agencies and cybersecurity consortia are accelerating the standardization of Post-Quantum Cryptography (PQC). These post-quantum algorithms rely on mathematical lattices and multivariate polynomials that remain computationally intractable even for large-scale quantum machines.",
+      "questions": [
+        {
+          "id": "p22_q1",
+          "question": "What fundamental quantum property distinguishes qubits from classical computer bits?",
+          "options": [
+            "A. Qubits require zero electrical power and never produce heat",
+            "B. Qubits leverage quantum superposition and entanglement to represent a linear combination of states simultaneously",
+            "C. Qubits can only perform basic addition",
+            "D. Qubits are made out of mechanical gears"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1 và 2: 'While silicon-based microprocessors manipulate discrete bits that exist deterministically as either 0 or 1, quantum computers leverage... superposition, entanglement... to operate with qubits... can exist in a linear combination of states simultaneously.'"
+        },
+        {
+          "id": "p22_q2",
+          "question": "Why does Shor's algorithm pose an existential threat to current RSA cryptography?",
+          "options": [
+            "A. It steals physical hardware from server racks",
+            "B. It factorizes large composite integers into prime factors in polynomial time, breaking public-key encryption",
+            "C. It deletes the internet's routing tables",
+            "D. It generates random computer passwords"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2: 'Shor's quantum algorithm can factorize large prime integers in polynomial time, rendering widespread public-key cryptosystems such as RSA... fundamentally vulnerable.'"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "title": "Passage 23: The History and Impact of the Printing Press (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "Before the mid-fifteenth century in Europe, all books had to be painstakingly handwritten by scribes and monks. Producing a single copy of a large manuscript could take several years of laborious work, making books extraordinarily rare, expensive luxury items accessible only to royalty, wealthy nobles, and the high clergy. Knowledge remained tightly guarded, and literacy rates among ordinary citizens were negligible.\n\nAround 1440 in Mainz, Germany, Johannes Gutenberg revolutionized human communication by inventing the movable type printing press. By combining durable metal alloy type pieces, oil-based ink, and a modified wooden screw press originally used for pressing grapes, Gutenberg created a mechanism that could produce hundreds of uniform pages per day.\n\nThe consequences were astronomical. The rapid dissemination of affordable printed material spurred the Renaissance, accelerated scientific discourse during the Scientific Revolution, and fostered widespread public literacy. The printing press democratized knowledge, proving that technological innovation can transform the intellectual trajectory of human civilization.",
+      "questions": [
+        {
+          "id": "p23_q1",
+          "question": "Why were books so rare and costly before Johannes Gutenberg's invention?",
+          "options": [
+            "A. Paper had not yet been invented anywhere on Earth",
+            "B. Every manuscript had to be copied entirely by hand by scribes, taking years per volume",
+            "C. It was illegal for anyone to read except the King",
+            "D. Books were made exclusively out of gold plates"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1: 'all books had to be painstakingly handwritten by scribes and monks. Producing a single copy of a large manuscript could take several years...'"
+        },
+        {
+          "id": "p23_q2",
+          "question": "What major historical impact did the printing press have on European society?",
+          "options": [
+            "A. It caused all schools to shut down permanently",
+            "B. It democratized knowledge, fostered widespread public literacy, and accelerated the Renaissance",
+            "C. It replaced all handwritten letters with telegrams",
+            "D. It forced all citizens to become monks"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 3: 'spurred the Renaissance, accelerated scientific discourse during the Scientific Revolution, and fostered widespread public literacy. The printing press democratized knowledge...'"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "title": "Passage 24: Psychological Resilience in Mountaineering and Exploration (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "High-altitude mountaineering pushes human physiology and psychology to their utmost thresholds. When climbers ascend into the 'death zone' — elevations exceeding 8,000 meters above sea level — the atmospheric oxygen pressure drops to barely one-third of sea-level values. In this brutal environment, frostbite, altitude sickness, and sensory hallucinations threaten survival at every step.\n\nPsychologists studying elite mountaineers have found that physical fitness accounts for only a fraction of success; psychological resilience is the decisive differentiator. Elite climbers practice 'compartmentalization' and 'micro-goal setting'. Rather than obsessing over the daunting, freezing summit towering thousands of feet above, they focus exclusively on taking the next ten paces or reaching the next landmark rock ridge.\n\nFurthermore, high-altitude expedition teams cultivate radical mutual trust. Each member's life depends directly upon teammates securing safety ropes, assessing avalanche hazards, and speaking up honestly when frostbite or exhaustion compromises judgment. The mental fortitude forged on treacherous icy peaks offers profound insights into how humans can master stress and thrive under extreme adversity in everyday life.",
+      "questions": [
+        {
+          "id": "p24_q1",
+          "question": "What occurs physiologically in the high-altitude 'death zone' above 8,000 meters?",
+          "options": [
+            "A. Oxygen pressure drops to roughly one-third of sea-level values, severely threatening survival",
+            "B. Gravity becomes twice as strong as normal",
+            "C. Temperatures rise to extreme boiling heat",
+            "D. The air becomes 100% pure oxygen"
+          ],
+          "answer": 0,
+          "explain": "Đoạn 1: 'elevations exceeding 8,000 meters... the atmospheric oxygen pressure drops to barely one-third of sea-level values.'"
+        },
+        {
+          "id": "p24_q2",
+          "question": "Which psychological technique do elite climbers use to manage overwhelming stress during ascents?",
+          "options": [
+            "A. Closing their eyes and running as fast as possible",
+            "B. Micro-goal setting by concentrating only on the immediate next steps or rock ridge",
+            "C. Refusing to talk to any teammates",
+            "D. Expecting someone else to carry them to the top"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2: 'Elite climbers practice compartmentalization and micro-goal setting. Rather than obsessing over the daunting summit... they focus exclusively on taking the next ten paces...'"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "title": "Passage 25: Biomimicry - Nature-Inspired Engineering (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "For billions of years, biological evolution has operated as the planet's most prolific research and development laboratory. Through relentless natural selection, organisms have evolved remarkably elegant, energy-efficient solutions to complex structural and aerodynamic challenges. The discipline of biomimicry seeks to observe and replicate these biological marvels to solve human technological hurdles.\n\nA renowned example of biomimetic engineering occurred during the development of Japan's high-speed Shinkansen bullet train. As the original trains exceeded 200 kilometers per hour through tunnels, atmospheric air pressure built up in front of the train, creating a deafening sonic boom upon exiting. Engineering director and avid birdwatcher Eiji Nakatsu noticed that the kingfisher bird dives smoothly from air into dense water with virtually no splash. By redesigning the train's front nose to mimic the kingfisher's aerodynamic beak, engineers eliminated the sonic booms, reduced electrical power consumption by 15%, and increased travel speeds.\n\nFrom self-cleaning paint modeled on lotus leaves to surgical needles inspired by mosquito proboscises, biomimicry illustrates that the answers to our modern engineering puzzles are frequently already perfected in the living natural world.",
+      "questions": [
+        {
+          "id": "p25_q1",
+          "question": "What is the core philosophy of biomimicry?",
+          "options": [
+            "A. Catching wild animals and keeping them in high-tech laboratories",
+            "B. Studying and emulating nature's biological structures and processes to solve human engineering challenges",
+            "C. Building houses exclusively out of timber and straw",
+            "D. Eliminating all technological machinery"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 1: 'The discipline of biomimicry seeks to observe and replicate these biological marvels to solve human technological hurdles.'"
+        },
+        {
+          "id": "p25_q2",
+          "question": "How did the kingfisher bird inspire the redesign of Japan's Shinkansen bullet train?",
+          "options": [
+            "A. Its feather color inspired the train's blue paint",
+            "B. Its aerodynamic beak inspired the train's nose cone, eliminating tunnel sonic booms and reducing power use",
+            "C. Its wings inspired train windows that open upward",
+            "D. Its song replaced the train's emergency horn"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2: 'redesigning the train's front nose to mimic the kingfisher's aerodynamic beak, engineers eliminated the sonic booms, reduced electrical power consumption by 15%...'"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "title": "Passage 26: The Global Phenomenon of Coffee Culture (Level B1)",
+      "level": "B1",
+      "type": "comprehension",
+      "content": "Legend has it that coffee was first discovered in the ninth century in the lush highlands of Ethiopia by a goat herder named Kaldi. Kaldi noticed that his goats became extraordinarily energetic and danced after nibbling the bright red berries of an unfamiliar shrub. Curious, he sampled the berries himself and experienced an invigorating boost in stamina.\n\nFrom Ethiopia, coffee cultivation spread to the Arabian peninsula, where Sufi monasteries used the brew to stay alert during nocturnal prayer vigils. By the seventeenth century, coffee houses had proliferated across London, Paris, and Istanbul. Known as 'penny universities' because one could purchase a steaming cup of coffee and engage in stimulating intellectual discourse for a single penny, these establishments became vital hubs for philosophers, merchants, and scientists.\n\nToday, coffee is one of the most widely traded commodities on international exchanges, second only to crude petroleum. Beyond its chemical function as a morning stimulant, coffee represents a global social ritual that fosters conversation, community gatherings, and creative collaboration across diverse cultures.",
+      "questions": [
+        {
+          "id": "p26_q1",
+          "question": "Why were 17th-century London coffee houses nicknamed 'penny universities'?",
+          "options": [
+            "A. They charged thousands of pounds for tuition",
+            "B. For the price of a penny, customers could enjoy coffee and engage in rich intellectual conversations",
+            "C. They only accepted university professors as customers",
+            "D. They gave away free university diplomas with each cup"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 2: 'Known as penny universities because one could purchase a steaming cup of coffee and engage in stimulating intellectual discourse for a single penny...'"
+        },
+        {
+          "id": "p26_q2",
+          "question": "According to the passage, what is coffee's modern significance beyond giving an energy boost?",
+          "options": [
+            "A. It is used as fuel for rocket launches",
+            "B. It serves as a universal social ritual fostering community and creative collaboration",
+            "C. It is required by law in all corporate offices",
+            "D. It has completely replaced drinking water"
+          ],
+          "answer": 1,
+          "explain": "Đoạn 3: 'Beyond its chemical function as a morning stimulant, coffee represents a global social ritual that fosters conversation, community gatherings, and creative collaboration...'"
         }
       ]
     }

@@ -391,13 +391,10 @@ let missionRegistry = {
   history: {}
 };
 
+const TOTAL_ROADMAP_DAYS = 60; // Lộ trình cấp tốc 2 tháng (60 ngày)
+
 function getTotalMissionDays() {
-  const units = window.APP_DATA?.units || [];
-  let count = 0;
-  for (let u of units) {
-    if (u.days) count += u.days.length;
-  }
-  return count > 0 ? count : 169;
+  return TOTAL_ROADMAP_DAYS;
 }
 
 function loadMissionRegistry() {
@@ -523,30 +520,29 @@ function toggleMissionDone(type) {
 
 function getDailyAssignedVocab(dayNum) {
   const units = window.APP_DATA?.units || [];
-  let dCounter = 0;
-  for (let uIdx = 0; uIdx < units.length; uIdx++) {
-    const u = units[uIdx];
-    if (!u.days) continue;
-    for (let dIdx = 0; dIdx < u.days.length; dIdx++) {
-      dCounter++;
-      if (dCounter === dayNum) {
-        return {
-          unitIndex: uIdx,
-          dayIndex: dIdx,
-          unitTitle: u.unitTitle,
-          dayTitle: u.days[dIdx].dayTitle,
-          words: u.days[dIdx].words
-        };
-      }
-    }
+  const validDay = Math.max(1, Math.min(60, parseInt(dayNum) || 1));
+  
+  // Flatten all available unit days
+  const allUnitDays = [];
+  units.forEach((u, uIdx) => {
+    (u.days || []).forEach((d, dIdx) => {
+      allUnitDays.push({
+        unitIndex: uIdx,
+        dayIndex: dIdx,
+        unitTitle: u.unitTitle,
+        dayTitle: `Ngày ${validDay} (Lộ trình 2 tháng) • ${d.dayTitle}`,
+        words: d.words || []
+      });
+    });
+  });
+
+  if (allUnitDays.length === 0) {
+    return { unitIndex: 0, dayIndex: 0, unitTitle: "Unit 1", dayTitle: `Ngày ${validDay}`, words: [] };
   }
-  return {
-    unitIndex: 0,
-    dayIndex: 0,
-    unitTitle: units[0]?.unitTitle || "Unit 1",
-    dayTitle: units[0]?.days?.[0]?.dayTitle || "Ngày 1",
-    words: units[0]?.days?.[0]?.words || []
-  };
+
+  // Map 1..60 evenly across all available unit days
+  const mappedIdx = Math.min(allUnitDays.length - 1, Math.floor(((validDay - 1) / 60) * allUnitDays.length));
+  return allUnitDays[mappedIdx];
 }
 
 function getWordsUpToDay(maxDayNum) {
@@ -1451,41 +1447,46 @@ async function rateSRS(score) {
   const words = getCurrentDayWords();
   if (!words || words.length === 0) return;
   const curWord = words[appState.currentCardIndex];
+  if (!curWord) return;
 
+  // 1. TỰ ĐỘNG CHUYỂN THẺ NGAY LẬP TỨC (0ms latency, không cần bấm thêm nút nào)
+  nextCard();
+
+  // 2. Tự động ghi nhận tiến độ học của ngày
   if (appState.studyMode === "daily_locked") {
-    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
-    const newCount = Math.max(curStatus.vocabCount, appState.currentCardIndex + 1);
-    const isDone = newCount >= Math.min(20, words.length);
-    setDayMissionStatus(missionRegistry.currentDay, {
-      vocabCount: newCount,
+    const curDay = missionRegistry.currentDay;
+    const curStatus = getDayMissionStatus(curDay);
+    const studiedCount = appState.dayVocabStudied?.[curDay]?.size || Math.min(20, appState.currentCardIndex + 1);
+    const isDone = studiedCount >= Math.min(20, words.length);
+    setDayMissionStatus(curDay, {
+      vocabCount: studiedCount,
       vocabDone: isDone || curStatus.vocabDone
     });
   }
 
+  // 3. Gửi sự kiện đánh giá độ nhớ (SRS) chạy ngầm không làm gián đoạn lật thẻ
   const clientEventId = `evt_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
   const payload = {
-    item_id: curWord.id,
+    item_id: curWord.id || `word_${curWord.word}`,
     test_type: "recognition",
     rating: score,
     used_hint: false,
-    response_time_ms: 2500,
+    response_time_ms: 1200,
     client_event_id: clientEventId,
     device_id: navigator.userAgent.substring(0, 30)
   };
 
-  const res = await apiCall("/api/study/rate", "POST", payload);
-  if (!res) {
-    appState.offlineQueue.push({
-      ...payload,
-      created_at_client: new Date().toISOString()
+  if (appState.authToken) {
+    apiCall("/api/study/rate", "POST", payload).then(res => {
+      if (res && res.streak !== undefined) {
+        const el = document.getElementById("streakCount");
+        if (el) el.innerText = `${res.streak} ngày`;
+      }
+    }).catch(err => {
+      appState.offlineQueue.push({ ...payload, created_at_client: new Date().toISOString() });
+      try { localStorage.setItem(STORAGE_KEY_OFFLINE_QUEUE, JSON.stringify(appState.offlineQueue)); } catch(e){}
     });
-    localStorage.setItem(STORAGE_KEY_OFFLINE_QUEUE, JSON.stringify(appState.offlineQueue));
-  } else if (res.streak !== undefined) {
-    const el = document.getElementById("streakCount");
-    if (el) el.innerText = `${res.streak} ngày`;
   }
-
-  nextCard();
 }
 
 async function flushOfflineQueue() {
@@ -1756,8 +1757,6 @@ function setupReadingSelector() {
 
 function filterReadingByExam(category) {
   appState.activeExamFilter = category || "all";
-  const readings = window.APP_DATA?.readings || [];
-
   const filterBtns = document.querySelectorAll(".exam-filter-btn");
   filterBtns.forEach(btn => {
     btn.classList.remove("active", "bg-indigo-600", "text-white", "shadow");
@@ -1768,52 +1767,72 @@ function filterReadingByExam(category) {
     activeBtn.classList.remove("bg-slate-800", "text-slate-300");
     activeBtn.classList.add("active", "bg-indigo-600", "text-white", "shadow");
   }
+  applyReadingFilters();
+}
 
-  if (category === "all") {
-    currentFilteredReadings = readings.map((r, origIdx) => ({ ...r, origIdx }));
-  } else if (category === "CLOZE") {
-    currentFilteredReadings = readings
-      .map((r, origIdx) => ({ ...r, origIdx }))
-      .filter(r => (r.category || "").toUpperCase() === "CLOZE" || (r.title || "").includes("Đục Lỗ"));
-  } else if (category === "TOEIC") {
-    currentFilteredReadings = readings
-      .map((r, origIdx) => ({ ...r, origIdx }))
-      .filter(r => (r.category || "").toUpperCase().includes("TOEIC") || (r.title || "").includes("TOEIC"));
-  } else if (category === "VSTEP") {
-    currentFilteredReadings = readings
-      .map((r, origIdx) => ({ ...r, origIdx }))
-      .filter(r => (r.category || "").toUpperCase().includes("VSTEP") || (r.title || "").includes("VSTEP"));
-  } else if (category === "IELTS") {
-    currentFilteredReadings = readings
-      .map((r, origIdx) => ({ ...r, origIdx }))
-      .filter(r => (r.category || "").toUpperCase().includes("IELTS") || (r.title || "").includes("IELTS"));
-  } else if (category === "BaoQuocTe") {
-    currentFilteredReadings = readings
-      .map((r, origIdx) => ({ ...r, origIdx }))
-      .filter(r => !["IELTS", "VSTEP", "TOEIC", "APTIS", "PET", "CLOZE"].includes((r.category || "").toUpperCase()) && !(r.title || "").includes("Đục Lỗ"));
-  } else {
-    currentFilteredReadings = readings
-      .map((r, origIdx) => ({ ...r, origIdx }))
-      .filter(r => (r.category || "").toUpperCase() === category.toUpperCase());
+
+appState.activeReadingLevelFilter = "all";
+
+function filterReadingByLevel(level) {
+  appState.activeReadingLevelFilter = level || "all";
+  applyReadingFilters();
+
+  const levelBtns = document.querySelectorAll(".level-filter-btn");
+  levelBtns.forEach(btn => {
+    btn.classList.remove("active", "bg-cyan-600", "text-white", "shadow");
+    btn.classList.add("bg-slate-800", "text-slate-300");
+  });
+  const activeBtn = document.getElementById(`levelBtn_${level}`);
+  if (activeBtn) {
+    activeBtn.classList.remove("bg-slate-800", "text-slate-300");
+    activeBtn.classList.add("active", "bg-cyan-600", "text-white", "shadow");
   }
+}
+
+function applyReadingFilters() {
+  const readings = window.APP_DATA?.readings || [];
+  const examCat = appState.activeExamFilter || "all";
+  const levelFilter = appState.activeReadingLevelFilter || "all";
+
+  let list = readings.map((r, origIdx) => ({ ...r, origIdx }));
+
+  // 1. Filter by exam category
+  if (examCat === "CLOZE") {
+    list = list.filter(r => (r.category || "").toUpperCase() === "CLOZE" || (r.title || "").includes("Đục Lỗ") || r.type === "cloze");
+  } else if (examCat === "TOEIC") {
+    list = list.filter(r => (r.category || "").toUpperCase().includes("TOEIC") || (r.title || "").includes("TOEIC"));
+  } else if (examCat === "VSTEP") {
+    list = list.filter(r => (r.category || "").toUpperCase().includes("VSTEP") || (r.title || "").includes("VSTEP"));
+  } else if (examCat === "IELTS") {
+    list = list.filter(r => (r.category || "").toUpperCase().includes("IELTS") || (r.title || "").includes("IELTS"));
+  } else if (examCat === "BaoQuocTe") {
+    list = list.filter(r => !["IELTS", "VSTEP", "TOEIC", "APTIS", "PET", "CLOZE"].includes((r.category || "").toUpperCase()) && !(r.title || "").includes("Đục Lỗ"));
+  }
+
+  // 2. Filter by Level
+  if (levelFilter !== "all") {
+    list = list.filter(r => (r.level || "B1").toUpperCase() === levelFilter.toUpperCase());
+  }
+
+  currentFilteredReadings = list;
 
   const select = document.getElementById("readingSelect");
   if (select) {
     select.innerHTML = currentFilteredReadings.map(r => `
-      <option value="${r.origIdx}">[${(r.category || 'Reading').toUpperCase()}] ${r.title.replace(/^\[.*?\]\s*/, "")} (${r.level || 'B2'})</option>
+      <option value="${r.origIdx}">[${r.level || 'B1'}] ${r.title.replace(/^\[.*?\]\s*/, "")}</option>
     `).join("");
   }
 
   const badgeEl = document.getElementById("readingCategoryTagBadge");
   if (badgeEl) {
-    const label = category === "all" ? "Tất cả" : (category === "CLOZE" ? "Đục Lỗ (Cloze)" : (category === "BaoQuocTe" ? "Báo Quốc Tế" : category));
-    badgeEl.innerText = `${currentFilteredReadings.length} Bài Luyện Thi (${label})`;
+    badgeEl.innerText = `${currentFilteredReadings.length} Bài Luyện Thi (${levelFilter === 'all' ? 'Tất cả level' : 'Level ' + levelFilter})`;
   }
 
   if (currentFilteredReadings.length > 0) {
     renderReadingPassage(currentFilteredReadings[0].origIdx);
   }
 }
+
 
 let activePopupWord = "";
 let activeContextSentence = "";
@@ -2541,6 +2560,14 @@ function setupTouchAndKeyboard() {
       nextCard();
     } else if (e.code === "ArrowLeft") {
       prevCard();
+    } else if (["Digit1", "Numpad1"].includes(e.code)) {
+      rateSRS(1); // Quên -> Tự chuyển
+    } else if (["Digit2", "Numpad2"].includes(e.code)) {
+      rateSRS(2); // Khó -> Tự chuyển
+    } else if (["Digit3", "Numpad3"].includes(e.code)) {
+      rateSRS(3); // Nhớ -> Tự chuyển
+    } else if (["Digit4", "Numpad4"].includes(e.code)) {
+      rateSRS(4); // Dễ -> Tự chuyển
     } else if (e.code === "KeyS") {
       speakCurrentWord();
     }

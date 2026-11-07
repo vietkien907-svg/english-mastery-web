@@ -1008,10 +1008,52 @@
         </div>
 
         <div class="p-3 rounded-xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 flex items-center justify-between">
-          <span class="text-[11px]">🔔 Thử xem thông báo hoạt động trên thiết bị này:</span>
+          <span class="text-[11px]">🔔 Thử chuông thông báo Web trên thiết bị này:</span>
           <button onclick="testSendDailyNotification()" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[11px] transition shadow">
             Gửi thử ngay
           </button>
+        </div>
+
+        <!-- TELEGRAM NOTIFICATION SECTION -->
+        <div class="p-3.5 rounded-xl bg-gradient-to-br from-sky-950/60 to-indigo-950/50 border border-sky-500/40 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-sky-300 flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-sky-400 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.536-.196 1.006.128.832.926z"/></svg>
+              <span>Tự Động Nhận Tin Nhắn Qua Telegram (Khuyên Dùng)</span>
+            </span>
+            <span class="text-[10px] text-emerald-400 font-bold bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-500/40">100% Không trễ</span>
+          </div>
+          <p class="text-[11px] text-slate-300">
+            Tin nhắn tự động gửi đến Telegram mỗi sáng 08:00 và trước deadline, <strong>100% không bao giờ bị điện thoại chặn ngầm</strong>!
+          </p>
+
+          <div class="space-y-2">
+            <div>
+              <label class="block text-slate-400 text-[10px] uppercase font-semibold mb-1">1. Telegram Bot Token:</label>
+              <input type="text" id="telegramBotTokenInput" placeholder="Ví dụ: 7891234567:AAH..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-sky-300 font-mono text-[11px] outline-none focus:border-sky-500">
+            </div>
+
+            <div>
+              <label class="block text-slate-400 text-[10px] uppercase font-semibold mb-1">2. Telegram Chat ID của bạn:</label>
+              <input type="text" id="telegramChatIdInput" placeholder="Ví dụ: 123456789 (lấy nhanh từ @userinfobot)" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-sky-300 font-mono text-[11px] outline-none focus:border-sky-500">
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-1">
+            <details class="text-[11px] text-sky-400 cursor-pointer">
+              <summary class="hover:underline font-medium">👉 Xem cách lấy Token & Chat ID (1 phút)</summary>
+              <div class="mt-2 p-2.5 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-300 space-y-1.5 text-[11px]">
+                <p><strong>Bước 1:</strong> Mở Telegram $\rightarrow$ tìm <code>@BotFather</code> $\rightarrow$ gửi lệnh <code>/newbot</code> $\rightarrow$ đặt tên bot $\rightarrow$ copy mã <strong>HTTP API Token</strong> dán vào ô 1.</p>
+                <p><strong>Bước 2:</strong> Bấm vào con bot bạn vừa tạo ra $\rightarrow$ bấm nút <strong>START</strong>.</p>
+                <p><strong>Bước 3:</strong> Tìm <code>@userinfobot</code> trên Telegram $\rightarrow$ bấm Start để xem <strong>Id</strong> số của bạn $\rightarrow$ dán vào ô 2.</p>
+              </div>
+            </details>
+
+            <button onclick="testTelegramFromUI()" class="px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-bold text-[11px] transition shadow flex items-center gap-1 shrink-0">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              <span>Thử Telegram</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -1025,13 +1067,13 @@
   </div>
 
   <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=5.0"></script>
-  <script src="/app.js?v=5.0"></script>
+  <script src="/data.js?v=6.0"></script>
+  <script src="/app.js?v=6.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=5.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=6.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

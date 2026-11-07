@@ -1913,6 +1913,7 @@ function openDeadlineSettingsModal() {
   document.getElementById("settingRemindMorning").checked = !!deadlineSettings.remindMorning;
   document.getElementById("settingRemindEvening").checked = !!deadlineSettings.remindEvening;
   document.getElementById("settingRemindDeadline").checked = !!deadlineSettings.remindDeadline;
+  loadTelegramConfig();
   m.classList.remove("hidden");
   if (window.lucide) lucide.createIcons();
 }
@@ -1920,6 +1921,69 @@ function openDeadlineSettingsModal() {
 function closeDeadlineSettingsModal() {
   const m = document.getElementById("deadlineSettingsModal");
   if (m) m.classList.add("hidden");
+}
+
+const TELEGRAM_STORAGE_KEY = "EMH_TELEGRAM_CONFIG_V1";
+let telegramConfig = {
+  bot_token: "",
+  chat_id: "",
+  is_active: true
+};
+
+async function loadTelegramConfig() {
+  try {
+    const local = localStorage.getItem(TELEGRAM_STORAGE_KEY);
+    if (local) {
+      telegramConfig = JSON.parse(local);
+    }
+  } catch (e) {}
+
+  try {
+    const res = await fetch("/api/telegram/config").then(r => r.json());
+    if (res && res.bot_token) {
+      telegramConfig.bot_token = res.bot_token;
+      telegramConfig.chat_id = res.chat_id;
+      telegramConfig.is_active = res.is_active !== false;
+    }
+  } catch (e) {}
+
+  const tokenInput = document.getElementById("telegramBotTokenInput");
+  const chatInput = document.getElementById("telegramChatIdInput");
+  if (tokenInput) tokenInput.value = telegramConfig.bot_token || "";
+  if (chatInput) chatInput.value = telegramConfig.chat_id || "";
+}
+
+async function testTelegramFromUI() {
+  const token = document.getElementById("telegramBotTokenInput")?.value?.trim();
+  const chatId = document.getElementById("telegramChatIdInput")?.value?.trim();
+
+  if (!token || !chatId) {
+    showToast("Vui lòng nhập Bot Token và Chat ID!", "warning");
+    return;
+  }
+
+  showToast("Đang gửi tin nhắn thử tới Telegram...", "info");
+  try {
+    const resp = await fetch("/api/telegram/test", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        bot_token: token,
+        chat_id: chatId
+      })
+    });
+    const data = await resp.json();
+    if (resp.ok) {
+      showToast("🎉 Tin nhắn thử đã rung chuông trên Telegram!", "success");
+      telegramConfig.bot_token = token;
+      telegramConfig.chat_id = chatId;
+      localStorage.setItem(TELEGRAM_STORAGE_KEY, JSON.stringify(telegramConfig));
+    } else {
+      showToast(`Lỗi: ${data.detail || "Không thể gửi tin nhắn"}`, "danger");
+    }
+  } catch (err) {
+    showToast("Lỗi kết nối Telegram: " + err.message, "danger");
+  }
 }
 
 function saveDeadlineSettings() {
@@ -1932,6 +1996,30 @@ function saveDeadlineSettings() {
   try {
     localStorage.setItem(DEADLINE_STORAGE_KEY, JSON.stringify(deadlineSettings));
   } catch (e) {}
+
+  const tgToken = document.getElementById("telegramBotTokenInput")?.value?.trim() || "";
+  const tgChatId = document.getElementById("telegramChatIdInput")?.value?.trim() || "";
+  if (tgToken && tgChatId) {
+    telegramConfig.bot_token = tgToken;
+    telegramConfig.chat_id = tgChatId;
+    try {
+      localStorage.setItem(TELEGRAM_STORAGE_KEY, JSON.stringify(telegramConfig));
+    } catch (e) {}
+
+    fetch("/api/telegram/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        bot_token: tgToken,
+        chat_id: tgChatId,
+        remind_morning: deadlineSettings.remindMorning,
+        remind_evening: deadlineSettings.remindEvening,
+        remind_deadline: deadlineSettings.remindDeadline,
+        deadline_time: deadlineSettings.deadlineTime,
+        is_active: true
+      })
+    }).catch(e => console.warn("Telegram save error:", e));
+  }
 
   updateDeadlineTimeUI();
   closeDeadlineSettingsModal();

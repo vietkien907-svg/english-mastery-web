@@ -196,3 +196,19 @@ class DailyActivity(Base):
     __table_args__ = (
         UniqueConstraint("user_id", "date_str", name="uq_user_date"),
     )
+
+class UserNotificationSetting(Base):
+    __tablename__ = "user_notification_settings"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    telegram_bot_token = Column(String(255), default="")
+    telegram_chat_id = Column(String(100), default="")
+    remind_morning = Column(Boolean, default=True)
+    remind_evening = Column(Boolean, default=True)
+    remind_deadline = Column(Boolean, default=True)
+    deadline_time = Column(String(10), default="21:30")
+    is_active = Column(Boolean, default=True)
+    last_sent_date = Column(String(10), default="")
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+

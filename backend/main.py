@@ -8,9 +8,11 @@ from fastapi.responses import FileResponse
 # Add backend directory to sys.path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from database import engine, Base
+from database import engine, Base, SessionLocal
 import models
-from routers import auth_router, study_router, reading_router, grammar_router, sync_router, stats_router
+from routers import auth_router, study_router, reading_router, grammar_router, sync_router, stats_router, telegram_router
+import asyncio
+from datetime import datetime, timezone, timedelta
 
 # Ensure all database tables exist
 Base.metadata.create_all(bind=engine)
@@ -20,6 +22,55 @@ app = FastAPI(
     description="Backend API phục vụ ứng dụng học tiếng Anh cá nhân đa nền tảng, SRS, đọc hiểu và 21 tuần ngữ pháp.",
     version="2.0.0"
 )
+
+# Background scheduler for automatic daily Telegram reminders
+VN_TZ = timezone(timedelta(hours=7))
+
+async def background_daily_reminder_loop():
+    sent_today = {}
+    while True:
+        try:
+            await asyncio.sleep(45)
+            now_vn = datetime.now(VN_TZ)
+            today_str = now_vn.strftime("%Y-%m-%d")
+            time_str = now_vn.strftime("%H:%M")
+            
+            # Check morning 08:00
+            key_morning = f"{today_str}_morning"
+            if time_str == "08:00" and not sent_today.get(key_morning):
+                sent_today[key_morning] = True
+                with SessionLocal() as db:
+                    telegram_router.trigger_daily_reminder(reminder_type="morning", db=db)
+                    
+            # Check evening 19:30
+            key_evening = f"{today_str}_evening"
+            if time_str == "19:30" and not sent_today.get(key_evening):
+                sent_today[key_evening] = True
+                with SessionLocal() as db:
+                    telegram_router.trigger_daily_reminder(reminder_type="evening", db=db)
+                    
+            # Check deadline (30 mins before)
+            with SessionLocal() as db:
+                setting = db.query(models.UserNotificationSetting).filter(models.UserNotificationSetting.is_active == True).first()
+                if setting and setting.deadline_time and setting.remind_deadline:
+                    try:
+                        dl_h, dl_m = map(int, setting.deadline_time.split(":"))
+                        dl_mins = dl_h * 60 + dl_m - 30
+                        if dl_mins < 0:
+                            dl_mins += 24 * 60
+                        remind_str = f"{dl_mins // 60:02d}:{dl_mins % 60:02d}"
+                        key_dl = f"{today_str}_deadline"
+                        if time_str == remind_str and not sent_today.get(key_dl):
+                            sent_today[key_dl] = True
+                            telegram_router.trigger_daily_reminder(reminder_type="deadline", db=db)
+                    except Exception:
+                        pass
+        except Exception as e:
+            print("Background reminder error:", e)
+
+@app.on_event("startup")
+async def startup_event():
+    asyncio.create_task(background_daily_reminder_loop())
 
 # CORS configuration
 app.add_middleware(
@@ -37,6 +88,7 @@ app.include_router(reading_router.router)
 app.include_router(grammar_router.router)
 app.include_router(sync_router.router)
 app.include_router(stats_router.router)
+app.include_router(telegram_router.router)
 
 # Mount Static frontend assets
 FRONTEND_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

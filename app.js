@@ -17,6 +17,9 @@ let appState = {
   shuffledRange: [1, 4],
   isFlipped: false,
   todayQueue: [],
+  interleavedConfig: null,
+  activeInterleavedDeck: null,
+  interleavedDeckKey: "",
   grammarTopics: [],
   activeGrammarWeek: 1,
   activeReadingIndex: 0,
@@ -33,7 +36,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   setupReadingSelector();
   setupTouchAndKeyboard();
   initDailyDeadlineSystem();
-  loadTelegramSettings();
+  initDailyMissionEngine();
   lucide.createIcons();
 });
 
@@ -233,24 +236,26 @@ async function logoutUser() {
 
 // ================= TAB NAVIGATION =================
 function switchTab(tabId) {
+  if (tabId === "reading") tabId = "reader";
   appState.activeTab = tabId;
 
+  // Sync nav buttons
   ["today", "flashcard", "review", "reader", "grammar", "profile"].forEach(id => {
     const sec = document.getElementById(`tab-${id}`);
     if (sec) sec.classList.toggle("hidden", id !== tabId);
 
-    const navBtn = document.getElementById(`nav-btn-${id}`);
+    const navBtn = document.getElementById(`nav-btn-${id}`) || (id === "reader" ? document.getElementById("nav-btn-reading") : null);
     if (navBtn) {
       if (id === tabId) {
         navBtn.classList.add("bg-indigo-600", "text-white");
-        navBtn.classList.remove("text-slate-400", "hover:text-white", "hover:bg-slate-800");
+        navBtn.classList.remove("text-slate-300", "hover:text-white", "hover:bg-slate-800");
       } else {
         navBtn.classList.remove("bg-indigo-600", "text-white");
-        navBtn.classList.add("text-slate-400", "hover:text-white", "hover:bg-slate-800");
+        navBtn.classList.add("text-slate-300", "hover:text-white", "hover:bg-slate-800");
       }
     }
 
-    const mobBtn = document.getElementById(`mob-btn-${id}`);
+    const mobBtn = document.getElementById(`mob-btn-${id}`) || (id === "reader" ? document.getElementById("mob-btn-reading") : null);
     if (mobBtn) {
       mobBtn.classList.toggle("text-indigo-400", id === tabId);
       mobBtn.classList.toggle("text-slate-400", id !== tabId);
@@ -380,6 +385,812 @@ function setupQuizScopeSelector() {
   quizSelect.innerHTML = html;
 }
 
+// ================= AUTOMATIC DAILY MISSION, PERSISTENCE & ROADMAP ENGINE =================
+const MISSION_REGISTRY_KEY = "EMH_MISSION_REGISTRY_V4";
+
+let missionRegistry = {
+  currentDay: 1,
+  history: {}
+};
+
+const TOTAL_ROADMAP_DAYS = 60; // Lộ trình cấp tốc 2 tháng (60 ngày)
+
+function getTotalMissionDays() {
+  return TOTAL_ROADMAP_DAYS;
+}
+
+function loadMissionRegistry() {
+  try {
+    const raw = localStorage.getItem(MISSION_REGISTRY_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === "object") {
+        missionRegistry = {
+          currentDay: parseInt(parsed.currentDay) || 1,
+          history: parsed.history || {}
+        };
+      }
+    } else {
+      // Migrate from old V3 if exists
+      const oldRaw = localStorage.getItem("EMH_DAILY_MISSION_V3");
+      if (oldRaw) {
+        const oldParsed = JSON.parse(oldRaw);
+        const day = oldParsed.dayNumber || 1;
+        missionRegistry.currentDay = day;
+        missionRegistry.history[String(day)] = {
+          vocabDone: (oldParsed.vocabDoneCount >= 20),
+          vocabCount: oldParsed.vocabDoneCount || 0,
+          readingDone: !!oldParsed.readingDone,
+          grammarDone: !!oldParsed.grammarDone
+        };
+      }
+    }
+  } catch (e) {
+    console.warn("Could not load mission registry:", e);
+  }
+
+  if (!missionRegistry.history[String(missionRegistry.currentDay)]) {
+    missionRegistry.history[String(missionRegistry.currentDay)] = {
+      vocabDone: false,
+      vocabCount: 0,
+      readingDone: false,
+      grammarDone: false
+    };
+  }
+}
+
+function saveMissionRegistry() {
+  try {
+    localStorage.setItem(MISSION_REGISTRY_KEY, JSON.stringify(missionRegistry));
+  } catch (e) {
+    console.warn("Could not save mission registry:", e);
+  }
+  updateDailyMissionUI();
+  updateDailyGoalChecklist();
+}
+
+function getDayMissionStatus(dayNum) {
+  const dStr = String(dayNum);
+  const data = missionRegistry.history[dStr] || {
+    vocabDone: false,
+    vocabCount: 0,
+    readingDone: false,
+    grammarDone: false
+  };
+  const isVocab = !!data.vocabDone || (data.vocabCount >= 20);
+  const isReading = !!data.readingDone;
+  const isGrammar = !!data.grammarDone;
+  let count = 0;
+  if (isVocab) count++;
+  if (isReading) count++;
+  if (isGrammar) count++;
+
+  return {
+    vocabDone: isVocab,
+    vocabCount: data.vocabCount || 0,
+    readingDone: isReading,
+    grammarDone: isGrammar,
+    completedCount: count,
+    isAllDone: count === 3
+  };
+}
+
+function setDayMissionStatus(dayNum, updates) {
+  const dStr = String(dayNum);
+  const current = missionRegistry.history[dStr] || {
+    vocabDone: false,
+    vocabCount: 0,
+    readingDone: false,
+    grammarDone: false
+  };
+  missionRegistry.history[dStr] = { ...current, ...updates };
+  saveMissionRegistry();
+}
+
+function toggleMissionDone(type) {
+  const curDay = missionRegistry.currentDay;
+  const curStatus = getDayMissionStatus(curDay);
+  if (type === "vocab") {
+    const nextDone = !curStatus.vocabDone;
+    setDayMissionStatus(curDay, {
+      vocabDone: nextDone,
+      vocabCount: nextDone ? 20 : 0
+    });
+    if (nextDone) {
+      showToast(`✅ Đã đánh dấu hoàn thành 20 từ vựng Ngày ${curDay}`, "success");
+    } else {
+      showToast(`ℹ️ Đã bỏ đánh dấu 20 từ vựng Ngày ${curDay}`, "info");
+    }
+  } else if (type === "reading") {
+    const nextDone = !curStatus.readingDone;
+    setDayMissionStatus(curDay, { readingDone: nextDone });
+    if (nextDone) {
+      showToast(`✅ Đã đánh dấu hoàn thành Bài đọc Ngày ${curDay}`, "success");
+    } else {
+      showToast(`ℹ️ Đã bỏ đánh dấu Bài đọc Ngày ${curDay}`, "info");
+    }
+  } else if (type === "grammar") {
+    const nextDone = !curStatus.grammarDone;
+    setDayMissionStatus(curDay, { grammarDone: nextDone });
+    if (nextDone) {
+      showToast(`✅ Đã đánh dấu hoàn thành Ngữ pháp Ngày ${curDay}`, "success");
+    } else {
+      showToast(`ℹ️ Đã bỏ đánh dấu Ngữ pháp Ngày ${curDay}`, "info");
+    }
+  }
+}
+
+function getDailyAssignedVocab(dayNum) {
+  const units = window.APP_DATA?.units || [];
+  const validDay = Math.max(1, Math.min(60, parseInt(dayNum) || 1));
+  
+  // Flatten all available unit days
+  const allUnitDays = [];
+  units.forEach((u, uIdx) => {
+    (u.days || []).forEach((d, dIdx) => {
+      allUnitDays.push({
+        unitIndex: uIdx,
+        dayIndex: dIdx,
+        unitTitle: u.unitTitle,
+        dayTitle: `Ngày ${validDay} (Lộ trình 2 tháng) • ${d.dayTitle}`,
+        words: d.words || []
+      });
+    });
+  });
+
+  if (allUnitDays.length === 0) {
+    return { unitIndex: 0, dayIndex: 0, unitTitle: "Unit 1", dayTitle: `Ngày ${validDay}`, words: [] };
+  }
+
+  // Map 1..60 evenly across all available unit days
+  const mappedIdx = Math.min(allUnitDays.length - 1, Math.floor(((validDay - 1) / 60) * allUnitDays.length));
+  return allUnitDays[mappedIdx];
+}
+
+function getWordsUpToDay(maxDayNum) {
+  const units = window.APP_DATA?.units || [];
+  let dCounter = 0;
+  let words = [];
+  for (let uIdx = 0; uIdx < units.length; uIdx++) {
+    const u = units[uIdx];
+    if (!u.days) continue;
+    for (let dIdx = 0; dIdx < u.days.length; dIdx++) {
+      dCounter++;
+      if (dCounter <= maxDayNum) {
+        const dWords = (u.days[dIdx].words || []).map(w => ({
+          ...w,
+          sourceDay: dCounter,
+          cardOrigin: "past_day",
+          cardOriginText: `Lặp lại Ngày ${dCounter}`
+        }));
+        words = words.concat(dWords);
+      }
+      if (dCounter >= maxDayNum) break;
+    }
+    if (dCounter >= maxDayNum) break;
+  }
+  return words;
+}
+
+function getDailyAssignedReading(dayNum) {
+  const list = window.APP_DATA?.readings || [];
+  if (list.length === 0) return { id: 0, index: 0, title: "IELTS: The Science of Sleep" };
+  const idx = (dayNum - 1) % list.length;
+  return { index: idx, ...list[idx] };
+}
+
+function getDailyAssignedGrammar(dayNum) {
+  const list = appState.grammarTopics || (window.APP_DATA?.grammar || []);
+  if (list.length === 0) return { id: 0, index: 0, title: "Chuyên đề 1: Thì Động Từ", topic_title: "Chuyên đề 1: Thì Động Từ", summary: "Nắm vững công thức, cách dùng và dấu hiệu nhận biết của 4 thì cơ bản nhất." };
+  const idx = (dayNum - 1) % list.length;
+  const item = list[idx] || {};
+  const t = item.title || item.topic_title || `Chuyên đề ${idx + 1}`;
+  return {
+    index: idx,
+    ...item,
+    title: t,
+    topic_title: t
+  };
+}
+
+function initDailyMissionEngine() {
+  loadMissionRegistry();
+  setupReviewSelectors();
+  updateDailyMissionUI();
+  // Khởi động mặc định vào chế độ khóa học theo Deadline hôm nay
+  const info = getDailyAssignedVocab(missionRegistry.currentDay);
+  appState.studyMode = "daily_locked";
+  appState.currentUnitIndex = info.unitIndex;
+  appState.currentDayIndex = info.dayIndex;
+}
+
+function jumpToMissionDay(dayNum) {
+  const total = getTotalMissionDays();
+  const d = Math.max(1, Math.min(total, parseInt(dayNum) || 1));
+  missionRegistry.currentDay = d;
+  saveMissionRegistry();
+
+  if (appState.studyMode === "daily_locked") {
+    const info = getDailyAssignedVocab(d);
+    appState.currentUnitIndex = info.unitIndex;
+    appState.currentDayIndex = info.dayIndex;
+    appState.currentCardIndex = 0;
+    appState.isFlipped = false;
+  }
+  updateDailyMissionUI();
+  showToast(`🚀 Lộ trình: Đang ở Ngày ${d} / ${total}`, "info");
+}
+
+function changeMissionDay(delta) {
+  jumpToMissionDay(missionRegistry.currentDay + delta);
+}
+
+function advanceToNextDay() {
+  const total = getTotalMissionDays();
+  const nextDay = missionRegistry.currentDay + 1;
+  if (nextDay > total) {
+    showToast("🎉 Chúc mừng bạn đã hoàn thành toàn bộ lộ trình!", "success");
+    return;
+  }
+  jumpToMissionDay(nextDay);
+  showToast(`🚀 Đã chuyển sang Lộ trình Ngày ${nextDay} (Học vượt deadline)`, "success");
+}
+
+function startTodayVocabMission() {
+  const curDay = missionRegistry.currentDay;
+  const info = getDailyAssignedVocab(curDay);
+  appState.studyMode = "daily_locked";
+  appState.currentUnitIndex = info.unitIndex;
+  appState.currentDayIndex = info.dayIndex;
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  // Track studied cards in this session
+  if (!appState.dayVocabStudied) appState.dayVocabStudied = {};
+  if (!appState.dayVocabStudied[curDay]) appState.dayVocabStudied[curDay] = new Set();
+  appState.dayVocabStudied[curDay].add(0);
+
+  const totalWords = Math.min(20, (info.words || []).length);
+  const curStatus = getDayMissionStatus(curDay);
+
+  const lockedBanner = document.getElementById("dailyMissionLockedBanner");
+  if (lockedBanner) {
+    lockedBanner.classList.remove("hidden");
+    lockedBanner.innerHTML = `
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <div class="flex items-center gap-2">
+          <i data-lucide="layers" class="w-4 h-4 text-indigo-400"></i>
+          <span class="font-bold text-indigo-300">Nhiệm Vụ 20 Từ Vựng Ngày ${curDay}</span>
+          <span id="bannerVocabCount" class="text-amber-300 text-xs font-semibold">(${curStatus.vocabDone ? '✓ Đã hoàn thành 20/20' : `Đã học: 1/${totalWords}`})</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="advanceToNextDay()" class="px-2.5 py-1 rounded-lg bg-indigo-600/40 hover:bg-indigo-600 text-indigo-200 hover:text-white text-xs font-semibold border border-indigo-500/40 transition flex items-center gap-1">
+            Học vượt ngày kế <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="switchTab('today')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition">
+            Về Dashboard
+          </button>
+        </div>
+      </div>
+    `;
+  }
+  const freeArea = document.getElementById("freeReviewSelectorArea");
+  if (freeArea) freeArea.classList.add("hidden");
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = `${info.unitTitle}`;
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = `Ngày ${curDay}`;
+
+  switchTab("flashcard");
+  renderFlashcard();
+  updateDailyMissionUI();
+}
+
+function onVocabCardViewed() {
+  if (appState.studyMode === "daily_locked") {
+    const curDay = missionRegistry.currentDay;
+    const words = getCurrentDayWords();
+    const totalWords = Math.min(20, words.length);
+    if (!appState.dayVocabStudied) appState.dayVocabStudied = {};
+    if (!appState.dayVocabStudied[curDay]) {
+      const saved = missionRegistry.history[String(curDay)]?.studiedIndices || [];
+      appState.dayVocabStudied[curDay] = new Set(saved);
+    }
+    appState.dayVocabStudied[curDay].add(appState.currentCardIndex);
+
+    const studiedCount = appState.dayVocabStudied[curDay].size;
+    const bannerCount = document.getElementById("bannerVocabCount");
+    const curStatus = getDayMissionStatus(curDay);
+    const indicesArr = Array.from(appState.dayVocabStudied[curDay]);
+
+    if (studiedCount >= totalWords || curStatus.vocabDone) {
+      setDayMissionStatus(curDay, {
+        vocabDone: true,
+        vocabCount: Math.max(studiedCount, totalWords),
+        studiedIndices: indicesArr
+      });
+      if (bannerCount) bannerCount.innerText = `(✓ Đã hoàn thành ${totalWords}/${totalWords})`;
+      if (!curStatus.vocabDone) {
+        showToast(`🎉 Xuất sắc! Bạn đã học đủ ${totalWords} từ vựng của Ngày ${curDay}! Đã tự động đánh dấu hoàn thành!`, "success");
+      }
+    } else {
+      setDayMissionStatus(curDay, {
+        vocabCount: studiedCount,
+        studiedIndices: indicesArr
+      });
+      if (bannerCount) bannerCount.innerText = `(Đã học: ${studiedCount}/${totalWords})`;
+    }
+  }
+}
+
+function startGradualReview() {
+  const curDay = missionRegistry.currentDay;
+  const allWords = getWordsUpToDay(curDay);
+  if (allWords.length === 0) {
+    showToast("Chưa có từ vựng nào để ôn tập!", "warning");
+    return;
+  }
+
+  appState.studyMode = "gradual_review";
+  appState.gradualReviewWords = allWords;
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  const lockedBanner = document.getElementById("dailyMissionLockedBanner");
+  if (lockedBanner) {
+    lockedBanner.classList.remove("hidden");
+    lockedBanner.innerHTML = `
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+          <span class="font-bold text-cyan-300">🔄 Đang Ôn Tập Dần Dần Tích Lũy</span>
+          <span class="text-slate-400 text-xs">(${allWords.length} từ vựng từ Ngày 1 đến Ngày ${curDay})</span>
+        </div>
+        <button onclick="startTodayVocabMission()" class="px-3 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white transition flex items-center gap-1 shadow">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Quay lại Deadline Ngày ${curDay}
+        </button>
+      </div>
+    `;
+  }
+  const freeArea = document.getElementById("freeReviewSelectorArea");
+  if (freeArea) freeArea.classList.add("hidden");
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = `Ôn Tập Tích Lũy (Ngày 1 - ${curDay})`;
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = `${allWords.length} Từ vựng`;
+
+  switchTab("flashcard");
+  renderFlashcard();
+  showToast(`🔄 Đang nạp ${allWords.length} từ vựng từ Ngày 1 đến Ngày ${curDay} vào bộ nhớ ôn tập!`, "info");
+}
+
+function startGradualReviewQuiz() {
+  const curDay = missionRegistry.currentDay;
+  const allWords = getWordsUpToDay(curDay);
+  if (allWords.length === 0) {
+    showToast("Chưa có từ vựng nào để làm trắc nghiệm!", "warning");
+    return;
+  }
+  
+  activeCustomQuizWords = allWords;
+  switchTab("quiz");
+  startQuiz();
+  showToast(`🎯 Đang mở trắc nghiệm tích lũy với ${Math.min(20, allWords.length)} câu hỏi ngẫu nhiên!`, "info");
+}
+
+function startTodayReadingMission() {
+  const r = getDailyAssignedReading(missionRegistry.currentDay);
+  switchTab("reader");
+  renderReadingPassage(r.index);
+  showToast(`📖 Đang mở Bài đọc chỉ định Ngày ${missionRegistry.currentDay}: ${r.title}`, "info");
+}
+
+function startTodayGrammarMission() {
+  const g = getDailyAssignedGrammar(missionRegistry.currentDay);
+  const weekNum = g.week_number || (g.index + 1);
+  switchTab("grammar");
+  renderGrammarDetail(weekNum);
+  showToast(`✍️ Đang mở Chuyên đề chỉ định Ngày ${missionRegistry.currentDay}: ${g.topic_title}`, "info");
+}
+
+function completeReadingMission() {
+  setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
+  showToast("✅ Đã ghi nhận hoàn thành bài đọc hôm nay!", "success");
+}
+
+function completeGrammarMission() {
+  setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
+  showToast("✅ Đã ghi nhận hoàn thành chuyên đề ngữ pháp hôm nay!", "success");
+}
+
+function updateDailyMissionUI() {
+  const totalDays = getTotalMissionDays();
+  const curDay = missionRegistry.currentDay;
+  const curStatus = getDayMissionStatus(curDay);
+
+  const badge = document.getElementById("dailyMissionBadge");
+  if (badge) badge.innerText = `Ngày ${curDay} / ${totalDays}`;
+
+  // Populate or sync day select dropdown
+  const daySel = document.getElementById("missionDaySelect");
+  if (daySel) {
+    if (daySel.options.length !== totalDays) {
+      let optHtml = "";
+      for (let i = 1; i <= totalDays; i++) {
+        const st = getDayMissionStatus(i);
+        const icon = st.isAllDone ? "✓ " : (st.completedCount > 0 ? "⏳ " : "");
+        optHtml += `<option value="${i}">${icon}Ngày ${i} ${st.isAllDone ? '(Đã xong 3/3)' : (st.completedCount > 0 ? '(' + st.completedCount + '/3)' : '')}</option>`;
+      }
+      daySel.innerHTML = optHtml;
+    }
+    daySel.value = String(curDay);
+  }
+
+  // 1. Notice Area at Top of Missions
+  const noticeArea = document.getElementById("todayStatusNoticeArea");
+  if (noticeArea) {
+    if (curStatus.isAllDone) {
+      noticeArea.innerHTML = `
+        <div class="p-4 rounded-xl bg-gradient-to-r from-emerald-950/80 via-emerald-900/60 to-slate-900 border-2 border-emerald-500/80 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg shadow-emerald-950/50">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-emerald-500/25 text-emerald-300 flex items-center justify-center shrink-0 border border-emerald-500/50">
+              <i data-lucide="check-check" class="w-6 h-6 text-emerald-400"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/30 text-emerald-300 font-extrabold text-[11px] border border-emerald-400/50 flex items-center gap-1">
+                  <i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-400"></i> HOÀN THÀNH 100%
+                </span>
+                <span class="text-xs text-emerald-400 font-semibold">Lộ trình Ngày ${curDay} / ${totalDays}</span>
+              </div>
+              <h3 class="font-black text-white text-base sm:text-lg mt-0.5">
+                🎉 Tuyệt vời! Bạn đã hoàn thành toàn bộ 3 nhiệm vụ hôm nay!
+              </h3>
+              <p class="text-xs text-slate-300 mt-0.5">
+                Toàn bộ tiến độ Từ vựng, Bài đọc và Ngữ pháp đã được lưu trữ vĩnh viễn. Bạn có thể bấm <strong class="text-amber-300 font-bold">🚀 Học Vượt</strong> sang Ngày ${curDay + 1} hoặc <strong class="text-cyan-300 font-bold">🔄 Ôn Tập Dần Dần</strong>!
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="advanceToNextDay()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-indigo-600/40 transition">
+              <i data-lucide="zap" class="w-4 h-4 fill-amber-300 text-amber-300"></i> Học Vượt Ngày ${curDay + 1}
+            </button>
+          </div>
+        </div>
+      `;
+    } else if (curStatus.completedCount > 0) {
+      noticeArea.innerHTML = `
+        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-amber-500/40 text-white flex flex-col sm:flex-row items-center justify-between gap-2.5 shadow-md">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+            <span class="text-xs font-bold text-amber-300">
+              Tiến độ Ngày ${curDay} hôm nay: Đã xong ${curStatus.completedCount} / 3 nhiệm vụ (${Math.round((curStatus.completedCount / 3) * 100)}%)
+            </span>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-medium">
+            <span class="${curStatus.vocabDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">
+              ${curStatus.vocabDone ? '✓ Từ vựng (Đã xong)' : '○ Từ vựng'}
+            </span>
+            <span class="text-slate-600">•</span>
+            <span class="${curStatus.readingDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">
+              ${curStatus.readingDone ? '✓ Bài đọc (Đã xong)' : '○ Bài đọc'}
+            </span>
+            <span class="text-slate-600">•</span>
+            <span class="${curStatus.grammarDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">
+              ${curStatus.grammarDone ? '✓ Ngữ pháp (Đã xong)' : '○ Ngữ pháp'}
+            </span>
+          </div>
+        </div>
+      `;
+    } else {
+      noticeArea.innerHTML = `
+        <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300 flex items-center justify-between text-xs">
+          <div class="flex items-center gap-2">
+            <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i>
+            <span>Nhiệm vụ Ngày ${curDay}: Hãy hoàn thành <strong>20 Từ vựng</strong>, <strong>1 Bài đọc</strong> và <strong>1 Bài ngữ pháp</strong> để tự động tick hoàn thành!</span>
+          </div>
+          <span class="text-[11px] text-amber-400 font-semibold">0 / 3 Hoàn thành</span>
+        </div>
+      `;
+    }
+  }
+
+  const infoVocab = getDailyAssignedVocab(curDay);
+  const infoReading = getDailyAssignedReading(curDay);
+  const infoGrammar = getDailyAssignedGrammar(curDay);
+
+  // 2. Vocab Task Card
+  const cardV = document.getElementById("taskCardVocab");
+  const bannerV = document.getElementById("taskCardVocabBanner");
+  const titleV = document.getElementById("taskTitleVocab");
+  const descV = document.getElementById("taskDescVocab");
+  const badgeV = document.getElementById("taskStatusBadgeVocab");
+  const btnV = document.getElementById("btnStartVocabText");
+  const btnWrapV = document.getElementById("btnStartVocabMission");
+
+  if (titleV) titleV.innerText = `20 Từ Vựng Ngày ${curDay} - ${infoVocab.unitTitle}`;
+  if (curStatus.vocabDone) {
+    if (cardV) cardV.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30";
+    if (bannerV) bannerV.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">20/20 Từ</span></div>`;
+    if (descV) descV.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã học và ghi nhớ trọn vẹn 20 từ của ngày hôm nay. Tiến độ được bảo lưu vĩnh viễn!</span>`;
+    if (badgeV) {
+      badgeV.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center gap-1 border border-emerald-500/40";
+      badgeV.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-400'></i> Đã xong (20/20)";
+    }
+    if (btnWrapV) btnWrapV.className = "w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-emerald-300 border border-emerald-500/40 transition flex items-center justify-center gap-1.5 shadow-sm";
+    if (btnV) btnV.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Xong (Bấm để ôn lại 20 từ)</span>";
+  } else {
+    if (cardV) cardV.className = "p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-indigo-500/40 shadow-sm";
+    if (bannerV) bannerV.innerHTML = "";
+    if (descV) descV.innerHTML = `Lật thẻ học hết 20 từ vựng hôm nay. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn học xong thẻ thứ 20!`;
+    if (badgeV) {
+      badgeV.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-amber-300 font-semibold border border-amber-500/20";
+      badgeV.innerText = `Tiến độ: ${curStatus.vocabCount}/20`;
+    }
+    if (btnWrapV) btnWrapV.className = "w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-indigo-600/30";
+    if (btnV) btnV.innerHTML = `<i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i> <span>Bắt đầu học 20 từ Ngày ${curDay}</span>`;
+  }
+
+  // 3. Reading Task Card
+  const cardR = document.getElementById("taskCardReading");
+  const bannerR = document.getElementById("taskCardReadingBanner");
+  const titleR = document.getElementById("taskTitleReading");
+  const descR = document.getElementById("taskDescReading");
+  const badgeR = document.getElementById("taskStatusBadgeReading");
+  const btnR = document.getElementById("btnStartReadingText");
+  const btnWrapR = document.getElementById("btnStartReadingMission");
+
+  if (titleR) titleR.innerText = infoReading.title || "Bài đọc hôm nay";
+  if (curStatus.readingDone) {
+    if (cardR) cardR.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30";
+    if (bannerR) bannerR.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">100% Đạt</span></div>`;
+    if (descR) descR.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã đọc và trả lời trọn vẹn câu hỏi đọc hiểu của bài hôm nay!</span>`;
+    if (badgeR) {
+      badgeR.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center gap-1 border border-emerald-500/40";
+      badgeR.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-400'></i> Đã hoàn thành";
+    }
+    if (btnWrapR) btnWrapR.className = "w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-emerald-300 border border-emerald-500/40 transition flex items-center justify-center gap-1.5 shadow-sm";
+    if (btnR) btnR.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Đọc Xong (Bấm để đọc lại)</span>";
+  } else {
+    if (cardR) cardR.className = "p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-cyan-500/40 shadow-sm";
+    if (bannerR) bannerR.innerHTML = "";
+    if (descR) descR.innerHTML = `Làm trọn vẹn câu hỏi đọc hiểu/đục lỗ của bài. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn trả lời hết!`;
+    if (badgeR) {
+      badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold border border-slate-700";
+      badgeR.innerText = "Chưa làm";
+    }
+    if (btnWrapR) btnWrapR.className = "w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-cyan-600/30";
+    if (btnR) btnR.innerHTML = `<i data-lucide="book-open" class="w-3.5 h-3.5"></i> <span>Vào làm bài đọc Ngày ${curDay}</span>`;
+  }
+
+  // 4. Grammar Task Card
+  const cardG = document.getElementById("taskCardGrammar");
+  const bannerG = document.getElementById("taskCardGrammarBanner");
+  const titleG = document.getElementById("taskTitleGrammar");
+  const descG = document.getElementById("taskDescGrammar");
+  const badgeG = document.getElementById("taskStatusBadgeGrammar");
+  const btnG = document.getElementById("btnStartGrammarText");
+  const btnWrapG = document.getElementById("btnStartGrammarMission");
+
+  if (titleG) titleG.innerText = infoGrammar.topic_title || "Chuyên đề hôm nay";
+  if (curStatus.grammarDone) {
+    if (cardG) cardG.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30";
+    if (bannerG) bannerG.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">100% Đạt</span></div>`;
+    if (descG) descG.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã làm xong các bài tập chuyên đề ngữ pháp hôm nay!</span>`;
+    if (badgeG) {
+      badgeG.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center gap-1 border border-emerald-500/40";
+      badgeG.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-400'></i> Đã hoàn thành";
+    }
+    if (btnWrapG) btnWrapG.className = "w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-emerald-300 border border-emerald-500/40 transition flex items-center justify-center gap-1.5 shadow-sm";
+    if (btnG) btnG.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Hoàn Thành (Bấm để ôn lại)</span>";
+  } else {
+    if (cardG) cardG.className = "p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-purple-500/40 shadow-sm";
+    if (bannerG) bannerG.innerHTML = "";
+    if (descG) descG.innerHTML = `Làm bài tập điền từ hoặc trắc nghiệm. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn làm xong!`;
+    if (badgeG) {
+      badgeG.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold border border-slate-700";
+      badgeG.innerText = "Chưa làm";
+    }
+    if (btnWrapG) btnWrapG.className = "w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-purple-600/30";
+    if (btnG) btnG.innerHTML = `<i data-lucide="edit-3" class="w-3.5 h-3.5"></i> <span>Làm bài tập Ngữ pháp Ngày ${curDay}</span>`;
+  }
+
+  // 5. Ratio & Progress Bar
+  const doneCount = curStatus.completedCount;
+  const ratioEl = document.getElementById("missionProgressRatio");
+  if (ratioEl) {
+    if (doneCount === 3) {
+      ratioEl.innerText = "3 / 3 ✓";
+      ratioEl.className = "text-xl font-black text-emerald-400 flex items-center gap-1";
+    } else {
+      ratioEl.innerText = `${doneCount} / 3`;
+      ratioEl.className = "text-xl font-black text-amber-400";
+    }
+  }
+  const barEl = document.getElementById("missionProgressBar");
+  if (barEl) {
+    barEl.style.width = `${(doneCount / 3) * 100}%`;
+    barEl.className = doneCount === 3 ? "h-full bg-emerald-400 rounded-full transition-all duration-300" : "h-full bg-gradient-to-r from-amber-500 to-emerald-400 rounded-full transition-all duration-300";
+  }
+
+  // 6. Header Goals Checklist
+  updateDailyGoalChecklist();
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function openRoadmapModal() {
+  const modal = document.getElementById("dayRoadmapModal");
+  if (modal) {
+    renderRoadmapGrid();
+    modal.classList.remove("hidden");
+    if (window.lucide) lucide.createIcons();
+  }
+}
+
+function closeRoadmapModal() {
+  const modal = document.getElementById("dayRoadmapModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function renderRoadmapGrid() {
+  const grid = document.getElementById("roadmapGridContainer");
+  if (!grid) return;
+
+  const total = getTotalMissionDays();
+  const curDay = missionRegistry.currentDay;
+
+  let html = "";
+  for (let i = 1; i <= total; i++) {
+    const st = getDayMissionStatus(i);
+    const isCur = (i === curDay);
+    const info = getDailyAssignedVocab(i);
+
+    let borderClass = "border-slate-800 bg-slate-900/60 text-slate-400";
+    let badgeText = "Chưa học";
+    let badgeBg = "bg-slate-800 text-slate-500";
+
+    if (st.isAllDone) {
+      borderClass = isCur 
+        ? "border-emerald-400 ring-2 ring-emerald-400/70 bg-emerald-950/40 text-emerald-200" 
+        : "border-emerald-500/50 bg-emerald-950/20 text-emerald-300";
+      badgeText = isCur ? "✓ Hôm nay (Xong 3/3)" : "✓ Xong (3/3)";
+      badgeBg = "bg-emerald-500/25 text-emerald-300 font-bold border border-emerald-500/40";
+    } else if (st.completedCount > 0) {
+      borderClass = isCur
+        ? "border-amber-400 ring-2 ring-amber-400/70 bg-amber-950/40 text-amber-200"
+        : "border-amber-500/50 bg-amber-950/20 text-amber-300";
+      badgeText = isCur ? `Hôm nay (${st.completedCount}/3)` : `Đang làm (${st.completedCount}/3)`;
+      badgeBg = "bg-amber-500/25 text-amber-300 font-bold border border-amber-500/40";
+    } else if (isCur) {
+      borderClass = "border-cyan-400 ring-2 ring-cyan-400/50 bg-cyan-950/30 text-white";
+      badgeText = "Hôm nay (Chưa làm)";
+      badgeBg = "bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/30";
+    }
+
+    html += `
+      <div onclick="jumpToMissionDay(${i}); closeRoadmapModal();" class="p-3 rounded-xl border ${borderClass} hover:border-cyan-400 cursor-pointer transition flex flex-col justify-between space-y-1.5 shadow-sm">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-xs ${isCur ? 'text-cyan-300 font-extrabold' : 'text-slate-200'}">Ngày ${i}</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded-full ${badgeBg} font-semibold">${badgeText}</span>
+        </div>
+        <p class="text-[10px] text-slate-400 line-clamp-1">${info.unitTitle}</p>
+        <div class="text-[9px] text-slate-500 flex items-center justify-between pt-1 border-t border-slate-800/60">
+          <span class="${st.vocabDone ? 'text-emerald-400 font-bold' : ''}">${st.vocabDone ? '✓ Từ' : '○ Từ'}</span>
+          <span class="${st.readingDone ? 'text-emerald-400 font-bold' : ''}">${st.readingDone ? '✓ Đọc' : '○ Đọc'}</span>
+          <span class="${st.grammarDone ? 'text-emerald-400 font-bold' : ''}">${st.grammarDone ? '✓ Ngữ pháp' : '○ Ngữ pháp'}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  grid.innerHTML = html;
+}
+
+// ================= PHÒNG ÔN TẬP TỰ DO (CHỌN UNIT & XÁO TRỘN) =================
+function setupReviewSelectors() {
+  const units = window.APP_DATA?.units || [];
+  const uSel = document.getElementById("reviewUnitSelect");
+  if (!uSel) return;
+
+  let html = `<option value="">-- Chọn Unit muốn ôn tập --</option>`;
+  units.forEach((u, idx) => {
+    html += `<option value="${idx}">${u.unitTitle} (${u.totalWords} từ)</option>`;
+  });
+  uSel.innerHTML = html;
+  uSel.value = "0";
+  onReviewUnitChange("0");
+  renderReviewShufflePills();
+}
+
+function onReviewUnitChange(val) {
+  const uIdx = parseInt(val) || 0;
+  const unit = window.APP_DATA?.units?.[uIdx];
+  const dSel = document.getElementById("reviewDaySelect");
+  if (dSel && unit && unit.days) {
+    dSel.innerHTML = unit.days.map((d, idx) => `<option value="${idx}">${d.dayTitle}</option>`).join("");
+  }
+}
+
+function onReviewDayChange(val) {}
+
+function renderReviewShufflePills() {
+  const container = document.getElementById("reviewClusterPills");
+  if (!container) return;
+
+  let html = "";
+  SHUFFLE_4_UNIT_BLOCKS.forEach(b => {
+    html += `
+      <button onclick="startReviewCluster('${b.id}', ${b.from}, ${b.to})" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 transition flex items-center gap-1 shrink-0 border border-slate-700">
+        <i data-lucide="shuffle" class="w-3.5 h-3.5 text-indigo-400"></i> ${b.label}
+      </button>
+    `;
+  });
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function startReviewCluster(id, fromU, toU) {
+  appState.studyMode = "free_review";
+  appState.shuffledRange = [fromU, toU];
+  const rawWords = getWordsForUnitRange(fromU, toU);
+  appState.activeShuffledCards = shuffleArray(rawWords);
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  const lockedBanner = document.getElementById("dailyMissionLockedBanner");
+  if (lockedBanner) lockedBanner.classList.add("hidden");
+  const freeArea = document.getElementById("freeReviewSelectorArea");
+  if (freeArea) freeArea.classList.remove("hidden");
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = `Ôn tập xáo trộn: Unit ${fromU} – ${toU}`;
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = `${rawWords.length} từ`;
+
+  switchTab("flashcard");
+  renderFlashcard();
+  showToast(`🔀 Đã bắt đầu ôn tập xáo trộn Cụm Unit ${fromU} – ${toU}!`, "info");
+}
+
+function startFreeFlashcardReview() {
+  const uSel = document.getElementById("reviewUnitSelect");
+  const dSel = document.getElementById("reviewDaySelect");
+  const uIdx = parseInt(uSel?.value || 0);
+  const dVal = dSel?.value || "0";
+
+  appState.studyMode = "free_review";
+  appState.currentUnitIndex = uIdx;
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  const unit = window.APP_DATA?.units?.[uIdx];
+  if (dVal === "all") {
+    const allWords = unit?.days?.flatMap(d => d.words) || [];
+    appState.activeShuffledCards = shuffleArray(allWords);
+    appState.currentDayIndex = "all";
+  } else {
+    appState.currentDayIndex = parseInt(dVal);
+    appState.activeShuffledCards = [];
+  }
+
+  const lockedBanner = document.getElementById("dailyMissionLockedBanner");
+  if (lockedBanner) lockedBanner.classList.add("hidden");
+  const freeArea = document.getElementById("freeReviewSelectorArea");
+  if (freeArea) freeArea.classList.remove("hidden");
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = unit?.unitTitle || "Ôn tập Unit";
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = dVal === "all" ? "Toàn bộ Unit" : `Ngày ${parseInt(dVal) + 1}`;
+
+  switchTab("flashcard");
+  renderFlashcard();
+  showToast(`📚 Đã nạp từ vựng Unit để ôn tập tự do!`, "info");
+}
+
 // ================= UNIT & FLASHCARD SYSTEM =================
 function setupUnitSelectors() {
   renderShufflePills();
@@ -495,7 +1306,7 @@ function onUnitChange(val) {
 
   if (unit && unit.days && daySelect) {
     daySelect.innerHTML = unit.days.map((d, idx) => `
-      <option value="${idx}">${d.dayTitle} (${d.words.length} từ)</option>
+      <option value="${idx}">${d.dayTitle}</option>
     `).join("");
   }
 
@@ -554,6 +1365,9 @@ function updateDayProgressBadge() {
 }
 
 function getCurrentDayWords() {
+  if (appState.studyMode === "gradual_review" && appState.gradualReviewWords) {
+    return appState.gradualReviewWords;
+  }
   if (appState.studyMode && appState.studyMode.startsWith("shuffle_")) {
     const total = appState.activeShuffledCards;
     if (appState.currentDayIndex === "all") {
@@ -570,7 +1384,13 @@ function getCurrentDayWords() {
   const unit = window.APP_DATA?.units?.[appState.currentUnitIndex];
   const dIdx = parseInt(appState.currentDayIndex) || 0;
   const day = unit?.days?.[dIdx];
-  return day?.words || [];
+  const baseWords = day?.words || [];
+
+  if (appState.interleavedConfig && appState.interleavedConfig.enabled && baseWords.length > 0) {
+    return getInterleavedDeckForDay(dIdx, baseWords);
+  }
+
+  return baseWords;
 }
 
 function reshuffleCurrentDeck() {
@@ -590,6 +1410,21 @@ function reshuffleCurrentDeck() {
   appState.isFlipped = false;
   renderFlashcard();
   showToast("🎲 Đã đảo ngẫu nhiên toàn bộ thứ tự các thẻ từ!", "success");
+}
+
+function formatPronHtml(pron) {
+  if (!pron) return '<span class="text-slate-400">/.../</span>';
+  let p = pron.trim();
+  if (!p.startsWith("/")) p = `/${p}`;
+  if (!p.endsWith("/")) p = `${p}/`;
+
+  let inner = p.slice(1, -1);
+  // Highlight primary stress ˈ with bold glowing amber mark
+  inner = inner.replace(/ˈ/g, '<span class="text-amber-400 font-black text-lg align-baseline px-0.5 drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" title="Nhấn âm chính (Stress)">ˈ</span>');
+  // Highlight secondary stress ˌ with cyan mark
+  inner = inner.replace(/ˌ/g, '<span class="text-cyan-300 font-bold text-sm align-baseline px-0.5" title="Nhấn âm phụ">ˌ</span>');
+
+  return `<span class="align-middle font-mono tracking-wider">/${inner}/</span>`;
 }
 
 function renderFlashcard() {
@@ -614,9 +1449,31 @@ function renderFlashcard() {
   if (cardElem) cardElem.classList.remove("flipped");
 
   document.getElementById("cardWord").innerText = curWord.word;
-  document.getElementById("cardPron").innerText = curWord.pron || "/.../";
+  const pronEl = document.getElementById("cardPron");
+  if (pronEl) {
+    pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[11px] border border-blue-500/30 mr-1.5 align-middle">🇺🇸 US</span>${formatPronHtml(curWord.pron)}`;
+  }
+  const cambridgeLink = document.getElementById("cardCambridgeLink");
+  if (cambridgeLink) {
+    cambridgeLink.href = `https://dictionary.cambridge.org/dictionary/english/${encodeURIComponent(curWord.word)}`;
+  }
   document.getElementById("cardPos").innerText = `(${curWord.pos || "word"}) • ${curWord.level || "B1"}`;
-  document.getElementById("cardTypeTag").innerText = curWord.type || "Vocabulary";
+  const typeTag = document.getElementById("cardTypeTag");
+  if (typeTag) {
+    if (curWord.cardOrigin === "reading") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm flex items-center gap-1";
+      typeTag.innerHTML = `<span>📖</span><span>${curWord.cardOriginText || 'Từ bài đọc'}</span>`;
+    } else if (curWord.cardOrigin === "past_day") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm flex items-center gap-1";
+      typeTag.innerHTML = `<span>🔄</span><span>${curWord.cardOriginText || 'Ôn ngày cũ'}</span>`;
+    } else if (curWord.cardOrigin === "srs") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm flex items-center gap-1";
+      typeTag.innerHTML = `<span>🧠</span><span>${curWord.cardOriginText || 'Cần củng cố'}</span>`;
+    } else {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30";
+      typeTag.innerText = curWord.type || "Vocabulary";
+    }
+  }
 
   document.getElementById("cardBackWord").innerText = curWord.word;
   document.getElementById("cardBackPos").innerText = curWord.pos || "";
@@ -634,9 +1491,31 @@ function renderFlashcard() {
 
   document.getElementById("cardExample").innerText = curWord.example ? `"${curWord.example}"` : `Example with ${curWord.word}.`;
 
-  document.getElementById("cardCounter").innerText = `Thẻ ${appState.currentCardIndex + 1} / ${words.length}`;
+  let counterText = `Thẻ ${appState.currentCardIndex + 1} / ${words.length}`;
+  if (appState.interleavedConfig && appState.interleavedConfig.enabled) {
+    const todayCount = words.filter(w => w.cardOrigin === "today" || !w.cardOrigin).length;
+    const reviewCount = words.length - todayCount;
+    if (reviewCount > 0) {
+      counterText += ` (${todayCount} từ ngày + ${reviewCount} từ chèn)`;
+    }
+  }
+  document.getElementById("cardCounter").innerText = counterText;
   const pct = Math.round(((appState.currentCardIndex + 1) / words.length) * 100);
   document.getElementById("flashcardProgressBar").style.width = `${pct}%`;
+
+  const progressInfo = document.getElementById("unitProgressInfo");
+  if (progressInfo) {
+    if (appState.studyMode === "daily_locked") {
+      const curStatus = getDayMissionStatus(missionRegistry.currentDay);
+      if (curStatus.vocabDone) {
+        progressInfo.innerHTML = `<span class="text-emerald-400 font-bold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Đã hoàn thành 20/20 từ Ngày ${missionRegistry.currentDay}!</span>`;
+      } else {
+        progressInfo.innerText = `Tiến độ nhiệm vụ: ${curStatus.vocabCount} / 20 từ đã học`;
+      }
+    } else {
+      progressInfo.innerText = `Chế độ ôn tập: Thẻ ${appState.currentCardIndex + 1} / ${words.length}`;
+    }
+  }
 }
 
 function flipCard() {
@@ -649,6 +1528,7 @@ function prevCard() {
   const words = getCurrentDayWords();
   if (words.length <= 1) return;
   appState.currentCardIndex = (appState.currentCardIndex - 1 + words.length) % words.length;
+  onVocabCardViewed();
   renderFlashcard();
 }
 
@@ -656,39 +1536,54 @@ function nextCard() {
   const words = getCurrentDayWords();
   if (words.length <= 1) return;
   appState.currentCardIndex = (appState.currentCardIndex + 1) % words.length;
+  onVocabCardViewed();
   renderFlashcard();
 }
 
-// SRS Review Rating with Offline Queueing
 async function rateSRS(score) {
   const words = getCurrentDayWords();
   if (!words || words.length === 0) return;
   const curWord = words[appState.currentCardIndex];
+  if (!curWord) return;
 
+  // 1. TỰ ĐỘNG CHUYỂN THẺ NGAY LẬP TỨC (0ms latency, không cần bấm thêm nút nào)
+  nextCard();
+
+  // 2. Tự động ghi nhận tiến độ học của ngày
+  if (appState.studyMode === "daily_locked") {
+    const curDay = missionRegistry.currentDay;
+    const curStatus = getDayMissionStatus(curDay);
+    const studiedCount = appState.dayVocabStudied?.[curDay]?.size || Math.min(20, appState.currentCardIndex + 1);
+    const isDone = studiedCount >= Math.min(20, words.length);
+    setDayMissionStatus(curDay, {
+      vocabCount: studiedCount,
+      vocabDone: isDone || curStatus.vocabDone
+    });
+  }
+
+  // 3. Gửi sự kiện đánh giá độ nhớ (SRS) chạy ngầm không làm gián đoạn lật thẻ
   const clientEventId = `evt_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
   const payload = {
-    item_id: curWord.id,
+    item_id: curWord.id || `word_${curWord.word}`,
     test_type: "recognition",
     rating: score,
     used_hint: false,
-    response_time_ms: 2500,
+    response_time_ms: 1200,
     client_event_id: clientEventId,
     device_id: navigator.userAgent.substring(0, 30)
   };
 
-  const res = await apiCall("/api/study/rate", "POST", payload);
-  if (!res) {
-    appState.offlineQueue.push({
-      ...payload,
-      created_at_client: new Date().toISOString()
+  if (appState.authToken) {
+    apiCall("/api/study/rate", "POST", payload).then(res => {
+      if (res && res.streak !== undefined) {
+        const el = document.getElementById("streakCount");
+        if (el) el.innerText = `${res.streak} ngày`;
+      }
+    }).catch(err => {
+      appState.offlineQueue.push({ ...payload, created_at_client: new Date().toISOString() });
+      try { localStorage.setItem(STORAGE_KEY_OFFLINE_QUEUE, JSON.stringify(appState.offlineQueue)); } catch(e){}
     });
-    localStorage.setItem(STORAGE_KEY_OFFLINE_QUEUE, JSON.stringify(appState.offlineQueue));
-  } else if (res.streak !== undefined) {
-    const el = document.getElementById("streakCount");
-    if (el) el.innerText = `${res.streak} ngày`;
   }
-
-  nextCard();
 }
 
 async function flushOfflineQueue() {
@@ -877,9 +1772,16 @@ function checkGrammarFillBlank(idx) {
   const normalize = (s) => s.replace(/['’]/g, "'").replace(/\s+/g, " ").trim();
   const isMatch = allCorrect.some(c => normalize(c) === normalize(val));
 
-  // Mark daily grammar goal complete
-  appState.todayGrammarDone = true;
-  updateDailyGoalChecklist();
+  if (!appState.grammarDoneExercises) appState.grammarDoneExercises = new Set();
+  appState.grammarDoneExercises.add(`g_${appState.activeGrammarWeek}_fb_${idx}`);
+  if (appState.grammarDoneExercises.size >= 2) {
+    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
+    if (!curStatus.grammarDone) {
+      setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
+      showToast(`🎉 Chúc mừng! Bạn đã hoàn thành các bài tập ngữ pháp hôm nay! Đã tự động đánh dấu hoàn thành!`, "success");
+      updateDailyMissionUI();
+    }
+  }
 
   if (isMatch) {
     input.classList.remove("border-slate-700", "border-red-500");
@@ -902,9 +1804,16 @@ async function checkGrammarQuiz(qIdx, optIdx) {
   const feedback = document.getElementById(`gq-feedback-${qIdx}`);
   const btn = document.getElementById(`gq-${qIdx}-opt-${optIdx}`);
 
-  // Mark daily grammar goal complete
-  appState.todayGrammarDone = true;
-  updateDailyGoalChecklist();
+  if (!appState.grammarDoneExercises) appState.grammarDoneExercises = new Set();
+  appState.grammarDoneExercises.add(`g_${appState.activeGrammarWeek}_qz_${qIdx}`);
+  if (appState.grammarDoneExercises.size >= 2) {
+    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
+    if (!curStatus.grammarDone) {
+      setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
+      showToast(`🎉 Chúc mừng! Bạn đã hoàn thành các bài tập ngữ pháp hôm nay! Đã tự động đánh dấu hoàn thành!`, "success");
+      updateDailyMissionUI();
+    }
+  }
 
   const res = await apiCall("/api/grammar/quiz-submit", "POST", {
     week_number: appState.activeGrammarWeek,
@@ -945,9 +1854,6 @@ function setupReadingSelector() {
 
 function filterReadingByExam(category) {
   appState.activeExamFilter = category || "all";
-  const readings = window.APP_DATA?.readings || [];
-
-  // Update button active styles
   const filterBtns = document.querySelectorAll(".exam-filter-btn");
   filterBtns.forEach(btn => {
     btn.classList.remove("active", "bg-indigo-600", "text-white", "shadow");
@@ -958,37 +1864,72 @@ function filterReadingByExam(category) {
     activeBtn.classList.remove("bg-slate-800", "text-slate-300");
     activeBtn.classList.add("active", "bg-indigo-600", "text-white", "shadow");
   }
+  applyReadingFilters();
+}
 
-  // Filter list
-  if (category === "all") {
-    currentFilteredReadings = readings.map((r, origIdx) => ({ ...r, origIdx }));
-  } else if (category === "BaoQuocTe") {
-    currentFilteredReadings = readings
-      .map((r, origIdx) => ({ ...r, origIdx }))
-      .filter(r => !["IELTS", "VSTEP", "TOEIC", "APTIS", "PET"].includes((r.category || "").toUpperCase()));
-  } else {
-    currentFilteredReadings = readings
-      .map((r, origIdx) => ({ ...r, origIdx }))
-      .filter(r => (r.category || "").toUpperCase() === category.toUpperCase());
+
+appState.activeReadingLevelFilter = "all";
+
+function filterReadingByLevel(level) {
+  appState.activeReadingLevelFilter = level || "all";
+  applyReadingFilters();
+
+  const levelBtns = document.querySelectorAll(".level-filter-btn");
+  levelBtns.forEach(btn => {
+    btn.classList.remove("active", "bg-cyan-600", "text-white", "shadow");
+    btn.classList.add("bg-slate-800", "text-slate-300");
+  });
+  const activeBtn = document.getElementById(`levelBtn_${level}`);
+  if (activeBtn) {
+    activeBtn.classList.remove("bg-slate-800", "text-slate-300");
+    activeBtn.classList.add("active", "bg-cyan-600", "text-white", "shadow");
   }
+}
+
+function applyReadingFilters() {
+  const readings = window.APP_DATA?.readings || [];
+  const examCat = appState.activeExamFilter || "all";
+  const levelFilter = appState.activeReadingLevelFilter || "all";
+
+  let list = readings.map((r, origIdx) => ({ ...r, origIdx }));
+
+  // 1. Filter by exam category
+  if (examCat === "CLOZE") {
+    list = list.filter(r => (r.category || "").toUpperCase() === "CLOZE" || (r.title || "").includes("Đục Lỗ") || r.type === "cloze");
+  } else if (examCat === "TOEIC") {
+    list = list.filter(r => (r.category || "").toUpperCase().includes("TOEIC") || (r.title || "").includes("TOEIC"));
+  } else if (examCat === "VSTEP") {
+    list = list.filter(r => (r.category || "").toUpperCase().includes("VSTEP") || (r.title || "").includes("VSTEP"));
+  } else if (examCat === "IELTS") {
+    list = list.filter(r => (r.category || "").toUpperCase().includes("IELTS") || (r.title || "").includes("IELTS"));
+  } else if (examCat === "BaoQuocTe") {
+    list = list.filter(r => !["IELTS", "VSTEP", "TOEIC", "APTIS", "PET", "CLOZE"].includes((r.category || "").toUpperCase()) && !(r.title || "").includes("Đục Lỗ"));
+  }
+
+  // 2. Filter by Level
+  if (levelFilter !== "all") {
+    list = list.filter(r => (r.level || "B1").toUpperCase() === levelFilter.toUpperCase());
+  }
+
+  currentFilteredReadings = list;
 
   const select = document.getElementById("readingSelect");
   if (select) {
     select.innerHTML = currentFilteredReadings.map(r => `
-      <option value="${r.origIdx}">[${(r.category || 'Reading').toUpperCase()}] ${r.title.replace(/^\[.*?\]\s*/, "")} (${r.level || 'B2'})</option>
+      <option value="${r.origIdx}">[${r.level || 'B1'}] ${r.title.replace(/^\[.*?\]\s*/, "")}</option>
     `).join("");
   }
 
   const badgeEl = document.getElementById("readingCategoryTagBadge");
   if (badgeEl) {
-    const label = category === "all" ? "Tất cả" : (category === "BaoQuocTe" ? "Báo Quốc Tế" : category);
-    badgeEl.innerText = `${currentFilteredReadings.length} Bài Luyện Thi (${label})`;
+    badgeEl.innerText = `${currentFilteredReadings.length} Bài Luyện Thi (${levelFilter === 'all' ? 'Tất cả level' : 'Level ' + levelFilter})`;
   }
 
   if (currentFilteredReadings.length > 0) {
     renderReadingPassage(currentFilteredReadings[0].origIdx);
   }
 }
+
 
 let activePopupWord = "";
 let activeContextSentence = "";
@@ -1010,14 +1951,9 @@ function renderReadingPassage(passageIdx) {
   document.getElementById("readingUnitTag").innerText = passage.source_reference || `Bài Báo #${appState.activeReadingIndex + 1}`;
   document.getElementById("readingLevelTag").innerText = `Level ${passage.level || "B2"}`;
 
-  // Track daily reading goal
-  appState.todayReadingDone = true;
-  if (typeof updateDailyGoalChecklist === "function") updateDailyGoalChecklist();
+  // Đọc bài - hoàn thành khi trả lời hết câu hỏi
 
-  // Target words set
   const targetWords = (passage.target_words || []).map(w => w.toLowerCase().trim());
-
-  // Safe DOM Rendering: Split paragraphs and tokens cleanly to prevent any string escaping or recursion bugs
   const container = document.getElementById("readingContent");
   container.innerHTML = "";
 
@@ -1026,36 +1962,48 @@ function renderReadingPassage(passageIdx) {
     const pEl = document.createElement("p");
     pEl.className = "mb-4 last:mb-0 leading-relaxed";
 
-    // Split text by word vs non-word tokens
-    const tokens = paraText.split(/(\b[A-Za-z'-]+\b)/);
-    tokens.forEach(token => {
-      if (/^[A-Za-z'-]+$/.test(token)) {
-        const cleanLower = token.toLowerCase();
-        const isTarget = targetWords.some(tw => tw === cleanLower || tw.split(/\s+/).includes(cleanLower));
-
-        const span = document.createElement("span");
-        span.textContent = token;
-
-        if (isTarget) {
-          span.className = "target-word-pill font-bold text-amber-300 bg-amber-500/20 px-1 py-0.5 rounded border border-amber-500/30 cursor-pointer hover:bg-amber-500/40 transition shadow-sm inline-block";
-          span.title = `Từ trọng tâm: ${token}`;
-        } else {
-          span.className = "clickable-word cursor-pointer hover:text-amber-300 hover:underline decoration-amber-400 decoration-dotted transition inline-block";
-          span.title = `Chạm để tra từ: ${token}`;
-        }
-
-        // Attach safe click handler via closure (no string concatenation)
-        span.addEventListener("click", () => {
-          // Extract sentence context safely
-          const sentences = paraText.split(/(?<=[.?!])\s+/);
-          const foundSent = sentences.find(s => s.toLowerCase().includes(cleanLower)) || paraText;
-          showWordPopup(token, foundSent);
-        });
-
-        pEl.appendChild(span);
+    // Split paraText by cloze tokens like [1] ______ or [1]
+    const segments = paraText.split(/(\[\d+\](?:\s*_{2,})?)/g);
+    segments.forEach(segment => {
+      const clozeMatch = segment.match(/^\[(\d+)\](?:\s*_{2,})?$/);
+      if (clozeMatch) {
+        const slotNum = parseInt(clozeMatch[1]);
+        const clozeBtn = document.createElement("button");
+        clozeBtn.id = `cloze-slot-${slotNum}`;
+        clozeBtn.className = "cloze-slot-pill mx-1 px-3 py-1 rounded-lg bg-indigo-600/30 text-indigo-300 font-bold border border-indigo-500/50 hover:bg-indigo-600/50 shadow-sm inline-flex items-center gap-1 transition cursor-pointer text-sm align-middle";
+        clozeBtn.innerHTML = `<span>[${slotNum}]</span> <span class="cloze-text underline decoration-indigo-400 italic font-mono">______</span>`;
+        clozeBtn.onclick = () => focusReadingQuestion(slotNum - 1);
+        pEl.appendChild(clozeBtn);
       } else {
-        // Punctuation, spaces, newlines
-        pEl.appendChild(document.createTextNode(token));
+        // Tokenize words for popup translation
+        const tokens = segment.split(/(\b[A-Za-z'-]+\b)/);
+        tokens.forEach(token => {
+          if (/^[A-Za-z'-]+$/.test(token)) {
+            const cleanLower = token.toLowerCase();
+            const isTarget = targetWords.some(tw => tw === cleanLower || tw.split(/\s+/).includes(cleanLower));
+
+            const span = document.createElement("span");
+            span.textContent = token;
+
+            if (isTarget) {
+              span.className = "target-word-pill font-bold text-amber-300 bg-amber-500/20 px-1 py-0.5 rounded border border-amber-500/30 cursor-pointer hover:bg-amber-500/40 transition shadow-sm inline-block";
+              span.title = `Từ trọng tâm: ${token}`;
+            } else {
+              span.className = "clickable-word cursor-pointer hover:text-amber-300 hover:underline decoration-amber-400 decoration-dotted transition inline-block";
+              span.title = `Chạm để tra từ: ${token}`;
+            }
+
+            span.addEventListener("click", () => {
+              const sentences = paraText.split(/(?<=[.?!])\s+/);
+              const foundSent = sentences.find(s => s.toLowerCase().includes(cleanLower)) || paraText;
+              showWordPopup(token, foundSent);
+            });
+
+            pEl.appendChild(span);
+          } else {
+            pEl.appendChild(document.createTextNode(token));
+          }
+        });
       }
     });
 
@@ -1074,8 +2022,8 @@ function renderReadingPassage(passageIdx) {
         const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
 
         return `
-          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-            <p class="font-semibold text-sm text-slate-100">${idx + 1}. ${qText}</p>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2 transition-all duration-300" id="rq-card-${idx}">
+            <p class="font-semibold text-sm text-slate-100">${idx + 1}. ${qText.replace(/\n/g, '<br>')}</p>
             <div class="space-y-1.5 pt-1">
               ${(q.options || []).map((opt, oIdx) => `
                 <button onclick="checkReadingQuestion(${idx}, ${oIdx}, ${correctIdx})" id="rq-${idx}-opt-${oIdx}" class="w-full text-left p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700/80 text-xs text-slate-200 border border-slate-700/50 transition">
@@ -1093,20 +2041,54 @@ function renderReadingPassage(passageIdx) {
   if (window.lucide) lucide.createIcons();
 }
 
+function focusReadingQuestion(qIdx) {
+  const card = document.getElementById(`rq-card-${qIdx}`) || document.getElementById("readingQuestionsList");
+  if (card) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('ring-2', 'ring-indigo-400', 'bg-indigo-950/40');
+    setTimeout(() => {
+      card.classList.remove('ring-2', 'ring-indigo-400', 'bg-indigo-950/40');
+    }, 2000);
+  }
+}
+
 function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
   const selectedBtn = document.getElementById(`rq-${qIdx}-opt-${selectedIdx}`);
   const feedback = document.getElementById(`rq-feedback-${qIdx}`);
   const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
   const qData = passage?.questions?.[qIdx];
 
-  // Mark daily reading goal complete
-  appState.todayReadingDone = true;
-  if (typeof updateDailyGoalChecklist === "function") updateDailyGoalChecklist();
+  // Track answered questions for this passage
+  if (!appState.readingAnsweredMap) appState.readingAnsweredMap = {};
+  const pIdx = appState.activeReadingIndex;
+  if (!appState.readingAnsweredMap[pIdx]) appState.readingAnsweredMap[pIdx] = new Set();
+  appState.readingAnsweredMap[pIdx].add(qIdx);
 
-  if (selectedIdx === correctIdx) {
+  const totalQuestions = passage?.questions?.length || 0;
+  const answeredCount = appState.readingAnsweredMap[pIdx].size;
+
+  // CHỈ TICK HOÀN THÀNH KHI ĐÃ TRẢ LỜI ĐỦ CÁC CÂU HỎI
+  if (totalQuestions > 0 && answeredCount >= totalQuestions) {
+    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
+    if (!curStatus.readingDone) {
+      setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
+      showToast(`🎉 Chúc mừng! Bạn đã hoàn thành toàn bộ ${totalQuestions} câu hỏi đọc hiểu của bài hôm nay! Đã tự động đánh dấu hoàn thành!`, "success");
+      updateDailyMissionUI();
+    }
+  }
+
+  const isCorrect = (selectedIdx === correctIdx);
+  if (isCorrect) {
     selectedBtn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
     feedback.innerHTML = `✓ Chính xác! ${qData?.explain || ""}`;
     feedback.className = "text-xs font-semibold text-emerald-400 pt-1";
+
+    const slotEl = document.getElementById(`cloze-slot-${qIdx + 1}`);
+    if (slotEl && qData && qData.options && qData.options[selectedIdx]) {
+      const optWord = qData.options[selectedIdx].replace(/^[A-D]\.\s*/, "").trim();
+      slotEl.innerHTML = `<span>[${qIdx + 1}]</span> <strong class="text-emerald-300 underline">${optWord}</strong> <span class="text-emerald-400">✓</span>`;
+      slotEl.className = "cloze-slot-pill mx-1 px-3 py-1 rounded-lg bg-emerald-600/30 text-emerald-300 font-bold border border-emerald-500 shadow-sm inline-flex items-center gap-1 transition text-sm align-middle animate-pulse";
+    }
   } else {
     selectedBtn.classList.add("bg-red-600/30", "border-red-500", "text-red-300");
     feedback.innerHTML = `✗ Chưa đúng! ${qData?.explain || ""}`;
@@ -1121,17 +2103,25 @@ async function showWordPopup(wordText, context) {
 
   activePopupWord = cleanWord;
   activeContextSentence = context || "";
+  activePopupAudioUrl = "";
 
   document.getElementById("popupWord").innerText = cleanWord;
-  document.getElementById("popupPron").innerText = "/.../";
+  const pronEl = document.getElementById("popupPron");
+  if (pronEl) {
+    pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span><span>/.../</span>`;
+  }
   document.getElementById("popupPos").innerText = "word";
-  document.getElementById("popupMeaningVi").innerText = "Đang tra cứu từ điển...";
-  document.getElementById("popupMeaningEn").innerText = "Searching international database...";
+  document.getElementById("popupMeaningVi").innerText = "Đang tra cứu từ điển US...";
+  document.getElementById("popupMeaningEn").innerText = "Searching Cambridge & international database...";
   
+  const cambridgeLink = document.getElementById("popupCambridgeLink");
+  if (cambridgeLink) {
+    cambridgeLink.href = `https://dictionary.cambridge.org/dictionary/english/${encodeURIComponent(cleanWord)}`;
+  }
+
   const ctxBox = document.getElementById("popupContextBox");
   const ctxText = document.getElementById("popupContextText");
   if (ctxText && context) {
-    // Highlight word in sentence preview
     const regex = new RegExp(`\\b(${cleanWord})\\b`, "gi");
     ctxText.innerHTML = `"${context.replace(regex, `<strong class="text-amber-300">$1</strong>`)}"`;
     if (ctxBox) ctxBox.classList.remove("hidden");
@@ -1141,16 +2131,40 @@ async function showWordPopup(wordText, context) {
 
   document.getElementById("wordPopupModal").classList.remove("hidden");
 
-  // 1. Search in local database first
+  // Call API for authentic US IPA and human US MP3 audio
+  try {
+    const res = await apiCall(`/api/reading/lookup-word?word=${encodeURIComponent(cleanWord)}`);
+    if (res) {
+      activePopupAudioUrl = res.audio_us || "";
+      activePopupWordItem = {
+        word: res.word || cleanWord,
+        pos: res.pos || "word",
+        pron: res.pron || `/${cleanWord}/`,
+        meaning_vi: res.meaning_vi || cleanWord,
+        meaning_en: res.meaning_en || `Definition of ${cleanWord}`,
+        example: context || res.example || `Example sentence with ${cleanWord}.`
+      };
+
+      document.getElementById("popupWord").innerText = res.word || cleanWord;
+      if (pronEl) {
+        pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span>${formatPronHtml(res.pron || cleanWord)}`;
+      }
+      document.getElementById("popupPos").innerText = res.pos || "word";
+      document.getElementById("popupMeaningVi").innerText = res.meaning_vi || cleanWord;
+      document.getElementById("popupMeaningEn").innerText = res.meaning_en || `Definition of ${cleanWord}.`;
+      return;
+    }
+  } catch (e) {
+    console.warn("API lookup fallback to local:", e);
+  }
+
+  // Fallback to local data
   let found = null;
   if (window.APP_DATA && window.APP_DATA.units) {
     for (const u of window.APP_DATA.units) {
       for (const d of u.days) {
         const match = d.words.find(w => w.word.toLowerCase() === cleanWord.toLowerCase());
-        if (match) {
-          found = match;
-          break;
-        }
+        if (match) { found = match; break; }
       }
       if (found) break;
     }
@@ -1166,36 +2180,26 @@ async function showWordPopup(wordText, context) {
       example: found.example || context
     };
     document.getElementById("popupWord").innerText = found.word;
-    document.getElementById("popupPron").innerText = found.pron || `/${cleanWord}/`;
-    document.getElementById("popupPos").innerText = found.pos || "word";
-    document.getElementById("popupMeaningVi").innerText = found.meaning_vi || "Đang mở rộng nghĩa...";
-    document.getElementById("popupMeaningEn").innerText = found.meaning_en || "English definition available.";
-    return;
-  }
-
-  // 2. Fallback to API lookup for instant definition
-  try {
-    const res = await apiCall(`/api/reading/lookup-word?word=${encodeURIComponent(cleanWord)}`);
-    if (res) {
-      activePopupWordItem = {
-        word: res.word || cleanWord,
-        pos: res.pos || "word",
-        pron: res.pron || `/${cleanWord}/`,
-        meaning_vi: res.meaning_vi || cleanWord,
-        meaning_en: res.meaning_en || `Definition of ${cleanWord}`,
-        example: context || res.example || `Example sentence with ${cleanWord}.`
-      };
-      document.getElementById("popupWord").innerText = res.word || cleanWord;
-      document.getElementById("popupPron").innerText = res.pron || `/${cleanWord}/`;
-      document.getElementById("popupPos").innerText = res.pos || "word";
-      document.getElementById("popupMeaningVi").innerText = res.meaning_vi || cleanWord;
-      document.getElementById("popupMeaningEn").innerText = res.meaning_en || `Definition of ${cleanWord}.`;
+    if (pronEl) {
+      pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span>${formatPronHtml(found.pron || cleanWord)}`;
     }
-  } catch (e) {
-    console.warn("Lookup failed:", e);
-    document.getElementById("popupMeaningVi").innerText = cleanWord;
-    document.getElementById("popupMeaningEn").innerText = `Definition of ${cleanWord}`;
+    document.getElementById("popupPos").innerText = found.pos || "word";
+    document.getElementById("popupMeaningVi").innerText = found.meaning_vi || cleanWord;
+    document.getElementById("popupMeaningEn").innerText = found.meaning_en || "English definition available.";
   }
+}
+
+let activePopupAudioUrl = "";
+
+function speakPopupWord() {
+  if (activePopupAudioUrl) {
+    try {
+      const audio = new Audio(activePopupAudioUrl);
+      audio.play().catch(() => speakText(activePopupWord));
+      return;
+    } catch (e) {}
+  }
+  speakText(activePopupWord);
 }
 
 function closeWordPopup() {
@@ -1228,14 +2232,15 @@ async function addPopupWordToCurrentDay() {
     day_number: curDayNumber
   };
 
-  // 1. Add to client in-memory dataset immediately
-  const newItem = {
-    id: `custom_${Date.now()}`,
+  // 1. Save to persistent custom storage
+  const newItem = saveCustomWordItem({
     ...payload,
     type: "word",
-    level: "B1+"
-  };
+    level: "B1+",
+    source: "reading"
+  });
   curWords.push(newItem);
+  appState.activeInterleavedDeck = null;
 
   // 2. Persist to server if available
   if (appState.authToken) {
@@ -1251,6 +2256,17 @@ async function addPopupWordToCurrentDay() {
 }
 
 async function saveCurrentPopupWord(saveType) {
+  // Save to persistent local storage immediately
+  saveCustomWordItem({
+    word: activePopupWord,
+    pos: activePopupWordItem?.pos || "word",
+    pron: activePopupWordItem?.pron || `/${activePopupWord}/`,
+    meaning_vi: activePopupWordItem?.meaning_vi || activePopupWord,
+    meaning_en: activePopupWordItem?.meaning_en || `Definition of ${activePopupWord}`,
+    example: activeContextSentence || activePopupWordItem?.example || `Example with ${activePopupWord}.`,
+    source: "reading"
+  });
+
   const res = await apiCall("/api/reading/save-word", "POST", {
     word_or_phrase: activePopupWord,
     context_sentence: activeContextSentence,
@@ -1259,7 +2275,11 @@ async function saveCurrentPopupWord(saveType) {
   });
 
   closeWordPopup();
-  showToast(res?.message || `Đã lưu "${activePopupWord}" vào sổ tay!`, "success");
+  showToast(res?.message || `📖 Đã lưu "${activePopupWord}" vào sổ tay & sẵn sàng chèn ôn tập!`, "success");
+  if (appState.interleavedConfig && appState.interleavedConfig.enabled) {
+    appState.activeInterleavedDeck = null;
+    renderFlashcard();
+  }
 }
 
 function speakPopupWord() {
@@ -1338,14 +2358,15 @@ async function submitNewWordToDay() {
     day_number: curDayNumber
   };
 
-  // Add to local dataset
-  const newItem = {
-    id: `custom_${Date.now()}`,
+  // Save to persistent custom storage
+  const newItem = saveCustomWordItem({
     ...payload,
     type: "word",
-    level: "B1+"
-  };
+    level: "B1+",
+    source: "manual"
+  });
   curWords.push(newItem);
+  appState.activeInterleavedDeck = null;
 
   // Sync with server if logged in
   if (appState.authToken) {
@@ -1432,7 +2453,7 @@ function generateDailyQuiz() {
     if (qType === 0) {
       // Type 0: Cho từ tiếng Anh -> Tìm nghĩa tiếng Việt
       questionTitle = `Nghĩa tiếng Việt của từ / cụm từ <span class="text-amber-300 font-bold">"${item.word}"</span> là gì?`;
-      questionSubtitle = item.pron ? `Phát âm: <span class="text-slate-300 font-mono">${item.pron}</span> • (${item.pos || "word"})` : `(${item.pos || "word"})`;
+      questionSubtitle = item.pron ? `Phát âm: ${formatPronHtml(item.pron)} • (${item.pos || "word"})` : `(${item.pos || "word"})`;
       
       const distractors = allGlobalWords
         .filter(w => w.word !== item.word && w.meaning_vi)
@@ -1603,42 +2624,27 @@ function speakCurrentWord() {
   }
 }
 
-function speakText(text) {
+function speakText(text, audioUrl) {
+  if (audioUrl) {
+    try {
+      const snd = new Audio(audioUrl);
+      snd.play().catch(() => speakWithSynthesis(text));
+      return;
+    } catch (e) {}
+  }
+  speakWithSynthesis(text);
+}
+
+function speakWithSynthesis(text) {
   if (!("speechSynthesis" in window)) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = "en-US";
+  const voices = window.speechSynthesis.getVoices() || [];
+  const usVoice = voices.find(v => v.lang === "en-US" && (v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Samantha") || v.name.includes("US") || v.name.includes("David") || v.name.includes("Zira")));
+  if (usVoice) u.voice = usVoice;
   u.rate = 0.9;
   window.speechSynthesis.speak(u);
-}
-
-function openQrModal() {
-  const m = document.getElementById("qrModal");
-  if (m) m.classList.remove("hidden");
-  if (window.lucide) lucide.createIcons();
-}
-
-function closeQrModal() {
-  const m = document.getElementById("qrModal");
-  if (m) m.classList.add("hidden");
-}
-
-function copyMobileLink() {
-  const inp = document.getElementById("mobileLinkInput");
-  if (inp) {
-    inp.select();
-    navigator.clipboard.writeText(inp.value);
-    showToast("Đã sao chép link truy cập điện thoại!", "success");
-  }
-}
-
-function copyLanLink() {
-  const inp = document.getElementById("lanLinkInput");
-  if (inp) {
-    inp.select();
-    navigator.clipboard.writeText(inp.value);
-    showToast("Đã sao chép link Wi-Fi nội bộ!", "success");
-  }
 }
 
 function setupTouchAndKeyboard() {
@@ -1651,6 +2657,14 @@ function setupTouchAndKeyboard() {
       nextCard();
     } else if (e.code === "ArrowLeft") {
       prevCard();
+    } else if (["Digit1", "Numpad1"].includes(e.code)) {
+      rateSRS(1); // Quên -> Tự chuyển
+    } else if (["Digit2", "Numpad2"].includes(e.code)) {
+      rateSRS(2); // Khó -> Tự chuyển
+    } else if (["Digit3", "Numpad3"].includes(e.code)) {
+      rateSRS(3); // Nhớ -> Tự chuyển
+    } else if (["Digit4", "Numpad4"].includes(e.code)) {
+      rateSRS(4); // Dễ -> Tự chuyển
     } else if (e.code === "KeyS") {
       speakCurrentWord();
     }
@@ -1733,6 +2747,18 @@ function tickDeadlineCountdown() {
   const countdownEl = document.getElementById("deadlineCountdownDisplay");
   const subtextEl = document.getElementById("deadlineStatusSubtext");
 
+  const curMissionStatus = getDayMissionStatus(missionRegistry.currentDay);
+  if (curMissionStatus.isAllDone) {
+    if (countdownEl) {
+      countdownEl.innerText = "✓ ĐÃ HOÀN THÀNH HÔM NAY!";
+      countdownEl.className = "text-xl sm:text-2xl font-black text-emerald-400 font-mono tracking-tight";
+    }
+    if (subtextEl) {
+      subtextEl.innerText = "🎉 Xuất sắc! Bạn đã hoàn thành toàn bộ 3 mục tiêu của Ngày hôm nay. Chuỗi ngày học Streak đã được bảo vệ an toàn!";
+    }
+    return;
+  }
+
   if (diffMs > 0) {
     const totalSecs = Math.floor(diffMs / 1000);
     const hours = Math.floor(totalSecs / 3600);
@@ -1794,30 +2820,28 @@ function tickDeadlineCountdown() {
 }
 
 function updateDailyGoalChecklist() {
-  const curWords = getCurrentDayWords();
-  const studiedCount = appState.currentCardIndex || 0;
-  const isWordsDone = studiedCount >= Math.min(10, curWords.length) || (curWords.length > 0 && appState.currentCardIndex > 0);
-  const isReadingDone = !!appState.todayReadingDone;
-  const isGrammarDone = !!appState.todayGrammarDone;
+  const curDay = missionRegistry.currentDay || 1;
+  const curStatus = getDayMissionStatus(curDay);
+  const infoReading = getDailyAssignedReading(curDay);
 
   const wItem = document.getElementById("goalItemWords");
   const rItem = document.getElementById("goalItemReading");
   const gItem = document.getElementById("goalItemGrammar");
 
   if (wItem) {
-    wItem.innerHTML = isWordsDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">20 Từ vựng (Đang học)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i> <span>20 Từ vựng / Idioms</span>`;
+    wItem.innerHTML = curStatus.vocabDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">20 Từ vựng (ĐÃ XONG ✓)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i> <span>20 Từ vựng Ngày ${curDay} (${curStatus.vocabCount}/20)</span>`;
   }
   if (rItem) {
-    rItem.innerHTML = isReadingDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">Đã đọc 1 bài luyện thi</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i> <span>1 Bài đọc luyện thi</span>`;
+    rItem.innerHTML = curStatus.readingDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">Bài đọc (ĐÃ XONG ✓)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Bài đọc (${(infoReading.title || "Reading").substring(0, 16)}...)</span>`;
   }
   if (gItem) {
-    gItem.innerHTML = isGrammarDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">Đã làm bài tập ngữ pháp</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i> <span>1 Bài tập ngữ pháp</span>`;
+    gItem.innerHTML = curStatus.grammarDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">Ngữ pháp (ĐÃ XONG ✓)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Chuyên đề ngữ pháp</span>`;
   }
 
   if (window.lucide) lucide.createIcons();
@@ -1914,6 +2938,7 @@ function openDeadlineSettingsModal() {
   document.getElementById("settingRemindMorning").checked = !!deadlineSettings.remindMorning;
   document.getElementById("settingRemindEvening").checked = !!deadlineSettings.remindEvening;
   document.getElementById("settingRemindDeadline").checked = !!deadlineSettings.remindDeadline;
+  loadTelegramConfig();
   m.classList.remove("hidden");
   if (window.lucide) lucide.createIcons();
 }
@@ -1923,68 +2948,36 @@ function closeDeadlineSettingsModal() {
   if (m) m.classList.add("hidden");
 }
 
-function saveDeadlineSettings() {
-  const timeVal = document.getElementById("settingDeadlineTime").value || "21:30";
-  deadlineSettings.deadlineTime = timeVal;
-  deadlineSettings.remindMorning = document.getElementById("settingRemindMorning").checked;
-  deadlineSettings.remindEvening = document.getElementById("settingRemindEvening").checked;
-  deadlineSettings.remindDeadline = document.getElementById("settingRemindDeadline").checked;
+const TELEGRAM_STORAGE_KEY = "EMH_TELEGRAM_CONFIG_V1";
+let telegramConfig = {
+  bot_token: "",
+  chat_id: "",
+  is_active: true
+};
 
+async function loadTelegramConfig() {
   try {
-    localStorage.setItem(DEADLINE_STORAGE_KEY, JSON.stringify(deadlineSettings));
+    const local = localStorage.getItem(TELEGRAM_STORAGE_KEY);
+    if (local) {
+      telegramConfig = JSON.parse(local);
+    }
   } catch (e) {}
 
-  const teleToken = document.getElementById("telegramBotTokenInput")?.value?.trim();
-  const teleChat = document.getElementById("telegramChatIdInput")?.value?.trim();
-  if (teleToken) localStorage.setItem("telegram_bot_token", teleToken);
-  if (teleChat) localStorage.setItem("telegram_chat_id", teleChat);
-  updateDeadlineTimeUI();
-  closeDeadlineSettingsModal();
-  showToast(`✅ Đã lưu hạn chót ${deadlineSettings.deadlineTime} và cài đặt nhắc nhở!`, "success");
-
-  // Sync to backend if logged in
-  if (appState.authToken) {
-    apiCall("/api/auth/profile", "PUT", {
-      deadline_time: deadlineSettings.deadlineTime
-    }).catch(err => console.warn(err));
-  }
-}
-
-
-// ================= PWA INSTALLATION SUPPORT =================
-let deferredInstallPrompt = null;
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredInstallPrompt = e;
-  const btn = document.getElementById("pwaInstallBtn");
-  if (btn) btn.classList.remove("hidden");
-});
-
-async function triggerPwaInstall() {
-  if (deferredInstallPrompt) {
-    deferredInstallPrompt.prompt();
-    const choice = await deferredInstallPrompt.userChoice;
-    if (choice.outcome === "accepted") {
-      showToast("🎉 Đang cài đặt ứng dụng ra màn hình chính!", "success");
+  try {
+    const res = await fetch("/api/telegram/config").then(r => r.json());
+    if (res && res.bot_token) {
+      telegramConfig.bot_token = res.bot_token;
+      telegramConfig.chat_id = res.chat_id;
+      telegramConfig.is_active = res.is_active !== false;
     }
-    deferredInstallPrompt = null;
-  } else {
-    openPwaInstallModal();
-  }
+  } catch (e) {}
+
+  const tokenInput = document.getElementById("telegramBotTokenInput");
+  const chatInput = document.getElementById("telegramChatIdInput");
+  if (tokenInput) tokenInput.value = telegramConfig.bot_token || "";
+  if (chatInput) chatInput.value = telegramConfig.chat_id || "";
 }
 
-function openPwaInstallModal() {
-  const m = document.getElementById("pwaInstallModal");
-  if (m) m.classList.remove("hidden");
-  if (window.lucide) lucide.createIcons();
-}
-
-function closePwaInstallModal() {
-  const m = document.getElementById("pwaInstallModal");
-  if (m) m.classList.add("hidden");
-}
-
-// ================= TELEGRAM NOTIFICATION SYSTEM =================
 async function testTelegramFromUI() {
   const token = document.getElementById("telegramBotTokenInput")?.value?.trim();
   const chatId = document.getElementById("telegramChatIdInput")?.value?.trim();
@@ -2004,26 +2997,434 @@ async function testTelegramFromUI() {
         chat_id: chatId
       })
     });
-    const res = await resp.json();
-    if (res.ok) {
-      showToast("✓ Đã gửi tin nhắn Telegram thành công! Hãy kiểm tra điện thoại.", "success");
-      localStorage.setItem("telegram_bot_token", token);
-      localStorage.setItem("telegram_chat_id", chatId);
+    const data = await resp.json();
+    if (resp.ok) {
+      showToast("🎉 Tin nhắn thử đã rung chuông trên Telegram!", "success");
+      telegramConfig.bot_token = token;
+      telegramConfig.chat_id = chatId;
+      localStorage.setItem(TELEGRAM_STORAGE_KEY, JSON.stringify(telegramConfig));
     } else {
-      showToast(`✗ Lỗi Telegram: ${res.detail || "Không gửi được"}`, "error");
+      showToast(`Lỗi: ${data.detail || "Không thể gửi tin nhắn"}`, "danger");
     }
   } catch (err) {
-    showToast("✗ Không kết nối được đến máy chủ Telegram.", "error");
+    showToast("Lỗi kết nối Telegram: " + err.message, "danger");
   }
 }
 
-function loadTelegramSettings() {
-  const t = localStorage.getItem("telegram_bot_token");
-  const c = localStorage.getItem("telegram_chat_id");
-  if (t && document.getElementById("telegramBotTokenInput")) {
-    document.getElementById("telegramBotTokenInput").value = t;
+function saveDeadlineSettings() {
+  const timeVal = document.getElementById("settingDeadlineTime").value || "21:30";
+  deadlineSettings.deadlineTime = timeVal;
+  deadlineSettings.remindMorning = document.getElementById("settingRemindMorning").checked;
+  deadlineSettings.remindEvening = document.getElementById("settingRemindEvening").checked;
+  deadlineSettings.remindDeadline = document.getElementById("settingRemindDeadline").checked;
+
+  try {
+    localStorage.setItem(DEADLINE_STORAGE_KEY, JSON.stringify(deadlineSettings));
+  } catch (e) {}
+
+  const tgToken = document.getElementById("telegramBotTokenInput")?.value?.trim() || "";
+  const tgChatId = document.getElementById("telegramChatIdInput")?.value?.trim() || "";
+  if (tgToken && tgChatId) {
+    telegramConfig.bot_token = tgToken;
+    telegramConfig.chat_id = tgChatId;
+    try {
+      localStorage.setItem(TELEGRAM_STORAGE_KEY, JSON.stringify(telegramConfig));
+    } catch (e) {}
+
+    fetch("/api/telegram/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        bot_token: tgToken,
+        chat_id: tgChatId,
+        remind_morning: deadlineSettings.remindMorning,
+        remind_evening: deadlineSettings.remindEvening,
+        remind_deadline: deadlineSettings.remindDeadline,
+        deadline_time: deadlineSettings.deadlineTime,
+        is_active: true
+      })
+    }).catch(e => console.warn("Telegram save error:", e));
   }
-  if (c && document.getElementById("telegramChatIdInput")) {
-    document.getElementById("telegramChatIdInput").value = c;
+
+  updateDeadlineTimeUI();
+  closeDeadlineSettingsModal();
+  showToast(`✅ Đã lưu hạn chót ${deadlineSettings.deadlineTime} và cài đặt nhắc nhở!`, "success");
+
+  // Sync to backend if logged in
+  if (appState.authToken) {
+    apiCall("/api/auth/profile", "PUT", {
+      deadline_time: deadlineSettings.deadlineTime
+    }).catch(err => console.warn(err));
   }
 }
+
+
+// ============================================================================
+// INTERLEAVED REVIEW & CUSTOM READING WORDS ENGINE
+// Chế độ chèn vào từ vựng các ngày lặp lại random toàn bộ từ đã học, SRS & từ bài đọc
+// ============================================================================
+const CUSTOM_SAVED_WORDS_KEY = "EMH_CUSTOM_SAVED_WORDS_V2";
+const INTERLEAVED_CONFIG_KEY = "EMH_INTERLEAVED_CONFIG_V2";
+
+const defaultInterleavedConfig = {
+  enabled: false,
+  includePastDays: true,
+  includeSRS: true,
+  includeReadingCustom: true,
+  insertCount: 10,
+  insertMode: "interleave" // "interleave" or "random_mix"
+};
+
+function getInterleavedConfig() {
+  try {
+    const raw = localStorage.getItem(INTERLEAVED_CONFIG_KEY);
+    if (raw) return { ...defaultInterleavedConfig, ...JSON.parse(raw) };
+  } catch (e) {}
+  return { ...defaultInterleavedConfig };
+}
+
+function saveInterleavedConfig(cfg) {
+  try {
+    localStorage.setItem(INTERLEAVED_CONFIG_KEY, JSON.stringify(cfg));
+  } catch (e) {}
+  appState.interleavedConfig = cfg;
+  appState.activeInterleavedDeck = null;
+}
+
+function getSavedCustomWords() {
+  try {
+    const raw = localStorage.getItem(CUSTOM_SAVED_WORDS_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return [];
+}
+
+function saveCustomWordItem(item) {
+  if (!item || !item.word) return null;
+  const list = getSavedCustomWords();
+  const cleanWord = item.word.trim();
+  const idx = list.findIndex(w => w.word.toLowerCase() === cleanWord.toLowerCase());
+  const entry = {
+    id: item.id || `custom_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`,
+    word: cleanWord,
+    pos: item.pos || "word",
+    pron: item.pron || `/${cleanWord}/`,
+    meaning_vi: item.meaning_vi || cleanWord,
+    meaning_en: item.meaning_en || `Definition of ${cleanWord}`,
+    example: item.example || `Example sentence with ${cleanWord}.`,
+    source: item.source || "reading",
+    created_at: item.created_at || new Date().toISOString()
+  };
+
+  if (idx >= 0) {
+    list[idx] = { ...list[idx], ...entry };
+  } else {
+    list.unshift(entry);
+  }
+
+  try {
+    localStorage.setItem(CUSTOM_SAVED_WORDS_KEY, JSON.stringify(list));
+  } catch (e) {}
+
+  appState.activeInterleavedDeck = null;
+  return entry;
+}
+
+function removeCustomWordItem(word) {
+  let list = getSavedCustomWords();
+  list = list.filter(w => w.word.toLowerCase() !== word.toLowerCase());
+  try {
+    localStorage.setItem(CUSTOM_SAVED_WORDS_KEY, JSON.stringify(list));
+  } catch (e) {}
+  appState.activeInterleavedDeck = null;
+  renderCustomWordsList();
+  if (appState.interleavedConfig && appState.interleavedConfig.enabled) {
+    renderFlashcard();
+  }
+  showToast(`Đã xóa từ "${word}" khỏi sổ tay bài đọc!`, "info");
+}
+
+function getInterleavedDeckForDay(dIdx, baseWords) {
+  if (!baseWords || baseWords.length === 0) return [];
+  const cfg = appState.interleavedConfig || getInterleavedConfig();
+  const cacheKey = `${appState.currentUnitIndex}_${dIdx}_${cfg.insertCount}_${cfg.insertMode}_${cfg.includePastDays}_${cfg.includeSRS}_${cfg.includeReadingCustom}`;
+  
+  if (appState.activeInterleavedDeck && appState.interleavedDeckKey === cacheKey) {
+    return appState.activeInterleavedDeck;
+  }
+
+  // 1. Base words from today
+  const todayTagged = baseWords.map(w => ({
+    ...w,
+    cardOrigin: "today",
+    cardOriginText: `Bài học Ngày ${dIdx + 1}`,
+    sourceDay: dIdx + 1
+  }));
+  const todayWordSet = new Set(baseWords.map(w => w.word.toLowerCase()));
+
+  // 2. Build candidate pool
+  const candidatePool = [];
+  const seenPool = new Set(todayWordSet);
+
+  // A. Past studied words
+  if (cfg.includePastDays) {
+    const curDayNum = missionRegistry.currentDay || (dIdx + 1);
+    const pastWords = getWordsUpToDay(curDayNum);
+    pastWords.forEach(w => {
+      const lw = w.word.toLowerCase();
+      if (!seenPool.has(lw)) {
+        seenPool.add(lw);
+        candidatePool.push({
+          ...w,
+          cardOrigin: "past_day",
+          cardOriginText: w.sourceDay ? `Lặp lại Ngày ${w.sourceDay}` : "Ôn ngày cũ"
+        });
+      }
+    });
+  }
+
+  // B. SRS review words
+  if (cfg.includeSRS) {
+    (appState.todayQueue || []).forEach(w => {
+      const lw = (w.word || "").toLowerCase();
+      if (lw && !seenPool.has(lw)) {
+        seenPool.add(lw);
+        candidatePool.push({
+          ...w,
+          cardOrigin: "srs",
+          cardOriginText: "Cần củng cố (SRS)"
+        });
+      }
+    });
+  }
+
+  // C. Reading & Notebook custom words
+  if (cfg.includeReadingCustom) {
+    const customList = getSavedCustomWords();
+    customList.forEach(w => {
+      const lw = (w.word || "").toLowerCase();
+      if (lw && !seenPool.has(lw)) {
+        seenPool.add(lw);
+        candidatePool.push({
+          ...w,
+          cardOrigin: "reading",
+          cardOriginText: "Từ bài đọc mới lưu"
+        });
+      }
+    });
+  }
+
+  // 3. Shuffle candidates and select
+  const shuffledCandidates = shuffleArray(candidatePool);
+  let insertCount = parseInt(cfg.insertCount) || 10;
+  if (cfg.insertCount === "all") insertCount = shuffledCandidates.length;
+  const chosenReviewWords = shuffledCandidates.slice(0, insertCount);
+
+  // 4. Interleave or full random mix
+  let finalDeck = [];
+  if (chosenReviewWords.length === 0) {
+    finalDeck = todayTagged;
+  } else if (cfg.insertMode === "random_mix") {
+    finalDeck = shuffleArray([...todayTagged, ...chosenReviewWords]);
+  } else {
+    // Interleave: insert 1 review card after every 2 today cards
+    let tIdx = 0;
+    let rIdx = 0;
+    while (tIdx < todayTagged.length || rIdx < chosenReviewWords.length) {
+      if (tIdx < todayTagged.length) finalDeck.push(todayTagged[tIdx++]);
+      if (tIdx < todayTagged.length) finalDeck.push(todayTagged[tIdx++]);
+      if (rIdx < chosenReviewWords.length) finalDeck.push(chosenReviewWords[rIdx++]);
+    }
+  }
+
+  appState.activeInterleavedDeck = finalDeck;
+  appState.interleavedDeckKey = cacheKey;
+  return finalDeck;
+}
+
+function toggleInterleavedStudyMode(enabled) {
+  const cfg = getInterleavedConfig();
+  cfg.enabled = !!enabled;
+  saveInterleavedConfig(cfg);
+  appState.currentCardIndex = 0;
+  updateInterleavedUI();
+  renderFlashcard();
+  if (cfg.enabled) {
+    showToast("🔀 Đã BẬT chế độ chèn từ lặp lại! Thẻ học hiện tại đã được chèn thêm từ ôn tập & bài đọc!", "success");
+  } else {
+    showToast("Đã TẮT chế độ chèn từ lặp lại. Quay về 20 từ gốc của bài học.", "info");
+  }
+}
+
+function reshuffleInterleavedDeck() {
+  appState.activeInterleavedDeck = null;
+  appState.currentCardIndex = 0;
+  renderFlashcard();
+  showToast("🔀 Đã trộn lại ngẫu nhiên bộ thẻ bài học và từ ôn tập!", "info");
+}
+
+function updateInterleavedUI() {
+  const cfg = appState.interleavedConfig || getInterleavedConfig();
+  const toggle = document.getElementById("toggleInterleavedMode");
+  const badge = document.getElementById("interleavedStatusBadge");
+  const btnShuffle = document.getElementById("btnReshuffleInterleaved");
+  
+  if (toggle) toggle.checked = !!cfg.enabled;
+  if (badge) {
+    if (cfg.enabled) {
+      badge.className = "text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/40 animate-pulse";
+      badge.innerText = `Đang BẬT (+${cfg.insertCount} từ ôn)`;
+    } else {
+      badge.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold border border-slate-700";
+      badge.innerText = "Đang tắt";
+    }
+  }
+  if (btnShuffle) {
+    if (cfg.enabled) btnShuffle.classList.remove("hidden");
+    else btnShuffle.classList.add("hidden");
+  }
+}
+
+function openInterleavedConfigModal() {
+  const cfg = appState.interleavedConfig || getInterleavedConfig();
+  const modal = document.getElementById("interleavedConfigModal");
+  if (!modal) return;
+
+  const cbPast = document.getElementById("cfgIncludePastDays");
+  const cbSRS = document.getElementById("cfgIncludeSRS");
+  const cbReading = document.getElementById("cfgIncludeReadingCustom");
+  const selCount = document.getElementById("cfgInsertCount");
+  const selMode = document.getElementById("cfgInsertMode");
+
+  if (cbPast) cbPast.checked = !!cfg.includePastDays;
+  if (cbSRS) cbSRS.checked = !!cfg.includeSRS;
+  if (cbReading) cbReading.checked = !!cfg.includeReadingCustom;
+  if (selCount) selCount.value = cfg.insertCount.toString();
+  if (selMode) selMode.value = cfg.insertMode || "interleave";
+
+  // Update counts
+  const curDay = missionRegistry.currentDay || 1;
+  const pastCount = getWordsUpToDay(curDay).length;
+  const srsCount = (appState.todayQueue || []).length;
+  const readingCount = getSavedCustomWords().length;
+
+  const elPast = document.getElementById("cfgCountPastDays");
+  const elSRS = document.getElementById("cfgCountSRS");
+  const elReading = document.getElementById("cfgCountReading");
+
+  if (elPast) elPast.innerText = `${pastCount} từ`;
+  if (elSRS) elSRS.innerText = `${srsCount} từ`;
+  if (elReading) elReading.innerText = `${readingCount} từ`;
+
+  modal.classList.remove("hidden");
+  if (window.lucide) lucide.createIcons();
+}
+
+function closeInterleavedConfigModal() {
+  const modal = document.getElementById("interleavedConfigModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function submitInterleavedConfig() {
+  const cbPast = document.getElementById("cfgIncludePastDays");
+  const cbSRS = document.getElementById("cfgIncludeSRS");
+  const cbReading = document.getElementById("cfgIncludeReadingCustom");
+  const selCount = document.getElementById("cfgInsertCount");
+  const selMode = document.getElementById("cfgInsertMode");
+
+  const cfg = {
+    enabled: appState.interleavedConfig?.enabled || false,
+    includePastDays: cbPast ? cbPast.checked : true,
+    includeSRS: cbSRS ? cbSRS.checked : true,
+    includeReadingCustom: cbReading ? cbReading.checked : true,
+    insertCount: selCount ? selCount.value : "10",
+    insertMode: selMode ? selMode.value : "interleave"
+  };
+
+  saveInterleavedConfig(cfg);
+  updateInterleavedUI();
+  closeInterleavedConfigModal();
+  renderFlashcard();
+  showToast("✅ Đã lưu cấu hình chèn từ lặp lại thành công!", "success");
+}
+
+function openCustomWordsManagerModal() {
+  const modal = document.getElementById("customWordsManagerModal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  renderCustomWordsList();
+  if (window.lucide) lucide.createIcons();
+}
+
+function closeCustomWordsManagerModal() {
+  const modal = document.getElementById("customWordsManagerModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function renderCustomWordsList(filterQuery = "") {
+  const container = document.getElementById("customWordsListContainer");
+  const totalBadge = document.getElementById("customWordsTotalBadge");
+  if (!container) return;
+
+  const words = getSavedCustomWords();
+  if (totalBadge) totalBadge.innerText = `${words.length} từ đã lưu`;
+
+  const q = filterQuery.trim().toLowerCase();
+  const filtered = q ? words.filter(w => w.word.toLowerCase().includes(q) || (w.meaning_vi && w.meaning_vi.toLowerCase().includes(q))) : words;
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="p-8 text-center text-slate-400 glass-panel rounded-xl">
+        <i data-lucide="book-open" class="w-8 h-8 mx-auto text-slate-500 mb-2"></i>
+        <p class="text-xs">Chưa có từ nào được lưu từ bài đọc hoặc tra từ.</p>
+        <p class="text-[11px] text-slate-500 mt-1">Khi đọc bài, hãy click vào từ hoặc bôi đen và bấm "Lưu sổ tay" hoặc "Thêm vào Ngày học" để lưu vào đây.</p>
+      </div>
+    `;
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
+
+  let html = "";
+  filtered.forEach(w => {
+    html += `
+      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between gap-3 hover:border-slate-700 transition">
+        <div class="space-y-1 flex-1">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-white text-sm">${w.word}</span>
+            <span class="text-xs font-mono text-cyan-300">${w.pron || `/${w.word}/`}</span>
+            <span class="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 font-medium">(${w.pos || "word"})</span>
+            <span class="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">
+              ${w.source === 'reading' ? '📖 Bài đọc' : '✏️ Nhập tay'}
+            </span>
+          </div>
+          <p class="text-xs text-amber-300 font-medium">${w.meaning_vi || ""}</p>
+          ${w.example ? `<p class="text-[11px] text-slate-400 italic">"${w.example}"</p>` : ""}
+        </div>
+        <div class="flex items-center gap-1 shrink-0">
+          <button onclick="speakText('${w.word.replace(/'/g, "\\'")}')" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="Nghe phát âm">
+            <i data-lucide="volume-2" class="w-4 h-4"></i>
+          </button>
+          <a href="https://dictionary.cambridge.org/dictionary/english/${encodeURIComponent(w.word)}" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-400 hover:text-amber-300 transition" title="Xem Cambridge US">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+          <button onclick="removeCustomWordItem('${w.word.replace(/'/g, "\\'")}')" class="p-2 rounded-lg bg-rose-500/10 hover:bg-rose-500/30 text-rose-400 hover:text-rose-300 transition" title="Xóa khỏi sổ tay">
+            <i data-lucide="trash-2" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function filterCustomWordsList(val) {
+  renderCustomWordsList(val);
+}
+
+// Attach to DOMContentLoaded
+window.addEventListener("DOMContentLoaded", () => {
+  appState.interleavedConfig = getInterleavedConfig();
+  updateInterleavedUI();
+});

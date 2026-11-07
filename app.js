@@ -380,48 +380,142 @@ function setupQuizScopeSelector() {
   quizSelect.innerHTML = html;
 }
 
-// ================= AUTOMATIC DAILY MISSION & DEADLINE ENGINE =================
-const DAILY_MISSION_KEY = "EMH_DAILY_MISSION_V3";
+// ================= AUTOMATIC DAILY MISSION, PERSISTENCE & ROADMAP ENGINE =================
+const MISSION_REGISTRY_KEY = "EMH_MISSION_REGISTRY_V4";
 
-let dailyMission = {
-  dayNumber: 1, // 1 to 107
-  lastDateStr: new Date().toISOString().slice(0, 10),
-  vocabDoneCount: 0,
-  vocabTarget: 20,
-  readingDone: false,
-  grammarDone: false,
-  isFullCompleted: false
+let missionRegistry = {
+  currentDay: 1,
+  history: {}
 };
 
-function loadDailyMission() {
+function getTotalMissionDays() {
+  const units = window.APP_DATA?.units || [];
+  let count = 0;
+  for (let u of units) {
+    if (u.days) count += u.days.length;
+  }
+  return count > 0 ? count : 169;
+}
+
+function loadMissionRegistry() {
   try {
-    const raw = localStorage.getItem(DAILY_MISSION_KEY);
-    const todayStr = new Date().toISOString().slice(0, 10);
+    const raw = localStorage.getItem(MISSION_REGISTRY_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      if (parsed.lastDateStr !== todayStr) {
-        // Qua ngày mới: nếu hôm qua đã xong đủ thì tự tăng ngày tiếp theo
-        if (parsed.vocabDoneCount >= 20 && parsed.readingDone && parsed.grammarDone) {
-          parsed.dayNumber = (parsed.dayNumber || 1) + 1;
-        }
-        parsed.lastDateStr = todayStr;
-        parsed.vocabDoneCount = 0;
-        parsed.readingDone = false;
-        parsed.grammarDone = false;
-        parsed.isFullCompleted = false;
+      if (parsed && typeof parsed === "object") {
+        missionRegistry = {
+          currentDay: parseInt(parsed.currentDay) || 1,
+          history: parsed.history || {}
+        };
       }
-      dailyMission = { ...dailyMission, ...parsed };
+    } else {
+      // Migrate from old V3 if exists
+      const oldRaw = localStorage.getItem("EMH_DAILY_MISSION_V3");
+      if (oldRaw) {
+        const oldParsed = JSON.parse(oldRaw);
+        const day = oldParsed.dayNumber || 1;
+        missionRegistry.currentDay = day;
+        missionRegistry.history[String(day)] = {
+          vocabDone: (oldParsed.vocabDoneCount >= 20),
+          vocabCount: oldParsed.vocabDoneCount || 0,
+          readingDone: !!oldParsed.readingDone,
+          grammarDone: !!oldParsed.grammarDone
+        };
+      }
     }
   } catch (e) {
-    console.warn("Could not load daily mission:", e);
+    console.warn("Could not load mission registry:", e);
+  }
+
+  if (!missionRegistry.history[String(missionRegistry.currentDay)]) {
+    missionRegistry.history[String(missionRegistry.currentDay)] = {
+      vocabDone: false,
+      vocabCount: 0,
+      readingDone: false,
+      grammarDone: false
+    };
   }
 }
 
-function saveDailyMission() {
+function saveMissionRegistry() {
   try {
-    localStorage.setItem(DAILY_MISSION_KEY, JSON.stringify(dailyMission));
-  } catch (e) {}
+    localStorage.setItem(MISSION_REGISTRY_KEY, JSON.stringify(missionRegistry));
+  } catch (e) {
+    console.warn("Could not save mission registry:", e);
+  }
   updateDailyMissionUI();
+  updateDailyGoalChecklist();
+}
+
+function getDayMissionStatus(dayNum) {
+  const dStr = String(dayNum);
+  const data = missionRegistry.history[dStr] || {
+    vocabDone: false,
+    vocabCount: 0,
+    readingDone: false,
+    grammarDone: false
+  };
+  const isVocab = !!data.vocabDone || (data.vocabCount >= 20);
+  const isReading = !!data.readingDone;
+  const isGrammar = !!data.grammarDone;
+  let count = 0;
+  if (isVocab) count++;
+  if (isReading) count++;
+  if (isGrammar) count++;
+
+  return {
+    vocabDone: isVocab,
+    vocabCount: data.vocabCount || 0,
+    readingDone: isReading,
+    grammarDone: isGrammar,
+    completedCount: count,
+    isAllDone: count === 3
+  };
+}
+
+function setDayMissionStatus(dayNum, updates) {
+  const dStr = String(dayNum);
+  const current = missionRegistry.history[dStr] || {
+    vocabDone: false,
+    vocabCount: 0,
+    readingDone: false,
+    grammarDone: false
+  };
+  missionRegistry.history[dStr] = { ...current, ...updates };
+  saveMissionRegistry();
+}
+
+function toggleMissionDone(type) {
+  const curDay = missionRegistry.currentDay;
+  const curStatus = getDayMissionStatus(curDay);
+  if (type === "vocab") {
+    const nextDone = !curStatus.vocabDone;
+    setDayMissionStatus(curDay, {
+      vocabDone: nextDone,
+      vocabCount: nextDone ? 20 : 0
+    });
+    if (nextDone) {
+      showToast(`✅ Đã đánh dấu hoàn thành 20 từ vựng Ngày ${curDay}`, "success");
+    } else {
+      showToast(`ℹ️ Đã bỏ đánh dấu 20 từ vựng Ngày ${curDay}`, "info");
+    }
+  } else if (type === "reading") {
+    const nextDone = !curStatus.readingDone;
+    setDayMissionStatus(curDay, { readingDone: nextDone });
+    if (nextDone) {
+      showToast(`✅ Đã đánh dấu hoàn thành Bài đọc Ngày ${curDay}`, "success");
+    } else {
+      showToast(`ℹ️ Đã bỏ đánh dấu Bài đọc Ngày ${curDay}`, "info");
+    }
+  } else if (type === "grammar") {
+    const nextDone = !curStatus.grammarDone;
+    setDayMissionStatus(curDay, { grammarDone: nextDone });
+    if (nextDone) {
+      showToast(`✅ Đã đánh dấu hoàn thành Ngữ pháp Ngày ${curDay}`, "success");
+    } else {
+      showToast(`ℹ️ Đã bỏ đánh dấu Ngữ pháp Ngày ${curDay}`, "info");
+    }
+  }
 }
 
 function getDailyAssignedVocab(dayNum) {
@@ -452,6 +546,25 @@ function getDailyAssignedVocab(dayNum) {
   };
 }
 
+function getWordsUpToDay(maxDayNum) {
+  const units = window.APP_DATA?.units || [];
+  let dCounter = 0;
+  let words = [];
+  for (let uIdx = 0; uIdx < units.length; uIdx++) {
+    const u = units[uIdx];
+    if (!u.days) continue;
+    for (let dIdx = 0; dIdx < u.days.length; dIdx++) {
+      dCounter++;
+      if (dCounter <= maxDayNum) {
+        words = words.concat(u.days[dIdx].words || []);
+      }
+      if (dCounter >= maxDayNum) break;
+    }
+    if (dCounter >= maxDayNum) break;
+  }
+  return words;
+}
+
 function getDailyAssignedReading(dayNum) {
   const list = window.APP_DATA?.readings || [];
   if (list.length === 0) return { id: 0, index: 0, title: "IELTS: The Science of Sleep" };
@@ -467,18 +580,51 @@ function getDailyAssignedGrammar(dayNum) {
 }
 
 function initDailyMissionEngine() {
-  loadDailyMission();
+  loadMissionRegistry();
   setupReviewSelectors();
   updateDailyMissionUI();
   // Khởi động mặc định vào chế độ khóa học theo Deadline hôm nay
-  const info = getDailyAssignedVocab(dailyMission.dayNumber);
+  const info = getDailyAssignedVocab(missionRegistry.currentDay);
   appState.studyMode = "daily_locked";
   appState.currentUnitIndex = info.unitIndex;
   appState.currentDayIndex = info.dayIndex;
 }
 
+function jumpToMissionDay(dayNum) {
+  const total = getTotalMissionDays();
+  const d = Math.max(1, Math.min(total, parseInt(dayNum) || 1));
+  missionRegistry.currentDay = d;
+  saveMissionRegistry();
+
+  if (appState.studyMode === "daily_locked") {
+    const info = getDailyAssignedVocab(d);
+    appState.currentUnitIndex = info.unitIndex;
+    appState.currentDayIndex = info.dayIndex;
+    appState.currentCardIndex = 0;
+    appState.isFlipped = false;
+  }
+  updateDailyMissionUI();
+  showToast(`🚀 Lộ trình: Đang ở Ngày ${d} / ${total}`, "info");
+}
+
+function changeMissionDay(delta) {
+  jumpToMissionDay(missionRegistry.currentDay + delta);
+}
+
+function advanceToNextDay() {
+  const total = getTotalMissionDays();
+  const nextDay = missionRegistry.currentDay + 1;
+  if (nextDay > total) {
+    showToast("🎉 Chúc mừng bạn đã hoàn thành toàn bộ lộ trình!", "success");
+    return;
+  }
+  jumpToMissionDay(nextDay);
+  showToast(`🚀 Đã chuyển sang Lộ trình Ngày ${nextDay} (Học vượt deadline)`, "success");
+}
+
 function startTodayVocabMission() {
-  const info = getDailyAssignedVocab(dailyMission.dayNumber);
+  const curDay = missionRegistry.currentDay;
+  const info = getDailyAssignedVocab(curDay);
   appState.studyMode = "daily_locked";
   appState.currentUnitIndex = info.unitIndex;
   appState.currentDayIndex = info.dayIndex;
@@ -486,110 +632,233 @@ function startTodayVocabMission() {
   appState.isFlipped = false;
 
   const lockedBanner = document.getElementById("dailyMissionLockedBanner");
-  if (lockedBanner) lockedBanner.classList.remove("hidden");
+  if (lockedBanner) {
+    lockedBanner.classList.remove("hidden");
+    lockedBanner.innerHTML = `
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <div class="flex items-center gap-2">
+          <i data-lucide="lock" class="w-4 h-4 text-amber-400"></i>
+          <span class="font-bold text-amber-300">Nhiệm Vụ Deadline Cố Định: Ngày ${curDay}</span>
+          <span class="text-slate-400 text-xs">(Đang học đúng lộ trình chỉ định)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="advanceToNextDay()" class="px-2.5 py-1 rounded-lg bg-indigo-600/40 hover:bg-indigo-600 text-indigo-200 hover:text-white text-xs font-semibold border border-indigo-500/40 transition flex items-center gap-1">
+            Học vượt ngày kế <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="switchTab('today')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition">
+            Về Dashboard
+          </button>
+        </div>
+      </div>
+    `;
+  }
   const freeArea = document.getElementById("freeReviewSelectorArea");
   if (freeArea) freeArea.classList.add("hidden");
 
   const titleEl = document.getElementById("currentUnitTitle");
   if (titleEl) titleEl.innerText = `${info.unitTitle}`;
   const dayBadge = document.getElementById("currentDayBadge");
-  if (dayBadge) dayBadge.innerText = `Ngày ${dailyMission.dayNumber}`;
+  if (dayBadge) dayBadge.innerText = `Ngày ${curDay}`;
 
   switchTab("flashcard");
   renderFlashcard();
   updateDailyMissionUI();
 }
 
+function startGradualReview() {
+  const curDay = missionRegistry.currentDay;
+  const allWords = getWordsUpToDay(curDay);
+  if (allWords.length === 0) {
+    showToast("Chưa có từ vựng nào để ôn tập!", "warning");
+    return;
+  }
+
+  appState.studyMode = "gradual_review";
+  appState.gradualReviewWords = allWords;
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  const lockedBanner = document.getElementById("dailyMissionLockedBanner");
+  if (lockedBanner) {
+    lockedBanner.classList.remove("hidden");
+    lockedBanner.innerHTML = `
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+          <span class="font-bold text-cyan-300">🔄 Đang Ôn Tập Dần Dần Tích Lũy</span>
+          <span class="text-slate-400 text-xs">(${allWords.length} từ vựng từ Ngày 1 đến Ngày ${curDay})</span>
+        </div>
+        <button onclick="startTodayVocabMission()" class="px-3 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white transition flex items-center gap-1 shadow">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Quay lại Deadline Ngày ${curDay}
+        </button>
+      </div>
+    `;
+  }
+  const freeArea = document.getElementById("freeReviewSelectorArea");
+  if (freeArea) freeArea.classList.add("hidden");
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = `Ôn Tập Tích Lũy (Ngày 1 - ${curDay})`;
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = `${allWords.length} Từ vựng`;
+
+  switchTab("flashcard");
+  renderFlashcard();
+  showToast(`🔄 Đang nạp ${allWords.length} từ vựng từ Ngày 1 đến Ngày ${curDay} vào bộ nhớ ôn tập!`, "info");
+}
+
+function startGradualReviewQuiz() {
+  const curDay = missionRegistry.currentDay;
+  const allWords = getWordsUpToDay(curDay);
+  if (allWords.length === 0) {
+    showToast("Chưa có từ vựng nào để làm trắc nghiệm!", "warning");
+    return;
+  }
+  
+  activeCustomQuizWords = allWords;
+  switchTab("quiz");
+  startQuiz();
+  showToast(`🎯 Đang mở trắc nghiệm tích lũy với ${Math.min(20, allWords.length)} câu hỏi ngẫu nhiên!`, "info");
+}
+
 function startTodayReadingMission() {
-  const r = getDailyAssignedReading(dailyMission.dayNumber);
+  const r = getDailyAssignedReading(missionRegistry.currentDay);
   switchTab("reader");
   renderReadingPassage(r.index);
-  showToast(`📖 Đang mở Bài đọc chỉ định hôm nay: ${r.title}`, "info");
+  showToast(`📖 Đang mở Bài đọc chỉ định Ngày ${missionRegistry.currentDay}: ${r.title}`, "info");
 }
 
 function startTodayGrammarMission() {
-  const g = getDailyAssignedGrammar(dailyMission.dayNumber);
+  const g = getDailyAssignedGrammar(missionRegistry.currentDay);
   const weekNum = g.week_number || (g.index + 1);
   switchTab("grammar");
   renderGrammarDetail(weekNum);
-  showToast(`✍️ Đang mở Chuyên đề chỉ định hôm nay: ${g.topic_title}`, "info");
+  showToast(`✍️ Đang mở Chuyên đề chỉ định Ngày ${missionRegistry.currentDay}: ${g.topic_title}`, "info");
 }
 
 function completeReadingMission() {
-  dailyMission.readingDone = true;
-  saveDailyMission();
+  setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
   showToast("✅ Đã ghi nhận hoàn thành bài đọc hôm nay!", "success");
 }
 
 function completeGrammarMission() {
-  dailyMission.grammarDone = true;
-  saveDailyMission();
+  setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
   showToast("✅ Đã ghi nhận hoàn thành chuyên đề ngữ pháp hôm nay!", "success");
 }
 
 function updateDailyMissionUI() {
-  const badge = document.getElementById("dailyMissionBadge");
-  if (badge) badge.innerText = `Ngày ${dailyMission.dayNumber} / 107`;
+  const totalDays = getTotalMissionDays();
+  const curDay = missionRegistry.currentDay;
+  const curStatus = getDayMissionStatus(curDay);
 
-  const infoVocab = getDailyAssignedVocab(dailyMission.dayNumber);
-  const infoReading = getDailyAssignedReading(dailyMission.dayNumber);
-  const infoGrammar = getDailyAssignedGrammar(dailyMission.dayNumber);
+  const badge = document.getElementById("dailyMissionBadge");
+  if (badge) badge.innerText = `Ngày ${curDay} / ${totalDays}`;
+
+  // Populate or sync day select dropdown
+  const daySel = document.getElementById("missionDaySelect");
+  if (daySel) {
+    if (daySel.options.length !== totalDays) {
+      let optHtml = "";
+      for (let i = 1; i <= totalDays; i++) {
+        const st = getDayMissionStatus(i);
+        const icon = st.isAllDone ? "✓ " : (st.completedCount > 0 ? "⏳ " : "");
+        optHtml += `<option value="${i}">${icon}Ngày ${i} ${st.isAllDone ? '(Đã xong)' : ''}</option>`;
+      }
+      daySel.innerHTML = optHtml;
+    }
+    daySel.value = String(curDay);
+  }
+
+  const infoVocab = getDailyAssignedVocab(curDay);
+  const infoReading = getDailyAssignedReading(curDay);
+  const infoGrammar = getDailyAssignedGrammar(curDay);
 
   // Vocab task
   const titleV = document.getElementById("taskTitleVocab");
-  if (titleV) titleV.innerText = `20 Từ Vựng Ngày ${dailyMission.dayNumber} - ${infoVocab.unitTitle}`;
+  if (titleV) titleV.innerText = `20 Từ Vựng Ngày ${curDay} - ${infoVocab.unitTitle}`;
   const badgeV = document.getElementById("taskStatusBadgeVocab");
   const btnV = document.getElementById("btnStartVocabText");
-  const isVocabDone = dailyMission.vocabDoneCount >= 20;
+  const btnToggleV = document.getElementById("btnToggleVocabDone");
+  const lblToggleV = document.getElementById("lblToggleVocab");
+
   if (badgeV) {
-    if (isVocabDone) {
-      badgeV.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1";
-      badgeV.innerHTML = "✓ Hoàn thành (20/20)";
+    if (curStatus.vocabDone) {
+      badgeV.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1 border border-emerald-500/30";
+      badgeV.innerHTML = "<i data-lucide='check' class='w-3 h-3'></i> Đã xong (20/20)";
     } else {
-      badgeV.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-amber-300 font-semibold";
-      badgeV.innerText = `Tiến độ: ${dailyMission.vocabDoneCount}/20`;
+      badgeV.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-amber-300 font-semibold border border-amber-500/20";
+      badgeV.innerText = `Tiến độ: ${curStatus.vocabCount}/20`;
     }
   }
-  if (btnV) btnV.innerText = isVocabDone ? "Ôn lại 20 từ hôm nay" : "Bắt đầu học 20 từ";
+  if (btnV) btnV.innerText = curStatus.vocabDone ? `Ôn lại 20 từ Ngày ${curDay}` : `Bắt đầu học 20 từ Ngày ${curDay}`;
+  if (btnToggleV && lblToggleV) {
+    if (curStatus.vocabDone) {
+      btnToggleV.className = "px-3 py-2.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1 shrink-0";
+      lblToggleV.innerText = "Đã xong ✓";
+    } else {
+      btnToggleV.className = "px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold transition flex items-center gap-1 shrink-0";
+      lblToggleV.innerText = "Tick đã làm";
+    }
+  }
 
   // Reading task
   const titleR = document.getElementById("taskTitleReading");
   if (titleR) titleR.innerText = infoReading.title || "Bài đọc hôm nay";
   const badgeR = document.getElementById("taskStatusBadgeReading");
   const btnR = document.getElementById("btnStartReadingText");
+  const btnToggleR = document.getElementById("btnToggleReadingDone");
+  const lblToggleR = document.getElementById("lblToggleReading");
+
   if (badgeR) {
-    if (dailyMission.readingDone) {
-      badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1";
-      badgeR.innerHTML = "✓ Hoàn thành";
+    if (curStatus.readingDone) {
+      badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1 border border-emerald-500/30";
+      badgeR.innerHTML = "<i data-lucide='check' class='w-3 h-3'></i> Đã hoàn thành";
     } else {
-      badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold";
+      badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold border border-slate-700";
       badgeR.innerText = "Chưa làm";
     }
   }
-  if (btnR) btnR.innerText = dailyMission.readingDone ? "Đọc lại bài hôm nay" : "Vào làm bài đọc hôm nay";
+  if (btnR) btnR.innerText = curStatus.readingDone ? "Đọc lại bài hôm nay" : "Vào làm bài đọc hôm nay";
+  if (btnToggleR && lblToggleR) {
+    if (curStatus.readingDone) {
+      btnToggleR.className = "px-3 py-2.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1 shrink-0";
+      lblToggleR.innerText = "Đã xong ✓";
+    } else {
+      btnToggleR.className = "px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold transition flex items-center gap-1 shrink-0";
+      lblToggleR.innerText = "Tick đã làm";
+    }
+  }
 
   // Grammar task
   const titleG = document.getElementById("taskTitleGrammar");
   if (titleG) titleG.innerText = infoGrammar.topic_title || "Chuyên đề hôm nay";
   const badgeG = document.getElementById("taskStatusBadgeGrammar");
   const btnG = document.getElementById("btnStartGrammarText");
+  const btnToggleG = document.getElementById("btnToggleGrammarDone");
+  const lblToggleG = document.getElementById("lblToggleGrammar");
+
   if (badgeG) {
-    if (dailyMission.grammarDone) {
-      badgeG.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1";
-      badgeG.innerHTML = "✓ Hoàn thành";
+    if (curStatus.grammarDone) {
+      badgeG.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1 border border-emerald-500/30";
+      badgeG.innerHTML = "<i data-lucide='check' class='w-3 h-3'></i> Đã hoàn thành";
     } else {
-      badgeG.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold";
+      badgeG.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold border border-slate-700";
       badgeG.innerText = "Chưa làm";
     }
   }
-  if (btnG) btnG.innerText = dailyMission.grammarDone ? "Ôn lại chuyên đề" : "Làm bài tập hôm nay";
+  if (btnG) btnG.innerText = curStatus.grammarDone ? "Ôn lại chuyên đề" : "Làm bài tập hôm nay";
+  if (btnToggleG && lblToggleG) {
+    if (curStatus.grammarDone) {
+      btnToggleG.className = "px-3 py-2.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1 shrink-0";
+      lblToggleG.innerText = "Đã xong ✓";
+    } else {
+      btnToggleG.className = "px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold transition flex items-center gap-1 shrink-0";
+      lblToggleG.innerText = "Tick đã làm";
+    }
+  }
 
   // Ratio
-  let doneCount = 0;
-  if (isVocabDone) doneCount++;
-  if (dailyMission.readingDone) doneCount++;
-  if (dailyMission.grammarDone) doneCount++;
-
+  const doneCount = curStatus.completedCount;
   const ratioEl = document.getElementById("missionProgressRatio");
   if (ratioEl) {
     ratioEl.innerText = `${doneCount} / 3`;
@@ -604,30 +873,88 @@ function updateDailyMissionUI() {
   // Header Checklist in Deadline Banner
   const gWords = document.getElementById("goalItemWords");
   if (gWords) {
-    gWords.innerHTML = isVocabDone
-      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">20 Từ vựng Ngày ${dailyMission.dayNumber} (Xong)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i><span>20 Từ vựng Ngày ${dailyMission.dayNumber} (${dailyMission.vocabDoneCount}/20)</span>`;
+    gWords.innerHTML = curStatus.vocabDone
+      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">20 Từ vựng Ngày ${curDay} (Đã xong)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i><span>20 Từ vựng Ngày ${curDay} (${curStatus.vocabCount}/20)</span>`;
   }
   const gReading = document.getElementById("goalItemReading");
   if (gReading) {
-    gReading.innerHTML = dailyMission.readingDone
-      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">Bài đọc Ngày ${dailyMission.dayNumber} (Xong)</span>`
+    gReading.innerHTML = curStatus.readingDone
+      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">Bài đọc Ngày ${curDay} (Đã xong)</span>`
       : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span>1 Bài đọc (${(infoReading.title || "Reading").substring(0, 16)}...)</span>`;
   }
   const gGrammar = document.getElementById("goalItemGrammar");
   if (gGrammar) {
-    gGrammar.innerHTML = dailyMission.grammarDone
-      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">Ngữ pháp Ngày ${dailyMission.dayNumber} (Xong)</span>`
+    gGrammar.innerHTML = curStatus.grammarDone
+      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">Ngữ pháp Ngày ${curDay} (Đã xong)</span>`
       : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span>1 Chuyên đề ngữ pháp</span>`;
   }
 
-  if (doneCount === 3 && !dailyMission.isFullCompleted) {
-    dailyMission.isFullCompleted = true;
-    showToast("🎉 XUẤT SẮC! Bạn đã hoàn thành 100% mục tiêu deadline hôm nay!", "success");
-    updateDailyStreak(appState.streak + 1);
+  if (window.lucide) lucide.createIcons();
+}
+
+function openRoadmapModal() {
+  const modal = document.getElementById("dayRoadmapModal");
+  if (modal) {
+    renderRoadmapGrid();
+    modal.classList.remove("hidden");
+    if (window.lucide) lucide.createIcons();
+  }
+}
+
+function closeRoadmapModal() {
+  const modal = document.getElementById("dayRoadmapModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function renderRoadmapGrid() {
+  const grid = document.getElementById("roadmapGridContainer");
+  if (!grid) return;
+
+  const total = getTotalMissionDays();
+  const curDay = missionRegistry.currentDay;
+
+  let html = "";
+  for (let i = 1; i <= total; i++) {
+    const st = getDayMissionStatus(i);
+    const isCur = (i === curDay);
+    const info = getDailyAssignedVocab(i);
+
+    let borderClass = "border-slate-800 bg-slate-900/60 text-slate-400";
+    let badgeText = "Chưa học";
+    let badgeBg = "bg-slate-800 text-slate-500";
+
+    if (st.isAllDone) {
+      borderClass = "border-emerald-500/50 bg-emerald-950/20 text-emerald-300";
+      badgeText = "✓ Xong (3/3)";
+      badgeBg = "bg-emerald-500/20 text-emerald-400";
+    } else if (st.completedCount > 0) {
+      borderClass = "border-amber-500/50 bg-amber-950/20 text-amber-300";
+      badgeText = `Đang làm (${st.completedCount}/3)`;
+      badgeBg = "bg-amber-500/20 text-amber-400";
+    }
+
+    if (isCur) {
+      borderClass = "border-cyan-400 ring-2 ring-cyan-400/50 bg-cyan-950/30 text-white";
+    }
+
+    html += `
+      <div onclick="jumpToMissionDay(${i}); closeRoadmapModal();" class="p-3 rounded-xl border ${borderClass} hover:border-cyan-400 cursor-pointer transition flex flex-col justify-between space-y-1.5 shadow-sm">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-xs ${isCur ? 'text-cyan-300 font-extrabold' : 'text-slate-200'}">Ngày ${i}</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded-full ${badgeBg} font-semibold">${badgeText}</span>
+        </div>
+        <p class="text-[10px] text-slate-400 line-clamp-1">${info.unitTitle}</p>
+        <div class="text-[9px] text-slate-500 flex items-center justify-between pt-1 border-t border-slate-800/60">
+          <span>${st.vocabDone ? '✓ Từ' : '○ Từ'}</span>
+          <span>${st.readingDone ? '✓ Đọc' : '○ Đọc'}</span>
+          <span>${st.grammarDone ? '✓ Ngữ pháp' : '○ Ngữ pháp'}</span>
+        </div>
+      </div>
+    `;
   }
 
-  if (window.lucide) lucide.createIcons();
+  grid.innerHTML = html;
 }
 
 // ================= PHÒNG ÔN TẬP TỰ DO (CHỌN UNIT & XÁO TRỘN) =================
@@ -906,6 +1233,9 @@ function updateDayProgressBadge() {
 }
 
 function getCurrentDayWords() {
+  if (appState.studyMode === "gradual_review" && appState.gradualReviewWords) {
+    return appState.gradualReviewWords;
+  }
   if (appState.studyMode && appState.studyMode.startsWith("shuffle_")) {
     const total = appState.activeShuffledCards;
     if (appState.currentDayIndex === "all") {
@@ -1019,10 +1349,13 @@ function nextCard() {
   appState.currentCardIndex = (appState.currentCardIndex + 1) % words.length;
 
   if (appState.studyMode === "daily_locked") {
-    if (dailyMission.vocabDoneCount < 20) {
-      dailyMission.vocabDoneCount = Math.min(20, Math.max(dailyMission.vocabDoneCount, appState.currentCardIndex + 1));
-      saveDailyMission();
-    }
+    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
+    const newCount = Math.max(curStatus.vocabCount, appState.currentCardIndex + 1);
+    const isDone = newCount >= Math.min(20, words.length);
+    setDayMissionStatus(missionRegistry.currentDay, {
+      vocabCount: newCount,
+      vocabDone: isDone || curStatus.vocabDone
+    });
   }
 
   renderFlashcard();
@@ -1035,10 +1368,13 @@ async function rateSRS(score) {
   const curWord = words[appState.currentCardIndex];
 
   if (appState.studyMode === "daily_locked") {
-    if (dailyMission.vocabDoneCount < 20) {
-      dailyMission.vocabDoneCount = Math.min(20, Math.max(dailyMission.vocabDoneCount, appState.currentCardIndex + 1));
-      saveDailyMission();
-    }
+    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
+    const newCount = Math.max(curStatus.vocabCount, appState.currentCardIndex + 1);
+    const isDone = newCount >= Math.min(20, words.length);
+    setDayMissionStatus(missionRegistry.currentDay, {
+      vocabCount: newCount,
+      vocabDone: isDone || curStatus.vocabDone
+    });
   }
 
   const clientEventId = `evt_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
@@ -1323,7 +1659,6 @@ function filterReadingByExam(category) {
   appState.activeExamFilter = category || "all";
   const readings = window.APP_DATA?.readings || [];
 
-  // Update button active styles
   const filterBtns = document.querySelectorAll(".exam-filter-btn");
   filterBtns.forEach(btn => {
     btn.classList.remove("active", "bg-indigo-600", "text-white", "shadow");
@@ -1335,13 +1670,28 @@ function filterReadingByExam(category) {
     activeBtn.classList.add("active", "bg-indigo-600", "text-white", "shadow");
   }
 
-  // Filter list
   if (category === "all") {
     currentFilteredReadings = readings.map((r, origIdx) => ({ ...r, origIdx }));
+  } else if (category === "CLOZE") {
+    currentFilteredReadings = readings
+      .map((r, origIdx) => ({ ...r, origIdx }))
+      .filter(r => (r.category || "").toUpperCase() === "CLOZE" || (r.title || "").includes("Đục Lỗ"));
+  } else if (category === "TOEIC") {
+    currentFilteredReadings = readings
+      .map((r, origIdx) => ({ ...r, origIdx }))
+      .filter(r => (r.category || "").toUpperCase().includes("TOEIC") || (r.title || "").includes("TOEIC"));
+  } else if (category === "VSTEP") {
+    currentFilteredReadings = readings
+      .map((r, origIdx) => ({ ...r, origIdx }))
+      .filter(r => (r.category || "").toUpperCase().includes("VSTEP") || (r.title || "").includes("VSTEP"));
+  } else if (category === "IELTS") {
+    currentFilteredReadings = readings
+      .map((r, origIdx) => ({ ...r, origIdx }))
+      .filter(r => (r.category || "").toUpperCase().includes("IELTS") || (r.title || "").includes("IELTS"));
   } else if (category === "BaoQuocTe") {
     currentFilteredReadings = readings
       .map((r, origIdx) => ({ ...r, origIdx }))
-      .filter(r => !["IELTS", "VSTEP", "TOEIC", "APTIS", "PET"].includes((r.category || "").toUpperCase()));
+      .filter(r => !["IELTS", "VSTEP", "TOEIC", "APTIS", "PET", "CLOZE"].includes((r.category || "").toUpperCase()) && !(r.title || "").includes("Đục Lỗ"));
   } else {
     currentFilteredReadings = readings
       .map((r, origIdx) => ({ ...r, origIdx }))
@@ -1357,7 +1707,7 @@ function filterReadingByExam(category) {
 
   const badgeEl = document.getElementById("readingCategoryTagBadge");
   if (badgeEl) {
-    const label = category === "all" ? "Tất cả" : (category === "BaoQuocTe" ? "Báo Quốc Tế" : category);
+    const label = category === "all" ? "Tất cả" : (category === "CLOZE" ? "Đục Lỗ (Cloze)" : (category === "BaoQuocTe" ? "Báo Quốc Tế" : category));
     badgeEl.innerText = `${currentFilteredReadings.length} Bài Luyện Thi (${label})`;
   }
 
@@ -1386,14 +1736,10 @@ function renderReadingPassage(passageIdx) {
   document.getElementById("readingUnitTag").innerText = passage.source_reference || `Bài Báo #${appState.activeReadingIndex + 1}`;
   document.getElementById("readingLevelTag").innerText = `Level ${passage.level || "B2"}`;
 
-  // Track daily reading goal
-  appState.todayReadingDone = true;
-  if (typeof updateDailyGoalChecklist === "function") updateDailyGoalChecklist();
+  // Ghi nhận hoàn thành bài đọc hôm nay
+  setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
 
-  // Target words set
   const targetWords = (passage.target_words || []).map(w => w.toLowerCase().trim());
-
-  // Safe DOM Rendering: Split paragraphs and tokens cleanly to prevent any string escaping or recursion bugs
   const container = document.getElementById("readingContent");
   container.innerHTML = "";
 
@@ -1402,36 +1748,48 @@ function renderReadingPassage(passageIdx) {
     const pEl = document.createElement("p");
     pEl.className = "mb-4 last:mb-0 leading-relaxed";
 
-    // Split text by word vs non-word tokens
-    const tokens = paraText.split(/(\b[A-Za-z'-]+\b)/);
-    tokens.forEach(token => {
-      if (/^[A-Za-z'-]+$/.test(token)) {
-        const cleanLower = token.toLowerCase();
-        const isTarget = targetWords.some(tw => tw === cleanLower || tw.split(/\s+/).includes(cleanLower));
-
-        const span = document.createElement("span");
-        span.textContent = token;
-
-        if (isTarget) {
-          span.className = "target-word-pill font-bold text-amber-300 bg-amber-500/20 px-1 py-0.5 rounded border border-amber-500/30 cursor-pointer hover:bg-amber-500/40 transition shadow-sm inline-block";
-          span.title = `Từ trọng tâm: ${token}`;
-        } else {
-          span.className = "clickable-word cursor-pointer hover:text-amber-300 hover:underline decoration-amber-400 decoration-dotted transition inline-block";
-          span.title = `Chạm để tra từ: ${token}`;
-        }
-
-        // Attach safe click handler via closure (no string concatenation)
-        span.addEventListener("click", () => {
-          // Extract sentence context safely
-          const sentences = paraText.split(/(?<=[.?!])\s+/);
-          const foundSent = sentences.find(s => s.toLowerCase().includes(cleanLower)) || paraText;
-          showWordPopup(token, foundSent);
-        });
-
-        pEl.appendChild(span);
+    // Split paraText by cloze tokens like [1] ______ or [1]
+    const segments = paraText.split(/(\[\d+\](?:\s*_{2,})?)/g);
+    segments.forEach(segment => {
+      const clozeMatch = segment.match(/^\[(\d+)\](?:\s*_{2,})?$/);
+      if (clozeMatch) {
+        const slotNum = parseInt(clozeMatch[1]);
+        const clozeBtn = document.createElement("button");
+        clozeBtn.id = `cloze-slot-${slotNum}`;
+        clozeBtn.className = "cloze-slot-pill mx-1 px-3 py-1 rounded-lg bg-indigo-600/30 text-indigo-300 font-bold border border-indigo-500/50 hover:bg-indigo-600/50 shadow-sm inline-flex items-center gap-1 transition cursor-pointer text-sm align-middle";
+        clozeBtn.innerHTML = `<span>[${slotNum}]</span> <span class="cloze-text underline decoration-indigo-400 italic font-mono">______</span>`;
+        clozeBtn.onclick = () => focusReadingQuestion(slotNum - 1);
+        pEl.appendChild(clozeBtn);
       } else {
-        // Punctuation, spaces, newlines
-        pEl.appendChild(document.createTextNode(token));
+        // Tokenize words for popup translation
+        const tokens = segment.split(/(\b[A-Za-z'-]+\b)/);
+        tokens.forEach(token => {
+          if (/^[A-Za-z'-]+$/.test(token)) {
+            const cleanLower = token.toLowerCase();
+            const isTarget = targetWords.some(tw => tw === cleanLower || tw.split(/\s+/).includes(cleanLower));
+
+            const span = document.createElement("span");
+            span.textContent = token;
+
+            if (isTarget) {
+              span.className = "target-word-pill font-bold text-amber-300 bg-amber-500/20 px-1 py-0.5 rounded border border-amber-500/30 cursor-pointer hover:bg-amber-500/40 transition shadow-sm inline-block";
+              span.title = `Từ trọng tâm: ${token}`;
+            } else {
+              span.className = "clickable-word cursor-pointer hover:text-amber-300 hover:underline decoration-amber-400 decoration-dotted transition inline-block";
+              span.title = `Chạm để tra từ: ${token}`;
+            }
+
+            span.addEventListener("click", () => {
+              const sentences = paraText.split(/(?<=[.?!])\s+/);
+              const foundSent = sentences.find(s => s.toLowerCase().includes(cleanLower)) || paraText;
+              showWordPopup(token, foundSent);
+            });
+
+            pEl.appendChild(span);
+          } else {
+            pEl.appendChild(document.createTextNode(token));
+          }
+        });
       }
     });
 
@@ -1450,8 +1808,8 @@ function renderReadingPassage(passageIdx) {
         const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
 
         return `
-          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-            <p class="font-semibold text-sm text-slate-100">${idx + 1}. ${qText}</p>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2 transition-all duration-300" id="rq-card-${idx}">
+            <p class="font-semibold text-sm text-slate-100">${idx + 1}. ${qText.replace(/\n/g, '<br>')}</p>
             <div class="space-y-1.5 pt-1">
               ${(q.options || []).map((opt, oIdx) => `
                 <button onclick="checkReadingQuestion(${idx}, ${oIdx}, ${correctIdx})" id="rq-${idx}-opt-${oIdx}" class="w-full text-left p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700/80 text-xs text-slate-200 border border-slate-700/50 transition">
@@ -1469,20 +1827,39 @@ function renderReadingPassage(passageIdx) {
   if (window.lucide) lucide.createIcons();
 }
 
+function focusReadingQuestion(qIdx) {
+  const card = document.getElementById(`rq-card-${qIdx}`) || document.getElementById("readingQuestionsList");
+  if (card) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('ring-2', 'ring-indigo-400', 'bg-indigo-950/40');
+    setTimeout(() => {
+      card.classList.remove('ring-2', 'ring-indigo-400', 'bg-indigo-950/40');
+    }, 2000);
+  }
+}
+
 function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
   const selectedBtn = document.getElementById(`rq-${qIdx}-opt-${selectedIdx}`);
   const feedback = document.getElementById(`rq-feedback-${qIdx}`);
   const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
   const qData = passage?.questions?.[qIdx];
 
-  // Mark daily reading goal complete
-  appState.todayReadingDone = true;
-  if (typeof updateDailyGoalChecklist === "function") updateDailyGoalChecklist();
+  // Ghi nhận hoàn thành bài đọc hôm nay
+  setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
 
-  if (selectedIdx === correctIdx) {
+  const isCorrect = (selectedIdx === correctIdx);
+  if (isCorrect) {
     selectedBtn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
     feedback.innerHTML = `✓ Chính xác! ${qData?.explain || ""}`;
     feedback.className = "text-xs font-semibold text-emerald-400 pt-1";
+
+    // Cập nhật ô đục lỗ nếu có
+    const slotEl = document.getElementById(`cloze-slot-${qIdx + 1}`);
+    if (slotEl && qData && qData.options && qData.options[selectedIdx]) {
+      const optWord = qData.options[selectedIdx].replace(/^[A-D]\.\s*/, "").trim();
+      slotEl.innerHTML = `<span>[${qIdx + 1}]</span> <strong class="text-emerald-300 underline">${optWord}</strong> <span class="text-emerald-400">✓</span>`;
+      slotEl.className = "cloze-slot-pill mx-1 px-3 py-1 rounded-lg bg-emerald-600/30 text-emerald-300 font-bold border border-emerald-500 shadow-sm inline-flex items-center gap-1 transition text-sm align-middle animate-pulse";
+    }
   } else {
     selectedBtn.classList.add("bg-red-600/30", "border-red-500", "text-red-300");
     feedback.innerHTML = `✗ Chưa đúng! ${qData?.explain || ""}`;
@@ -2200,30 +2577,28 @@ function tickDeadlineCountdown() {
 }
 
 function updateDailyGoalChecklist() {
-  const curWords = getCurrentDayWords();
-  const studiedCount = appState.currentCardIndex || 0;
-  const isWordsDone = studiedCount >= Math.min(10, curWords.length) || (curWords.length > 0 && appState.currentCardIndex > 0);
-  const isReadingDone = !!appState.todayReadingDone;
-  const isGrammarDone = !!appState.todayGrammarDone;
+  const curDay = missionRegistry.currentDay || 1;
+  const curStatus = getDayMissionStatus(curDay);
+  const infoReading = getDailyAssignedReading(curDay);
 
   const wItem = document.getElementById("goalItemWords");
   const rItem = document.getElementById("goalItemReading");
   const gItem = document.getElementById("goalItemGrammar");
 
   if (wItem) {
-    wItem.innerHTML = isWordsDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">20 Từ vựng (Đang học)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i> <span>20 Từ vựng / Idioms</span>`;
+    wItem.innerHTML = curStatus.vocabDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">20 Từ vựng Ngày ${curDay} (Đã xong)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i> <span>20 Từ vựng Ngày ${curDay} (${curStatus.vocabCount}/20)</span>`;
   }
   if (rItem) {
-    rItem.innerHTML = isReadingDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">Đã đọc 1 bài luyện thi</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i> <span>1 Bài đọc luyện thi</span>`;
+    rItem.innerHTML = curStatus.readingDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">Bài đọc Ngày ${curDay} (Đã xong)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Bài đọc (${(infoReading.title || "Reading").substring(0, 16)}...)</span>`;
   }
   if (gItem) {
-    gItem.innerHTML = isGrammarDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">Đã làm bài tập ngữ pháp</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i> <span>1 Bài tập ngữ pháp</span>`;
+    gItem.innerHTML = curStatus.grammarDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">Ngữ pháp Ngày ${curDay} (Đã xong)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Chuyên đề ngữ pháp</span>`;
   }
 
   if (window.lucide) lucide.createIcons();

@@ -175,24 +175,27 @@
 
     <!-- ================= TAB: HÔM NAY (TODAY OVERVIEW & AUTOMATIC DEADLINE MISSIONS) ================= -->
     <section id="tab-today" class="space-y-6">
-      <!-- AUTOMATIC DAILY DEADLINE MISSION CARD (CỐ ĐỊNH TỰ ĐỘNG - KHÔNG CHO CHỌN) -->
+      <!-- AUTOMATIC DAILY DEADLINE MISSION CARD (CỐ ĐỊNH TỰ ĐỘNG - KHÔNG CHO CHỌN NHẦM) -->
       <div class="glass-card rounded-2xl p-5 sm:p-6 border border-indigo-500/40 relative overflow-hidden space-y-5 bg-gradient-to-br from-indigo-950/70 via-slate-900/90 to-slate-950 shadow-2xl">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
               <span class="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-xs uppercase tracking-wider border border-indigo-500/30 flex items-center gap-1.5">
                 <i data-lucide="lock" class="w-3.5 h-3.5 text-indigo-400"></i>
                 <span>Lộ Trình Cố Định Hôm Nay</span>
               </span>
               <span id="dailyMissionBadge" class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs">
-                Ngày 1 / 107
+                Ngày 1 / 169
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-semibold border border-emerald-500/30">
+                🔒 Tự lưu tiến độ vĩnh viễn
               </span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-white mt-1.5 flex items-center gap-2">
-              <span>🎯 3 Nhiệm Vụ Cần Làm Hôm Nay (Đã Cài Tự Động)</span>
+              <span>🎯 3 Nhiệm Vụ Deadline Hôm Nay (Đã Lên Lịch Tự Động)</span>
             </h2>
             <p class="text-xs text-slate-400 mt-1">
-              Hệ thống đã tự động lên lịch bài học hôm nay cho bạn. Bạn chỉ cần hoàn thành 3 mục bên dưới trước hạn chót!
+              Hệ thống tự động giao bài hôm nay. Bạn có thể <strong>học vượt deadline</strong> sang ngày kế tiếp bất cứ lúc nào hoặc bấm <strong>ôn tập dần dần</strong>!
             </p>
           </div>
 
@@ -205,10 +208,34 @@
           </div>
         </div>
 
-        <!-- 3 Specific Assigned Tasks -->
+        <!-- Day Navigation Controller Bar -->
+        <div class="flex items-center justify-between gap-2 flex-wrap bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+          <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="changeMissionDay(-1)" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 font-semibold flex items-center gap-1 border border-slate-700 transition" title="Lùi lại 1 ngày">
+              <i data-lucide="chevron-left" class="w-4 h-4"></i> Ngày trước
+            </button>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs text-slate-400 font-medium">Đang xem:</span>
+              <select id="missionDaySelect" onchange="jumpToMissionDay(this.value)" class="bg-slate-800 border border-indigo-500/50 text-xs font-bold text-amber-300 rounded-lg px-2.5 py-1 outline-none focus:ring-1 focus:ring-indigo-400">
+              </select>
+            </div>
+            <button onclick="changeMissionDay(1)" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 font-semibold flex items-center gap-1 border border-slate-700 transition" title="Tiến tới 1 ngày">
+              Ngày kế <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button onclick="openRoadmapModal()" class="px-3 py-1.5 rounded-lg bg-indigo-950/60 hover:bg-indigo-900/60 text-xs text-indigo-300 hover:text-white font-semibold flex items-center gap-1.5 border border-indigo-500/40 transition">
+              <i data-lucide="map" class="w-3.5 h-3.5 text-indigo-400"></i>
+              <span>Xem Bản Đồ 169 Ngày</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3 Specific Assigned Tasks with Checkboxes -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <!-- Task 1: 20 Vocab -->
-          <div id="taskCardVocab" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-indigo-500/40">
+          <div id="taskCardVocab" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-indigo-500/40 shadow-sm">
             <div>
               <div class="flex items-center justify-between mb-1.5">
                 <span class="text-[11px] font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
@@ -217,16 +244,22 @@
                 <span id="taskStatusBadgeVocab" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold">Chưa xong (0/20)</span>
               </div>
               <h4 id="taskTitleVocab" class="font-bold text-white text-sm">20 Từ Vựng Ngày 1</h4>
-              <p id="taskDescVocab" class="text-xs text-slate-400 mt-1">Tự động chọn 20 từ theo lộ trình. Lật thẻ và ghi nhớ phát âm, ngữ nghĩa.</p>
+              <p id="taskDescVocab" class="text-xs text-slate-400 mt-1">20 mục từ vựng hoặc collocations. Bấm nút học hoặc trực tiếp tick đã xong.</p>
             </div>
-            <button onclick="startTodayVocabMission()" id="btnStartVocabMission" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-indigo-600/30">
-              <i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i>
-              <span id="btnStartVocabText">Bắt đầu học 20 từ hôm nay</span>
-            </button>
+            <div class="flex items-center gap-2 pt-2">
+              <button onclick="startTodayVocabMission()" id="btnStartVocabMission" class="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-indigo-600/30">
+                <i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i>
+                <span id="btnStartVocabText">Bắt đầu học 20 từ hôm nay</span>
+              </button>
+              <button onclick="toggleMissionDone('vocab')" id="btnToggleVocabDone" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 border border-slate-700 transition flex items-center gap-1 shrink-0" title="Đánh dấu hoàn thành hoặc bỏ đánh dấu">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                <span id="lblToggleVocab">Tick đã làm</span>
+              </button>
+            </div>
           </div>
 
           <!-- Task 2: Reading -->
-          <div id="taskCardReading" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-cyan-500/40">
+          <div id="taskCardReading" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-cyan-500/40 shadow-sm">
             <div>
               <div class="flex items-center justify-between mb-1.5">
                 <span class="text-[11px] font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
@@ -235,16 +268,22 @@
                 <span id="taskStatusBadgeReading" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold">Chưa xong</span>
               </div>
               <h4 id="taskTitleReading" class="font-bold text-white text-sm line-clamp-1">IELTS: The Science of Sleep</h4>
-              <p id="taskDescReading" class="text-xs text-slate-400 mt-1">Bài đọc chỉ định hôm nay. Bấm tra từ trực tiếp và làm trắc nghiệm.</p>
+              <p id="taskDescReading" class="text-xs text-slate-400 mt-1">Bài đọc chỉ định hôm nay. Bấm tra từ trực tiếp và trả lời câu hỏi trắc nghiệm.</p>
             </div>
-            <button onclick="startTodayReadingMission()" id="btnStartReadingMission" class="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-cyan-600/30">
-              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-              <span id="btnStartReadingText">Vào làm bài đọc hôm nay</span>
-            </button>
+            <div class="flex items-center gap-2 pt-2">
+              <button onclick="startTodayReadingMission()" id="btnStartReadingMission" class="flex-1 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-cyan-600/30">
+                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                <span id="btnStartReadingText">Vào làm bài đọc hôm nay</span>
+              </button>
+              <button onclick="toggleMissionDone('reading')" id="btnToggleReadingDone" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 border border-slate-700 transition flex items-center gap-1 shrink-0" title="Đánh dấu hoàn thành hoặc bỏ đánh dấu">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                <span id="lblToggleReading">Tick đã làm</span>
+              </button>
+            </div>
           </div>
 
           <!-- Task 3: Grammar -->
-          <div id="taskCardGrammar" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-purple-500/40">
+          <div id="taskCardGrammar" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-purple-500/40 shadow-sm">
             <div>
               <div class="flex items-center justify-between mb-1.5">
                 <span class="text-[11px] font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
@@ -253,13 +292,41 @@
                 <span id="taskStatusBadgeGrammar" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold">Chưa xong</span>
               </div>
               <h4 id="taskTitleGrammar" class="font-bold text-white text-sm line-clamp-1">Chuyên đề 1: Thì hiện tại đơn</h4>
-              <p id="taskDescGrammar" class="text-xs text-slate-400 mt-1">Tổng ôn lý thuyết Cô Trang Anh và điền từ / chọn đáp án đúng.</p>
+              <p id="taskDescGrammar" class="text-xs text-slate-400 mt-1">Tổng ôn lý thuyết Cô Trang Anh và thực hành bài tập chuyên đề.</p>
             </div>
-            <button onclick="startTodayGrammarMission()" id="btnStartGrammarMission" class="w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-purple-600/30">
-              <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-              <span id="btnStartGrammarText">Làm bài tập ngữ pháp hôm nay</span>
+            <div class="flex items-center gap-2 pt-2">
+              <button onclick="startTodayGrammarMission()" id="btnStartGrammarMission" class="flex-1 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-purple-600/30">
+                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                <span id="btnStartGrammarText">Làm bài tập hôm nay</span>
+              </button>
+              <button onclick="toggleMissionDone('grammar')" id="btnToggleGrammarDone" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 border border-slate-700 transition flex items-center gap-1 shrink-0" title="Đánh dấu hoàn thành hoặc bỏ đánh dấu">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                <span id="lblToggleGrammar">Tick đã làm</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action bar: Hoc vuot deadline & On tap dan dan -->
+        <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-800/80">
+          <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="advanceToNextDay()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 font-bold text-xs text-white transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+              <i data-lucide="zap" class="w-4 h-4 fill-amber-300 text-amber-300"></i>
+              <span>🚀 Học Vượt: Sang Ngày Kế Tiếp</span>
+            </button>
+            <button onclick="startGradualReview()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 font-bold text-xs transition flex items-center justify-center gap-2 shadow">
+              <i data-lucide="repeat" class="w-4 h-4 text-cyan-400"></i>
+              <span>🔄 Ôn Tập Dần Dần Tích Lũy</span>
+            </button>
+            <button onclick="startGradualReviewQuiz()" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 font-bold text-xs transition flex items-center justify-center gap-2 shadow">
+              <i data-lucide="help-circle" class="w-4 h-4 text-amber-400"></i>
+              <span>Trắc Nghiệm Tích Lũy</span>
             </button>
           </div>
+          <button onclick="openRoadmapModal()" class="px-3 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white font-semibold text-xs border border-slate-700 transition flex items-center justify-center gap-1.5">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-indigo-400"></i>
+            <span>Xem Toàn Bộ 169 Ngày Lộ Trình</span>
+          </button>
         </div>
       </div>
 
@@ -662,16 +729,19 @@
         <!-- Exam Filter Category Bar -->
         <div class="mt-4 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
           <button onclick="filterReadingByExam('all')" id="examBtn_all" class="exam-filter-btn active px-3.5 py-1.5 rounded-xl font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap">
-            🌟 Tất cả bài đọc (28)
+            🌟 Tất cả bài đọc (34)
+          </button>
+          <button onclick="filterReadingByExam('CLOZE')" id="examBtn_CLOZE" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+            🎯 Đục Lỗ (Cloze Test) (3)
           </button>
           <button onclick="filterReadingByExam('IELTS')" id="examBtn_IELTS" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            🎓 IELTS Academic (4)
+            🎓 IELTS Academic (5)
           </button>
           <button onclick="filterReadingByExam('VSTEP')" id="examBtn_VSTEP" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            🇻🇳 VSTEP B1-B2-C1 (4)
+            🇻🇳 VSTEP B1-B2-C1 (5)
           </button>
           <button onclick="filterReadingByExam('TOEIC')" id="examBtn_TOEIC" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            💼 TOEIC Part 7 (4)
+            💼 TOEIC Part 6 & 7 (6)
           </button>
           <button onclick="filterReadingByExam('APTIS')" id="examBtn_APTIS" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
             🇬🇧 APTIS Reading (3)
@@ -680,10 +750,9 @@
             🏕️ PET B1 (3)
           </button>
           <button onclick="filterReadingByExam('BaoQuocTe')" id="examBtn_BaoQuocTe" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            📰 Báo Quốc Tế (10)
+            📰 Báo Quốc Tế (9)
           </button>
         </div>
-
         <div class="mt-2 p-3 rounded-xl bg-indigo-950/40 border border-indigo-500/30 flex items-center justify-between gap-3 text-xs text-indigo-200">
           <span class="flex items-center gap-2">
             <i data-lucide="mouse-pointer" class="w-4 h-4 text-amber-400"></i>
@@ -1237,14 +1306,51 @@
     </div>
   </div>
 
-  <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=9.0"></script>
-  <script src="/app.js?v=9.0"></script>
+  
+  <!-- ================= MODAL: 169-DAY ROADMAP & JUMP SELECTOR ================= -->
+  <div id="dayRoadmapModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeRoadmapModal()">
+    <div class="glass-card max-w-4xl w-full max-h-[85vh] flex flex-col rounded-2xl border border-indigo-500/40 p-5 bg-slate-900 shadow-2xl relative" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div>
+          <h3 class="font-bold text-lg text-white flex items-center gap-2">
+            <i data-lucide="map" class="w-5 h-5 text-indigo-400"></i>
+            <span>Bản Đồ Lộ Trình 169 Ngày (Học Vượt & Ôn Tập)</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Bấm vào bất kỳ ngày nào để chuyển sang học ngày đó hoặc ôn lại kiến thức</p>
+        </div>
+        <button onclick="closeRoadmapModal()" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-3 py-3 text-xs border-b border-slate-800/80 flex-wrap">
+        <span class="flex items-center gap-1.5 text-emerald-400 font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Đã xong (3/3)</span>
+        <span class="flex items-center gap-1.5 text-amber-400 font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Đang làm dở</span>
+        <span class="flex items-center gap-1.5 text-cyan-300 font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span> Ngày hiện tại</span>
+        <span class="flex items-center gap-1.5 text-slate-400 font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-slate-700"></span> Chưa học (Sẵn sàng học vượt)</span>
+      </div>
+
+      <div id="roadmapGridContainer" class="flex-1 overflow-y-auto py-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 pr-1">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div class="pt-3 border-t border-slate-800 flex justify-between items-center text-xs">
+        <span class="text-slate-400">Mẹo: Chọn ngày bất kỳ để xem 20 từ, bài đọc và bài ngữ pháp của ngày đó.</span>
+        <button onclick="closeRoadmapModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold transition">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
+<!-- LOAD APPLICATION SCRIPTS -->
+  <script src="/data.js?v=10.0"></script>
+  <script src="/app.js?v=10.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=9.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=10.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

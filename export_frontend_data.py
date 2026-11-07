@@ -46,26 +46,76 @@ def export_data():
         curriculum_units = []
         for u_name in sorted_unit_names:
             items = unit_dict[u_name]
-            # Chunk items into days with at least 20 words per day (minimum 20 words/day)
-            target_per_day = 20
-            num_days = max(1, round(len(items) / target_per_day))
-            chunk_size = max(1, (len(items) + num_days - 1) // num_days)
+            
+            # Phân loại rõ ràng: 1 là Từ vựng đơn, 2 là Cụm từ & Collocations & Idioms
+            words_only = [it for it in items if it.get("type") == "word"]
+            collocs_and_idioms = [it for it in items if it.get("type") in ["collocation", "idiom"]]
             
             days = []
-            for d_idx in range(num_days):
-                sub = items[d_idx * chunk_size : (d_idx + 1) * chunk_size]
-                if not sub:
-                    break
+            
+            # 1. Học Từ Vựng Đơn (Vocabulary)
+            if words_only:
+                if len(words_only) > 30:
+                    part_size = 20
+                    num_parts = (len(words_only) + part_size - 1) // part_size
+                    for p in range(num_parts):
+                        sub_w = words_only[p * part_size : (p + 1) * part_size]
+                        days.append({
+                            "dayNumber": len(days) + 1,
+                            "dayTitle": f"📘 1. Học Từ Vựng Đơn (Phần {p + 1} - {len(sub_w)} từ)",
+                            "category": "word",
+                            "words": sub_w
+                        })
+                else:
+                    days.append({
+                        "dayNumber": len(days) + 1,
+                        "dayTitle": f"📘 1. Học Từ Vựng Đơn ({len(words_only)} từ)",
+                        "category": "word",
+                        "words": words_only
+                    })
+            
+            # 2. Học Cụm Từ & Collocations (Collocations & Idioms)
+            if collocs_and_idioms:
+                if len(collocs_and_idioms) > 30:
+                    part_size = 20
+                    num_parts = (len(collocs_and_idioms) + part_size - 1) // part_size
+                    for p in range(num_parts):
+                        sub_c = collocs_and_idioms[p * part_size : (p + 1) * part_size]
+                        days.append({
+                            "dayNumber": len(days) + 1,
+                            "dayTitle": f"🎯 2. Học Cụm Từ & Collocation (Phần {p + 1} - {len(sub_c)} cụm)",
+                            "category": "collocation",
+                            "words": sub_c
+                        })
+                else:
+                    days.append({
+                        "dayNumber": len(days) + 1,
+                        "dayTitle": f"🎯 2. Học Cụm Từ & Collocation ({len(collocs_and_idioms)} cụm)",
+                        "category": "collocation",
+                        "words": collocs_and_idioms
+                    })
+            elif not words_only:
                 days.append({
-                    "dayNumber": d_idx + 1,
-                    "dayTitle": f"Ngày {d_idx + 1}: Luyện từ & Cụm từ",
-                    "words": sub
+                    "dayNumber": 1,
+                    "dayTitle": f"📘 1. Học Từ Vựng ({len(items)} từ)",
+                    "category": "all",
+                    "words": items
                 })
+
+            # 3. Tùy chọn Toàn Bộ Cả Từ & Cụm
+            days.append({
+                "dayNumber": len(days) + 1,
+                "dayTitle": f"🌟 3. Toàn Bộ Cả Từ & Cụm ({len(items)} mục)",
+                "category": "all",
+                "words": items
+            })
                 
             curriculum_units.append({
                 "unitId": u_name.lower().replace(" ", "_").replace(":", "").replace("&", "and"),
                 "unitTitle": u_name,
                 "totalWords": len(items),
+                "wordsCount": len(words_only),
+                "collocationsCount": len(collocs_and_idioms),
                 "days": days
             })
 

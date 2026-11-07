@@ -651,11 +651,7 @@ function onReviewUnitChange(val) {
   const unit = window.APP_DATA?.units?.[uIdx];
   const dSel = document.getElementById("reviewDaySelect");
   if (dSel && unit && unit.days) {
-    let html = `<option value="all">Toàn bộ ${unit.totalWords} từ trong Unit</option>`;
-    unit.days.forEach((d, idx) => {
-      html += `<option value="${idx}">${d.dayTitle} (${d.words.length} từ)</option>`;
-    });
-    dSel.innerHTML = html;
+    dSel.innerHTML = unit.days.map((d, idx) => `<option value="${idx}">${d.dayTitle}</option>`).join("");
   }
 }
 
@@ -851,7 +847,7 @@ function onUnitChange(val) {
 
   if (unit && unit.days && daySelect) {
     daySelect.innerHTML = unit.days.map((d, idx) => `
-      <option value="${idx}">${d.dayTitle} (${d.words.length} từ)</option>
+      <option value="${idx}">${d.dayTitle}</option>
     `).join("");
   }
 

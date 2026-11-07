@@ -68,13 +68,71 @@ async function apiCall(endpoint, method = "GET", body = null) {
   }
 }
 
+// ================= STREAK & DAILY CHECK-IN =================
+function updateDailyStreak(serverStreak, serverLastDate) {
+  const today = new Date().toISOString().slice(0, 10);
+  let streak = parseInt(localStorage.getItem("EMH_STREAK") || "1", 10);
+  let lastDate = localStorage.getItem("EMH_LAST_DATE") || "";
+
+  if (serverStreak !== undefined && serverStreak !== null) {
+    streak = serverStreak;
+    lastDate = serverLastDate || today;
+  } else if (lastDate !== today) {
+    if (lastDate) {
+      const dLast = new Date(lastDate);
+      const dToday = new Date(today);
+      const diffDays = Math.round((dToday - dLast) / (1000 * 3600 * 24));
+      if (diffDays === 1) {
+        streak = streak + 1;
+      } else if (diffDays > 1) {
+        streak = 1;
+      }
+    } else {
+      streak = 1;
+    }
+  }
+
+  localStorage.setItem("EMH_STREAK", streak.toString());
+  localStorage.setItem("EMH_LAST_DATE", today);
+
+  const streakEl = document.getElementById("streakCount");
+  if (streakEl) streakEl.innerText = `${streak} ngày`;
+
+  const profileStreakEl = document.getElementById("statStreakDisplay");
+  if (profileStreakEl) profileStreakEl.innerText = `${streak} ngày 🔥`;
+
+  const streakSubtext = document.getElementById("streakSubtext");
+  if (streakSubtext) streakSubtext.innerText = `Đã điểm danh ngày hôm nay (${today}). Tiếp tục duy trì!`;
+
+  return streak;
+}
+
+async function triggerDailyCheckin() {
+  let streak = updateDailyStreak();
+
+  if (appState.authToken) {
+    const res = await apiCall("/api/auth/checkin", "POST");
+    if (res && res.streak) {
+      streak = res.streak;
+      updateDailyStreak(res.streak, res.last_active_date);
+    }
+  }
+
+  showToast(`🔥 Điểm danh ngày mới thành công! Chuỗi học liên tục: ${streak} ngày!`, "success");
+}
+
 // ================= AUTHENTICATION & USER PROFILE =================
 async function checkAuthStatus() {
   if (appState.authToken) {
     const user = await apiCall("/api/auth/me");
     if (user) {
       appState.currentUser = user;
+      updateDailyStreak(user.streak_count, user.last_active_date);
+    } else {
+      updateDailyStreak();
     }
+  } else {
+    updateDailyStreak();
   }
   updateAuthUI();
   flushOfflineQueue();
@@ -85,11 +143,15 @@ function updateAuthUI() {
   const badgeEl = document.getElementById("targetExamBadge");
   const streakEl = document.getElementById("streakCount");
   const statusEl = document.getElementById("userStatusText");
+  const profileStreakEl = document.getElementById("statStreakDisplay");
+
+  const streakVal = localStorage.getItem("EMH_STREAK") || (appState.currentUser?.streak_count || 1);
+  if (streakEl) streakEl.innerText = `${streakVal} ngày`;
+  if (profileStreakEl) profileStreakEl.innerText = `${streakVal} ngày 🔥`;
 
   if (appState.currentUser) {
     if (nameEl) nameEl.innerText = appState.currentUser.full_name || appState.currentUser.email.split("@")[0];
     if (badgeEl) badgeEl.innerText = appState.currentUser.target_exam || "IELTS";
-    if (streakEl) streakEl.innerText = `${appState.currentUser.streak_count || 0} ngày`;
     if (statusEl) statusEl.innerText = `Đã đồng bộ tài khoản: ${appState.currentUser.email}`;
   } else {
     if (nameEl) nameEl.innerText = "Đăng nhập";
@@ -147,12 +209,13 @@ async function handleAuthSubmit() {
     appState.authToken = res.token;
     localStorage.setItem(STORAGE_KEY_AUTH, res.token);
     appState.currentUser = res.user;
+    updateDailyStreak(res.user?.streak, res.user?.last_active_date);
     updateAuthUI();
     closeAuthModal();
     await loadTodayQueue();
-    alert("Đăng nhập và đồng bộ thành công!");
+    showToast(`Đăng nhập thành công! Chuỗi ngày học: ${res.user?.streak || 1} ngày 🔥`, "success");
   } else {
-    alert("Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin!");
+    showToast("Đăng nhập không thành công. Vui lòng kiểm tra lại!", "error");
   }
 }
 
@@ -638,6 +701,13 @@ async function loadGrammarTopics() {
   renderGrammarDetail(1);
 }
 
+function formatGrammarText(text) {
+  if (!text) return "";
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-amber-300 font-bold">$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em class="text-indigo-300 not-italic font-semibold">$1</em>');
+}
+
 async function renderGrammarDetail(weekNum) {
   appState.activeGrammarWeek = weekNum;
   const detail = await apiCall(`/api/grammar/topics/${weekNum}`) || window.APP_DATA?.grammar?.[weekNum - 1];
@@ -648,27 +718,68 @@ async function renderGrammarDetail(weekNum) {
     const btn = document.getElementById(`grammar-btn-${w}`);
     if (btn) {
       btn.className = (w === weekNum)
-        ? "w-full text-left p-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition bg-indigo-600 text-white shadow"
-        : "w-full text-left p-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition text-slate-300 hover:bg-slate-800";
+        ? "w-full text-left p-2.5 rounded-xl text-xs font-semibold flex items-center gap-2 transition bg-indigo-600 text-white shadow"
+        : "w-full text-left p-2.5 rounded-xl text-xs font-semibold flex items-center gap-2 transition text-slate-300 hover:bg-slate-800";
     }
   });
 
   document.getElementById("grammarTopicTitle").innerText = detail.title;
   document.getElementById("grammarTopicSummary").innerText = detail.summary;
 
+  // 1. Lý thuyết chuyên sâu & Bảng công thức
   const body = document.getElementById("grammarContentBody");
   const sections = detail.sections || [];
-  body.innerHTML = sections.map(s => `
-    <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-      <h3 class="font-bold text-indigo-300 text-sm">${s.subtitle}</h3>
-      <p class="text-xs sm:text-sm text-slate-200 leading-relaxed whitespace-pre-line">${s.content}</p>
+  body.innerHTML = sections.map((s, sIdx) => `
+    <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3 shadow-sm">
+      <h3 class="font-bold text-indigo-300 text-sm sm:text-base flex items-center gap-2">
+        <span class="w-6 h-6 rounded-lg bg-indigo-500/20 text-indigo-300 flex items-center justify-center text-xs font-extrabold">${sIdx + 1}</span>
+        <span>${s.subtitle}</span>
+      </h3>
+      <div class="text-xs sm:text-sm text-slate-200 leading-relaxed whitespace-pre-line pl-3 border-l-2 border-indigo-500/40">
+        ${formatGrammarText(s.content)}
+      </div>
     </div>
   `).join("");
 
+  // 2. Bài tập điền từ ngắn vào chỗ trống
+  const fbList = document.getElementById("grammarFillBlanksList");
+  const fillBlanks = detail.fill_blanks || window.APP_DATA?.grammar?.[weekNum - 1]?.fill_blanks || [];
+  if (fbList) {
+    if (fillBlanks.length === 0) {
+      fbList.innerHTML = `<p class="text-xs text-slate-400 italic">Đang cập nhật thêm bài tập điền từ cho chuyên đề này.</p>`;
+    } else {
+      fbList.innerHTML = fillBlanks.map((fb, idx) => `
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3 shadow-sm" id="gfb-card-${idx}">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-md bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-[10px] font-bold">${idx + 1}</span>
+              Câu hỏi điền từ ngắn
+            </span>
+            <button onclick="toggleFillBlankHint(${idx})" class="text-xs text-amber-400 hover:text-amber-300 flex items-center gap-1 transition font-semibold">
+              <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> 💡 Xem gợi ý
+            </button>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">${fb.sentence.replace(/_______/g, `<span class="px-2.5 py-0.5 rounded bg-slate-800 border-b-2 border-emerald-400 font-mono text-emerald-300 text-xs font-bold">[ &nbsp;...&nbsp; ]</span>`)}</p>
+          <div id="gfb-hint-${idx}" class="hidden p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 leading-relaxed">
+            <strong>Gợi ý:</strong> ${fb.hint || "Hãy xem kỹ thì và dạng của động từ trong ngoặc."}
+          </div>
+          <div class="flex items-center gap-2 pt-1">
+            <input type="text" id="gfb-input-${idx}" placeholder="Gõ từ ngắn cần điền vào đây..." class="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-xs sm:text-sm text-white placeholder-slate-500 outline-none focus:border-emerald-500 transition" onkeydown="if(event.key==='Enter') checkGrammarFillBlank(${idx})">
+            <button onclick="checkGrammarFillBlank(${idx})" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition shadow-md shadow-emerald-600/20 flex items-center gap-1.5">
+              <span>Kiểm tra</span>
+            </button>
+          </div>
+          <div id="gfb-feedback-${idx}" class="hidden p-3 rounded-xl text-xs sm:text-sm font-medium"></div>
+        </div>
+      `).join("");
+    }
+  }
+
+  // 3. Bài tập trắc nghiệm áp dụng
   const qList = document.getElementById("grammarQuizList");
   const quiz = detail.quiz || [];
   qList.innerHTML = quiz.map((q, idx) => `
-    <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+    <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3 shadow-sm">
       <p class="font-semibold text-xs sm:text-sm text-slate-100">${idx + 1}. ${q.q}</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
         ${q.options.map((opt, oIdx) => `
@@ -677,19 +788,65 @@ async function renderGrammarDetail(weekNum) {
           </button>
         `).join("")}
       </div>
-      <div id="gq-feedback-${idx}" class="hidden p-2 rounded-lg bg-slate-800 text-xs text-slate-300 mt-2"></div>
+      <div id="gq-feedback-${idx}" class="hidden p-3 rounded-xl bg-slate-800 text-xs text-slate-300 mt-2"></div>
     </div>
   `).join("");
+
+  lucide.createIcons();
+}
+
+function toggleFillBlankHint(idx) {
+  const hintEl = document.getElementById(`gfb-hint-${idx}`);
+  if (hintEl) hintEl.classList.toggle("hidden");
+}
+
+function checkGrammarFillBlank(idx) {
+  const detail = window.APP_DATA?.grammar?.[appState.activeGrammarWeek - 1];
+  const fb = detail?.fill_blanks?.[idx];
+  if (!fb) return;
+
+  const input = document.getElementById(`gfb-input-${idx}`);
+  const feedback = document.getElementById(`gfb-feedback-${idx}`);
+  if (!input || !feedback) return;
+
+  const val = input.value.trim().toLowerCase();
+  if (!val) {
+    showToast("Vui lòng nhập đáp án vào ô trống!", "warning");
+    return;
+  }
+
+  const answer = (fb.answer || "").trim().toLowerCase();
+  const alts = (fb.alternatives || []).map(a => a.trim().toLowerCase());
+  const allCorrect = [answer, ...alts];
+
+  const normalize = (s) => s.replace(/['’]/g, "'").replace(/\s+/g, " ").trim();
+  const isMatch = allCorrect.some(c => normalize(c) === normalize(val));
+
+  if (isMatch) {
+    input.classList.remove("border-slate-700", "border-red-500");
+    input.classList.add("border-emerald-500", "bg-emerald-950/30", "text-emerald-300");
+    feedback.className = "p-3 rounded-xl text-xs sm:text-sm font-medium bg-emerald-950/50 border border-emerald-500/40 text-emerald-300";
+    feedback.innerHTML = `<strong>✓ Xuất sắc! Đáp án chính xác:</strong> <span class="font-bold underline">${fb.answer}</span>.<br><span class="text-slate-300 text-xs mt-1 block">${fb.explain || ""}</span>`;
+  } else {
+    input.classList.remove("border-slate-700", "border-emerald-500");
+    input.classList.add("border-red-500", "bg-red-950/30", "text-red-300");
+    feedback.className = "p-3 rounded-xl text-xs sm:text-sm font-medium bg-red-950/50 border border-red-500/40 text-red-300";
+    feedback.innerHTML = `<strong>✗ Chưa chính xác.</strong> Đáp án đúng là: <span class="font-bold text-amber-300">${fb.answer}</span>.<br><span class="text-slate-300 text-xs mt-1 block">${fb.explain || ""}</span>`;
+  }
+  feedback.classList.remove("hidden");
 }
 
 async function checkGrammarQuiz(qIdx, optIdx) {
+  const detail = window.APP_DATA?.grammar?.[appState.activeGrammarWeek - 1];
+  const localQ = detail?.quiz?.[qIdx];
+
+  const feedback = document.getElementById(`gq-feedback-${qIdx}`);
+  const btn = document.getElementById(`gq-${qIdx}-opt-${optIdx}`);
+
   const res = await apiCall("/api/grammar/quiz-submit", "POST", {
     week_number: appState.activeGrammarWeek,
     answers: [optIdx]
   });
-
-  const feedback = document.getElementById(`gq-feedback-${qIdx}`);
-  const btn = document.getElementById(`gq-${qIdx}-opt-${optIdx}`);
 
   if (res && res.feedback && res.feedback[0]) {
     const f = res.feedback[0];
@@ -701,9 +858,15 @@ async function checkGrammarQuiz(qIdx, optIdx) {
       feedback.innerHTML = `<span class="text-red-400 font-bold">✗ Chưa đúng!</span> ${f.explain}`;
     }
     feedback.classList.remove("hidden");
-  } else {
-    btn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
-    feedback.innerHTML = `<span class="text-emerald-400 font-bold">✓ Đã ghi nhận câu trả lời.</span>`;
+  } else if (localQ) {
+    const isCorrect = (optIdx === localQ.answer);
+    if (isCorrect) {
+      btn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
+      feedback.innerHTML = `<span class="text-emerald-400 font-bold">✓ Chính xác!</span> ${localQ.explain || ""}`;
+    } else {
+      btn.classList.add("bg-red-600/30", "border-red-500", "text-red-300");
+      feedback.innerHTML = `<span class="text-red-400 font-bold">✗ Chưa đúng!</span> ${localQ.explain || ""}`;
+    }
     feedback.classList.remove("hidden");
   }
 }
@@ -833,18 +996,30 @@ function readAloudPassage() {
 // ================= DAILY REVIEW QUIZ =================
 function generateDailyQuiz() {
   const scopeEl = document.getElementById("quizScopeSelect");
-  const scope = scopeEl ? scopeEl.value : "today";
+  const scope = scopeEl ? scopeEl.value : "just_studied";
 
   let words = [];
-  const m = typeof scope === "string" && scope.match(/^shuffle_(\d+)_(\d+)$/);
-  if (m) {
-    words = getWordsForUnitRange(parseInt(m[1]), parseInt(m[2]));
-  } else if (scope === "current_unit") {
+  if (scope === "just_studied") {
     words = getCurrentDayWords();
-  } else {
-    // Default today SRS queue or fallback to words
+    if (!words || words.length === 0) {
+      const curU = window.APP_DATA?.units?.[appState.currentUnitIndex];
+      words = curU ? curU.days.flatMap(d => d.words) : [];
+    }
+  } else if (scope === "current_unit") {
+    const curU = window.APP_DATA?.units?.[appState.currentUnitIndex];
+    words = curU ? curU.days.flatMap(d => d.words) : [];
+  } else if (scope === "today") {
     if (appState.todayQueue && appState.todayQueue.length > 0) {
       words = appState.todayQueue;
+    } else {
+      words = getCurrentDayWords();
+    }
+  } else if (scope === "shuffle_all") {
+    words = window.APP_DATA?.units ? window.APP_DATA.units.flatMap(u => u.days.flatMap(d => d.words)) : [];
+  } else {
+    const m = typeof scope === "string" && scope.match(/^shuffle_(\d+)_(\d+)$/);
+    if (m) {
+      words = getWordsForUnitRange(parseInt(m[1]), parseInt(m[2]));
     } else {
       words = getCurrentDayWords();
     }
@@ -855,44 +1030,108 @@ function generateDailyQuiz() {
   if (resultBox) resultBox.classList.add("hidden");
 
   if (!words || words.length === 0) {
-    container.innerHTML = `<p class="text-sm text-slate-400">Chưa có từ vựng phù hợp để tạo đề ôn tập.</p>`;
+    container.innerHTML = `<div class="p-8 text-center text-slate-400 glass-panel rounded-2xl">Chưa có từ vựng phù hợp để tạo đề ôn tập. Hãy chọn bài học khác!</div>`;
     return;
   }
 
   dailyQuizScore = 0;
   answeredQuestions = new Set();
 
-  const quizPool = shuffleArray(words).slice(0, Math.min(20, words.length));
-  let questionsHtml = "";
+  // Quantity limit
+  const countEl = document.getElementById("quizCountSelect");
+  const countVal = countEl ? countEl.value : "all";
+  const maxQ = countVal === "all" ? words.length : Math.min(parseInt(countVal), words.length);
+
+  // Deep shuffle words
+  const quizPool = shuffleArray([...words]).slice(0, maxQ);
+  const allGlobalWords = (window.APP_DATA?.units || []).flatMap(u => u.days.flatMap(d => d.words));
+
+  let questionsHtml = `
+    <div class="flex items-center justify-between px-2 text-xs text-slate-400">
+      <span>Đang ôn luyện <strong class="text-indigo-400">${quizPool.length} từ vựng</strong> (Đã xáo trộn ngẫu nhiên)</span>
+      <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold">100% Đầy đủ từ</span>
+    </div>
+  `;
 
   quizPool.forEach((item, qIdx) => {
-    const allOtherMeanings = (window.APP_DATA.units.flatMap(u => u.days.flatMap(d => d.words)))
-      .filter(w => w.word !== item.word)
-      .map(w => w.meaning_vi || w.meaning_en)
-      .filter(Boolean);
+    // Random question type: 0: EN -> VI, 1: VI -> EN, 2: Context fill-in
+    const hasExample = item.example && item.example.toLowerCase().includes(item.word.toLowerCase());
+    const qType = hasExample ? (qIdx % 3) : (qIdx % 2);
 
-    const distractors = allOtherMeanings.sort(() => 0.5 - Math.random()).slice(0, 3);
-    const correctMeaning = item.meaning_vi || item.meaning_en;
-    const options = [correctMeaning, ...distractors].sort(() => 0.5 - Math.random());
-    const correctOptionIdx = options.indexOf(correctMeaning);
+    let questionTitle = "";
+    let questionSubtitle = "";
+    let options = [];
+    let correctOptionIdx = 0;
+
+    if (qType === 0) {
+      // Type 0: Cho từ tiếng Anh -> Tìm nghĩa tiếng Việt
+      questionTitle = `Nghĩa tiếng Việt của từ / cụm từ <span class="text-amber-300 font-bold">"${item.word}"</span> là gì?`;
+      questionSubtitle = item.pron ? `Phát âm: <span class="text-slate-300 font-mono">${item.pron}</span> • (${item.pos || "word"})` : `(${item.pos || "word"})`;
+      
+      const distractors = allGlobalWords
+        .filter(w => w.word !== item.word && w.meaning_vi)
+        .map(w => w.meaning_vi)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 3);
+      const correctMeaning = item.meaning_vi || item.meaning_en;
+      options = [correctMeaning, ...distractors].sort(() => 0.5 - Math.random());
+      correctOptionIdx = options.indexOf(correctMeaning);
+    } else if (qType === 1) {
+      // Type 1: Cho nghĩa tiếng Việt -> Chọn từ tiếng Anh
+      const cleanMeaning = (item.meaning_vi || item.meaning_en).split("(")[0].trim();
+      questionTitle = `Từ hoặc cụm từ tiếng Anh nào có nghĩa là: <span class="text-emerald-300 font-bold">"${cleanMeaning}"</span>?`;
+      questionSubtitle = `Định nghĩa EN: <em class="text-slate-300 not-italic font-medium">${item.meaning_en || "Vocabulary review"}</em>`;
+
+      const distractors = allGlobalWords
+        .filter(w => w.word !== item.word)
+        .map(w => w.word)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 3);
+      options = [item.word, ...distractors].sort(() => 0.5 - Math.random());
+      correctOptionIdx = options.indexOf(item.word);
+    } else {
+      // Type 2: Context sentence cloze
+      const regex = new RegExp(item.word, "gi");
+      const masked = item.example.replace(regex, `<span class="px-2 py-0.5 rounded bg-slate-800 border-b-2 border-indigo-400 font-mono text-indigo-300 font-bold">[ ... ]</span>`);
+      questionTitle = `Chọn từ thích hợp để hoàn thiện câu sau:`;
+      questionSubtitle = `"${masked}"`;
+
+      const distractors = allGlobalWords
+        .filter(w => w.word !== item.word)
+        .map(w => w.word)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 3);
+      options = [item.word, ...distractors].sort(() => 0.5 - Math.random());
+      correctOptionIdx = options.indexOf(item.word);
+    }
 
     questionsHtml += `
-      <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3" id="quiz-card-${qIdx}">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-indigo-400 uppercase">Câu hỏi ${qIdx + 1}</span>
-          <button onclick="speakText('${item.word}')" class="text-slate-400 hover:text-white transition">
-            <i data-lucide="volume-2" class="w-4 h-4"></i>
-          </button>
+      <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3.5 shadow-sm" id="quiz-card-${qIdx}">
+        <div class="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
+          <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span class="w-5 h-5 rounded-md bg-indigo-500/20 text-indigo-300 flex items-center justify-center text-[10px] font-bold">${qIdx + 1}</span>
+            Câu hỏi ${qIdx + 1} / ${quizPool.length}
+          </span>
+          <div class="flex items-center gap-2">
+            <button onclick="speakText('${item.word}')" class="text-slate-400 hover:text-white transition p-1" title="Nghe phát âm">
+              <i data-lucide="volume-2" class="w-4 h-4"></i>
+            </button>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-semibold uppercase">${item.type || "Từ vựng"}</span>
+          </div>
         </div>
-        <p class="text-base font-bold text-white">Nghĩa của từ / cụm từ <span class="text-indigo-300">"${item.word}"</span> là gì?</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+        <div>
+          <p class="text-sm sm:text-base font-semibold text-white leading-relaxed">${questionTitle}</p>
+          <p class="text-xs text-slate-400 mt-1 leading-relaxed">${questionSubtitle}</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
           ${options.map((opt, oIdx) => `
-            <button onclick="checkQuizAnswer(${qIdx}, ${oIdx}, ${correctOptionIdx}, '${item.id}')" id="q-${qIdx}-opt-${oIdx}" class="text-left p-3 rounded-xl bg-slate-800 hover:bg-slate-700/80 text-xs sm:text-sm text-slate-200 border border-slate-700/60 transition">
-              ${String.fromCharCode(65 + oIdx)}. ${opt}
+            <button onclick="checkQuizAnswer(${qIdx}, ${oIdx}, ${correctOptionIdx}, '${item.id}')" id="q-${qIdx}-opt-${oIdx}" class="text-left p-3 rounded-xl bg-slate-800 hover:bg-slate-700/80 text-xs sm:text-sm text-slate-200 border border-slate-700/60 transition flex items-start gap-2">
+              <span class="font-bold text-indigo-400">${String.fromCharCode(65 + oIdx)}.</span>
+              <span class="flex-1">${opt}</span>
             </button>
           `).join("")}
         </div>
-        <div id="q-${qIdx}-feedback" class="hidden text-xs font-medium pt-2"></div>
+        <div id="q-${qIdx}-feedback" class="hidden text-xs sm:text-sm font-medium p-3 rounded-xl"></div>
       </div>
     `;
   });
@@ -915,15 +1154,15 @@ function checkQuizAnswer(qIdx, selectedIdx, correctIdx, wordId) {
   if (selectedIdx === correctIdx) {
     selectedBtn.classList.remove("bg-slate-800", "border-slate-700/60");
     selectedBtn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
-    feedback.innerText = "✓ Chính xác! Rất tuyệt vời.";
-    feedback.className = "text-xs font-semibold text-emerald-400 pt-1";
+    feedback.innerHTML = `<span class="text-emerald-400 font-bold">✓ Chính xác! Rất tuyệt vời.</span>`;
+    feedback.className = "text-xs sm:text-sm font-semibold p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-300";
     dailyQuizScore++;
   } else {
     selectedBtn.classList.remove("bg-slate-800", "border-slate-700/60");
     selectedBtn.classList.add("bg-red-600/30", "border-red-500", "text-red-300");
     correctBtn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
-    feedback.innerText = "✗ Chưa đúng! Đáp án đúng đã được tô xanh.";
-    feedback.className = "text-xs font-semibold text-red-400 pt-1";
+    feedback.innerHTML = `<span class="text-red-400 font-bold">✗ Chưa đúng!</span> Đáp án chính xác đã được tô xanh viền nổi bật.`;
+    feedback.className = "text-xs sm:text-sm font-semibold p-3 rounded-xl bg-red-950/40 border border-red-500/30 text-red-300";
   }
   feedback.classList.remove("hidden");
 
@@ -932,14 +1171,30 @@ function checkQuizAnswer(qIdx, selectedIdx, correctIdx, wordId) {
     const resultBox = document.getElementById("quizResultBox");
     const scoreText = document.getElementById("quizScoreText");
     if (resultBox && scoreText) {
-      scoreText.innerText = `Bạn đạt ${dailyQuizScore} / ${totalQuestions} điểm!`;
+      const pct = Math.round((dailyQuizScore / totalQuestions) * 100);
+      scoreText.innerHTML = `
+        <div class="text-3xl font-extrabold text-amber-400 mb-1">${dailyQuizScore} / ${totalQuestions} điểm (${pct}%)</div>
+        <div class="text-xs text-slate-300">${pct >= 80 ? '🎉 Xuất sắc! Bạn đã nắm vững toàn bộ các từ vừa học!' : '💪 Bạn đã hoàn thành đợt ôn tập. Hãy bấm xáo trộn để luyện thêm lần nữa!'}</div>
+        <div class="pt-3">
+          <button onclick="generateDailyQuiz()" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition shadow-lg shadow-indigo-600/30">
+            🎲 Xáo trộn lại toàn bộ để ôn đợt mới
+          </button>
+        </div>
+      `;
       resultBox.classList.remove("hidden");
     }
+
+    // Trigger daily checkin upon quiz completion
+    triggerDailyCheckin();
   }
 }
 
 // ================= PROFILE & ANALYTICS =================
 async function loadProfileAnalytics() {
+  const streakVal = localStorage.getItem("EMH_STREAK") || (appState.currentUser?.streak_count || 1);
+  const profileStreakEl = document.getElementById("statStreakDisplay");
+  if (profileStreakEl) profileStreakEl.innerText = `${streakVal} ngày 🔥`;
+
   const stats = await apiCall("/api/stats/summary");
   if (stats) {
     document.getElementById("statTotalStarted").innerText = stats.cards.total_started;

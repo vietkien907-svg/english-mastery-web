@@ -81,7 +81,8 @@ def export_data():
                 "title": g.title,
                 "summary": g.summary,
                 "sections": json.loads(g.sections_json) if g.sections_json else [],
-                "quiz": json.loads(g.quiz_json) if g.quiz_json else []
+                "quiz": json.loads(g.quiz_json) if g.quiz_json else [],
+                "fill_blanks": json.loads(g.fill_blanks_json) if getattr(g, "fill_blanks_json", None) else []
             })
         print(f"Grammar topics: {len(grammar_list)}")
 

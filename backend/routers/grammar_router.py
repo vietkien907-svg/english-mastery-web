@@ -34,6 +34,7 @@ def get_grammar_topic_detail(week_number: int, db: Session = Depends(get_db)):
         
     sections = json.loads(topic.sections_json) if topic.sections_json else []
     quiz = json.loads(topic.quiz_json) if topic.quiz_json else []
+    fill_blanks = json.loads(topic.fill_blanks_json) if getattr(topic, "fill_blanks_json", None) else []
     
     return {
         "id": topic.id,
@@ -43,6 +44,7 @@ def get_grammar_topic_detail(week_number: int, db: Session = Depends(get_db)):
         "source_verified": topic.source_verified,
         "source_reference": topic.source_reference,
         "sections": sections,
+        "fill_blanks": fill_blanks,
         "quiz": [
             {
                 "index": idx,

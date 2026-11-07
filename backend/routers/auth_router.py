@@ -88,6 +88,43 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
         }
     }
 
+def evaluate_daily_streak(user: models.User, db: Session) -> dict:
+    today = datetime.date.today()
+    today_str = today.isoformat()
+    old_streak = user.streak_count or 0
+    updated = False
+    
+    if not user.last_active_date:
+        user.streak_count = 1
+        user.last_active_date = today_str
+        updated = True
+    elif user.last_active_date != today_str:
+        try:
+            last = datetime.date.fromisoformat(user.last_active_date)
+            diff = (today - last).days
+            if diff == 1:
+                user.streak_count = old_streak + 1
+            elif diff > 1:
+                user.streak_count = 1
+            else:
+                pass
+        except Exception:
+            user.streak_count = 1
+        user.last_active_date = today_str
+        updated = True
+        
+    if user.streak_count > (user.longest_streak or 0):
+        user.longest_streak = user.streak_count
+        
+    db.commit()
+    db.refresh(user)
+    return {
+        "streak": user.streak_count,
+        "longest_streak": user.longest_streak,
+        "last_active_date": user.last_active_date,
+        "updated": updated
+    }
+
 @router.post("/login")
 def login(req: LoginRequest, request: Request, response: Response, db: Session = Depends(get_db)):
     user = db.query(models.User).filter(models.User.email == req.email.lower()).first()
@@ -104,6 +141,8 @@ def login(req: LoginRequest, request: Request, response: Response, db: Session =
         max_age=auth.SESSION_EXPIRATION_DAYS * 86400
     )
     
+    streak_info = evaluate_daily_streak(user, db)
+    
     return {
         "success": True,
         "token": raw_token,
@@ -113,7 +152,9 @@ def login(req: LoginRequest, request: Request, response: Response, db: Session =
             "full_name": user.full_name,
             "target_exam": user.target_exam,
             "daily_new_target": user.daily_new_target,
-            "streak": user.streak_count
+            "streak": streak_info["streak"],
+            "longest_streak": streak_info["longest_streak"],
+            "last_active_date": streak_info["last_active_date"]
         }
     }
 
@@ -136,7 +177,8 @@ def logout(request: Request, response: Response, db: Session = Depends(get_db)):
     return {"success": True, "message": "Đã đăng xuất thành công."}
 
 @router.get("/me")
-def get_profile(current_user: models.User = Depends(auth.get_current_user)):
+def get_profile(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
+    streak_info = evaluate_daily_streak(current_user, db)
     return {
         "id": current_user.id,
         "email": current_user.email,
@@ -144,9 +186,21 @@ def get_profile(current_user: models.User = Depends(auth.get_current_user)):
         "target_exam": current_user.target_exam,
         "daily_new_target": current_user.daily_new_target,
         "study_mode": current_user.study_mode,
-        "streak_count": current_user.streak_count,
-        "longest_streak": current_user.longest_streak,
+        "streak_count": streak_info["streak"],
+        "longest_streak": streak_info["longest_streak"],
+        "last_active_date": streak_info["last_active_date"],
         "timezone": current_user.timezone
+    }
+
+@router.post("/checkin")
+def daily_checkin(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
+    streak_info = evaluate_daily_streak(current_user, db)
+    return {
+        "success": True,
+        "streak": streak_info["streak"],
+        "longest_streak": streak_info["longest_streak"],
+        "last_active_date": streak_info["last_active_date"],
+        "message": f"Điểm danh thành công! Chuỗi học tập: {streak_info['streak']} ngày liên tiếp."
     }
 
 @router.put("/profile")

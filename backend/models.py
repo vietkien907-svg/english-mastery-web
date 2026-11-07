@@ -163,6 +163,7 @@ class GrammarTopic(Base):
     summary = Column(Text, default="")
     sections_json = Column(Text, default="[]") # JSON array of { subtitle, content }
     quiz_json = Column(Text, default="[]") # JSON array of { q, options, answer, explain }
+    fill_blanks_json = Column(Text, default="[]") # JSON array of { sentence, answer, alternatives, hint, explain }
     source_verified = Column(Boolean, default=True)
     source_reference = Column(String(255), default="Tài liệu khóa học Chuyên đề Ngữ pháp 11 - Cô Trang Anh")
 

@@ -175,6 +175,46 @@ def get_passage_detail(passage_id: int, db: Session = Depends(get_db)):
         "questions": json.loads(p.questions_json) if p.questions_json else []
     }
 
+class SaveWordRequest(BaseModel):
+    word_or_phrase: str
+    context_sentence: str = ""
+    passage_id: int = None
+    save_type: str = "learn_now"
+
+@router.post("/save-word")
+def save_word_from_reading(req: SaveWordRequest, db: Session = Depends(get_db)):
+    clean_word = req.word_or_phrase.strip().lower()
+    if not clean_word:
+        raise HTTPException(status_code=400, detail="Từ vựng không được để trống.")
+    
+    item = db.query(models.KnowledgeItem).filter(
+        models.KnowledgeItem.word.ilike(clean_word)
+    ).first()
+    
+    if not item:
+        us_pron, _ = fetch_us_phonetics_and_audio(clean_word)
+        item = models.KnowledgeItem(
+            word=clean_word,
+            pos="word",
+            pron=us_pron or f"/{clean_word}/",
+            meaning_vi=clean_word,
+            meaning_en="Saved from authentic reading",
+            example=req.context_sentence or f"Example with {clean_word}.",
+            level="B2",
+            item_type="custom_word",
+            status="approved",
+            unit="Reading Notebook"
+        )
+        db.add(item)
+        db.commit()
+        db.refresh(item)
+        
+    return {
+        "success": True,
+        "message": f"Đã lưu '{clean_word}' vào sổ tay ôn tập thành công!",
+        "item_id": item.id
+    }
+
 @router.post("/add-word")
 def add_custom_word_to_day(req: AddWordRequest, db: Session = Depends(get_db)):
     word = req.word.strip().lower()

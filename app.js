@@ -513,7 +513,9 @@ function renderFlashcard() {
   if (!words || words.length === 0) {
     document.getElementById("cardWord").innerText = "Chưa có từ vựng";
     document.getElementById("cardPron").innerText = "-";
-    document.getElementById("cardDefinition").innerText = "Hãy chọn ngày khác.";
+    if (document.getElementById("cardMeaningVi")) document.getElementById("cardMeaningVi").innerText = "Hãy chọn ngày khác.";
+    if (document.getElementById("cardMeaningEn")) document.getElementById("cardMeaningEn").innerText = "Please select another day.";
+    if (document.getElementById("cardDefinition")) document.getElementById("cardDefinition").innerText = "Hãy chọn ngày khác.";
     return;
   }
 
@@ -532,7 +534,18 @@ function renderFlashcard() {
 
   document.getElementById("cardBackWord").innerText = curWord.word;
   document.getElementById("cardBackPos").innerText = curWord.pos || "";
-  document.getElementById("cardDefinition").innerText = curWord.meaning_vi || curWord.meaning_en || "Đang mở rộng nghĩa...";
+
+  const viElem = document.getElementById("cardMeaningVi");
+  const enElem = document.getElementById("cardMeaningEn");
+  const defElem = document.getElementById("cardDefinition");
+
+  const viText = curWord.meaning_vi || "Đang mở rộng nghĩa...";
+  const enText = curWord.meaning_en || "Expanding English definition...";
+
+  if (viElem) viElem.innerText = viText;
+  if (enElem) enElem.innerText = enText;
+  if (defElem) defElem.innerText = `${viText} • ${enText}`;
+
   document.getElementById("cardExample").innerText = curWord.example ? `"${curWord.example}"` : `Example with ${curWord.word}.`;
 
   document.getElementById("cardCounter").innerText = `Thẻ ${appState.currentCardIndex + 1} / ${words.length}`;
@@ -765,8 +778,30 @@ function showWordPopup(wordText, context) {
   activeContextSentence = context || "";
 
   document.getElementById("popupWord").innerText = wordText;
-  document.getElementById("popupPron").innerText = "/.../";
-  document.getElementById("popupMeaning").innerText = `Đang kích hoạt ngữ cảnh bài đọc cho "${wordText}".`;
+
+  let found = null;
+  if (window.APP_DATA && window.APP_DATA.units) {
+    for (const u of window.APP_DATA.units) {
+      for (const d of u.days) {
+        const match = d.words.find(w => w.word.toLowerCase() === wordText.toLowerCase());
+        if (match) {
+          found = match;
+          break;
+        }
+      }
+      if (found) break;
+    }
+  }
+
+  if (found) {
+    document.getElementById("popupPron").innerText = found.pron || `(${found.pos || "word"})`;
+    const vi = found.meaning_vi ? `🇻🇳 ${found.meaning_vi}` : "";
+    const en = found.meaning_en ? `🇬🇧 ${found.meaning_en}` : "";
+    document.getElementById("popupMeaning").innerText = [vi, en].filter(Boolean).join("\n\n") || `Từ vựng: "${wordText}"`;
+  } else {
+    document.getElementById("popupPron").innerText = "/.../";
+    document.getElementById("popupMeaning").innerText = `Đang kích hoạt ngữ cảnh bài đọc cho "${wordText}".`;
+  }
   document.getElementById("wordPopupModal").classList.remove("hidden");
 }
 

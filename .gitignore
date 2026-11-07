@@ -7,3 +7,5 @@ __pycache__/
 scratch/
 tmp/
 *.log
+*.db-shm
+*.db-wal

@@ -581,9 +581,16 @@ function getDailyAssignedReading(dayNum) {
 
 function getDailyAssignedGrammar(dayNum) {
   const list = appState.grammarTopics || (window.APP_DATA?.grammar || []);
-  if (list.length === 0) return { id: 0, index: 0, topic_title: "Chuyên đề 1: Thì hiện tại đơn & tiếp diễn" };
+  if (list.length === 0) return { id: 0, index: 0, title: "Chuyên đề 1: Thì Động Từ", topic_title: "Chuyên đề 1: Thì Động Từ", summary: "Nắm vững công thức, cách dùng và dấu hiệu nhận biết của 4 thì cơ bản nhất." };
   const idx = (dayNum - 1) % list.length;
-  return { index: idx, ...list[idx] };
+  const item = list[idx] || {};
+  const t = item.title || item.topic_title || `Chuyên đề ${idx + 1}`;
+  return {
+    index: idx,
+    ...item,
+    title: t,
+    topic_title: t
+  };
 }
 
 function initDailyMissionEngine() {

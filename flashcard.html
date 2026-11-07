@@ -202,7 +202,7 @@
           <div class="text-left sm:text-right shrink-0">
             <span class="text-xs text-slate-400 font-medium">Tiến độ deadline:</span>
             <div id="missionProgressRatio" class="text-2xl font-black text-amber-400">0 / 3</div>
-            <div class="w-36 bg-slate-800 h-2 rounded-full mt-1 overflow-hidden">
+            <div class="w-36 sm:w-44 bg-slate-800 h-2.5 rounded-full mt-1 overflow-hidden shadow-inner">
               <div id="missionProgressBar" class="h-full bg-amber-400 rounded-full transition-all duration-300" style="width: 0%;"></div>
             </div>
           </div>
@@ -559,8 +559,8 @@
             <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Chạm hoặc Space để lật
           </span>
         </div>
-        <div class="w-full bg-slate-800 h-1.5 rounded-full mb-4 overflow-hidden">
-          <div id="flashcardProgressBar" class="bg-indigo-500 h-full rounded-full transition-all duration-300" style="width: 10%;"></div>
+        <div class="w-full bg-slate-800 h-2 rounded-full mb-4 overflow-hidden shadow-inner">
+          <div id="flashcardProgressBar" class="h-full bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 rounded-full transition-all duration-300 shadow-md shadow-indigo-500/50" style="width: 10%;"></div>
         </div>
 
         <div id="flashcardElement" onclick="flipCard()" class="flashcard-inner relative w-full h-[380px] sm:h-[400px] cursor-pointer">
@@ -1503,13 +1503,13 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=21.0"></script>
-  <script src="/app.js?v=21.0"></script>
+  <script src="/data.js?v=22.0"></script>
+  <script src="/app.js?v=22.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=21.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=22.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

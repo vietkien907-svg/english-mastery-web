@@ -98,3 +98,81 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+
+/* ================= PROGRESS & GLOW STYLES ================= */
+/* Subtle Glow & Ambient Highlights */
+.glow-card-indigo {
+  box-shadow: 0 8px 32px -4px rgba(99, 102, 241, 0.15), 0 0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+.glow-card-amber {
+  box-shadow: 0 8px 32px -4px rgba(245, 158, 11, 0.15), 0 0 0 1px rgba(245, 158, 11, 0.25);
+}
+
+.glow-card-emerald {
+  box-shadow: 0 8px 32px -4px rgba(16, 185, 129, 0.15), 0 0 0 1px rgba(16, 185, 129, 0.25);
+}
+
+/* Exam Urgency Badge Animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.3);
+    border-color: rgba(244, 63, 94, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(244, 63, 94, 0.6);
+    border-color: rgba(244, 63, 94, 0.8);
+  }
+}
+
+.badge-exam-urgency {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Level Badges */
+.badge-level-b1 {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-level-b2 {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-level-c1 {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+/* Reading Passage Article Styling */
+#readingArticleContent {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  color: #e2e8f0;
+}
+
+#readingArticleContent p {
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+
+/* Responsive Action Buttons */
+.btn-action-primary {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-action-primary:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+}
+
+.btn-action-primary:active {
+  transform: translateY(0);
+}

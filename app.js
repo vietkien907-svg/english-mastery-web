@@ -912,7 +912,7 @@ function updateDailyMissionUI() {
 
   if (titleV) titleV.innerText = `20 Từ Vựng Ngày ${curDay} - ${infoVocab.unitTitle}`;
   if (curStatus.vocabDone) {
-    if (cardV) cardV.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30";
+    if (cardV) cardV.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30 glow-card-emerald";
     if (bannerV) bannerV.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">20/20 Từ</span></div>`;
     if (descV) descV.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã học và ghi nhớ trọn vẹn 20 từ của ngày hôm nay. Tiến độ được bảo lưu vĩnh viễn!</span>`;
     if (badgeV) {
@@ -944,7 +944,7 @@ function updateDailyMissionUI() {
 
   if (titleR) titleR.innerText = infoReading.title || "Bài đọc hôm nay";
   if (curStatus.readingDone) {
-    if (cardR) cardR.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30";
+    if (cardR) cardR.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30 glow-card-emerald";
     if (bannerR) bannerR.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">100% Đạt</span></div>`;
     if (descR) descR.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã đọc và trả lời trọn vẹn câu hỏi đọc hiểu của bài hôm nay!</span>`;
     if (badgeR) {
@@ -976,7 +976,7 @@ function updateDailyMissionUI() {
 
   if (titleG) titleG.innerText = infoGrammar.topic_title || "Chuyên đề hôm nay";
   if (curStatus.grammarDone) {
-    if (cardG) cardG.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30";
+    if (cardG) cardG.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30 glow-card-emerald";
     if (bannerG) bannerG.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">100% Đạt</span></div>`;
     if (descG) descG.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã làm xong các bài tập chuyên đề ngữ pháp hôm nay!</span>`;
     if (badgeG) {
@@ -1012,7 +1012,13 @@ function updateDailyMissionUI() {
   const barEl = document.getElementById("missionProgressBar");
   if (barEl) {
     barEl.style.width = `${(doneCount / 3) * 100}%`;
-    barEl.className = doneCount === 3 ? "h-full bg-emerald-400 rounded-full transition-all duration-300" : "h-full bg-gradient-to-r from-amber-500 to-emerald-400 rounded-full transition-all duration-300";
+    if (doneCount === 3) {
+      barEl.className = "h-full bg-emerald-400 rounded-full transition-all duration-300 shadow-md shadow-emerald-500/50";
+    } else if (doneCount > 0) {
+      barEl.className = "h-full bg-gradient-to-r from-amber-500 via-cyan-400 to-emerald-400 rounded-full transition-all duration-300 shadow-sm";
+    } else {
+      barEl.className = "h-full bg-slate-700/50 rounded-full transition-all duration-300";
+    }
   }
 
   // 6. Header Goals Checklist
@@ -1055,13 +1061,13 @@ function renderRoadmapGrid() {
     if (st.isAllDone) {
       borderClass = isCur 
         ? "border-emerald-400 ring-2 ring-emerald-400/70 bg-emerald-950/40 text-emerald-200" 
-        : "border-emerald-500/50 bg-emerald-950/20 text-emerald-300";
+        : "border-emerald-500/60 bg-emerald-950/30 text-emerald-300 glow-card-emerald";
       badgeText = isCur ? "✓ Hôm nay (Xong 3/3)" : "✓ Xong (3/3)";
       badgeBg = "bg-emerald-500/25 text-emerald-300 font-bold border border-emerald-500/40";
     } else if (st.completedCount > 0) {
       borderClass = isCur
         ? "border-amber-400 ring-2 ring-amber-400/70 bg-amber-950/40 text-amber-200"
-        : "border-amber-500/50 bg-amber-950/20 text-amber-300";
+        : "border-amber-500/60 bg-amber-950/30 text-amber-300 glow-card-amber";
       badgeText = isCur ? `Hôm nay (${st.completedCount}/3)` : `Đang làm (${st.completedCount}/3)`;
       badgeBg = "bg-amber-500/25 text-amber-300 font-bold border border-amber-500/40";
     } else if (isCur) {
@@ -1501,7 +1507,13 @@ function renderFlashcard() {
   }
   document.getElementById("cardCounter").innerText = counterText;
   const pct = Math.round(((appState.currentCardIndex + 1) / words.length) * 100);
-  document.getElementById("flashcardProgressBar").style.width = `${pct}%`;
+  const fcBar = document.getElementById("flashcardProgressBar");
+  if (fcBar) {
+    fcBar.style.width = `${pct}%`;
+    fcBar.className = (pct === 100)
+      ? "h-full bg-emerald-400 rounded-full transition-all duration-300 shadow-md shadow-emerald-500/50"
+      : "h-full bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 rounded-full transition-all duration-300 shadow-md shadow-indigo-500/50";
+  }
 
   const progressInfo = document.getElementById("unitProgressInfo");
   if (progressInfo) {

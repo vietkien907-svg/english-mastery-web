@@ -686,22 +686,32 @@ function onVocabCardViewed() {
     const words = getCurrentDayWords();
     const totalWords = Math.min(20, words.length);
     if (!appState.dayVocabStudied) appState.dayVocabStudied = {};
-    if (!appState.dayVocabStudied[curDay]) appState.dayVocabStudied[curDay] = new Set();
+    if (!appState.dayVocabStudied[curDay]) {
+      const saved = missionRegistry.history[String(curDay)]?.studiedIndices || [];
+      appState.dayVocabStudied[curDay] = new Set(saved);
+    }
     appState.dayVocabStudied[curDay].add(appState.currentCardIndex);
 
     const studiedCount = appState.dayVocabStudied[curDay].size;
     const bannerCount = document.getElementById("bannerVocabCount");
     const curStatus = getDayMissionStatus(curDay);
+    const indicesArr = Array.from(appState.dayVocabStudied[curDay]);
 
-    if (studiedCount >= totalWords && !curStatus.vocabDone) {
+    if (studiedCount >= totalWords || curStatus.vocabDone) {
       setDayMissionStatus(curDay, {
         vocabDone: true,
-        vocabCount: totalWords
+        vocabCount: Math.max(studiedCount, totalWords),
+        studiedIndices: indicesArr
       });
       if (bannerCount) bannerCount.innerText = `(✓ Đã hoàn thành ${totalWords}/${totalWords})`;
-      showToast(`🎉 Xuất sắc! Bạn đã học đủ ${totalWords} từ vựng của Ngày ${curDay}! Đã tự động đánh dấu hoàn thành!`, "success");
+      if (!curStatus.vocabDone) {
+        showToast(`🎉 Xuất sắc! Bạn đã học đủ ${totalWords} từ vựng của Ngày ${curDay}! Đã tự động đánh dấu hoàn thành!`, "success");
+      }
     } else {
-      setDayMissionStatus(curDay, { vocabCount: studiedCount });
+      setDayMissionStatus(curDay, {
+        vocabCount: studiedCount,
+        studiedIndices: indicesArr
+      });
       if (bannerCount) bannerCount.innerText = `(Đã học: ${studiedCount}/${totalWords})`;
     }
   }
@@ -804,133 +814,202 @@ function updateDailyMissionUI() {
       for (let i = 1; i <= totalDays; i++) {
         const st = getDayMissionStatus(i);
         const icon = st.isAllDone ? "✓ " : (st.completedCount > 0 ? "⏳ " : "");
-        optHtml += `<option value="${i}">${icon}Ngày ${i} ${st.isAllDone ? '(Đã xong)' : ''}</option>`;
+        optHtml += `<option value="${i}">${icon}Ngày ${i} ${st.isAllDone ? '(Đã xong 3/3)' : (st.completedCount > 0 ? '(' + st.completedCount + '/3)' : '')}</option>`;
       }
       daySel.innerHTML = optHtml;
     }
     daySel.value = String(curDay);
   }
 
+  // 1. Notice Area at Top of Missions
+  const noticeArea = document.getElementById("todayStatusNoticeArea");
+  if (noticeArea) {
+    if (curStatus.isAllDone) {
+      noticeArea.innerHTML = `
+        <div class="p-4 rounded-xl bg-gradient-to-r from-emerald-950/80 via-emerald-900/60 to-slate-900 border-2 border-emerald-500/80 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg shadow-emerald-950/50">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-emerald-500/25 text-emerald-300 flex items-center justify-center shrink-0 border border-emerald-500/50">
+              <i data-lucide="check-check" class="w-6 h-6 text-emerald-400"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/30 text-emerald-300 font-extrabold text-[11px] border border-emerald-400/50 flex items-center gap-1">
+                  <i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-400"></i> HOÀN THÀNH 100%
+                </span>
+                <span class="text-xs text-emerald-400 font-semibold">Lộ trình Ngày ${curDay} / ${totalDays}</span>
+              </div>
+              <h3 class="font-black text-white text-base sm:text-lg mt-0.5">
+                🎉 Tuyệt vời! Bạn đã hoàn thành toàn bộ 3 nhiệm vụ hôm nay!
+              </h3>
+              <p class="text-xs text-slate-300 mt-0.5">
+                Toàn bộ tiến độ Từ vựng, Bài đọc và Ngữ pháp đã được lưu trữ vĩnh viễn. Bạn có thể bấm <strong class="text-amber-300 font-bold">🚀 Học Vượt</strong> sang Ngày ${curDay + 1} hoặc <strong class="text-cyan-300 font-bold">🔄 Ôn Tập Dần Dần</strong>!
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="advanceToNextDay()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-indigo-600/40 transition">
+              <i data-lucide="zap" class="w-4 h-4 fill-amber-300 text-amber-300"></i> Học Vượt Ngày ${curDay + 1}
+            </button>
+          </div>
+        </div>
+      `;
+    } else if (curStatus.completedCount > 0) {
+      noticeArea.innerHTML = `
+        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-amber-500/40 text-white flex flex-col sm:flex-row items-center justify-between gap-2.5 shadow-md">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+            <span class="text-xs font-bold text-amber-300">
+              Tiến độ Ngày ${curDay} hôm nay: Đã xong ${curStatus.completedCount} / 3 nhiệm vụ (${Math.round((curStatus.completedCount / 3) * 100)}%)
+            </span>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-medium">
+            <span class="${curStatus.vocabDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">
+              ${curStatus.vocabDone ? '✓ Từ vựng (Đã xong)' : '○ Từ vựng'}
+            </span>
+            <span class="text-slate-600">•</span>
+            <span class="${curStatus.readingDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">
+              ${curStatus.readingDone ? '✓ Bài đọc (Đã xong)' : '○ Bài đọc'}
+            </span>
+            <span class="text-slate-600">•</span>
+            <span class="${curStatus.grammarDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">
+              ${curStatus.grammarDone ? '✓ Ngữ pháp (Đã xong)' : '○ Ngữ pháp'}
+            </span>
+          </div>
+        </div>
+      `;
+    } else {
+      noticeArea.innerHTML = `
+        <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300 flex items-center justify-between text-xs">
+          <div class="flex items-center gap-2">
+            <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i>
+            <span>Nhiệm vụ Ngày ${curDay}: Hãy hoàn thành <strong>20 Từ vựng</strong>, <strong>1 Bài đọc</strong> và <strong>1 Bài ngữ pháp</strong> để tự động tick hoàn thành!</span>
+          </div>
+          <span class="text-[11px] text-amber-400 font-semibold">0 / 3 Hoàn thành</span>
+        </div>
+      `;
+    }
+  }
+
   const infoVocab = getDailyAssignedVocab(curDay);
   const infoReading = getDailyAssignedReading(curDay);
   const infoGrammar = getDailyAssignedGrammar(curDay);
 
-  // Vocab task
+  // 2. Vocab Task Card
+  const cardV = document.getElementById("taskCardVocab");
+  const bannerV = document.getElementById("taskCardVocabBanner");
   const titleV = document.getElementById("taskTitleVocab");
-  if (titleV) titleV.innerText = `20 Từ Vựng Ngày ${curDay} - ${infoVocab.unitTitle}`;
+  const descV = document.getElementById("taskDescVocab");
   const badgeV = document.getElementById("taskStatusBadgeVocab");
   const btnV = document.getElementById("btnStartVocabText");
-  const btnToggleV = document.getElementById("btnToggleVocabDone");
-  const lblToggleV = document.getElementById("lblToggleVocab");
+  const btnWrapV = document.getElementById("btnStartVocabMission");
 
-  if (badgeV) {
-    if (curStatus.vocabDone) {
-      badgeV.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1 border border-emerald-500/30";
-      badgeV.innerHTML = "<i data-lucide='check' class='w-3 h-3'></i> Đã xong (20/20)";
-    } else {
+  if (titleV) titleV.innerText = `20 Từ Vựng Ngày ${curDay} - ${infoVocab.unitTitle}`;
+  if (curStatus.vocabDone) {
+    if (cardV) cardV.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30";
+    if (bannerV) bannerV.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">20/20 Từ</span></div>`;
+    if (descV) descV.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã học và ghi nhớ trọn vẹn 20 từ của ngày hôm nay. Tiến độ được bảo lưu vĩnh viễn!</span>`;
+    if (badgeV) {
+      badgeV.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center gap-1 border border-emerald-500/40";
+      badgeV.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-400'></i> Đã xong (20/20)";
+    }
+    if (btnWrapV) btnWrapV.className = "w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-emerald-300 border border-emerald-500/40 transition flex items-center justify-center gap-1.5 shadow-sm";
+    if (btnV) btnV.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Xong (Bấm để ôn lại 20 từ)</span>";
+  } else {
+    if (cardV) cardV.className = "p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-indigo-500/40 shadow-sm";
+    if (bannerV) bannerV.innerHTML = "";
+    if (descV) descV.innerHTML = `Lật thẻ học hết 20 từ vựng hôm nay. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn học xong thẻ thứ 20!`;
+    if (badgeV) {
       badgeV.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-amber-300 font-semibold border border-amber-500/20";
       badgeV.innerText = `Tiến độ: ${curStatus.vocabCount}/20`;
     }
-  }
-  if (btnV) btnV.innerText = curStatus.vocabDone ? `Ôn lại 20 từ Ngày ${curDay}` : `Bắt đầu học 20 từ Ngày ${curDay}`;
-  if (btnToggleV && lblToggleV) {
-    if (curStatus.vocabDone) {
-      btnToggleV.className = "px-3 py-2.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1 shrink-0";
-      lblToggleV.innerText = "Đã xong ✓";
-    } else {
-      btnToggleV.className = "px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold transition flex items-center gap-1 shrink-0";
-      lblToggleV.innerText = "Tick đã làm";
-    }
+    if (btnWrapV) btnWrapV.className = "w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-indigo-600/30";
+    if (btnV) btnV.innerHTML = `<i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i> <span>Bắt đầu học 20 từ Ngày ${curDay}</span>`;
   }
 
-  // Reading task
+  // 3. Reading Task Card
+  const cardR = document.getElementById("taskCardReading");
+  const bannerR = document.getElementById("taskCardReadingBanner");
   const titleR = document.getElementById("taskTitleReading");
-  if (titleR) titleR.innerText = infoReading.title || "Bài đọc hôm nay";
+  const descR = document.getElementById("taskDescReading");
   const badgeR = document.getElementById("taskStatusBadgeReading");
   const btnR = document.getElementById("btnStartReadingText");
-  const btnToggleR = document.getElementById("btnToggleReadingDone");
-  const lblToggleR = document.getElementById("lblToggleReading");
+  const btnWrapR = document.getElementById("btnStartReadingMission");
 
-  if (badgeR) {
-    if (curStatus.readingDone) {
-      badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1 border border-emerald-500/30";
-      badgeR.innerHTML = "<i data-lucide='check' class='w-3 h-3'></i> Đã hoàn thành";
-    } else {
+  if (titleR) titleR.innerText = infoReading.title || "Bài đọc hôm nay";
+  if (curStatus.readingDone) {
+    if (cardR) cardR.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30";
+    if (bannerR) bannerR.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">100% Đạt</span></div>`;
+    if (descR) descR.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã đọc và trả lời trọn vẹn câu hỏi đọc hiểu của bài hôm nay!</span>`;
+    if (badgeR) {
+      badgeR.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center gap-1 border border-emerald-500/40";
+      badgeR.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-400'></i> Đã hoàn thành";
+    }
+    if (btnWrapR) btnWrapR.className = "w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-emerald-300 border border-emerald-500/40 transition flex items-center justify-center gap-1.5 shadow-sm";
+    if (btnR) btnR.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Đọc Xong (Bấm để đọc lại)</span>";
+  } else {
+    if (cardR) cardR.className = "p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-cyan-500/40 shadow-sm";
+    if (bannerR) bannerR.innerHTML = "";
+    if (descR) descR.innerHTML = `Làm trọn vẹn câu hỏi đọc hiểu/đục lỗ của bài. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn trả lời hết!`;
+    if (badgeR) {
       badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold border border-slate-700";
       badgeR.innerText = "Chưa làm";
     }
-  }
-  if (btnR) btnR.innerText = curStatus.readingDone ? "Đọc lại bài hôm nay" : "Vào làm bài đọc hôm nay";
-  if (btnToggleR && lblToggleR) {
-    if (curStatus.readingDone) {
-      btnToggleR.className = "px-3 py-2.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1 shrink-0";
-      lblToggleR.innerText = "Đã xong ✓";
-    } else {
-      btnToggleR.className = "px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold transition flex items-center gap-1 shrink-0";
-      lblToggleR.innerText = "Tick đã làm";
-    }
+    if (btnWrapR) btnWrapR.className = "w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-cyan-600/30";
+    if (btnR) btnR.innerHTML = `<i data-lucide="book-open" class="w-3.5 h-3.5"></i> <span>Vào làm bài đọc Ngày ${curDay}</span>`;
   }
 
-  // Grammar task
+  // 4. Grammar Task Card
+  const cardG = document.getElementById("taskCardGrammar");
+  const bannerG = document.getElementById("taskCardGrammarBanner");
   const titleG = document.getElementById("taskTitleGrammar");
-  if (titleG) titleG.innerText = infoGrammar.topic_title || "Chuyên đề hôm nay";
+  const descG = document.getElementById("taskDescGrammar");
   const badgeG = document.getElementById("taskStatusBadgeGrammar");
   const btnG = document.getElementById("btnStartGrammarText");
-  const btnToggleG = document.getElementById("btnToggleGrammarDone");
-  const lblToggleG = document.getElementById("lblToggleGrammar");
+  const btnWrapG = document.getElementById("btnStartGrammarMission");
 
-  if (badgeG) {
-    if (curStatus.grammarDone) {
-      badgeG.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1 border border-emerald-500/30";
-      badgeG.innerHTML = "<i data-lucide='check' class='w-3 h-3'></i> Đã hoàn thành";
-    } else {
+  if (titleG) titleG.innerText = infoGrammar.topic_title || "Chuyên đề hôm nay";
+  if (curStatus.grammarDone) {
+    if (cardG) cardG.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30";
+    if (bannerG) bannerG.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">100% Đạt</span></div>`;
+    if (descG) descG.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã làm xong các bài tập chuyên đề ngữ pháp hôm nay!</span>`;
+    if (badgeG) {
+      badgeG.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center gap-1 border border-emerald-500/40";
+      badgeG.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-400'></i> Đã hoàn thành";
+    }
+    if (btnWrapG) btnWrapG.className = "w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-emerald-300 border border-emerald-500/40 transition flex items-center justify-center gap-1.5 shadow-sm";
+    if (btnG) btnG.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Hoàn Thành (Bấm để ôn lại)</span>";
+  } else {
+    if (cardG) cardG.className = "p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-purple-500/40 shadow-sm";
+    if (bannerG) bannerG.innerHTML = "";
+    if (descG) descG.innerHTML = `Làm bài tập điền từ hoặc trắc nghiệm. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn làm xong!`;
+    if (badgeG) {
       badgeG.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold border border-slate-700";
       badgeG.innerText = "Chưa làm";
     }
-  }
-  if (btnG) btnG.innerText = curStatus.grammarDone ? "Ôn lại chuyên đề" : "Làm bài tập hôm nay";
-  if (btnToggleG && lblToggleG) {
-    if (curStatus.grammarDone) {
-      btnToggleG.className = "px-3 py-2.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1 shrink-0";
-      lblToggleG.innerText = "Đã xong ✓";
-    } else {
-      btnToggleG.className = "px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold transition flex items-center gap-1 shrink-0";
-      lblToggleG.innerText = "Tick đã làm";
-    }
+    if (btnWrapG) btnWrapG.className = "w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-purple-600/30";
+    if (btnG) btnG.innerHTML = `<i data-lucide="edit-3" class="w-3.5 h-3.5"></i> <span>Làm bài tập Ngữ pháp Ngày ${curDay}</span>`;
   }
 
-  // Ratio
+  // 5. Ratio & Progress Bar
   const doneCount = curStatus.completedCount;
   const ratioEl = document.getElementById("missionProgressRatio");
   if (ratioEl) {
-    ratioEl.innerText = `${doneCount} / 3`;
-    ratioEl.className = doneCount === 3 ? "text-2xl font-black text-emerald-400" : "text-2xl font-black text-amber-400";
+    if (doneCount === 3) {
+      ratioEl.innerText = "3 / 3 ✓";
+      ratioEl.className = "text-xl font-black text-emerald-400 flex items-center gap-1";
+    } else {
+      ratioEl.innerText = `${doneCount} / 3`;
+      ratioEl.className = "text-xl font-black text-amber-400";
+    }
   }
   const barEl = document.getElementById("missionProgressBar");
   if (barEl) {
     barEl.style.width = `${(doneCount / 3) * 100}%`;
-    barEl.className = doneCount === 3 ? "h-full bg-emerald-400 rounded-full transition-all duration-300" : "h-full bg-amber-400 rounded-full transition-all duration-300";
+    barEl.className = doneCount === 3 ? "h-full bg-emerald-400 rounded-full transition-all duration-300" : "h-full bg-gradient-to-r from-amber-500 to-emerald-400 rounded-full transition-all duration-300";
   }
 
-  // Header Checklist in Deadline Banner
-  const gWords = document.getElementById("goalItemWords");
-  if (gWords) {
-    gWords.innerHTML = curStatus.vocabDone
-      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">20 Từ vựng Ngày ${curDay} (Đã xong)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i><span>20 Từ vựng Ngày ${curDay} (${curStatus.vocabCount}/20)</span>`;
-  }
-  const gReading = document.getElementById("goalItemReading");
-  if (gReading) {
-    gReading.innerHTML = curStatus.readingDone
-      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">Bài đọc Ngày ${curDay} (Đã xong)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span>1 Bài đọc (${(infoReading.title || "Reading").substring(0, 16)}...)</span>`;
-  }
-  const gGrammar = document.getElementById("goalItemGrammar");
-  if (gGrammar) {
-    gGrammar.innerHTML = curStatus.grammarDone
-      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">Ngữ pháp Ngày ${curDay} (Đã xong)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span>1 Chuyên đề ngữ pháp</span>`;
-  }
+  // 6. Header Goals Checklist
+  updateDailyGoalChecklist();
 
   if (window.lucide) lucide.createIcons();
 }
@@ -967,17 +1046,21 @@ function renderRoadmapGrid() {
     let badgeBg = "bg-slate-800 text-slate-500";
 
     if (st.isAllDone) {
-      borderClass = "border-emerald-500/50 bg-emerald-950/20 text-emerald-300";
-      badgeText = "✓ Xong (3/3)";
-      badgeBg = "bg-emerald-500/20 text-emerald-400";
+      borderClass = isCur 
+        ? "border-emerald-400 ring-2 ring-emerald-400/70 bg-emerald-950/40 text-emerald-200" 
+        : "border-emerald-500/50 bg-emerald-950/20 text-emerald-300";
+      badgeText = isCur ? "✓ Hôm nay (Xong 3/3)" : "✓ Xong (3/3)";
+      badgeBg = "bg-emerald-500/25 text-emerald-300 font-bold border border-emerald-500/40";
     } else if (st.completedCount > 0) {
-      borderClass = "border-amber-500/50 bg-amber-950/20 text-amber-300";
-      badgeText = `Đang làm (${st.completedCount}/3)`;
-      badgeBg = "bg-amber-500/20 text-amber-400";
-    }
-
-    if (isCur) {
+      borderClass = isCur
+        ? "border-amber-400 ring-2 ring-amber-400/70 bg-amber-950/40 text-amber-200"
+        : "border-amber-500/50 bg-amber-950/20 text-amber-300";
+      badgeText = isCur ? `Hôm nay (${st.completedCount}/3)` : `Đang làm (${st.completedCount}/3)`;
+      badgeBg = "bg-amber-500/25 text-amber-300 font-bold border border-amber-500/40";
+    } else if (isCur) {
       borderClass = "border-cyan-400 ring-2 ring-cyan-400/50 bg-cyan-950/30 text-white";
+      badgeText = "Hôm nay (Chưa làm)";
+      badgeBg = "bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/30";
     }
 
     html += `
@@ -988,9 +1071,9 @@ function renderRoadmapGrid() {
         </div>
         <p class="text-[10px] text-slate-400 line-clamp-1">${info.unitTitle}</p>
         <div class="text-[9px] text-slate-500 flex items-center justify-between pt-1 border-t border-slate-800/60">
-          <span>${st.vocabDone ? '✓ Từ' : '○ Từ'}</span>
-          <span>${st.readingDone ? '✓ Đọc' : '○ Đọc'}</span>
-          <span>${st.grammarDone ? '✓ Ngữ pháp' : '○ Ngữ pháp'}</span>
+          <span class="${st.vocabDone ? 'text-emerald-400 font-bold' : ''}">${st.vocabDone ? '✓ Từ' : '○ Từ'}</span>
+          <span class="${st.readingDone ? 'text-emerald-400 font-bold' : ''}">${st.readingDone ? '✓ Đọc' : '○ Đọc'}</span>
+          <span class="${st.grammarDone ? 'text-emerald-400 font-bold' : ''}">${st.grammarDone ? '✓ Ngữ pháp' : '○ Ngữ pháp'}</span>
         </div>
       </div>
     `;
@@ -1416,7 +1499,12 @@ function renderFlashcard() {
   const progressInfo = document.getElementById("unitProgressInfo");
   if (progressInfo) {
     if (appState.studyMode === "daily_locked") {
-      progressInfo.innerText = `Tiến độ nhiệm vụ: ${dailyMission.vocabDoneCount} / 20 từ đã học`;
+      const curStatus = getDayMissionStatus(missionRegistry.currentDay);
+      if (curStatus.vocabDone) {
+        progressInfo.innerHTML = `<span class="text-emerald-400 font-bold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Đã hoàn thành 20/20 từ Ngày ${missionRegistry.currentDay}!</span>`;
+      } else {
+        progressInfo.innerText = `Tiến độ nhiệm vụ: ${curStatus.vocabCount} / 20 từ đã học`;
+      }
     } else {
       progressInfo.innerText = `Chế độ ôn tập: Thẻ ${appState.currentCardIndex + 1} / ${words.length}`;
     }
@@ -1678,7 +1766,7 @@ function checkGrammarFillBlank(idx) {
   const isMatch = allCorrect.some(c => normalize(c) === normalize(val));
 
   if (!appState.grammarDoneExercises) appState.grammarDoneExercises = new Set();
-  appState.grammarDoneExercises.add(`g_${appState.activeGrammarWeek}_${idx || qIdx || 0}`);
+  appState.grammarDoneExercises.add(`g_${appState.activeGrammarWeek}_fb_${idx}`);
   if (appState.grammarDoneExercises.size >= 2) {
     const curStatus = getDayMissionStatus(missionRegistry.currentDay);
     if (!curStatus.grammarDone) {
@@ -1710,7 +1798,7 @@ async function checkGrammarQuiz(qIdx, optIdx) {
   const btn = document.getElementById(`gq-${qIdx}-opt-${optIdx}`);
 
   if (!appState.grammarDoneExercises) appState.grammarDoneExercises = new Set();
-  appState.grammarDoneExercises.add(`g_${appState.activeGrammarWeek}_${idx || qIdx || 0}`);
+  appState.grammarDoneExercises.add(`g_${appState.activeGrammarWeek}_qz_${qIdx}`);
   if (appState.grammarDoneExercises.size >= 2) {
     const curStatus = getDayMissionStatus(missionRegistry.currentDay);
     if (!curStatus.grammarDone) {
@@ -2652,6 +2740,18 @@ function tickDeadlineCountdown() {
   const countdownEl = document.getElementById("deadlineCountdownDisplay");
   const subtextEl = document.getElementById("deadlineStatusSubtext");
 
+  const curMissionStatus = getDayMissionStatus(missionRegistry.currentDay);
+  if (curMissionStatus.isAllDone) {
+    if (countdownEl) {
+      countdownEl.innerText = "✓ ĐÃ HOÀN THÀNH HÔM NAY!";
+      countdownEl.className = "text-xl sm:text-2xl font-black text-emerald-400 font-mono tracking-tight";
+    }
+    if (subtextEl) {
+      subtextEl.innerText = "🎉 Xuất sắc! Bạn đã hoàn thành toàn bộ 3 mục tiêu của Ngày hôm nay. Chuỗi ngày học Streak đã được bảo vệ an toàn!";
+    }
+    return;
+  }
+
   if (diffMs > 0) {
     const totalSecs = Math.floor(diffMs / 1000);
     const hours = Math.floor(totalSecs / 3600);
@@ -2723,17 +2823,17 @@ function updateDailyGoalChecklist() {
 
   if (wItem) {
     wItem.innerHTML = curStatus.vocabDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">20 Từ vựng Ngày ${curDay} (Đã xong)</span>`
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">20 Từ vựng (ĐÃ XONG ✓)</span>`
       : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i> <span>20 Từ vựng Ngày ${curDay} (${curStatus.vocabCount}/20)</span>`;
   }
   if (rItem) {
     rItem.innerHTML = curStatus.readingDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">Bài đọc Ngày ${curDay} (Đã xong)</span>`
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">Bài đọc (ĐÃ XONG ✓)</span>`
       : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Bài đọc (${(infoReading.title || "Reading").substring(0, 16)}...)</span>`;
   }
   if (gItem) {
     gItem.innerHTML = curStatus.grammarDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">Ngữ pháp Ngày ${curDay} (Đã xong)</span>`
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">Ngữ pháp (ĐÃ XONG ✓)</span>`
       : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Chuyên đề ngữ pháp</span>`;
   }
 

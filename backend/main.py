@@ -81,6 +81,20 @@ def serve_qr():
         return FileResponse(qr_path, media_type="image/png")
     return {"error": "QR not found"}
 
+@app.get("/icon-192.png")
+def serve_icon_192():
+    p = os.path.join(FRONTEND_DIR, "icon-192.png")
+    if os.path.exists(p):
+        return FileResponse(p, media_type="image/png")
+    return {"error": "Icon not found"}
+
+@app.get("/icon-512.png")
+def serve_icon_512():
+    p = os.path.join(FRONTEND_DIR, "icon-512.png")
+    if os.path.exists(p):
+        return FileResponse(p, media_type="image/png")
+    return {"error": "Icon not found"}
+
 # Healthcheck
 @app.get("/api/health")
 def healthcheck():

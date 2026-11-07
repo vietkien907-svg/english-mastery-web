@@ -1988,6 +1988,36 @@ function speakText(text) {
   window.speechSynthesis.speak(u);
 }
 
+let deferredInstallPrompt = null;
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+});
+
+async function triggerPwaInstall() {
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    const choice = await deferredInstallPrompt.userChoice;
+    if (choice.outcome === "accepted") {
+      showToast("🎉 Đang cài đặt ứng dụng ra màn hình chính!", "success");
+    }
+    deferredInstallPrompt = null;
+  } else {
+    openPwaInstallModal();
+  }
+}
+
+function openPwaInstallModal() {
+  const m = document.getElementById("pwaInstallModal");
+  if (m) m.classList.remove("hidden");
+  if (window.lucide) lucide.createIcons();
+}
+
+function closePwaInstallModal() {
+  const m = document.getElementById("pwaInstallModal");
+  if (m) m.classList.add("hidden");
+}
+
 function openQrModal() {
   const m = document.getElementById("qrModal");
   if (m) m.classList.remove("hidden");

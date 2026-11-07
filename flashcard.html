@@ -70,6 +70,12 @@
           <span id="userAuthName">Tài khoản</span>
         </button>
 
+        <!-- Install PWA App to Home Screen -->
+        <button onclick="triggerPwaInstall()" id="pwaInstallBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md shadow-emerald-600/30 transition" title="Cài đặt App ra màn hình chính">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>Cài App Ra Màn Hình</span>
+        </button>
+
         <!-- Mobile Connect QR Button -->
         <button onclick="openQrModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-300 text-xs font-semibold border border-cyan-500/30 transition shadow-sm" title="Quét mã QR để mở trên điện thoại">
           <i data-lucide="smartphone" class="w-4 h-4"></i>
@@ -1010,6 +1016,62 @@
     </div>
   </div>
 
+  <!-- ================= MODAL: PWA INSTALL GUIDE ================= -->
+  <div id="pwaInstallModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onclick="closePwaInstallModal()">
+    <div class="glass-card max-w-md w-full rounded-2xl p-6 border border-emerald-500/40 shadow-2xl relative space-y-4" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="font-bold text-lg text-white flex items-center gap-2">
+          <i data-lucide="download" class="w-5 h-5 text-emerald-400"></i>
+          <span>Cài Đặt App Ra Màn Hình Chính</span>
+        </h3>
+        <button onclick="closePwaInstallModal()" class="text-slate-400 hover:text-white transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs text-slate-300">
+        <!-- iPhone iOS -->
+        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+          <p class="font-bold text-white text-sm flex items-center gap-2">
+            <span>🍏 Dành cho iPhone / iPad (Safari):</span>
+          </p>
+          <ol class="list-decimal list-inside space-y-1.5 text-slate-300">
+            <li>Ở cạnh dưới Safari, bấm nút <strong>Chia sẻ</strong> (biểu tượng <strong>ô vuông có mũi tên trỏ lên</strong>).</li>
+            <li>Cuộn xuống danh sách và bấm chọn <strong>"Thêm vào MH chính"</strong> (Add to Home Screen).</li>
+            <li>Bấm <strong>"Thêm"</strong> ở góc trên bên phải.</li>
+          </ol>
+          <p class="text-[11px] text-emerald-400 font-semibold pt-1">👉 Icon App sẽ xuất hiện ngay trên màn hình điện thoại!</p>
+        </div>
+
+        <!-- Android -->
+        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+          <p class="font-bold text-white text-sm flex items-center gap-2">
+            <span>🤖 Dành cho Android (Chrome / Cốc Cốc):</span>
+          </p>
+          <ol class="list-decimal list-inside space-y-1.5 text-slate-300">
+            <li>Bấm vào biểu tượng <strong>3 chấm dọc</strong> ở góc trên bên phải trình duyệt.</li>
+            <li>Chọn <strong>"Cài đặt ứng dụng"</strong> hoặc <strong>"Thêm vào Màn hình chính"</strong>.</li>
+            <li>Xác nhận <strong>"Cài đặt"</strong>.</li>
+          </ol>
+        </div>
+
+        <!-- Windows PC -->
+        <div class="p-3.5 rounded-xl bg-indigo-950/40 border border-indigo-500/30 space-y-1.5">
+          <p class="font-bold text-indigo-300 text-sm flex items-center gap-2">
+            <span>💻 Dành cho Máy tính Windows:</span>
+          </p>
+          <p class="text-slate-300">
+            Tôi đã tạo sẵn biểu tượng ứng dụng <strong>"English Mastery Hub"</strong> ngay ngoài màn hình <strong>Desktop</strong> của bạn! Bạn chỉ cần ra màn hình máy tính và nhấp đúp chuột vào là mở ngay.
+          </p>
+        </div>
+      </div>
+
+      <button onclick="closePwaInstallModal()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-lg shadow-emerald-600/30">
+        Đã hiểu
+      </button>
+    </div>
+  </div>
+
   <!-- ================= MODAL: QR & MOBILE ACCESS ================= -->
   <div id="qrModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeQrModal()">
     <div class="glass-card max-w-md w-full rounded-2xl p-6 border border-slate-700 shadow-2xl relative space-y-4" onclick="event.stopPropagation()">
@@ -1176,13 +1238,13 @@
   </div>
 
   <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=8.0"></script>
-  <script src="/app.js?v=8.0"></script>
+  <script src="/data.js?v=9.0"></script>
+  <script src="/app.js?v=9.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=8.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=9.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

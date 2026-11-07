@@ -33,6 +33,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   setupReadingSelector();
   setupTouchAndKeyboard();
   initDailyDeadlineSystem();
+  initDailyMissionEngine();
   lucide.createIcons();
 });
 
@@ -379,6 +380,362 @@ function setupQuizScopeSelector() {
   quizSelect.innerHTML = html;
 }
 
+// ================= AUTOMATIC DAILY MISSION & DEADLINE ENGINE =================
+const DAILY_MISSION_KEY = "EMH_DAILY_MISSION_V3";
+
+let dailyMission = {
+  dayNumber: 1, // 1 to 107
+  lastDateStr: new Date().toISOString().slice(0, 10),
+  vocabDoneCount: 0,
+  vocabTarget: 20,
+  readingDone: false,
+  grammarDone: false,
+  isFullCompleted: false
+};
+
+function loadDailyMission() {
+  try {
+    const raw = localStorage.getItem(DAILY_MISSION_KEY);
+    const todayStr = new Date().toISOString().slice(0, 10);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed.lastDateStr !== todayStr) {
+        // Qua ngày mới: nếu hôm qua đã xong đủ thì tự tăng ngày tiếp theo
+        if (parsed.vocabDoneCount >= 20 && parsed.readingDone && parsed.grammarDone) {
+          parsed.dayNumber = (parsed.dayNumber || 1) + 1;
+        }
+        parsed.lastDateStr = todayStr;
+        parsed.vocabDoneCount = 0;
+        parsed.readingDone = false;
+        parsed.grammarDone = false;
+        parsed.isFullCompleted = false;
+      }
+      dailyMission = { ...dailyMission, ...parsed };
+    }
+  } catch (e) {
+    console.warn("Could not load daily mission:", e);
+  }
+}
+
+function saveDailyMission() {
+  try {
+    localStorage.setItem(DAILY_MISSION_KEY, JSON.stringify(dailyMission));
+  } catch (e) {}
+  updateDailyMissionUI();
+}
+
+function getDailyAssignedVocab(dayNum) {
+  const units = window.APP_DATA?.units || [];
+  let dCounter = 0;
+  for (let uIdx = 0; uIdx < units.length; uIdx++) {
+    const u = units[uIdx];
+    if (!u.days) continue;
+    for (let dIdx = 0; dIdx < u.days.length; dIdx++) {
+      dCounter++;
+      if (dCounter === dayNum) {
+        return {
+          unitIndex: uIdx,
+          dayIndex: dIdx,
+          unitTitle: u.unitTitle,
+          dayTitle: u.days[dIdx].dayTitle,
+          words: u.days[dIdx].words
+        };
+      }
+    }
+  }
+  return {
+    unitIndex: 0,
+    dayIndex: 0,
+    unitTitle: units[0]?.unitTitle || "Unit 1",
+    dayTitle: units[0]?.days?.[0]?.dayTitle || "Ngày 1",
+    words: units[0]?.days?.[0]?.words || []
+  };
+}
+
+function getDailyAssignedReading(dayNum) {
+  const list = window.APP_DATA?.readings || [];
+  if (list.length === 0) return { id: 0, index: 0, title: "IELTS: The Science of Sleep" };
+  const idx = (dayNum - 1) % list.length;
+  return { index: idx, ...list[idx] };
+}
+
+function getDailyAssignedGrammar(dayNum) {
+  const list = appState.grammarTopics || (window.APP_DATA?.grammar || []);
+  if (list.length === 0) return { id: 0, index: 0, topic_title: "Chuyên đề 1: Thì hiện tại đơn & tiếp diễn" };
+  const idx = (dayNum - 1) % list.length;
+  return { index: idx, ...list[idx] };
+}
+
+function initDailyMissionEngine() {
+  loadDailyMission();
+  setupReviewSelectors();
+  updateDailyMissionUI();
+  // Khởi động mặc định vào chế độ khóa học theo Deadline hôm nay
+  const info = getDailyAssignedVocab(dailyMission.dayNumber);
+  appState.studyMode = "daily_locked";
+  appState.currentUnitIndex = info.unitIndex;
+  appState.currentDayIndex = info.dayIndex;
+}
+
+function startTodayVocabMission() {
+  const info = getDailyAssignedVocab(dailyMission.dayNumber);
+  appState.studyMode = "daily_locked";
+  appState.currentUnitIndex = info.unitIndex;
+  appState.currentDayIndex = info.dayIndex;
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  const lockedBanner = document.getElementById("dailyMissionLockedBanner");
+  if (lockedBanner) lockedBanner.classList.remove("hidden");
+  const freeArea = document.getElementById("freeReviewSelectorArea");
+  if (freeArea) freeArea.classList.add("hidden");
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = `${info.unitTitle}`;
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = `Ngày ${dailyMission.dayNumber}`;
+
+  switchTab("flashcard");
+  renderFlashcard();
+  updateDailyMissionUI();
+}
+
+function startTodayReadingMission() {
+  const r = getDailyAssignedReading(dailyMission.dayNumber);
+  switchTab("reader");
+  renderReadingPassage(r.index);
+  showToast(`📖 Đang mở Bài đọc chỉ định hôm nay: ${r.title}`, "info");
+}
+
+function startTodayGrammarMission() {
+  const g = getDailyAssignedGrammar(dailyMission.dayNumber);
+  const weekNum = g.week_number || (g.index + 1);
+  switchTab("grammar");
+  renderGrammarDetail(weekNum);
+  showToast(`✍️ Đang mở Chuyên đề chỉ định hôm nay: ${g.topic_title}`, "info");
+}
+
+function completeReadingMission() {
+  dailyMission.readingDone = true;
+  saveDailyMission();
+  showToast("✅ Đã ghi nhận hoàn thành bài đọc hôm nay!", "success");
+}
+
+function completeGrammarMission() {
+  dailyMission.grammarDone = true;
+  saveDailyMission();
+  showToast("✅ Đã ghi nhận hoàn thành chuyên đề ngữ pháp hôm nay!", "success");
+}
+
+function updateDailyMissionUI() {
+  const badge = document.getElementById("dailyMissionBadge");
+  if (badge) badge.innerText = `Ngày ${dailyMission.dayNumber} / 107`;
+
+  const infoVocab = getDailyAssignedVocab(dailyMission.dayNumber);
+  const infoReading = getDailyAssignedReading(dailyMission.dayNumber);
+  const infoGrammar = getDailyAssignedGrammar(dailyMission.dayNumber);
+
+  // Vocab task
+  const titleV = document.getElementById("taskTitleVocab");
+  if (titleV) titleV.innerText = `20 Từ Vựng Ngày ${dailyMission.dayNumber} - ${infoVocab.unitTitle}`;
+  const badgeV = document.getElementById("taskStatusBadgeVocab");
+  const btnV = document.getElementById("btnStartVocabText");
+  const isVocabDone = dailyMission.vocabDoneCount >= 20;
+  if (badgeV) {
+    if (isVocabDone) {
+      badgeV.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1";
+      badgeV.innerHTML = "✓ Hoàn thành (20/20)";
+    } else {
+      badgeV.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-amber-300 font-semibold";
+      badgeV.innerText = `Tiến độ: ${dailyMission.vocabDoneCount}/20`;
+    }
+  }
+  if (btnV) btnV.innerText = isVocabDone ? "Ôn lại 20 từ hôm nay" : "Bắt đầu học 20 từ";
+
+  // Reading task
+  const titleR = document.getElementById("taskTitleReading");
+  if (titleR) titleR.innerText = infoReading.title || "Bài đọc hôm nay";
+  const badgeR = document.getElementById("taskStatusBadgeReading");
+  const btnR = document.getElementById("btnStartReadingText");
+  if (badgeR) {
+    if (dailyMission.readingDone) {
+      badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1";
+      badgeR.innerHTML = "✓ Hoàn thành";
+    } else {
+      badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold";
+      badgeR.innerText = "Chưa làm";
+    }
+  }
+  if (btnR) btnR.innerText = dailyMission.readingDone ? "Đọc lại bài hôm nay" : "Vào làm bài đọc hôm nay";
+
+  // Grammar task
+  const titleG = document.getElementById("taskTitleGrammar");
+  if (titleG) titleG.innerText = infoGrammar.topic_title || "Chuyên đề hôm nay";
+  const badgeG = document.getElementById("taskStatusBadgeGrammar");
+  const btnG = document.getElementById("btnStartGrammarText");
+  if (badgeG) {
+    if (dailyMission.grammarDone) {
+      badgeG.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center gap-1";
+      badgeG.innerHTML = "✓ Hoàn thành";
+    } else {
+      badgeG.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold";
+      badgeG.innerText = "Chưa làm";
+    }
+  }
+  if (btnG) btnG.innerText = dailyMission.grammarDone ? "Ôn lại chuyên đề" : "Làm bài tập hôm nay";
+
+  // Ratio
+  let doneCount = 0;
+  if (isVocabDone) doneCount++;
+  if (dailyMission.readingDone) doneCount++;
+  if (dailyMission.grammarDone) doneCount++;
+
+  const ratioEl = document.getElementById("missionProgressRatio");
+  if (ratioEl) {
+    ratioEl.innerText = `${doneCount} / 3`;
+    ratioEl.className = doneCount === 3 ? "text-2xl font-black text-emerald-400" : "text-2xl font-black text-amber-400";
+  }
+  const barEl = document.getElementById("missionProgressBar");
+  if (barEl) {
+    barEl.style.width = `${(doneCount / 3) * 100}%`;
+    barEl.className = doneCount === 3 ? "h-full bg-emerald-400 rounded-full transition-all duration-300" : "h-full bg-amber-400 rounded-full transition-all duration-300";
+  }
+
+  // Header Checklist in Deadline Banner
+  const gWords = document.getElementById("goalItemWords");
+  if (gWords) {
+    gWords.innerHTML = isVocabDone
+      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">20 Từ vựng Ngày ${dailyMission.dayNumber} (Xong)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i><span>20 Từ vựng Ngày ${dailyMission.dayNumber} (${dailyMission.vocabDoneCount}/20)</span>`;
+  }
+  const gReading = document.getElementById("goalItemReading");
+  if (gReading) {
+    gReading.innerHTML = dailyMission.readingDone
+      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">Bài đọc Ngày ${dailyMission.dayNumber} (Xong)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span>1 Bài đọc (${(infoReading.title || "Reading").substring(0, 16)}...)</span>`;
+  }
+  const gGrammar = document.getElementById("goalItemGrammar");
+  if (gGrammar) {
+    gGrammar.innerHTML = dailyMission.grammarDone
+      ? `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-semibold">Ngữ pháp Ngày ${dailyMission.dayNumber} (Xong)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span>1 Chuyên đề ngữ pháp</span>`;
+  }
+
+  if (doneCount === 3 && !dailyMission.isFullCompleted) {
+    dailyMission.isFullCompleted = true;
+    showToast("🎉 XUẤT SẮC! Bạn đã hoàn thành 100% mục tiêu deadline hôm nay!", "success");
+    updateDailyStreak(appState.streak + 1);
+  }
+
+  if (window.lucide) lucide.createIcons();
+}
+
+// ================= PHÒNG ÔN TẬP TỰ DO (CHỌN UNIT & XÁO TRỘN) =================
+function setupReviewSelectors() {
+  const units = window.APP_DATA?.units || [];
+  const uSel = document.getElementById("reviewUnitSelect");
+  if (!uSel) return;
+
+  let html = `<option value="">-- Chọn Unit muốn ôn tập --</option>`;
+  units.forEach((u, idx) => {
+    html += `<option value="${idx}">${u.unitTitle} (${u.totalWords} từ)</option>`;
+  });
+  uSel.innerHTML = html;
+  uSel.value = "0";
+  onReviewUnitChange("0");
+  renderReviewShufflePills();
+}
+
+function onReviewUnitChange(val) {
+  const uIdx = parseInt(val) || 0;
+  const unit = window.APP_DATA?.units?.[uIdx];
+  const dSel = document.getElementById("reviewDaySelect");
+  if (dSel && unit && unit.days) {
+    let html = `<option value="all">Toàn bộ ${unit.totalWords} từ trong Unit</option>`;
+    unit.days.forEach((d, idx) => {
+      html += `<option value="${idx}">${d.dayTitle} (${d.words.length} từ)</option>`;
+    });
+    dSel.innerHTML = html;
+  }
+}
+
+function onReviewDayChange(val) {}
+
+function renderReviewShufflePills() {
+  const container = document.getElementById("reviewClusterPills");
+  if (!container) return;
+
+  let html = "";
+  SHUFFLE_4_UNIT_BLOCKS.forEach(b => {
+    html += `
+      <button onclick="startReviewCluster('${b.id}', ${b.from}, ${b.to})" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 transition flex items-center gap-1 shrink-0 border border-slate-700">
+        <i data-lucide="shuffle" class="w-3.5 h-3.5 text-indigo-400"></i> ${b.label}
+      </button>
+    `;
+  });
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function startReviewCluster(id, fromU, toU) {
+  appState.studyMode = "free_review";
+  appState.shuffledRange = [fromU, toU];
+  const rawWords = getWordsForUnitRange(fromU, toU);
+  appState.activeShuffledCards = shuffleArray(rawWords);
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  const lockedBanner = document.getElementById("dailyMissionLockedBanner");
+  if (lockedBanner) lockedBanner.classList.add("hidden");
+  const freeArea = document.getElementById("freeReviewSelectorArea");
+  if (freeArea) freeArea.classList.remove("hidden");
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = `Ôn tập xáo trộn: Unit ${fromU} – ${toU}`;
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = `${rawWords.length} từ`;
+
+  switchTab("flashcard");
+  renderFlashcard();
+  showToast(`🔀 Đã bắt đầu ôn tập xáo trộn Cụm Unit ${fromU} – ${toU}!`, "info");
+}
+
+function startFreeFlashcardReview() {
+  const uSel = document.getElementById("reviewUnitSelect");
+  const dSel = document.getElementById("reviewDaySelect");
+  const uIdx = parseInt(uSel?.value || 0);
+  const dVal = dSel?.value || "0";
+
+  appState.studyMode = "free_review";
+  appState.currentUnitIndex = uIdx;
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  const unit = window.APP_DATA?.units?.[uIdx];
+  if (dVal === "all") {
+    const allWords = unit?.days?.flatMap(d => d.words) || [];
+    appState.activeShuffledCards = shuffleArray(allWords);
+    appState.currentDayIndex = "all";
+  } else {
+    appState.currentDayIndex = parseInt(dVal);
+    appState.activeShuffledCards = [];
+  }
+
+  const lockedBanner = document.getElementById("dailyMissionLockedBanner");
+  if (lockedBanner) lockedBanner.classList.add("hidden");
+  const freeArea = document.getElementById("freeReviewSelectorArea");
+  if (freeArea) freeArea.classList.remove("hidden");
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = unit?.unitTitle || "Ôn tập Unit";
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = dVal === "all" ? "Toàn bộ Unit" : `Ngày ${parseInt(dVal) + 1}`;
+
+  switchTab("flashcard");
+  renderFlashcard();
+  showToast(`📚 Đã nạp từ vựng Unit để ôn tập tự do!`, "info");
+}
+
 // ================= UNIT & FLASHCARD SYSTEM =================
 function setupUnitSelectors() {
   renderShufflePills();
@@ -636,6 +993,15 @@ function renderFlashcard() {
   document.getElementById("cardCounter").innerText = `Thẻ ${appState.currentCardIndex + 1} / ${words.length}`;
   const pct = Math.round(((appState.currentCardIndex + 1) / words.length) * 100);
   document.getElementById("flashcardProgressBar").style.width = `${pct}%`;
+
+  const progressInfo = document.getElementById("unitProgressInfo");
+  if (progressInfo) {
+    if (appState.studyMode === "daily_locked") {
+      progressInfo.innerText = `Tiến độ nhiệm vụ: ${dailyMission.vocabDoneCount} / 20 từ đã học`;
+    } else {
+      progressInfo.innerText = `Chế độ ôn tập: Thẻ ${appState.currentCardIndex + 1} / ${words.length}`;
+    }
+  }
 }
 
 function flipCard() {
@@ -655,6 +1021,14 @@ function nextCard() {
   const words = getCurrentDayWords();
   if (words.length <= 1) return;
   appState.currentCardIndex = (appState.currentCardIndex + 1) % words.length;
+
+  if (appState.studyMode === "daily_locked") {
+    if (dailyMission.vocabDoneCount < 20) {
+      dailyMission.vocabDoneCount = Math.min(20, Math.max(dailyMission.vocabDoneCount, appState.currentCardIndex + 1));
+      saveDailyMission();
+    }
+  }
+
   renderFlashcard();
 }
 
@@ -663,6 +1037,13 @@ async function rateSRS(score) {
   const words = getCurrentDayWords();
   if (!words || words.length === 0) return;
   const curWord = words[appState.currentCardIndex];
+
+  if (appState.studyMode === "daily_locked") {
+    if (dailyMission.vocabDoneCount < 20) {
+      dailyMission.vocabDoneCount = Math.min(20, Math.max(dailyMission.vocabDoneCount, appState.currentCardIndex + 1));
+      saveDailyMission();
+    }
+  }
 
   const clientEventId = `evt_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
   const payload = {

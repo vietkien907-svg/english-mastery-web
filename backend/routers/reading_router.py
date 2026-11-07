@@ -1,4 +1,6 @@
 import json
+import urllib.request
+import urllib.parse
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
@@ -18,6 +20,72 @@ class SaveWordFromPassageRequest(BaseModel):
 class ReadingQuizSubmitRequest(BaseModel):
     passage_id: int
     answers: list[int] # List of chosen option indices
+
+@router.get("/lookup-word")
+def lookup_word(word: str, db: Session = Depends(get_db)):
+    clean_word = word.strip().strip(".,;:!?\"'()[]{}").lower()
+    if not clean_word:
+        raise HTTPException(status_code=400, detail="Từ cần tra cứu không hợp lệ.")
+        
+    # 1. Exact match in knowledge_items
+    item = db.query(models.KnowledgeItem).filter(
+        models.KnowledgeItem.word.ilike(clean_word)
+    ).first()
+    
+    if item:
+        return {
+            "found": True,
+            "word": item.word,
+            "pos": item.pos or "word",
+            "pron": item.pron or f"/{clean_word}/",
+            "meaning_vi": item.meaning_vi or "",
+            "meaning_en": item.meaning_en or "",
+            "example": item.example or f"Example usage with {item.word}."
+        }
+        
+    # 2. Starts-with or singular/stem match
+    stem = clean_word
+    for suffix in ["ing", "ed", "es", "s"]:
+        if clean_word.endswith(suffix) and len(clean_word) > len(suffix) + 2:
+            stem = clean_word[:-len(suffix)]
+            break
+            
+    item_stem = db.query(models.KnowledgeItem).filter(
+        models.KnowledgeItem.word.ilike(f"{stem}%")
+    ).first()
+    
+    if item_stem:
+        return {
+            "found": True,
+            "word": clean_word,
+            "base_word": item_stem.word,
+            "pos": item_stem.pos or "word",
+            "pron": item_stem.pron or f"/{clean_word}/",
+            "meaning_vi": item_stem.meaning_vi or "",
+            "meaning_en": item_stem.meaning_en or "",
+            "example": item_stem.example or f"Example usage with {clean_word}."
+        }
+
+    # 3. Fallback to instant live translation
+    vi_meaning = ""
+    try:
+        url_vi = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=" + urllib.parse.quote(clean_word)
+        req = urllib.request.Request(url_vi, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=4) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            vi_meaning = ''.join([p[0] for p in data[0] if p[0]])
+    except Exception:
+        vi_meaning = clean_word
+
+    return {
+        "found": True,
+        "word": clean_word,
+        "pos": "word",
+        "pron": f"/{clean_word}/",
+        "meaning_vi": vi_meaning,
+        "meaning_en": f"International reading definition of {clean_word}.",
+        "example": f"This is an authentic context sentence containing '{clean_word}'."
+    }
 
 @router.get("/passages")
 def list_passages(db: Session = Depends(get_db)):

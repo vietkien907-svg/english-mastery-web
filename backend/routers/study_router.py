@@ -330,6 +330,92 @@ def add_custom_item(req: CustomItemRequest, current_user: models.User = Depends(
     
     return {"success": True, "message": "Đã thêm từ vào kho học cá nhân!", "item_id": item.id}
 
+class AddWordToDayRequest(BaseModel):
+    word: str
+    unit_id: str = ""
+    unit_title: str = ""
+    day_number: int = 1
+    pos: str = "word"
+    pron: str = ""
+    meaning_vi: str = ""
+    meaning_en: str = ""
+    example: str = ""
+    level: str = "B1+"
+    item_type: str = "word"
+
+@router.post("/add-to-day")
+def add_word_to_day(
+    req: AddWordToDayRequest,
+    current_user: models.User = Depends(auth.get_current_user),
+    db: Session = Depends(get_db)
+):
+    clean_word = req.word.strip()
+    if not clean_word:
+        raise HTTPException(status_code=400, detail="Vui lòng nhập từ vựng.")
+
+    existing = db.query(models.KnowledgeItem).filter(
+        models.KnowledgeItem.word.ilike(clean_word)
+    ).first()
+
+    if existing:
+        item = existing
+        if req.meaning_vi and not item.meaning_vi:
+            item.meaning_vi = req.meaning_vi
+        if req.meaning_en and not item.meaning_en:
+            item.meaning_en = req.meaning_en
+    else:
+        custom_id = f"custom_{int(datetime.datetime.utcnow().timestamp()*1000)}"
+        item = models.KnowledgeItem(
+            id=custom_id,
+            word=clean_word,
+            pos=req.pos.strip() or "word",
+            pron=req.pron.strip() or f"/{clean_word}/",
+            meaning_vi=req.meaning_vi.strip() or clean_word,
+            meaning_en=req.meaning_en.strip() or f"Definition of {clean_word}",
+            example=req.example.strip() or f"Example sentence with {clean_word}.",
+            level=req.level or "B1+",
+            item_type=req.item_type or "word",
+            unit=req.unit_title or "Custom Added Items",
+            status="approved",
+            is_custom=True,
+            created_by_user_id=current_user.id
+        )
+        db.add(item)
+        db.commit()
+        db.refresh(item)
+
+    prog = db.query(models.UserItemProgress).filter(
+        models.UserItemProgress.user_id == current_user.id,
+        models.UserItemProgress.item_id == item.id
+    ).first()
+    if not prog:
+        prog = models.UserItemProgress(
+            user_id=current_user.id,
+            item_id=item.id,
+            test_type="recognition",
+            state="learning",
+            interval_days=0,
+            due_date=datetime.datetime.utcnow()
+        )
+        db.add(prog)
+        db.commit()
+
+    return {
+        "success": True,
+        "message": f"Đã thêm từ '{clean_word}' vào ngày học thành công!",
+        "item": {
+            "id": item.id,
+            "word": item.word,
+            "pos": item.pos,
+            "pron": item.pron,
+            "meaning_vi": item.meaning_vi,
+            "meaning_en": item.meaning_en,
+            "example": item.example,
+            "level": item.level,
+            "type": item.item_type
+        }
+    }
+
 @router.get("/shuffle-deck")
 def get_shuffled_deck(
     from_unit: int = 1,

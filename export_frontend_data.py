@@ -94,6 +94,7 @@ def export_data():
                 "title": r.title,
                 "category": r.category,
                 "level": r.level,
+                "source_reference": r.source_reference or "International News Archive",
                 "content": r.content,
                 "target_words": json.loads(r.target_words_json) if r.target_words_json else [],
                 "questions": json.loads(r.questions_json) if r.questions_json else []

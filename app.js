@@ -530,6 +530,27 @@ function onDayChange(dayVal) {
   renderFlashcard();
 }
 
+function updateDayProgressBadge() {
+  const curWords = getCurrentDayWords();
+  const daySelect = document.getElementById("daySelect");
+  if (daySelect && appState.studyMode === "unit") {
+    const curIdx = appState.currentDayIndex;
+    const selectedOpt = daySelect.options[daySelect.selectedIndex];
+    const unit = window.APP_DATA?.units?.[appState.currentUnitIndex];
+    if (unit && unit.days && unit.days[curIdx]) {
+      const day = unit.days[curIdx];
+      if (selectedOpt) {
+        selectedOpt.textContent = `${day.dayTitle} (${curWords.length} từ)`;
+      }
+    }
+  }
+  const badgeEl = document.getElementById("currentDayBadge");
+  if (badgeEl && appState.studyMode === "unit") {
+    const dNum = parseInt(appState.currentDayIndex) || 0;
+    badgeEl.innerText = `Ngày ${dNum + 1} (${curWords.length} từ)`;
+  }
+}
+
 function getCurrentDayWords() {
   if (appState.studyMode && appState.studyMode.startsWith("shuffle_")) {
     const total = appState.activeShuffledCards;
@@ -871,14 +892,14 @@ async function checkGrammarQuiz(qIdx, optIdx) {
   }
 }
 
-// ================= READING PASSAGES & INSTANT CARD CREATION =================
+// ================= READING PASSAGES & CLICK-TO-LOOKUP =================
 function setupReadingSelector() {
   const readings = window.APP_DATA?.readings || [];
   const select = document.getElementById("readingSelect");
   if (!select) return;
 
   select.innerHTML = readings.map((r, idx) => `
-    <option value="${idx}">${r.title}</option>
+    <option value="${idx}">[${r.category.toUpperCase()}] ${r.title} (${r.level || 'B2'})</option>
   `).join("");
 
   renderReadingPassage(0);
@@ -886,6 +907,7 @@ function setupReadingSelector() {
 
 let activePopupWord = "";
 let activeContextSentence = "";
+let activePopupWordItem = null;
 
 function renderReadingPassage(passageIdx) {
   appState.activeReadingIndex = parseInt(passageIdx) || 0;
@@ -893,19 +915,35 @@ function renderReadingPassage(passageIdx) {
   if (!passage) return;
 
   document.getElementById("readingArticleTitle").innerText = passage.title;
-  document.getElementById("readingUnitTag").innerText = passage.unit || "Context";
-  document.getElementById("readingLevelTag").innerText = `Level ${passage.level || "B1+"}`;
+  document.getElementById("readingUnitTag").innerText = passage.source_reference || `Bài Báo #${appState.activeReadingIndex + 1}`;
+  document.getElementById("readingLevelTag").innerText = `Level ${passage.level || "B2"}`;
 
-  let content = passage.content;
-  passage.target_words.forEach(word => {
-    const regex = new RegExp(`\\b(${word})\\b`, "gi");
-    content = content.replace(regex, `<span class="target-word-pill" onclick="showWordPopup('$1', \`${passage.content.replace(/"/g, "'")}\`)">$1</span>`);
-  });
+  // Make EVERY SINGLE WORD clickable for instant bilingual lookup
+  const targetWordsLower = (passage.target_words || []).map(w => w.toLowerCase());
+  
+  // Split content by word boundaries while preserving punctuation and spaces
+  const tokens = passage.content.split(/(\b[A-Za-z'-]+\b)/);
+  const clickableContent = tokens.map(token => {
+    if (/^[A-Za-z'-]+$/.test(token)) {
+      const cleanLower = token.toLowerCase();
+      const isTarget = targetWordsLower.some(tw => tw === cleanLower || tw.includes(cleanLower));
+      
+      const escapedSent = passage.content.replace(/"/g, '&quot;').replace(/'/g, "\\'");
+      const escapedToken = token.replace(/'/g, "\\'");
+      
+      if (isTarget) {
+        return `<span class="target-word-pill font-bold text-amber-300 bg-amber-500/20 px-1.5 py-0.5 rounded-lg border border-amber-500/30 cursor-pointer hover:bg-amber-500/40 transition shadow-sm inline-block" onclick="showWordPopup('${escapedToken}', '${escapedSent}')" title="Từ trọng tâm bài đọc">${token}</span>`;
+      } else {
+        return `<span class="clickable-word cursor-pointer hover:text-amber-300 hover:underline decoration-amber-400 decoration-dotted transition inline-block" onclick="showWordPopup('${escapedToken}', '${escapedSent}')" title="Chạm để tra từ '${escapedToken}'">${token}</span>`;
+      }
+    }
+    return token;
+  }).join("");
 
-  document.getElementById("readingContent").innerHTML = content;
+  document.getElementById("readingContent").innerHTML = clickableContent;
 
   const qList = document.getElementById("readingQuestionsList");
-  qList.innerHTML = passage.questions.map((q, idx) => `
+  qList.innerHTML = (passage.questions || []).map((q, idx) => `
     <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
       <p class="font-semibold text-sm text-slate-100">${idx + 1}. ${q.q}</p>
       <div class="space-y-1.5 pt-1">
@@ -923,30 +961,53 @@ function renderReadingPassage(passageIdx) {
 function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
   const selectedBtn = document.getElementById(`rq-${qIdx}-opt-${selectedIdx}`);
   const feedback = document.getElementById(`rq-feedback-${qIdx}`);
+  const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
+  const qData = passage?.questions?.[qIdx];
 
   if (selectedIdx === correctIdx) {
     selectedBtn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
-    feedback.innerText = "✓ Chính xác!";
+    feedback.innerHTML = `✓ Chính xác! ${qData?.explain || ""}`;
     feedback.className = "text-xs font-semibold text-emerald-400 pt-1";
   } else {
     selectedBtn.classList.add("bg-red-600/30", "border-red-500", "text-red-300");
-    feedback.innerText = "✗ Chưa đúng!";
+    feedback.innerHTML = `✗ Chưa đúng! ${qData?.explain || ""}`;
     feedback.className = "text-xs font-semibold text-red-400 pt-1";
   }
   feedback.classList.remove("hidden");
 }
 
-function showWordPopup(wordText, context) {
-  activePopupWord = wordText;
+async function showWordPopup(wordText, context) {
+  const cleanWord = wordText.trim().replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, "");
+  if (!cleanWord) return;
+
+  activePopupWord = cleanWord;
   activeContextSentence = context || "";
 
-  document.getElementById("popupWord").innerText = wordText;
+  document.getElementById("popupWord").innerText = cleanWord;
+  document.getElementById("popupPron").innerText = "/.../";
+  document.getElementById("popupPos").innerText = "word";
+  document.getElementById("popupMeaningVi").innerText = "Đang tra cứu từ điển...";
+  document.getElementById("popupMeaningEn").innerText = "Searching international database...";
+  
+  const ctxBox = document.getElementById("popupContextBox");
+  const ctxText = document.getElementById("popupContextText");
+  if (ctxText && context) {
+    // Highlight word in sentence preview
+    const regex = new RegExp(`\\b(${cleanWord})\\b`, "gi");
+    ctxText.innerHTML = `"${context.replace(regex, `<strong class="text-amber-300">$1</strong>`)}"`;
+    if (ctxBox) ctxBox.classList.remove("hidden");
+  } else if (ctxBox) {
+    ctxBox.classList.add("hidden");
+  }
 
+  document.getElementById("wordPopupModal").classList.remove("hidden");
+
+  // 1. Search in local database first
   let found = null;
   if (window.APP_DATA && window.APP_DATA.units) {
     for (const u of window.APP_DATA.units) {
       for (const d of u.days) {
-        const match = d.words.find(w => w.word.toLowerCase() === wordText.toLowerCase());
+        const match = d.words.find(w => w.word.toLowerCase() === cleanWord.toLowerCase());
         if (match) {
           found = match;
           break;
@@ -957,19 +1018,97 @@ function showWordPopup(wordText, context) {
   }
 
   if (found) {
-    document.getElementById("popupPron").innerText = found.pron || `(${found.pos || "word"})`;
-    const vi = found.meaning_vi ? `🇻🇳 ${found.meaning_vi}` : "";
-    const en = found.meaning_en ? `🇬🇧 ${found.meaning_en}` : "";
-    document.getElementById("popupMeaning").innerText = [vi, en].filter(Boolean).join("\n\n") || `Từ vựng: "${wordText}"`;
-  } else {
-    document.getElementById("popupPron").innerText = "/.../";
-    document.getElementById("popupMeaning").innerText = `Đang kích hoạt ngữ cảnh bài đọc cho "${wordText}".`;
+    activePopupWordItem = {
+      word: found.word,
+      pos: found.pos || "word",
+      pron: found.pron || f"/{cleanWord}/",
+      meaning_vi: found.meaning_vi || "",
+      meaning_en: found.meaning_en || "",
+      example: found.example || context
+    };
+    document.getElementById("popupWord").innerText = found.word;
+    document.getElementById("popupPron").innerText = found.pron || `/${cleanWord}/`;
+    document.getElementById("popupPos").innerText = found.pos || "word";
+    document.getElementById("popupMeaningVi").innerText = found.meaning_vi || "Đang mở rộng nghĩa...";
+    document.getElementById("popupMeaningEn").innerText = found.meaning_en || "English definition available.";
+    return;
   }
-  document.getElementById("wordPopupModal").classList.remove("hidden");
+
+  // 2. Fallback to API lookup for instant definition
+  try {
+    const res = await apiCall(`/api/reading/lookup-word?word=${encodeURIComponent(cleanWord)}`);
+    if (res) {
+      activePopupWordItem = {
+        word: res.word || cleanWord,
+        pos: res.pos || "word",
+        pron: res.pron || `/${cleanWord}/`,
+        meaning_vi: res.meaning_vi || cleanWord,
+        meaning_en: res.meaning_en || `Definition of ${cleanWord}`,
+        example: context || res.example || `Example sentence with ${cleanWord}.`
+      };
+      document.getElementById("popupWord").innerText = res.word || cleanWord;
+      document.getElementById("popupPron").innerText = res.pron || `/${cleanWord}/`;
+      document.getElementById("popupPos").innerText = res.pos || "word";
+      document.getElementById("popupMeaningVi").innerText = res.meaning_vi || cleanWord;
+      document.getElementById("popupMeaningEn").innerText = res.meaning_en || `Definition of ${cleanWord}.`;
+    }
+  } catch (e) {
+    console.warn("Lookup failed:", e);
+    document.getElementById("popupMeaningVi").innerText = cleanWord;
+    document.getElementById("popupMeaningEn").innerText = `Definition of ${cleanWord}`;
+  }
 }
 
 function closeWordPopup() {
   document.getElementById("wordPopupModal").classList.add("hidden");
+}
+
+async function addPopupWordToCurrentDay() {
+  if (!activePopupWordItem) return;
+
+  const curWords = getCurrentDayWords();
+  const curUnit = window.APP_DATA?.units?.[appState.currentUnitIndex];
+  const curDayNumber = appState.currentDayIndex + 1;
+
+  // Check duplicate
+  const exists = curWords.some(w => w.word.toLowerCase() === activePopupWordItem.word.toLowerCase());
+  if (exists) {
+    showToast(`Từ "${activePopupWordItem.word}" đã có sẵn trong ngày học này rồi!`, "warning");
+    closeWordPopup();
+    return;
+  }
+
+  const payload = {
+    word: activePopupWordItem.word,
+    pos: activePopupWordItem.pos || "word",
+    pron: activePopupWordItem.pron || `/${activePopupWordItem.word}/`,
+    meaning_vi: activePopupWordItem.meaning_vi,
+    meaning_en: activePopupWordItem.meaning_en,
+    example: activePopupWordItem.example || activeContextSentence,
+    unit_title: curUnit?.unitTitle || "Bài học cá nhân",
+    day_number: curDayNumber
+  };
+
+  // 1. Add to client in-memory dataset immediately
+  const newItem = {
+    id: `custom_${Date.now()}`,
+    ...payload,
+    type: "word",
+    level: "B1+"
+  };
+  curWords.push(newItem);
+
+  // 2. Persist to server if available
+  if (appState.authToken) {
+    apiCall("/api/study/add-to-day", "POST", payload).catch(err => console.warn(err));
+  }
+
+  // 3. Re-render flashcard deck & update badge
+  renderFlashcard();
+  updateDayProgressBadge();
+  closeWordPopup();
+
+  showToast(`🎉 Đã thêm từ "${newItem.word}" vào Ngày ${curDayNumber} thành công! Bạn có thể lật thẻ ôn ngay!`, "success");
 }
 
 async function saveCurrentPopupWord(saveType) {
@@ -981,7 +1120,7 @@ async function saveCurrentPopupWord(saveType) {
   });
 
   closeWordPopup();
-  alert(res?.message || `Đã lưu "${activePopupWord}" vào kho học!`);
+  showToast(res?.message || `Đã lưu "${activePopupWord}" vào sổ tay!`, "success");
 }
 
 function speakPopupWord() {
@@ -991,6 +1130,94 @@ function speakPopupWord() {
 function readAloudPassage() {
   const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
   if (passage) speakText(passage.content);
+}
+
+// ================= CUSTOM WORD CREATION MODAL =================
+function openAddWordModal() {
+  document.getElementById("newWordInput").value = "";
+  document.getElementById("newWordPos").value = "word";
+  document.getElementById("newWordPron").value = "";
+  document.getElementById("newWordMeaningVi").value = "";
+  document.getElementById("newWordMeaningEn").value = "";
+  document.getElementById("newWordExample").value = "";
+  document.getElementById("addWordModal").classList.remove("hidden");
+  document.getElementById("newWordInput").focus();
+}
+
+function closeAddWordModal() {
+  document.getElementById("addWordModal").classList.add("hidden");
+}
+
+async function autoLookupNewWord() {
+  const word = document.getElementById("newWordInput").value.trim();
+  if (!word) {
+    showToast("Vui lòng nhập từ tiếng Anh trước khi tra!", "warning");
+    return;
+  }
+
+  showToast(`Đang tự động tra nghĩa cho "${word}"...`, "info");
+  try {
+    const res = await apiCall(`/api/reading/lookup-word?word=${encodeURIComponent(word)}`);
+    if (res) {
+      if (res.pos) document.getElementById("newWordPos").value = res.pos;
+      if (res.pron) document.getElementById("newWordPron").value = res.pron;
+      if (res.meaning_vi) document.getElementById("newWordMeaningVi").value = res.meaning_vi;
+      if (res.meaning_en) document.getElementById("newWordMeaningEn").value = res.meaning_en;
+      if (res.example) document.getElementById("newWordExample").value = res.example;
+      showToast(`Đã tự động điền nghĩa và phát âm cho "${word}"!`, "success");
+    }
+  } catch (e) {
+    showToast("Không tìm thấy tự động, vui lòng tự nhập nghĩa!", "warning");
+  }
+}
+
+async function submitNewWordToDay() {
+  const word = document.getElementById("newWordInput").value.trim();
+  const meaningVi = document.getElementById("newWordMeaningVi").value.trim();
+  const meaningEn = document.getElementById("newWordMeaningEn").value.trim();
+  const pos = document.getElementById("newWordPos").value.trim() || "word";
+  const pron = document.getElementById("newWordPron").value.trim() || `/${word}/`;
+  const example = document.getElementById("newWordExample").value.trim();
+
+  if (!word || !meaningVi) {
+    showToast("Vui lòng nhập đầy đủ từ tiếng Anh và nghĩa tiếng Việt!", "warning");
+    return;
+  }
+
+  const curWords = getCurrentDayWords();
+  const curUnit = window.APP_DATA?.units?.[appState.currentUnitIndex];
+  const curDayNumber = appState.currentDayIndex + 1;
+
+  const payload = {
+    word,
+    pos,
+    pron,
+    meaning_vi: meaningVi,
+    meaning_en: meaningEn || `Definition of ${word}`,
+    example: example || `Example sentence with ${word}.`,
+    unit_title: curUnit?.unitTitle || "Bài học cá nhân",
+    day_number: curDayNumber
+  };
+
+  // Add to local dataset
+  const newItem = {
+    id: `custom_${Date.now()}`,
+    ...payload,
+    type: "word",
+    level: "B1+"
+  };
+  curWords.push(newItem);
+
+  // Sync with server if logged in
+  if (appState.authToken) {
+    apiCall("/api/study/add-to-day", "POST", payload).catch(err => console.warn(err));
+  }
+
+  renderFlashcard();
+  updateDayProgressBadge();
+  closeAddWordModal();
+
+  showToast(`🎉 Đã thêm thành công từ "${word}" vào Ngày ${curDayNumber}! Bạn có thể luyện thẻ ngay!`, "success");
 }
 
 // ================= DAILY REVIEW QUIZ =================

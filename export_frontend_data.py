@@ -138,7 +138,24 @@ def export_data():
 
         # Read passages
         readings_list = []
-        for r in db.query(models.ReadingPassage).all():
+        all_db_readings = db.query(models.ReadingPassage).order_by(models.ReadingPassage.id.asc()).all()
+        total_p = len(all_db_readings)
+
+        # Precompute assigned days for each passage across 90 days (3 readings/day)
+        passage_assigned_days = {p.id: [] for p in all_db_readings}
+        for d in range(1, 91):
+            if total_p > 0:
+                p1_id = all_db_readings[((d - 1) * 3) % total_p].id
+                p2_id = all_db_readings[((d - 1) * 3 + 1) % total_p].id
+                p3_id = all_db_readings[((d - 1) * 3 + 2) % total_p].id
+                passage_assigned_days[p1_id].append(d)
+                passage_assigned_days[p2_id].append(d)
+                passage_assigned_days[p3_id].append(d)
+
+        for r in all_db_readings:
+            # Month allocation: Month 1 (1-34), Month 2 (35-67), Month 3 (68-100)
+            m_num = 1 if r.id <= 34 else (2 if r.id <= 67 else 3)
+            q_list = json.loads(r.questions_json) if r.questions_json else []
             readings_list.append({
                 "id": r.id,
                 "title": r.title,
@@ -147,9 +164,13 @@ def export_data():
                 "source_reference": r.source_reference or "International News Archive",
                 "content": r.content,
                 "target_words": json.loads(r.target_words_json) if r.target_words_json else [],
-                "questions": json.loads(r.questions_json) if r.questions_json else []
+                "questions": q_list,
+                "month": m_num,
+                "assigned_days": passage_assigned_days.get(r.id, []),
+                "type": "cloze_and_comprehension",
+                "question_count": len(q_list)
             })
-        print(f"Reading passages: {len(readings_list)}")
+        print(f"Reading passages exported: {len(readings_list)}")
 
         full_payload = {
             "units": curriculum_units,

@@ -270,6 +270,7 @@
               </div>
               <h4 id="taskTitleReading" class="font-bold text-white text-sm line-clamp-1">IELTS: The Science of Sleep</h4>
               <p id="taskDescReading" class="text-xs text-slate-400 mt-1">Làm trọn vẹn câu hỏi đọc hiểu/đục lỗ của bài. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn trả lời hết!</p>
+              <div id="dailyAssignedReadingsList" class="mt-2.5 space-y-1.5"></div>
             </div>
             <div class="pt-2">
               <button onclick="startTodayReadingMission()" id="btnStartReadingMission" class="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-cyan-600/30">
@@ -746,11 +747,30 @@
           <div>
             <h2 class="text-xl font-bold text-white flex items-center gap-2">
               <i data-lucide="newspaper" class="w-5 h-5 text-cyan-400"></i>
-              <span>Kho Bài Đọc Luyện Thi (IELTS, VSTEP, TOEIC, APTIS, PET & Báo Quốc Tế)</span>
+              <span>Kho 100 Bài Đọc Luyện Thi (Đục Lỗ & Đọc Hiểu - 3 Tháng / 90 Ngày)</span>
             </h2>
-            <p class="text-xs text-slate-400 mt-1">Tuyển tập 28 bài đọc chuyên sâu kèm câu hỏi đọc hiểu chuẩn format đề thi. Chạm vào bất kỳ từ nào để tra cứu song ngữ và nạp vào ngày học!</p>
+            <p class="text-xs text-slate-400 mt-1">100 bài đọc chuẩn 7 câu (4 câu đục lỗ + 3 câu đọc hiểu), phân bố 3 bài/ngày suốt 90 ngày. Chạm vào bất kỳ từ nào để tra cứu song ngữ US và nạp vào ngày học!</p>
           </div>
           <select id="readingSelect" onchange="renderReadingPassage(this.value)" class="bg-slate-800 border border-slate-700 text-xs md:text-sm text-slate-200 rounded-xl px-3 py-2 outline-none focus:border-indigo-500 max-w-sm"></select>
+        </div>
+
+        <!-- 3-MONTH ROADMAP FILTER BAR -->
+        <div class="mt-3 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs">
+          <span class="text-slate-400 font-bold shrink-0 flex items-center gap-1">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-indigo-400"></i> Lộ trình 3 Tháng:
+          </span>
+          <button onclick="filterReadingByMonth('all')" id="monthBtn_all" class="month-filter-btn active px-3 py-1 rounded-xl font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap">
+            🌟 Tất cả 100 bài
+          </button>
+          <button onclick="filterReadingByMonth(1)" id="monthBtn_1" class="month-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+            🗓️ Tháng 1 (Ngày 1 - 30)
+          </button>
+          <button onclick="filterReadingByMonth(2)" id="monthBtn_2" class="month-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+            🗓️ Tháng 2 (Ngày 31 - 60)
+          </button>
+          <button onclick="filterReadingByMonth(3)" id="monthBtn_3" class="month-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+            🗓️ Tháng 3 (Ngày 61 - 90)
+          </button>
         </div>
 
         <!-- Exam Filter Category Bar -->
@@ -761,16 +781,16 @@
             <i data-lucide="filter" class="w-3.5 h-3.5 text-cyan-400"></i> Lọc Level:
           </span>
           <button onclick="filterReadingByLevel('all')" id="levelBtn_all" class="level-filter-btn active px-3 py-1 rounded-xl font-bold bg-cyan-600 text-white shadow transition whitespace-nowrap">
-            Tất cả level (60)
+            Tất cả level (100)
           </button>
           <button onclick="filterReadingByLevel('B1')" id="levelBtn_B1" class="level-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-emerald-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-emerald-500/30">
-            🟢 Level B1: Tiêu chuẩn (Đa số - 40 bài)
+            🟢 🟢 Level B1 (Đa số - 70 bài)
           </button>
           <button onclick="filterReadingByLevel('B2')" id="levelBtn_B2" class="level-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-amber-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-amber-500/30">
-            🟡 Level B2: Nâng cao (17 bài)
+            🟡 🟡 Level B2 (Nâng cao - 20 bài)
           </button>
           <button onclick="filterReadingByLevel('C1')" id="levelBtn_C1" class="level-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-rose-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-rose-500/30">
-            🔴 Level C1: Chuyên sâu (3 bài)
+            🔴 🔴 Level C1 / VSTEP / IELTS (10 bài)
           </button>
         </div>
 
@@ -1473,7 +1493,7 @@
         <div>
           <h3 class="font-bold text-lg text-white flex items-center gap-2">
             <i data-lucide="map" class="w-5 h-5 text-indigo-400"></i>
-            <span>Bản Đồ Lộ Trình Cấp Tốc 60 Ngày (2 Tháng)</span>
+            <span>Bản Đồ Lộ Trình 3 Tháng (90 Ngày) - Kho 100 Bài Đọc (3 Bài/Ngày)</span>
           </h3>
           <p class="text-xs text-slate-400 mt-0.5">Bấm vào bất kỳ ngày nào để chuyển sang học ngày đó hoặc ôn lại kiến thức</p>
         </div>
@@ -1503,13 +1523,13 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=23.0"></script>
-  <script src="/app.js?v=23.0"></script>
+  <script src="/data.js?v=25.0"></script>
+  <script src="/app.js?v=25.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=23.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=25.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

@@ -397,7 +397,7 @@ let missionRegistry = {
   history: {}
 };
 
-const TOTAL_ROADMAP_DAYS = 60; // Lộ trình cấp tốc 2 tháng (60 ngày)
+const TOTAL_ROADMAP_DAYS = 90; // Lộ trình 3 tháng (90 ngày) - Phân bổ kho 100 bài đọc (3 bài/ngày)
 
 function getTotalMissionDays() {
   return TOTAL_ROADMAP_DAYS;
@@ -466,10 +466,15 @@ function getDayMissionStatus(dayNum) {
     vocabDone: false,
     vocabCount: 0,
     readingDone: false,
+    readingDoneCount: 0,
+    completedReadings: [],
     grammarDone: false
   };
   const isVocab = !!data.vocabDone || (data.vocabCount >= 20);
-  const isReading = !!data.readingDone;
+  const readingCount = (data.completedReadings && Array.isArray(data.completedReadings))
+    ? data.completedReadings.length
+    : (data.readingDoneCount || (data.readingDone ? 3 : 0));
+  const isReading = !!data.readingDone || (readingCount >= 3);
   const isGrammar = !!data.grammarDone;
   let count = 0;
   if (isVocab) count++;
@@ -480,6 +485,8 @@ function getDayMissionStatus(dayNum) {
     vocabDone: isVocab,
     vocabCount: data.vocabCount || 0,
     readingDone: isReading,
+    readingDoneCount: readingCount,
+    completedReadings: data.completedReadings || [],
     grammarDone: isGrammar,
     completedCount: count,
     isAllDone: count === 3
@@ -492,6 +499,8 @@ function setDayMissionStatus(dayNum, updates) {
     vocabDone: false,
     vocabCount: 0,
     readingDone: false,
+    readingDoneCount: 0,
+    completedReadings: [],
     grammarDone: false
   };
   missionRegistry.history[dStr] = { ...current, ...updates };
@@ -554,7 +563,7 @@ function getDailyAssignedVocab(dayNum) {
   }
 
   // Map 1..60 evenly across all available unit days
-  const mappedIdx = Math.min(allUnitDays.length - 1, Math.floor(((validDay - 1) / 60) * allUnitDays.length));
+  const mappedIdx = Math.min(allUnitDays.length - 1, Math.floor(((validDay - 1) / TOTAL_ROADMAP_DAYS) * allUnitDays.length));
   return allUnitDays[mappedIdx];
 }
 
@@ -583,11 +592,24 @@ function getWordsUpToDay(maxDayNum) {
   return words;
 }
 
-function getDailyAssignedReading(dayNum) {
+function getDailyAssignedReadings(dayNum) {
   const list = window.APP_DATA?.readings || [];
-  if (list.length === 0) return { id: 0, index: 0, title: "IELTS: The Science of Sleep" };
-  const idx = (dayNum - 1) % list.length;
-  return { index: idx, ...list[idx] };
+  if (list.length === 0) return [];
+  const d = Math.max(1, parseInt(dayNum) || 1);
+  const total = list.length;
+  const idx1 = ((d - 1) * 3) % total;
+  const idx2 = ((d - 1) * 3 + 1) % total;
+  const idx3 = ((d - 1) * 3 + 2) % total;
+  return [
+    { slotNumber: 1, index: idx1, ...list[idx1] },
+    { slotNumber: 2, index: idx2, ...list[idx2] },
+    { slotNumber: 3, index: idx3, ...list[idx3] }
+  ];
+}
+
+function getDailyAssignedReading(dayNum) {
+  const readings = getDailyAssignedReadings(dayNum);
+  return readings[0] || { id: 0, index: 0, title: "Bài đọc 1" };
 }
 
 function getDailyAssignedGrammar(dayNum) {
@@ -791,11 +813,21 @@ function startGradualReviewQuiz() {
   showToast(`🎯 Đang mở trắc nghiệm tích lũy với ${Math.min(20, allWords.length)} câu hỏi ngẫu nhiên!`, "info");
 }
 
-function startTodayReadingMission() {
-  const r = getDailyAssignedReading(missionRegistry.currentDay);
-  switchTab("reader");
-  renderReadingPassage(r.index);
-  showToast(`📖 Đang mở Bài đọc chỉ định Ngày ${missionRegistry.currentDay}: ${r.title}`, "info");
+function startTodayReadingMission(passageIdx) {
+  if (passageIdx !== undefined && passageIdx !== null) {
+    switchTab("reader");
+    renderReadingPassage(passageIdx);
+    const p = window.APP_DATA?.readings?.[passageIdx];
+    showToast(`📖 Đang mở Bài đọc: ${p?.title || ''}`, "info");
+  } else {
+    const list = getDailyAssignedReadings(missionRegistry.currentDay);
+    const firstReading = list[0];
+    switchTab("reader");
+    if (firstReading) {
+      renderReadingPassage(firstReading.index);
+      showToast(`📖 Đang mở Bài 1 / 3 Ngày ${missionRegistry.currentDay}: ${firstReading.title}`, "info");
+    }
+  }
 }
 
 function startTodayGrammarMission() {
@@ -943,8 +975,7 @@ function updateDailyMissionUI() {
     if (btnWrapV) btnWrapV.className = "w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-indigo-600/30";
     if (btnV) btnV.innerHTML = `<i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i> <span>Bắt đầu học 20 từ Ngày ${curDay}</span>`;
   }
-
-  // 3. Reading Task Card
+  // 3. Reading Task Card (3 Bài Đọc Mỗi Ngày)
   const cardR = document.getElementById("taskCardReading");
   const bannerR = document.getElementById("taskCardReadingBanner");
   const titleR = document.getElementById("taskTitleReading");
@@ -953,27 +984,57 @@ function updateDailyMissionUI() {
   const btnR = document.getElementById("btnStartReadingText");
   const btnWrapR = document.getElementById("btnStartReadingMission");
 
-  if (titleR) titleR.innerText = infoReading.title || "Bài đọc hôm nay";
+  const assignedReadings = getDailyAssignedReadings(curDay);
+  const doneReadingsCount = curStatus.readingDoneCount || (curStatus.readingDone ? 3 : 0);
+  const completedList = curStatus.completedReadings || [];
+
+  if (titleR) {
+    titleR.innerText = `3 Bài Đọc Ngày ${curDay} (${doneReadingsCount}/3 bài xong)`;
+  }
+
+  const readingsListContainer = document.getElementById("dailyAssignedReadingsList");
+  if (readingsListContainer) {
+    readingsListContainer.innerHTML = assignedReadings.map((r, slotIdx) => {
+      const isDone = completedList.includes(r.index) || curStatus.readingDone;
+      return `
+        <div class="p-2 rounded-lg ${isDone ? 'bg-emerald-950/40 border border-emerald-500/40' : 'bg-slate-800/80 border border-slate-700/60'} flex items-center justify-between gap-2 text-xs transition">
+          <div class="flex items-center gap-2 min-w-0">
+            <span class="w-5 h-5 rounded-full ${isDone ? 'bg-emerald-500/20 text-emerald-300 font-bold' : 'bg-cyan-500/20 text-cyan-300'} flex items-center justify-center shrink-0 text-[10px]">
+              ${isDone ? '✓' : (slotIdx + 1)}
+            </span>
+            <div class="min-w-0">
+              <p class="font-bold text-slate-200 truncate ${isDone ? 'text-emerald-200 line-through decoration-emerald-500/60' : ''}">${r.title}</p>
+              <p class="text-[10px] text-slate-400">7 câu (4 Đục lỗ + 3 Đọc hiểu) • Level ${r.level || 'B1'}</p>
+            </div>
+          </div>
+          <button onclick="event.stopPropagation(); startTodayReadingMission(${r.index})" class="px-2.5 py-1 rounded-md ${isDone ? 'bg-slate-700/70 hover:bg-slate-700 text-emerald-300' : 'bg-cyan-600 hover:bg-cyan-500 text-white'} text-[11px] font-bold shrink-0 transition">
+            ${isDone ? 'Ôn lại' : 'Làm bài'}
+          </button>
+        </div>
+      `;
+    }).join("");
+  }
+
   if (curStatus.readingDone) {
     if (cardR) cardR.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30 glow-card-emerald";
-    if (bannerR) bannerR.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">100% Đạt</span></div>`;
-    if (descR) descR.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã đọc và trả lời trọn vẹn câu hỏi đọc hiểu của bài hôm nay!</span>`;
+    if (bannerR) bannerR.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">3/3 Bài Đọc (100%)</span></div>`;
+    if (descR) descR.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã hoàn thành trọn vẹn cả 3 bài đọc chỉ định hôm nay!</span>`;
     if (badgeR) {
       badgeR.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center gap-1 border border-emerald-500/40";
-      badgeR.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-400'></i> Đã hoàn thành";
+      badgeR.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-400'></i> Đã xong (3/3 Bài)";
     }
     if (btnWrapR) btnWrapR.className = "w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-emerald-300 border border-emerald-500/40 transition flex items-center justify-center gap-1.5 shadow-sm";
-    if (btnR) btnR.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Đọc Xong (Bấm để đọc lại)</span>";
+    if (btnR) btnR.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Xong 3 Bài (Bấm để ôn lại)</span>";
   } else {
     if (cardR) cardR.className = "p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-cyan-500/40 shadow-sm";
     if (bannerR) bannerR.innerHTML = "";
-    if (descR) descR.innerHTML = `Làm trọn vẹn câu hỏi đọc hiểu/đục lỗ của bài. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn trả lời hết!`;
+    if (descR) descR.innerHTML = `Mỗi ngày hoàn thành 3 bài đọc chỉ định (mỗi bài gồm 4 câu đục lỗ + 3 câu đọc hiểu). Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn trả lời xong cả 3 bài!`;
     if (badgeR) {
-      badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold border border-slate-700";
-      badgeR.innerText = "Chưa làm";
+      badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-amber-300 font-semibold border border-amber-500/20";
+      badgeR.innerText = `Tiến độ: ${doneReadingsCount}/3 bài`;
     }
     if (btnWrapR) btnWrapR.className = "w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-cyan-600/30";
-    if (btnR) btnR.innerHTML = `<i data-lucide="book-open" class="w-3.5 h-3.5"></i> <span>Vào làm bài đọc Ngày ${curDay}</span>`;
+    if (btnR) btnR.innerHTML = `<i data-lucide="book-open" class="w-3.5 h-3.5"></i> <span>Vào làm 3 bài đọc Ngày ${curDay}</span>`;
   }
 
   // 4. Grammar Task Card
@@ -1891,12 +1952,26 @@ function filterReadingByExam(category) {
 }
 
 
+appState.activeReadingMonthFilter = "all";
 appState.activeReadingLevelFilter = "all";
+
+function filterReadingByMonth(month) {
+  appState.activeReadingMonthFilter = month || "all";
+  const monthBtns = document.querySelectorAll(".month-filter-btn");
+  monthBtns.forEach(btn => {
+    btn.classList.remove("active", "bg-indigo-600", "text-white", "shadow");
+    btn.classList.add("bg-slate-800", "text-slate-300");
+  });
+  const activeBtn = document.getElementById(`monthBtn_${month}`);
+  if (activeBtn) {
+    activeBtn.classList.remove("bg-slate-800", "text-slate-300");
+    activeBtn.classList.add("active", "bg-indigo-600", "text-white", "shadow");
+  }
+  applyReadingFilters();
+}
 
 function filterReadingByLevel(level) {
   appState.activeReadingLevelFilter = level || "all";
-  applyReadingFilters();
-
   const levelBtns = document.querySelectorAll(".level-filter-btn");
   levelBtns.forEach(btn => {
     btn.classList.remove("active", "bg-cyan-600", "text-white", "shadow");
@@ -1907,26 +1982,21 @@ function filterReadingByLevel(level) {
     activeBtn.classList.remove("bg-slate-800", "text-slate-300");
     activeBtn.classList.add("active", "bg-cyan-600", "text-white", "shadow");
   }
+  applyReadingFilters();
 }
 
 function applyReadingFilters() {
   const readings = window.APP_DATA?.readings || [];
   const examCat = appState.activeExamFilter || "all";
   const levelFilter = appState.activeReadingLevelFilter || "all";
+  const monthFilter = appState.activeReadingMonthFilter || "all";
 
   let list = readings.map((r, origIdx) => ({ ...r, origIdx }));
 
-  // 1. Filter by exam category
-  if (examCat === "CLOZE") {
-    list = list.filter(r => (r.category || "").toUpperCase() === "CLOZE" || (r.title || "").includes("Đục Lỗ") || r.type === "cloze");
-  } else if (examCat === "TOEIC") {
-    list = list.filter(r => (r.category || "").toUpperCase().includes("TOEIC") || (r.title || "").includes("TOEIC"));
-  } else if (examCat === "VSTEP") {
-    list = list.filter(r => (r.category || "").toUpperCase().includes("VSTEP") || (r.title || "").includes("VSTEP"));
-  } else if (examCat === "IELTS") {
-    list = list.filter(r => (r.category || "").toUpperCase().includes("IELTS") || (r.title || "").includes("IELTS"));
-  } else if (examCat === "BaoQuocTe") {
-    list = list.filter(r => !["IELTS", "VSTEP", "TOEIC", "APTIS", "PET", "CLOZE"].includes((r.category || "").toUpperCase()) && !(r.title || "").includes("Đục Lỗ"));
+  // 1. Filter by Month (1: Days 1-30, 2: Days 31-60, 3: Days 61-90)
+  if (monthFilter !== "all") {
+    const mNum = parseInt(monthFilter);
+    list = list.filter(r => r.month === mNum);
   }
 
   // 2. Filter by Level
@@ -1934,18 +2004,27 @@ function applyReadingFilters() {
     list = list.filter(r => (r.level || "B1").toUpperCase() === levelFilter.toUpperCase());
   }
 
+  // 3. Filter by Exam / Category
+  if (examCat === "CLOZE") {
+    list = list.filter(r => (r.category || "").toUpperCase() === "CLOZE" || (r.title || "").includes("Đục Lỗ") || r.type === "cloze" || r.type === "cloze_and_comprehension");
+  } else if (examCat !== "all") {
+    list = list.filter(r => (r.category || "").toLowerCase().includes(examCat.toLowerCase()) || (r.title || "").toLowerCase().includes(examCat.toLowerCase()));
+  }
+
   currentFilteredReadings = list;
 
   const select = document.getElementById("readingSelect");
   if (select) {
     select.innerHTML = currentFilteredReadings.map(r => `
-      <option value="${r.origIdx}">[${r.level || 'B1'}] ${r.title.replace(/^\[.*?\]\s*/, "")}</option>
+      <option value="${r.origIdx}">[Tháng ${r.month || 1}] [${r.level || 'B1'}] ${r.title.replace(/^Bài \d+:\s*/, "")} (7 câu)</option>
     `).join("");
   }
 
   const badgeEl = document.getElementById("readingCategoryTagBadge");
   if (badgeEl) {
-    badgeEl.innerText = `${currentFilteredReadings.length} Bài Luyện Thi (${levelFilter === 'all' ? 'Tất cả level' : 'Level ' + levelFilter})`;
+    const mText = monthFilter === "all" ? "3 Tháng (90 Ngày)" : `Tháng ${monthFilter}`;
+    const lText = levelFilter === "all" ? "Tất cả level" : `Level ${levelFilter}`;
+    badgeEl.innerText = `${currentFilteredReadings.length} / ${readings.length} Bài (${mText} • ${lText})`;
   }
 
   if (currentFilteredReadings.length > 0) {
@@ -2044,9 +2123,17 @@ function renderReadingPassage(passageIdx) {
         const correctVal = q.answer;
         const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
 
+        const qTypeTag = (idx < 4)
+          ? `<span class="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-[10px] border border-indigo-500/30">🕳️ Dạng Đục Lỗ [${idx + 1}]</span>`
+          : `<span class="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-[10px] border border-cyan-500/30">📖 Dạng Đọc Hiểu & Trả Lời</span>`;
+
         return `
           <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2 transition-all duration-300" id="rq-card-${idx}">
-            <p class="font-semibold text-sm text-slate-100">${idx + 1}. ${qText.replace(/\n/g, '<br>')}</p>
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="font-bold text-xs text-slate-400">Câu ${idx + 1} / ${questions.length}</span>
+              ${qTypeTag}
+            </div>
+            <p class="font-semibold text-sm text-slate-100">${qText.replace(/\n/g, '<br>')}</p>
             <div class="space-y-1.5 pt-1">
               ${(q.options || []).map((opt, oIdx) => `
                 <button onclick="checkReadingQuestion(${idx}, ${oIdx}, ${correctIdx})" id="rq-${idx}-opt-${oIdx}" class="w-full text-left p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700/80 text-xs text-slate-200 border border-slate-700/50 transition">
@@ -2080,24 +2167,42 @@ function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
   const feedback = document.getElementById(`rq-feedback-${qIdx}`);
   const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
   const qData = passage?.questions?.[qIdx];
-
   // Track answered questions for this passage
   if (!appState.readingAnsweredMap) appState.readingAnsweredMap = {};
   const pIdx = appState.activeReadingIndex;
   if (!appState.readingAnsweredMap[pIdx]) appState.readingAnsweredMap[pIdx] = new Set();
   appState.readingAnsweredMap[pIdx].add(qIdx);
 
-  const totalQuestions = passage?.questions?.length || 0;
+  const totalQuestions = passage?.questions?.length || 7;
   const answeredCount = appState.readingAnsweredMap[pIdx].size;
 
-  // CHỈ TICK HOÀN THÀNH KHI ĐÃ TRẢ LỜI ĐỦ CÁC CÂU HỎI
+  // CHỈ TICK HOÀN THÀNH KHI ĐÃ TRẢ LỜI ĐỦ CÁC CÂU HỎI CỦA BÀI
   if (totalQuestions > 0 && answeredCount >= totalQuestions) {
-    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
-    if (!curStatus.readingDone) {
-      setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
-      showToast(`🎉 Chúc mừng! Bạn đã hoàn thành toàn bộ ${totalQuestions} câu hỏi đọc hiểu của bài hôm nay! Đã tự động đánh dấu hoàn thành!`, "success");
-      updateDailyMissionUI();
+    const curDay = missionRegistry.currentDay;
+    const curStatus = getDayMissionStatus(curDay);
+    const assignedReadings = getDailyAssignedReadings(curDay);
+    const assignedIndices = assignedReadings.map(r => r.index);
+
+    let completedList = [...(curStatus.completedReadings || [])];
+    if (!completedList.includes(pIdx)) {
+      completedList.push(pIdx);
     }
+
+    const doneAssignedCount = assignedIndices.filter(idx => completedList.includes(idx)).length;
+    const isAllThreeDone = doneAssignedCount >= 3 || completedList.length >= 3;
+
+    setDayMissionStatus(curDay, {
+      completedReadings: completedList,
+      readingDoneCount: Math.min(3, Math.max(doneAssignedCount, completedList.length)),
+      readingDone: isAllThreeDone || curStatus.readingDone
+    });
+
+    if (isAllThreeDone) {
+      showToast(`🎉 Tuyệt vời! Bạn đã hoàn thành trọn vẹn 3 bài đọc của Ngày ${curDay}! Đã tự động đánh dấu hoàn thành 100%!`, "success");
+    } else {
+      showToast(`✓ Đã hoàn thành bài đọc (${doneAssignedCount}/3 bài hôm nay). Hãy tiếp tục bài tiếp theo nhé!`, "info");
+    }
+    updateDailyMissionUI();
   }
 
   const isCorrect = (selectedIdx === correctIdx);

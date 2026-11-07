@@ -236,24 +236,26 @@ async function logoutUser() {
 
 // ================= TAB NAVIGATION =================
 function switchTab(tabId) {
+  if (tabId === "reading") tabId = "reader";
   appState.activeTab = tabId;
 
+  // Sync nav buttons
   ["today", "flashcard", "review", "reader", "grammar", "profile"].forEach(id => {
     const sec = document.getElementById(`tab-${id}`);
     if (sec) sec.classList.toggle("hidden", id !== tabId);
 
-    const navBtn = document.getElementById(`nav-btn-${id}`);
+    const navBtn = document.getElementById(`nav-btn-${id}`) || (id === "reader" ? document.getElementById("nav-btn-reading") : null);
     if (navBtn) {
       if (id === tabId) {
         navBtn.classList.add("bg-indigo-600", "text-white");
-        navBtn.classList.remove("text-slate-400", "hover:text-white", "hover:bg-slate-800");
+        navBtn.classList.remove("text-slate-300", "hover:text-white", "hover:bg-slate-800");
       } else {
         navBtn.classList.remove("bg-indigo-600", "text-white");
-        navBtn.classList.add("text-slate-400", "hover:text-white", "hover:bg-slate-800");
+        navBtn.classList.add("text-slate-300", "hover:text-white", "hover:bg-slate-800");
       }
     }
 
-    const mobBtn = document.getElementById(`mob-btn-${id}`);
+    const mobBtn = document.getElementById(`mob-btn-${id}`) || (id === "reader" ? document.getElementById("mob-btn-reading") : null);
     if (mobBtn) {
       mobBtn.classList.toggle("text-indigo-400", id === tabId);
       mobBtn.classList.toggle("text-slate-400", id !== tabId);

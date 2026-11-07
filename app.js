@@ -1631,6 +1631,15 @@ function copyMobileLink() {
   }
 }
 
+function copyLanLink() {
+  const inp = document.getElementById("lanLinkInput");
+  if (inp) {
+    inp.select();
+    navigator.clipboard.writeText(inp.value);
+    showToast("Đã sao chép link Wi-Fi nội bộ!", "success");
+  }
+}
+
 function setupTouchAndKeyboard() {
   window.addEventListener("keydown", (e) => {
     if (appState.activeTab !== "flashcard") return;

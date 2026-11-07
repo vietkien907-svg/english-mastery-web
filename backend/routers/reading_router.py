@@ -140,8 +140,10 @@ def get_passage_detail(passage_id: int, db: Session = Depends(get_db)):
         "questions": [
             {
                 "index": idx,
-                "q": q["q"],
-                "options": q["options"]
+                "q": q.get("question") or q.get("q", ""),
+                "options": q.get("options", []),
+                "answer": {"A": 0, "B": 1, "C": 2, "D": 3}.get(q.get("answer", "").strip().upper(), q.get("answer", 0)) if isinstance(q.get("answer"), str) else q.get("answer", 0),
+                "explain": q.get("explain", "")
             }
             for idx, q in enumerate(questions)
         ]
@@ -159,14 +161,20 @@ def submit_reading_quiz(req: ReadingQuizSubmitRequest, db: Session = Depends(get
     
     for idx, q in enumerate(questions):
         user_choice = req.answers[idx] if idx < len(req.answers) else -1
-        is_correct = (user_choice == q["answer"])
+        ans_val = q.get("answer")
+        if isinstance(ans_val, str):
+            ans_idx = {"A": 0, "B": 1, "C": 2, "D": 3}.get(ans_val.strip().upper(), 0)
+        else:
+            ans_idx = int(ans_val) if ans_val is not None else 0
+
+        is_correct = (user_choice == ans_idx)
         if is_correct:
             score += 1
             
         feedback.append({
             "index": idx,
             "user_choice": user_choice,
-            "correct_choice": q["answer"],
+            "correct_choice": ans_idx,
             "is_correct": is_correct,
             "explain": q.get("explain", "Đáp án chính xác theo ngữ cảnh bài đọc.")
         })

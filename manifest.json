@@ -1,6 +1,7 @@
 {
-  "name": "English Mastery Hub",
+  "name": "English Mastery Hub - Luyện Thi & Tổng Ôn Ngữ Pháp",
   "short_name": "EnglishMastery",
+  "description": "Nền tảng tự học tiếng Anh thông minh: Luyện thi IELTS, VSTEP, TOEIC, APTIS, PET và Tổng ôn 25 chuyên đề ngữ pháp Cô Trang Anh kèm nhắc nhở deadline hàng ngày.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0f172a",
@@ -8,14 +9,16 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "https://api.iconify.design/lucide:graduation-cap.svg?color=%236366f1",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "https://api.iconify.design/lucide:graduation-cap.svg?color=%236366f1",
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

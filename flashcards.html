@@ -6,10 +6,13 @@
   <title>English Mastery Hub - Nền Tảng Học Tiếng Anh Cá Nhân</title>
   <meta name="description" content="Ứng dụng học từ vựng, collocation, idiom, đọc hiểu và 21 tuần ngữ pháp đa thiết bị, đồng bộ vĩnh viễn.">
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon" href="https://api.iconify.design/lucide:graduation-cap.svg?color=%236366f1">
+  <meta name="apple-mobile-web-app-title" content="English Mastery">
+  <link rel="apple-touch-icon" href="/icon-192.png">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -99,7 +102,7 @@
           <i data-lucide="newspaper" class="w-4 h-4"></i> Đọc hiểu ngữ cảnh
         </button>
         <button onclick="switchTab('grammar')" id="nav-btn-grammar" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="book-marked" class="w-4 h-4"></i> 21 Tuần Ngữ pháp
+          <i data-lucide="book-marked" class="w-4 h-4"></i> 25 Chuyên Đề Ngữ Pháp
         </button>
         <button onclick="switchTab('profile')" id="nav-btn-profile" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Cá nhân & Thống kê
@@ -110,6 +113,59 @@
 
   <!-- MAIN CONTAINER -->
   <main class="max-w-6xl mx-auto w-full px-4 pt-4 flex-1">
+
+    <!-- ================= DAILY DEADLINE & MOBILE NOTIFICATION BANNER ================= -->
+    <div id="dailyDeadlineBanner" class="mb-6 rounded-2xl p-4 sm:p-5 bg-gradient-to-r from-indigo-950/80 via-slate-900/90 to-purple-950/80 border border-indigo-500/40 shadow-xl backdrop-blur-md relative overflow-hidden">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <!-- Left: Status & Countdown -->
+        <div class="space-y-1.5">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-bold uppercase tracking-wider">
+              <i data-lucide="bell" class="w-3.5 h-3.5 animate-pulse text-indigo-400"></i> Hạn chót học hôm nay
+            </span>
+            <span id="deadlineTargetTimeText" class="text-xs text-slate-300 font-medium">Hạn chót: <strong class="text-amber-300 font-mono">21:30</strong></span>
+            <button onclick="requestNotificationPermission()" id="notificationStatusBadge" class="text-[11px] px-2.5 py-0.5 rounded-full bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 font-semibold transition flex items-center gap-1">
+              <i data-lucide="bell-ring" class="w-3 h-3"></i> <span>Bấm để bật chuông nhắc điện thoại</span>
+            </button>
+          </div>
+
+          <div class="flex items-baseline gap-3">
+            <h3 id="deadlineCountdownDisplay" class="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200 font-mono tracking-tight">
+              ⏳ Đang tính toán...
+            </h3>
+            <span id="deadlineStatusSubtext" class="text-xs text-slate-400 hidden sm:inline">Hoàn thành bài trước hạn để bảo toàn chuỗi Streak!</span>
+          </div>
+
+          <!-- Daily Goals Progress Checklist -->
+          <div class="flex items-center gap-3 sm:gap-6 pt-1 text-xs text-slate-300 flex-wrap">
+            <div id="goalItemWords" class="flex items-center gap-1.5">
+              <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
+              <span id="goalItemWordsText">20 Từ vựng / Idioms</span>
+            </div>
+            <div id="goalItemReading" class="flex items-center gap-1.5">
+              <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
+              <span id="goalItemReadingText">1 Bài đọc luyện thi</span>
+            </div>
+            <div id="goalItemGrammar" class="flex items-center gap-1.5">
+              <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
+              <span id="goalItemGrammarText">1 Bài tập ngữ pháp</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Action Buttons -->
+        <div class="flex items-center gap-2 self-start lg:self-center shrink-0">
+          <button onclick="openDeadlineSettingsModal()" class="px-3.5 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition flex items-center gap-1.5">
+            <i data-lucide="settings" class="w-4 h-4 text-indigo-400"></i>
+            <span>Cài giờ nhắc</span>
+          </button>
+          <button onclick="testSendDailyNotification()" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition shadow-md shadow-indigo-600/30 flex items-center gap-1.5">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Thử thông báo</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- ================= TAB: HÔM NAY (TODAY OVERVIEW) ================= -->
     <section id="tab-today" class="space-y-6">
@@ -491,27 +547,53 @@
           <div>
             <h2 class="text-xl font-bold text-white flex items-center gap-2">
               <i data-lucide="newspaper" class="w-5 h-5 text-cyan-400"></i>
-              <span>Đọc Hiểu Báo Quốc Tế (BBC, National Geographic, Reuters)</span>
+              <span>Kho Bài Đọc Luyện Thi (IELTS, VSTEP, TOEIC, APTIS, PET & Báo Quốc Tế)</span>
             </h2>
-            <p class="text-xs text-slate-400 mt-1">Chạm vào bất kỳ từ nào để tra nghĩa song ngữ Anh - Việt, nghe phát âm và thêm vào ngày học ngay lập tức.</p>
+            <p class="text-xs text-slate-400 mt-1">Tuyển tập 28 bài đọc chuyên sâu kèm câu hỏi đọc hiểu chuẩn format đề thi. Chạm vào bất kỳ từ nào để tra cứu song ngữ và nạp vào ngày học!</p>
           </div>
-          <select id="readingSelect" onchange="renderReadingPassage(this.value)" class="bg-slate-800 border border-slate-700 text-xs md:text-sm text-slate-200 rounded-xl px-3 py-2 outline-none focus:border-indigo-500 max-w-xs"></select>
+          <select id="readingSelect" onchange="renderReadingPassage(this.value)" class="bg-slate-800 border border-slate-700 text-xs md:text-sm text-slate-200 rounded-xl px-3 py-2 outline-none focus:border-indigo-500 max-w-sm"></select>
         </div>
 
-        <div class="mt-4 p-3 rounded-xl bg-indigo-950/40 border border-indigo-500/30 flex items-center justify-between gap-3 text-xs text-indigo-200">
+        <!-- Exam Filter Category Bar -->
+        <div class="mt-4 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
+          <button onclick="filterReadingByExam('all')" id="examBtn_all" class="exam-filter-btn active px-3.5 py-1.5 rounded-xl font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap">
+            🌟 Tất cả bài đọc (28)
+          </button>
+          <button onclick="filterReadingByExam('IELTS')" id="examBtn_IELTS" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+            🎓 IELTS Academic (4)
+          </button>
+          <button onclick="filterReadingByExam('VSTEP')" id="examBtn_VSTEP" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+            🇻🇳 VSTEP B1-B2-C1 (4)
+          </button>
+          <button onclick="filterReadingByExam('TOEIC')" id="examBtn_TOEIC" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+            💼 TOEIC Part 7 (4)
+          </button>
+          <button onclick="filterReadingByExam('APTIS')" id="examBtn_APTIS" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+            🇬🇧 APTIS Reading (3)
+          </button>
+          <button onclick="filterReadingByExam('PET')" id="examBtn_PET" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+            🏕️ PET B1 (3)
+          </button>
+          <button onclick="filterReadingByExam('BaoQuocTe')" id="examBtn_BaoQuocTe" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+            📰 Báo Quốc Tế (10)
+          </button>
+        </div>
+
+        <div class="mt-2 p-3 rounded-xl bg-indigo-950/40 border border-indigo-500/30 flex items-center justify-between gap-3 text-xs text-indigo-200">
           <span class="flex items-center gap-2">
             <i data-lucide="mouse-pointer" class="w-4 h-4 text-amber-400"></i>
-            <span>💡 <strong>Tra từ siêu tốc:</strong> Chạm vào <strong>bất kỳ từ nào</strong> trong bài đọc để tra nghĩa song ngữ, nghe phát âm và bấm thêm vào ngày học!</span>
+            <span>💡 <strong>Tra từ tương tác:</strong> Chạm vào <strong>bất kỳ từ nào</strong> trong bài đọc để tra nghĩa song ngữ, nghe phát âm và bấm thêm vào ngày học!</span>
           </span>
-          <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px] whitespace-nowrap">10 Bài Báo Quốc Tế</span>
+          <span id="readingCategoryTagBadge" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px] whitespace-nowrap">28 Bài Luyện Thi</span>
         </div>
 
         <div class="mt-6 space-y-4">
           <h3 id="readingArticleTitle" class="text-lg md:text-xl font-bold text-white">Tiêu đề bài đọc</h3>
           <div class="p-2 flex gap-2 flex-wrap text-xs text-slate-400">
-            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-indigo-300 border border-slate-700 font-semibold" id="readingUnitTag">Unit 1</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-cyan-300 border border-slate-700 font-semibold" id="readingLevelTag">Level B1+</span>
-            <button onclick="readAloudPassage()" class="ml-auto text-xs flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300">
+            <span class="px-2.5 py-1 rounded-md bg-indigo-900/60 text-indigo-300 border border-indigo-700/60 font-semibold" id="readingExamBadge">[IELTS]</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-indigo-300 border border-slate-700 font-semibold" id="readingUnitTag">Nguồn trích dẫn</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-cyan-300 border border-slate-700 font-semibold" id="readingLevelTag">Level B2</span>
+            <button onclick="readAloudPassage()" class="ml-auto text-xs flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300 font-semibold">
               <i data-lucide="volume-2" class="w-4 h-4"></i> Đọc cả bài
             </button>
           </div>
@@ -519,25 +601,34 @@
           <div id="readingContent" class="text-base sm:text-lg text-slate-200 leading-loose p-5 rounded-2xl bg-slate-900/80 border border-slate-800/80 font-normal"></div>
 
           <div class="mt-8 space-y-4 border-t border-slate-800 pt-6">
-            <h4 class="font-bold text-sm uppercase tracking-wider text-indigo-400 flex items-center gap-2">
-              <i data-lucide="help-circle" class="w-4 h-4"></i> Câu hỏi đọc hiểu
-            </h4>
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-sm uppercase tracking-wider text-indigo-400 flex items-center gap-2">
+                <i data-lucide="help-circle" class="w-4 h-4"></i> Câu hỏi đọc hiểu đề thi (Reading Comprehension)
+              </h4>
+              <span class="text-xs text-slate-400">Bấm chọn đáp án để xem giải thích chi tiết</span>
+            </div>
             <div id="readingQuestionsList" class="space-y-4"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TAB: 21 WEEKS GRAMMAR ================= -->
+    <!-- ================= TAB: 25 CHUYÊN ĐỀ NGỮ PHÁP TỔNG ÔN CÔ TRANG ANH ================= -->
     <section id="tab-grammar" class="hidden space-y-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="glass-card rounded-2xl p-4 space-y-2 h-[500px] overflow-y-auto md:sticky md:top-20">
-          <div class="flex items-center justify-between px-2 mb-3">
-            <h3 class="font-bold text-xs uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="list-ordered" class="w-4 h-4 text-indigo-400"></i> Mục lục 21 Tuần
+        <div class="glass-card rounded-2xl p-4 space-y-3 h-[600px] overflow-y-auto md:sticky md:top-20">
+          <div class="flex items-center justify-between px-1">
+            <h3 class="font-bold text-xs uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="list-ordered" class="w-4 h-4 text-indigo-400"></i> 25 Chuyên Đề Tổng Ôn
             </h3>
-            <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Đã xác minh</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Cô Trang Anh</span>
           </div>
+
+          <!-- Quick Topic Search -->
+          <div>
+            <input type="text" id="grammarSearchInput" oninput="filterGrammarTopics(this.value)" placeholder="🔍 Tìm chuyên đề (thì, bị động...)..." class="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl px-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 outline-none focus:border-indigo-500 transition">
+          </div>
+
           <div id="grammarTopicsNav" class="space-y-1"></div>
         </div>
 
@@ -545,29 +636,34 @@
           <div class="border-b border-slate-800 pb-4">
             <div class="flex items-center gap-2">
               <span class="text-xs uppercase font-bold text-indigo-400 tracking-wider">Chuyên đề chi tiết</span>
-              <span class="text-[10px] text-slate-400">Nguồn: Sách Ngữ Pháp 11 - Cô Trang Anh</span>
+              <span class="text-[10px] text-slate-400">Nguồn: Tổng ôn Ngữ pháp Tiếng Anh - Cô Trang Anh (NXB ĐHQG Hà Nội)</span>
             </div>
             <h2 id="grammarTopicTitle" class="text-xl md:text-2xl font-extrabold text-white mt-1">Chuyên đề Thì động từ</h2>
             <p id="grammarTopicSummary" class="text-xs text-slate-300 mt-1.5 leading-relaxed"></p>
           </div>
 
+          <!-- Lý thuyết cốt lõi -->
           <div id="grammarContentBody" class="space-y-5 text-sm sm:text-base leading-relaxed text-slate-200"></div>
 
           <!-- Bài tập điền từ ngắn vào chỗ trống -->
           <div class="mt-8 border-t border-slate-800 pt-6 space-y-4">
             <div class="flex items-center justify-between">
               <h4 class="font-bold text-sm uppercase tracking-wider text-emerald-400 flex items-center gap-2">
-                <i data-lucide="edit-3" class="w-4 h-4 text-emerald-400"></i> Bài tập điền từ ngắn vào chỗ trống
+                <i data-lucide="edit-3" class="w-4 h-4 text-emerald-400"></i> Bài tập điền từ ngắn & chia động từ
               </h4>
               <span class="text-[11px] text-slate-400">Tự gõ đáp án & nhấn Enter hoặc Kiểm tra</span>
             </div>
             <div id="grammarFillBlanksList" class="space-y-4"></div>
           </div>
 
+          <!-- Bài tập trắc nghiệm áp dụng -->
           <div class="mt-8 border-t border-slate-800 pt-6 space-y-4">
-            <h4 class="font-bold text-sm uppercase tracking-wider text-amber-400 flex items-center gap-2">
-              <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Bài tập trắc nghiệm áp dụng
-            </h4>
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-sm uppercase tracking-wider text-amber-400 flex items-center gap-2">
+                <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Bài tập trắc nghiệm áp dụng chuyên đề
+              </h4>
+              <span class="text-[11px] text-slate-400">Chọn 1 trong 4 đáp án A, B, C, D</span>
+            </div>
             <div id="grammarQuizList" class="space-y-4"></div>
           </div>
         </div>
@@ -844,6 +940,73 @@
           <p>• <strong>iPhone (Safari)</strong>: Bấm nút <em>Chia sẻ</em> (ô vuông mũi tên lên) $\rightarrow$ Chọn <em>"Thêm vào MH chính"</em>.</p>
           <p>• <strong>Android (Chrome)</strong>: Bấm nút <em>3 chấm</em> góc phải $\rightarrow$ Chọn <em>"Cài đặt ứng dụng"</em>.</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: DEADLINE & NOTIFICATION SETTINGS ================= -->
+  <div id="deadlineSettingsModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeDeadlineSettingsModal()">
+    <div class="glass-card max-w-md w-full rounded-2xl p-6 border border-slate-700 shadow-2xl relative space-y-4" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="font-bold text-lg text-white flex items-center gap-2">
+          <i data-lucide="bell" class="w-5 h-5 text-indigo-400"></i>
+          <span>Cài Đặt Deadline & Thông Báo Hàng Ngày</span>
+        </h3>
+        <button onclick="closeDeadlineSettingsModal()" class="text-slate-400 hover:text-white transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">⏰ Giờ Deadline hoàn thành mục tiêu học:</label>
+          <div class="flex items-center gap-2">
+            <input type="time" id="settingDeadlineTime" value="21:30" class="px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white font-mono text-base outline-none focus:border-indigo-500">
+            <span class="text-slate-400 text-[11px]">Mặc định 21:30 hàng ngày</span>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5">
+          <span class="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1">Các mốc thông báo đẩy tới điện thoại:</span>
+
+          <label class="flex items-start gap-2.5 cursor-pointer">
+            <input type="checkbox" id="settingRemindMorning" checked class="mt-0.5 rounded border-slate-700 text-indigo-600 focus:ring-0">
+            <div>
+              <p class="font-semibold text-slate-200">☀️ 08:00 Sáng - Khởi động ngày mới</p>
+              <p class="text-[11px] text-slate-400">Nhắc nhở học 20 từ vựng mới & 1 bài đọc theo mục tiêu ngày.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-2.5 cursor-pointer">
+            <input type="checkbox" id="settingRemindEvening" checked class="mt-0.5 rounded border-slate-700 text-indigo-600 focus:ring-0">
+            <div>
+              <p class="font-semibold text-slate-200">📚 19:30 Tối - Nhắc ôn tập ngắt quãng</p>
+              <p class="text-[11px] text-slate-400">Nhắc lật thẻ Flashcard và làm bài tập ngữ pháp chuyên đề.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-2.5 cursor-pointer">
+            <input type="checkbox" id="settingRemindDeadline" checked class="mt-0.5 rounded border-slate-700 text-indigo-600 focus:ring-0">
+            <div>
+              <p class="font-semibold text-amber-300">🚨 60 Phút trước Deadline - Cảnh báo khẩn cấp</p>
+              <p class="text-[11px] text-slate-400">Báo động nếu chưa hoàn thành bài để không bị đứt chuỗi Streak!</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="p-3 rounded-xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 flex items-center justify-between">
+          <span class="text-[11px]">🔔 Thử xem thông báo hoạt động trên thiết bị này:</span>
+          <button onclick="testSendDailyNotification()" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[11px] transition shadow">
+            Gửi thử ngay
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-2 flex gap-2">
+        <button onclick="closeDeadlineSettingsModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 transition">Hủy</button>
+        <button onclick="saveDeadlineSettings()" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition shadow-lg shadow-emerald-600/30">
+          Lưu & Áp Dụng Ngay
+        </button>
       </div>
     </div>
   </div>

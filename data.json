@@ -26446,938 +26446,1319 @@
   "grammar": [
     {
       "week_number": 1,
-      "title": "Chuyên đề 1: Thì động từ - Phần 1 (Hiện tại & Quá khứ: Đơn & Tiếp diễn)",
-      "summary": "Nắm vững bản chất, công thức và dấu hiệu của 4 thì nền tảng: Hiện tại đơn (Present Simple), Hiện tại tiếp diễn (Present Continuous), Quá khứ đơn (Past Simple) và Quá khứ tiếp diễn (Past Continuous).",
+      "title": "Chuyên đề 1: Thì Động Từ (Hiện Tại Đơn, HT Tiếp Diễn, Quá Khứ Đơn, QK Tiếp Diễn)",
+      "summary": "Nắm vững công thức, cách dùng và dấu hiệu nhận biết của 4 thì cơ bản nhất trong tiếng Anh theo sách Tổng ôn Ngữ pháp Cô Trang Anh.",
       "sections": [
         {
-          "subtitle": "1. Khái niệm & Bảng công thức chuẩn",
-          "content": "• **Hiện tại đơn (Present Simple):**\n  - Khẳng định (+): S + V(s/es) / S + am/is/are\n  - Phủ định (-): S + do/does + not + V_inf / S + am/is/are + not\n  - Nghi vấn (?): Do/Does + S + V_inf? / Am/Is/Are + S + ...?\n  *Cách dùng:* Diễn tả sự thật hiển nhiên, thói quen lặp đi lặp lại, hoặc lịch trình cố định (giờ tàu xe, thời khóa biểu).\n\n• **Hiện tại tiếp diễn (Present Continuous):**\n  - Công thức: S + am/is/are + V-ing\n  *Cách dùng:* Diễn tả hành động đang diễn ra tại thời điểm nói hoặc kế hoạch chắc chắn trong tương lai gần.\n\n• **Quá khứ đơn (Past Simple):**\n  - Khẳng định (+): S + V2/ed / S + was/were\n  - Phủ định (-): S + did not + V_inf / S + was/were + not\n  *Cách dùng:* Hành động đã xảy ra và kết thúc hoàn toàn trong quá khứ, có thời gian xác định.\n\n• **Quá khứ tiếp diễn (Past Continuous):**\n  - Công thức: S + was/were + V-ing\n  *Cách dùng:* Hành động đang diễn ra tại một thời điểm cụ thể trong quá khứ, hoặc hành động đang xảy ra thì có hành động khác xen vào (When + QKĐ, QKTD / While + QKTD, QKTD)."
+          "subtitle": "1. Thì Hiện tại đơn (Present Simple)",
+          "content": "• Công thức: S + V(s/es) | S + do/does not + V_bare | Do/Does + S + V_bare?\n• Cách dùng: Diễn tả chân lý, sự thật hiển nhiên, thói quen lặp đi lặp lại hoặc lịch trình cố định.\n• Dấu hiệu: always, usually, often, sometimes, seldom, every day/week/month, once/twice a year."
         },
         {
-          "subtitle": "2. Dấu hiệu nhận biết & Ví dụ song ngữ",
-          "content": "• **Hiện tại đơn:** always, usually, often, sometimes, rarely, every day/week/year.\n  *Ví dụ:* The sun rises in the east. (Mặt trời mọc ở hướng đông.)\n\n• **Hiện tại tiếp diễn:** now, right now, at the moment, currently, Listen!, Look!\n  *Ví dụ:* Listen! Someone is knocking on the door. (Lắng nghe kìa! Có ai đó đang gõ cửa.)\n\n• **Quá khứ đơn:** yesterday, last night/week/month, in 1999, ago, previously.\n  *Ví dụ:* She graduated from university two years ago. (Cô ấy tốt nghiệp đại học cách đây 2 năm.)\n\n• **Quá khứ tiếp diễn:** at 8 PM yesterday, at this time last Sunday, while, as.\n  *Ví dụ:* When I was cooking dinner, the phone rang. (Khi tôi đang nấu bữa tối thì chuông điện thoại reo.)"
+          "subtitle": "2. Thì Hiện tại tiếp diễn (Present Continuous)",
+          "content": "• Công thức: S + am/is/are + V-ing | S + am/is/are not + V-ing | Am/Is/Are + S + V-ing?\n• Cách dùng: Diễn tả hành động đang xảy ra tại thời điểm nói hoặc xung quanh thời điểm nói; phàn nàn thói quen xấu với 'always'.\n• Dấu hiệu: now, at the moment, at present, Look!, Listen!, Keep silent!..."
         },
         {
-          "subtitle": "3. Các bẫy thường gặp & Mẹo làm bài thi",
-          "content": "⚠️ **Bẫy Động từ chỉ trạng thái (Stative verbs):** Các động từ chỉ tri giác, cảm xúc (know, understand, believe, love, hate, want, seem, smell) KHÔNG chia ở thì tiếp diễn.\n  - Sai: *I am understanding the lesson.*\n  - Đúng: *I understand the lesson.*\n\n⚠️ **Bẫy hành động xen vào trong quá khứ:**\n  - Hành động kéo dài liên tục -> Dùng Quá khứ tiếp diễn (was/were + V-ing).\n  - Hành động đột ngột cắt ngang -> Dùng Quá khứ đơn (V2/ed)."
+          "subtitle": "3. Thì Quá khứ đơn (Past Simple)",
+          "content": "• Công thức: S + V2/ed | S + did not + V_bare | Did + S + V_bare?\n• Cách dùng: Diễn tả hành động đã xảy ra và chấm dứt hoàn toàn trong quá khứ, biết rõ thời gian.\n• Dấu hiệu: yesterday, ago, last week/month/year, in 1999, when I was young..."
+        },
+        {
+          "subtitle": "4. Thì Quá khứ tiếp diễn (Past Continuous)",
+          "content": "• Công thức: S + was/were + V-ing\n• Cách dùng: Diễn tả hành động đang xảy ra tại một thời điểm xác định trong quá khứ; hoặc hành động đang xảy ra thì có hành động khác xen vào (When + QKĐ, QKTD / While + QKTD, QKTD).\n• Dấu hiệu: at 8 PM yesterday, at this time last week, between 2 and 4 PM yesterday..."
         }
       ],
       "quiz": [
         {
-          "q": "At 7 PM yesterday, when we _______ dinner, the electricity suddenly went out.",
+          "q": "Look at those dark clouds! I think it ______ to rain soon.",
           "options": [
-            "have",
-            "were having",
-            "had had",
-            "are having"
+            "A. is going",
+            "B. goes",
+            "C. is raining",
+            "D. was raining"
           ],
-          "answer": 1,
-          "explain": "Thời điểm cụ thể trong quá khứ (At 7 PM yesterday) kết hợp hành động đang diễn ra kéo dài thì có sự cố cúp điện xen vào -> Dùng Quá khứ tiếp diễn (were having)."
+          "answer": "A",
+          "explain": "Dấu hiệu có căn cứ hiện tại (dark clouds) báo trước một sự việc sắp xảy ra -> be going to V: is going to rain."
         },
         {
-          "q": "Water _______ at 100 degrees Celsius under normal atmospheric pressure.",
+          "q": "I ______ my keys while I ______ through the central park yesterday.",
           "options": [
-            "is boiling",
-            "boil",
-            "boils",
-            "boiled"
+            "A. lost / was jogging",
+            "B. was losing / jogged",
+            "C. lost / jogged",
+            "D. was losing / was jogging"
           ],
-          "answer": 2,
-          "explain": "Sự thật hiển nhiên, chân lý khoa học -> Dùng thì Hiện tại đơn. Chủ ngữ 'Water' không đếm được -> động từ thêm 's' (boils)."
+          "answer": "A",
+          "explain": "Hành động chạy bộ đang diễn ra (was jogging) thì hành động đánh rơi chìa khóa bất chợt xen vào (lost)."
         },
         {
-          "q": "I _______ this mathematics problem now, so please do not disturb me.",
+          "q": "Mr. Brown ______ as a senior financial analyst for this bank for 10 years before he retired.",
           "options": [
-            "am solving",
-            "solve",
-            "solved",
-            "was solving"
+            "A. works",
+            "B. worked",
+            "C. is working",
+            "D. has worked"
           ],
-          "answer": 0,
-          "explain": "Dấu hiệu 'now' và ngữ cảnh yêu cầu đừng làm phiền chứng tỏ hành động đang giải toán đang diễn ra -> am solving."
+          "answer": "B",
+          "explain": "Vì ông Brown đã về hưu (retired - chấm dứt trong quá khứ) nên khoảng thời gian 10 năm đó không còn kéo dài tới hiện tại -> Quá khứ đơn: worked."
+        },
+        {
+          "q": "Why ______ you always ______ your dirty clothes on the floor? It really annoys me!",
+          "options": [
+            "A. do / leave",
+            "B. are / leaving",
+            "C. have / left",
+            "D. did / leave"
+          ],
+          "answer": "B",
+          "explain": "Thì Hiện tại tiếp diễn kết hợp với 'always' dùng để phàn nàn về một thói quen xấu gây bực mình: are you always leaving."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "While Sarah was studying in the library yesterday, her phone suddenly _______ (ring).",
+          "sentence": "Water (boil) ______ at 100 degrees Celsius under standard atmospheric pressure.",
+          "answer": "boils",
+          "alternatives": [
+            "boil"
+          ],
+          "hint": "Chân lý khoa học hiển nhiên -> Hiện tại đơn ngôi thứ 3 số ít",
+          "explain": "Quy tắc: Chân lý/sự thật khoa học dùng thì Hiện tại đơn. Chủ ngữ 'Water' là danh từ không đếm được nên động từ thêm -s: boils."
+        },
+        {
+          "sentence": "Listen! The baby (cry) ______ in the next bedroom.",
+          "answer": "is crying",
+          "alternatives": [
+            "'s crying"
+          ],
+          "hint": "Dấu hiệu 'Listen!' báo hiệu hành động đang diễn ra",
+          "explain": "Quy tắc: Các câu mệnh lệnh như Listen!, Look! báo hiệu hành động đang xảy ra ngay lúc nói -> Hiện tại tiếp diễn: is crying."
+        },
+        {
+          "sentence": "Yesterday while Mary was cooking dinner, the phone suddenly (ring) ______.",
           "answer": "rang",
-          "alternatives": [
-            "rang"
-          ],
-          "hint": "Hành động xen vào đột ngột trong quá khứ -> Chia thì Quá khứ đơn (V2 của ring).",
-          "explain": "Sarah đang học bài (hành động kéo dài - QKTD) thì điện thoại reo (hành động xen vào - QKĐ: rang)."
+          "alternatives": [],
+          "hint": "Hành động đang xảy ra (QKTD) thì hành động khác xen vào (QKĐ)",
+          "explain": "Quy tắc phối thì: Một hành động đang xảy ra trong quá khứ (was cooking) thì hành động ngắn bất chợt xen vào chia Quá khứ đơn: ring -> rang."
         },
         {
-          "sentence": "Look at those dark clouds! It _______ (rain) right now.",
-          "answer": "is raining",
+          "sentence": "At 8 PM yesterday, we (watch) ______ an exciting documentary on television.",
+          "answer": "were watching",
           "alternatives": [
-            "'s raining",
-            "is raining"
+            "watched"
           ],
-          "hint": "Có dấu hiệu 'Look!' và 'right now' -> Chia thì Hiện tại tiếp diễn.",
-          "explain": "Dấu hiệu 'Look!' và 'right now' chỉ hành động đang diễn ra tại thời điểm nói -> is raining."
+          "hint": "Thời điểm xác định trong quá khứ 'at 8 PM yesterday'",
+          "explain": "Quy tắc: Hành động đang xảy ra tại một mốc thời gian cụ thể trong quá khứ dùng Quá khứ tiếp diễn: were watching."
         },
         {
-          "sentence": "Every morning, my father _______ (drink) a cup of warm coffee before going to work.",
-          "answer": "drinks",
-          "alternatives": [
-            "drinks"
-          ],
-          "hint": "Thói quen hàng ngày (Every morning), chủ ngữ số ít 'my father' -> Thêm 's/es'.",
-          "explain": "Hiện tại đơn diễn tả thói quen lặp đi lặp lại. Chủ ngữ 'my father' ngôi thứ 3 số ít -> drinks."
+          "sentence": "He usually (go) ______ to school by bicycle, but today he is taking the bus.",
+          "answer": "goes",
+          "alternatives": [],
+          "hint": "Thói quen hàng ngày với 'usually'",
+          "explain": "Quy tắc: 'Usually' diễn tả thói quen định kỳ, chủ ngữ 'He' số ít -> goes."
         }
       ]
     },
     {
       "week_number": 2,
-      "title": "Chuyên đề 2: Thì động từ - Phần 2 (Hoàn thành & Tương lai)",
-      "summary": "Làm chủ 4 thì nâng cao: Hiện tại hoàn thành (Present Perfect), Quá khứ hoàn thành (Past Perfect), Tương lai đơn (Future Simple) và Tương lai gần (Be going to).",
+      "title": "Chuyên đề 2: Thì Hoàn Thành & Tương Lai (HTHT, QKHT, Tương Lai Hoàn Thành)",
+      "summary": "Công thức và sự phân biệt tinh tế giữa Hiện tại hoàn thành, Hiện tại HTTD, Quá khứ hoàn thành và Tương lai hoàn thành.",
       "sections": [
         {
-          "subtitle": "1. Khái niệm & Bảng công thức chuẩn",
-          "content": "• **Hiện tại hoàn thành (Present Perfect):**\n  - Công thức: S + have/has + V3/ed\n  *Cách dùng:* Hành động bắt đầu trong quá khứ, kéo dài đến hiện tại và có thể tiếp diễn trong tương lai; hoặc hành động vừa mới xảy ra để lại kết quả ở hiện tại.\n\n• **Quá khứ hoàn thành (Past Perfect):**\n  - Công thức: S + had + V3/ed\n  *Cách dùng:* Hành động xảy ra và kết thúc TRƯỚC một hành động hoặc mốc thời gian khác trong quá khứ.\n  *Cấu trúc vàng:* Before/By the time + S + V2/ed, S + had + V3/ed. / After + S + had + V3/ed, S + V2/ed.\n\n• **Tương lai đơn (Future Simple):**\n  - Công thức: S + will + V_inf\n  *Cách dùng:* Quyết định tức thì ngay lúc nói, lời hứa, dự đoán không có căn cứ rõ ràng.\n\n• **Tương lai gần (Be going to):**\n  - Công thức: S + am/is/are going to + V_inf\n  *Cách dùng:* Kế hoạch đã được dự định trước, hoặc dự đoán dựa trên bằng chứng cụ thể ở hiện tại."
+          "subtitle": "1. Thì Hiện tại hoàn thành (Present Perfect)",
+          "content": "• Công thức: S + have/has + Vp2\n• Cách dùng: Hành động bắt đầu trong quá khứ kéo dài đến hiện tại; hành động vừa mới xảy ra; trải nghiệm tính đến nay.\n• Dấu hiệu: already, just, yet, recently, so far, since + mốc, for + khoảng, ever, never."
         },
         {
-          "subtitle": "2. Dấu hiệu nhận biết & Phân biệt tinh tế",
-          "content": "• **Hiện tại hoàn thành:** since (+ mốc thời gian), for (+ khoảng thời gian), already, yet, just, recently, so far, up to now, ever, never, this is the first time...\n  *Ví dụ:* I have lived in this city for ten years. (Tôi đã sống ở thành phố này được 10 năm.)\n\n• **Quá khứ hoàn thành:** by the time, before, after, by 2010, until then.\n  *Ví dụ:* By the time the doctor arrived, the patient had recovered. (Trước khi bác sĩ đến, bệnh nhân đã hồi phục.)\n\n• **Phân biệt Will vs Be going to:**\n  - Look at the sky! It is going to rain. (Có mây đen làm bằng chứng -> dùng be going to).\n  - The phone is ringing. - I will answer it. (Quyết định tức thì -> dùng will)."
+          "subtitle": "2. Hiện tại hoàn thành tiếp diễn (Present Perfect Continuous)",
+          "content": "• Công thức: S + have/has been + V-ing\n• Cách dùng: Nhấn mạnh tính liên tục của hành động kéo dài từ quá khứ đến hiện tại hoặc để lại kết quả rõ rệt ở hiện tại."
         },
         {
-          "subtitle": "3. Các bẫy thường gặp & Lưu ý phòng thi",
-          "content": "⚠️ **Bẫy Since + Quá khứ đơn:**\n  - Mệnh đề trước since chia Hiện tại hoàn thành: S + have/has + V3/ed + since + S + V2/ed.\n  - Ví dụ: We haven't seen each other since we left school.\n\n⚠️ **Bẫy By the time:**\n  - By the time + Hiện tại đơn, Tương lai hoàn thành: By the time you arrive, I will have finished.\n  - By the time + Quá khứ đơn, Quá khứ hoàn thành: By the time you arrived, I had finished."
+          "subtitle": "3. Quá khứ hoàn thành (Past Perfect)",
+          "content": "• Công thức: S + had + Vp2\n• Cách dùng: Hành động xảy ra và hoàn tất TRƯỚC một hành động khác trong quá khứ hoặc trước một mốc thời gian trong quá khứ (By the time / Before / After)."
+        },
+        {
+          "subtitle": "4. Tương lai hoàn thành (Future Perfect)",
+          "content": "• Công thức: S + will have + Vp2\n• Cách dùng: Hành động sẽ hoàn thành TRƯỚC một thời điểm hoặc một hành động khác trong tương lai.\n• Dấu hiệu: By the end of this month, By next year, By the time + Hiện tại đơn..."
         }
       ],
       "quiz": [
         {
-          "q": "She _______ in Hanoi since she graduated from university five years ago.",
+          "q": "She ______ three international conferences so far this semester.",
           "options": [
-            "lives",
-            "is living",
-            "has lived",
-            "had lived"
+            "A. attended",
+            "B. has attended",
+            "C. had attended",
+            "D. is attending"
           ],
-          "answer": 2,
-          "explain": "Cấu trúc chuẩn: S + have/has + V3/ed + since + S + V2/ed. Hành động sống kéo dài từ lúc tốt nghiệp đến nay -> has lived."
+          "answer": "B",
+          "explain": "Dấu hiệu 'so far' (cho đến nay) là dấu hiệu điển hình của thì Hiện tại hoàn thành: has attended."
         },
         {
-          "q": "Look at those dark clouds! It _______ very soon.",
+          "q": "When we reached the stadium, the football match ______ already.",
           "options": [
-            "will rain",
-            "is going to rain",
-            "rained",
-            "rains"
+            "A. started",
+            "B. has started",
+            "C. had started",
+            "D. was starting"
           ],
-          "answer": 1,
-          "explain": "Dự đoán sự việc tương lai dựa trên căn cứ/dấu hiệu thực tế ở hiện tại (mây đen - dark clouds) -> dùng 'is going to rain'."
+          "answer": "C",
+          "explain": "Trận bóng đá bắt đầu trước thời điểm chúng tôi đến sân (reached) -> Quá khứ hoàn thành: had started."
         },
         {
-          "q": "After he _______ all his homework, he went out to play football with his friends.",
+          "q": "By this time tomorrow, John ______ in London for his new job interview.",
           "options": [
-            "finishes",
-            "has finished",
-            "had finished",
-            "finished"
+            "A. arrives",
+            "B. will arrive",
+            "C. will have arrived",
+            "D. had arrived"
           ],
-          "answer": 2,
-          "explain": "Hành động hoàn thành bài tập xảy ra trước hành động đi đá bóng (went) -> dùng Quá khứ hoàn thành (had finished)."
+          "answer": "C",
+          "explain": "Dấu hiệu 'By this time tomorrow' (trước thời điểm này ngày mai) -> Tương lai hoàn thành: will have arrived."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "By the time the fire brigade arrived at the scene, the fire _______ (already / destroy) the old warehouse.",
-          "answer": "had already destroyed",
-          "alternatives": [
-            "had already destroyed",
-            "had destroyed"
-          ],
-          "hint": "Hành động đám cháy phá hủy xảy ra TRƯỚC khi cứu hỏa đến -> Dùng Quá khứ hoàn thành (had + V3).",
-          "explain": "Cấu trúc: By the time + QKĐ (arrived), mệnh đề chính chia Quá khứ hoàn thành (had already destroyed)."
+          "sentence": "By the time the police arrived at the bank, the robbers (escape) ______.",
+          "answer": "had escaped",
+          "alternatives": [],
+          "hint": "Hành động xảy ra trước hành động đến (arrived) trong quá khứ",
+          "explain": "Quy tắc phối thì với 'By the time + S + V(quá khứ đơn), S + had + Vp2'. Tên cướp tẩu thoát trước khi cảnh sát tới -> had escaped."
         },
         {
-          "sentence": "Jane has worked as a senior software engineer for this company _______ 2018.",
-          "answer": "since",
+          "sentence": "I (live) ______ in this city for 5 years now, and I really love the friendly people here.",
+          "answer": "have lived",
           "alternatives": [
-            "since"
+            "have been living",
+            "'ve lived"
           ],
-          "hint": "Điền giới từ đi với mốc thời gian cụ thể (năm 2018) trong thì Hiện tại hoàn thành.",
-          "explain": "Dùng 'since' trước mốc thời gian xác định (năm 2018), dùng 'for' trước khoảng thời gian."
+          "hint": "Hành động bắt đầu trong quá khứ kéo dài đến nay với 'for 5 years now'",
+          "explain": "Thì Hiện tại hoàn thành (have lived) hoặc HTHT tiếp diễn diễn tả hành động kéo dài từ quá khứ đến hiện tại."
         },
         {
-          "sentence": "I haven't completed my quarterly financial report _______ (yet / already).",
-          "answer": "yet",
+          "sentence": "By the end of next month, our construction team (finish) ______ the suspension bridge.",
+          "answer": "will have finished",
           "alternatives": [
-            "yet"
+            "will finish"
           ],
-          "hint": "Từ dùng cuối câu phủ định của thì Hiện tại hoàn thành để diễn tả việc 'chưa làm'.",
-          "explain": "Trong câu phủ định của Hiện tại hoàn thành, dùng 'yet' ở cuối câu để mang nghĩa 'vẫn chưa'."
+          "hint": "Mốc thời gian 'By the end of next month' -> Tương lai hoàn thành",
+          "explain": "Dấu hiệu 'By + mốc tương lai' chia thì Tương lai hoàn thành: will have finished."
+        },
+        {
+          "sentence": "His hands are covered in grease because he (repair) ______ his car all afternoon.",
+          "answer": "has been repairing",
+          "alternatives": [
+            "has repaired"
+          ],
+          "hint": "Nhấn mạnh quá trình liên tục để lại dấu vết ở hiện tại",
+          "explain": "Hiện tại hoàn thành tiếp diễn (has been repairing) nhấn mạnh hành động diễn ra liên tục để lại hậu quả hiện tại."
         }
       ]
     },
     {
       "week_number": 3,
-      "title": "Chuyên đề 3: Sự phối thì (Sequence of Tenses)",
-      "summary": "Quy tắc hòa hợp thì giữa mệnh đề chính và mệnh đề phụ chỉ thời gian, nguyên nhân và kết quả. Tránh bẫy sai lệch dòng thời gian trong bài thi.",
+      "title": "Chuyên đề 3: Sự Phối Thì (Sequence of Tenses)",
+      "summary": "Quy tắc phối thì chuẩn mực giữa mệnh đề chính và mệnh đề trạng ngữ chỉ thời gian (When, As soon as, Until, By the time, Since).",
       "sections": [
         {
-          "subtitle": "1. Khái niệm & Nguyên tắc phối thì bất biến",
-          "content": "Sự phối thì là quy tắc chia thì giữa mệnh đề chính (Main Clause) và mệnh đề phụ (Subordinate Clause - thường bắt đầu bằng when, while, as, before, after, by the time, as soon as, until).\n\n• **Nguyên tắc 1 (Mệnh đề chính ở Hiện tại/Tương lai):**\n  - Mệnh đề phụ thường chia ở Hiện tại đơn hoặc Hiện tại hoàn thành. Tuyệt đối KHÔNG chia thì Tương lai sau liên từ chỉ thời gian.\n  - Ví dụ: I will call you as soon as I arrive. (KHÔNG dùng: *as soon as I will arrive*).\n\n• **Nguyên tắc 2 (Mệnh đề chính ở Quá khứ):**\n  - Mệnh đề phụ phải lùi về các thì Quá khứ tương ứng (QK đơn, QK tiếp diễn, QK hoàn thành hoặc would + V_inf).\n  - Ví dụ: He said that he was busy. (KHÔNG dùng: *He said that he is busy*)."
+          "subtitle": "1. Phối thì Hiện tại - Tương lai",
+          "content": "• Mệnh đề trạng ngữ chỉ thời gian (sau When, As soon as, Once, Until) KHÔNG dùng thì tương lai (will), mà phải dùng Hiện tại đơn hoặc Hiện tại hoàn thành.\n• Công thức: S + will + V_bare + as soon as / when / until + S + V(hiện tại đơn)."
         },
         {
-          "subtitle": "2. Bảng tổng hợp công thức phối thì thường gặp",
-          "content": "• **When + QKĐ, QKĐ:** Hai hành động xảy ra nối tiếp nhau trong quá khứ.\n  - Ví dụ: When the bell rang, the students ran out of class.\n\n• **When + QKĐ, QKTD:** Một hành động đang xảy ra thì hành động khác chen ngang.\n  - Ví dụ: When I arrived, they were watching a movie.\n\n• **When + QKĐ, QKHT:** Hành động trong mệnh đề chính đã hoàn tất trước khi hành động sau when xảy ra.\n  - Ví dụ: When we reached the cinema, the film had already started.\n\n• **Until / As soon as / Once + S + V(hiện tại đơn), S + will + V_inf:**\n  - Ví dụ: We will wait here until she comes back."
+          "subtitle": "2. Phối thì Quá khứ",
+          "content": "• When + QKĐ, QKĐ (hai hành động nối tiếp nhau trong quá khứ).\n• When + QKĐ, QKTD (hành động đang xảy ra thì hành động khác chen vào).\n• When + QKĐ, QKHT (hành động đã hoàn thành trước khi hành động khác tới).\n• S + had + Vp2 + before / by the time + S + V2/ed."
         },
         {
-          "subtitle": "3. Bẫy phòng thi cần ghi nhớ",
-          "content": "⚠️ **Bẫy mệnh đề thời gian:** Trong các mệnh đề bắt đầu bằng *when, while, as soon as, before, after, until, once*, KHÔNG BAO GIỜ dùng thì tương lai (will/shall).\n  - Sai: *I will tell him when he will come.*\n  - Đúng: *I will tell him when he comes.*"
+          "subtitle": "3. Phối thì với Since",
+          "content": "• Công thức bất biến: S + have/has + Vp2 + SINCE + S + V2/ed (hoặc mốc thời gian trong quá khứ)."
         }
       ],
       "quiz": [
         {
-          "q": "We will start the meeting as soon as our director _______.",
+          "q": "I will wait here until you ______ your assignment.",
           "options": [
-            "will arrive",
-            "arrives",
-            "arrived",
-            "is arriving"
+            "A. will finish",
+            "B. finish",
+            "C. finished",
+            "D. had finished"
           ],
-          "answer": 1,
-          "explain": "Trong mệnh đề trạng ngữ chỉ thời gian bắt đầu bằng 'as soon as', ta dùng thì Hiện tại đơn (arrives) để diễn tả tương lai, không dùng 'will'."
+          "answer": "B",
+          "explain": "Sau liên từ 'until' trong mệnh đề thời gian tương lai, tuyệt đối không dùng 'will', phải dùng Hiện tại đơn: finish."
         },
         {
-          "q": "Yesterday, by the time David reached the station, the train _______.",
+          "q": "No sooner ______ the house than it started pouring with rain.",
           "options": [
-            "left",
-            "has left",
-            "had already left",
-            "was leaving"
+            "A. had I left",
+            "B. I had left",
+            "C. did I leave",
+            "D. have I left"
           ],
-          "answer": 2,
-          "explain": "Cấu trúc: By the time + QKĐ (reached), mệnh đề chính chia Quá khứ hoàn thành (had already left) để chỉ hành động xảy ra và kết thúc trước."
+          "answer": "A",
+          "explain": "Cấu trúc đảo ngữ phối thì: No sooner + had + S + Vp2 + than + S + V2/ed (Vừa mới... thì...)."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "I will give you a call as soon as I _______ (finish) my presentation.",
-          "answer": "finish",
+          "sentence": "I will give him your message as soon as he (arrive) ______ at the airport.",
+          "answer": "arrives",
           "alternatives": [
-            "finish",
-            "have finished"
+            "has arrived"
           ],
-          "hint": "Mệnh đề sau liên từ chỉ thời gian 'as soon as' không được dùng 'will', phải chia thì Hiện tại.",
-          "explain": "Quy tắc phối thì: Tương lai đơn (will give) + as soon as + Hiện tại đơn (finish)."
+          "hint": "Sau liên từ chỉ thời gian 'as soon as' dùng thì Hiện tại đơn, không dùng will",
+          "explain": "Quy tắc vàng: Mệnh đề chỉ thời gian đi với as soon as, when chia hiện tại đơn (arrives) khi mệnh đề chính ở tương lai."
         },
         {
-          "sentence": "When Mr. Brown walked into the conference room, everyone _______ (stand) up to applaud.",
-          "answer": "stood",
-          "alternatives": [
-            "stood"
-          ],
-          "hint": "Hai hành động xảy ra nối tiếp nhau trong quá khứ -> Cả hai đều chia Quá khứ đơn.",
-          "explain": "Hành động bước vào và đứng dậy vỗ tay diễn ra liên tiếp -> chia Quá khứ đơn (stood)."
+          "sentence": "We haven't seen each other since we (graduate) ______ from university in 2020.",
+          "answer": "graduated",
+          "alternatives": [],
+          "hint": "Sau 'since' mệnh đề chia ở Quá khứ đơn",
+          "explain": "Cấu trúc kinh điển: Hiện tại hoàn thành (haven't seen) + since + Quá khứ đơn (graduated)."
+        },
+        {
+          "sentence": "He had turned off all the lights before he (leave) ______ the office.",
+          "answer": "left",
+          "alternatives": [],
+          "hint": "Mệnh đề sau 'before' chia Quá khứ đơn",
+          "explain": "Hành động tắt điện (had turned off) xảy ra trước hành động rời đi (left) -> sau before chia Quá khứ đơn."
         }
       ]
     },
     {
       "week_number": 4,
-      "title": "Chuyên đề 4: Sự hòa hợp Chủ ngữ & Động từ (Subject-Verb Agreement)",
-      "summary": "Quy tắc quyết định động từ chia số ít hay số nhiều dựa trên các loại chủ ngữ đặc biệt: danh từ tập hợp, đại từ bất định, cấu trúc either...or, neither...nor, as well as.",
+      "title": "Chuyên đề 4: Sự Hòa Hợp Giữa Chủ Ngữ & Động Từ (Subject-Verb Agreement)",
+      "summary": "Nắm trọn các quy tắc chia động từ theo chủ ngữ đơn, chủ ngữ ghép, đại từ bất định, danh từ tập hợp và các bẫy đề thi kinh điển.",
       "sections": [
         {
-          "subtitle": "1. Các trường hợp luôn chia Động từ SỐ ÍT",
-          "content": "• **Chủ ngữ là đại từ bất định:** everyone, someone, anyone, no one, everybody, somebody, anybody, nobody, everything, something, anything, nothing, each, every.\n  - Ví dụ: Everyone is eager to join the trip. / Each of the students has a laptop.\n\n• **Chủ ngữ chỉ thời gian, khoảng cách, tiền bạc, đo lường:**\n  - Ví dụ: Ten miles is a long distance to walk. / Fifty dollars is too expensive for this shirt.\n\n• **Chủ ngữ là tựa đề sách, phim, môn học, căn bệnh:** mathematics, physics, economics, measles, news.\n  - Ví dụ: The news was surprising. / Physics is my favorite subject.\n\n• **Chủ ngữ là V-ing (Danh động từ):**\n  - Ví dụ: Learning foreign languages opens many opportunities."
+          "subtitle": "1. Các trường hợp chia động từ số ít",
+          "content": "• Mỗi, từng (Each, Every), đại từ bất định (Everyone, Someone, Anybody, Nothing...).\n• Khoảng cách, thời gian, tiền bạc, đo lường (Ten miles, Two hours, 100 dollars).\n• Tên môn học, bệnh tật, quốc gia tận cùng là -s (Physics, Mathematics, Measles, The United States).\n• Cụm V-ing hoặc Mệnh đề danh ngữ làm chủ ngữ (Learning English is fun)."
         },
         {
-          "subtitle": "2. Các trường hợp chia Động từ SỐ NHIỀU hoặc theo Chủ ngữ gần nhất",
-          "content": "• **Luôn chia số nhiều:** The + Tính từ (chỉ tập hợp người: the rich, the poor, the blind, the homeless), people, cattle, police.\n  - Ví dụ: The police are investigating the robbery. / The poor need our support.\n\n• **Cấu trúc chia theo Chủ ngữ GẦN NHẤT (S2):**\n  - Either S1 or S2 + V(chia theo S2)\n  - Neither S1 nor S2 + V(chia theo S2)\n  - Not only S1 but also S2 + V(chia theo S2)\n  - Ví dụ: Neither the manager nor the employees were informed.\n\n• **Cấu trúc chia theo Chủ ngữ ĐẦU TIÊN (S1):**\n  - S1 + as well as / along with / together with / accompanied by / in addition to + S2 + V(chia theo S1)\n  - Ví dụ: The teacher, together with her students, is visiting the museum."
+          "subtitle": "2. Chia theo chủ ngữ thứ nhất hoặc thứ hai",
+          "content": "• Chia theo S1: S1 + together with / along with / as well as / accompanied by + S2 -> V chia theo S1.\n• Chia theo S2 (gần động từ nhất): Either S1 or S2 / Neither S1 nor S2 / Not only S1 but also S2 -> V chia theo S2."
         },
         {
-          "subtitle": "3. Bẫy tinh vi: A number of vs The number of",
-          "content": "⚠️ **Phân biệt kinh điển:**\n  - **A number of + N(số nhiều) + V(số nhiều):** Mang nghĩa là 'nhiều' (many).\n    *Ví dụ:* A number of students are waiting outside.\n  - **The number of + N(số nhiều) + V(SỐ ÍT):** Mang nghĩa là 'số lượng của...'.\n    *Ví dụ:* The number of applicants has increased sharply this year."
+          "subtitle": "3. The number of vs A number of",
+          "content": "• The number of + N(số nhiều) + V(số ít) [Ý nghĩa: Số lượng của...].\n• A number of + N(số nhiều) + V(số nhiều) [Ý nghĩa: Rất nhiều...]."
         }
       ],
       "quiz": [
         {
-          "q": "The manager, along with two assistant directors, _______ attending the annual summit.",
+          "q": "A number of applicants ______ already submitted their resumes online.",
           "options": [
-            "is",
-            "are",
-            "were",
-            "have been"
+            "A. has",
+            "B. have",
+            "C. is",
+            "D. was"
           ],
-          "answer": 0,
-          "explain": "Cấu trúc: S1 + along with + S2 + V(chia theo S1). Chủ ngữ S1 là 'The manager' số ít -> dùng 'is'."
+          "answer": "B",
+          "explain": "'A number of + N số nhiều' mang nghĩa 'nhiều' nên động từ chia số nhiều -> have submitted."
         },
         {
-          "q": "Ten kilometers _______ considered too long for an untrained person to run without resting.",
+          "q": "The number of endangered species in this national reserve ______ steadily over the past five years.",
           "options": [
-            "are",
-            "is",
-            "were",
-            "have been"
+            "A. have increased",
+            "B. has increased",
+            "C. are increasing",
+            "D. were increasing"
           ],
-          "answer": 1,
-          "explain": "Khoảng cách đo lường (Ten kilometers) được coi là một đơn vị tổng thể duy nhất -> chia động từ số ít (is)."
+          "answer": "B",
+          "explain": "'The number of...' biểu thị số lượng (số ít) nên động từ chia số ít -> has increased."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "The number of endangered species _______ (be) increasing at an alarming rate worldwide.",
+          "sentence": "The teacher, along with his twenty students, (be) ______ visiting the history museum today.",
           "answer": "is",
           "alternatives": [
-            "is"
+            "'s"
           ],
-          "hint": "Cấu trúc 'The number of + N số nhiều' luôn đi với động từ số ít.",
-          "explain": "'The number of' nhấn mạnh vào con số/số lượng cụ thể -> chia động từ số ít (is)."
+          "hint": "Cụm 'along with' -> động từ chia theo chủ ngữ thứ nhất (The teacher)",
+          "explain": "Khi hai chủ ngữ nối với nhau bằng 'along with', động từ chia theo S1 (The teacher - số ít) -> is."
         },
         {
-          "sentence": "Neither John nor his close friends _______ (be) available to attend the party tonight.",
-          "answer": "are",
+          "sentence": "Neither the manager nor his assistants (agree) ______ with the proposed policy.",
+          "answer": "agree",
+          "alternatives": [],
+          "hint": "Neither... nor... -> chia theo chủ ngữ gần nhất (his assistants)",
+          "explain": "Quy tắc: Với Neither S1 nor S2, động từ hòa hợp theo S2 gần nó nhất. 'his assistants' là số nhiều -> agree."
+        },
+        {
+          "sentence": "Ten thousand dollars (be) ______ an enormous sum of money for a high school student.",
+          "answer": "is",
           "alternatives": [
-            "are"
+            "was"
           ],
-          "hint": "Cấu trúc 'Neither S1 nor S2' -> động từ hòa hợp theo chủ ngữ gần nhất S2 (his close friends).",
-          "explain": "Chủ ngữ gần nhất 'his close friends' là số nhiều -> dùng 'are'."
+          "hint": "Số tiền bạc được coi là một thể thống nhất -> số ít",
+          "explain": "Số tiền, khoảng cách, thời gian được xem là một khối duy nhất nên luôn chia động từ số ít -> is."
         }
       ]
     },
     {
       "week_number": 5,
-      "title": "Chuyên đề 5: Câu bị động (Passive Voice & Thể truyền khiến)",
-      "summary": "Công thức biến đổi bị động cho các thì, động từ khuyết thiếu, cấu trúc bị động đặc biệt (động từ chỉ ý kiến, thể truyền khiến have/get sth done).",
+      "title": "Chuyên đề 5: Câu Bị Động (Passive Voice & Cấu Trúc Truyền Khiến)",
+      "summary": "Công thức chuyển đổi câu chủ động sang bị động của tất cả các thì, bị động đặc biệt, và thể truyền khiến (have/get something done).",
       "sections": [
         {
-          "subtitle": "1. Công thức bị động tổng quát & Các thì cơ bản",
-          "content": "• **Công thức gốc:** S + be + V3/ed (+ by O)\n  - Hiện tại đơn: am/is/are + V3/ed\n  - Hiện tại tiếp diễn: am/is/are + being + V3/ed\n  - Quá khứ đơn: was/were + V3/ed\n  - Hiện tại hoàn thành: have/has + been + V3/ed\n  - Động từ khuyết thiếu (Modal verbs): modal + be + V3/ed\n\n• **Ví dụ:**\n  - Chủ động: The mechanic is repairing my car.\n  - Bị động: My car is being repaired by the mechanic."
+          "subtitle": "1. Nguyên tắc cốt lõi của câu bị động",
+          "content": "• Công thức chung: S + Be + Vp2 (+ by O).\n• Động từ 'Be' được chia theo đúng thì của câu chủ động và hòa hợp với chủ ngữ mới."
         },
         {
-          "subtitle": "2. Cấu trúc bị động đặc biệt & Thể truyền khiến (Causative)",
-          "content": "• **Thể truyền khiến (Nhờ ai làm gì / Có cái gì được làm):**\n  - Chủ động: Have sb do sth / Get sb to do sth (Nhờ ai làm việc gì)\n  - Bị động: Have/Get sth done (by sb) (Có cái gì được làm bởi ai)\n  - *Ví dụ:* I had my roof repaired yesterday. (Tôi đã thuê người sửa mái nhà hôm qua.)\n\n• **Bị động với động từ chỉ quan điểm, ý kiến (say, think, believe, report):**\n  - Dạng 1: It is said/believed/thought that + S + V...\n  - Dạng 2: S + is/are said/believed + to V_inf (nếu cùng thì) / to have V3/ed (nếu trước thì)."
+          "subtitle": "2. Cấu trúc nhờ vả / truyền khiến (Causative Form)",
+          "content": "• Have: S + have + someone + V_bare = S + have + something + Vp2 (nhờ ai làm gì).\n• Get: S + get + someone + TO V = S + get + something + Vp2."
+        },
+        {
+          "subtitle": "3. Bị động với động từ chỉ quan điểm (Say, Think, Believe)",
+          "content": "• It is said/thought/believed that S + V...\n• S + is/are said to + V_bare (cùng thì) hoặc to have + Vp2 (khác thì/xảy ra trước)."
         }
       ],
       "quiz": [
         {
-          "q": "The new hospital _______ by the prime minister next Monday.",
+          "q": "The suspect is believed ______ the country two days before the arrest warrant was issued.",
           "options": [
-            "will inaugurate",
-            "will be inaugurated",
-            "is inaugurated",
-            "inaugurates"
+            "A. to leave",
+            "B. to be leaving",
+            "C. to have left",
+            "D. having left"
           ],
-          "answer": 1,
-          "explain": "Chủ ngữ 'The new hospital' chịu tác động của hành động khánh thành trong tương lai -> Bị động tương lai đơn: will be inaugurated."
+          "answer": "C",
+          "explain": "Hành động rời khỏi đất nước xảy ra trước thời điểm hiện tại 'is believed' -> dùng 'to have + Vp2' (to have left)."
+        },
+        {
+          "q": "She got her brother ______ her heavy luggage up to the fifth floor.",
+          "options": [
+            "A. carry",
+            "B. to carry",
+            "C. carried",
+            "D. carrying"
+          ],
+          "answer": "B",
+          "explain": "Cấu trúc truyền khiến với Get: Get + somebody + TO V -> to carry."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "I need to go to the garage to have my car _______ (inspect) before the long road trip.",
-          "answer": "inspected",
+          "sentence": "The new modern hospital (build) ______ in this neighborhood next year.",
+          "answer": "will be built",
           "alternatives": [
-            "inspected"
+            "is going to be built"
           ],
-          "hint": "Cấu trúc truyền khiến bị động: have + something + V3/ed.",
-          "explain": "Cấu trúc: Have + sth (my car) + V3/ed (inspected) mang nghĩa 'cho xe được kiểm tra/bảo dưỡng'."
+          "hint": "Bị động thì Tương lai đơn (will + be + Vp2)",
+          "explain": "Chủ ngữ 'The new hospital' là vật chịu tác động, thời gian 'next year' -> will be built."
+        },
+        {
+          "sentence": "I need to have my car (repair) ______ by a certified mechanic this weekend.",
+          "answer": "repaired",
+          "alternatives": [],
+          "hint": "Cấu trúc truyền khiến: Have + something + Vp2",
+          "explain": "Cấu trúc: Have + sth + Vp2 (nhờ sửa cái gì). 'my car' là vật được sửa -> repaired."
         }
       ]
     },
     {
       "week_number": 6,
-      "title": "Chuyên đề 6: Câu điều kiện & Câu ước (Conditionals & Wish)",
-      "summary": "Công thức và ứng dụng của Câu điều kiện loại 1, 2, 3, điều kiện hỗn hợp (Mixed conditionals), đảo ngữ câu điều kiện và cấu trúc Wish/If only.",
+      "title": "Chuyên đề 6: Câu Điều Kiện & Câu Điều Ước (Conditionals & Wish)",
+      "summary": "Công thức loại 1, 2, 3, điều kiện hỗn hợp (Mixed conditionals), đảo ngữ câu điều kiện, cấu trúc Wish và If only.",
       "sections": [
         {
-          "subtitle": "1. Bảng 3 loại câu điều kiện chuẩn",
-          "content": "• **Loại 1 (Có thật ở hiện tại/tương lai):**\n  - If + S + V(hiện tại đơn), S + will/can/may + V_inf\n  - Ví dụ: If it rains tomorrow, we will stay at home.\n\n• **Loại 2 (Không có thật ở hiện tại):**\n  - If + S + V2/ed (were cho mọi ngôi), S + would/could + V_inf\n  - Ví dụ: If I were you, I would accept that job offer.\n\n• **Loại 3 (Không có thật trong quá khứ):**\n  - If + S + had + V3/ed, S + would/could + have + V3/ed\n  - Ví dụ: If she had studied harder, she would have passed the exam."
+          "subtitle": "1. Ba loại câu điều kiện cơ bản",
+          "content": "• Loại 1 (Có thật ở hiện tại/tương lai): If + S + V(hiện tại đơn), S + will/can + V_bare.\n• Loại 2 (Không có thật ở hiện tại): If + S + V2/were, S + would/could + V_bare.\n• Loại 3 (Không có thật ở quá khứ): If + S + had + Vp2, S + would/could have + Vp2."
         },
         {
-          "subtitle": "2. Đảo ngữ câu điều kiện & Câu ước (Wish)",
-          "content": "• **Đảo ngữ (Bỏ 'If'):**\n  - Loại 1: Should + S + V_inf, S + will + V_inf\n  - Loại 2: Were + S + to V_inf / Were + S + adj/noun, S + would + V_inf\n  - Loại 3: Had + S + V3/ed, S + would have + V3/ed\n\n• **Cấu trúc Wish / If only (Ước):**\n  - Ước cho hiện tại: S + wish + S + V2/ed (were)\n  - Ước cho quá khứ: S + wish + S + had + V3/ed\n  - Ước cho tương lai: S + wish + S + would/could + V_inf"
+          "subtitle": "2. Câu điều kiện hỗn hợp (Mixed Conditionals)",
+          "content": "• Giả thiết trái ngược quá khứ, kết quả ở hiện tại: If + S + had + Vp2, S + would + V_bare (dấu hiệu: now, today ở vế chính)."
+        },
+        {
+          "subtitle": "3. Đảo ngữ câu điều kiện (Bỏ IF)",
+          "content": "• Loại 1: Should + S + V_bare, S + will + V_bare.\n• Loại 2: Were + S + to V (hoặc Were + S + ...), S + would + V_bare.\n• Loại 3: Had + S + Vp2, S + would have + Vp2."
         }
       ],
       "quiz": [
         {
-          "q": "_______ you need any further assistance, please do not hesitate to contact our support team.",
+          "q": "______ you require any further assistance, please do not hesitate to contact our customer support desk.",
           "options": [
-            "Should",
-            "Were",
-            "Had",
-            "Unless"
+            "A. Should",
+            "B. Were",
+            "C. Had",
+            "D. If should"
           ],
-          "answer": 0,
-          "explain": "Đảo ngữ câu điều kiện loại 1: Should + S + V_inf = If you need any further assistance."
+          "answer": "A",
+          "explain": "Đảo ngữ câu điều kiện loại 1: Should + S + V_bare = If + S + V."
+        },
+        {
+          "q": "I wish I ______ enough money right now to purchase that electric car.",
+          "options": [
+            "A. have",
+            "B. had",
+            "C. had had",
+            "D. will have"
+          ],
+          "answer": "B",
+          "explain": "Ước một điều trái với thực tế ở hiện tại (right now) lùi về Quá khứ đơn: had."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "If I _______ (know) his phone number yesterday, I would have invited him to dinner.",
+          "sentence": "If I (know) ______ your phone number yesterday, I would have called you immediately.",
           "answer": "had known",
+          "alternatives": [],
+          "hint": "Điều kiện loại 3 trái ngược quá khứ: If + had + Vp2",
+          "explain": "Vế chính có 'would have called' và có 'yesterday' -> Điều kiện loại 3: had known."
+        },
+        {
+          "sentence": "If he studied harder in high school, he (not be) ______ struggling at university right now.",
+          "answer": "would not be",
           "alternatives": [
-            "had known"
+            "wouldn't be"
           ],
-          "hint": "Điều kiện loại 3 (không có thật trong quá khứ: yesterday -> had + V3).",
-          "explain": "Vế chính có 'would have invited' -> vế If chia Quá khứ hoàn thành: had known."
+          "hint": "Điều kiện hỗn hợp: Điều kiện quá khứ, kết quả hiện tại 'right now'",
+          "explain": "Vế chính có dấu hiệu 'right now' ở hiện tại -> câu điều kiện hỗn hợp: would not be."
         }
       ]
     },
     {
       "week_number": 7,
-      "title": "Chuyên đề 7: Mệnh đề quan hệ & Rút gọn mệnh đề quan hệ",
-      "summary": "Phân biệt đại từ quan hệ (Who, Whom, Which, That, Whose), mệnh đề xác định & không xác định, và 3 cách rút gọn mệnh đề quan hệ đỉnh cao.",
+      "title": "Chuyên đề 7: Câu Gián Tiếp / Tường Thuật (Reported Speech)",
+      "summary": "Quy tắc lùi thì, biến đổi đại từ, trạng từ chỉ thời gian nơi chốn và các động từ tường thuật đặc biệt (accuse of, apologize for, deny, insist on).",
       "sections": [
         {
-          "subtitle": "1. Đại từ & Trạng từ quan hệ cốt lõi",
-          "content": "• **Who:** Thay cho danh từ chỉ người, làm chủ ngữ/tân ngữ.\n• **Whom:** Thay cho danh từ chỉ người, làm tân ngữ (đứng sau giới từ: to whom, with whom).\n• **Which:** Thay cho danh từ chỉ vật.\n• **That:** Thay cho cả người và vật trong mệnh đề xác định (không đứng sau dấu phẩy và giới từ).\n• **Whose:** Chỉ sở hữu (N1 + whose + N2).\n• **Where / When / Why:** Chỉ nơi chốn, thời gian, lý do."
+          "subtitle": "1. Quy tắc lùi thì khi động từ tường thuật ở quá khứ (said, told)",
+          "content": "• Hiện tại đơn -> Quá khứ đơn\n• Hiện tại tiếp diễn -> Quá khứ tiếp diễn\n• Hiện tại hoàn thành / Quá khứ đơn -> Quá khứ hoàn thành\n• Will -> Would | Can -> Could | Must -> Had to."
         },
         {
-          "subtitle": "2. Ba quy tắc rút gọn mệnh đề quan hệ chuẩn",
-          "content": "• **Rút gọn dạng chủ động -> Dùng V-ing:**\n  - The man who stands at the gate -> The man standing at the gate.\n\n• **Rút gọn dạng bị động -> Dùng V3/ed:**\n  - The books which were written by him -> The books written by him.\n\n• **Rút gọn sau the first, the second, the last, the only, so sánh nhất -> Dùng To V_inf:**\n  - Neil Armstrong was the first person who walked on the Moon -> the first person to walk on the Moon."
+          "subtitle": "2. Biến đổi trạng từ chỉ thời gian & nơi chốn",
+          "content": "• Now -> then | Here -> there | Today -> that day | Yesterday -> the day before / previous day | Tomorrow -> the following day."
+        },
+        {
+          "subtitle": "3. Động từ tường thuật với V-ing và To V",
+          "content": "• S + accuse + O + of + V-ing (buộc tội ai)\n• S + apologize to O + for + V-ing (xin lỗi)\n• S + advise / encourage / invite / warn + O + to V."
         }
       ],
       "quiz": [
         {
-          "q": "He was the first athlete from our country _______ a gold medal at the Olympic Games.",
+          "q": "The young man denied ______ the expensive diamond necklace from the store.",
           "options": [
-            "win",
-            "to win",
-            "winning",
-            "won"
+            "A. steal",
+            "B. to steal",
+            "C. stealing",
+            "D. to have stolen"
           ],
-          "answer": 1,
-          "explain": "Sau số thứ tự (the first, the second...) ta rút gọn mệnh đề quan hệ bằng 'To V_inf' -> to win."
+          "answer": "C",
+          "explain": "Động từ 'deny' đi với V-ing (phủ nhận đã làm gì): denying + stealing."
+        },
+        {
+          "q": "Mary asked me ______ I had ever visited Singapore before.",
+          "options": [
+            "A. weather",
+            "B. if",
+            "C. that",
+            "D. what"
+          ],
+          "answer": "B",
+          "explain": "Tường thuật câu hỏi Yes/No dùng liên từ 'if' hoặc 'whether'."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "The girl _______ (sit) next to the window is the top student in our class.",
-          "answer": "sitting",
+          "sentence": "The police officer ordered the driver (show) ______ his driving license.",
+          "answer": "to show",
+          "alternatives": [],
+          "hint": "Cấu trúc tường thuật câu mệnh lệnh: Order someone + TO V",
+          "explain": "Cấu trúc: S + order + O + to V -> to show."
+        },
+        {
+          "sentence": "He apologized to his teacher for (be) ______ late for class this morning.",
+          "answer": "being",
           "alternatives": [
-            "sitting"
+            "having been"
           ],
-          "hint": "Rút gọn mệnh đề quan hệ ở thể chủ động (who is sitting) -> dùng V-ing.",
-          "explain": "Dạng chủ động rút gọn thành V-ing: The girl sitting next to the window."
+          "hint": "Cấu trúc: Apologize to someone for + V-ing",
+          "explain": "Sau giới từ 'for' động từ thêm -ing -> being / having been."
         }
       ]
     },
     {
       "week_number": 8,
-      "title": "Chuyên đề 8: Câu gián tiếp (Reported Speech)",
-      "summary": "Quy tắc lùi thì, biến đổi đại từ, tính từ sở hữu và trạng từ chỉ thời gian - nơi chốn trong câu tường thuật câu kể, câu hỏi và câu mệnh lệnh.",
+      "title": "Chuyên đề 8: Cấp So Sánh (Comparisons: Bằng, Hơn, Nhất, Kép)",
+      "summary": "Công thức so sánh ngang bằng, so sánh hơn/nhất của tính từ và trạng từ ngắn/dài, cùng cấu trúc so sánh kép (The more... the more...).",
       "sections": [
         {
-          "subtitle": "1. Quy tắc lùi thì bất biến",
-          "content": "Khi động từ tường thuật ở quá khứ (said, told, asked), ta lùi thì:\n- Hiện tại đơn -> Quá khứ đơn\n- Hiện tại tiếp diễn -> Quá khứ tiếp diễn\n- Hiện tại hoàn thành / Quá khứ đơn -> Quá khứ hoàn thành\n- Will -> Would, Can -> Could, May -> Might, Must -> Had to."
+          "subtitle": "1. So sánh bằng & không bằng",
+          "content": "• Khẳng định: S + V + as + adj/adv + as + N/Pronoun.\n• Phủ định: S + V not + as/so + adj/adv + as + N/Pronoun."
         },
         {
-          "subtitle": "2. Biến đổi trạng từ thời gian & nơi chốn",
-          "content": "• now -> then\n• today -> that day\n• yesterday -> the day before / the previous day\n• tomorrow -> the next day / the following day\n• ago -> before\n• this / these -> that / those\n• here -> there"
+          "subtitle": "2. So sánh hơn & So sánh nhất",
+          "content": "• Ngắn: adj/adv-er + than | the + adj/adv-est.\n• Dài: more + adj/adv + than | the most + adj/adv.\n• Ngoại lệ: good/well -> better -> best | bad/badly -> worse -> worst | far -> farther/further -> farthest/furthest."
+        },
+        {
+          "subtitle": "3. So sánh kép (The + so sánh hơn, the + so sánh hơn)",
+          "content": "• Càng... thì càng...: The + comparative + S + V, the + comparative + S + V.\n• Ví dụ: The harder you study, the higher scores you will achieve."
         }
       ],
       "quiz": [
         {
-          "q": "She asked me where _______ during my summer vacation.",
+          "q": "The higher the altitude of a mountain is, ______ the atmospheric temperature becomes.",
           "options": [
-            "I had gone",
-            "had I gone",
-            "did I go",
-            "I have gone"
+            "A. colder",
+            "B. the coldest",
+            "C. the colder",
+            "D. more cold"
           ],
-          "answer": 0,
-          "explain": "Trong câu hỏi gián tiếp, cấu trúc là 'S + V' (không đảo trợ động từ lên trước chủ ngữ) và phải lùi thì -> where I had gone."
+          "answer": "C",
+          "explain": "Cấu trúc so sánh kép sóng đôi: The higher..., the colder..."
+        },
+        {
+          "q": "His performance today was ______ than his rehearsal yesterday.",
+          "options": [
+            "A. far good",
+            "B. much better",
+            "C. very better",
+            "D. more well"
+          ],
+          "answer": "B",
+          "explain": "Để nhấn mạnh so sánh hơn dùng 'much' hoặc 'far' trước tính từ so sánh hơn (better): much better."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "\"I am working on a new project today,\" David said. -> David said that he _______ working on a new project that day.",
-          "answer": "was",
-          "alternatives": [
-            "was"
-          ],
-          "hint": "Lùi thì Hiện tại tiếp diễn (am working) về Quá khứ tiếp diễn.",
-          "explain": "Câu gián tiếp lùi thì từ 'am working' thành 'was working'."
+          "sentence": "The more you practice speaking English, the (confident) ______ you will become.",
+          "answer": "more confident",
+          "alternatives": [],
+          "hint": "Cấu trúc so sánh kép: The more + S + V, the more + adj + S + V",
+          "explain": "Confident là tính từ dài nên trong cấu trúc so sánh kép dùng: the more confident."
+        },
+        {
+          "sentence": "This luxury sports car is by far the (expensive) ______ vehicle in our showroom.",
+          "answer": "most expensive",
+          "alternatives": [],
+          "hint": "Cụm 'by far the...' dùng trong so sánh nhất",
+          "explain": "So sánh nhất với tính từ dài: the most expensive."
         }
       ]
     },
     {
       "week_number": 9,
-      "title": "Chuyên đề 9: So sánh tính từ & Trạng từ (Comparisons)",
-      "summary": "So sánh bằng (as...as), so sánh hơn (-er/more), so sánh nhất (-est/most), so sánh kép (The more... the more) và so sánh bội số.",
+      "title": "Chuyên đề 9: Mệnh Đề Quan Hệ & Rút Gọn Mệnh Đề (Relative Clauses)",
+      "summary": "Cách sử dụng Who, Whom, Which, That, Whose, Where, When, Why, phân biệt mệnh đề quan hệ xác định/không xác định và 3 cách rút gọn mệnh đề quan hệ.",
       "sections": [
         {
-          "subtitle": "1. Các cấp so sánh chính",
-          "content": "• **So sánh bằng:** as + adj/adv + as (phủ định: not as/so + adj/adv + as)\n• **So sánh hơn:**\n  - Ngắn: adj/adv-er + than (tính từ 1 âm tiết, hoặc 2 âm tiết tận cùng -y, -le, -er, -ow)\n  - Dài: more + adj/adv + than\n• **So sánh nhất:** the + adj/adv-est / the most + adj/adv\n• **Bất quy tắc:** good/well -> better -> best; bad/badly -> worse -> worst; far -> farther/further -> farthest/furthest."
+          "subtitle": "1. Đại từ và trạng từ quan hệ",
+          "content": "• Who (người, làm chủ ngữ/tân ngữ) | Whom (người, làm tân ngữ) | Which (vật).\n• That: Thay cho who/whom/which trong mệnh đề xác định (không dùng sau dấu phẩy và giới từ).\n• Whose: Sở hữu cách (Whose + N)."
         },
         {
-          "subtitle": "2. So sánh kép (Càng... càng...)",
-          "content": "• **Công thức:** The + so sánh hơn + S1 + V1, the + so sánh hơn + S2 + V2.\n  - Ví dụ: The more you practice, the better you become. (Bạn càng luyện tập nhiều, bạn càng giỏi hơn.)\n  - The harder he works, the more successful he is."
+          "subtitle": "2. Ba cách rút gọn mệnh đề quan hệ",
+          "content": "• Rút thành V-ing: Khi mệnh đề mang nghĩa chủ động (The boy who is playing -> The boy playing).\n• Rút thành Vp2: Khi mệnh đề mang nghĩa bị động (The book which was written -> The book written).\n• Rút thành To-V: Khi danh từ đi trước có the first, the second, the last, the only hoặc so sánh nhất."
         }
       ],
       "quiz": [
         {
-          "q": "The earlier you book the flight tickets, _______ the price will be.",
+          "q": "The professor ______ lecture we attended yesterday is a world-renowned astrophysicist.",
           "options": [
-            "cheaper",
-            "the cheaper",
-            "the more cheap",
-            "cheapest"
+            "A. who",
+            "B. whom",
+            "C. whose",
+            "D. which"
           ],
-          "answer": 1,
-          "explain": "Cấu trúc so sánh kép chuẩn: The earlier..., the cheaper the price will be."
+          "answer": "C",
+          "explain": "Chỉ quan hệ sở hữu đối với bài giảng (lecture của vị giáo sư) -> đại từ sở hữu 'whose lecture'."
+        },
+        {
+          "q": "Candidates ______ in this international recruitment drive must possess fluent English skills.",
+          "options": [
+            "A. participating",
+            "B. participated",
+            "C. participate",
+            "D. are participating"
+          ],
+          "answer": "A",
+          "explain": "Rút gọn mệnh đề quan hệ chủ động (Candidates who participate -> Candidates participating)."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "The higher we climbed up the mountain, the _______ (cold) the air became.",
-          "answer": "colder",
-          "alternatives": [
-            "colder"
-          ],
-          "hint": "Cấu trúc so sánh kép: The + so sánh hơn, the + so sánh hơn.",
-          "explain": "Tính từ ngắn 'cold' thêm '-er' trong so sánh kép: the colder the air became."
+          "sentence": "The scientific report (publish) ______ by Harvard researchers yesterday has attracted global attention.",
+          "answer": "published",
+          "alternatives": [],
+          "hint": "Rút gọn mệnh đề quan hệ bị động (which was published -> published)",
+          "explain": "Bản báo cáo được xuất bản (mang nghĩa bị động) nên rút gọn thành quá khứ phân từ Vp2: published."
+        },
+        {
+          "sentence": "Neil Armstrong was the first human (walk) ______ on the surface of the Moon.",
+          "answer": "to walk",
+          "alternatives": [],
+          "hint": "Có 'the first' nên rút gọn mệnh đề quan hệ thành To-V",
+          "explain": "Quy tắc: Sau the first / second / last / only rút gọn mệnh đề quan hệ bằng To-V: to walk."
         }
       ]
     },
     {
       "week_number": 10,
-      "title": "Chuyên đề 10: Động từ khuyết thiếu (Modal Verbs & Modal Perfect)",
-      "summary": "Cách dùng Can, Could, May, Might, Must, Should, Ought to và cấu trúc phỏng đoán trong quá khứ (Must have V3, Can't have V3, Should have V3).",
+      "title": "Chuyên đề 10: Động Từ Khuyết Thiếu & Dự Đoán Trong Quá Khứ (Modal Verbs)",
+      "summary": "Cách dùng Can, May, Must, Should, Need, và đặc biệt là Modal Perfect diễn tả dự đoán quá khứ: Must have Vp2, Can't have Vp2, Should have Vp2.",
       "sections": [
         {
-          "subtitle": "1. Động từ khuyết thiếu cơ bản",
-          "content": "• **Must:** Bắt buộc từ người nói, hoặc phỏng đoán chắc chắn ở hiện tại.\n• **Have to:** Bắt buộc do hoàn cảnh khách quan, luật lệ.\n• **Should / Ought to:** Khuyên bảo (nên làm gì).\n• **Can / Could:** Khả năng, xin phép.\n• **May / Might:** Khả năng có thể xảy ra (độ chắc chắn thấp hơn)."
+          "subtitle": "1. Khuyết thiếu cơ bản",
+          "content": "• Must: Bắt buộc từ người nói / Can't: Không thể.\n• Should / Ought to / Had better: Lời khuyên nên làm gì.\n• May / Might: Có thể xảy ra (độ chắc chắn thấp)."
         },
         {
-          "subtitle": "2. Phỏng đoán trong quá khứ (Modal Perfect)",
-          "content": "• **Must have + V3/ed:** Chắc hẳn đã xảy ra (có chứng cứ rõ ràng).\n  - The ground is wet. It must have rained last night.\n• **Can't / Couldn't have + V3/ed:** Chắc chắn đã không xảy ra.\n  - He can't have stolen the money; he was with me all evening.\n• **Should have + V3/ed:** Lẽ ra nên làm gì trong quá khứ (nhưng thực tế đã không làm)."
+          "subtitle": "2. Dự đoán hành động trong quá khứ (Modal + Have + Vp2)",
+          "content": "• Must have + Vp2: Chắc hẳn đã (suy đoán chắc chắn 99% trong quá khứ dựa trên chứng cứ rõ ràng).\n• Can't have + Vp2: Chắc hẳn không thể đã xảy ra.\n• Should have + Vp2: Lẽ ra nên làm gì trong quá khứ nhưng đã không làm."
         }
       ],
       "quiz": [
         {
-          "q": "The lights are completely off and nobody answers the door. They _______ gone out for dinner.",
+          "q": "Tom ______ the bank robbery yesterday because he was attending a meeting in London with me.",
           "options": [
-            "must have",
-            "should have",
-            "can't have",
-            "needn't have"
+            "A. must have committed",
+            "B. can't have committed",
+            "C. should have committed",
+            "D. needn't have committed"
           ],
-          "answer": 0,
-          "explain": "Phỏng đoán chắc chắn trong quá khứ có bằng chứng (đèn tắt, không ai mở cửa) -> must have gone out."
+          "answer": "B",
+          "explain": "Có chứng cứ ngoại phạm chắc chắn (đang họp ở London) -> Tom chắc chắn không thể là thủ phạm: can't have committed."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "You _______ (should / must) have listened to the doctor's advice, but unfortunately you ignored it.",
-          "answer": "should",
+          "sentence": "The pavement is soaking wet. It must (rain) ______ heavily last night.",
+          "answer": "have rained",
+          "alternatives": [],
+          "hint": "Dự đoán chắc chắn trong quá khứ có chứng cứ (soaking wet): must have + Vp2",
+          "explain": "Vỉa hè ướt sũng là chứng cứ rõ ràng -> chắc hẳn tối qua trời đã mưa: must have rained."
+        },
+        {
+          "sentence": "You should (consult) ______ your doctor before starting this extreme fitness diet.",
+          "answer": "have consulted",
           "alternatives": [
-            "should",
-            "ought to"
+            "consult"
           ],
-          "hint": "Cấu trúc 'lẽ ra nên làm gì trong quá khứ': should have + V3.",
-          "explain": "Should have + V3 diễn tả sự hối tiếc hoặc trách móc một việc lẽ ra nên làm nhưng đã không làm."
+          "hint": "Lẽ ra nên tham khảo ý kiến bác sĩ (nhưng đã không làm trong quá khứ)",
+          "explain": "Cấu trúc: Should have Vp2 diễn tả một việc lẽ ra nên làm trong quá khứ: should have consulted."
         }
       ]
     },
     {
       "week_number": 11,
-      "title": "Chuyên đề 11: Danh động từ & Động từ nguyên mẫu (Gerunds & Infinitives)",
-      "summary": "Phân biệt các động từ đi với V-ing (enjoy, avoid, suggest), To-V (decide, promise, hope) và các động từ đổi nghĩa (remember, forget, stop, try).",
+      "title": "Chuyên đề 11: Danh Động Từ & Động Từ Nguyên Mẫu (Gerunds & Infinitives)",
+      "summary": "Phân loại động từ đi với V-ing, To-V, và nhóm động từ đổi nghĩa: Remember, Forget, Regret, Stop, Try, Mean.",
       "sections": [
         {
-          "subtitle": "1. Danh sách động từ đi với V-ing & To-V",
-          "content": "• **Đi với V-ing:** admit, avoid, consider, deny, enjoy, finish, postpone, practice, suggest, mind, can't help.\n• **Đi với To-V:** agree, decide, demand, hope, manage, offer, plan, promise, refuse, threaten, afford."
+          "subtitle": "1. Động từ luôn theo sau bởi V-ing",
+          "content": "• Avoid, admit, consider, deny, enjoy, finish, postpone, practice, suggest, mind, can't help, look forward to, be used to + V-ing."
         },
         {
-          "subtitle": "2. Các động từ đổi nghĩa tùy theo V-ing hoặc To-V",
-          "content": "• **Stop to V:** Dừng lại để làm việc khác.\n  - He stopped to buy a newspaper.\n• **Stop V-ing:** Dừng hẳn việc đang làm.\n  - He stopped smoking three years ago.\n• **Remember / Forget to V:** Nhớ/quên phải làm việc gì (bổn phận).\n• **Remember / Forget V-ing:** Nhớ/quên đã từng làm gì trong quá khứ.\n• **Try to V:** Cố gắng làm gì.\n• **Try V-ing:** Thử làm gì."
+          "subtitle": "2. Động từ luôn theo sau bởi To V",
+          "content": "• Agree, decide, demand, hope, intend, manage, offer, plan, promise, refuse, afford + To-V."
+        },
+        {
+          "subtitle": "3. Nhóm động từ thay đổi nghĩa",
+          "content": "• Stop to V (dừng lại để làm gì) vs Stop V-ing (dừng hẳn việc đang làm).\n• Remember to V (nhớ phải làm gì) vs Remember V-ing (nhớ đã làm gì).\n• Try to V (cố gắng làm gì) vs Try V-ing (thử nghiệm làm gì)."
         }
       ],
       "quiz": [
         {
-          "q": "He decided _______ the lucrative job offer in London to stay close to his family.",
+          "q": "I really look forward to ______ you at the international technology expo next week.",
           "options": [
-            "decline",
-            "to decline",
-            "declining",
-            "declined"
+            "A. meet",
+            "B. meeting",
+            "C. to meet",
+            "D. met"
           ],
-          "answer": 1,
-          "explain": "Động từ 'decide' luôn đi với động từ nguyên mẫu có 'to' (to V) -> to decline."
+          "answer": "B",
+          "explain": "Cụm cố định: Look forward to + V-ing (rất mong chờ được làm gì) -> meeting."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "Remember _______ (turn) off all the lights before you leave the office.",
-          "answer": "to turn",
-          "alternatives": [
-            "to turn"
-          ],
-          "hint": "Nhớ phải làm một bổn phận/nhiệm vụ -> dùng remember + to V.",
-          "explain": "Remember to V là nhắc nhở làm việc gì trong tương lai."
+          "sentence": "He stopped (smoke) ______ three years ago because of severe respiratory health issues.",
+          "answer": "smoking",
+          "alternatives": [],
+          "hint": "Dừng hẳn một thói quen dùng Stop + V-ing",
+          "explain": "Quy tắc: Stop + V-ing là từ bỏ hoàn toàn một thói quen (bỏ thuốc lá) -> smoking."
+        },
+        {
+          "sentence": "Don't forget (lock) ______ the front gate before you go to sleep tonight.",
+          "answer": "to lock",
+          "alternatives": [],
+          "hint": "Nhớ phải làm một nhiệm vụ trong tương lai dùng Remember/Forget + To V",
+          "explain": "Nhắc nhở làm bổn phận ở tương lai -> to lock."
         }
       ]
     },
     {
       "week_number": 12,
-      "title": "Chuyên đề 12: Đảo ngữ (Inversion)",
-      "summary": "Cấu trúc đảo trợ động từ lên trước chủ ngữ khi đứng đầu câu bằng từ phủ định (Never, Rarely, Scarcely), Only, Not until và No sooner... than.",
+      "title": "Chuyên đề 12: Câu Hỏi Đuôi (Tag Questions & Các Trường Hợp Đặc Biệt)",
+      "summary": "Nguyên tắc đối lập khẳng định/phủ định và 10 trường hợp câu hỏi đuôi đặc biệt dễ mất điểm trong các kỳ thi.",
       "sections": [
         {
-          "subtitle": "1. Đảo ngữ với trạng từ phủ định / bán phủ định",
-          "content": "• **Từ phủ định đứng đầu câu:** Never, Rarely, Seldom, Little, Hardly, Scarcely, Barely.\n  - Công thức: Trạng từ phủ định + Trợ động từ + S + V...\n  - Ví dụ: Rarely have I seen such an inspiring performance."
+          "subtitle": "1. Quy tắc cơ bản",
+          "content": "• Mệnh đề khẳng định, đuôi phủ định (You are ready, aren't you?).\n• Mệnh đề phủ định, đuôi khẳng định (She didn't come, did she?)."
         },
         {
-          "subtitle": "2. Các cấu trúc đảo ngữ kinh điển trong đề thi",
-          "content": "• **No sooner... than... (Vừa mới... thì...):**\n  - No sooner + had + S + V3/ed + than + S + V2/ed.\n  - Ví dụ: No sooner had I arrived home than it started to pour.\n• **Hardly / Scarcely... when...:**\n  - Hardly had + S + V3/ed + when + S + V2/ed.\n• **Not until + mốc thời gian / S + V + Trợ động từ + S + V:**\n  - Not until midnight did they finish the meeting."
+          "subtitle": "2. Các trường hợp đặc biệt quan trọng",
+          "content": "• I am... -> aren't I?\n• Let's... -> shall we?\n• Câu mệnh lệnh (Open the window) -> will you?\n• Chủ ngữ là Everyone, Nobody, Somebody -> đại từ ở đuôi là 'they'.\n• Chủ ngữ là Nothing, Everything -> đại từ ở đuôi là 'it'.\n• Có từ bán phủ định (seldom, rarely, hardly, never, barely) -> đuôi khẳng định."
         }
       ],
       "quiz": [
         {
-          "q": "No sooner _______ the station than the train departed.",
+          "q": "Nobody phoned me while I was out at the supermarket, ______?",
           "options": [
-            "we had reached",
-            "had we reached",
-            "did we reach",
-            "have we reached"
+            "A. didn't they",
+            "B. did they",
+            "C. did it",
+            "D. didn't it"
           ],
-          "answer": 1,
-          "explain": "Cấu trúc đảo ngữ: No sooner + had + S + V3/ed + than... -> had we reached."
+          "answer": "B",
+          "explain": "'Nobody' mang nghĩa phủ định và thay bằng đại từ 'they' ở đuôi -> đuôi khẳng định: did they."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "Never before _______ (have / has) she witnessed such an extraordinary sunset.",
-          "answer": "has",
-          "alternatives": [
-            "has"
-          ],
-          "hint": "Đảo ngữ với Never before, chủ ngữ 'she' ngôi thứ 3 số ít -> trợ động từ 'has'.",
-          "explain": "Đảo ngữ: Never before + has + she + witnessed."
+          "sentence": "She rarely drinks coffee in the late afternoon, (do) ______ she?",
+          "answer": "does",
+          "alternatives": [],
+          "hint": "Từ bán phủ định 'rarely' khiến câu mang nghĩa phủ định, nên phần đuôi phải ở dạng khẳng định",
+          "explain": "Có 'rarely' là từ bán phủ định, thì hiện tại đơn ngôi she -> đuôi khẳng định: does she."
+        },
+        {
+          "sentence": "Let's organize a beach cleanup campaign this weekend, ______ we?",
+          "answer": "shall",
+          "alternatives": [],
+          "hint": "Cấu trúc rủ rê 'Let's...' đi với câu hỏi đuôi 'shall we?'",
+          "explain": "Quy tắc: Bắt đầu bằng Let's -> câu hỏi đuôi luôn là: shall we."
         }
       ]
     },
     {
       "week_number": 13,
-      "title": "Chuyên đề 13: Thức giả định (Subjunctive Mood)",
-      "summary": "Cấu trúc giả định với tính từ (essential, crucial, vital), động từ (suggest, demand, insist) và các cấu trúc would rather, It's high time.",
+      "title": "Chuyên đề 13: Đảo Ngữ (Inversion)",
+      "summary": "Toàn bộ các cấu trúc đảo ngữ nâng cao: Đảo ngữ với trạng từ phủ định, Only, Not only... but also, No sooner, So/Such.",
       "sections": [
         {
-          "subtitle": "1. Giả định với Động từ & Tính từ đòi hỏi",
-          "content": "• **Động từ:** suggest, recommend, insist, demand, order, request, propose.\n  - Công thức: S1 + V(suggest/demand...) + that + S2 + (should) + V_nguyên thể không chia.\n  - Ví dụ: The doctor suggested that he (should) stop smoking.\n• **Tính từ:** essential, vital, crucial, important, necessary.\n  - Công thức: It is + adj + that + S + (should) + V_nguyên thể.\n  - Ví dụ: It is crucial that every student submit their homework on time."
+          "subtitle": "1. Đảo ngữ với trạng từ phủ định đứng đầu câu",
+          "content": "• Never, Rarely, Seldom, Little, Hardly, Scarcely + Trợ động từ + S + V.\n• Ví dụ: Seldom have I witnessed such profound resilience."
         },
         {
-          "subtitle": "2. Giả định với It is high time & Would rather",
-          "content": "• **It is (high / about) time + S + V2/ed:** Đã đến lúc ai đó phải làm gì.\n  - Ví dụ: It is high time we started working.\n• **S1 + would rather + S2 + V2/ed:** Muốn ai đó làm gì ở hiện tại/tương lai.\n  - Ví dụ: I would rather you didn't tell anyone about this."
+          "subtitle": "2. Cấu trúc Vừa mới... thì...",
+          "content": "• No sooner + had + S + Vp2 + THAN + S + V2/ed.\n• Hardly/Scarcely + had + S + Vp2 + WHEN + S + V2/ed."
+        },
+        {
+          "subtitle": "3. Đảo ngữ với ONLY và NOT UNTIL",
+          "content": "• Not until + mốc/mệnh đề + Trợ động từ + S + V (Mãi cho đến khi... mới...).\n• Only after / Only when / Only by + Trợ động từ + S + V."
         }
       ],
       "quiz": [
         {
-          "q": "It is essential that everyone _______ the safety regulations in the laboratory.",
+          "q": "Not until late in the evening ______ the final election results.",
           "options": [
-            "follows",
-            "follow",
-            "followed",
-            "following"
+            "A. did the committee announce",
+            "B. the committee announced",
+            "C. announced the committee",
+            "D. has the committee announced"
           ],
-          "answer": 1,
-          "explain": "Thức giả định sau 'It is essential that': động từ luôn ở dạng nguyên thể không 'to' (bare infinitive) -> follow."
+          "answer": "A",
+          "explain": "Cấu trúc đảo ngữ: Not until + thời gian + Trợ động từ + S + V -> did the committee announce."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "The manager insisted that the report _______ (submit) by 5 PM today.",
-          "answer": "be submitted",
+          "sentence": "Hardly had the keynote speaker stepped onto the stage (when) ______ the audience erupted into applause.",
+          "answer": "when",
+          "alternatives": [],
+          "hint": "Cặp liên từ: Hardly/Scarcely had... WHEN...",
+          "explain": "Quy tắc: No sooner đi với than; Hardly/Scarcely đi với when."
+        },
+        {
+          "sentence": "Never before (have) ______ humanity faced such interconnected ecological crises.",
+          "answer": "has",
           "alternatives": [
-            "be submitted",
-            "should be submitted"
+            "have"
           ],
-          "hint": "Thức giả định bị động: S + insist that + S + (should) + be + V3/ed.",
-          "explain": "Động từ 'submit' ở thể bị động trong mệnh đề giả định -> (should) be submitted."
+          "hint": "Đảo ngữ với Never before: Trợ động từ + S (humanity - số ít)",
+          "explain": "Chủ ngữ 'humanity' (nhân loại) là danh từ số ít -> đảo trợ động từ has lên trước."
         }
       ]
     },
     {
       "week_number": 14,
-      "title": "Chuyên đề 14: Câu chẻ nhấn mạnh (Cleft Sentences)",
-      "summary": "Mẫu câu It is / was... that... dùng để nhấn mạnh chủ ngữ, tân ngữ hoặc trạng từ chỉ thời gian, nơi chốn trong câu.",
+      "title": "Chuyên đề 14: Thức Giả Định (Subjunctive Mood)",
+      "summary": "Giả định thức hiện tại với động từ và tính từ khuyên bảo, yêu cầu (essential, vital, recommend, demand, suggest) và giả định với It's time / Would rather.",
       "sections": [
         {
-          "subtitle": "1. Cấu trúc câu chẻ chuẩn",
-          "content": "• **Công thức gốc:** It is / was + Thành phần cần nhấn mạnh + that / who + S + V...\n• **Nhấn mạnh chủ ngữ:**\n  - It was John who broke the antique vase yesterday.\n• **Nhấn mạnh tân ngữ:**\n  - It was this antique vase that John broke yesterday.\n• **Nhấn mạnh trạng ngữ:**\n  - It was yesterday that John broke the antique vase."
+          "subtitle": "1. Thức giả định với tính từ & động từ yêu cầu",
+          "content": "• Động từ: suggest, demand, insist, recommend, require, request, order + THAT + S + (should) + V_BARE.\n• Tính từ: It is important / essential / vital / imperative / necessary + THAT + S + (should) + V_BARE."
+        },
+        {
+          "subtitle": "2. Cấu trúc It is (high/about) time",
+          "content": "• It is high time + S + V2/ed (Đã đến lúc ai đó phải làm gì ở hiện tại)."
         }
       ],
       "quiz": [
         {
-          "q": "It was my chemistry teacher _______ inspired me to pursue a scientific career.",
+          "q": "It is imperative that every flight passenger ______ their seatbelt fastened during turbulence.",
           "options": [
-            "which",
-            "who",
-            "whom",
-            "whose"
+            "A. keeps",
+            "B. keep",
+            "C. kept",
+            "D. is keeping"
           ],
-          "answer": 1,
-          "explain": "Nhấn mạnh chủ ngữ chỉ người (my chemistry teacher) trong câu chẻ -> dùng 'who' hoặc 'that'."
+          "answer": "B",
+          "explain": "Cấu trúc giả định thức: It is imperative that + S + (should) + V_bare -> keep."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "It was in Paris _______ (that / where) they first met twenty years ago.",
-          "answer": "that",
+          "sentence": "The doctor strongly advised that the patient (stop) ______ consuming excessive sugar immediately.",
+          "answer": "stop",
           "alternatives": [
-            "that"
+            "should stop"
           ],
-          "hint": "Cấu trúc câu chẻ nhấn mạnh trạng ngữ nơi chốn luôn dùng 'that' (không dùng where).",
-          "explain": "Quy tắc câu chẻ: It was + trạng ngữ + that..."
+          "hint": "Thức giả định: S + advise that + S + (should) + V_bare (động từ nguyên thể không chia)",
+          "explain": "Sau 'advised that', động từ của mệnh đề sau luôn ở dạng nguyên thể không chia: stop."
+        },
+        {
+          "sentence": "It is high time you (take) ______ responsibility for your own financial budget.",
+          "answer": "took",
+          "alternatives": [],
+          "hint": "Cấu trúc: It is high time + S + V(quá khứ đơn)",
+          "explain": "Sau 'It is high time', động từ lùi về thì quá khứ đơn: take -> took."
         }
       ]
     },
     {
       "week_number": 15,
-      "title": "Chuyên đề 15: Mạo từ (Articles: A, An, The & Zero Article)",
-      "summary": "Quy tắc dùng mạo từ bất định (A, An), mạo từ xác định (The) và các trường hợp không dùng mạo từ (Zero Article).",
+      "title": "Chuyên đề 15: Mạo Từ (Articles: A, An, The & Zero Article)",
+      "summary": "Cách phân biệt mạo từ bất định (A/An), xác định (The) và các trường hợp không dùng mạo từ (Zero Article) trong tiếng Anh chuẩn.",
       "sections": [
         {
-          "subtitle": "1. Dùng A, An và The",
-          "content": "• **A / An:** Danh từ số ít đếm được, nhắc đến lần đầu tiên, chỉ nghề nghiệp.\n  - An dùng trước danh từ phát âm bắt đầu bằng nguyên âm (an hour, an apple, an umbrella).\n• **The:** Đã được xác định, duy nhất (the sun, the moon), so sánh nhất, nhạc cụ (play the piano), sông biển (the Nile, the Pacific)."
+          "subtitle": "1. Mạo từ bất định A / An",
+          "content": "• Dùng trước danh từ đếm được số ít, nhắc đến lần đầu tiên.\n• An dùng trước danh từ phát âm bắt đầu bằng nguyên âm (/i/, /e/, /æ/, /ʌ/, /ɒ/ - an honest man, an hour, an umbrella)."
         },
         {
-          "subtitle": "2. Trường hợp KHÔNG dùng mạo từ (Zero Article)",
-          "content": "• Tên bữa ăn (have breakfast), thể thao (play football), môn học, ngôn ngữ (speak English), danh từ số nhiều nói chung (Cats love milk)."
+          "subtitle": "2. Mạo từ xác định THE",
+          "content": "• Nhắc đến lần thứ hai; vật thể duy nhất (the Sun, the Moon, the Earth).\n• Dãy núi (the Himalayas), đại dương (the Pacific), sông (the Nile), quần đảo (the Philippines).\n• The + adj -> chỉ một nhóm người (the poor, the elderly)."
+        },
+        {
+          "subtitle": "3. Không dùng mạo từ (Zero Article)",
+          "content": "• Danh từ số nhiều / không đếm được nói chung (Love, Gold, Books are essential).\n• Tên ngọn núi đơn lẻ (Mount Everest), hồ đơn lẻ (Lake Geneva), lục địa (Asia, Europe), bữa ăn thông thường (have breakfast)."
         }
       ],
       "quiz": [
         {
-          "q": "Honesty is _______ best policy in all human relationships.",
+          "q": "My uncle is ______ honest businessman who always contributes to charitable causes.",
           "options": [
-            "a",
-            "an",
-            "the",
-            "zero"
+            "A. a",
+            "B. an",
+            "C. the",
+            "D. zero article"
           ],
-          "answer": 2,
-          "explain": "Trước tính từ ở dạng so sánh nhất (best) bắt buộc dùng mạo từ 'the'."
+          "answer": "B",
+          "explain": "'Honest' có âm 'h' câm, phát âm bắt đầu bằng nguyên âm /ˈɒnɪst/ -> dùng 'an'."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "He has been playing _______ (the / a / zero) guitar since he was seven years old.",
-          "answer": "the",
+          "sentence": "He has been working as (a/an/the) ______ university lecturer for over fifteen years.",
+          "answer": "a",
+          "alternatives": [],
+          "hint": "Từ 'university' bắt đầu bằng phụ âm /j/ nên đi với 'a', không đi với 'an'",
+          "explain": "Mặc dù viết bằng chữ cái 'u', nhưng 'university' phát âm là /ˌjuːnɪˈvɜːsəti/ (phụ âm /j/) -> dùng mạo từ 'a'."
+        },
+        {
+          "sentence": "(The/A/An) ______ Pacific Ocean is the largest and deepest oceanic division on Earth.",
+          "answer": "The",
           "alternatives": [
             "the"
           ],
-          "hint": "Đi với nhạc cụ (play + ... + instrument) luôn có mạo từ xác định.",
-          "explain": "Động từ 'play' đi với nhạc cụ luôn dùng 'the guitar'."
+          "hint": "Tên các đại dương luôn có mạo từ 'The'",
+          "explain": "Đại dương, biển, sông ngòi luôn đi cùng 'The': The Pacific Ocean."
         }
       ]
     },
     {
       "week_number": 16,
-      "title": "Chuyên đề 16: Giới từ chỉ Thời gian & Nơi chốn (Prepositions)",
-      "summary": "Phân biệt tam giác giới từ IN - ON - AT chỉ thời gian, địa điểm và các cụm giới từ cố định thường gặp trong đề thi.",
+      "title": "Chuyên đề 16: Giới Từ (Prepositions of Time, Place & Dependent Prepositions)",
+      "summary": "Giới từ chỉ thời gian (In, On, At), giới từ chỉ nơi chốn, và các cụm tính từ/danh từ đi kèm giới từ cố định bắt buộc phải thuộc lòng.",
       "sections": [
         {
-          "subtitle": "1. Tam giác giới từ IN - ON - AT",
-          "content": "• **AT (Cụ thể, hẹp nhất):**\n  - Giờ cụ thể: at 7 AM, at noon, at midnight.\n  - Địa điểm cụ thể: at home, at the station.\n• **ON (Bề mặt, ngày cụ thể):**\n  - Ngày: on Monday, on July 4th, on my birthday.\n  - Bề mặt: on the table, on the floor.\n• **IN (Không gian kín, thời gian dài):**\n  - Tháng, năm, mùa, thế kỷ: in July, in 2024, in summer, in the 21st century.\n  - Thành phố, quốc gia: in Hanoi, in Vietnam."
+          "subtitle": "1. Giới từ chỉ thời gian & nơi chốn cơ bản",
+          "content": "• IN: Năm, tháng, mùa, thế kỷ, buổi (in the morning), không gian lớn (in Vietnam, in the room).\n• ON: Ngày trong tuần (on Monday), ngày tháng cụ thể (on October 15th), bề mặt (on the table).\n• AT: Giờ chính xác (at 7 AM), dịp lễ (at Christmas), địa điểm cụ thể (at school, at home)."
+        },
+        {
+          "subtitle": "2. Tính từ đi kèm giới từ cố định",
+          "content": "• Fond of, proud of, capable of, guilty of.\n• Interested in, succeed in, engage in.\n• Dependent on, keen on, rely on.\n• Surprised at, good/bad at, furious at."
         }
       ],
       "quiz": [
         {
-          "q": "She was born _______ 2005 in a peaceful coastal village.",
+          "q": "He has been fully responsible ______ managing customer accounts for three years.",
           "options": [
-            "at",
-            "on",
-            "in",
-            "by"
+            "A. of",
+            "B. with",
+            "C. for",
+            "D. about"
           ],
-          "answer": 2,
-          "explain": "Trước năm (2005) dùng giới từ 'in'."
+          "answer": "C",
+          "explain": "Cụm tính từ: To be responsible for sth/doing sth (chịu trách nhiệm cho việc gì)."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "The international summit will officially kick off _______ (in / on / at) Monday morning.",
+          "sentence": "She is extraordinarily proud (of) ______ her daughter's academic achievements.",
+          "answer": "of",
+          "alternatives": [],
+          "hint": "Cụm tính từ cố định: Proud + OF",
+          "explain": "Quy tắc: To be proud of sth/sb (tự hào về điều gì)."
+        },
+        {
+          "sentence": "The international financial summit will take place (on) ______ October 24th, 2026.",
           "answer": "on",
-          "alternatives": [
-            "on"
-          ],
-          "hint": "Trước thứ trong tuần (Monday) hoặc buổi của một ngày cụ thể ta dùng giới từ 'on'.",
-          "explain": "Dùng 'on' trước ngày cụ thể trong tuần: on Monday morning."
+          "alternatives": [],
+          "hint": "Ngày tháng cụ thể đi với giới từ 'on'",
+          "explain": "Quy tắc: Ngày cụ thể trong lịch luôn dùng giới từ 'on'."
         }
       ]
     },
     {
       "week_number": 17,
-      "title": "Chuyên đề 17: Liên từ & Mệnh đề trạng ngữ (Conjunctions & Adverbial Clauses)",
-      "summary": "Phân biệt liên từ chỉ nguyên nhân (Because vs Because of), nhượng bộ (Although vs Despite), mục đích (So that) và kết quả (So/Such... that).",
+      "title": "Chuyên đề 17: Liên Từ & Mệnh Đề Trạng Ngữ (Conjunctions & Clauses)",
+      "summary": "Phân biệt liên từ kết hợp (FANBOYS), tương quan, và cặp biến đổi kinh điển: Although/Even though vs In spite of/Despite, Because vs Because of.",
       "sections": [
         {
-          "subtitle": "1. Nguyên nhân & Nhượng bộ",
-          "content": "• **Nguyên nhân:**\n  - Because / Since / As + Mệnh đề (S + V)\n  - Because of / Due to / Owing to + Cụm danh từ / V-ing\n• **Nhượng bộ:**\n  - Although / Even though / Though + Mệnh đề (S + V)\n  - Despite / In spite of + Cụm danh từ / V-ing"
+          "subtitle": "1. Nhượng bộ: Mặc dù... nhưng...",
+          "content": "• Although / Even though / Though + MỆNH ĐỀ (S + V).\n• In spite of / Despite + CỤM DANH TỪ / V-ING.\n• Ví dụ: Despite the heavy rain, they arrived on time."
         },
         {
-          "subtitle": "2. Kết quả & Mục đích",
-          "content": "• **So... that:** S + be + so + adj + that... / S + V + so + adv + that...\n• **Such... that:** S + V + such + (a/an) + adj + noun + that...\n• **So that / In order that + S + can/could/will + V_inf (Mục đích).**"
+          "subtitle": "2. Nguyên nhân: Bởi vì...",
+          "content": "• Because / Since / As + MỆNH ĐỀ (S + V).\n• Because of / Due to / Owing to + CỤM DANH TỪ / V-ING."
+        },
+        {
+          "subtitle": "3. Mục đích: Để mà...",
+          "content": "• So that / In order that + S + can/could/will/would + V_bare.\n• In order to / So as to + V_bare."
         }
       ],
       "quiz": [
         {
-          "q": "The weather was _______ bad that all flights were immediately cancelled.",
+          "q": "______ severe supply chain bottlenecks, factory production remained on schedule.",
           "options": [
-            "such",
-            "so",
-            "too",
-            "very"
+            "A. Although",
+            "B. In spite",
+            "C. Despite",
+            "D. Because"
           ],
-          "answer": 1,
-          "explain": "Cấu trúc: be + so + adj + that... -> was so bad that."
+          "answer": "C",
+          "explain": "'severe supply chain bottlenecks' là một cụm danh từ mang ý nghĩa tương phản -> dùng 'Despite'."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "_______ (Despite / Although) the heavy traffic during rush hour, we arrived at the conference on time.",
+          "sentence": "(Despite/Although) ______ experiencing extreme fatigue, she managed to finish the marathon.",
           "answer": "Despite",
           "alternatives": [
-            "Despite",
             "In spite of"
           ],
-          "hint": "Đứng trước một cụm danh từ 'the heavy traffic' để chỉ sự nhượng bộ.",
-          "explain": "Despite + Cụm danh từ (the heavy traffic), Although phải đi với một mệnh đề (S + V)."
+          "hint": "Đi với cụm V-ing (experiencing...) mang nghĩa nhượng bộ",
+          "explain": "Sau vị trí trống là cụm V-ing 'experiencing extreme fatigue' -> dùng Despite hoặc In spite of."
+        },
+        {
+          "sentence": "He wore a thick waterproof jacket in order (protect) ______ himself from the biting frost.",
+          "answer": "to protect",
+          "alternatives": [],
+          "hint": "Cấu trúc mục đích: In order + TO V",
+          "explain": "Cấu trúc: In order to + V_bare (để làm gì) -> to protect."
         }
       ]
     },
     {
       "week_number": 18,
-      "title": "Chuyên đề 18: Lượng từ (Quantifiers: Few, Little, Much, Many)",
-      "summary": "Quy tắc dùng Few / A few, Little / A little, Many, Much, Some, Any, All, Both, Neither, None.",
+      "title": "Chuyên đề 18: Cụm Động Từ Thông Dụng (Essential Phrasal Verbs)",
+      "summary": "Bộ tuyển tập hơn 50 cụm động từ thường gặp nhất trong đề thi THPT, VSTEP, IELTS: Look up, Turn down, Give up, Carry out, Put off...",
       "sections": [
         {
-          "subtitle": "1. Phân biệt sắc thái Few & Little",
-          "content": "• **Đi với danh từ đếm được số nhiều:**\n  - **Few:** Rất ít, hầu như không có (mang nghĩa tiêu cực).\n  - **A few:** Một vài, một ít (đủ dùng, mang nghĩa tích cực).\n• **Đi với danh từ không đếm được:**\n  - **Little:** Rất ít, hầu như không có.\n  - **A little:** Một chút (đủ dùng)."
+          "subtitle": "1. Phrasal verbs với Look & Turn",
+          "content": "• Look after (chăm sóc) | Look for (tìm kiếm) | Look up (tra cứu) | Look down on (khinh thường).\n• Turn down (từ chối / vặn nhỏ) | Turn off (tắt) | Turn on (bật) | Turn up (xuất hiện / vặn to)."
+        },
+        {
+          "subtitle": "2. Phrasal verbs với Put & Give & Carry",
+          "content": "• Put off (trì hoãn = postpone/delay) | Put up with (chịu đựng = tolerate).\n• Give up (từ bỏ) | Give in (nhượng bộ / đầu hàng).\n• Carry out (tiến hành, thực hiện nghiên cứu) | Carry on (tiếp tục = continue)."
         }
       ],
       "quiz": [
         {
-          "q": "Unfortunately, _______ students were able to solve the exceptionally difficult math problem.",
+          "q": "She ______ the lucrative job offer in Singapore because she wanted to remain close to her family.",
           "options": [
-            "few",
-            "a few",
-            "little",
-            "a little"
+            "A. turned down",
+            "B. took after",
+            "C. looked up",
+            "D. put out"
           ],
-          "answer": 0,
-          "explain": "Students là danh từ đếm được số nhiều, và từ 'Unfortunately' (thật không may) chỉ nghĩa tiêu cực (hầu như không có ai làm được) -> dùng 'few'."
+          "answer": "A",
+          "explain": "'Turn down' có nghĩa là từ chối (refuse/reject) một lời đề nghị công việc."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "I have _______ (a few / a little) free time this afternoon, so we can have coffee together.",
-          "answer": "a little",
-          "alternatives": [
-            "a little"
-          ],
-          "hint": "'Time' (thời gian) là danh từ không đếm được và có nghĩa tích cực 'có một chút'.",
-          "explain": "'Time' không đếm được -> dùng 'a little' để chỉ có một chút thời gian."
+          "sentence": "The scientific team decided to carry (out) ______ clinical trials on the new vaccine.",
+          "answer": "out",
+          "alternatives": [],
+          "hint": "Cụm 'Carry out' có nghĩa là tiến hành hoặc thực hiện",
+          "explain": "Carry out research/trials: tiến hành thử nghiệm, nghiên cứu."
+        },
+        {
+          "sentence": "Due to the torrential thunderstorm, the outdoor concert was put (off) ______ until next Sunday.",
+          "answer": "off",
+          "alternatives": [],
+          "hint": "Cụm 'Put off' có nghĩa là trì hoãn (postpone)",
+          "explain": "Put off = hoãn lại -> put off."
         }
       ]
     },
     {
       "week_number": 19,
-      "title": "Chuyên đề 19: Cụm động từ thông dụng (Essential Phrasal Verbs)",
-      "summary": "Tuyển chọn các cụm động từ thường gặp nhất trong các kỳ thi: look after, give up, put off, run out of, carry out, bring about.",
+      "title": "Chuyên đề 19: Trật Tự Của Tính Từ (Order of Adjectives: OSASCOMP)",
+      "summary": "Công thức thần chú OSASCOMP giúp giải quyết mọi câu hỏi trật tự tính từ đứng trước danh từ chỉ trong 5 giây.",
       "sections": [
         {
-          "subtitle": "1. Các Phrasal Verbs điểm 9+",
-          "content": "• **Put off:** Trì hoãn (= postpone, delay).\n• **Look forward to + V-ing:** Trông chờ, mong đợi.\n• **Run out of:** Cạn kiệt, hết sạch (run out of money/petrol).\n• **Carry out:** Tiến hành, thực hiện (carry out research/experiment).\n• **Give up:** Từ bỏ (= quit).\n• **Make up for:** Bù đắp cho (= compensate for)."
+          "subtitle": "1. Thần chú OSASCOMP",
+          "content": "• O - Opinion (Ý kiến, quan điểm: beautiful, lovely, terrible, nice).\n• S - Size (Kích thước: big, small, huge, tiny, long, short).\n• A - Age (Độ tuổi: young, old, new, ancient, antique).\n• S - Shape (Hình dáng: round, square, oval, flat).\n• C - Color (Màu sắc: red, blue, dark, black, white).\n• O - Origin (Nguồn gốc, xuất xứ: Vietnamese, Japanese, British, American).\n• M - Material (Chất liệu: silk, wooden, leather, metal, plastic).\n• P - Purpose (Mục đích: sleeping (bag), running (shoes), wedding (dress))."
         }
       ],
       "quiz": [
         {
-          "q": "Scientists are planning to _______ a comprehensive study on the new renewable energy source.",
+          "q": "My father bought a ______ dining table for our newly renovated apartment.",
           "options": [
-            "carry out",
-            "put off",
-            "look after",
-            "give up"
+            "A. wooden luxurious round",
+            "B. luxurious round wooden",
+            "C. round luxurious wooden",
+            "D. wooden round luxurious"
           ],
-          "answer": 0,
-          "explain": "Carry out = tiến hành, thực thi nghiên cứu/khảo sát."
+          "answer": "B",
+          "explain": "Theo OSASCOMP: Opinion (luxurious) -> Shape (round) -> Material (wooden) -> luxurious round wooden."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "Due to bad weather, the organizing committee decided to put _______ (off / up / on) the football match.",
-          "answer": "off",
-          "alternatives": [
-            "off"
-          ],
-          "hint": "Cụm 'put off' có nghĩa là hoãn lại (postpone).",
-          "explain": "Put off = trì hoãn sự kiện."
+          "sentence": "She was wearing a (beautiful / Italian / black) ______ silk evening dress to the gala.",
+          "answer": "beautiful black Italian",
+          "alternatives": [],
+          "hint": "OSASCOMP: Opinion (beautiful) -> Color (black) -> Origin (Italian)",
+          "explain": "Theo trật tự OSASCOMP: Opinion (beautiful) đứng trước Color (black), rồi đến Origin (Italian)."
         }
       ]
     },
     {
       "week_number": 20,
-      "title": "Chuyên đề 20: Rút gọn mệnh đề cùng chủ ngữ (Participle Clauses)",
-      "summary": "Kỹ thuật rút gọn hai mệnh đề có cùng chủ ngữ bằng Phân từ hiện tại (V-ing), Quá khứ phân từ (V3/ed) và Phân từ hoàn thành (Having + V3/ed).",
+      "title": "Chuyên đề 20: Câu Chẻ Nhấn Mạnh (Cleft Sentences: It is/was... that...)",
+      "summary": "Cấu trúc nhấn mạnh chủ ngữ, tân ngữ, trạng ngữ và các biến thể nhấn mạnh trong văn viết học thuật.",
       "sections": [
         {
-          "subtitle": "1. Ba quy tắc rút gọn mệnh đề cùng chủ ngữ",
-          "content": "• **Chủ động -> Dùng V-ing:**\n  - When he saw the police, the thief ran away -> Seeing the police, the thief ran away.\n• **Bị động -> Dùng V3/ed:**\n  - Because he was warned about the danger, he stayed inside -> Warned about the danger, he stayed inside.\n• **Hành động xảy ra trước hành động khác -> Dùng Having + V3/ed:**\n  - After she had finished her homework, she went to bed -> Having finished her homework, she went to bed."
+          "subtitle": "1. Cấu trúc câu chẻ cơ bản",
+          "content": "• Công thức: IT IS / WAS + Thành phần nhấn mạnh + THAT + Mệnh đề còn lại.\n• Nhấn mạnh chủ ngữ: It was John that/who broke the window yesterday.\n• Nhấn mạnh tân ngữ: It is the environment that we must protect.\n• Nhấn mạnh trạng ngữ: It was in Paris that they first fell in love."
         }
       ],
       "quiz": [
         {
-          "q": "_______ by the sudden loud noise, the baby started to cry loudly.",
+          "q": "It was my dedicated high school teacher ______ inspired me to pursue astrophysics.",
           "options": [
-            "Frightening",
-            "Frightened",
-            "Having frightened",
-            "To frighten"
+            "A. which",
+            "B. who",
+            "C. whose",
+            "D. whom"
           ],
-          "answer": 1,
-          "explain": "Em bé bị giật mình bởi tiếng ồn (thể bị động) -> rút gọn dùng Quá khứ phân từ: Frightened by..."
+          "answer": "B",
+          "explain": "Nhấn mạnh chủ ngữ chỉ người trong câu chẻ có thể dùng 'who' hoặc 'that'."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "_______ (Having finished / Finished) all his administrative duties, Mark left the office for the weekend.",
-          "answer": "Having finished",
-          "alternatives": [
-            "Having finished"
-          ],
-          "hint": "Hành động hoàn thành nhiệm vụ xảy ra trước hành động rời văn phòng -> Dùng Phân từ hoàn thành.",
-          "explain": "Having + V3/ed nhấn mạnh hành động hoàn tất trước một hành động khác trong quá khứ."
+          "sentence": "It was in 1969 (that) ______ Apollo 11 successfully landed astronauts on the Moon.",
+          "answer": "that",
+          "alternatives": [],
+          "hint": "Cấu trúc câu chẻ nhấn mạnh trạng ngữ thời gian: It was [time] THAT...",
+          "explain": "Trong câu chẻ 'It was... that', từ nối chuẩn luôn là 'that'."
         }
       ]
     },
     {
       "week_number": 21,
-      "title": "Chuyên đề 21: Tổng ôn tập toàn diện & Chiến lược bứt phá đề thi",
-      "summary": "Tổng hợp phương pháp giải đề nhanh, nhận diện bẫy ngữ pháp phổ biến trong kỳ thi THPTQG, VSTEP và IELTS.",
+      "title": "Chuyên đề 21: Cấu Tạo Từ & Từ Loại (Word Formation)",
+      "summary": "Nhận biết vị trí của Danh từ, Động từ, Tính từ, Trạng từ trong câu và các hậu tố/tiền tố tạo từ vựng quan trọng.",
       "sections": [
         {
-          "subtitle": "1. Chiến thuật 4 bước xử lý câu hỏi Ngữ pháp",
-          "content": "1. **Xác định loại từ & vị trí khuyết:** Nhìn trước và sau chỗ trống để biết cần điền danh từ, động từ, tính từ hay liên từ.\n2. **Kiểm tra Chủ ngữ & Động từ chính:** Đảm bảo câu có đủ chủ ngữ và động từ chính, không bị thừa động từ không chia.\n3. **Xác định dòng thời gian (Thì):** Tìm các trạng từ chỉ thời gian hoặc mệnh đề phối thì để chọn đúng thì.\n4. **Kiểm tra Thể chủ động / Bị động:** Đối chiếu chủ ngữ có tự thực hiện hành động hay bị tác động."
+          "subtitle": "1. Vị trí các từ loại",
+          "content": "• Danh từ (Noun): Đứng đầu câu làm chủ ngữ; sau mạo từ (a/an/the); sau tính từ; sau giới từ.\n• Tính từ (Adjective): Đứng trước danh từ; đứng sau to be và linking verbs (seem, look, feel, become).\n• Trạng từ (Adverb): Bổ nghĩa cho động từ thường, tính từ, hoặc toàn bộ câu (Adv + Adj, V + Adv)."
+        },
+        {
+          "subtitle": "2. Hậu tố nhận biết",
+          "content": "• Noun: -tion, -sion, -ment, -ness, -ity, -ance, -ence, -er, -or.\n• Adj: -ful, -less, -able, -ive, -ous, -ic, -al.\n• Adv: -ly."
         }
       ],
       "quiz": [
         {
-          "q": "By the time the project is completed, the engineering team _______ for over two consecutive years.",
+          "q": "The committee commended the architect for her ______ contribution to urban renewal.",
           "options": [
-            "will work",
-            "will have been working",
-            "has worked",
-            "worked"
+            "A. significance",
+            "B. significantly",
+            "C. significant",
+            "D. signify"
           ],
-          "answer": 1,
-          "explain": "By the time + Hiện tại đơn (is completed) kết hợp với khoảng thời gian (for over two consecutive years) -> Dùng thì Tương lai hoàn thành tiếp diễn (will have been working)."
+          "answer": "C",
+          "explain": "Đứng trước danh từ 'contribution' cần một tính từ bổ nghĩa: significant contribution."
         }
       ],
       "fill_blanks": [
         {
-          "sentence": "Neither the teacher nor her students _______ (know) the answer to this tricky question.",
-          "answer": "know",
-          "alternatives": [
-            "know"
+          "sentence": "Solar energy is an environmentally (friend) ______ alternative to burning fossil fuels.",
+          "answer": "friendly",
+          "alternatives": [],
+          "hint": "Environmentally là trạng từ, đứng trước bổ nghĩa cho tính từ: friendly",
+          "explain": "Cụm 'environmentally friendly' là cụm từ chuẩn (thân thiện với môi trường). Friend (danh từ) -> friendly (tính từ)."
+        },
+        {
+          "sentence": "His outstanding (dedicate) ______ to clinical cancer research earned him international accolades.",
+          "answer": "dedication",
+          "alternatives": [],
+          "hint": "Sau tính từ 'outstanding' cần một danh từ",
+          "explain": "Sau tính từ cần danh từ: dedicate (v) -> dedication (n)."
+        }
+      ]
+    },
+    {
+      "week_number": 22,
+      "title": "Chuyên đề 22: Rút Gọn Mệnh Đề Cùng Chủ Ngữ (Participle Clauses)",
+      "summary": "Cách rút gọn hai mệnh đề có chung chủ ngữ bằng Hiện tại phân từ (V-ing), Quá khứ phân từ (Vp2) và Phân từ hoàn thành (Having + Vp2).",
+      "sections": [
+        {
+          "subtitle": "1. Nguyên tắc rút gọn cùng chủ ngữ",
+          "content": "• Hai mệnh đề phải có CÙNG CHỦ NGỮ.\n• Chủ động: Lược bỏ liên từ & chủ ngữ vế phụ, đưa động từ về V-ing.\n• Bị động: Đưa động từ về Vp2 (hoặc Being + Vp2).\n• Xảy ra trước: Dùng Having + Vp2 (chủ động) hoặc Having been + Vp2 (bị động)."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "______ from recycled plastic bottles, these eco-friendly jackets are lightweight yet durable.",
+          "options": [
+            "A. Making",
+            "B. Having made",
+            "C. Made",
+            "D. To make"
           ],
-          "hint": "Cấu trúc Neither S1 nor S2 -> hòa hợp theo S2 (students - số nhiều).",
-          "explain": "Động từ chia theo chủ ngữ gần nhất 'her students' (số nhiều) -> know (nguyên thể)."
+          "answer": "C",
+          "explain": "Áo khoác được làm từ nhựa tái chế (mang nghĩa bị động) -> dùng quá khứ phân từ Vp2 đứng đầu câu: Made."
+        }
+      ],
+      "fill_blanks": [
+        {
+          "sentence": "(Finish) ______ all her university entrance exams, she embarked on a relaxing trip to Da Lat.",
+          "answer": "Having finished",
+          "alternatives": [
+            "Finishing"
+          ],
+          "hint": "Hành động thi xong xảy ra trước hành động đi du lịch -> Having + Vp2",
+          "explain": "Dùng Phân từ hoàn thành (Having finished) để nhấn mạnh một hành động đã hoàn tất trước khi hành động chính bắt đầu."
+        }
+      ]
+    },
+    {
+      "week_number": 23,
+      "title": "Chuyên đề 23: Lượng Từ & Từ Chỉ Số Lượng (Quantifiers)",
+      "summary": "Phân biệt Many vs Much, A few vs Few, A little vs Little, Some vs Any, và Each vs Every.",
+      "sections": [
+        {
+          "subtitle": "1. Few vs Little (Có rất ít, gần như không có - mang nghĩa tiêu cực)",
+          "content": "• Few + Danh từ đếm được số nhiều (Few people came to the meeting).\n• Little + Danh từ không đếm được (I have little time left)."
+        },
+        {
+          "subtitle": "2. A few vs A little (Có một chút, đủ dùng - mang nghĩa tích cực)",
+          "content": "• A few + Danh từ đếm được số nhiều (I have a few close friends).\n• A little + Danh từ không đếm được (Add a little salt to the soup)."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "She was disappointed because ______ students registered for the advanced robotics course.",
+          "options": [
+            "A. few",
+            "B. a few",
+            "C. little",
+            "D. a little"
+          ],
+          "answer": "A",
+          "explain": "'Students' là danh từ đếm được số nhiều, và ngữ cảnh thất vọng (tiêu cực, hầu như không có ai) -> dùng 'few'."
+        }
+      ],
+      "fill_blanks": [
+        {
+          "sentence": "Unfortunately, there is very (little/few) ______ hope of recovering the lost submarine.",
+          "answer": "little",
+          "alternatives": [],
+          "hint": "'Hope' (hy vọng) là danh từ không đếm được",
+          "explain": "Danh từ không đếm được 'hope' đi với 'little' (rất ít hy vọng)."
+        }
+      ]
+    },
+    {
+      "week_number": 24,
+      "title": "Chuyên đề 24: Cụm Từ Cố Định & Cụm Giới Từ (Collocations)",
+      "summary": "Các kết hợp từ tự nhiên quan trọng trong đề thi: Make vs Do, Pay attention to, Catch/Lose sight of, In charge of...",
+      "sections": [
+        {
+          "subtitle": "1. Phân biệt Make và Do",
+          "content": "• Make: make a decision, make an effort, make a mistake, make progress, make room for, make fun of.\n• Do: do homework, do research, do business, do a favor, do harm/good, do one's best."
+        },
+        {
+          "subtitle": "2. Cụm từ cố định ăn điểm",
+          "content": "• Take advantage of (tận dụng) | Pay attention to (chú ý) | Keep pace with (bắt kịp) | Lose track of (mất dấu)."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Students are encouraged to ______ an active part in community greening initiatives.",
+          "options": [
+            "A. make",
+            "B. take",
+            "C. do",
+            "D. have"
+          ],
+          "answer": "B",
+          "explain": "Collocation chuẩn: Take part in = participate in (tham gia vào)."
+        }
+      ],
+      "fill_blanks": [
+        {
+          "sentence": "Scientists are actively doing (research) ______ into renewable perovskite solar cells.",
+          "answer": "research",
+          "alternatives": [],
+          "hint": "Cụm từ đi với DO: do research (làm nghiên cứu)",
+          "explain": "Collocation chuẩn: Do research (không dùng make research)."
+        }
+      ]
+    },
+    {
+      "week_number": 25,
+      "title": "Chuyên đề 25: Tổng Ôn Toàn Diện & Giải Mã Bẫy Đề Thi Quốc Gia / VSTEP / IELTS",
+      "summary": "Chiến lược nhận diện bẫy ngữ pháp: hòa hợp chủ vị phức hợp, đảo ngữ điều kiện kép, rút gọn khác chủ ngữ và câu hỏi phân hóa 9+.",
+      "sections": [
+        {
+          "subtitle": "1. Nhận diện các bẫy thường gặp",
+          "content": "• Bẫy mệnh đề quan hệ chen giữa chủ ngữ và động từ chính.\n• Bẫy đại từ phản thân và đảo ngữ phủ định.\n• Bẫy thì hoàn thành với mốc thời gian đã chấm dứt trong quá khứ."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "The newly discovered manuscript, along with several ceremonial artifacts, ______ currently on display.",
+          "options": [
+            "A. are",
+            "B. is",
+            "C. were",
+            "D. have been"
+          ],
+          "answer": "B",
+          "explain": "Chủ ngữ chính là 'The newly discovered manuscript' (số ít), cụm 'along with...' không làm thay đổi số của chủ ngữ -> is."
+        }
+      ],
+      "fill_blanks": [
+        {
+          "sentence": "Neither of the proposed solutions (be) ______ deemed feasible by the executive board.",
+          "answer": "was",
+          "alternatives": [
+            "is"
+          ],
+          "hint": "'Neither of + N số nhiều' theo ngữ pháp chuẩn mực đi với động từ số ít",
+          "explain": "'Neither of' đi với động từ số ít trong văn phong học thuật chuẩn mực -> was."
         }
       ]
     }
@@ -27800,6 +28181,938 @@
           ],
           "answer": 1,
           "explain": "Học kỹ năng mới giúp củng cố dự trữ nhận thức chống lại các bệnh thoái hóa thần kinh."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "[IELTS] The Evolution of Human Language & Cognitive Linguistics",
+      "category": "IELTS",
+      "level": "Band 7.5+",
+      "source_reference": "Cambridge English IELTS Academic Reading Practice",
+      "content": "Language is often cited as the ultimate cognitive hallmark distinguishing Homo sapiens from all other living species. While numerous animals possess rudimentary communication systems—ranging from the intricate waggle dance of honeybees to the warning vocalizations of vervet monkeys—none exhibit the recursive syntax and boundless expressive capacity innate to human speech.\n\nLinguist Noam Chomsky revolutionized twentieth-century linguistics by positing the existence of a Universal Grammar, an innate biological template hardwired into the human neural architecture. According to this nativist perspective, infants do not merely acquire vocabulary through rote environmental exposure; rather, their developing brains effortlessly infer abstract morphological and syntactic structures from imperfect auditory stimuli. \n\nIn contrast, evolutionary biologists and cultural anthropologists have proposed a countervailing hypothesis: that language is predominantly a cultural artifact refined over hundreds of millennia. Under this paradigm, human linguistic proficiency evolved in tandem with cooperative foraging, tool fabrication, and communal fire circles. Mirror neurons, which fire both when an individual executes an action and when observing another perform that same action, may have mediated the transition from mimetic gestures to vocal symbolism.\n\nContemporary neuroimaging studies utilizing functional MRI provide nuanced insights reconciling both paradigms. Broca's area and Wernicke's area, long heralded as discrete linguistic hubs, operate within an extensive distributed network encompassing cerebellar and subcortical pathways. Far from being a static faculty, human linguistic capacity reflects profound phenotypic plasticity, continuously sculpted by cultural innovation and communicative necessity.",
+      "target_words": [
+        "cognitive hallmark",
+        "recursive syntax",
+        "Universal Grammar",
+        "innate biological template",
+        "countervailing hypothesis",
+        "mimetic gestures",
+        "functional MRI",
+        "phenotypic plasticity"
+      ],
+      "questions": [
+        {
+          "question": "What primary feature distinguishes human language from animal communication according to the text?",
+          "options": [
+            "A. The frequency of auditory vocalizations",
+            "B. Recursive syntax and boundless expressive capacity",
+            "C. The speed of vocabulary acquisition in adulthood",
+            "D. The reliance on physical gestures alone"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 1 nêu rõ: 'none exhibit the recursive syntax and boundless expressive capacity innate to human speech' (không loài nào có cú pháp đệ quy và khả năng diễn đạt vô hạn như con người)."
+        },
+        {
+          "question": "According to Noam Chomsky's nativist theory, how do infants acquire language?",
+          "options": [
+            "A. Solely through imitating their parents' grammatical mistakes",
+            "B. Through an innate biological neural template known as Universal Grammar",
+            "C. Exclusively through conscious memorization in formal schooling",
+            "D. By observing monkey vocalizations in the wild"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 2 giải thích quan điểm của Chomsky về 'Universal Grammar, an innate biological template hardwired into the human neural architecture'."
+        },
+        {
+          "question": "What is the function of 'mirror neurons' mentioned in the passage?",
+          "options": [
+            "A. They prevent individuals from acquiring foreign accents",
+            "B. They fire both during the execution and observation of an action",
+            "C. They replace Broca's and Wernicke's areas completely",
+            "D. They restrict human speech to visual signals"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 3 viết: 'Mirror neurons, which fire both when an individual executes an action and when observing another perform that same action...'"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "[IELTS] Urban Rewilding: Restoring Ecosystems in Modern Megacities",
+      "category": "IELTS",
+      "level": "Band 7.0",
+      "source_reference": "IELTS Academic Environmental Science Anthology",
+      "content": "As the global human population rapidly concentrates in metropolitan centers, urban ecologists are pioneering a paradigm shift termed 'urban rewilding'. Departing from manicured ornamental parks and sterile concrete riverbanks, rewilding advocates seek to restore natural ecological processes, native flora, and spontaneous biodiversity within urban environments.\n\nIn London, Tokyo, and Singapore, municipal authorities are transforming degraded industrial canals into thriving wetlands. Concrete culverts that previously constrained stormwater are being dismantled to recreate natural meandering floodplains. These bio-retention swales not only mitigate urban flooding during extreme precipitation events but also filter toxic vehicular particulates before runoff reaches sensitive aquifers.\n\nFurthermore, introducing indigenous plant species provides vital sanctuaries for declining pollinator populations, such as solitary bees and migratory butterflies. Entomologists emphasize that native pollinators exhibit tight evolutionary synchrony with indigenous blossoms, an ecological mutualism that exotic decorative turf cannot sustain.\n\nBeyond tangible hydrological and microclimatic benefits, psychologists report significant mental health improvements among urban dwellers residing near rewilded corridors. Exposure to biologically diverse canopies triggers parasympathetic nervous system responses, diminishing cortisol secretion and alleviating chronic urban anxiety.",
+      "target_words": [
+        "urban rewilding",
+        "manicured parks",
+        "meandering floodplains",
+        "bio-retention swales",
+        "particulates",
+        "indigenous plant species",
+        "ecological mutualism",
+        "parasympathetic nervous system"
+      ],
+      "questions": [
+        {
+          "question": "How does urban rewilding differ from conventional urban landscaping?",
+          "options": [
+            "A. It replaces native forests with paved pedestrian plazas",
+            "B. It restores natural ecological processes and native biodiversity instead of manicured parks",
+            "C. It relies exclusively on artificial plastic turf",
+            "D. It eliminates all forms of urban wildlife"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 1 chỉ ra: 'Departing from manicured ornamental parks and sterile concrete riverbanks, rewilding advocates seek to restore natural ecological processes, native flora, and spontaneous biodiversity'."
+        },
+        {
+          "question": "What dual advantage do bio-retention swales provide during severe storms?",
+          "options": [
+            "A. Generating hydroelectric power and cooling buildings",
+            "B. Mitigating flood risks and filtering toxic particulates from runoff",
+            "C. Diverting water into industrial bottling facilities",
+            "D. Accelerating water velocity into city centers"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 2 nêu rõ: 'These bio-retention swales not only mitigate urban flooding... but also filter toxic vehicular particulates before runoff reaches sensitive aquifers'."
+        },
+        {
+          "question": "What psychological effect is associated with proximity to rewilded corridors?",
+          "options": [
+            "A. Increased cortisol production",
+            "B. Heightened cognitive stress and insomnia",
+            "C. Activation of the parasympathetic system and reduced anxiety",
+            "D. Accelerated heartbeat and sensory overload"
+          ],
+          "answer": "C",
+          "explain": "Đoạn 4 nêu: 'Exposure to biologically diverse canopies triggers parasympathetic nervous system responses, diminishing cortisol secretion and alleviating chronic urban anxiety'."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "[IELTS] The Psychology of Decision Fatigue and Heuristics",
+      "category": "IELTS",
+      "level": "Band 7.5+",
+      "source_reference": "IELTS Academic Behavioral Economics Review",
+      "content": "Every waking day, an average adult confronts upwards of thirty-five thousand decisions, spanning mundane dietary selections to momentous professional dilemmas. Behavioral economists and cognitive psychologists have discovered that the mental energy required for executive functioning is a finite physiological resource. When this reservoir is drained, individuals succumb to a phenomenon known as 'decision fatigue'.\n\nThe human prefrontal cortex relies heavily on glucose and metabolic sustenance to perform deliberate cognitive calculus. When forced to deliberate sequentially over prolonged durations, the brain instinctively economizes energy by shifting from analytical processing (System 2) to automated, intuitive processing (System 1). Consequently, decision fatigue typically manifests in two polar extremes: impulsive surrender to immediate gratification or paralysis by default inaction.\n\nA landmark study investigating judicial parole hearings revealed striking evidence of decision fatigue. Prisoners appearing before magistrates in the early morning or immediately following a nutritional recess were granted parole at rates surpassing sixty-five percent. Conversely, identical applications reviewed late in the afternoon, when judicial stamina was depleted, plummeted to near-zero approval rates, as granting parole demanded far greater cognitive accountability than upholding the status quo.\n\nTo circumvent decision fatigue, leaders frequently institutionalize behavioral heuristics and reduce trivial choices. By streamlining wardrobe choices, automating repetitive workflows, and prioritizing high-leverage decisions during peak morning alertness, individuals preserve cognitive capital for challenges requiring rigorous critical evaluation.",
+      "target_words": [
+        "executive functioning",
+        "decision fatigue",
+        "prefrontal cortex",
+        "cognitive calculus",
+        "System 1 and System 2",
+        "parole hearings",
+        "status quo",
+        "behavioral heuristics"
+      ],
+      "questions": [
+        {
+          "question": "According to the passage, why does the human brain experience decision fatigue?",
+          "options": [
+            "A. Because the brain has unlimited energy reserves",
+            "B. Because executive mental energy is a finite resource reliant on metabolic glucose",
+            "C. Because people sleep too many hours each night",
+            "D. Because System 2 requires zero physiological effort"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 1 & 2 nêu rõ: 'mental energy required for executive functioning is a finite physiological resource... prefrontal cortex relies heavily on glucose and metabolic sustenance'."
+        },
+        {
+          "question": "What did the study on judicial parole hearings demonstrate?",
+          "options": [
+            "A. Judges made better decisions when completely exhausted",
+            "B. Approval rates dropped dramatically late in the day as judges defaulted to the status quo",
+            "C. Nutritional breaks had no bearing on judicial deliberation",
+            "D. Prisoners in the afternoon were intrinsically more dangerous"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 3 phân tích: Đơn xét tha bổng giảm xuống gần 0% vào cuối buổi chiều khi thẩm phán kiệt sức nhận thức và chọn phương án an toàn mặc định (status quo)."
+        },
+        {
+          "question": "How do effective leaders mitigate decision fatigue in daily life?",
+          "options": [
+            "A. By eliminating all morning decisions entirely",
+            "B. By making random choices without evaluation",
+            "C. By automating trivial routines and tackling complex tasks during peak alertness",
+            "D. By avoiding executive decisions permanently"
+          ],
+          "answer": "C",
+          "explain": "Đoạn cuối: 'streamlining wardrobe choices, automating repetitive workflows, and prioritizing high-leverage decisions during peak morning alertness'."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "[VSTEP B2] Preserving Vietnamese Traditional Craft Villages",
+      "category": "VSTEP",
+      "level": "B2",
+      "source_reference": "VSTEP Reading Comprehension Prep Anthology - ĐHQG Hà Nội",
+      "content": "Across Vietnam, more than five thousand traditional craft villages have long served as the cultural heartbeat and socio-economic backbone of rural communities. From the exquisite silk weaving of Van Phuc and the time-honored pottery of Bat Trang to the delicate bronze casting of Ngu Xa, these artisan enclaves embody ancestral craftsmanship passed down through generations.\n\nHowever, the rapid forces of industrialization, mass commercialization, and urban expansion pose formidable threats to the survival of these artisanal legacies. Cheap, factory-manufactured synthetic alternatives have flooded local and international markets, severely undermining the profit margins of handcrafted ceramics and textiles. Furthermore, younger generations in rural provinces frequently migrate to bustling industrial zones in search of higher, more predictable salaries, creating a precarious shortage of skilled apprentices.\n\nTo revitalize these heritage bastions, many craft cooperatives are embracing experiential tourism and digital e-commerce. By transforming workshops into interactive cultural destinations, international and domestic visitors can shape raw clay on pottery wheels or try their hands at traditional indigo dyeing. Concurrently, government incentives promoting the 'One Commune One Product' (OCOP) program have enabled craftsmen to standardize quality, obtain intellectual property trademarks, and export bespoke goods globally via modern digital platforms.\n\nPreserving traditional craft villages is not merely about nostalgic conservation; it is an economic imperative that ensures sustainable rural livelihoods while celebrating Vietnam's cultural identity on the global stage.",
+      "target_words": [
+        "cultural heartbeat",
+        "artisan enclaves",
+        "ancestral craftsmanship",
+        "mass commercialization",
+        "synthetic alternatives",
+        "experiential tourism",
+        "One Commune One Product",
+        "bespoke goods"
+      ],
+      "questions": [
+        {
+          "question": "What is one major threat facing Vietnamese craft villages today according to the text?",
+          "options": [
+            "A. Excessive numbers of young apprentices refusing to leave the villages",
+            "B. Competition from inexpensive, mass-produced synthetic products",
+            "C. A total lack of clay and silk raw materials in Vietnam",
+            "D. Complete prohibition of traditional exports by foreign markets"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 2 nêu rõ: 'Cheap, factory-manufactured synthetic alternatives have flooded local and international markets, severely undermining the profit margins...'"
+        },
+        {
+          "question": "How has the 'One Commune One Product' (OCOP) program supported local artisans?",
+          "options": [
+            "A. By closing down traditional workshops to build factories",
+            "B. By helping standardize quality, secure trademarks, and promote digital exports",
+            "C. By replacing handcrafted goods with plastic imports",
+            "D. By restricting tourism in rural provinces"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 3 viết: 'OCOP program have enabled craftsmen to standardize quality, obtain intellectual property trademarks, and export bespoke goods globally'."
+        },
+        {
+          "question": "What is the primary message of the author in the conclusion?",
+          "options": [
+            "A. Craft villages should be preserved only for nostalgic memory without economic goals",
+            "B. Preserving craft villages supports sustainable rural economies and preserves national identity",
+            "C. Young people must be legally forced to stay in rural villages",
+            "D. Handcrafted pottery should be replaced by industrial manufacturing"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 4 kết luận: 'Preserving traditional craft villages is not merely about nostalgic conservation; it is an economic imperative that ensures sustainable rural livelihoods while celebrating Vietnam's cultural identity'."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "[VSTEP B2-C1] Digital Transformation and Lifelong Learning in Vietnam",
+      "category": "VSTEP",
+      "level": "B2-C1",
+      "source_reference": "VSTEP C1 English Proficiency Preparation Material",
+      "content": "The rapid advent of the Fourth Industrial Revolution has propelled Vietnam into an era of unprecedented digital acceleration. From cloud computing and blockchain to automated robotic manufacturing, disruptive technologies are redefining the national labor market at a dizzying pace. In this fluid socioeconomic landscape, the traditional notion of education as a finite milestone completed in youth has become obsolete.\n\nEconomists project that over forty percent of existing occupational roles in Southeast Asia will undergo substantial automation or structural restructuring by the end of the decade. Routine administrative positions, manual assembly, and data entry are increasingly handled by cognitive algorithms. Conversely, employers are seeking candidates equipped with complex problem-solving abilities, data literacy, and emotional intelligence.\n\nTo navigate this paradigm shift, Vietnamese educational institutions and enterprise leaders are heavily investing in lifelong learning frameworks. Massive Open Online Courses (MOOCs) and micro-credentialing platforms allow working adults to upskill and reskill flexibly outside conventional office hours. Universities are partnering with technology conglomerates to establish agile curricula reflecting real-time market demands.\n\nUltimately, fostering a culture of perpetual curiosity and adaptability is paramount. Those who view continuous learning not as an intermittent burden, but as an ongoing journey of self-actualization, will lead Vietnam's emergence as an innovative knowledge-based economy.",
+      "target_words": [
+        "Fourth Industrial Revolution",
+        "disruptive technologies",
+        "occupational roles",
+        "cognitive algorithms",
+        "lifelong learning",
+        "micro-credentialing",
+        "agile curricula",
+        "knowledge-based economy"
+      ],
+      "questions": [
+        {
+          "question": "Why has the traditional view of education as a finite milestone become obsolete?",
+          "options": [
+            "A. Because university tuition fees have been abolished completely",
+            "B. Because disruptive technologies are rapidly transforming job requirements and labor demands",
+            "C. Because computers have eliminated the need for human learning",
+            "D. Because young people are no longer interested in attending schools"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 1 nêu rõ các công nghệ đột phá thay đổi thị trường lao động với tốc độ chóng mặt, khiến quan niệm giáo dục chỉ giới hạn ở thời thanh xuân trở nên lỗi thời."
+        },
+        {
+          "question": "Which skills are increasingly sought after by modern employers in Vietnam?",
+          "options": [
+            "A. Repetitive manual assembly skills",
+            "B. Complex problem-solving, data literacy, and emotional intelligence",
+            "C. Basic handwriting and physical filing",
+            "D. Routine paperwork and data entry"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 2 nêu rõ: 'employers are seeking candidates equipped with complex problem-solving abilities, data literacy, and emotional intelligence'."
+        },
+        {
+          "question": "How do MOOCs and micro-credentials help the working workforce?",
+          "options": [
+            "A. They guarantee instant government employment",
+            "B. They provide flexible avenues for continuous upskilling outside standard working hours",
+            "C. They replace university degrees entirely with cash stipends",
+            "D. They require workers to quit their jobs permanently"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 3 chỉ ra: 'MOOCs and micro-credentialing platforms allow working adults to upskill and reskill flexibly outside conventional office hours'."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "[VSTEP B1] Eco-Tourism in the Mekong Delta: Balance and Growth",
+      "category": "VSTEP",
+      "level": "B1",
+      "source_reference": "VSTEP B1 Standard Reading Exercises",
+      "content": "The Mekong Delta in southwestern Vietnam is a world of lush water mazes, floating markets, and tropical fruit orchards. In recent years, community-based eco-tourism has emerged as an attractive pathway to boost household incomes while protecting the delicate riverine ecosystem.\n\nUnlike mass tourism, which often results in river pollution and overcrowding, eco-tourism encourages travelers to experience everyday rural life authentically. Guests stay in wooden homestays, paddle traditional sampans through tranquil mangrove channels, and harvest seasonal fruits such as rambutan, durian, and pomelo alongside local farmers. These activities allow visitors to appreciate local customs while generating direct revenue for farming families.\n\nHowever, developing sustainable eco-tourism requires careful management. Tour operators must avoid over-commercializing local traditions, which can diminish the authentic charm that attracts visitors in the first place. Moreover, local authorities must invest in proper waste management systems to ensure that waterways remain clean and unpolluted.\n\nWhen managed responsibly, eco-tourism provides a win-win model: it preserves the natural heritage and unique water culture of the Mekong Delta while providing a stable livelihood for generations to come.",
+      "target_words": [
+        "floating markets",
+        "fruit orchards",
+        "eco-tourism",
+        "riverine ecosystem",
+        "homestays",
+        "sampans",
+        "waste management",
+        "sustainable livelihood"
+      ],
+      "questions": [
+        {
+          "question": "What is a key difference between eco-tourism and mass tourism in the Mekong Delta?",
+          "options": [
+            "A. Eco-tourism encourages authentic experiences and protects the natural river environment",
+            "B. Eco-tourism involves constructing giant concrete skyscrapers along rivers",
+            "C. Eco-tourism is only available for large commercial cruise ships",
+            "D. Eco-tourism focuses exclusively on shopping malls"
+          ],
+          "answer": "A",
+          "explain": "Đoạn 2 nêu: 'Unlike mass tourism... eco-tourism encourages travelers to experience everyday rural life authentically' và bảo tồn hệ sinh thái sông nước."
+        },
+        {
+          "question": "What activity can visitors enjoy during a community-based homestay?",
+          "options": [
+            "A. Building industrial motorways",
+            "B. Paddling sampans through mangrove channels and harvesting tropical fruits",
+            "C. Visiting nuclear power facilities",
+            "D. Constructing large concrete dams"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 2 liệt kê: 'Guests stay in wooden homestays, paddle traditional sampans through tranquil mangrove channels, and harvest seasonal fruits...'."
+        },
+        {
+          "question": "What must local authorities improve to ensure sustainable tourism?",
+          "options": [
+            "A. Waste management systems to keep waterways clean",
+            "B. Banning all foreign visitors permanently",
+            "C. Cutting down all fruit orchards",
+            "D. Replacing rivers with asphalt roads"
+          ],
+          "answer": "A",
+          "explain": "Đoạn 3 nhấn mạnh: 'local authorities must invest in proper waste management systems to ensure that waterways remain clean and unpolluted'."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "[TOEIC Part 7] Apex Global Logistics - Supply Chain ERP Migration Notice",
+      "category": "TOEIC",
+      "level": "750+ / B2",
+      "source_reference": "ETS TOEIC Official Test Preparation - Reading Part 7",
+      "content": "MEMORANDUM\n\nTO: All Regional Warehouse Managers and Dispatch Coordinators\nFROM: Marcus Vance, Chief Operations Officer (COO)\nDATE: October 14, 2026\nSUBJECT: Scheduled Enterprise Resource Planning (ERP) Software Migration\n\nPlease be advised that Apex Global Logistics will officially transition all inventory tracking, customs clearance, and fleet routing systems to our next-generation cloud platform, Horizon ERP 4.0, effective Monday, November 2 at 12:00 AM UTC.\n\nThe transition schedule is outlined below:\n- System Freeze: Friday, October 30, 20:00 UTC. No new outbound freight orders may be entered into the legacy database.\n- Data Validation & Migration: Saturday, October 31 to Sunday, November 1. Regional IT teams will verify freight manifests across all four continental fulfillment hubs.\n- Full System Go-Live: Monday, November 2, 06:00 UTC. Dispatch teams will resume full automated cargo tracking.\n\nMandatory Training Requirements:\nAll dispatch supervisors must complete the 90-minute Horizon ERP interactive webinar by Friday, October 23. Login credentials for the training simulator have been dispatched via automated email. Failure to submit completion certificates will result in temporary suspension of administrative dispatch permissions.\n\nFor technical assistance during the weekend cutoff window, please contact the dedicated IT Command Desk at internal extension 4402 or via email at erp-support@apexlogistics.com.",
+      "target_words": [
+        "memorandum",
+        "inventory tracking",
+        "customs clearance",
+        "fleet routing",
+        "outbound freight",
+        "fulfillment hubs",
+        "mandatory training",
+        "administrative permissions"
+      ],
+      "questions": [
+        {
+          "question": "What is the primary purpose of the memorandum?",
+          "options": [
+            "A. To announce salary increments for truck drivers",
+            "B. To notify management of an upcoming software migration and schedule",
+            "C. To recruit new warehouse staff in Europe",
+            "D. To report a permanent cancellation of freight shipments"
+          ],
+          "answer": "B",
+          "explain": "Tiêu đề và đoạn đầu nêu rõ thông báo chuyển đổi hệ thống phần mềm quản lý kho vận: 'Scheduled Enterprise Resource Planning (ERP) Software Migration'."
+        },
+        {
+          "question": "When is the deadline for dispatch supervisors to complete the mandatory training webinar?",
+          "options": [
+            "A. October 14",
+            "B. Friday, October 23",
+            "C. October 30",
+            "D. November 2"
+          ],
+          "answer": "B",
+          "explain": "Phần Mandatory Training Requirements ghi rõ: 'All dispatch supervisors must complete the 90-minute Horizon ERP interactive webinar by Friday, October 23'."
+        },
+        {
+          "question": "What will happen if a supervisor fails to submit their training certificate?",
+          "options": [
+            "A. Their employment will be permanently terminated immediately",
+            "B. Their administrative dispatch permissions will be temporarily suspended",
+            "C. They will receive an automatic bonus",
+            "D. They will be transferred to customer service"
+          ],
+          "answer": "B",
+          "explain": "Văn bản nêu rõ: 'Failure to submit completion certificates will result in temporary suspension of administrative dispatch permissions'."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "[TOEIC Part 7] Customer Inquiry & Executive Response - Skyline Hospitality",
+      "category": "TOEIC",
+      "level": "650-800",
+      "source_reference": "TOEIC Part 7 Double Passage Practice",
+      "content": "EMAIL 1: CUSTOMER INQUIRY\nFrom: Eleanor Davies (e.davies@daviescorp.co.uk)\nTo: Guest Relations (guestservices@skylinehotels.com)\nDate: August 18, 2026\nSubject: Inquiry Regarding Corporate Banquet Reservation #BK-9481\n\nDear Skyline Customer Service Team,\n\nI recently booked the Grand Ballroom at the Skyline Regency Hotel in Chicago for our annual corporate awards banquet on Friday, September 25. Our initial reservation was made for 120 guests with standard catering.\n\nDue to a merger completed earlier this week, our anticipated attendance has expanded to approximately 165 attendees. Could you please confirm if the Grand Ballroom can comfortably accommodate this revised party size? Additionally, we have several delegates who require strictly vegan and gluten-free dietary options. Please furnish an updated pricing estimate inclusive of audiovisual setup and upgraded floral centerpieces.\n\nSincerely,\nEleanor Davies\nDirector of Corporate Relations, Davies Enterprises\n\n---\n\nEMAIL 2: EXECUTIVE RESPONSE\nFrom: Julian Thorne, Senior Events Manager (j.thorne@skylinehotels.com)\nTo: Eleanor Davies (e.davies@daviescorp.co.uk)\nDate: August 19, 2026\nSubject: Re: Inquiry Regarding Corporate Banquet Reservation #BK-9481\n\nDear Ms. Davies,\n\nThank you for contacting Skyline Regency. We are delighted to accommodate your growing celebration!\n\nThe Grand Ballroom has a maximum banquet capacity of 220 guests in rounds of ten, so accommodating 165 attendees will be effortless with ample room for the stage and dance floor. Our Executive Chef has curated a premium 3-course menu featuring dedicated vegan and celiac-certified gluten-free selections at no supplemental surcharge.\n\nI have attached a revised quote reflecting the additional covers, high-definition laser projectors, dual wireless microphones, and bespoke autumnal centerpieces. Should you confirm these amendments by August 24, we will gladly extend a complimentary champagne welcome reception for all your guests.\n\nWarm regards,\nJulian Thorne\nSenior Events Coordinator, Skyline Regency Chicago",
+      "target_words": [
+        "banquet reservation",
+        "accommodate",
+        "dietary options",
+        "audiovisual setup",
+        "floral centerpieces",
+        "banquet capacity",
+        "supplemental surcharge",
+        "complimentary reception"
+      ],
+      "questions": [
+        {
+          "question": "Why did Ms. Davies write the first email?",
+          "options": [
+            "A. To cancel her hotel stay due to flight delays",
+            "B. To request modifications to her corporate banquet reservation size and catering",
+            "C. To complain about poor room service during her stay",
+            "D. To apply for an event coordinator job at Skyline"
+          ],
+          "answer": "B",
+          "explain": "Ms. Davies gửi thư để tăng số lượng khách từ 120 lên 165, yêu cầu thực đơn ăn chay/không gluten và báo giá bổ sung thiết bị."
+        },
+        {
+          "question": "What is the maximum capacity of the Grand Ballroom at Skyline Regency?",
+          "options": [
+            "A. 120 guests",
+            "B. 165 guests",
+            "C. 220 guests",
+            "D. 350 guests"
+          ],
+          "answer": "C",
+          "explain": "Trong Email 2, Julian Thorne cho biết: 'The Grand Ballroom has a maximum banquet capacity of 220 guests...'."
+        },
+        {
+          "question": "What special incentive is offered if Ms. Davies confirms changes before August 24?",
+          "options": [
+            "A. A fifty percent discount on room accommodation",
+            "B. A complimentary champagne welcome reception for all guests",
+            "C. Free airfare tickets to Chicago",
+            "D. A free stay in the presidential suite"
+          ],
+          "answer": "B",
+          "explain": "Cuối Email 2 ghi rõ: 'Should you confirm these amendments by August 24, we will gladly extend a complimentary champagne welcome reception for all your guests'."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "[APTIS] Work Routines: Four Remote Professionals Share Experiences",
+      "category": "APTIS",
+      "level": "B2",
+      "source_reference": "British Council Aptis Reading Task 3 Practice",
+      "content": "PERSON A - DANIEL (Software Engineer, Berlin):\n\"The biggest revelation for me was adopting an asynchronous work schedule. My engineering team spans twelve time zones, from Vancouver to Singapore. Rather than cramming our calendars with tedious Zoom meetings, we document every architecture decision in writing. I do my best deep-focus programming between 6:00 AM and 10:00 AM before turning on my messaging notifications. It requires immense personal discipline, but the autonomy is unmatched.\"\n\nPERSON B - SOPHIA (Digital Marketer, Madrid):\n\"Working from home initially caused serious isolation and blurring of work-life boundaries. I found myself answering client emails at 11:00 PM while sitting on the sofa. To preserve my mental well-being, I rented a desk in a vibrant coworking space nearby. Packing a backpack and physically walking twenty minutes to the office gives me the psychological transition I desperately need between professional obligations and personal relaxation.\"\n\nPERSON C - LIAM (Freelance Translator, Tokyo):\n\"For me, flexibility is the greatest asset of remote work, especially as a parent of twins. I can drop my children off at school, go for a midday swim at the public pool, and then work intensely in the early afternoon. However, you must be prepared for unpredictable cash flow. Some months are inundated with high-paying commercial localization contracts, while others are relatively quiet.\"\n\nPERSON D - AYESHA (Cybersecurity Consultant, London):\n\"Security and ergonomic comfort are my top priorities. When working with sensitive client databases, you cannot simply sit in a noisy café with unencrypted Wi-Fi. I invested heavily in a motorized sit-stand desk, a high-fidelity noise-canceling headset, and an enterprise VPN tunnel. Creating a distraction-free, professional environment at home makes all the difference.\"",
+      "target_words": [
+        "asynchronous work",
+        "deep-focus programming",
+        "blurring of boundaries",
+        "coworking space",
+        "unpredictable cash flow",
+        "localization contracts",
+        "ergonomic comfort",
+        "enterprise VPN"
+      ],
+      "questions": [
+        {
+          "question": "Which person rented a separate desk outside the home to separate work and personal life?",
+          "options": [
+            "A. Daniel",
+            "B. Sophia",
+            "C. Liam",
+            "D. Ayesha"
+          ],
+          "answer": "B",
+          "explain": "Sophia (Person B) chia sẻ: 'To preserve my mental well-being, I rented a desk in a vibrant coworking space nearby... gives me the psychological transition'."
+        },
+        {
+          "question": "Which person appreciates remote work primarily because it accommodates parenting duties?",
+          "options": [
+            "A. Daniel",
+            "B. Sophia",
+            "C. Liam",
+            "D. Ayesha"
+          ],
+          "answer": "C",
+          "explain": "Liam (Person C) nêu: 'flexibility is the greatest asset of remote work, especially as a parent of twins. I can drop my children off at school...'."
+        },
+        {
+          "question": "Which person emphasizes avoiding real-time meetings in favor of written documentation?",
+          "options": [
+            "A. Daniel",
+            "B. Sophia",
+            "C. Liam",
+            "D. Ayesha"
+          ],
+          "answer": "A",
+          "explain": "Daniel (Person A) giải thích: 'Rather than cramming our calendars with tedious Zoom meetings, we document every architecture decision in writing'."
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "[APTIS] The Science of Intermittent Fasting and Cellular Autophagy",
+      "category": "APTIS",
+      "level": "B2",
+      "source_reference": "Aptis Advanced General Science Reading",
+      "content": "In recent years, intermittent fasting (IF) has transitioned from an esoteric fitness trend to a rigorously studied nutritional paradigm. Unlike traditional caloric restriction diets that focus strictly on what foods an individual consumes, intermittent fasting focuses primarily on when nutrients are ingested.\n\nThe most common protocol, known as the 16/8 method, involves confining daily calorie intake to an eight-hour window while abstaining from caloric sustenance for the remaining sixteen hours. During prolonged fasting windows, the human body undergoes a metabolic shift: insulin levels drop precipitously, signaling adipocytes to release stored fatty acids for energy synthesis, entering mild ketosis.\n\nAt the molecular level, fasting triggers a vital cellular cleansing process known as autophagy, which earned biologist Yoshinori Ohsumi the 2016 Nobel Prize in Physiology. During autophagy, cells degrade, recycle, and eliminate dysfunctional mitochondria, oxidized protein aggregates, and intracellular debris. Scientists hypothesize that regular activation of autophagy plays a protective role against neurodegenerative ailments and age-related cardiovascular decline.\n\nNevertheless, medical professionals emphasize that fasting regimens are not universally appropriate. Pregnant individuals, adolescents in growth phases, and those with a clinical history of eating disorders must exercise caution and seek professional medical guidance before altering their nutritional schedules.",
+      "target_words": [
+        "intermittent fasting",
+        "caloric restriction",
+        "16/8 method",
+        "metabolic shift",
+        "insulin levels",
+        "cellular autophagy",
+        "mitochondria",
+        "neurodegenerative ailments"
+      ],
+      "questions": [
+        {
+          "question": "What is the primary difference between intermittent fasting and traditional diets?",
+          "options": [
+            "A. Intermittent fasting eliminates all carbohydrates permanently",
+            "B. It focuses primarily on timing windows rather than solely restricting calories",
+            "C. It requires consuming only water for entire months",
+            "D. It is exclusively practiced by professional athletes"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 1 nêu rõ: 'Unlike traditional caloric restriction diets that focus strictly on what foods an individual consumes, intermittent fasting focuses primarily on when nutrients are ingested'."
+        },
+        {
+          "question": "What is 'autophagy' as described in the passage?",
+          "options": [
+            "A. The sudden storage of excess sugar in muscles",
+            "B. A cellular recycling mechanism that eliminates damaged proteins and organelles",
+            "C. A viral infection that attacks red blood cells",
+            "D. An artificial chemical injected during medical testing"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 3 định nghĩa: 'cells degrade, recycle, and eliminate dysfunctional mitochondria, oxidized protein aggregates, and intracellular debris'."
+        },
+        {
+          "question": "Who should exercise caution before starting an intermittent fasting regimen?",
+          "options": [
+            "A. Pregnant individuals and individuals with a history of eating disorders",
+            "B. Office workers who use computers",
+            "C. People who exercise in the morning",
+            "D. Professional scientists studying biology"
+          ],
+          "answer": "A",
+          "explain": "Đoạn cuối lưu ý: 'Pregnant individuals, adolescents in growth phases, and those with a clinical history of eating disorders must exercise caution'."
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "[PET] A Weekend at Highland Outdoor Adventure Camp",
+      "category": "PET",
+      "level": "B1 Preliminary",
+      "source_reference": "Cambridge English PET (B1 Preliminary) Reading Handbook",
+      "content": "Last month, our school organized a three-day weekend excursion to the Highland Adventure Camp, nestled in the rugged hills of northern Scotland. Most students in my class had never spent a night outdoors in a tent, so excitement was running high when our bus pulled into the pine-scented campsite on Friday afternoon.\n\nOur instructor, Sarah, immediately gathered us for a safety briefing. She explained that our weekend would not be a lazy holiday; we would learn outdoor survival skills, including how to pitch weather-resistant tents, build a small campfire without matches using a flint striker, and navigate dense forests using only a topographic map and compass.\n\nOn Saturday morning, we faced our biggest challenge: kayaking across a mountain loch. The water was icy and choppy, and my friend Tom and I struggled to keep our double kayak straight against the wind. At one point, our kayak tipped slightly, splashing cold water over our jackets. However, by paddling in rhythm and communicating calmly, we successfully reached the rocky island at the center of the lake.\n\nBy Sunday evening, around the warm glow of the farewell campfire, everyone agreed that the trip had brought our class closer together. Not only did we conquer physical fears, but we also learned the true value of teamwork and mutual encouragement.",
+      "target_words": [
+        "excursion",
+        "rugged hills",
+        "safety briefing",
+        "pitch tents",
+        "flint striker",
+        "topographic map",
+        "paddling in rhythm",
+        "mutual encouragement"
+      ],
+      "questions": [
+        {
+          "question": "What skill did the students learn on their first day at the camp?",
+          "options": [
+            "A. How to drive a school bus across the hills",
+            "B. How to pitch tents, light a fire with flint, and use a map and compass",
+            "C. How to bake traditional bread in a kitchen oven",
+            "D. How to catch fish with commercial nets"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 2 nêu rõ: 'learn outdoor survival skills, including how to pitch weather-resistant tents, build a small campfire without matches using a flint striker, and navigate dense forests using only a topographic map and compass'."
+        },
+        {
+          "question": "What difficulty did Tom and the narrator encounter on the lake?",
+          "options": [
+            "A. Their kayak completely sank to the bottom",
+            "B. The water was icy and windy, making it hard to paddle in a straight line",
+            "C. They forgot to bring paddles",
+            "D. Sarah refused to let them enter the water"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 3 kể: 'The water was icy and choppy, and my friend Tom and I struggled to keep our double kayak straight against the wind'."
+        },
+        {
+          "question": "What was the main outcome of the weekend for the students?",
+          "options": [
+            "A. They decided never to visit Scotland again",
+            "B. They formed closer bonds and realized the importance of teamwork",
+            "C. They all caught severe colds from the lake water",
+            "D. They bought professional kayaking boats"
+          ],
+          "answer": "B",
+          "explain": "Đoạn cuối kết luận: 'the trip had brought our class closer together. Not only did we conquer physical fears, but we also learned the true value of teamwork and mutual encouragement'."
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "title": "[PET] Young Innovators: Starting a Sustainable Clothing Brand",
+      "category": "PET",
+      "level": "B1 Preliminary",
+      "source_reference": "Cambridge PET B1 Reading Sample Papers",
+      "content": "When seventeen-year-old Mia noticed how many discarded clothes ended up in local landfills each year, she decided to take action. Together with two classmates from her art school, she founded 'ReThread', a small community brand that redesigns second-hand denim into modern, trendy jackets and tote bags.\n\nAt first, the trio started by asking friends and family members to donate worn-out jeans that were torn or outgrown. Using sewing machines borrowed from their school craft room, they unstitched the durable fabric and combined different shades of blue denim into striking geometric patchwork designs. Each item was completely unique and stamped with a handwritten message explaining how much textile waste was saved.\n\nMia began posting short videos on social media showing their creative process—from cutting the old jeans to stitching cool patterns. Within three months, their online store gained thousands of followers, and all fifty of their handmade jackets sold out within two hours of launching.\n\nDespite their rapid success, Mia insists that 'ReThread' will remain focused on environmental education. A portion of every sale is donated to ocean cleanup charities, and the team regularly hosts free weekend workshops to teach teenagers basic sewing and mending skills.",
+      "target_words": [
+        "discarded clothes",
+        "landfills",
+        "second-hand denim",
+        "tote bags",
+        "geometric patchwork",
+        "textile waste",
+        "social media",
+        "mending skills"
+      ],
+      "questions": [
+        {
+          "question": "Why did Mia and her classmates start 'ReThread'?",
+          "options": [
+            "A. To become wealthy fashion influencers",
+            "B. Because they were concerned about clothing waste in local landfills",
+            "C. To fulfill a mandatory school detention assignment",
+            "D. Because they wanted to buy factory machinery"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 1 nêu: 'When seventeen-year-old Mia noticed how many discarded clothes ended up in local landfills each year, she decided to take action'."
+        },
+        {
+          "question": "How did the team create their first patchwork jackets?",
+          "options": [
+            "A. By purchasing expensive rolls of new silk from Paris",
+            "B. By unstitching donated old jeans and sewing different shades together",
+            "C. By painting white cotton t-shirts with watercolor",
+            "D. By ordering ready-made garments from an online factory"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 2 giải thích: 'Using sewing machines... they unstitched the durable fabric and combined different shades of blue denim into striking geometric patchwork designs'."
+        },
+        {
+          "question": "What does Mia's team do with part of their profits?",
+          "options": [
+            "A. They donate to ocean cleanup charities and host free sewing workshops",
+            "B. They build an expensive shopping mall",
+            "C. They buy sports cars for their family",
+            "D. They hire a marketing firm in New York"
+          ],
+          "answer": "A",
+          "explain": "Đoạn cuối nêu rõ: 'A portion of every sale is donated to ocean cleanup charities, and the team regularly hosts free weekend workshops to teach teenagers basic sewing and mending skills'."
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "title": "[IELTS] Ocean Acidification & Marine Calcification Under Climate Stress",
+      "category": "IELTS",
+      "level": "Band 7.5+",
+      "source_reference": "IELTS Academic Marine Biology & Climate Anthology",
+      "content": "The world's oceans have historically functioned as Earth's paramount carbon buffer, absorbing roughly thirty percent of anthropogenic carbon dioxide emissions generated since the dawn of the Industrial Revolution. While this oceanic uptake has substantially attenuated atmospheric warming, it has wrought profound chemical repercussions termed 'ocean acidification'.\n\nWhen carbon dioxide dissolves in seawater, it forms carbonic acid, which dissociates into hydrogen ions and bicarbonate. The surge in hydrogen ions reacts with ambient carbonate ions, drastically reducing the concentration of carbonate available for marine calcifiers. Organisms such as stony corals, pteropods (pelagic sea snails), and bivalves rely on carbonate ions combined with calcium to precipitate calcium carbonate shells and skeletal matrices.\n\nMarine biologists caution that pteropods, colloquially termed 'sea butterflies', represent keystone bio-indicators. Experimental exposure of pteropod shells to seawater mimicking projected 2100 carbonate chemistry revealed substantial structural dissolution within forty-eight hours. Because pteropods constitute the nutritional cornerstone for salmon, herring, and baleen whales, their potential population collapse threatens catastrophic trophic cascades across pelagic food webs.\n\nAddressing ocean acidification demands aggressive global decarbonization coupled with targeted localized interventions, such as cultivating kelp forests and eelgrass meadows, which actively sequester dissolved carbon and create localized chemical refugia for vulnerable shell-building fauna.",
+      "target_words": [
+        "carbon buffer",
+        "anthropogenic emissions",
+        "ocean acidification",
+        "carbonic acid",
+        "marine calcifiers",
+        "calcium carbonate",
+        "trophic cascades",
+        "chemical refugia"
+      ],
+      "questions": [
+        {
+          "question": "What primary chemical mechanism leads to ocean acidification?",
+          "options": [
+            "A. Plastic debris floating on the surface of the sea",
+            "B. Dissolved anthropogenic carbon dioxide reacting to form carbonic acid and hydrogen ions",
+            "C. Excessive salt extraction by coastal factories",
+            "D. Radioactive runoff from submarine vessels"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 2 chỉ ra: 'When carbon dioxide dissolves in seawater, it forms carbonic acid, which dissociates into hydrogen ions and bicarbonate...'"
+        },
+        {
+          "question": "Why are pteropods considered critical keystone organisms?",
+          "options": [
+            "A. They are the primary food source for large marine species like salmon and whales",
+            "B. They build the largest coral reefs in the Pacific",
+            "C. They generate electricity on the seafloor",
+            "D. They filter commercial fishing nets"
+          ],
+          "answer": "A",
+          "explain": "Đoạn 3 giải thích: 'Because pteropods constitute the nutritional cornerstone for salmon, herring, and baleen whales...'"
+        },
+        {
+          "question": "How can kelp forests and eelgrass help combat localized acidification?",
+          "options": [
+            "A. By warming the sea temperature",
+            "B. By actively sequestering dissolved carbon and creating chemical refugia",
+            "C. By blocking sunlight from reaching the seabed",
+            "D. By poisoning marine predators"
+          ],
+          "answer": "B",
+          "explain": "Đoạn cuối nêu rõ: 'cultivating kelp forests and eelgrass meadows, which actively sequester dissolved carbon and create localized chemical refugia'."
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "title": "[VSTEP C1] Energy Transition and Offshore Wind Potential in Coastal Vietnam",
+      "category": "VSTEP",
+      "level": "C1",
+      "source_reference": "VSTEP C1 Advanced Policy & Technology Reading",
+      "content": "Boasting a dramatic coastline stretching over 3,260 kilometers, Vietnam is exceptionally endowed with some of the most robust offshore wind energy resources in Southeast Asia. With average wind speeds exceeding nine meters per second in the southern coastal provinces of Ninh Thuan and Binh Thuan, the nation possesses technical wind potential estimated at hundreds of gigawatts.\n\nUnder the National Power Development Plan VIII (PDP8), the Vietnamese government has committed to phasing out unabated coal generation and quadrupling renewable energy capacity by 2045, aiming for net-zero carbon emissions by 2050. Offshore wind turbines offer superior capacity factors compared to onshore alternatives, generating clean electricity continuously without competing for precious arable land.\n\nNonetheless, transitioning from fossil fuel dependency to an offshore wind power requires overcoming formidable engineering and institutional hurdles. Subsea geological conditions in typhoon-prone zones necessitate resilient foundation designs capable of withstanding turbulent monsoons. Furthermore, Vietnam's domestic electrical transmission grid requires substantial high-voltage direct current (HVDC) upgrades to transmit bulk offshore generation from southern coastal waters to northern industrial demand centers.\n\nBy creating transparent regulatory frameworks for Power Purchase Agreements (PPAs) and fostering domestic engineering supply chains, Vietnam can establish itself as a vanguard of clean energy manufacturing and sustainable decarbonization in the Asia-Pacific region.",
+      "target_words": [
+        "offshore wind energy",
+        "robust wind resources",
+        "Power Development Plan",
+        "net-zero carbon emissions",
+        "capacity factors",
+        "subsea geological conditions",
+        "transmission grid",
+        "Power Purchase Agreements"
+      ],
+      "questions": [
+        {
+          "question": "What makes Vietnam particularly well-suited for offshore wind development?",
+          "options": [
+            "A. Abundant flat desert lands with no rainfall",
+            "B. Over 3,260 km of coastline with high average wind speeds exceeding 9 m/s",
+            "C. Total absence of seasonal storms and typhoons",
+            "D. Existing nuclear power plants on every island"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 1 nêu: 'Boasting a dramatic coastline stretching over 3,260 kilometers... wind speeds exceeding nine meters per second'."
+        },
+        {
+          "question": "What is one major technological challenge mentioned regarding offshore wind turbines?",
+          "options": [
+            "A. Lack of wind in southern coastal provinces",
+            "B. Engineering foundation designs to withstand severe typhoons and monsoons",
+            "C. Solar panels overheating on the sea",
+            "D. Complete lack of ocean water"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 3 phân tích: 'Subsea geological conditions in typhoon-prone zones necessitate resilient foundation designs capable of withstanding turbulent monsoons'."
+        },
+        {
+          "question": "Why is grid infrastructure modernization essential for Vietnam's energy transition?",
+          "options": [
+            "A. To transport electricity generated in southern waters to northern manufacturing hubs",
+            "B. To export all electricity exclusively to Europe",
+            "C. To prevent consumers from turning on household appliances",
+            "D. To replace high-voltage lines with wooden poles"
+          ],
+          "answer": "A",
+          "explain": "Đoạn 3 chỉ ra: 'requires substantial high-voltage direct current (HVDC) upgrades to transmit bulk offshore generation from southern coastal waters to northern industrial demand centers'."
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "title": "[TOEIC Part 7] Nexis Consumer Electronics - Global Product Recall Bulletin",
+      "category": "TOEIC",
+      "level": "700+",
+      "source_reference": "TOEIC Part 7 Product Safety & Customer Assurance Announcement",
+      "content": "PRODUCT SAFETY RECALL & REMEDY BULLETIN\nIssued: November 4, 2026\nProduct Line: Nexis PowerMax 65W GaN Travel Chargers (Model #NX-6500-G)\nDistribution Dates: March 15, 2026 – October 20, 2026\n\nDear Valued Customers and Retail Partners,\n\nIn voluntary cooperation with international consumer product safety commissions, Nexis Electronics Corporation is executing an immediate worldwide safety recall of the Nexis PowerMax 65W GaN Travel Fast Charger.\n\nReason for Recall:\nInternal quality assurance testing identified that an isolated batch of internal thermal cut-off capacitors manufactured between March and July 2026 may experience electrical overheating when operating under prolonged maximum load in high ambient humidity. Although zero property damage or injury incidents have been reported, Nexis has proactively halted production of the affected batch.\n\nRemedy & Replacement Options:\nConsumers owning an affected unit should immediately unplug the charger from wall outlets and verify the 10-digit serial number on the underside prongs against our online recall portal at www.nexis-safety.com/verify. \n\nAffected customers are eligible for one of the following complimentary remedies:\n1. Free Replacement: A complimentary upgraded Nexis PowerMax 70W Pro charger shipped via priority air courier (estimated delivery: 2-3 business days).\n2. Full Cash Refund: A digital prepaid Mastercard refund for the full retail purchase amount of $59.99 upon barcode submission.\n3. In addition, all participating consumers will receive a $15 discount voucher valid on any accessory at Nexis Authorized Retailers through December 31, 2026.\n\nWe deeply apologize for this inconvenience and remain steadfast in our dedication to product safety and engineering excellence.",
+      "target_words": [
+        "product safety recall",
+        "thermal cut-off capacitors",
+        "electrical overheating",
+        "proactively halted",
+        "complimentary remedies",
+        "prepaid Mastercard",
+        "discount voucher",
+        "retail purchase"
+      ],
+      "questions": [
+        {
+          "question": "What is the reason behind Nexis Corporation's voluntary product recall?",
+          "options": [
+            "A. The charger does not fit into standard wall sockets",
+            "B. An internal capacitor batch may overheat under sustained heavy load in humid conditions",
+            "C. The color of the plastic case fades over time",
+            "D. The company went bankrupt and is stopping all operations"
+          ],
+          "answer": "B",
+          "explain": "Mục Reason for Recall nêu rõ: 'internal thermal cut-off capacitors... may experience electrical overheating when operating under prolonged maximum load in high ambient humidity'."
+        },
+        {
+          "question": "How can consumers determine if their charger is part of the recall?",
+          "options": [
+            "A. By mailing the entire device to corporate headquarters in New York",
+            "B. By checking the 10-digit serial number on the prongs via the online recall portal",
+            "C. By bringing the device to an electronics repair shop",
+            "D. By attempting to submerge the charger in water"
+          ],
+          "answer": "B",
+          "explain": "Đoạn Remedy nêu rõ: 'verify the 10-digit serial number on the underside prongs against our online recall portal at www.nexis-safety.com/verify'."
+        },
+        {
+          "question": "What additional perk is given to all customers participating in the recall?",
+          "options": [
+            "A. A new laptop computer",
+            "B. A $15 store discount voucher valid until the end of 2026",
+            "C. Free round-trip airline tickets",
+            "D. Lifetime free electricity"
+          ],
+          "answer": "B",
+          "explain": "Mục 3 ghi: 'In addition, all participating consumers will receive a $15 discount voucher valid on any accessory at Nexis Authorized Retailers through December 31, 2026'."
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "title": "[APTIS] Urban Micro-Mobility: Solving the First-Mile Transit Dilemma",
+      "category": "APTIS",
+      "level": "B2",
+      "source_reference": "Aptis Advanced Urban Planning Reading",
+      "content": "In modern urban planning, the 'first-mile, last-mile' dilemma refers to the critical gap between a commuter's doorstep and the nearest mass transit station. When metro stations are situated beyond comfortable walking distance—typically greater than eight hundred meters—urban residents frequently revert to private automobiles or ride-hailing services, exacerbating gridlock and tailpipe emissions.\n\nTo bridge this gap, shared electric scooters and dockless bicycles have swept across hundreds of global metropolitan centers over the past decade. Proponents point out that lightweight micro-mobility vehicles consume less than three percent of the energy required by a single-passenger automobile to traverse the identical distance. Furthermore, smartphone app integration and geofenced speed controls enable swift, frictionless point-to-point transit.\n\nHowever, micro-mobility has also ignited contentious municipal debates. Indiscriminately discarded scooters clutter pedestrian walkways, creating hazardous physical barriers for elderly citizens and visually impaired pedestrians. In response, cities such as Paris, Amsterdam, and Singapore have enacted stringent regulatory frameworks: mandating designated geo-fenced parking corrals, capping fleet sizes, and enforcing computerized fines for sidewalk riding.\n\nWhen effectively integrated with dedicated bike lane infrastructure and synchronized transit ticketing, micro-mobility transforms congested urban streets into vibrant, human-scale corridors.",
+      "target_words": [
+        "last-mile dilemma",
+        "mass transit station",
+        "tailpipe emissions",
+        "micro-mobility",
+        "dockless bicycles",
+        "geofenced speed controls",
+        "designated parking corrals",
+        "human-scale corridors"
+      ],
+      "questions": [
+        {
+          "question": "What is the 'first-mile, last-mile' dilemma in urban transportation?",
+          "options": [
+            "A. The cost of manufacturing electric vehicle batteries",
+            "B. The distance gap between a commuter's home and the closest mass transit hub",
+            "C. The speed limit enforced on national highways",
+            "D. The schedule of international airline flights"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 1 định nghĩa: 'the critical gap between a commuter's doorstep and the nearest mass transit station'."
+        },
+        {
+          "question": "Why do environmentalists champion electric micro-mobility?",
+          "options": [
+            "A. Because electric scooters consume less than 3% of the energy of an automobile over the same distance",
+            "B. Because scooters can fly over heavy traffic jams",
+            "C. Because they do not require any batteries or charging",
+            "D. Because they travel faster than high-speed trains"
+          ],
+          "answer": "A",
+          "explain": "Đoạn 2 nêu rõ: 'lightweight micro-mobility vehicles consume less than three percent of the energy required by a single-passenger automobile to traverse the identical distance'."
+        },
+        {
+          "question": "What measure have cities like Paris and Singapore taken to resolve scooter sidewalk clutter?",
+          "options": [
+            "A. Banning all pedestrians from walking outside",
+            "B. Implementing designated geofenced parking bays and enforcing fines",
+            "C. Building elevated highways exclusively for scooters",
+            "D. Removing all sidewalks from cities"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 3 giải thích: 'mandating designated geo-fenced parking corrals, capping fleet sizes, and enforcing computerized fines for sidewalk riding'."
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "title": "[PET] Exploring the Wonders of the Deep Sea: The Oceanarium Experience",
+      "category": "PET",
+      "level": "B1 Preliminary",
+      "source_reference": "Cambridge Preliminary English Test Reading",
+      "content": "Visiting the national Oceanarium last Saturday was an unforgettable adventure for my twelve-year-old brother, Leo, and me. Situated on the harbor waterfront, the aquarium houses more than five hundred marine species in gigantic acrylic tanks recreating natural ocean habitats.\n\nThe most breathtaking attraction is the underwater acrylic tunnel. As you walk along the slow-moving walkway, massive sand tiger sharks, graceful manta rays, and green sea turtles glide directly over your head. Leo was mesmerized by the neon jellyfish gallery, where gentle, rhythmic blue and violet LED lights illuminate pulsing transparent jellyfish.\n\nDuring the afternoon sea otter feeding demonstration, the marine biologist explained how otters use small rocks to crack open tough clam shells while floating comfortably on their backs. The keeper also highlighted the urgent importance of reducing single-use plastic bags, which sea turtles often mistake for edible jellyfish.\n\nBefore heading home, we purchased a plush dolphin souvenir and a recycled notebook from the gift shop. Not only was the trip entertaining, but it also taught us how everyday choices can help protect vulnerable marine wildlife.",
+      "target_words": [
+        "Oceanarium",
+        "acrylic tanks",
+        "underwater tunnel",
+        "manta rays",
+        "pulsing jellyfish",
+        "feeding demonstration",
+        "single-use plastic",
+        "marine wildlife"
+      ],
+      "questions": [
+        {
+          "question": "What was the highlight of the visit for the visitors?",
+          "options": [
+            "A. The souvenir gift shop",
+            "B. Walking through the underwater acrylic tunnel surrounded by marine life",
+            "C. Eating lunch at the fast-food cafe",
+            "D. Sitting outside in the parking lot"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 2 nêu: The most breathtaking attraction is the underwater acrylic tunnel with sharks, manta rays and turtles."
+        },
+        {
+          "question": "What tool do sea otters use to open hard clam shells?",
+          "options": [
+            "A. Metal knives",
+            "B. Small rocks while floating on their backs",
+            "C. Fishing nets",
+            "D. Electric motors"
+          ],
+          "answer": "B",
+          "explain": "Đoạn 3 giải thích: otters use small rocks to crack open tough clam shells while floating on their backs."
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "title": "[TOEIC Part 7] Global FinTech Summit 2026 - Keynote Schedule & Badge Registration",
+      "category": "TOEIC",
+      "level": "700+",
+      "source_reference": "ETS TOEIC Official Preparation Part 7",
+      "content": "CONFERENCE ANNOUNCEMENT & AGENDA\nThe 11th Annual Global FinTech & Banking Innovation Summit\nDates: October 12–14, 2026 | Location: Marina Bay Convention Center, Hall B\n\nWe are pleased to publish the official keynote schedule for the upcoming FinTech Summit. Over two thousand banking executives, regulatory leaders, and software developers will convene to discuss open banking, decentralized finance, and artificial intelligence fraud prevention.\n\nKeynote Highlights:\n- Monday, Oct 12, 09:30 AM: 'Algorithmic Risk Assessment in Cross-Border Lending' - Dr. Hiroshi Tanaka (Chief Risk Officer, Tokyo Metro Bank)\n- Tuesday, Oct 13, 11:00 AM: 'Next-Gen Biometrics: Eliminating Passwords in Mobile Banking' - Sarah Jenkins (VP of Security, AuthentiCore)\n- Wednesday, Oct 14, 02:00 PM: 'Decarbonizing Digital Asset Mining' - Panel Discussion moderated by Elena Rostova (GreenFinance Review)\n\nRegistration & Badge Pickup:\nThe pre-registration desk in the Main Lobby opens on Sunday, October 11, at 14:00. Attendees must present a photo ID and their digital QR confirmation to collect their access lanyards and conference welcome bags. Networking luncheons are included with all Gold and Platinum delegate passes. Please visit www.fintechsummit2026.org for live updates.",
+      "target_words": [
+        "summit",
+        "convening",
+        "decentralized finance",
+        "fraud prevention",
+        "algorithmic risk",
+        "biometrics",
+        "registration desk",
+        "access lanyards"
+      ],
+      "questions": [
+        {
+          "question": "What is the theme of Dr. Hiroshi Tanaka's keynote session?",
+          "options": [
+            "A. Eliminating mobile passwords",
+            "B. Algorithmic Risk Assessment in Cross-Border Lending",
+            "C. Buying office furniture",
+            "D. Hotel reservations"
+          ],
+          "answer": "B",
+          "explain": "Lịch trình thứ Hai 09:30 AM ghi rõ: Algorithmic Risk Assessment in Cross-Border Lending."
+        },
+        {
+          "question": "What must attendees present to collect their conference lanyards?",
+          "options": [
+            "A. A valid photo ID and digital QR confirmation",
+            "B. A bank statement and utility bill",
+            "C. A printed paper copy of their passport",
+            "D. Cash payment only"
+          ],
+          "answer": "A",
+          "explain": "Mục Registration & Badge Pickup: Attendees must present a photo ID and their digital QR confirmation."
         }
       ]
     }

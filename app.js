@@ -32,6 +32,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   await loadGrammarTopics();
   setupReadingSelector();
   setupTouchAndKeyboard();
+  initDailyDeadlineSystem();
   lucide.createIcons();
 });
 
@@ -704,22 +705,46 @@ async function flushOfflineQueue() {
   }
 }
 
-// ================= 21 WEEKS GRAMMAR CONTROLLER =================
+// ================= 25 CHUYÊN ĐỀ NGỮ PHÁP TỔNG ÔN CÔ TRANG ANH =================
 async function loadGrammarTopics() {
   const topics = await apiCall("/api/grammar/topics") || (window.APP_DATA?.grammar || []);
   appState.grammarTopics = topics;
+  filterGrammarTopics("");
+  renderGrammarDetail(1);
+}
 
+function filterGrammarTopics(query) {
+  const q = (query || "").toLowerCase().trim();
+  const topics = appState.grammarTopics || (window.APP_DATA?.grammar || []);
   const nav = document.getElementById("grammarTopicsNav");
   if (!nav) return;
 
-  nav.innerHTML = topics.map((t, idx) => `
-    <button onclick="renderGrammarDetail(${t.week_number || (idx + 1)})" id="grammar-btn-${t.week_number || (idx + 1)}" class="w-full text-left p-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition ${idx === 0 ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:bg-slate-800'}">
-      <span class="w-5 h-5 rounded-md bg-black/20 flex items-center justify-center text-[10px] font-bold">${t.week_number || (idx + 1)}</span>
-      <span class="truncate">${(t.title || "").replace(/Chuyên đề\s*/, "")}</span>
-    </button>
-  `).join("");
+  const filtered = topics.filter((t, idx) => {
+    if (!q) return true;
+    const title = (t.title || "").toLowerCase();
+    const summary = (t.summary || "").toLowerCase();
+    const num = String(t.week_number || (idx + 1));
+    return title.includes(q) || summary.includes(q) || num.includes(q);
+  });
 
-  renderGrammarDetail(1);
+  if (filtered.length === 0) {
+    nav.innerHTML = `<p class="text-xs text-slate-500 italic p-2">Không tìm thấy chuyên đề phù hợp.</p>`;
+    return;
+  }
+
+  nav.innerHTML = filtered.map((t, idx) => {
+    const wNum = t.week_number || (idx + 1);
+    const isActive = (wNum === appState.activeGrammarWeek);
+    const cleanTitle = (t.title || "").replace(/Chuyên đề\s*\d+:\s*/, "");
+    return `
+      <button onclick="renderGrammarDetail(${wNum})" id="grammar-btn-${wNum}" class="w-full text-left p-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition ${isActive ? 'bg-indigo-600 text-white shadow' : 'text-slate-300 hover:bg-slate-800'}">
+        <span class="w-5 h-5 rounded-md bg-black/20 flex items-center justify-center text-[10px] font-bold shrink-0">${wNum}</span>
+        <span class="truncate">${cleanTitle}</span>
+      </button>
+    `;
+  }).join("");
+
+  if (window.lucide) lucide.createIcons();
 }
 
 function formatGrammarText(text) {
@@ -734,18 +759,20 @@ async function renderGrammarDetail(weekNum) {
   const detail = await apiCall(`/api/grammar/topics/${weekNum}`) || window.APP_DATA?.grammar?.[weekNum - 1];
   if (!detail) return;
 
-  appState.grammarTopics.forEach((t, i) => {
+  // Update active state in nav
+  const topics = appState.grammarTopics || (window.APP_DATA?.grammar || []);
+  topics.forEach((t, i) => {
     const w = t.week_number || (i + 1);
     const btn = document.getElementById(`grammar-btn-${w}`);
     if (btn) {
       btn.className = (w === weekNum)
-        ? "w-full text-left p-2.5 rounded-xl text-xs font-semibold flex items-center gap-2 transition bg-indigo-600 text-white shadow"
-        : "w-full text-left p-2.5 rounded-xl text-xs font-semibold flex items-center gap-2 transition text-slate-300 hover:bg-slate-800";
+        ? "w-full text-left p-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition bg-indigo-600 text-white shadow"
+        : "w-full text-left p-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition text-slate-300 hover:bg-slate-800";
     }
   });
 
   document.getElementById("grammarTopicTitle").innerText = detail.title;
-  document.getElementById("grammarTopicSummary").innerText = detail.summary;
+  document.getElementById("grammarTopicSummary").innerText = detail.summary || "";
 
   // 1. Lý thuyết chuyên sâu & Bảng công thức
   const body = document.getElementById("grammarContentBody");
@@ -799,21 +826,27 @@ async function renderGrammarDetail(weekNum) {
   // 3. Bài tập trắc nghiệm áp dụng
   const qList = document.getElementById("grammarQuizList");
   const quiz = detail.quiz || [];
-  qList.innerHTML = quiz.map((q, idx) => `
-    <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3 shadow-sm">
-      <p class="font-semibold text-xs sm:text-sm text-slate-100">${idx + 1}. ${q.q}</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-        ${q.options.map((opt, oIdx) => `
-          <button onclick="checkGrammarQuiz(${idx}, ${oIdx})" id="gq-${idx}-opt-${oIdx}" class="text-left p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700/80 text-xs text-slate-200 border border-slate-700/50 transition">
-            ${String.fromCharCode(65 + oIdx)}. ${opt}
-          </button>
-        `).join("")}
-      </div>
-      <div id="gq-feedback-${idx}" class="hidden p-3 rounded-xl bg-slate-800 text-xs text-slate-300 mt-2"></div>
-    </div>
-  `).join("");
+  if (qList) {
+    if (quiz.length === 0) {
+      qList.innerHTML = `<p class="text-xs text-slate-400 italic">Đang cập nhật bài tập trắc nghiệm cho chuyên đề này.</p>`;
+    } else {
+      qList.innerHTML = quiz.map((q, idx) => `
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3 shadow-sm">
+          <p class="font-semibold text-xs sm:text-sm text-slate-100">${idx + 1}. ${q.q || q.question}</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+            ${(q.options || []).map((opt, oIdx) => `
+              <button onclick="checkGrammarQuiz(${idx}, ${oIdx})" id="gq-${idx}-opt-${oIdx}" class="text-left p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700/80 text-xs text-slate-200 border border-slate-700/50 transition">
+                ${opt.startsWith(String.fromCharCode(65 + oIdx)) ? opt : `${String.fromCharCode(65 + oIdx)}. ${opt}`}
+              </button>
+            `).join("")}
+          </div>
+          <div id="gq-feedback-${idx}" class="hidden p-3 rounded-xl bg-slate-800 text-xs text-slate-300 mt-2"></div>
+        </div>
+      `).join("");
+    }
+  }
 
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 }
 
 function toggleFillBlankHint(idx) {
@@ -843,6 +876,10 @@ function checkGrammarFillBlank(idx) {
   const normalize = (s) => s.replace(/['’]/g, "'").replace(/\s+/g, " ").trim();
   const isMatch = allCorrect.some(c => normalize(c) === normalize(val));
 
+  // Mark daily grammar goal complete
+  appState.todayGrammarDone = true;
+  updateDailyGoalChecklist();
+
   if (isMatch) {
     input.classList.remove("border-slate-700", "border-red-500");
     input.classList.add("border-emerald-500", "bg-emerald-950/30", "text-emerald-300");
@@ -864,6 +901,10 @@ async function checkGrammarQuiz(qIdx, optIdx) {
   const feedback = document.getElementById(`gq-feedback-${qIdx}`);
   const btn = document.getElementById(`gq-${qIdx}-opt-${optIdx}`);
 
+  // Mark daily grammar goal complete
+  appState.todayGrammarDone = true;
+  updateDailyGoalChecklist();
+
   const res = await apiCall("/api/grammar/quiz-submit", "POST", {
     week_number: appState.activeGrammarWeek,
     answers: [optIdx]
@@ -880,7 +921,9 @@ async function checkGrammarQuiz(qIdx, optIdx) {
     }
     feedback.classList.remove("hidden");
   } else if (localQ) {
-    const isCorrect = (optIdx === localQ.answer);
+    const ansVal = localQ.answer;
+    const ansIdx = (typeof ansVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[ansVal.trim().toUpperCase()] ?? 0) : (ansVal || 0);
+    const isCorrect = (optIdx === ansIdx);
     if (isCorrect) {
       btn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
       feedback.innerHTML = `<span class="text-emerald-400 font-bold">✓ Chính xác!</span> ${localQ.explain || ""}`;
@@ -892,17 +935,58 @@ async function checkGrammarQuiz(qIdx, optIdx) {
   }
 }
 
-// ================= READING PASSAGES & CLICK-TO-LOOKUP =================
+// ================= KHO BÀI ĐỌC LUYỆN THI & CLICK-TO-LOOKUP =================
+let currentFilteredReadings = [];
+
 function setupReadingSelector() {
+  filterReadingByExam("all");
+}
+
+function filterReadingByExam(category) {
+  appState.activeExamFilter = category || "all";
   const readings = window.APP_DATA?.readings || [];
+
+  // Update button active styles
+  const filterBtns = document.querySelectorAll(".exam-filter-btn");
+  filterBtns.forEach(btn => {
+    btn.classList.remove("active", "bg-indigo-600", "text-white", "shadow");
+    btn.classList.add("bg-slate-800", "text-slate-300");
+  });
+  const activeBtn = document.getElementById(`examBtn_${category}`);
+  if (activeBtn) {
+    activeBtn.classList.remove("bg-slate-800", "text-slate-300");
+    activeBtn.classList.add("active", "bg-indigo-600", "text-white", "shadow");
+  }
+
+  // Filter list
+  if (category === "all") {
+    currentFilteredReadings = readings.map((r, origIdx) => ({ ...r, origIdx }));
+  } else if (category === "BaoQuocTe") {
+    currentFilteredReadings = readings
+      .map((r, origIdx) => ({ ...r, origIdx }))
+      .filter(r => !["IELTS", "VSTEP", "TOEIC", "APTIS", "PET"].includes((r.category || "").toUpperCase()));
+  } else {
+    currentFilteredReadings = readings
+      .map((r, origIdx) => ({ ...r, origIdx }))
+      .filter(r => (r.category || "").toUpperCase() === category.toUpperCase());
+  }
+
   const select = document.getElementById("readingSelect");
-  if (!select) return;
+  if (select) {
+    select.innerHTML = currentFilteredReadings.map(r => `
+      <option value="${r.origIdx}">[${(r.category || 'Reading').toUpperCase()}] ${r.title.replace(/^\[.*?\]\s*/, "")} (${r.level || 'B2'})</option>
+    `).join("");
+  }
 
-  select.innerHTML = readings.map((r, idx) => `
-    <option value="${idx}">[${r.category.toUpperCase()}] ${r.title} (${r.level || 'B2'})</option>
-  `).join("");
+  const badgeEl = document.getElementById("readingCategoryTagBadge");
+  if (badgeEl) {
+    const label = category === "all" ? "Tất cả" : (category === "BaoQuocTe" ? "Báo Quốc Tế" : category);
+    badgeEl.innerText = `${currentFilteredReadings.length} Bài Luyện Thi (${label})`;
+  }
 
-  renderReadingPassage(0);
+  if (currentFilteredReadings.length > 0) {
+    renderReadingPassage(currentFilteredReadings[0].origIdx);
+  }
 }
 
 let activePopupWord = "";
@@ -914,9 +998,20 @@ function renderReadingPassage(passageIdx) {
   const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
   if (!passage) return;
 
+  const select = document.getElementById("readingSelect");
+  if (select) select.value = String(appState.activeReadingIndex);
+
   document.getElementById("readingArticleTitle").innerText = passage.title;
+  const examBadge = document.getElementById("readingExamBadge");
+  if (examBadge) {
+    examBadge.innerText = `[${(passage.category || 'Bài đọc').toUpperCase()}]`;
+  }
   document.getElementById("readingUnitTag").innerText = passage.source_reference || `Bài Báo #${appState.activeReadingIndex + 1}`;
   document.getElementById("readingLevelTag").innerText = `Level ${passage.level || "B2"}`;
+
+  // Track daily reading goal
+  appState.todayReadingDone = true;
+  if (typeof updateDailyGoalChecklist === "function") updateDailyGoalChecklist();
 
   // Make EVERY SINGLE WORD clickable for instant bilingual lookup
   const targetWordsLower = (passage.target_words || []).map(w => w.toLowerCase());
@@ -943,19 +1038,34 @@ function renderReadingPassage(passageIdx) {
   document.getElementById("readingContent").innerHTML = clickableContent;
 
   const qList = document.getElementById("readingQuestionsList");
-  qList.innerHTML = (passage.questions || []).map((q, idx) => `
-    <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-      <p class="font-semibold text-sm text-slate-100">${idx + 1}. ${q.q}</p>
-      <div class="space-y-1.5 pt-1">
-        ${q.options.map((opt, oIdx) => `
-          <button onclick="checkReadingQuestion(${idx}, ${oIdx}, ${q.answer})" id="rq-${idx}-opt-${oIdx}" class="w-full text-left p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700/80 text-xs text-slate-200 border border-slate-700/50 transition">
-            ${String.fromCharCode(65 + oIdx)}. ${opt}
-          </button>
-        `).join("")}
-      </div>
-      <p id="rq-feedback-${idx}" class="hidden text-xs font-semibold pt-1"></p>
-    </div>
-  `).join("");
+  const questions = passage.questions || [];
+  if (qList) {
+    if (questions.length === 0) {
+      qList.innerHTML = `<p class="text-xs text-slate-400 italic p-3">Bài đọc này tập trung vào tra cứu từ vựng và ngữ cảnh.</p>`;
+    } else {
+      qList.innerHTML = questions.map((q, idx) => {
+        const qText = q.question || q.q || `Câu hỏi đọc hiểu ${idx + 1}`;
+        const correctVal = q.answer;
+        const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
+
+        return `
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
+            <p class="font-semibold text-sm text-slate-100">${idx + 1}. ${qText}</p>
+            <div class="space-y-1.5 pt-1">
+              ${(q.options || []).map((opt, oIdx) => `
+                <button onclick="checkReadingQuestion(${idx}, ${oIdx}, ${correctIdx})" id="rq-${idx}-opt-${oIdx}" class="w-full text-left p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700/80 text-xs text-slate-200 border border-slate-700/50 transition">
+                  ${opt.startsWith(String.fromCharCode(65 + oIdx)) ? opt : `${String.fromCharCode(65 + oIdx)}. ${opt}`}
+                </button>
+              `).join("")}
+            </div>
+            <p id="rq-feedback-${idx}" class="hidden text-xs font-semibold pt-1"></p>
+          </div>
+        `;
+      }).join("");
+    }
+  }
+
+  if (window.lucide) lucide.createIcons();
 }
 
 function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
@@ -963,6 +1073,10 @@ function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
   const feedback = document.getElementById(`rq-feedback-${qIdx}`);
   const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
   const qData = passage?.questions?.[qIdx];
+
+  // Mark daily reading goal complete
+  appState.todayReadingDone = true;
+  if (typeof updateDailyGoalChecklist === "function") updateDailyGoalChecklist();
 
   if (selectedIdx === correctIdx) {
     selectedBtn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
@@ -1507,4 +1621,293 @@ function setupTouchAndKeyboard() {
       speakCurrentWord();
     }
   });
+}
+
+// ================= DAILY DEADLINE & MOBILE NOTIFICATION ENGINE =================
+const DEADLINE_STORAGE_KEY = "english_mastery_deadline_settings";
+let deadlineSettings = {
+  deadlineTime: "21:30",
+  remindMorning: true,
+  remindEvening: true,
+  remindDeadline: true,
+  soundAlert: true
+};
+
+function initDailyDeadlineSystem() {
+  try {
+    const saved = localStorage.getItem(DEADLINE_STORAGE_KEY);
+    if (saved) {
+      deadlineSettings = { ...deadlineSettings, ...JSON.parse(saved) };
+    }
+  } catch (e) {
+    console.warn("Could not load deadline settings", e);
+  }
+
+  updateDeadlineTimeUI();
+  updateNotificationStatusBadge();
+
+  // Start continuous 1-second countdown and notification scheduler
+  setInterval(tickDeadlineCountdown, 1000);
+  tickDeadlineCountdown();
+}
+
+function updateDeadlineTimeUI() {
+  const textEl = document.getElementById("deadlineTargetTimeText");
+  if (textEl) {
+    textEl.innerHTML = `Hạn chót: <strong class="text-amber-300 font-mono">${deadlineSettings.deadlineTime}</strong>`;
+  }
+}
+
+function updateNotificationStatusBadge() {
+  const badge = document.getElementById("notificationStatusBadge");
+  if (!badge) return;
+
+  if (!("Notification" in window)) {
+    badge.innerHTML = `<i data-lucide="bell-off" class="w-3 h-3 text-slate-400"></i> <span>Trình duyệt không hỗ trợ Push</span>`;
+    badge.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700";
+    return;
+  }
+
+  if (Notification.permission === "granted") {
+    badge.innerHTML = `<i data-lucide="check-circle" class="w-3 h-3 text-emerald-400"></i> <span>✅ Đã bật chuông nhắc điện thoại</span>`;
+    badge.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold cursor-pointer";
+  } else if (Notification.permission === "denied") {
+    badge.innerHTML = `<i data-lucide="alert-triangle" class="w-3 h-3 text-red-400"></i> <span>⚠️ Quyền thông báo bị chặn (Mở cài đặt để bật)</span>`;
+    badge.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-300 border border-red-500/30 font-semibold cursor-pointer";
+  } else {
+    badge.innerHTML = `<i data-lucide="bell-ring" class="w-3 h-3 text-amber-300 animate-bounce"></i> <span>🔔 Bấm để bật chuông nhắc điện thoại</span>`;
+    badge.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 font-semibold transition cursor-pointer";
+  }
+  if (window.lucide) lucide.createIcons();
+}
+
+let lastNotificationDay = "";
+let sentNotificationsToday = new Set();
+
+function tickDeadlineCountdown() {
+  const now = new Date();
+  const todayDateStr = now.toISOString().split("T")[0];
+  if (lastNotificationDay !== todayDateStr) {
+    lastNotificationDay = todayDateStr;
+    sentNotificationsToday.clear();
+  }
+
+  const [targetH, targetM] = (deadlineSettings.deadlineTime || "21:30").split(":").map(Number);
+  const deadlineDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), targetH, targetM, 0);
+
+  const diffMs = deadlineDate.getTime() - now.getTime();
+  const countdownEl = document.getElementById("deadlineCountdownDisplay");
+  const subtextEl = document.getElementById("deadlineStatusSubtext");
+
+  if (diffMs > 0) {
+    const totalSecs = Math.floor(diffMs / 1000);
+    const hours = Math.floor(totalSecs / 3600);
+    const mins = Math.floor((totalSecs % 3600) / 60);
+    const secs = totalSecs % 60;
+    
+    const pad = (n) => String(n).padStart(2, "0");
+    if (countdownEl) {
+      countdownEl.innerText = `⏳ Còn ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`;
+      countdownEl.className = "text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200 font-mono tracking-tight";
+    }
+    if (subtextEl) {
+      subtextEl.innerText = `Hạn chót ${deadlineSettings.deadlineTime} hôm nay. Hoàn thành để bảo toàn Streak!`;
+    }
+
+    // 60-minute deadline warning notification
+    if (deadlineSettings.remindDeadline && totalSecs <= 3600 && totalSecs > 3540 && !sentNotificationsToday.has("deadline_60m")) {
+      sentNotificationsToday.add("deadline_60m");
+      sendMobileNotification(
+        "🚨 CẢNH BÁO: Còn 60 phút đến Deadline học tập!",
+        `Chỉ còn 1 giờ nữa là đến hạn chót ${deadlineSettings.deadlineTime}. Hãy mở app để hoàn thành từ vựng và bảo vệ chuỗi Streak của bạn!`
+      );
+    }
+  } else {
+    // Past deadline
+    const overdueSecs = Math.abs(Math.floor(diffMs / 1000));
+    const hours = Math.floor(overdueSecs / 3600);
+    const mins = Math.floor((overdueSecs % 3600) / 60);
+    if (countdownEl) {
+      countdownEl.innerText = `🚨 Đã quá hạn chót (${hours}h ${mins}m)`;
+      countdownEl.className = "text-xl sm:text-2xl font-black text-red-400 font-mono tracking-tight";
+    }
+    if (subtextEl) {
+      subtextEl.innerText = "Hãy hoàn thành bài tập ngay bây giờ để hệ thống kịp ghi nhận hoạt động hôm nay!";
+    }
+  }
+
+  // Morning reminder check (08:00 AM)
+  const currentHour = now.getHours();
+  const currentMin = now.getMinutes();
+  if (deadlineSettings.remindMorning && currentHour === 8 && currentMin < 5 && !sentNotificationsToday.has("morning")) {
+    sentNotificationsToday.add("morning");
+    sendMobileNotification(
+      "☀️ Chào buổi sáng! Mục tiêu tiếng Anh hôm nay",
+      "Hôm nay có 20 từ vựng và 1 bài đọc đang chờ bạn. Bắt đầu ngay để có ngày học hiệu quả!"
+    );
+  }
+
+  // Evening reminder check (19:30 PM)
+  if (deadlineSettings.remindEvening && currentHour === 19 && currentMin >= 30 && currentMin < 35 && !sentNotificationsToday.has("evening")) {
+    sentNotificationsToday.add("evening");
+    sendMobileNotification(
+      "📚 Nhắc nhở buổi tối: Luyện tập Flashcard & Ngữ pháp",
+      `Bạn còn thời gian trước hạn chót ${deadlineSettings.deadlineTime}. Hãy dành 15 phút ôn tập ngắt quãng nhé!`
+    );
+  }
+
+  updateDailyGoalChecklist();
+}
+
+function updateDailyGoalChecklist() {
+  const curWords = getCurrentDayWords();
+  const studiedCount = appState.currentCardIndex || 0;
+  const isWordsDone = studiedCount >= Math.min(10, curWords.length) || (curWords.length > 0 && appState.currentCardIndex > 0);
+  const isReadingDone = !!appState.todayReadingDone;
+  const isGrammarDone = !!appState.todayGrammarDone;
+
+  const wItem = document.getElementById("goalItemWords");
+  const rItem = document.getElementById("goalItemReading");
+  const gItem = document.getElementById("goalItemGrammar");
+
+  if (wItem) {
+    wItem.innerHTML = isWordsDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">20 Từ vựng (Đang học)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i> <span>20 Từ vựng / Idioms</span>`;
+  }
+  if (rItem) {
+    rItem.innerHTML = isReadingDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">Đã đọc 1 bài luyện thi</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i> <span>1 Bài đọc luyện thi</span>`;
+  }
+  if (gItem) {
+    gItem.innerHTML = isGrammarDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-semibold">Đã làm bài tập ngữ pháp</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i> <span>1 Bài tập ngữ pháp</span>`;
+  }
+
+  if (window.lucide) lucide.createIcons();
+}
+
+async function requestNotificationPermission() {
+  if (!("Notification" in window)) {
+    showToast("Trình duyệt này không hỗ trợ thông báo Web Push!", "warning");
+    return;
+  }
+
+  try {
+    const perm = await Notification.requestPermission();
+    updateNotificationStatusBadge();
+    if (perm === "granted") {
+      showToast("🎉 Đã bật chuông thông báo nhắc nhở hàng ngày thành công!", "success");
+      sendMobileNotification(
+        "🎉 Chúc mừng! Thông báo đã được kích hoạt",
+        `Hệ thống sẽ nhắc bạn học mỗi ngày và báo động trước hạn chót ${deadlineSettings.deadlineTime}!`
+      );
+    } else {
+      showToast("Bạn đã từ chối nhận thông báo. Hãy cho phép trong cài đặt trình duyệt.", "warning");
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function sendMobileNotification(title, body) {
+  if (!("Notification" in window) || Notification.permission !== "granted") return;
+
+  try {
+    if ("serviceWorker" in navigator && navigator.serviceWorker.controller) {
+      navigator.serviceWorker.ready.then(reg => {
+        reg.showNotification(title, {
+          body,
+          icon: "/icon-192.png",
+          badge: "/icon-192.png",
+          vibrate: [200, 100, 200],
+          data: { url: "/index.html" },
+          tag: "english-mastery-deadline"
+        });
+      });
+    } else {
+      new Notification(title, {
+        body,
+        icon: "/icon-192.png",
+        tag: "english-mastery-deadline"
+      });
+    }
+  } catch (err) {
+    console.warn("Notification error:", err);
+  }
+
+  // Subtle audio chime
+  try {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+    osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.3); // A5
+    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.3);
+  } catch (e) {}
+}
+
+function testSendDailyNotification() {
+  if (!("Notification" in window)) {
+    showToast("Trình duyệt không hỗ trợ Web Notification!", "warning");
+    return;
+  }
+
+  if (Notification.permission !== "granted") {
+    requestNotificationPermission();
+    return;
+  }
+
+  sendMobileNotification(
+    "⏰ [TEST] Nhắc Nhở Deadline Hôm Nay",
+    `Hạn chót là ${deadlineSettings.deadlineTime}! Bạn còn 20 từ vựng và 1 bài đọc IELTS cần hoàn thành. Hãy mở app luyện tập ngay!`
+  );
+  showToast("🔔 Đã gửi thông báo thử nghiệm tới thiết bị của bạn!", "success");
+}
+
+function openDeadlineSettingsModal() {
+  const m = document.getElementById("deadlineSettingsModal");
+  if (!m) return;
+  document.getElementById("settingDeadlineTime").value = deadlineSettings.deadlineTime || "21:30";
+  document.getElementById("settingRemindMorning").checked = !!deadlineSettings.remindMorning;
+  document.getElementById("settingRemindEvening").checked = !!deadlineSettings.remindEvening;
+  document.getElementById("settingRemindDeadline").checked = !!deadlineSettings.remindDeadline;
+  m.classList.remove("hidden");
+  if (window.lucide) lucide.createIcons();
+}
+
+function closeDeadlineSettingsModal() {
+  const m = document.getElementById("deadlineSettingsModal");
+  if (m) m.classList.add("hidden");
+}
+
+function saveDeadlineSettings() {
+  const timeVal = document.getElementById("settingDeadlineTime").value || "21:30";
+  deadlineSettings.deadlineTime = timeVal;
+  deadlineSettings.remindMorning = document.getElementById("settingRemindMorning").checked;
+  deadlineSettings.remindEvening = document.getElementById("settingRemindEvening").checked;
+  deadlineSettings.remindDeadline = document.getElementById("settingRemindDeadline").checked;
+
+  try {
+    localStorage.setItem(DEADLINE_STORAGE_KEY, JSON.stringify(deadlineSettings));
+  } catch (e) {}
+
+  updateDeadlineTimeUI();
+  closeDeadlineSettingsModal();
+  showToast(`✅ Đã lưu hạn chót ${deadlineSettings.deadlineTime} và cài đặt nhắc nhở!`, "success");
+
+  // Sync to backend if logged in
+  if (appState.authToken) {
+    apiCall("/api/auth/profile", "PUT", {
+      deadline_time: deadlineSettings.deadlineTime
+    }).catch(err => console.warn(err));
+  }
 }

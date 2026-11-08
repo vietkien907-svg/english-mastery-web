@@ -17,6 +17,9 @@ router = APIRouter(prefix="/api/reading", tags=["Reading"])
 def fetch_us_phonetics_and_audio(word_text):
     us_pron = ""
     us_audio = ""
+    detected_pos = ""
+    en_def = ""
+    en_ex = ""
     clean = word_text.strip().lower()
     
     # 1. Oxford Learner's Dictionary US
@@ -27,30 +30,73 @@ def fetch_us_phonetics_and_audio(word_text):
             html = resp.read().decode("utf-8")
             phon_matches = re.findall(r'<div class="phons_n_am"[^>]*>[\s\S]*?<span class="phon">([^<]+)</span>', html)
             audio_matches = re.findall(r'<div class="phons_n_am"[^>]*>data-src-mp3="([^"]+)"', html)
+            pos_matches = re.findall(r'<span class="pos">([^<]+)</span>', html)
             if phon_matches:
                 us_pron = phon_matches[0].strip()
             if audio_matches:
                 us_audio = audio_matches[0].strip()
+            if pos_matches:
+                detected_pos = pos_matches[0].strip().lower()
     except Exception:
         pass
 
-    # 2. Fallback to FreeDictionary API
-    if not us_pron or not us_audio:
-        try:
-            url_fd = f"https://api.dictionaryapi.dev/api/v2/entries/en/{urllib.parse.quote(clean)}"
-            req_fd = urllib.request.Request(url_fd, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req_fd, timeout=2.5) as resp_fd:
-                fd_data = json.loads(resp_fd.read().decode("utf-8"))
-                for entry in fd_data:
-                    for ph in entry.get("phonetics", []):
-                        if not us_pron and ph.get("text"):
-                            us_pron = ph.get("text")
-                        if not us_audio and ph.get("audio") and ("-us.mp3" in ph.get("audio") or "us" in ph.get("audio")):
-                            us_audio = ph.get("audio")
-        except Exception:
-            pass
+    # 2. Fallback to FreeDictionary API (includes POS, definitions, phonetics, audio)
+    try:
+        url_fd = f"https://api.dictionaryapi.dev/api/v2/entries/en/{urllib.parse.quote(clean)}"
+        req_fd = urllib.request.Request(url_fd, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req_fd, timeout=3.0) as resp_fd:
+            fd_data = json.loads(resp_fd.read().decode("utf-8"))
+            if isinstance(fd_data, list) and len(fd_data) > 0:
+                entry = fd_data[0]
+                for ph in entry.get("phonetics", []):
+                    if not us_pron and ph.get("text"):
+                        us_pron = ph.get("text")
+                    if not us_audio and ph.get("audio") and ("-us" in ph.get("audio").lower() or "us" in ph.get("audio").lower()):
+                        us_audio = ph.get("audio")
+                    elif not us_audio and ph.get("audio"):
+                        us_audio = ph.get("audio")
+                
+                meanings = entry.get("meanings", [])
+                if meanings:
+                    if not detected_pos:
+                        detected_pos = meanings[0].get("partOfSpeech", "")
+                    defs = meanings[0].get("definitions", [])
+                    if defs:
+                        if not en_def:
+                            en_def = defs[0].get("definition", "")
+                        if not en_ex:
+                            en_ex = defs[0].get("example", "")
+    except Exception:
+        pass
 
-    return us_pron, us_audio
+    return us_pron, us_audio, detected_pos, en_def, en_ex
+
+def translate_to_vietnamese(clean_word):
+    # Method 1: Google Translate API (gtx)
+    try:
+        url_vi = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=" + urllib.parse.quote(clean_word)
+        req = urllib.request.Request(url_vi, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=3.5) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            t = ''.join([p[0] for p in data[0] if p[0]]).strip()
+            if t and t.lower() != clean_word.lower():
+                return t
+    except Exception:
+        pass
+
+    # Method 2: MyMemory Translated API
+    try:
+        url_mm = f"https://api.mymemory.translated.net/get?q={urllib.parse.quote(clean_word)}&langpair=en|vi"
+        req = urllib.request.Request(url_mm, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=3.5) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            t = data.get("responseData", {}).get("translatedText", "").strip()
+            if t and t.lower() != clean_word.lower() and not t.startswith("MYMEMORY WARNING"):
+                return t
+    except Exception:
+        pass
+
+    return ""
 
 class AddWordRequest(BaseModel):
     word: str
@@ -66,12 +112,12 @@ class ReadingQuizSubmitRequest(BaseModel):
 
 @router.get("/lookup-word")
 def lookup_word(word: str, db: Session = Depends(get_db)):
-    clean_word = word.strip().strip(".,;:!?\"'()[]{}").lower()
+    clean_word = word.strip().strip(".,;:!?\"\'()[]{}").lower()
     if not clean_word:
         raise HTTPException(status_code=400, detail="Từ cần tra cứu không hợp lệ.")
         
-    # Fetch authentic US IPA & US audio
-    us_pron, us_audio = fetch_us_phonetics_and_audio(clean_word)
+    # Fetch authentic US IPA, US audio, POS & definition
+    us_pron, us_audio, detected_pos, en_def, en_ex = fetch_us_phonetics_and_audio(clean_word)
     cambridge_url = f"https://dictionary.cambridge.org/dictionary/english/{urllib.parse.quote(clean_word)}"
 
     # 1. Exact match in knowledge_items
@@ -79,18 +125,19 @@ def lookup_word(word: str, db: Session = Depends(get_db)):
         models.KnowledgeItem.word.ilike(clean_word)
     ).first()
     
-    if item:
+    if item and item.meaning_vi:
         final_pron = us_pron or item.pron or f"/{clean_word}/"
+        final_pos = item.pos or detected_pos or "n"
         return {
             "found": True,
             "word": item.word,
-            "pos": item.pos or "word",
+            "pos": final_pos,
             "pron": final_pron,
             "audio_us": us_audio,
             "cambridge_url": cambridge_url,
             "meaning_vi": item.meaning_vi or "",
-            "meaning_en": item.meaning_en or "",
-            "example": item.example or f"Example usage with {item.word}."
+            "meaning_en": item.meaning_en or en_def or f"Definition of {clean_word}",
+            "example": item.example or en_ex or f"Example usage with {item.word}."
         }
         
     # 2. Starts-with or singular/stem match
@@ -104,42 +151,36 @@ def lookup_word(word: str, db: Session = Depends(get_db)):
         models.KnowledgeItem.word.ilike(f"{stem}%")
     ).first()
     
-    if item_stem:
+    if item_stem and item_stem.meaning_vi:
         final_pron = us_pron or item_stem.pron or f"/{clean_word}/"
+        final_pos = item_stem.pos or detected_pos or "n"
         return {
             "found": True,
             "word": clean_word,
             "base_word": item_stem.word,
-            "pos": item_stem.pos or "word",
+            "pos": final_pos,
             "pron": final_pron,
             "audio_us": us_audio,
             "cambridge_url": cambridge_url,
             "meaning_vi": item_stem.meaning_vi or "",
-            "meaning_en": item_stem.meaning_en or "",
-            "example": item_stem.example or f"Example usage with {clean_word}."
+            "meaning_en": item_stem.meaning_en or en_def or f"Definition of {clean_word}",
+            "example": item_stem.example or en_ex or f"Example usage with {clean_word}."
         }
 
-    # 3. Fallback to instant live translation
-    vi_meaning = ""
-    try:
-        url_vi = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=" + urllib.parse.quote(clean_word)
-        req = urllib.request.Request(url_vi, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=4) as resp:
-            data = json.loads(resp.read().decode('utf-8'))
-            vi_meaning = ''.join([p[0] for p in data[0] if p[0]])
-    except Exception:
-        vi_meaning = clean_word
+    # 3. Dynamic authentic translation via Google & MyMemory
+    vi_meaning = translate_to_vietnamese(clean_word)
+    final_pos = detected_pos or "n"
 
     return {
         "found": True,
         "word": clean_word,
-        "pos": "word",
+        "pos": final_pos,
         "pron": us_pron or f"/{clean_word}/",
         "audio_us": us_audio,
         "cambridge_url": cambridge_url,
-        "meaning_vi": vi_meaning,
-        "meaning_en": f"International reading definition of {clean_word}.",
-        "example": f"This is an authentic context sentence containing '{clean_word}'."
+        "meaning_vi": vi_meaning or f"Nghĩa của từ '{clean_word}'",
+        "meaning_en": en_def or f"International reading definition of {clean_word}.",
+        "example": en_ex or f"This is an authentic context sentence containing '{clean_word}'."
     }
 
 @router.get("/passages")

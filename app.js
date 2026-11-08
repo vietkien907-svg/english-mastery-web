@@ -542,7 +542,7 @@ function toggleMissionDone(type) {
 
 function getDailyAssignedVocab(dayNum) {
   const units = window.APP_DATA?.units || [];
-  const validDay = Math.max(1, Math.min(60, parseInt(dayNum) || 1));
+  const validDay = Math.max(1, Math.min(TOTAL_ROADMAP_DAYS, parseInt(dayNum) || 1));
   
   // Flatten all available unit days
   const allUnitDays = [];
@@ -552,7 +552,7 @@ function getDailyAssignedVocab(dayNum) {
         unitIndex: uIdx,
         dayIndex: dIdx,
         unitTitle: u.unitTitle,
-        dayTitle: `Ngày ${validDay} (Lộ trình 2 tháng) • ${d.dayTitle}`,
+        dayTitle: `Ngày ${validDay} (Lộ trình 3 tháng) • ${d.dayTitle}`,
         words: d.words || []
       });
     });
@@ -568,26 +568,25 @@ function getDailyAssignedVocab(dayNum) {
 }
 
 function getWordsUpToDay(maxDayNum) {
-  const units = window.APP_DATA?.units || [];
-  let dCounter = 0;
-  let words = [];
-  for (let uIdx = 0; uIdx < units.length; uIdx++) {
-    const u = units[uIdx];
-    if (!u.days) continue;
-    for (let dIdx = 0; dIdx < u.days.length; dIdx++) {
-      dCounter++;
-      if (dCounter <= maxDayNum) {
-        const dWords = (u.days[dIdx].words || []).map(w => ({
-          ...w,
-          sourceDay: dCounter,
-          cardOrigin: "past_day",
-          cardOriginText: `Lặp lại Ngày ${dCounter}`
-        }));
-        words = words.concat(dWords);
-      }
-      if (dCounter >= maxDayNum) break;
+  const words = [];
+  const seen = new Set();
+  const limitDay = Math.max(1, parseInt(maxDayNum) || 1);
+  for (let d = 1; d <= limitDay; d++) {
+    const dayData = getDailyAssignedVocab(d);
+    if (dayData && dayData.words) {
+      dayData.words.forEach(w => {
+        const lw = (w.word || "").toLowerCase();
+        if (lw && !seen.has(lw)) {
+          seen.add(lw);
+          words.push({
+            ...w,
+            sourceDay: d,
+            cardOrigin: "past_day",
+            cardOriginText: `Lặp lại Ngày ${d}`
+          });
+        }
+      });
     }
-    if (dCounter >= maxDayNum) break;
   }
   return words;
 }
@@ -1490,6 +1489,37 @@ function reshuffleCurrentDeck() {
   showToast("🎲 Đã đảo ngẫu nhiên toàn bộ thứ tự các thẻ từ!", "success");
 }
 
+// Helper: Normalize & Format Part of Speech (Loại Từ)
+function formatPosLabel(pos) {
+  if (!pos) return { vi: "Từ vựng", en: "Word", short: "word", badgeClass: "bg-slate-700/60 text-slate-300 border-slate-600" };
+  const p = pos.toLowerCase().trim();
+  if (p === "n" || p.startsWith("n ") || p === "noun") {
+    return { vi: "Danh từ", en: "Noun", short: "n.", badgeClass: "bg-blue-500/20 text-blue-300 border-blue-500/40" };
+  }
+  if (p === "v" || p.startsWith("v ") || p === "verb") {
+    return { vi: "Động từ", en: "Verb", short: "v.", badgeClass: "bg-purple-500/20 text-purple-300 border-purple-500/40" };
+  }
+  if (p === "a" || p === "adj" || p.startsWith("adj") || p === "adjective") {
+    return { vi: "Tính từ", en: "Adjective", short: "adj.", badgeClass: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40" };
+  }
+  if (p === "adv" || p === "adverb") {
+    return { vi: "Trạng từ", en: "Adverb", short: "adv.", badgeClass: "bg-amber-500/20 text-amber-300 border-amber-500/40" };
+  }
+  if (p === "phr v" || p.includes("phrasal")) {
+    return { vi: "Cụm động từ", en: "Phrasal Verb", short: "phr v.", badgeClass: "bg-rose-500/20 text-rose-300 border-rose-500/40" };
+  }
+  if (p === "collocation") {
+    return { vi: "Cụm từ cố định", en: "Collocation", short: "colloc.", badgeClass: "bg-cyan-500/20 text-cyan-300 border-cyan-500/40" };
+  }
+  if (p === "idiom") {
+    return { vi: "Thành ngữ", en: "Idiom", short: "idiom", badgeClass: "bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/40" };
+  }
+  if (p === "np" || p === "phr" || p.includes("phrase")) {
+    return { vi: "Cụm từ", en: "Phrase", short: "phr.", badgeClass: "bg-teal-500/20 text-teal-300 border-teal-500/40" };
+  }
+  return { vi: pos, en: pos, short: pos, badgeClass: "bg-slate-700/60 text-slate-300 border-slate-600" };
+}
+
 function formatPronHtml(pron) {
   if (!pron) return '<span class="text-slate-400">/.../</span>';
   let p = pron.trim();
@@ -1535,15 +1565,28 @@ function renderFlashcard() {
   if (cambridgeLink) {
     cambridgeLink.href = `https://dictionary.cambridge.org/dictionary/english/${encodeURIComponent(curWord.word)}`;
   }
-  document.getElementById("cardPos").innerText = `(${curWord.pos || "word"}) • ${curWord.level || "B1"}`;
+  const posInfo = formatPosLabel(curWord.pos);
+  const posBadge = document.getElementById("cardPosBadge");
+  if (posBadge) {
+    posBadge.className = `inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border shadow-sm ${posInfo.badgeClass}`;
+    posBadge.innerHTML = `<span>🏷️</span> <span>${posInfo.vi} (${posInfo.en})</span>`;
+  }
+  const oldPos = document.getElementById("cardPos");
+  if (oldPos) oldPos.innerText = `(${posInfo.short}) • ${curWord.level || "B1"}`;
+
+  const levelBadge = document.getElementById("cardLevelBadge");
+  if (levelBadge) {
+    levelBadge.innerText = `Level ${curWord.level || "B1"}`;
+  }
+
   const typeTag = document.getElementById("cardTypeTag");
   if (typeTag) {
     if (curWord.cardOrigin === "reading") {
       typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm flex items-center gap-1";
       typeTag.innerHTML = `<span>📖</span><span>${curWord.cardOriginText || 'Từ bài đọc'}</span>`;
     } else if (curWord.cardOrigin === "past_day") {
-      typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm flex items-center gap-1";
-      typeTag.innerHTML = `<span>🔄</span><span>${curWord.cardOriginText || 'Ôn ngày cũ'}</span>`;
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/25 text-amber-300 border-2 border-amber-500/60 shadow-lg shadow-amber-950/40 flex items-center gap-1.5 animate-pulse";
+      typeTag.innerHTML = `<span>🔄</span><span>${curWord.cardOriginText || 'Lặp lại từ ngày trước'}</span>`;
     } else if (curWord.cardOrigin === "srs") {
       typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm flex items-center gap-1";
       typeTag.innerHTML = `<span>🧠</span><span>${curWord.cardOriginText || 'Cần củng cố'}</span>`;
@@ -1554,7 +1597,15 @@ function renderFlashcard() {
   }
 
   document.getElementById("cardBackWord").innerText = curWord.word;
-  document.getElementById("cardBackPos").innerText = curWord.pos || "";
+  const backPos = document.getElementById("cardBackPos");
+  if (backPos) {
+    backPos.className = `inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-xs font-bold border ml-2 ${posInfo.badgeClass}`;
+    backPos.innerHTML = `<span>🏷️</span> <span>${posInfo.vi} (${posInfo.en})</span>`;
+  }
+  const backLevel = document.getElementById("cardBackLevel");
+  if (backLevel) {
+    backLevel.innerText = `Level ${curWord.level || "B1"}`;
+  }
 
   const viElem = document.getElementById("cardMeaningVi");
   const enElem = document.getElementById("cardMeaningEn");
@@ -3195,20 +3246,27 @@ const CUSTOM_SAVED_WORDS_KEY = "EMH_CUSTOM_SAVED_WORDS_V2";
 const INTERLEAVED_CONFIG_KEY = "EMH_INTERLEAVED_CONFIG_V2";
 
 const defaultInterleavedConfig = {
-  enabled: false,
+  enabled: true,
   includePastDays: true,
   includeSRS: true,
   includeReadingCustom: true,
-  insertCount: 10,
+  insertCount: 6,
   insertMode: "interleave" // "interleave" or "random_mix"
 };
 
 function getInterleavedConfig() {
   try {
     const raw = localStorage.getItem(INTERLEAVED_CONFIG_KEY);
-    if (raw) return { ...defaultInterleavedConfig, ...JSON.parse(raw) };
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      // Migrate old config if enabled was previously unset or explicitly false by old default
+      if (parsed.hasUserToggled === undefined) {
+        parsed.enabled = true;
+      }
+      return { ...defaultInterleavedConfig, ...parsed };
+    }
   } catch (e) {}
-  return { ...defaultInterleavedConfig };
+  return { ...defaultInterleavedConfig, enabled: true };
 }
 
 function saveInterleavedConfig(cfg) {
@@ -3294,21 +3352,23 @@ function getInterleavedDeckForDay(dIdx, baseWords) {
   const candidatePool = [];
   const seenPool = new Set(todayWordSet);
 
-  // A. Past studied words
+    // A. Past studied words from Day 1 to (curDayNum - 1)
   if (cfg.includePastDays) {
     const curDayNum = missionRegistry.currentDay || (dIdx + 1);
-    const pastWords = getWordsUpToDay(curDayNum);
-    pastWords.forEach(w => {
-      const lw = w.word.toLowerCase();
-      if (!seenPool.has(lw)) {
-        seenPool.add(lw);
-        candidatePool.push({
-          ...w,
-          cardOrigin: "past_day",
-          cardOriginText: w.sourceDay ? `Lặp lại Ngày ${w.sourceDay}` : "Ôn ngày cũ"
-        });
-      }
-    });
+    if (curDayNum > 1) {
+      const pastWords = getWordsUpToDay(curDayNum - 1);
+      pastWords.forEach(w => {
+        const lw = (w.word || "").toLowerCase();
+        if (!seenPool.has(lw)) {
+          seenPool.add(lw);
+          candidatePool.push({
+            ...w,
+            cardOrigin: "past_day",
+            cardOriginText: w.sourceDay ? `Lặp lại Ngày ${w.sourceDay}` : "Ôn ngày trước"
+          });
+        }
+      });
+    }
   }
 
   // B. SRS review words
@@ -3373,6 +3433,7 @@ function getInterleavedDeckForDay(dIdx, baseWords) {
 function toggleInterleavedStudyMode(enabled) {
   const cfg = getInterleavedConfig();
   cfg.enabled = !!enabled;
+  cfg.hasUserToggled = true;
   saveInterleavedConfig(cfg);
   appState.currentCardIndex = 0;
   updateInterleavedUI();
@@ -3555,4 +3616,32 @@ function filterCustomWordsList(val) {
 window.addEventListener("DOMContentLoaded", () => {
   appState.interleavedConfig = getInterleavedConfig();
   updateInterleavedUI();
+  // Self-healing migration for saved custom words
+  try {
+    const customList = getSavedCustomWords();
+    let hasUpdated = false;
+    customList.forEach(item => {
+      if (!item.meaning_vi || item.meaning_vi.toLowerCase() === item.word.toLowerCase() || item.meaning_vi.includes("Đang tra cứu")) {
+        // Try to match in curriculum units
+        if (window.APP_DATA && window.APP_DATA.units) {
+          for (const u of window.APP_DATA.units) {
+            for (const d of u.days) {
+              const matched = d.words.find(w => w.word.toLowerCase() === item.word.toLowerCase());
+              if (matched && matched.meaning_vi) {
+                item.meaning_vi = matched.meaning_vi;
+                item.pos = matched.pos || item.pos || "n";
+                hasUpdated = true;
+                break;
+              }
+            }
+            if (hasUpdated) break;
+          }
+        }
+      }
+    });
+    if (hasUpdated) {
+      localStorage.setItem(CUSTOM_SAVED_WORDS_KEY, JSON.stringify(customList));
+    }
+  } catch (e) {}
+
 });

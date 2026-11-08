@@ -58,11 +58,17 @@
       </div>
 
       <div class="flex items-center gap-2">
-                <!-- Cross-Device Cloud Sync Button -->
-        <button onclick="openSyncModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/35 text-cyan-300 text-xs font-bold border border-cyan-500/40 transition shadow-sm" title="Đồng bộ tiến độ học giữa Điện thoại & Máy tính">
-          <i data-lucide="refresh-cw" class="w-4 h-4 text-cyan-400"></i>
-          <span class="hidden sm:inline">Đồng Bộ ĐT & Máy Tính</span>
-          <span class="sm:hidden">Đồng Bộ</span>
+                <!-- Quick Manual Sync Button -->
+        <button id="btnManualSyncHeader" onclick="manualSyncNow(true)" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/35 text-emerald-300 text-xs font-bold border border-emerald-500/40 transition shadow-sm active:scale-95" title="Bấm để đồng bộ thủ công ngay lập tức">
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-emerald-400" id="manualSyncIcon"></i>
+          <span class="hidden md:inline">Đồng Bộ Thủ Công</span>
+          <span class="md:hidden">Đồng Bộ</span>
+        </button>
+
+        <!-- Cross-Device Cloud Sync Settings / Pairing Button -->
+        <button onclick="openSyncModal()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/35 text-cyan-300 text-xs font-bold border border-cyan-500/40 transition shadow-sm" title="Quản lý đồng bộ & Ghép nối Điện thoại - Máy tính">
+          <i data-lucide="smartphone" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span class="hidden lg:inline">Ghép Nối ĐT</span>
         </button>
 
         <!-- Streak Counter -->
@@ -1548,14 +1554,26 @@
       </div>
 
       <div class="space-y-4 text-xs sm:text-sm">
-        <!-- Status Banner -->
-        <div id="syncStatusBanner" class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-300 flex items-center justify-between gap-2">
-          <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-            <span id="syncStatusText">Sẵn sàng đồng bộ tiến độ 2 chiều</span>
+        <!-- Status & Auto-Sync Live Indicator -->
+        <div id="syncStatusBanner" class="p-3.5 rounded-xl bg-slate-800/90 border border-slate-700 text-slate-300 space-y-2">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span id="syncStatusText" class="font-medium text-emerald-300">Tự động đồng bộ: Đang bật</span>
+            </div>
+            <span id="syncKeyBadge" class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300 font-mono">Chưa liên kết</span>
           </div>
-          <span id="syncKeyBadge" class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300 font-mono">Chưa liên kết</span>
+          <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1 border-t border-slate-700/60">
+            <span>Đồng bộ ngầm: Khi làm bài & mỗi 25s</span>
+            <span id="syncLastTimeText" class="text-slate-300 font-mono">Vừa xong</span>
+          </div>
         </div>
+
+        <!-- Big Manual Sync Button -->
+        <button onclick="manualSyncNow(true)" id="btnManualSyncModal" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-bold text-sm shadow-lg shadow-emerald-950/40 transition flex items-center justify-center gap-2 active:scale-[0.99]">
+          <i data-lucide="refresh-cw" class="w-4 h-4 text-emerald-200" id="modalSyncIcon"></i>
+          <span>⚡ Bấm Vào Đây Để Đồng Bộ Thủ Công Ngay</span>
+        </button>
 
         <!-- Tab Switcher: 1 là Lấy mã (cho ĐT), 2 là Nhập mã (cho Máy tính) -->
         <div class="grid grid-cols-2 gap-2 p-1 bg-slate-800/80 rounded-xl border border-slate-700/60">
@@ -1609,7 +1627,7 @@
 
 <!-- LOAD APPLICATION SCRIPTS -->
   <script src="/data.js?v=26.0"></script>
-  <script src="/app.js?v=27.0"></script>
+  <script src="/app.js?v=28.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {

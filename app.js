@@ -3649,10 +3649,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 // ============================================================================
-// CROSS-DEVICE CLOUD SYNC & 6-DIGIT PAIRING ENGINE (ĐỒNG BỘ ĐIỆN THOẠI & MÁY TÍNH)
+// CROSS-DEVICE CLOUD SYNC & AUTO-SYNC ENGINE (TỰ ĐỘNG ĐỒNG BỘ & ĐỒNG BỘ THỦ CÔNG)
 // ============================================================================
 const STORAGE_KEY_PAIR_SYNC = "EMH_PAIR_SYNC_KEY_V1";
 let syncDebounceTimer = null;
+let autoSyncInterval = null;
+let isApplyingRemoteSync = false;
+let lastSyncedHash = "";
+let lastSyncTimestamp = null;
 
 function getSyncPairKey() {
   return localStorage.getItem(STORAGE_KEY_PAIR_SYNC) || (appState.currentUser ? `user_${appState.currentUser.id}` : "");
@@ -3660,7 +3664,7 @@ function getSyncPairKey() {
 
 function setSyncPairKey(key) {
   if (key) {
-    localStorage.setItem(STORAGE_KEY_PAIR_SYNC, key);
+    localStorage.setItem(STORAGE_KEY_PAIR_SYNC, key.trim());
   } else {
     localStorage.removeItem(STORAGE_KEY_PAIR_SYNC);
   }
@@ -3684,83 +3688,110 @@ function buildFullSyncPayload() {
 
 function applyFullSyncPayload(payload) {
   if (!payload || typeof payload !== "object") return;
-  let hasChanges = false;
+  if (isApplyingRemoteSync) return;
+  isApplyingRemoteSync = true;
 
-  // 1. Merge missionRegistry
-  if (payload.missionRegistry && typeof payload.missionRegistry === "object") {
-    const remoteReg = payload.missionRegistry;
-    const remoteDay = parseInt(remoteReg.currentDay) || 1;
-    const localDay = missionRegistry.currentDay || 1;
+  try {
+    let hasChanges = false;
 
-    // Use higher day or merge history
-    missionRegistry.currentDay = Math.max(localDay, remoteDay);
+    // 1. Merge missionRegistry
+    if (payload.missionRegistry && typeof payload.missionRegistry === "object") {
+      const remoteReg = payload.missionRegistry;
+      const remoteDay = parseInt(remoteReg.currentDay) || 1;
+      const localDay = missionRegistry.currentDay || 1;
 
-    if (remoteReg.history && typeof remoteReg.history === "object") {
-      Object.keys(remoteReg.history).forEach(dayKey => {
-        const rDay = remoteReg.history[dayKey];
-        const lDay = missionRegistry.history[dayKey] || {
-          vocabDone: false,
-          vocabCount: 0,
-          readingDone: false,
-          readingDoneCount: 0,
-          completedReadings: [],
-          grammarDone: false
-        };
-
-        // Merge intelligently: keep true if either is true, keep higher counts
-        const mergedVocabCount = Math.max(lDay.vocabCount || 0, rDay.vocabCount || 0);
-        const mergedVocabDone = !!(lDay.vocabDone || rDay.vocabDone || mergedVocabCount >= 20);
-        const mergedReadingDone = !!(lDay.readingDone || rDay.readingDone);
-        const mergedGrammarDone = !!(lDay.grammarDone || rDay.grammarDone);
-        const mergedReadingsList = Array.from(new Set([...(lDay.completedReadings || []), ...(rDay.completedReadings || [])]));
-
-        missionRegistry.history[dayKey] = {
-          ...lDay,
-          ...rDay,
-          vocabDone: mergedVocabDone,
-          vocabCount: mergedVocabCount,
-          readingDone: mergedReadingDone,
-          readingDoneCount: Math.max(lDay.readingDoneCount || 0, rDay.readingDoneCount || 0, mergedReadingsList.length),
-          completedReadings: mergedReadingsList,
-          grammarDone: mergedGrammarDone
-        };
-      });
-    }
-    hasChanges = true;
-  }
-
-  // 2. Merge streak
-  if (payload.streak && payload.streak.count) {
-    const curStreak = parseInt(localStorage.getItem("EMH_STREAK")) || 1;
-    const maxStreak = Math.max(curStreak, parseInt(payload.streak.count) || 1);
-    localStorage.setItem("EMH_STREAK", String(maxStreak));
-    if (payload.streak.lastActiveDate) {
-      localStorage.setItem("EMH_LAST_ACTIVE_DATE", payload.streak.lastActiveDate);
-    }
-  }
-
-  // 3. Merge customWords
-  if (Array.isArray(payload.customWords) && payload.customWords.length > 0) {
-    const localWords = getSavedCustomWords();
-    const map = new Map();
-    localWords.forEach(w => map.set(w.word.toLowerCase(), w));
-    payload.customWords.forEach(w => {
-      const k = (w.word || "").toLowerCase();
-      if (k && (!map.has(k) || (w.meaning_vi && w.meaning_vi !== w.word))) {
-        map.set(k, w);
+      // Giữ ngày cao hơn hoặc ngày hiện tại
+      if (remoteDay > localDay) {
+        missionRegistry.currentDay = remoteDay;
+        hasChanges = true;
       }
-    });
-    localStorage.setItem(CUSTOM_SAVED_WORDS_KEY, JSON.stringify(Array.from(map.values())));
-  }
 
-  if (hasChanges) {
-    saveMissionRegistry();
-    updateDailyMissionUI();
-    renderFlashcard();
+      if (remoteReg.history && typeof remoteReg.history === "object") {
+        Object.keys(remoteReg.history).forEach(dayKey => {
+          const rDay = remoteReg.history[dayKey];
+          const lDay = missionRegistry.history[dayKey] || {
+            vocabDone: false,
+            vocabCount: 0,
+            readingDone: false,
+            readingDoneCount: 0,
+            completedReadings: [],
+            grammarDone: false
+          };
+
+          // Gộp thông minh: Giữ trạng thái hoàn thành nếu một trong hai bên đã xong
+          const mergedVocabCount = Math.max(lDay.vocabCount || 0, rDay.vocabCount || 0);
+          const mergedVocabDone = !!(lDay.vocabDone || rDay.vocabDone || mergedVocabCount >= 20);
+          const mergedReadingDone = !!(lDay.readingDone || rDay.readingDone);
+          const mergedGrammarDone = !!(lDay.grammarDone || rDay.grammarDone);
+          const mergedReadingsList = Array.from(new Set([...(lDay.completedReadings || []), ...(rDay.completedReadings || [])]));
+
+          if (
+            mergedVocabDone !== lDay.vocabDone ||
+            mergedReadingDone !== lDay.readingDone ||
+            mergedGrammarDone !== lDay.grammarDone ||
+            mergedVocabCount > (lDay.vocabCount || 0)
+          ) {
+            hasChanges = true;
+          }
+
+          missionRegistry.history[dayKey] = {
+            ...lDay,
+            ...rDay,
+            vocabDone: mergedVocabDone,
+            vocabCount: mergedVocabCount,
+            readingDone: mergedReadingDone,
+            readingDoneCount: Math.max(lDay.readingDoneCount || 0, rDay.readingDoneCount || 0, mergedReadingsList.length),
+            completedReadings: mergedReadingsList,
+            grammarDone: mergedGrammarDone
+          };
+        });
+      }
+    }
+
+    // 2. Merge streak
+    if (payload.streak && payload.streak.count) {
+      const curStreak = parseInt(localStorage.getItem("EMH_STREAK")) || 1;
+      const maxStreak = Math.max(curStreak, parseInt(payload.streak.count) || 1);
+      localStorage.setItem("EMH_STREAK", String(maxStreak));
+      if (payload.streak.lastActiveDate) {
+        localStorage.setItem("EMH_LAST_ACTIVE_DATE", payload.streak.lastActiveDate);
+      }
+    }
+
+    // 3. Merge customWords
+    if (Array.isArray(payload.customWords) && payload.customWords.length > 0) {
+      const localWords = getSavedCustomWords();
+      const map = new Map();
+      localWords.forEach(w => map.set(w.word.toLowerCase(), w));
+      payload.customWords.forEach(w => {
+        const k = (w.word || "").toLowerCase();
+        if (k && (!map.has(k) || (w.meaning_vi && w.meaning_vi !== w.word))) {
+          map.set(k, w);
+          hasChanges = true;
+        }
+      });
+      localStorage.setItem(CUSTOM_SAVED_WORDS_KEY, JSON.stringify(Array.from(map.values())));
+    }
+
+    if (hasChanges) {
+      try {
+        const dataStr = JSON.stringify(missionRegistry);
+        localStorage.setItem(MISSION_REGISTRY_KEY, dataStr);
+        localStorage.setItem("EMH_MISSION_REGISTRY_BACKUP", dataStr);
+      } catch (e) {}
+      updateDailyMissionUI();
+      updateDailyGoalChecklist();
+      if (typeof renderFlashcard === "function") renderFlashcard();
+      if (typeof tickDeadlineCountdown === "function") tickDeadlineCountdown();
+    }
+  } finally {
+    isApplyingRemoteSync = false;
   }
 }
 
+// 1. TỰ ĐỘNG ĐỒNG BỘ: Tự động đẩy tiến độ ngầm lên đám mây khi có thay đổi
 function triggerBackgroundCloudSync() {
+  if (isApplyingRemoteSync) return;
   const pairKey = getSyncPairKey();
   if (!pairKey && !appState.authToken) return;
 
@@ -3774,34 +3805,133 @@ function triggerBackgroundCloudSync() {
         device_name: navigator.userAgent.includes("Mobile") ? "Điện thoại" : "Máy tính"
       });
       if (res && res.success) {
-        updateSyncUIStatus("Đã đồng bộ đám mây ✓");
+        lastSyncTimestamp = new Date();
+        updateSyncUIStatus("Tự động đồng bộ đám mây ✓");
       }
     } catch (e) {
       console.warn("Background auto-sync failed:", e);
     }
-  }, 1200);
+  }, 1000);
 }
 
-async function initCrossDeviceAutoSync() {
+// 2. TỰ ĐỘNG ĐỒNG BỘ: Tự động kéo tiến độ mới nhất từ đám mây về
+async function pullLatestCloudSync(showToastOnUpdate = false) {
   const pairKey = getSyncPairKey();
-  if (!pairKey && !appState.authToken) {
-    updateSyncUIStatus();
-    return;
-  }
+  if (!pairKey && !appState.authToken) return;
 
   try {
     const url = `/api/sync/cloud-load?sync_key=${encodeURIComponent(pairKey || "")}`;
     const res = await apiCall(url);
     if (res && res.success && res.data) {
-      applyFullSyncPayload(res.data);
-      updateSyncUIStatus(`Đã liên kết (${res.sync_key}) ✓`);
-      showToast(`🔄 Đã tự động đồng bộ tiến độ mới nhất từ đám mây (${res.device_name || 'Thiết bị khác'})!`, "info");
-    } else {
-      updateSyncUIStatus();
+      const hash = JSON.stringify(res.data);
+      if (hash !== lastSyncedHash) {
+        lastSyncedHash = hash;
+        applyFullSyncPayload(res.data);
+        lastSyncTimestamp = new Date();
+        updateSyncUIStatus(`Tự động đồng bộ (${res.device_name || 'Đám mây'}) ✓`);
+        if (showToastOnUpdate) {
+          showToast(`🔄 Đã tự động cập nhật tiến độ mới nhất từ ${res.device_name || 'thiết bị khác'}!`, "info");
+        }
+      }
     }
   } catch (e) {
-    console.warn("Cloud load failed on start:", e);
-    updateSyncUIStatus();
+    console.warn("Pull cloud sync error:", e);
+  }
+}
+
+// 3. KHỞI CHẠY HỆ THỐNG TỰ ĐỘNG ĐỒNG BỘ (Background Auto-Sync)
+async function initCrossDeviceAutoSync() {
+  // A. Kéo tiến độ ngay khi vừa mở trang web
+  await pullLatestCloudSync(false);
+  updateSyncUIStatus();
+
+  // B. Tự động kiểm tra đồng bộ khi quay lại màn hình / chuyển tab (Visibility / Focus)
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      pullLatestCloudSync(true);
+    }
+  });
+
+  window.addEventListener("focus", () => {
+    pullLatestCloudSync(false);
+  });
+
+  // C. Tự động kiểm tra định kỳ mỗi 25 giây ngầm
+  if (!autoSyncInterval) {
+    autoSyncInterval = setInterval(() => {
+      if (document.visibilityState === "visible") {
+        pullLatestCloudSync(false);
+      }
+    }, 25000);
+  }
+}
+
+// 4. ĐỒNG BỘ THỦ CÔNG (Bấm nút là ép đồng bộ ngay lập tức 100%)
+async function manualSyncNow(showNotification = true) {
+  const btnHeader = document.getElementById("btnManualSyncHeader");
+  const iconHeader = document.getElementById("manualSyncIcon");
+  const btnModal = document.getElementById("btnManualSyncModal");
+  const iconModal = document.getElementById("modalSyncIcon");
+
+  if (iconHeader) iconHeader.classList.add("animate-spin");
+  if (iconModal) iconModal.classList.add("animate-spin");
+  if (btnHeader) btnHeader.disabled = true;
+  if (btnModal) btnModal.disabled = true;
+
+  const pairKey = getSyncPairKey();
+
+  // Nếu máy này chưa có mã liên kết -> Hướng dẫn tạo mã tức thì
+  if (!pairKey && !appState.authToken) {
+    if (showNotification) {
+      showToast("💡 Bạn chưa ghép nối thiết bị! Đang tạo mã kết nối cho bạn...", "info");
+    }
+    openSyncModal();
+    await requestNewSyncCode();
+    if (iconHeader) iconHeader.classList.remove("animate-spin");
+    if (iconModal) iconModal.classList.remove("animate-spin");
+    if (btnHeader) btnHeader.disabled = false;
+    if (btnModal) btnModal.disabled = false;
+    return;
+  }
+
+  try {
+    if (showNotification) {
+      showToast("⏳ Đang đồng bộ thủ công 2 chiều với đám mây...", "info");
+    }
+
+    // A. Kéo dữ liệu mới nhất từ Cloud về trước
+    const url = `/api/sync/cloud-load?sync_key=${encodeURIComponent(pairKey || "")}`;
+    const loadRes = await apiCall(url);
+    if (loadRes && loadRes.success && loadRes.data) {
+      applyFullSyncPayload(loadRes.data);
+    }
+
+    // B. Đẩy toàn bộ dữ liệu hiện tại lên Cloud
+    const payload = buildFullSyncPayload();
+    const saveRes = await apiCall("/api/sync/cloud-save", "POST", {
+      sync_key: pairKey,
+      payload: payload,
+      device_name: navigator.userAgent.includes("Mobile") ? "Điện thoại" : "Máy tính"
+    });
+
+    lastSyncTimestamp = new Date();
+    const timeStr = lastSyncTimestamp.toLocaleTimeString("vi-VN", { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+    updateSyncUIStatus(`Đã đồng bộ thủ công lúc ${timeStr} ✓`);
+    if (showNotification) {
+      showToast(`✅ ĐÃ ĐỒNG BỘ THỦ CÔNG THÀNH CÔNG! Dữ liệu giữa Điện thoại & Máy tính đã khớp 100% (Lúc ${timeStr}).`, "success");
+    }
+  } catch (err) {
+    console.error("Manual sync failed:", err);
+    if (showNotification) {
+      showToast("❌ Lỗi đồng bộ: " + (err.message || "Không thể kết nối máy chủ"), "error");
+    }
+  } finally {
+    if (iconHeader) iconHeader.classList.remove("animate-spin");
+    if (iconModal) iconModal.classList.remove("animate-spin");
+    if (btnHeader) btnHeader.disabled = false;
+    if (btnModal) btnModal.disabled = false;
+    if (typeof lucide !== "undefined") lucide.createIcons();
   }
 }
 
@@ -3810,15 +3940,24 @@ function updateSyncUIStatus(customMsg) {
   const banner = document.getElementById("syncStatusText");
   const badge = document.getElementById("syncKeyBadge");
   const headerStatus = document.getElementById("userStatusText");
+  const lastTimeEl = document.getElementById("syncLastTimeText");
+
+  if (lastSyncTimestamp && lastTimeEl) {
+    lastTimeEl.innerText = lastSyncTimestamp.toLocaleTimeString("vi-VN", { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  }
 
   if (key) {
     if (badge) badge.innerText = `Mã: ${key}`;
-    if (banner) banner.innerText = customMsg || `Đang tự động đồng bộ 2 chiều (Mã: ${key})`;
-    if (headerStatus) headerStatus.innerText = `Đã kết nối đám mây • Mã: ${key}`;
+    if (banner) banner.innerText = customMsg || `Tự động đồng bộ: Đang bật (Mã: ${key})`;
+    if (headerStatus) headerStatus.innerText = `Đã đồng bộ đám mây • Mã: ${key}`;
+  } else if (appState.authToken) {
+    if (badge) badge.innerText = "Tài khoản";
+    if (banner) banner.innerText = customMsg || "Tự động đồng bộ: Đang bật (Tài khoản)";
+    if (headerStatus) headerStatus.innerText = "Đã đồng bộ tài khoản đám mây";
   } else {
     if (badge) badge.innerText = "Chưa liên kết";
-    if (banner) banner.innerText = customMsg || "Sẵn sàng đồng bộ tiến độ 2 chiều";
-    if (headerStatus) headerStatus.innerText = "Đang chạy máy chủ • Bấm để Đồng Bộ ĐT & Máy Tính";
+    if (banner) banner.innerText = customMsg || "Sẵn sàng kết nối & Tự động đồng bộ 2 chiều";
+    if (headerStatus) headerStatus.innerText = "Đang chạy máy chủ • Bấm để Đồng Bộ";
   }
 }
 
@@ -3827,6 +3966,7 @@ function openSyncModal() {
   if (modal) {
     modal.classList.remove("hidden");
     updateSyncUIStatus();
+    if (typeof lucide !== "undefined") lucide.createIcons();
   }
 }
 

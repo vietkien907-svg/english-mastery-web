@@ -212,3 +212,13 @@ class UserNotificationSetting(Base):
     last_sent_date = Column(String(10), default="")
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
+class CloudSyncVault(Base):
+    __tablename__ = "cloud_sync_vaults"
+    
+    sync_key = Column(String(64), primary_key=True, index=True)
+    user_id = Column(Integer, nullable=True, index=True)
+    payload_json = Column(Text, nullable=False, default="{}")
+    device_name = Column(String(100), default="Device")
+    updated_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+

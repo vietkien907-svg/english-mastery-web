@@ -58,6 +58,13 @@
       </div>
 
       <div class="flex items-center gap-2">
+                <!-- Cross-Device Cloud Sync Button -->
+        <button onclick="openSyncModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/35 text-cyan-300 text-xs font-bold border border-cyan-500/40 transition shadow-sm" title="Đồng bộ tiến độ học giữa Điện thoại & Máy tính">
+          <i data-lucide="refresh-cw" class="w-4 h-4 text-cyan-400"></i>
+          <span class="hidden sm:inline">Đồng Bộ ĐT & Máy Tính</span>
+          <span class="sm:hidden">Đồng Bộ</span>
+        </button>
+
         <!-- Streak Counter -->
         <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold" title="Chuỗi ngày học liên tục (Mục tiêu tối thiểu 20 từ/ngày)">
           <i data-lucide="flame" class="w-4 h-4 fill-amber-500 text-amber-500"></i>
@@ -1527,9 +1534,82 @@
     </div>
   </div>
 
+  <!-- CROSS-DEVICE SYNC MODAL -->
+  <div id="syncModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeSyncModal()">
+    <div class="glass-card max-w-md w-full rounded-2xl border border-cyan-500/40 p-6 bg-slate-900 shadow-2xl space-y-4" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="font-bold text-lg text-white flex items-center gap-2">
+          <i data-lucide="refresh-cw" class="w-5 h-5 text-cyan-400"></i>
+          <span>Đồng Bộ Điện Thoại & Máy Tính</span>
+        </h3>
+        <button onclick="closeSyncModal()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm">
+        <!-- Status Banner -->
+        <div id="syncStatusBanner" class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-300 flex items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span id="syncStatusText">Sẵn sàng đồng bộ tiến độ 2 chiều</span>
+          </div>
+          <span id="syncKeyBadge" class="text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-300 font-mono">Chưa liên kết</span>
+        </div>
+
+        <!-- Tab Switcher: 1 là Lấy mã (cho ĐT), 2 là Nhập mã (cho Máy tính) -->
+        <div class="grid grid-cols-2 gap-2 p-1 bg-slate-800/80 rounded-xl border border-slate-700/60">
+          <button onclick="switchSyncMode('generate')" id="tabBtnSyncGen" class="py-2 rounded-lg font-bold text-xs bg-cyan-600 text-white transition shadow">
+            📱 1. Lấy mã từ ĐT
+          </button>
+          <button onclick="switchSyncMode('claim')" id="tabBtnSyncClaim" class="py-2 rounded-lg font-bold text-xs text-slate-400 hover:text-white transition">
+            💻 2. Nhập mã vào Máy tính
+          </button>
+        </div>
+
+        <!-- Section 1: Generate Code (On Phone) -->
+        <div id="syncSectionGenerate" class="space-y-3">
+          <p class="text-slate-300 leading-relaxed text-xs">
+            Nếu bạn vừa học xong trên <strong>Điện thoại</strong>, hãy bấm nút dưới đây để tạo <strong>Mã 6 Số</strong> và nhập mã này lên máy tính:
+          </p>
+          <div id="syncCodeDisplayBox" class="hidden p-4 rounded-xl bg-gradient-to-br from-cyan-950/60 to-slate-900 border-2 border-cyan-400 text-center space-y-1 shadow-lg shadow-cyan-950/50">
+            <p class="text-[11px] text-cyan-300 font-bold uppercase tracking-wider">Mã đồng bộ của bạn (Hiệu lực 24h):</p>
+            <div id="syncCodeDigits" class="text-3xl font-black text-amber-300 font-mono tracking-widest py-1">849 201</div>
+            <p class="text-[10px] text-slate-400">Mở máy tính, bấm nút "Đồng bộ" ở trên đầu rồi nhập mã này vào!</p>
+          </div>
+          <button onclick="requestNewSyncCode()" id="btnGenerateCode" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-cyan-600/30 transition flex items-center justify-center gap-2">
+            <i data-lucide="smartphone" class="w-4 h-4"></i>
+            <span>Tạo Mã Đồng Bộ Từ Điện Thoại Này</span>
+          </button>
+        </div>
+
+        <!-- Section 2: Claim Code (On Computer) -->
+        <div id="syncSectionClaim" class="hidden space-y-3">
+          <p class="text-slate-300 leading-relaxed text-xs">
+            Nhập <strong>Mã 6 Số</strong> hiển thị trên điện thoại của bạn để nạp ngay toàn bộ Ngày học, tiến độ và từ vựng sang máy tính này:
+          </p>
+          <div>
+            <label class="block text-slate-400 text-xs mb-1 font-semibold">Nhập mã 6 chữ số:</label>
+            <input type="text" id="syncCodeInput" maxlength="6" placeholder="Ví dụ: 849201" class="w-full p-3 rounded-xl bg-slate-800 border-2 border-slate-700 text-center font-mono text-2xl font-black text-amber-300 tracking-widest outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20">
+          </div>
+          <button onclick="submitClaimSyncCode()" id="btnClaimCode" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-2">
+            <i data-lucide="download-cloud" class="w-4 h-4"></i>
+            <span>Đồng Bộ Tiến Độ Vào Máy Tính Này</span>
+          </button>
+        </div>
+
+        <!-- Auto Sync Notice -->
+        <div class="p-2.5 rounded-lg bg-indigo-950/30 border border-indigo-500/20 text-[11px] text-indigo-300 flex items-start gap-2">
+          <i data-lucide="info" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+          <span>Sau khi đồng bộ lần đầu, hệ thống sẽ <strong>tự động liên kết hai chiều vĩnh viễn</strong>. Mỗi khi bạn hoàn thành bài học ở bất kỳ thiết bị nào, máy kia sẽ tự động cập nhật!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <!-- LOAD APPLICATION SCRIPTS -->
   <script src="/data.js?v=26.0"></script>
-  <script src="/app.js?v=26.0"></script>
+  <script src="/app.js?v=27.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {

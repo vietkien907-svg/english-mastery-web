@@ -4972,25 +4972,64 @@ function loadVietnamTodayVideo(idx) {
   const vid = VIETNAM_TODAY_VIDEOS[idx];
   if (!vid) return;
 
-  // 1. YouTube Iframe
+  // 1. YouTube Iframe with robust cross-origin & no-cookie support
   const playerContainer = document.getElementById("vietnamTodayIframeContainer");
   if (playerContainer) {
     playerContainer.innerHTML = `
-      <iframe class="w-full h-full rounded-2xl" src="https://www.youtube.com/embed/${vid.youtubeId}?rel=0&modestbranding=1" title="${vid.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="relative w-full h-full flex flex-col justify-center items-center bg-black/90 rounded-2xl overflow-hidden group">
+        <iframe 
+          id="ytPlayerFrame"
+          class="w-full h-full rounded-2xl border-0 aspect-video" 
+          src="https://www.youtube-nocookie.com/embed/${vid.youtubeId}?autoplay=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" 
+          title="${vid.title}" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
     `;
   }
 
-  // 2. Video Info
+  // 2. Video Info & Quick Watch Toolbar
   const titleEl = document.getElementById("vntVideoTitle");
   const descEl = document.getElementById("vntVideoDesc");
-  if (titleEl) titleEl.innerText = vid.title;
-  if (descEl) descEl.innerText = `${vid.vnTitle} • ${vid.description}`;
+  if (titleEl) {
+    titleEl.innerHTML = `
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <span>${vid.title}</span>
+      </div>
+    `;
+  }
+  if (descEl) {
+    descEl.innerHTML = `
+      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${vid.vnTitle} • ${vid.description}</p>
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 mt-2">
+        <a href="https://www.youtube.com/watch?v=${vid.youtubeId}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-red-950/40">
+          <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> Xem trực tiếp trên YouTube
+        </a>
+        <button onclick="reloadVietnamTodayPlayer()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
+          <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Tải lại Player
+        </button>
+        <a href="https://www.youtube.com/c/VTVWorldVN" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-cyan-300 text-xs font-semibold border border-slate-700/80 transition flex items-center gap-1">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Kênh VTV World
+        </a>
+      </div>
+    `;
+  }
 
   // 3. Vocabulary
   renderVietnamTodayVocab(vid.vocabulary);
 
   // 4. Script
   renderVietnamTodayScript(vid.script);
+  if (typeof lucide !== "undefined") lucide.createIcons();
+}
+
+function reloadVietnamTodayPlayer() {
+  loadVietnamTodayVideo(currentVideoIdx);
+  showToast("🔄 Đã tải lại trình phát video YouTube!", "info");
 }
 
 function renderVietnamTodayVocab(vocabList) {

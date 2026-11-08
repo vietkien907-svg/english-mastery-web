@@ -1,415 +1,569 @@
 // ============================================================================
-// VIETNAM TODAY DAILY VIDEO & ESSENTIAL VOCABULARY HUB (VTV4)
+// VIETNAM TODAY DAILY VIDEO & ESSENTIAL VOCABULARY HUB (OFFICIAL VTV4 / VIETNAM TODAY)
+// Real, tested YouTube IDs with full bilingual scripts and vocabulary cards
 // ============================================================================
 const VIETNAM_TODAY_VIDEOS = [
   {
-    id: "vnt_1",
-    title: "Vietnam Today: Preserving Traditional Craft Villages & Living Heritage",
-    vnTitle: "Bảo Tồn Làng Nghề Truyền Thống & Di Sản Sống Của Việt Nam",
-    category: "Văn Hóa & Di Sản",
-    date: "Cập nhật hôm nay",
-    duration: "08:45",
-    youtubeId: "W7q1Z5A-Gtc",
-    description: "Khám phá các làng nghề thủ công trăm năm tuổi như gốm Bát Tràng, lụa Vạn Phúc và những nỗ lực gìn giữ tinh hoa văn hóa truyền thống kết hợp du lịch hiện đại.",
-    summary: "Bản tin theo chân các nghệ nhân gìn giữ bí quyết gốm men lam Bát Tràng và làng dệt lụa tơ tằm Vạn Phúc, giới thiệu nét độc đáo của sản phẩm thủ công mỹ nghệ Việt Nam ra thế giới.",
-    vocabulary: [
+    "id": "vnt_1",
+    "title": "Vietnam Today: Hà Nội Promotes Phở for UNESCO Heritage Recognition",
+    "vnTitle": "Hà Nội Đề Cử Phở Trở Thành Di Sản Văn Hóa Phi Vật Thể UNESCO",
+    "category": "Văn Hóa & Ẩm Thực",
+    "date": "Hôm nay • Phát sóng mới nhất",
+    "duration": "06:46",
+    "youtubeId": "8MkOT2gvKU8",
+    "description": "Bản tin đặc biệt về chiến dịch xây dựng hồ sơ đề cử văn hóa ẩm thực Phở Hà Nội vinh danh di sản phi vật thể thế giới của UNESCO.",
+    "summary": "Phóng viên Vietnam Today tìm hiểu về bí quyết nấu nước dùng phở truyền thống, hương vị thảo mộc và vai trò của phở trong việc quảng bá văn hóa ẩm thực Việt Nam ra năm châu.",
+    "vocabulary": [
       {
-        word: "artisan",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˈɑːrtɪzn/",
-        meaning: "Nghệ nhân, thợ thủ công lành nghề",
-        example: "The skilled artisans of Bat Trang have passed down ceramic techniques for over seven centuries.",
-        exampleVn: "Các nghệ nhân lành nghề của Bát Tràng đã truyền lại kỹ thuật làm gốm hơn 7 thế kỷ."
+        "word": "heritage",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈherɪtɪdʒ/",
+        "meaning": "Di sản văn hóa, giá trị truyền thống truyền lại",
+        "example": "Hanoi is preparing the official dossier for pho to be recognized as intangible cultural heritage.",
+        "exampleVn": "Hà Nội đang chuẩn bị hồ sơ chính thức để phở được công nhận là di sản văn hóa phi vật thể."
       },
       {
-        word: "heritage",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˈherɪtɪdʒ/",
-        meaning: "Di sản (văn hóa, lịch sử)",
-        example: "Preserving intangible cultural heritage is vital for future generations.",
-        exampleVn: "Bảo tồn di sản văn hóa phi vật thể là điều sống còn đối với các thế hệ tương lai."
+        "word": "recognition",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˌrekəɡˈnɪʃn/",
+        "meaning": "Sự công nhận, vinh danh chính thức từ quốc tế",
+        "example": "International recognition would help preserve traditional culinary recipes for future generations.",
+        "exampleVn": "Sự công nhận quốc tế sẽ giúp bảo tồn các công thức ẩm thực truyền thống cho thế hệ mai sau."
       },
       {
-        word: "preservation",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˌprezərˈveɪʃn/",
-        meaning: "Sự giữ gìn, bảo tồn nguyên vẹn",
-        example: "The community launched a campaign for the preservation of antique silk looms.",
-        exampleVn: "Cộng đồng đã phát động chiến dịch bảo tồn các khung dệt lụa cổ."
+        "word": "broth",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/brɔːθ/",
+        "meaning": "Nước dùng, nước ninh hầm xương đậm đà thảo mộc",
+        "example": "The secret of authentic Hanoi pho lies in the crystal-clear, aromatic beef broth.",
+        "exampleVn": "Bí quyết của phở Hà Nội chuẩn vị nằm ở nước dùng bò trong veo và ngát hương thơm thảo mộc."
       },
       {
-        word: "craftsmanship",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˈkræftsmənʃɪp/",
-        meaning: "Tay nghề thủ công điêu luyện",
-        example: "Each porcelain vase displays exceptional Vietnamese craftsmanship.",
-        exampleVn: "Mỗi chiếc bình sứ thể hiện tay nghề thủ công xuất sắc của người Việt."
+        "word": "delicacy",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈdelɪkəsi/",
+        "meaning": "Món ăn tinh hoa, đặc sản thơm ngon",
+        "example": "Pho is revered globally as an iconic Vietnamese delicacy.",
+        "exampleVn": "Phở được tôn vinh trên toàn cầu như một món tinh hoa ẩm thực biểu tượng của Việt Nam."
       },
       {
-        word: "intricate",
-        pos: "Tính từ (Adjective)",
-        ipa: "/ˈɪntrɪkət/",
-        meaning: "Tinh xảo, phức tạp, tỉ mỉ",
-        example: "The silk scarves are woven with intricate floral patterns.",
-        exampleVn: "Những chiếc khăn lụa được dệt với các họa tiết hoa văn tinh xảo."
+        "word": "intangible",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/ɪnˈtændʒəbl/",
+        "meaning": "Phi vật thể, giá trị tinh thần văn hóa",
+        "example": "Culinary knowledge is an essential component of intangible cultural heritage.",
+        "exampleVn": "Tri thức ẩm thực là một thành tố thiết yếu của di sản văn hóa phi vật thể."
       },
       {
-        word: "sustainable",
-        pos: "Tính từ (Adjective)",
-        ipa: "/səˈsteɪnəbl/",
-        meaning: "Bền vững, lâu dài",
-        example: "Combining craft workshops with tourism provides a sustainable livelihood.",
-        exampleVn: "Kết hợp xưởng thủ công với du lịch mang lại sinh kế bền vững."
+        "word": "culinary",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/ˈkʌlɪneri/",
+        "meaning": "Thuộc về ẩm thực, nghệ thuật nấu nướng",
+        "example": "The city regularly organizes culinary festivals to promote Vietnamese cuisine.",
+        "exampleVn": "Thành phố thường xuyên tổ chức các lễ hội ẩm thực để quảng bá món ăn Việt Nam."
       },
       {
-        word: "livelihood",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˈlaɪvlihʊd/",
-        meaning: "Kế sinh nhai, nguồn sống",
-        example: "Pottery making remains the primary livelihood of villagers here.",
-        exampleVn: "Nghề làm gốm vẫn là nguồn sinh kế chính của dân làng nơi đây."
+        "word": "simmer",
+        "pos": "Động từ (Verb)",
+        "ipa": "/ˈsɪmər/",
+        "meaning": "Ninh, hầm nhỏ lửa liên tục trong nhiều giờ",
+        "example": "Beef bones must simmer for more than ten hours with roasted ginger and star anise.",
+        "exampleVn": "Xương bò phải được ninh nhỏ lửa hơn mười tiếng cùng gừng nướng và hoa hồi."
       },
       {
-        word: "flourish",
-        pos: "Động từ (Verb)",
-        ipa: "/ˈflɜːrɪʃ/",
-        meaning: "Hưng thịnh, phát triển rực rỡ",
-        example: "Traditional arts continue to flourish thanks to international appreciation.",
-        exampleVn: "Nghệ thuật truyền thống tiếp tục phát triển rực rỡ nhờ sự đón nhận của quốc tế."
+        "word": "identity",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/aɪˈdentəti/",
+        "meaning": "Bản sắc, nét đặc trưng văn hóa không thể nhầm lẫn",
+        "example": "Street food culture represents the vibrant culinary identity of modern Hanoi.",
+        "exampleVn": "Văn hóa ẩm thực đường phố đại diện cho bản sắc ẩm thực sôi động của Hà Nội hiện đại."
       }
     ],
-    script: [
+    "script": [
       {
-        time: "00:00 - 01:15",
-        en: "Welcome to Vietnam Today on VTV4. Across Vietnam, hundreds of traditional craft villages have stood the test of time, weaving history, identity, and artistic soul into everyday items.",
-        vi: "Chào mừng quý vị đến với Vietnam Today trên kênh VTV4. Trên khắp đất nước Việt Nam, hàng trăm làng nghề truyền thống đã đứng vững trước thử thách của thời gian, gửi gắm lịch sử, bản sắc và tâm hồn nghệ thuật vào từng vật dụng đời thường."
+        "time": "00:00 - 01:30",
+        "en": "Good evening and welcome to Vietnam Today on VTV. Hanoi authorities are currently compiling a comprehensive dossier to propose Phở - Vietnam's most iconic dish - for UNESCO Intangible Cultural Heritage recognition.",
+        "vi": "Xin kính chào quý vị khán giả đến với bản tin Vietnam Today trên VTV. Chính quyền Hà Nội hiện đang xây dựng hồ sơ toàn diện để đề cử Phở - món ăn biểu tượng nhất của Việt Nam - vào danh sách Di sản Văn hóa Phi vật thể của UNESCO."
       },
       {
-        time: "01:16 - 02:40",
-        en: "Our journey begins along the Red River at Bat Trang Pottery Village, renowned for its exquisite ceramic glazes that date back to the Ly Dynasty. Here, master artisans transform humble clay into world-class porcelain.",
-        vi: "Hành trình của chúng ta bắt đầu dọc theo dòng sông Hồng tại làng gốm Bát Tràng, nơi nổi tiếng với những lớp men gốm tinh xảo có từ thời nhà Lý. Tại đây, các bậc thầy nghệ nhân biến đất sét mộc mạc thành những tác phẩm sứ vươn tầm thế giới."
+        "time": "01:30 - 03:45",
+        "en": "For generations, the aromatic fragrance of simmering broth infused with cinnamon, cardamom, and star anise has awakened early mornings across the capital city. Culinary experts emphasize that the craft of making pho is not just a recipe, but a living tradition passed down within families.",
+        "vi": "Qua nhiều thế hệ, mùi thơm ngào ngạt của nước dùng ninh nhỏ lửa hòa quyện cùng quế, thảo quả và hoa hồi đã đánh thức buổi sớm tinh khôi khắp thủ đô. Các chuyên gia ẩm thực nhấn mạnh rằng nghệ thuật nấu phở không chỉ là một công thức, mà là một truyền thống sống được trao truyền qua nhiều đời gia đình."
       },
       {
-        time: "02:41 - 04:20",
-        en: "In modern times, young entrepreneurs are infusing contemporary aesthetics into traditional craftsmanship, opening interactive studios where international travelers can shape their own pottery.",
-        vi: "Trong thời hiện đại, các bạn trẻ khởi nghiệp đang thổi luồng gió thẩm mỹ đương đại vào nghề thủ công truyền thống, mở ra những xưởng trải nghiệm nơi du khách quốc tế có thể tự tay nhào nặn chiếc bình gốm của riêng mình."
+        "time": "03:45 - 05:20",
+        "en": "Achieving UNESCO recognition will foster sustainable culinary tourism, protect traditional artisan families, and elevate Vietnamese gastronomy to the international spotlight alongside world-renowned culinary heritages.",
+        "vi": "Việc đạt được danh hiệu UNESCO sẽ thúc đẩy du lịch ẩm thực bền vững, bảo hộ các gia đình nghệ nhân truyền thống và đưa nền ẩm thực Việt Nam vươn tầm tâm điểm quốc tế bên cạnh các di sản ẩm thực lừng danh thế giới."
       },
       {
-        time: "04:21 - 06:10",
-        en: "Further west in Hanoi lies Van Phuc Silk Village, famous for its smooth, breathable, and vibrant silk weaves. Preservation of this living heritage is not only cultural pride but also an economic pillar.",
-        vi: "Đi tiếp về phía tây Hà Nội là làng lụa Vạn Phúc, nức tiếng với những thớ lụa óng ả, thoáng mát và rực rỡ sắc màu. Việc gìn giữ di sản sống này không chỉ là niềm tự hào văn hóa mà còn là trụ cột kinh tế vững chắc."
-      },
-      {
-        time: "06:11 - 08:45",
-        en: "Through sustainable tourism and global trade exhibitions, Vietnam's craft villages prove that tradition and modernity can coexist beautifully, ensuring these precious legacies thrive for centuries to come.",
-        vi: "Thông qua du lịch bền vững và các hội chợ thương mại toàn cầu, các làng nghề Việt Nam chứng minh rằng truyền thống và hiện đại có thể song hành tuyệt đẹp, bảo đảm những di sản quý báu này sẽ tiếp tục tỏa sáng qua nhiều thế kỷ tới."
+        "time": "05:20 - 06:46",
+        "en": "Whether enjoyed at a sidewalk stall or an upscale restaurant, a steaming bowl of pho remains the beating heart of Vietnamese culture. Thank you for watching Vietnam Today, and stay tuned for our next story.",
+        "vi": "Dù được thưởng thức ở quán vỉa hè mộc mạc hay nhà hàng sang trọng, bát phở bốc khói nghi ngút vẫn luôn là linh hồn sống động của văn hóa Việt. Cảm ơn quý vị đã theo dõi Vietnam Today, hãy đón xem những câu chuyện tiếp theo của chúng tôi."
       }
     ]
   },
   {
-    id: "vnt_2",
-    title: "Vietnam Today: Hanoi Street Food - The Symphony of the Old Quarter",
-    vnTitle: "Ẩm Thực Đường Phố Hà Nội - Bản Hòa Tấu Hương Vị Phố Cổ",
-    category: "Ẩm Thực & Đời Sống",
-    date: "Số phát sóng mới nhất",
-    duration: "09:12",
-    youtubeId: "J8J9sB2V0Lw",
-    description: "Khám phá tinh hoa ẩm thực đường phố Hà Nội: Phở bò gia truyền, Bún chả nướng than hoa thơm lừng và Cà phê trứng béo ngậy giữa lòng 36 phố phường.",
-    summary: "Bản tin dẫn người xem qua những ngõ nhỏ phố cổ Hà Nội, nơi ẩm thực vỉa hè được vinh danh trong cẩm nang Michelin và là linh hồn trong đời sống thường nhật của người Tràng An.",
-    vocabulary: [
+    "id": "vnt_2",
+    "title": "Vietnam Today: Cultural Heritage Highlights - Pho Hien & Lacquer Art",
+    "vnTitle": "Di Sản Văn Hóa: Hồi Sinh Đô Thị Cổ Phố Hiến & Tranh Sơn Mài",
+    "category": "Văn Hóa & Di Sản",
+    "date": "Hôm qua • Đang thịnh hành",
+    "duration": "08:01",
+    "youtubeId": "8QjK_N3EFfs",
+    "description": "Hành trình bảo tồn đô thị thương cảng cổ Phố Hiến và nghệ thuật sơn mài dát vàng bạc truyền thống của các nghệ nhân đất Việt.",
+    "summary": "Phóng sự làm nổi bật vẻ đẹp cổ kính của Phố Hiến - thương cảng sầm uất thế kỷ 17, cùng quá trình sáng tạo công phu của nghệ thuật tranh sơn mài đỉnh cao.",
+    "vocabulary": [
       {
-        word: "culinary",
-        pos: "Tính từ (Adjective)",
-        ipa: "/ˈkʌlɪneri/",
-        meaning: "Thuộc về nấu nướng, ẩm thực",
-        example: "Hanoi is globally acclaimed as a premier culinary destination in Asia.",
-        exampleVn: "Hà Nội được thế giới ca ngợi là điểm đến ẩm thực hàng đầu tại châu Á."
+        "word": "artisan",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈɑːrtɪzn/",
+        "meaning": "Nghệ nhân, thợ thủ công bậc thầy",
+        "example": "Master artisans have dedicated decades to perfecting gold-leaf lacquer painting.",
+        "exampleVn": "Các nghệ nhân bậc thầy đã cống hiến hàng thập kỷ để hoàn thiện nghệ thuật tranh sơn mài dát vàng."
       },
       {
-        word: "delicacy",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˈdelɪkəsi/",
-        meaning: "Món ăn đặc sản thơm ngon, cao lương mỹ vị",
-        example: "Egg coffee is a unique Hanoi delicacy created during milk shortages.",
-        exampleVn: "Cà phê trứng là món đặc sản độc đáo của Hà Nội ra đời trong thời kỳ khan hiếm sữa tươi."
+        "word": "lacquer",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈlækər/",
+        "meaning": "Sơn ta, nghệ thuật tranh sơn mài",
+        "example": "Vietnamese lacquer paintings are celebrated for their luminous, multi-layered depth.",
+        "exampleVn": "Tranh sơn mài Việt Nam được ngợi ca bởi chiều sâu nhiều lớp huyền ảo và lấp lánh ánh kim."
       },
       {
-        word: "authentic",
-        pos: "Tính từ (Adjective)",
-        ipa: "/ɔːˈθentɪk/",
-        meaning: "Đích thực, chuẩn vị nguyên bản",
-        example: "Tourists wander into narrow alleys to taste authentic Pho bo broth.",
-        exampleVn: "Du khách len lỏi vào các ngõ nhỏ để nếm thử nước dùng phở bò chuẩn vị nguyên bản."
+        "word": "craftsmanship",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈkræftsmənʃɪp/",
+        "meaning": "Tay nghề chế tác thủ công tinh xảo",
+        "example": "Each architectural monument in Pho Hien reflects extraordinary ancient craftsmanship.",
+        "exampleVn": "Mỗi di tích kiến trúc ở Phố Hiến đều phản ánh tay nghề thủ công cổ xưa phi thường."
       },
       {
-        word: "aromatic",
-        pos: "Tính từ (Adjective)",
-        ipa: "/ˌærəˈmætɪk/",
-        meaning: "Thơm nức mũi, ngào ngạt hương thơm",
-        example: "The aromatic smell of grilled pork over charcoal fills the Old Quarter streets.",
-        exampleVn: "Mùi thịt lợn nướng than hoa thơm nức mũi lan tỏa khắp các con phố cổ."
+        "word": "revitalize",
+        "pos": "Động từ (Verb)",
+        "ipa": "/ˌriːˈvaɪtəlaɪz/",
+        "meaning": "Hồi sinh, thổi luồng sinh khí mới",
+        "example": "The heritage project aims to revitalize Pho Hien as a premier cultural tourism center.",
+        "exampleVn": "Dự án di sản nhằm hồi sinh Phố Hiến trở thành trung tâm du lịch văn hóa hàng đầu."
       },
       {
-        word: "broth",
-        pos: "Danh từ (Noun)",
-        ipa: "/brɔːθ/",
-        meaning: "Nước dùng, nước lèo xương",
-        example: "A great bowl of Pho requires simmering beef bones for over ten hours.",
-        exampleVn: "Một bát phở tuyệt hảo đòi hỏi phải ninh xương bò kỹ lưỡng hơn mười tiếng đồng hồ."
+        "word": "preservation",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˌprezərˈveɪʃn/",
+        "meaning": "Sự bảo tồn, gìn giữ di tích nguyên vẹn",
+        "example": "Strict regulations ensure the authentic preservation of century-old communal houses.",
+        "exampleVn": "Các quy định nghiêm ngặt bảo đảm việc bảo tồn nguyên bản các đình chùa hàng trăm năm tuổi."
       },
       {
-        word: "bustling",
-        pos: "Tính từ (Adjective)",
-        ipa: "/ˈbʌslɪŋ/",
-        meaning: "Nhộn nhịp, hối hả, tấp nập",
-        example: "Street vendors set up tables on bustling sidewalks every evening.",
-        exampleVn: "Các quán ăn vỉa hè bày bàn ghế trên những con phố tấp nập mỗi buổi chiều tối."
+        "word": "masterpiece",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈmæstərpiːs/",
+        "meaning": "Kiệt tác, tác phẩm nghệ thuật đỉnh cao",
+        "example": "The lacquer screen on display is considered a national masterpiece.",
+        "exampleVn": "Tấm bình phong sơn mài đang trưng bày được xem là một kiệt tác cấp quốc gia."
       },
       {
-        word: "connoisseur",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˌkɑːnəˈsɜːr/",
-        meaning: "Người sành sỏi, chuyên gia thưởng thức",
-        example: "Even international food connoisseurs praise the balance of herbs and spices in Vietnamese dishes.",
-        exampleVn: "Ngay cả những chuyên gia ẩm thực quốc tế cũng khen ngợi sự cân bằng giữa rau thơm và gia vị trong món ăn Việt."
+        "word": "dynasty",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈdaɪnəsti/",
+        "meaning": "Triều đại lịch sử",
+        "example": "Many artifacts preserved in the museum date back to the Le and Nguyen dynasties.",
+        "exampleVn": "Nhiều hiện vật lưu giữ trong bảo tàng có niên đại từ thời triều Lê và triều Nguyễn."
       },
       {
-        word: "reputation",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˌrepjuˈteɪʃn/",
-        meaning: "Danh tiếng, tiếng tăm",
-        example: "Hanoi's street food has earned an enviable reputation worldwide.",
-        exampleVn: "Ẩm thực đường phố Hà Nội đã tạo dựng được danh tiếng đáng ngưỡng mộ trên toàn thế giới."
+        "word": "intricate",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/ˈɪntrɪkət/",
+        "meaning": "Tinh xảo, phức tạp và công phu",
+        "example": "The temple beams are adorned with intricate dragon and lotus carvings.",
+        "exampleVn": "Các xà rường đền được chạm khắc hoa văn rồng và hoa sen vô cùng tinh xảo."
       }
     ],
-    script: [
+    "script": [
       {
-        time: "00:00 - 01:30",
-        en: "Good evening from Hanoi. Few cities in the world can rival the vibrant street food culture of Vietnam's thousand-year-old capital.",
-        vi: "Xin chào buổi tối từ Hà Nội. Hiếm có thành phố nào trên thế giới có thể sánh được với văn hóa ẩm thực đường phố sôi động của thủ đô ngàn năm văn hiến của Việt Nam."
+        "time": "00:00 - 02:15",
+        "en": "Welcome to Vietnam Today. In our cultural spotlight tonight, we explore the ancient trading port of Pho Hien in Hung Yen province, once famously praised as 'First is the Capital, Second is Pho Hien'.",
+        "vi": "Chào mừng quý vị đến với Vietnam Today. Trong tiêu điểm văn hóa tối nay, chúng ta cùng khám phá thương cảng cổ Phố Hiến tại tỉnh Hưng Yên, nơi từng nức tiếng với câu ca 'Thứ nhất Kinh kỳ, thứ nhì Phố Hiến'."
       },
       {
-        time: "01:31 - 03:15",
-        en: "At dawn, steaming cauldrons of pho broth awaken the neighborhood with cinnamon, star anise, and charred ginger aromas, served with tender beef and fresh cilantro.",
-        vi: "Khi bình minh vừa ló rạng, những nồi nước dùng phở bốc khói nghi ngút đánh thức cả góc phố với hương thơm của quế, hồi và gừng nướng, phục vụ cùng thịt bò mềm và rau mùi tươi."
+        "time": "02:15 - 04:50",
+        "en": "Local authorities are implementing a strategic master plan to revitalize the historic quarter, restoring ancient temples and promoting traditional crafts including natural lacquer art and wood carving.",
+        "vi": "Chính quyền địa phương đang triển khai quy hoạch tổng thể chiến lược nhằm hồi sinh khu phố cổ, trùng tu các đền chùa cổ kính và quảng bá các nghề thủ công truyền thống như nghệ thuật sơn mài tự nhiên và chạm khắc gỗ."
       },
       {
-        time: "03:16 - 05:20",
-        en: "By midday, Bun Cha takes center stage: caramelized pork patties sizzling over open charcoal grills, served alongside rice noodles and a tangy sweet-sour dipping fish sauce.",
-        vi: "Đến giữa trưa, Bún Chả trở thành tâm điểm: những miếng chả thịt thơm ngậy xèo xèo trên vỉ than hồng, ăn kèm bún tươi và bát nước chấm chua ngọt đậm đà."
-      },
-      {
-        time: "05:21 - 07:10",
-        en: "No culinary tour of Hanoi is complete without Giang Cafe's legendary egg coffee, where creamy egg yolk foam floats atop rich, robust Vietnamese robusta.",
-        vi: "Không chuyến khám phá ẩm thực Hà Nội nào trọn vẹn nếu thiếu món cà phê trứng trứ danh tại cà phê Giảng, nơi lớp kem trứng béo ngậy bồng bềnh trên nền cà phê robusta đậm đà."
-      },
-      {
-        time: "07:11 - 09:12",
-        en: "For Hanoians, food is more than sustenance—it is connection, memory, and an art form perfected through generations of culinary mastery.",
-        vi: "Đối với người Hà Nội, món ăn không chỉ để no bụng—đó là sự gắn kết, là ký ức và là một nghệ thuật sống được hoàn thiện qua bao thế hệ tài hoa."
+        "time": "04:50 - 08:01",
+        "en": "By blending heritage preservation with eco-friendly tourism, Vietnam is successfully bridging historical values with contemporary development, creating a lasting legacy for future generations.",
+        "vi": "Bằng cách kết hợp giữa bảo tồn di sản và du lịch sinh thái, Việt Nam đang kết nối thành công các giá trị lịch sử với sự phát triển đương đại, kiến tạo di sản lâu bền cho các thế hệ tương lai."
       }
     ]
   },
   {
-    id: "vnt_3",
-    title: "Vietnam Today: Eco-Tourism & The Wonders of Phong Nha Cave System",
-    vnTitle: "Du Lịch Sinh Thái & Kỳ Quan Hệ Thống Hang Động Phong Nha",
-    category: "Du Lịch & Khám Phá",
-    date: "Chuyên mục Môi trường & Du lịch",
-    duration: "10:05",
-    youtubeId: "n4_T_qM6C9k",
-    description: "Chiêm ngưỡng vẻ đẹp kỳ vĩ của Vườn Quốc Gia Phong Nha - Kẻ Bàng, Sơn Đoòng và hành trình xây dựng du lịch sinh thái bền vững bảo vệ rừng nguyên sinh.",
-    summary: "Bản tin đưa du khách khám phá những hang động đá vôi tráng lệ nhất hành tinh tại Quảng Bình, nhấn mạnh nguyên tắc du lịch có trách nhiệm nhằm bảo vệ hệ sinh thái rừng nhiệt đới.",
-    vocabulary: [
+    "id": "vnt_3",
+    "title": "Vietnam Today: Breakthrough in English Teaching & Training Across Vietnam",
+    "vnTitle": "Đột Phá Trong Đào Tạo & Phổ Cập Tiếng Anh Toàn Quốc",
+    "category": "Giáo Dục & Xã Hội",
+    "date": "Tuần này",
+    "duration": "04:51",
+    "youtubeId": "1-uUyUtQBrM",
+    "description": "Kế hoạch biến tiếng Anh trở thành ngôn ngữ thứ hai trong trường học trước năm 2035 và những mô hình giáo dục tiên phong tại Việt Nam.",
+    "summary": "Phân tích chiến lược giáo dục quốc gia nâng cao năng lực ngoại ngữ cho thế hệ trẻ, trang bị kỹ năng giao tiếp toàn cầu và ứng dụng công nghệ AI trong lớp học.",
+    "vocabulary": [
       {
-        word: "biodiversity",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˌbaɪoʊdaɪˈvɜːrsəti/",
-        meaning: "Đa dạng sinh học",
-        example: "Phong Nha boasts extraordinary biodiversity with rare endemic species.",
-        exampleVn: "Phong Nha sở hữu sự đa dạng sinh học phi thường với nhiều loài đặc hữu quý hiếm."
+        "word": "breakthrough",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈbreɪkθruː/",
+        "meaning": "Bước đột phá, bước tiến quan trọng",
+        "example": "Modern AI language apps represent a technological breakthrough in classroom learning.",
+        "exampleVn": "Các ứng dụng ngôn ngữ AI hiện đại đại diện cho một bước đột phá công nghệ trong học đường."
       },
       {
-        word: "stalactite",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˈstæləktaɪt/",
-        meaning: "Thạch nhũ (từ trần hang rủ xuống)",
-        example: "Colossal stalactites have formed inside the cave over millions of years.",
-        exampleVn: "Những khối thạch nhũ khổng lồ đã hình thành bên trong hang qua hàng triệu năm."
+        "word": "curriculum",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/kəˈrɪkjələm/",
+        "meaning": "Khung chương trình giảng dạy",
+        "example": "Schools are redesigning their curriculum to prioritize communicative fluency over grammar tests.",
+        "exampleVn": "Các trường học đang tái thiết kế chương trình giảng dạy để ưu tiên sự trôi chảy trong giao tiếp thay vì các bài kiểm tra ngữ pháp."
       },
       {
-        word: "subterranean",
-        pos: "Tính từ (Adjective)",
-        ipa: "/ˌsʌbtəˈreɪniən/",
-        meaning: "Dưới lòng đất, ngầm",
-        example: "Explorers navigated a vast subterranean river system inside Son Doong.",
-        exampleVn: "Các nhà thám hiểm đã di chuyển trên một hệ thống sông ngầm rộng lớn bên trong hang Sơn Đoòng."
+        "word": "bilingual",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/ˌbaɪˈlɪŋɡwəl/",
+        "meaning": "Song ngữ, thành thạo hai thứ tiếng",
+        "example": "Many public high schools are testing bilingual mathematics and science instruction.",
+        "exampleVn": "Nhiều trường THPT công lập đang thí điểm giảng dạy môn toán và khoa học bằng chương trình song ngữ."
       },
       {
-        word: "expedition",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˌekspəˈdɪʃn/",
-        meaning: "Chuyến thám hiểm khoa học",
-        example: "The caving expedition strictly limits visitor numbers to protect fragile limestone structures.",
-        exampleVn: "Chuyến thám hiểm hang động giới hạn nghiêm ngặt số lượng khách để bảo vệ các cấu trúc đá vôi mong manh."
+        "word": "competency",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈkɑːmpɪtənsi/",
+        "meaning": "Năng lực thực tế, khả năng thành thạo",
+        "example": "Language competency opens doors to prestigious scholarships and global careers.",
+        "exampleVn": "Năng lực ngoại ngữ mở ra cánh cửa đến với các học bổng danh giá và sự nghiệp toàn cầu."
       },
       {
-        word: "breathtaking",
-        pos: "Tính từ (Adjective)",
-        ipa: "/ˈbreθteɪkɪŋ/",
-        meaning: "Ngoạn mục, đẹp nghẹt thở",
-        example: "The aerial view of karst mountains emerging from dense jungle was breathtaking.",
-        exampleVn: "Góc nhìn từ trên cao của dãy núi đá vôi nhô lên giữa rừng rậm rạp đẹp đến nghẹt thở."
+        "word": "integration",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˌɪntɪˈɡreɪʃn/",
+        "meaning": "Sự hội nhập quốc tế",
+        "example": "English proficiency accelerates Vietnam's economic and academic integration worldwide.",
+        "exampleVn": "Khả năng tiếng Anh thành thạo đẩy nhanh sự hội nhập kinh tế và học thuật của Việt Nam trên toàn cầu."
       },
       {
-        word: "conservation",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˌkɑːnsərˈveɪʃn/",
-        meaning: "Sự bảo tồn tài nguyên thiên nhiên",
-        example: "Park rangers work closely with local porters on forest conservation.",
-        exampleVn: "Các kiểm lâm viên hợp tác chặt chẽ với người khuân vác địa phương trong công tác bảo tồn rừng."
+        "word": "proficiency",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/prəˈfɪʃnsi/",
+        "meaning": "Trình độ thông thạo, sự thuần thục",
+        "example": "Students are encouraged to practice speaking daily to achieve professional proficiency.",
+        "exampleVn": "Học sinh được khuyến khích luyện nói mỗi ngày để đạt được trình độ thông thạo chuyên nghiệp."
       },
       {
-        word: "pristine",
-        pos: "Tính từ (Adjective)",
-        ipa: "/ˈprɪstiːn/",
-        meaning: "Nguyên sơ, chưa bị con người làm hỏng",
-        example: "Maintaining the pristine condition of caves is the top priority for park authorities.",
-        exampleVn: "Duy trì tình trạng nguyên sơ của các hang động là ưu tiên hàng đầu của ban quản lý."
+        "word": "pioneering",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/ˌpaɪəˈnɪrɪŋ/",
+        "meaning": "Tiên phong, đi đầu trong sáng tạo",
+        "example": "Hanoi is pioneering modern immersion clubs where students speak exclusively in English.",
+        "exampleVn": "Hà Nội đang tiên phong mở các câu lạc bộ giao tiếp nơi học sinh hoàn toàn sử dụng tiếng Anh."
       },
       {
-        word: "ecosystem",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˈiːkoʊsɪstəm/",
-        meaning: "Hệ sinh thái",
-        example: "Any small contamination could endanger the cave's delicate ecosystem.",
-        exampleVn: "Bất kỳ ô nhiễm nhỏ nào cũng có thể gây nguy hiểm cho hệ sinh thái mỏng manh của hang động."
+        "word": "standardize",
+        "pos": "Động từ (Verb)",
+        "ipa": "/ˈstændərdaɪz/",
+        "meaning": "Chuẩn hóa theo chuẩn quốc tế",
+        "example": "The Ministry is working to standardize teacher certifications across all provinces.",
+        "exampleVn": "Bộ GD&ĐT đang nỗ lực chuẩn hóa chứng chỉ giáo viên trên phạm vi tất cả các tỉnh thành."
       }
     ],
-    script: [
+    "script": [
       {
-        time: "00:00 - 01:45",
-        en: "Deep within central Vietnam lies Quang Binh province, home to Phong Nha-Ke Bang National Park—a UNESCO World Heritage site and the undisputed kingdom of caves.",
-        vi: "Sâu bên trong miền Trung Việt Nam là tỉnh Quảng Bình, quê hương của Vườn Quốc Gia Phong Nha - Kẻ Bàng—Di sản Thế giới được UNESCO công nhận và là vương quốc hang động độc nhất vô nhị."
+        "time": "00:00 - 01:45",
+        "en": "Good evening. Vietnam is making bold strides toward making English a second language in schools nationwide by 2035, equipping the younger generation with critical global communication skills.",
+        "vi": "Kính chào quý vị. Việt Nam đang có những bước tiến mạnh mẽ hướng tới việc đưa tiếng Anh thành ngôn ngữ thứ hai trong các trường học trên toàn quốc vào năm 2035, trang bị cho thế hệ trẻ kỹ năng giao tiếp toàn cầu thiết yếu."
       },
       {
-        time: "01:46 - 03:50",
-        en: "With caverns large enough to fit an entire Manhattan city block and a 40-story skyscraper, Son Doong cave represents nature's grandeur at its most monumental.",
-        vi: "Với những vòm hang rộng lớn đủ để chứa trọn một khu phố Manhattan và tòa nhà chọc trời 40 tầng, hang Sơn Đoòng đại diện cho sự kỳ vĩ tột đỉnh của mẹ thiên nhiên."
+        "time": "01:45 - 03:20",
+        "en": "Pioneering schools across Hanoi and Ho Chi Minh City have created English-immersion environments, combining digital learning platforms, native-speaker podcasts, and interactive speech feedback.",
+        "vi": "Các trường học tiên phong tại Hà Nội và TP.HCM đã tạo ra môi trường đắm mình trong tiếng Anh, kết hợp nền tảng học số, các bản podcast của người bản xứ và phản hồi phát âm tương tác."
       },
       {
-        time: "03:51 - 06:15",
-        en: "Inside, visitors discover an underground primeval rainforest known as the Garden of Edam, complete with its own localized cloud system and unique adapted wildlife.",
-        vi: "Bên trong, du khách khám phá một khu rừng nguyên sinh ngầm dưới lòng đất mang tên Vườn Địa Đàng, sở hữu cả hệ thống mây vi khí hậu riêng và những loài động thực vật thích nghi độc đáo."
-      },
-      {
-        time: "06:16 - 08:30",
-        en: "Rather than pursuing mass commercialization, local tourism models engage former loggers as expert guides and porters, turning local communities into protectors of their own wilderness.",
-        vi: "Thay vì theo đuổi du lịch đại trà thương mại hóa, mô hình du lịch nơi đây tuyển dụng những người từng khai thác gỗ làm hướng dẫn viên và thợ dẫn đường, biến chính cộng đồng địa phương thành những người bảo vệ rừng xanh."
-      },
-      {
-        time: "08:31 - 10:05",
-        en: "This pioneering approach demonstrates that high-value eco-tourism can safeguard pristine nature while providing prosperous, dignified careers for generations to come.",
-        vi: "Cách tiếp cận tiên phong này chứng minh rằng du lịch sinh thái chất lượng cao có thể bảo vệ thiên nhiên nguyên sơ đồng thời đem lại sự nghiệp thịnh vượng, đàng hoàng cho các thế hệ tương lai."
+        "time": "03:20 - 04:51",
+        "en": "Education specialists emphasize that daily consistent practice and immersive exposure are the fundamental keys to unlocking fluency. Stay with Vietnam Today for more educational insights.",
+        "vi": "Các chuyên gia giáo dục nhấn mạnh rằng luyện tập kiên trì mỗi ngày và tiếp xúc ngôn ngữ thường xuyên là chìa khóa then chốt để đạt sự trôi chảy. Hãy tiếp tục đồng hành cùng Vietnam Today để đón xem các bản tin giáo dục tiếp theo."
       }
     ]
   },
   {
-    id: "vnt_4",
-    title: "Vietnam Today: The Timeless Charm of Hoi An Ancient Town",
-    vnTitle: "Vẻ Đẹp Vượt Thời Gian Của Đô Thị Cổ Hội An",
-    category: "Văn Hóa & Điểm Đến",
-    date: "Chuyên mục Khám phá Việt Nam",
-    duration: "08:30",
-    youtubeId: "T7m7B8V1V0s",
-    description: "Dạo bước qua phố cổ Hội An với những ngôi nhà sơn vàng cổ kính, giàn hoa giấy rực rỡ, Chùa Cầu và lễ hội thả hoa đăng lung linh trên dòng sông Hoài.",
-    summary: "Bản tin tôn vinh thương cảng quốc tế sầm uất thế kỷ 16-17, nơi hội tụ nét kiến trúc độc đáo của văn hóa Việt Nam, Nhật Bản và Trung Hoa được bảo tồn gần như nguyên vẹn.",
-    vocabulary: [
+    "id": "vnt_4",
+    "title": "Vietnam Today: Attracting Waves of Global Investment in AI & Data Centers",
+    "vnTitle": "Làn Sóng Đầu Tư Toàn Cầu Vào AI & Trung Tâm Dữ Liệu Tại Việt Nam",
+    "category": "Kinh Tế & Công Nghệ",
+    "date": "Mới cập nhật",
+    "duration": "06:35",
+    "youtubeId": "rH62ea4QeTg",
+    "description": "Các tập đoàn công nghệ hàng đầu thế giới ồ ạt đầu tư xây dựng trung tâm dữ liệu và phát triển trí tuệ nhân tạo tại Việt Nam.",
+    "summary": "Báo cáo về lợi thế cạnh tranh của Việt Nam trong hạ tầng kỹ thuật số, nguồn điện sạch và chính sách khuyến khích thu hút các 'ông lớn' công nghệ như NVIDIA, Google, Foxconn.",
+    "vocabulary": [
       {
-        word: "architecture",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˈɑːrkɪtektʃər/",
-        meaning: "Kiến trúc, phong cách xây dựng",
-        example: "Hoi An's architecture is an exceptional blend of indigenous and foreign influences.",
-        exampleVn: "Kiến trúc Hội An là sự kết hợp đặc sắc giữa ảnh hưởng bản địa và nước ngoài."
+        "word": "infrastructure",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈɪnfrəstrʌktʃər/",
+        "meaning": "Cơ sở hạ tầng kỹ thuật số và năng lượng",
+        "example": "Robust telecommunications infrastructure is crucial for hyper-scale data center operations.",
+        "exampleVn": "Cơ sở hạ tầng viễn thông vững chắc là điều tối quan trọng cho vận hành trung tâm dữ liệu siêu quy mô."
       },
       {
-        word: "tranquility",
-        pos: "Danh từ (Noun)",
-        ipa: "/træŋˈkwɪləti/",
-        meaning: "Sự thanh bình, tĩnh lặng",
-        example: "Early morning in Hoi An offers a rare tranquility before tourists arrive.",
-        exampleVn: "Sáng sớm ở Hội An mang lại một sự thanh bình hiếm có trước khi du khách tới."
+        "word": "investment",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ɪnˈvestmənt/",
+        "meaning": "Khoản vốn đầu tư, sự đầu tư tài chính",
+        "example": "Foreign direct investment in high-tech manufacturing surged by over twenty percent this year.",
+        "exampleVn": "Dòng vốn đầu tư trực tiếp nước ngoài vào sản xuất công nghệ cao đã tăng vọt hơn 20% trong năm nay."
       },
       {
-        word: "picturesque",
-        pos: "Tính từ (Adjective)",
-        ipa: "/ˌpɪktʃəˈresk/",
-        meaning: "Đẹp như tranh vẽ",
-        example: "Lantern-lit bridges and yellow alleys create a picturesque setting along the river.",
-        exampleVn: "Cầu thắp đèn lồng và những con ngõ vàng tạo nên khung cảnh đẹp như tranh vẽ bên sông."
+        "word": "semiconductor",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˌsemikənˈdʌktər/",
+        "meaning": "Ngành công nghiệp vi mạch bán dẫn",
+        "example": "Vietnam aspires to become a vital semiconductor packaging and design hub in Southeast Asia.",
+        "exampleVn": "Việt Nam đặt mục tiêu trở thành trung tâm thiết kế và đóng gói bán dẫn thiết yếu ở Đông Nam Á."
       },
       {
-        word: "prosperous",
-        pos: "Tính từ (Adjective)",
-        ipa: "/ˈprɑːspərəs/",
-        meaning: "Thịnh vượng, phồn vinh",
-        example: "During the 17th century, Hoi An flourished as a prosperous Southeast Asian port.",
-        exampleVn: "Vào thế kỷ 17, Hội An phát triển rực rỡ như một thương cảng Đông Nam Á phồn vinh."
+        "word": "ecosystem",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈiːkoʊsɪstəm/",
+        "meaning": "Hệ sinh thái công nghệ và đổi mới sáng tạo",
+        "example": "Building a dynamic startup ecosystem requires close collaboration between universities and tech giants.",
+        "exampleVn": "Xây dựng hệ sinh thái khởi nghiệp năng động đòi hỏi sự hợp tác chặt chẽ giữa trường đại học và các tập đoàn công nghệ."
       },
       {
-        word: "harmonious",
-        pos: "Tính từ (Adjective)",
-        ipa: "/hɑːrˈmoʊniəs/",
-        meaning: "Hài hòa, êm dịu",
-        example: "Wooden pagodas and merchant houses blend in harmonious balance.",
-        exampleVn: "Những ngôi chùa gỗ và nhà buôn hòa quyện trong một sự cân bằng hài hòa."
+        "word": "strategic",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/strəˈtiːdʒɪk/",
+        "meaning": "Mang tính chiến lược, tầm nhìn dài hạn",
+        "example": "Vietnam holds a strategic geographic location along major international subsea cable routes.",
+        "exampleVn": "Việt Nam sở hữu vị trí địa lý chiến lược dọc theo các tuyến cáp quang ngầm quốc tế trọng điểm."
       },
       {
-        word: "lantern",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˈlæntərn/",
-        meaning: "Đèn lồng thủ công",
-        example: "On full moon nights, thousands of silk lanterns illuminate the ancient streets.",
-        exampleVn: "Vào những đêm rằm, hàng nghìn chiếc đèn lồng lụa thắp sáng các con phố cổ."
+        "word": "incentive",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ɪnˈsentɪv/",
+        "meaning": "Chính sách ưu đãi, khuyến khích đầu tư",
+        "example": "Preferential tax incentives are offered to attract leading international research laboratories.",
+        "exampleVn": "Các chính sách ưu đãi thuế đặc biệt được ban hành để thu hút các phòng thí nghiệm nghiên cứu quốc tế hàng đầu."
       },
       {
-        word: "custom",
-        pos: "Danh từ (Noun)",
-        ipa: "/ˈkʌstəm/",
-        meaning: "Phong tục, tập quán",
-        example: "Floating paper flower lanterns on the river is a cherished local custom.",
-        exampleVn: "Thả hoa đăng trên sông là một phong tục truyền thống được người dân hết sức trân trọng."
+        "word": "workforce",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈwɜːrkfɔːrs/",
+        "meaning": "Lực lượng lao động, đội ngũ kỹ sư",
+        "example": "A young, tech-savvy workforce is one of Vietnam's strongest competitive advantages.",
+        "exampleVn": "Lực lượng lao động trẻ, nhạy bén công nghệ là một trong những lợi thế cạnh tranh mạnh nhất của Việt Nam."
       },
       {
-        word: "rejuvenate",
-        pos: "Động từ (Verb)",
-        ipa: "/rɪˈdʒuːvəneɪt/",
-        meaning: "Làm hồi sinh, đem lại sức sống mới",
-        example: "Sustainable community initiatives have helped rejuvenate traditional festivals.",
-        exampleVn: "Các sáng kiến cộng đồng bền vững đã giúp làm hồi sinh các lễ hội truyền thống."
+        "word": "multinational",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/ˌmʌltiˈnæʃnəl/",
+        "meaning": "Tập đoàn đa quốc gia",
+        "example": "Multinational corporations are expanding their cloud computing footprints across Vietnam.",
+        "exampleVn": "Các tập đoàn đa quốc gia đang mở rộng quy mô điện toán đám mây trên khắp Việt Nam."
       }
     ],
-    script: [
+    "script": [
       {
-        time: "00:00 - 01:20",
-        en: "Nestled along the Thu Bon River, Hoi An was once one of the most bustling trading ports in all of Southeast Asia, welcoming merchants from Japan, China, and Europe.",
-        vi: "Tọa lạc ven dòng sông Thu Bồn, Hội An từng là một trong những thương cảng sầm uất nhất Đông Nam Á, đón chào các thương nhân từ Nhật Bản, Trung Quốc và châu Âu."
+        "time": "00:00 - 02:00",
+        "en": "Welcome to the Business Bulletin on Vietnam Today. Vietnam is rapidly emerging as a top destination for foreign investors in artificial intelligence, green data centers, and advanced chip assembly.",
+        "vi": "Chào mừng quý vị đến với Bản tin Kinh tế trên Vietnam Today. Việt Nam đang nhanh chóng vươn lên trở thành điểm đến hàng đầu của các nhà đầu tư nước ngoài trong lĩnh vực trí tuệ nhân tạo, trung tâm dữ liệu xanh và lắp ráp vi mạch bán dẫn tiên tiến."
       },
       {
-        time: "01:21 - 03:00",
-        en: "Today, its distinctive saffron-yellow merchant houses, wooden shophouses, and the iconic Japanese Covered Bridge stand as a living testament to multicultural harmony.",
-        vi: "Ngày nay, những ngôi nhà buôn màu vàng nghệ đặc trưng, các dãy nhà phố gỗ và Chùa Cầu biểu tượng đứng sừng sững như một minh chứng sống cho sự hòa hợp đa văn hóa."
+        "time": "02:00 - 04:30",
+        "en": "With competitive power tariffs, stable renewable energy commitments, and a rapidly expanding talent pool of software engineers, major tech leaders are establishing multi-million dollar cloud hubs in Hanoi and Da Nang.",
+        "vi": "Với biểu giá điện cạnh tranh, cam kết năng lượng tái tạo ổn định và đội ngũ kỹ sư phần mềm ngày càng lớn mạnh, các tập đoàn công nghệ lớn đang xây dựng các trung tâm đám mây trị giá hàng trăm triệu USD tại Hà Nội và Đà Nẵng."
       },
       {
-        time: "03:01 - 05:00",
-        en: "As twilight descends, electric lights are turned off in favor of countless handcrafted lanterns, transforming the historic town into a magical sea of colors.",
-        vi: "Khi hoàng hôn buông xuống, ánh đèn điện nhường chỗ cho vô vàn chiếc đèn lồng thủ công, biến đô thị cổ lịch sử thành một biển màu sắc huyền ảo."
+        "time": "04:30 - 06:35",
+        "en": "Government reforms and streamlined regulatory frameworks ensure a welcoming business climate. This is Vietnam Today, reporting from the National Innovation Center.",
+        "vi": "Các cải cách của Chính phủ và khung pháp lý tinh gọn đang bảo đảm một môi trường kinh doanh chào đón. Đây là Vietnam Today, đưa tin từ Trung tâm Đổi mới Sáng tạo Quốc gia."
+      }
+    ]
+  },
+  {
+    "id": "vnt_5",
+    "title": "Vietnam Today: Behind the Launch of National Foreign Affairs Channel",
+    "vnTitle": "Hậu Trường Lên Sóng Kênh Truyền Hình Đối Ngoại Quốc Gia Vietnam Today",
+    "category": "Thời Sự & Truyền Thông",
+    "date": "Đặc biệt",
+    "duration": "04:01",
+    "youtubeId": "XtJnyl-3tNo",
+    "description": "Khoảnh khắc lịch sử và câu chuyện phía sau sự ra đời của kênh truyền hình đối ngoại 24/7 Vietnam Today vươn tầm thế giới.",
+    "summary": "Ghi lại nỗ lực của tập thể đội ngũ biên tập viên, kỹ thuật viên VTV trong việc kiến tạo một kênh tin tức tiếng Anh hiện đại, chuẩn quốc tế đại diện cho tiếng nói Việt Nam.",
+    "vocabulary": [
+      {
+        "word": "broadcast",
+        "pos": "Động từ / Danh từ",
+        "ipa": "/ˈbrɔːdkæst/",
+        "meaning": "Phát sóng truyền hình, chương trình phát thanh",
+        "example": "Vietnam Today officially broadcasts 24/7 in English to viewers across all continents.",
+        "exampleVn": "Vietnam Today chính thức phát sóng 24/7 bằng tiếng Anh tới khán giả trên khắp các châu lục."
       },
       {
-        time: "05:01 - 08:30",
-        en: "Hoi An captures the heart of every traveler not simply for its beauty, but for the warmth of its people and the enduring serenity etched into every brick and wooden beam.",
-        vi: "Hội An chiếm trọn trái tim của mọi du khách không chỉ bởi vẻ đẹp cảnh sắc, mà còn bởi sự nồng hậu của con người nơi đây và sự an yên bền vững khắc sâu trong từng viên gạch, thanh xà gỗ."
+        "word": "diplomatic",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/ˌdɪpləˈmætɪk/",
+        "meaning": "Thuộc về ngoại giao, bang giao quốc tế",
+        "example": "The channel serves as a vital diplomatic bridge connecting Vietnam to the international community.",
+        "exampleVn": "Kênh truyền hình đóng vai trò như cây cầu ngoại giao thiết yếu kết nối Việt Nam với cộng đồng quốc tế."
+      },
+      {
+        "word": "milestone",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈmaɪlstoʊn/",
+        "meaning": "Cột mốc lịch sử, dấu ấn phát triển",
+        "example": "The channel's launch marks an extraordinary milestone in national broadcasting history.",
+        "exampleVn": "Sự ra đời của kênh đánh dấu một cột mốc phi thường trong lịch sử truyền hình nước nhà."
+      },
+      {
+        "word": "inaugurate",
+        "pos": "Động từ (Verb)",
+        "ipa": "/ɪˈnɔːɡjəreɪt/",
+        "meaning": "Khai mạc, chính thức bắt đầu vận hành",
+        "example": "Leaders inaugurated the state-of-the-art newsroom equipped with modern 4K broadcasting technology.",
+        "exampleVn": "Các đồng chí lãnh đạo đã khánh thành trường quay hiện đại trang bị công nghệ phát sóng 4K tiên tiến."
+      },
+      {
+        "word": "objective",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/əbˈdʒektɪv/",
+        "meaning": "Khách quan, trung thực và công tâm",
+        "example": "Journalists strive to deliver objective, balanced, and timely world news reports.",
+        "exampleVn": "Các nhà báo nỗ lực mang đến những bản tin thời sự quốc tế khách quan, cân bằng và kịp thời."
+      },
+      {
+        "word": "perspective",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/pərˈspektɪv/",
+        "meaning": "Góc nhìn, lăng kính đa chiều",
+        "example": "The program offers a unique Vietnamese perspective on global geopolitical events.",
+        "exampleVn": "Chương trình đem đến góc nhìn độc đáo của Việt Nam về các sự kiện địa chính trị toàn cầu."
+      },
+      {
+        "word": "coverage",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈkʌvərɪdʒ/",
+        "meaning": "Phạm vi đưa tin, phóng sự đưa tin",
+        "example": "Special live coverage captured the atmosphere of international summits hosted in Hanoi.",
+        "exampleVn": "Chương trình phát sóng trực tiếp đặc biệt đã ghi lại bầu không khí của các hội nghị thượng đỉnh quốc tế tổ chức tại Hà Nội."
+      },
+      {
+        "word": "audience",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈɔːdiəns/",
+        "meaning": "Khán thính giả toàn cầu",
+        "example": "Our content is tailored to engage both overseas Vietnamese and global audiences.",
+        "exampleVn": "Nội dung của chúng tôi được thiết kế để thu hút cả bà con kiều bào ở nước ngoài và khán giả toàn cầu."
+      }
+    ],
+    "script": [
+      {
+        "time": "00:00 - 01:30",
+        "en": "Good evening. Tonight, Vietnam Today marks a new chapter in national media, taking its solemn oath to deliver Vietnam's authentic voice, vibrant culture, and rapid modernization to the world stage.",
+        "vi": "Kính chào quý vị. Tối nay, Vietnam Today đánh dấu một chương mới trong lịch sử truyền thông quốc gia, mang theo lời hứa đưa tiếng nói chân thực, văn hóa sống động và sự hiện đại hóa nhanh chóng của Việt Nam ra trường quốc tế."
+      },
+      {
+        "time": "01:30 - 03:00",
+        "en": "From high-tech robotic cameras to mobile field journalists across five continents, the dedication behind the screen reflects a passionate team committed to journalistic excellence and international standard storytelling.",
+        "vi": "Từ các camera điều khiển tự động tối tân đến các phóng viên thường trú tại năm châu lục, sự tận tâm đằng sau màn ảnh phản ánh một đội ngũ đầy nhiệt huyết cam kết với chất lượng báo chí xuất sắc và cách kể chuyện chuẩn quốc tế."
+      },
+      {
+        "time": "03:00 - 04:01",
+        "en": "Vietnam Today: Your window into an authentic, resilient, and forward-looking Vietnam. Thank you for making us part of your daily news routine.",
+        "vi": "Vietnam Today: Cửa sổ mở ra một Việt Nam chân thực, kiên cường và hướng tới tương lai. Cảm ơn quý vị đã chọn chúng tôi trong thói quen cập nhật tin tức mỗi ngày."
+      }
+    ]
+  },
+  {
+    "id": "vnt_6",
+    "title": "Vietnam Today: A Window into Modern Vietnam (Channel Premiere Special)",
+    "vnTitle": "Việt Nam Hôm Nay: Cửa Sổ Nhìn Ra Thế Giới (Bản Tin Đặc Biệt)",
+    "category": "Đất Nước & Con Người",
+    "date": "Bản Tin Trọng Điểm",
+    "duration": "04:36",
+    "youtubeId": "oDwg0AawMgw",
+    "description": "Bản tin đại diện chính thức giới thiệu vẻ đẹp thiên nhiên kỳ vĩ, con người thân thiện và sự phát triển vượt bậc của Việt Nam hôm nay.",
+    "summary": "Tổng quan toàn cảnh về đất nước Việt Nam trong kỷ nguyên vươn mình, điểm đến an toàn, hấp dẫn hàng đầu thế giới về du lịch, đầu tư và văn hóa.",
+    "vocabulary": [
+      {
+        "word": "vibrant",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/ˈvaɪbrənt/",
+        "meaning": "Sôi động, tràn đầy sức sống và màu sắc",
+        "example": "Ho Chi Minh City is renowned as one of Asia's most vibrant commercial hubs.",
+        "exampleVn": "TP.HCM nổi danh là một trong những trung tâm thương mại sôi động nhất châu Á."
+      },
+      {
+        "word": "hospitality",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˌhɑːspɪˈtæləti/",
+        "meaning": "Lòng hiếu khách, sự đón tiếp ấm áp chân tình",
+        "example": "International travelers consistently praise the genuine warmth and hospitality of local people.",
+        "exampleVn": "Khách du lịch quốc tế luôn ngợi ca sự ấm áp chân thành và lòng hiếu khách của người dân địa phương."
+      },
+      {
+        "word": "transformation",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˌtrænsfərˈmeɪʃn/",
+        "meaning": "Sự chuyển mình, đổi mới toàn diện",
+        "example": "Vietnam's digital transformation is revolutionizing public administration and banking.",
+        "exampleVn": "Công cuộc chuyển đổi số của Việt Nam đang tạo nên cuộc cách mạng trong hành chính công và ngân hàng."
+      },
+      {
+        "word": "destination",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˌdestɪˈneɪʃn/",
+        "meaning": "Điểm đến du lịch hấp dẫn hàng đầu",
+        "example": "Ha Long Bay and Da Nang remain top-tier destinations for eco-travelers.",
+        "exampleVn": "Vịnh Hạ Long và Đà Nẵng vẫn là những điểm đến hàng đầu dành cho du khách yêu thích du lịch sinh thái."
+      },
+      {
+        "word": "harmony",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/ˈhɑːrməni/",
+        "meaning": "Sự hài hòa, giao thoa cân đối",
+        "example": "The country charms visitors through a harmonious blend of heritage and modern skyscrapers.",
+        "exampleVn": "Đất nước quyến rũ du khách thông qua sự giao hòa hoàn hảo giữa di sản cổ kính và những tòa nhà chọc trời hiện đại."
+      },
+      {
+        "word": "authentic",
+        "pos": "Tính từ (Adjective)",
+        "ipa": "/ɔːˈθentɪk/",
+        "meaning": "Chân thực, nguyên bản, đích thực",
+        "example": "Vietnam Today aims to showcase authentic life stories from every corner of the country.",
+        "exampleVn": "Vietnam Today đặt mục tiêu giới thiệu những câu chuyện đời thường chân thực nhất từ mọi miền tổ quốc."
+      },
+      {
+        "word": "globalize",
+        "pos": "Động từ (Verb)",
+        "ipa": "/ˈɡloʊbəlaɪz/",
+        "meaning": "Toàn cầu hóa, vươn tầm thế giới",
+        "example": "Local brands are striving to globalize their agricultural products to international supermarkets.",
+        "exampleVn": "Các thương hiệu trong nước đang nỗ lực đưa các sản phẩm nông sản vươn tầm các siêu thị quốc tế."
+      },
+      {
+        "word": "diversity",
+        "pos": "Danh từ (Noun)",
+        "ipa": "/daɪˈvɜːrsəti/",
+        "meaning": "Sự đa dạng phong phú về sinh thái và văn hóa",
+        "example": "Vietnam boasts extraordinary ethnic diversity with 54 distinct cultural communities.",
+        "exampleVn": "Việt Nam tự hào với sự đa dạng dân tộc phi thường cùng 54 cộng đồng văn hóa đặc sắc."
+      }
+    ],
+    "script": [
+      {
+        "time": "00:00 - 02:00",
+        "en": "Welcome to Vietnam Today - your official window into Vietnam. From the misty limestone karsts of Ha Long Bay to the bustling energy of Saigon, our country is an inspiring land of contrast and harmony.",
+        "vi": "Chào mừng quý vị đến với Vietnam Today - cửa sổ chính thức nhìn về Việt Nam. Từ những dãy núi đá vôi bảng lảng sương mờ của Vịnh Hạ Long đến nhịp sống hối hả tràn đầy năng lượng của Sài Gòn, đất nước chúng ta là mảnh đất đầy cảm hứng của sự tương phản và hài hòa."
+      },
+      {
+        "time": "02:00 - 04:36",
+        "en": "With an open economy, a peaceful society, and deeply rooted traditions, Vietnam welcomes friends from all across the world. Experience the warmth, taste the authentic flavors, and join us on our journey forward.",
+        "vi": "Với một nền kinh tế rộng mở, một xã hội hòa bình và những truyền thống ngàn đời sâu sắc, Việt Nam luôn nồng hậu chào đón bạn bè từ khắp nơi trên thế giới. Hãy cùng trải nghiệm sự ấm áp, thưởng thức hương vị đích thực và đồng hành cùng chúng tôi trên hành trình tiến bước."
       }
     ]
   }

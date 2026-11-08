@@ -80,6 +80,119 @@ async function apiCall(endpoint, method = "GET", body = null) {
   }
 }
 
+// ============================================================================
+// HỆ THỐNG QUẢN LÝ TỪ QUÊN & TỪ BỎ QUA ĐỂ ĐƯA VÀO ÔN TẬP TÍCH LŨY
+// ============================================================================
+const FORGOTTEN_WORDS_KEY = "EMH_FORGOTTEN_WORDS_V1";
+const SKIPPED_WORDS_KEY = "EMH_SKIPPED_WORDS_V1";
+
+function getForgottenWords() {
+  try {
+    const raw = localStorage.getItem(FORGOTTEN_WORDS_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return [];
+}
+
+function saveForgottenWord(wordItem) {
+  if (!wordItem || !wordItem.word) return;
+  const list = getForgottenWords();
+  const lower = wordItem.word.trim().toLowerCase();
+  const existingIdx = list.findIndex(w => (w.word || "").toLowerCase() === lower);
+
+  const entry = {
+    word: wordItem.word,
+    pos: wordItem.pos || "word",
+    pron: wordItem.pron || `/${lower}/`,
+    meaning_vi: wordItem.meaning_vi || "",
+    meaning_en: wordItem.meaning_en || "",
+    example: wordItem.example || "",
+    cardOrigin: "forgotten",
+    cardOriginText: "❌ Từ đã chọn Quên (Ưu tiên ôn tập)",
+    timestamp: Date.now(),
+    lapseCount: (existingIdx >= 0 ? (list[existingIdx].lapseCount || 1) + 1 : 1)
+  };
+
+  if (existingIdx >= 0) {
+    list[existingIdx] = { ...list[existingIdx], ...entry };
+  } else {
+    list.unshift(entry);
+  }
+
+  try {
+    localStorage.setItem(FORGOTTEN_WORDS_KEY, JSON.stringify(list));
+  } catch (e) {}
+}
+
+function removeForgottenWord(wordStr) {
+  if (!wordStr) return;
+  const list = getForgottenWords();
+  const lower = wordStr.trim().toLowerCase();
+  const filtered = list.filter(w => (w.word || "").toLowerCase() !== lower);
+  try {
+    localStorage.setItem(FORGOTTEN_WORDS_KEY, JSON.stringify(filtered));
+  } catch (e) {}
+}
+
+function getSkippedWords() {
+  try {
+    const raw = localStorage.getItem(SKIPPED_WORDS_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return [];
+}
+
+function saveSkippedWord(wordItem) {
+  if (!wordItem || !wordItem.word) return;
+  const list = getSkippedWords();
+  const lower = wordItem.word.trim().toLowerCase();
+  const existingIdx = list.findIndex(w => (w.word || "").toLowerCase() === lower);
+
+  const entry = {
+    word: wordItem.word,
+    pos: wordItem.pos || "word",
+    pron: wordItem.pron || `/${lower}/`,
+    meaning_vi: wordItem.meaning_vi || "",
+    meaning_en: wordItem.meaning_en || "",
+    example: wordItem.example || "",
+    cardOrigin: "skipped",
+    cardOriginText: "⏭️ Từ đã bấm Bỏ qua (Cần ôn bù)",
+    timestamp: Date.now()
+  };
+
+  if (existingIdx >= 0) {
+    list[existingIdx] = { ...list[existingIdx], ...entry };
+  } else {
+    list.unshift(entry);
+  }
+
+  try {
+    localStorage.setItem(SKIPPED_WORDS_KEY, JSON.stringify(list));
+  } catch (e) {}
+}
+
+function removeSkippedWord(wordStr) {
+  if (!wordStr) return;
+  const list = getSkippedWords();
+  const lower = wordStr.trim().toLowerCase();
+  const filtered = list.filter(w => (w.word || "").toLowerCase() !== lower);
+  try {
+    localStorage.setItem(SKIPPED_WORDS_KEY, JSON.stringify(filtered));
+  } catch (e) {}
+}
+
+function skipCurrentCard() {
+  const words = getCurrentDayWords();
+  if (!words || words.length === 0) return;
+  const curWord = words[appState.currentCardIndex];
+  if (!curWord) return;
+
+  saveSkippedWord(curWord);
+  showToast(`⏭️ Đã chuyển từ "${curWord.word}" vào danh sách Ôn Tập Tích Lũy!`, "info");
+  nextCard();
+}
+
+
 // ================= STREAK & DAILY CHECK-IN =================
 function updateDailyStreak(serverStreak, serverLastDate) {
   const today = new Date().toISOString().slice(0, 10);
@@ -651,13 +764,79 @@ function getDailyAssignedVocab(dayNum) {
   };
 }
 
+// TỔNG HỢP TOÀN BỘ TỪ ÔN TẬP TÍCH LŨY (SỔ TAY + BÀI ĐỌC + TỪ QUÊN + TỪ BỎ QUA + LỘ TRÌNH)
 function getWordsUpToDay(maxDayNum) {
+  return getCumulativeReviewDeck(maxDayNum);
+}
+
+function getCumulativeReviewDeck(maxDayNum) {
   const words = [];
   const seen = new Set();
-  const limitDay = Math.max(1, parseInt(maxDayNum) || 1);
+  const limitDay = Math.max(1, parseInt(maxDayNum) || missionRegistry?.currentDay || 1);
+
+  // 1. NHÓM 1: CÁC TỪ TỪNG CHỌN "QUÊN" TRÊN FLASHCARD (Ưu tiên cao nhất)
+  const forgottenWords = getForgottenWords();
+  forgottenWords.forEach(w => {
+    const lw = (w.word || "").toLowerCase();
+    if (lw && !seen.has(lw)) {
+      seen.add(lw);
+      words.push({
+        ...w,
+        cardOrigin: "forgotten",
+        cardOriginText: "❌ Từ đã chọn Quên (Ưu tiên ôn tập)"
+      });
+    }
+  });
+
+  // 2. NHÓM 2: CÁC TỪ TỪNG BẤM "BỎ QUA" TRÊN FLASHCARD
+  const skippedWords = getSkippedWords();
+  skippedWords.forEach(w => {
+    const lw = (w.word || "").toLowerCase();
+    if (lw && !seen.has(lw)) {
+      seen.add(lw);
+      words.push({
+        ...w,
+        cardOrigin: "skipped",
+        cardOriginText: "⏭️ Từ đã bấm Bỏ qua (Cần ôn bù)"
+      });
+    }
+  });
+
+  // 3. NHÓM 3: TOÀN BỘ TỪ TRONG SỔ TAY CÁ NHÂN (TỪ BÀI ĐỌC, LÀM SAI BÀI ĐỌC, VIETNAM TODAY, CUSTOM)
+  const customList = getSavedCustomWords();
+  customList.forEach(w => {
+    const lw = (w.word || "").toLowerCase();
+    if (lw && !seen.has(lw)) {
+      seen.add(lw);
+      const isReadingMistake = (w.source === "reading_mistake" || w.cardOrigin === "reading_mistake");
+      const isReading = (w.source === "reading" || w.cardOrigin === "reading");
+      const isVideo = (w.source === "Vietnam Today VTV4" || w.cardOrigin === "vietnam_today");
+
+      let originText = "📘 Sổ tay từ vựng";
+      let originKey = "custom";
+      if (isReadingMistake) {
+        originText = "⚠️ Ôn từ làm sai bài đọc";
+        originKey = "reading_mistake";
+      } else if (isReading) {
+        originText = "📖 Từ mới tra từ bài đọc";
+        originKey = "reading";
+      } else if (isVideo) {
+        originText = "📺 Từ vựng bản tin Vietnam Today";
+        originKey = "vietnam_today";
+      }
+
+      words.push({
+        ...w,
+        cardOrigin: originKey,
+        cardOriginText: originText
+      });
+    }
+  });
+
+  // 4. NHÓM 4: TOÀN BỘ TỪ VỰNG TÍCH LŨY TỪ NGÀY 1 ĐẾN NGÀY HIỆN TẠI (TỪNG UNIT THEO LỘ TRÌNH)
   for (let d = 1; d <= limitDay; d++) {
     const dayData = getDailyAssignedVocab(d);
-    if (dayData && dayData.words) {
+    if (dayData && Array.isArray(dayData.words)) {
       dayData.words.forEach(w => {
         const lw = (w.word || "").toLowerCase();
         if (lw && !seen.has(lw)) {
@@ -666,12 +845,13 @@ function getWordsUpToDay(maxDayNum) {
             ...w,
             sourceDay: d,
             cardOrigin: "past_day",
-            cardOriginText: `Lặp lại Ngày ${d}`
+            cardOriginText: `Lặp lại Ngày ${d} • ${dayData.unitTitle || ""}`
           });
         }
       });
     }
   }
+
   return words;
 }
 
@@ -897,7 +1077,7 @@ function startGradualReview() {
         <div class="flex items-center gap-2">
           <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
           <span class="font-bold text-cyan-300">🔄 Đang Ôn Tập Dần Dần Tích Lũy</span>
-          <span class="text-slate-400 text-xs">(${allWords.length} từ vựng từ Ngày 1 đến Ngày ${curDay})</span>
+          <span class="text-slate-200 text-xs font-semibold">(${allWords.length} từ: Sổ tay + Bài đọc + Từ Quên + Từ Bỏ qua + Lộ trình Ngày 1-${curDay})</span>
         </div>
         <button onclick="startTodayVocabMission()" class="px-3 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white transition flex items-center gap-1 shadow">
           <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Quay lại Deadline Ngày ${curDay}
@@ -1719,9 +1899,24 @@ function renderFlashcard() {
 
   const typeTag = document.getElementById("cardTypeTag");
   if (typeTag) {
-    if (curWord.cardOrigin === "reading") {
+    if (curWord.cardOrigin === "forgotten") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-red-500/25 text-red-300 border-2 border-red-500/60 shadow-lg shadow-red-950/50 flex items-center gap-1.5 animate-pulse";
+      typeTag.innerHTML = `<span>❌</span><span>${curWord.cardOriginText || 'Từ đã chọn Quên'}</span>`;
+    } else if (curWord.cardOrigin === "skipped") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/25 text-amber-300 border-2 border-amber-500/60 shadow-lg shadow-amber-950/50 flex items-center gap-1.5";
+      typeTag.innerHTML = `<span>⏭️</span><span>${curWord.cardOriginText || 'Từ đã bấm Bỏ qua'}</span>`;
+    } else if (curWord.cardOrigin === "reading_mistake") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-rose-500/25 text-rose-300 border-2 border-rose-500/60 shadow-lg shadow-rose-950/40 flex items-center gap-1.5";
+      typeTag.innerHTML = `<span>⚠️</span><span>${curWord.cardOriginText || 'Làm sai bài đọc'}</span>`;
+    } else if (curWord.cardOrigin === "reading") {
       typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm flex items-center gap-1";
       typeTag.innerHTML = `<span>📖</span><span>${curWord.cardOriginText || 'Từ bài đọc'}</span>`;
+    } else if (curWord.cardOrigin === "vietnam_today") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm flex items-center gap-1";
+      typeTag.innerHTML = `<span>📺</span><span>${curWord.cardOriginText || 'Từ vựng Vietnam Today'}</span>`;
+    } else if (curWord.cardOrigin === "custom") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-sm flex items-center gap-1";
+      typeTag.innerHTML = `<span>📘</span><span>${curWord.cardOriginText || 'Sổ tay từ vựng'}</span>`;
     } else if (curWord.cardOrigin === "past_day") {
       typeTag.className = "text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/25 text-amber-300 border-2 border-amber-500/60 shadow-lg shadow-amber-950/40 flex items-center gap-1.5 animate-pulse";
       typeTag.innerHTML = `<span>🔄</span><span>${curWord.cardOriginText || 'Lặp lại từ ngày trước'}</span>`;
@@ -1818,6 +2013,15 @@ async function rateSRS(score) {
   if (!words || words.length === 0) return;
   const curWord = words[appState.currentCardIndex];
   if (!curWord) return;
+
+  // Nếu chọn [1] Quên -> Tự động lưu vào danh sách từ quên để ưu tiên ôn tập tích lũy
+  if (score === 1) {
+    saveForgottenWord(curWord);
+  } else if (score >= 4) {
+    // Nếu chọn Nhớ hoặc Rất dễ -> Cho tốt nghiệp khỏi danh sách Quên / Bỏ qua
+    removeForgottenWord(curWord.word);
+    removeSkippedWord(curWord.word);
+  }
 
   // 1. TỰ ĐỘNG CHUYỂN THẺ NGAY LẬP TỨC (0ms latency, không cần bấm thêm nút nào)
   nextCard();
@@ -3249,6 +3453,8 @@ function setupTouchAndKeyboard() {
       rateSRS(4); // [4] Nhớ -> Tự chuyển
     } else if (["Digit5", "Numpad5"].includes(e.code)) {
       rateSRS(5); // [5] Rất dễ -> Tự chuyển
+    } else if (e.code === "KeyB") {
+      skipCurrentCard(); // Phím B: Bỏ qua (đưa vào ôn tập tích lũy)
     } else if (e.code === "KeyS") {
       speakCurrentWord();
     }

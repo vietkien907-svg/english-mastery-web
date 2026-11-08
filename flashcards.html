@@ -706,11 +706,15 @@
           </div>
         </div>
 
-        <div class="flex items-center justify-between mt-4 gap-3">
-          <button onclick="prevCard()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm flex items-center justify-center gap-1.5 transition">
+        <div class="flex items-center justify-between mt-4 gap-2 sm:gap-3">
+          <button onclick="prevCard()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition active:scale-95">
             <i data-lucide="chevron-left" class="w-4 h-4"></i> Thẻ trước
           </button>
-          <button onclick="nextCard()" class="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm flex items-center justify-center gap-1.5 shadow-lg shadow-indigo-600/30 transition">
+          <button onclick="skipCurrentCard()" class="px-3 sm:px-4 py-2.5 rounded-xl bg-slate-800/90 hover:bg-amber-600/20 text-amber-300 hover:text-amber-200 border border-slate-700 hover:border-amber-500/50 font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition active:scale-95 shadow-sm" title="Bỏ qua từ này để đưa vào danh sách Ôn Tập Tích Lũy (Phím tắt: B)">
+            <i data-lucide="skip-forward" class="w-4 h-4 text-amber-400"></i>
+            <span>Bỏ qua (Ôn sau)</span>
+          </button>
+          <button onclick="nextCard()" class="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-lg shadow-indigo-600/30 transition active:scale-95">
             Thẻ tiếp <i data-lucide="chevron-right" class="w-4 h-4"></i>
           </button>
         </div>
@@ -723,7 +727,9 @@
           <span class="text-slate-600">•</span>
           <span class="inline-flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono font-bold">←</kbd> / <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono font-bold">→</kbd>: Đổi thẻ</span>
           <span class="text-slate-600">•</span>
-          <span class="inline-flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-emerald-300 font-mono font-bold">1 - 5</kbd>: Đánh giá độ nhớ (1 Quên, 2 Khó, 3 TB, 4 Nhớ, 5 Rất dễ)</span>
+          <span class="inline-flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-emerald-300 font-mono font-bold">1 - 5</kbd>: Đánh giá SRS</span>
+          <span class="text-slate-600">•</span>
+          <span class="inline-flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-300 font-mono font-bold">B</kbd>: ⏭️ Bỏ qua</span>
         </div>
       </div>
     </section>
@@ -1962,16 +1968,16 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=37.0"></script>
-  <script src="/listening_data.js?v=37.0"></script>
-  <script src="/vietnam_today_data.js?v=37.0"></script>
-  <script src="/reading_lexicon.js?v=37.0"></script>
-  <script src="/app.js?v=37.0"></script>
+  <script src="/data.js?v=38.0"></script>
+  <script src="/listening_data.js?v=38.0"></script>
+  <script src="/vietnam_today_data.js?v=38.0"></script>
+  <script src="/reading_lexicon.js?v=38.0"></script>
+  <script src="/app.js?v=38.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=37.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=38.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

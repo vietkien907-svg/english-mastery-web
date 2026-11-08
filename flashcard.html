@@ -1880,13 +1880,14 @@
 <!-- LOAD APPLICATION SCRIPTS -->
   <script src="/data.js?v=26.0"></script>
   <script src="/listening_data.js?v=30.0"></script>
-  <script src="/vietnam_today_data.js?v=28.0"></script>
-  <script src="/app.js?v=30.0"></script>
+  <script src="/vietnam_today_data.js?v=31.0"></script>
+  <script src="/reading_lexicon.js?v=31.0"></script>
+  <script src="/app.js?v=31.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=30.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=31.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

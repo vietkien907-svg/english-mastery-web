@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-mastery-v30';
+const CACHE_NAME = 'english-mastery-v31';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -6,6 +6,7 @@ const ASSETS_TO_CACHE = [
   './data.js',
   './listening_data.js',
   './vietnam_today_data.js',
+  './reading_lexicon.js',
   './app.js',
   './manifest.json',
   './icon-192.png',

@@ -2216,6 +2216,98 @@ function focusReadingQuestion(qIdx) {
   }
 }
 
+
+// ============================================================================
+// READING VOCABULARY LOOKUP & MISTAKE-TO-FLASHCARD ENGINE
+// ============================================================================
+function cleanWordText(raw) {
+  if (!raw) return "";
+  let clean = raw.replace(/^[A-D]\.\s*/i, "").trim();
+  clean = clean.replace(/[.,!?;:()[\]{}'"]+/g, "").trim();
+  return clean;
+}
+
+function lookupReadingWordInfo(rawWord, contextSentence = "") {
+  const clean = cleanWordText(rawWord);
+  const lower = clean.toLowerCase();
+
+  // A. Check READING_WORDS_LEXICON
+  if (typeof READING_WORDS_LEXICON !== "undefined" && READING_WORDS_LEXICON[lower]) {
+    const entry = READING_WORDS_LEXICON[lower];
+    return {
+      word: clean,
+      pos: entry.pos || "Từ vựng (Word)",
+      ipa: entry.ipa || `/${lower}/`,
+      meaning_vi: entry.meaning_vi || clean,
+      example: entry.example || contextSentence || `Example sentence with ${clean}.`
+    };
+  }
+
+  // B. Check Curriculum Units (2,129 words)
+  if (window.APP_DATA && window.APP_DATA.units) {
+    for (const u of window.APP_DATA.units) {
+      for (const d of u.days || []) {
+        for (const w of d.words || []) {
+          if (w.word && w.word.toLowerCase() === lower) {
+            let posFmt = w.pos || "Từ vựng";
+            if (posFmt.includes("n")) posFmt = "Danh từ (Noun)";
+            else if (posFmt.includes("v")) posFmt = "Động từ (Verb)";
+            else if (posFmt.includes("adj")) posFmt = "Tính từ (Adjective)";
+            else if (posFmt.includes("adv")) posFmt = "Phó từ (Adverb)";
+
+            return {
+              word: w.word,
+              pos: posFmt,
+              ipa: w.pron || `/${lower}/`,
+              meaning_vi: w.meaning_vi || clean,
+              example: w.example || contextSentence || `Example with ${clean}.`
+            };
+          }
+        }
+      }
+    }
+  }
+
+  // C. Fallback smart defaults
+  return {
+    word: clean,
+    pos: "Từ vựng (Word)",
+    ipa: `/${lower}/`,
+    meaning_vi: clean,
+    example: contextSentence || `Example context with ${clean}.`
+  };
+}
+
+function addReadingMistakeToFlashcard(word, pos, ipa, meaning_vi, example, qIdx, type) {
+  const clean = cleanWordText(word);
+  const item = {
+    word: clean,
+    pos: pos || "Từ vựng",
+    pron: ipa || `/${clean.toLowerCase()}/`,
+    meaning_vi: meaning_vi || clean,
+    example: example || `Context from reading: ${clean}`,
+    source: "reading_mistake",
+    cardOrigin: "reading_mistake",
+    cardOriginText: "⚠️ Ôn tập từ làm sai bài đọc",
+    type: "word"
+  };
+
+  saveCustomWordItem(item);
+
+  // Update button visual
+  const btn = document.getElementById(`btn-save-${type}-${qIdx}`);
+  if (btn) {
+    btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i><span>✓ Đã lưu</span>`;
+    btn.className = "px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-bold transition flex items-center gap-1 shadow-md shadow-emerald-950/40 shrink-0";
+    if (typeof lucide !== "undefined") lucide.createIcons();
+  }
+
+  showToast(`🎉 Đã thêm từ "${clean}" vào bộ Flashcard ôn tập!`, "success");
+  if (typeof triggerBackgroundCloudSync === "function") {
+    triggerBackgroundCloudSync();
+  }
+}
+
 function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
   const selectedBtn = document.getElementById(`rq-${qIdx}-opt-${selectedIdx}`);
   const feedback = document.getElementById(`rq-feedback-${qIdx}`);
@@ -2260,6 +2352,8 @@ function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
   }
 
   const isCorrect = (selectedIdx === correctIdx);
+  const correctBtn = document.getElementById(`rq-${qIdx}-opt-${correctIdx}`);
+
   if (isCorrect) {
     selectedBtn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
     feedback.innerHTML = `✓ Chính xác! ${qData?.explain || ""}`;
@@ -2267,14 +2361,82 @@ function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
 
     const slotEl = document.getElementById(`cloze-slot-${qIdx + 1}`);
     if (slotEl && qData && qData.options && qData.options[selectedIdx]) {
-      const optWord = qData.options[selectedIdx].replace(/^[A-D]\.\s*/, "").trim();
+      const optWord = cleanWordText(qData.options[selectedIdx]);
       slotEl.innerHTML = `<span>[${qIdx + 1}]</span> <strong class="text-emerald-300 underline">${optWord}</strong> <span class="text-emerald-400">✓</span>`;
       slotEl.className = "cloze-slot-pill mx-1 px-3 py-1 rounded-lg bg-emerald-600/30 text-emerald-300 font-bold border border-emerald-500 shadow-sm inline-flex items-center gap-1 transition text-sm align-middle animate-pulse";
     }
   } else {
     selectedBtn.classList.add("bg-red-600/30", "border-red-500", "text-red-300");
-    feedback.innerHTML = `✗ Chưa đúng! ${qData?.explain || ""}`;
-    feedback.className = "text-xs font-semibold text-red-400 pt-1";
+    if (correctBtn) {
+      correctBtn.classList.add("border-emerald-500", "bg-emerald-950/20", "text-emerald-300", "ring-1", "ring-emerald-500/50");
+    }
+
+    const wrongRaw = qData?.options?.[selectedIdx] || "";
+    const correctRaw = qData?.options?.[correctIdx] || "";
+    const wrongInfo = lookupReadingWordInfo(wrongRaw, passage?.content);
+    const correctInfo = lookupReadingWordInfo(correctRaw, passage?.content);
+
+    feedback.innerHTML = `
+      <div class="mt-3 p-4 rounded-2xl bg-gradient-to-br from-slate-900 via-rose-950/25 to-slate-950 border-2 border-rose-500/40 space-y-3.5 shadow-2xl">
+        <div class="flex items-center justify-between text-xs font-bold text-rose-300 border-b border-slate-800 pb-2">
+          <span class="flex items-center gap-1.5">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-rose-400"></i>
+            <span>Phân tích từ vựng khi chọn sai (Bấm loa nghe & Thêm vào Flashcard để ôn tập)</span>
+          </span>
+        </div>
+
+        <!-- 1. The Chosen (Wrong) Word Card -->
+        <div class="p-3.5 rounded-xl bg-rose-950/40 border border-rose-500/30 space-y-2">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold font-mono">❌ Từ bạn chọn</span>
+                <span class="text-base font-black text-rose-200 font-mono tracking-wide">${wrongInfo.word}</span>
+                <button onclick="speakWord('${wrongInfo.word}')" class="p-1 rounded-lg bg-rose-500/20 text-rose-300 hover:text-white hover:bg-rose-600 transition" title="Nghe phát âm">
+                  <i data-lucide="volume-2" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <div class="text-xs text-rose-300/80 font-mono mt-0.5">${wrongInfo.ipa} • <span class="text-slate-300 font-semibold">${wrongInfo.pos}</span></div>
+            </div>
+            <button id="btn-save-wrong-${qIdx}" onclick="addReadingMistakeToFlashcard('${wrongInfo.word}', '${wrongInfo.pos}', '${wrongInfo.ipa}', '${wrongInfo.meaning_vi}', '${wrongInfo.example}', ${qIdx}, 'wrong')" class="px-2.5 py-1.5 rounded-xl bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/40 transition flex items-center gap-1 active:scale-95 shadow-sm">
+              <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i>
+              <span>+ Lưu Flashcard</span>
+            </button>
+          </div>
+          <div class="text-xs text-slate-100 font-medium">🇻🇳 <strong>Nghĩa:</strong> ${wrongInfo.meaning_vi}</div>
+          ${wrongInfo.example ? `<div class="text-[11px] text-slate-400 italic">Ví dụ: "${wrongInfo.example}"</div>` : ''}
+        </div>
+
+        <!-- 2. The Correct Word Card -->
+        <div class="p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 space-y-2">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold font-mono">✅ Đáp án chính xác</span>
+                <span class="text-base font-black text-emerald-300 font-mono tracking-wide">${correctInfo.word}</span>
+                <button onclick="speakWord('${correctInfo.word}')" class="p-1 rounded-lg bg-emerald-500/20 text-emerald-300 hover:text-white hover:bg-emerald-600 transition" title="Nghe phát âm">
+                  <i data-lucide="volume-2" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <div class="text-xs text-emerald-300/80 font-mono mt-0.5">${correctInfo.ipa} • <span class="text-slate-300 font-semibold">${correctInfo.pos}</span></div>
+            </div>
+            <button id="btn-save-correct-${qIdx}" onclick="addReadingMistakeToFlashcard('${correctInfo.word}', '${correctInfo.pos}', '${correctInfo.ipa}', '${correctInfo.meaning_vi}', '${correctInfo.example}', ${qIdx}, 'correct')" class="px-2.5 py-1.5 rounded-xl bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white text-xs font-bold border border-emerald-500/40 transition flex items-center gap-1 active:scale-95 shadow-sm">
+              <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i>
+              <span>+ Lưu Flashcard</span>
+            </button>
+          </div>
+          <div class="text-xs text-slate-100 font-medium">🇻🇳 <strong>Nghĩa:</strong> ${correctInfo.meaning_vi}</div>
+          ${correctInfo.example ? `<div class="text-[11px] text-slate-400 italic">Ví dụ: "${correctInfo.example}"</div>` : ''}
+        </div>
+
+        <!-- 3. Context Explanation -->
+        <div class="p-2.5 rounded-xl bg-slate-800/90 text-xs text-slate-200 border border-slate-700/60 leading-relaxed">
+          <strong class="text-amber-300">💡 Giải thích ngữ cảnh:</strong> ${qData?.explain || ""}
+        </div>
+      </div>
+    `;
+    feedback.className = "block pt-1";
+    if (typeof lucide !== "undefined") lucide.createIcons();
   }
   feedback.classList.remove("hidden");
 }
@@ -3336,95 +3498,157 @@ function removeCustomWordItem(word) {
 function getInterleavedDeckForDay(dIdx, baseWords) {
   if (!baseWords || baseWords.length === 0) return [];
   const cfg = appState.interleavedConfig || getInterleavedConfig();
-  const cacheKey = `${appState.currentUnitIndex}_${dIdx}_${cfg.insertCount}_${cfg.insertMode}_${cfg.includePastDays}_${cfg.includeSRS}_${cfg.includeReadingCustom}`;
+  const curDayNum = missionRegistry.currentDay || (dIdx + 1);
+  const cacheKey = `${appState.currentUnitIndex}_${curDayNum}_${cfg.insertCount}_${cfg.insertMode}_${cfg.includePastDays}_${cfg.includeSRS}_${cfg.includeReadingCustom}`;
   
   if (appState.activeInterleavedDeck && appState.interleavedDeckKey === cacheKey) {
     return appState.activeInterleavedDeck;
   }
 
-  // 1. Base words from today
-  const todayTagged = baseWords.map(w => ({
-    ...w,
-    cardOrigin: "today",
-    cardOriginText: `Bài học Ngày ${dIdx + 1}`,
-    sourceDay: dIdx + 1
-  }));
-  const todayWordSet = new Set(baseWords.map(w => w.word.toLowerCase()));
+  // Helper to categorize item type (Word / Collocation / Phrasal Verb)
+  function categorizeItem(w) {
+    const rawWord = (w.word || "").trim();
+    const parts = rawWord.split(/\s+/);
+    const particles = new Set(['up', 'out', 'in', 'on', 'off', 'down', 'away', 'back', 'over', 'into', 'around', 'through', 'about', 'across']);
 
-  // 2. Build candidate pool
-  const candidatePool = [];
+    if (w.type === "collocation" || parts.length >= 3) {
+      return { cardType: "collocation", typeBadge: "🔗 Collocation", typeColor: "bg-purple-500/20 text-purple-300" };
+    }
+    if (parts.length === 2 && particles.has(parts[1].toLowerCase())) {
+      return { cardType: "phrasal_verb", typeBadge: "⚡ Phrasal Verb", typeColor: "bg-amber-500/20 text-amber-300" };
+    }
+    return { cardType: "word", typeBadge: "📘 Từ vựng", typeColor: "bg-cyan-500/20 text-cyan-300" };
+  }
+
+  // 1. Base words from today
+  const todayTagged = baseWords.map(w => {
+    const cat = categorizeItem(w);
+    return {
+      ...w,
+      cardOrigin: "today",
+      cardOriginText: `Bài học Ngày ${curDayNum}`,
+      sourceDay: curDayNum,
+      ...cat
+    };
+  });
+  const todayWordSet = new Set(baseWords.map(w => (w.word || "").toLowerCase()));
+
+  // 2. Candidate Pools with Spaced Repetition Priority
+  const consecutivePool = []; // Ngày N-1 (liên tiếp hôm qua)
+  const spacedIntervalPool = []; // Mốc ngắt quãng: N-2, N-3, N-7, N-14, N-30
+  const readingMistakesPool = []; // Từ làm sai bài đọc vừa lưu
+  const generalPastPool = []; // Các ngày trước khác
   const seenPool = new Set(todayWordSet);
 
-    // A. Past studied words from Day 1 to (curDayNum - 1)
-  if (cfg.includePastDays) {
-    const curDayNum = missionRegistry.currentDay || (dIdx + 1);
-    if (curDayNum > 1) {
-      const pastWords = getWordsUpToDay(curDayNum - 1);
-      pastWords.forEach(w => {
-        const lw = (w.word || "").toLowerCase();
-        if (!seenPool.has(lw)) {
-          seenPool.add(lw);
-          candidatePool.push({
-            ...w,
-            cardOrigin: "past_day",
-            cardOriginText: w.sourceDay ? `Lặp lại Ngày ${w.sourceDay}` : "Ôn ngày trước"
-          });
-        }
-      });
+  // A. LẤY TỪ CỦA CÁC NGÀY TRƯỚC (Ưu tiên ngày liên tiếp N-1 & các mốc ngắt quãng)
+  if (cfg.includePastDays && curDayNum > 1) {
+    const yesterday = curDayNum - 1;
+    const spacedDays = new Set([
+      curDayNum - 2,
+      curDayNum - 3,
+      curDayNum - 7,
+      curDayNum - 14,
+      curDayNum - 30
+    ].filter(d => d >= 1));
+
+    // Lấy toàn bộ từ các ngày trước đó
+    for (let d = curDayNum - 1; d >= 1; d--) {
+      const dayData = getDailyAssignedVocab(d);
+      if (dayData && Array.isArray(dayData.words)) {
+        dayData.words.forEach(w => {
+          const lw = (w.word || "").toLowerCase();
+          if (lw && !seenPool.has(lw)) {
+            seenPool.add(lw);
+            const cat = categorizeItem(w);
+
+            if (d === yesterday) {
+              // CỦNG CỐ LIÊN TIẾP NGÀY HÔM SAU
+              consecutivePool.push({
+                ...w,
+                sourceDay: d,
+                cardOrigin: "consecutive_yesterday",
+                cardOriginText: `🔁 Củng cố liên tiếp (Hôm qua - Ngày ${d})`,
+                ...cat
+              });
+            } else if (spacedDays.has(d)) {
+              // LẶP LẠI NGẮT QUÃNG THEO CHU KỲ (Spaced Intervals)
+              spacedIntervalPool.push({
+                ...w,
+                sourceDay: d,
+                cardOrigin: "spaced_interval",
+                cardOriginText: `⏳ Lặp lại ngắt quãng (Ngày ${d})`,
+                ...cat
+              });
+            } else {
+              generalPastPool.push({
+                ...w,
+                sourceDay: d,
+                cardOrigin: "past_day",
+                cardOriginText: `Ôn tập Ngày ${d}`,
+                ...cat
+              });
+            }
+          }
+        });
+      }
     }
   }
 
-  // B. SRS review words
-  if (cfg.includeSRS) {
-    (appState.todayQueue || []).forEach(w => {
-      const lw = (w.word || "").toLowerCase();
-      if (lw && !seenPool.has(lw)) {
-        seenPool.add(lw);
-        candidatePool.push({
-          ...w,
-          cardOrigin: "srs",
-          cardOriginText: "Cần củng cố (SRS)"
-        });
-      }
-    });
-  }
-
-  // C. Reading & Notebook custom words
+  // B. TỪ LÀM SAI BÀI ĐỌC & SỔ TAY CUSTOM WORDS
   if (cfg.includeReadingCustom) {
     const customList = getSavedCustomWords();
     customList.forEach(w => {
       const lw = (w.word || "").toLowerCase();
       if (lw && !seenPool.has(lw)) {
         seenPool.add(lw);
-        candidatePool.push({
+        const isMistake = w.source === "reading_mistake" || w.cardOrigin === "reading_mistake";
+        const cat = categorizeItem(w);
+        readingMistakesPool.push({
           ...w,
-          cardOrigin: "reading",
-          cardOriginText: "Từ bài đọc mới lưu"
+          cardOrigin: isMistake ? "reading_mistake" : "reading",
+          cardOriginText: isMistake ? "⚠️ Ôn từ làm sai bài đọc" : "Từ bài đọc mới lưu",
+          ...cat
         });
       }
     });
   }
 
-  // 3. Shuffle candidates and select
-  const shuffledCandidates = shuffleArray(candidatePool);
+  // C. LỰA CHỌN TỪ CHÈN THEO TỶ LỆ KHOA HỌC:
+  // - 40% từ ngày liên tiếp N-1 (Củng cố trí nhớ ngắn hạn tức thì)
+  // - 30% từ các mốc ngắt quãng (N-3, N-7, N-14) có đủ Collocation & Phrasal Verbs
+  // - 20% từ làm sai bài đọc
+  // - 10% các ngày trước khác
   let insertCount = parseInt(cfg.insertCount) || 10;
-  if (cfg.insertCount === "all") insertCount = shuffledCandidates.length;
-  const chosenReviewWords = shuffledCandidates.slice(0, insertCount);
+  if (cfg.insertCount === "all") insertCount = 20;
 
-  // 4. Interleave or full random mix
+  const chosenReviews = [];
+  const countYesterday = Math.min(consecutivePool.length, Math.ceil(insertCount * 0.45));
+  const countSpaced = Math.min(spacedIntervalPool.length, Math.ceil(insertCount * 0.35));
+  const countMistakes = Math.min(readingMistakesPool.length, Math.ceil(insertCount * 0.20));
+
+  chosenReviews.push(...shuffleArray(consecutivePool).slice(0, countYesterday));
+  chosenReviews.push(...shuffleArray(spacedIntervalPool).slice(0, countSpaced));
+  chosenReviews.push(...shuffleArray(readingMistakesPool).slice(0, countMistakes));
+
+  // Nếu còn thiếu thì bổ sung từ generalPastPool
+  if (chosenReviews.length < insertCount && generalPastPool.length > 0) {
+    const needed = insertCount - chosenReviews.length;
+    chosenReviews.push(...shuffleArray(generalPastPool).slice(0, needed));
+  }
+
+  // 4. Xen kẽ nhịp nhàng (Interleave: 2 thẻ mới -> 1 thẻ củng cố liên tiếp -> 1 thẻ ngắt quãng)
   let finalDeck = [];
-  if (chosenReviewWords.length === 0) {
+  if (chosenReviews.length === 0) {
     finalDeck = todayTagged;
   } else if (cfg.insertMode === "random_mix") {
-    finalDeck = shuffleArray([...todayTagged, ...chosenReviewWords]);
+    finalDeck = shuffleArray([...todayTagged, ...chosenReviews]);
   } else {
-    // Interleave: insert 1 review card after every 2 today cards
     let tIdx = 0;
     let rIdx = 0;
-    while (tIdx < todayTagged.length || rIdx < chosenReviewWords.length) {
+    while (tIdx < todayTagged.length || rIdx < chosenReviews.length) {
       if (tIdx < todayTagged.length) finalDeck.push(todayTagged[tIdx++]);
       if (tIdx < todayTagged.length) finalDeck.push(todayTagged[tIdx++]);
-      if (rIdx < chosenReviewWords.length) finalDeck.push(chosenReviewWords[rIdx++]);
+      if (rIdx < chosenReviews.length) finalDeck.push(chosenReviews[rIdx++]);
     }
   }
 

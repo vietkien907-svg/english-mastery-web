@@ -137,6 +137,10 @@ def serve_listening_data():
 def serve_vietnam_today_data():
     return FileResponse(os.path.join(FRONTEND_DIR, "vietnam_today_data.js"), media_type="application/javascript")
 
+@app.get("/reading_lexicon.js")
+def serve_reading_lexicon():
+    return FileResponse(os.path.join(FRONTEND_DIR, "reading_lexicon.js"), media_type="application/javascript")
+
 @app.get("/mobile_qr.png")
 def serve_qr():
     qr_path = os.path.join(FRONTEND_DIR, "mobile_qr.png")

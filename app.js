@@ -486,18 +486,33 @@ function getDayMissionStatus(dayNum) {
     readingDone: false,
     readingDoneCount: 0,
     completedReadings: [],
-    grammarDone: false
+    grammarDone: false,
+    grammarDoneCount: 0,
+    completedGrammarTopics: [],
+    videoDone: false,
+    completedVideos: []
   };
   const isVocab = !!data.vocabDone || (data.vocabCount >= 20);
   const readingCount = (data.completedReadings && Array.isArray(data.completedReadings))
     ? data.completedReadings.length
     : (data.readingDoneCount || (data.readingDone ? 3 : 0));
   const isReading = !!data.readingDone || (readingCount >= 3);
-  const isGrammar = !!data.grammarDone;
+
+  // Ngữ pháp: 2 chuyên đề mỗi ngày
+  const grammarCount = (data.completedGrammarTopics && Array.isArray(data.completedGrammarTopics))
+    ? data.completedGrammarTopics.length
+    : (data.grammarDoneCount || (data.grammarDone ? 2 : 0));
+  const isGrammar = !!data.grammarDone || (grammarCount >= 2);
+
+  // Video Vietnam Today: Hạn chót 22:00
+  const watchedVideos = getWatchedVietnamTodayVideos();
+  const isVideo = !!data.videoDone || (data.completedVideos && data.completedVideos.length > 0) || watchedVideos.size > 0;
+
   let count = 0;
   if (isVocab) count++;
   if (isReading) count++;
   if (isGrammar) count++;
+  if (isVideo) count++;
 
   return {
     vocabDone: isVocab,
@@ -506,8 +521,12 @@ function getDayMissionStatus(dayNum) {
     readingDoneCount: readingCount,
     completedReadings: data.completedReadings || [],
     grammarDone: isGrammar,
+    grammarDoneCount: grammarCount,
+    completedGrammarTopics: data.completedGrammarTopics || [],
+    videoDone: isVideo,
+    completedVideos: data.completedVideos || (isVideo ? Array.from(watchedVideos) : []),
     completedCount: count,
-    isAllDone: count === 3
+    isAllDone: (count >= 3 && isVocab && isReading) // Core completed + video bonus
   };
 }
 
@@ -676,18 +695,40 @@ function getDailyAssignedReading(dayNum) {
   return readings[0] || { id: 0, index: 0, title: "Bài đọc 1" };
 }
 
-function getDailyAssignedGrammar(dayNum) {
+// HỆ THỐNG PHÂN 2 CHUYÊN ĐỀ MỖI NGÀY ĐỂ KỊP TIẾN ĐỘ THI
+function getDailyAssignedGrammarTopics(dayNum) {
   const list = appState.grammarTopics || (window.APP_DATA?.grammar || []);
-  if (list.length === 0) return { id: 0, index: 0, title: "Chuyên đề 1: Thì Động Từ", topic_title: "Chuyên đề 1: Thì Động Từ", summary: "Nắm vững công thức, cách dùng và dấu hiệu nhận biết của 4 thì cơ bản nhất." };
-  const idx = (dayNum - 1) % list.length;
-  const item = list[idx] || {};
-  const t = item.title || item.topic_title || `Chuyên đề ${idx + 1}`;
-  return {
-    index: idx,
-    ...item,
-    title: t,
-    topic_title: t
-  };
+  if (list.length === 0) return [];
+  const d = Math.max(1, parseInt(dayNum) || 1);
+  const total = list.length;
+  // Phân 2 chuyên đề/ngày: 25 chuyên đề sẽ hoàn thành trọn vẹn trong 13 ngày
+  const idx1 = ((d - 1) * 2) % total;
+  const idx2 = ((d - 1) * 2 + 1) % total;
+  const item1 = list[idx1] || {};
+  const item2 = list[idx2] || {};
+  return [
+    {
+      slot: 1,
+      index: idx1,
+      week_number: item1.week_number || (idx1 + 1),
+      ...item1,
+      title: item1.title || item1.topic_title || `Chuyên đề ${idx1 + 1}`,
+      topic_title: item1.title || item1.topic_title || `Chuyên đề ${idx1 + 1}`
+    },
+    {
+      slot: 2,
+      index: idx2,
+      week_number: item2.week_number || (idx2 + 1),
+      ...item2,
+      title: item2.title || item2.topic_title || `Chuyên đề ${idx2 + 1}`,
+      topic_title: item2.title || item2.topic_title || `Chuyên đề ${idx2 + 1}`
+    }
+  ];
+}
+
+function getDailyAssignedGrammar(dayNum) {
+  const topics = getDailyAssignedGrammarTopics(dayNum);
+  return topics[0] || { id: 0, index: 0, title: "Chuyên đề 1: Thì Động Từ", topic_title: "Chuyên đề 1: Thì Động Từ", summary: "Học ngữ pháp trọng tâm" };
 }
 
 function initDailyMissionEngine() {
@@ -908,12 +949,14 @@ function startTodayReadingMission(passageIdx) {
   }
 }
 
-function startTodayGrammarMission() {
-  const g = getDailyAssignedGrammar(missionRegistry.currentDay);
-  const weekNum = g.week_number || (g.index + 1);
+function startTodayGrammarMission(slot = 1) {
+  const curDay = missionRegistry.currentDay || 1;
+  const topics = getDailyAssignedGrammarTopics(curDay);
+  const target = (slot === 2 && topics[1]) ? topics[1] : (topics[0] || {});
+  const weekNum = target.week_number || (target.index + 1);
   switchTab("grammar");
   renderGrammarDetail(weekNum);
-  showToast(`✍️ Đang mở Chuyên đề chỉ định Ngày ${missionRegistry.currentDay}: ${g.topic_title}`, "info");
+  showToast(`✍️ Đang mở Chuyên đề ${slot}/2 Ngày ${curDay}: ${target.topic_title || target.title}`, "info");
 }
 
 function completeReadingMission() {
@@ -2036,14 +2079,28 @@ async function checkGrammarQuiz(qIdx, optIdx) {
 
   if (!appState.grammarDoneExercises) appState.grammarDoneExercises = new Set();
   appState.grammarDoneExercises.add(`g_${appState.activeGrammarWeek}_qz_${qIdx}`);
-  if (appState.grammarDoneExercises.size >= 2) {
-    const curStatus = getDayMissionStatus(missionRegistry.currentDay);
-    if (!curStatus.grammarDone) {
-      setDayMissionStatus(missionRegistry.currentDay, { grammarDone: true });
-      showToast(`🎉 Chúc mừng! Bạn đã hoàn thành các bài tập ngữ pháp hôm nay! Đã tự động đánh dấu hoàn thành!`, "success");
-      updateDailyMissionUI();
-    }
+
+  // Ghi nhận hoàn thành chuyên đề ngữ pháp theo mục tiêu 2 chuyên đề/ngày
+  const curDay = missionRegistry.currentDay || 1;
+  const curStatus = getDayMissionStatus(curDay);
+  const doneTopics = new Set(curStatus.completedGrammarTopics || []);
+  doneTopics.add(appState.activeGrammarWeek);
+  const doneList = Array.from(doneTopics);
+  const isAllGrammarDone = (doneList.length >= 2) || curStatus.grammarDone;
+
+  setDayMissionStatus(curDay, {
+    grammarDoneCount: Math.min(2, doneList.length),
+    completedGrammarTopics: doneList,
+    grammarDone: isAllGrammarDone
+  });
+
+  if (isAllGrammarDone) {
+    showToast(`🎉 Chúc mừng! Bạn đã hoàn thành 2 chuyên đề ngữ pháp mục tiêu hôm nay! Đã tự động đánh dấu hoàn thành!`, "success");
+  } else {
+    showToast(`✓ Đã hoàn thành 1/2 chuyên đề ngữ pháp (${doneList.length}/2). Tiếp tục làm chuyên đề còn lại nhé!`, "info");
   }
+  updateDailyMissionUI();
+  updateDailyGoalChecklist();
 
   const res = await apiCall("/api/grammar/quiz-submit", "POST", {
     week_number: appState.activeGrammarWeek,
@@ -2765,7 +2822,11 @@ async function saveCurrentPopupWord(saveType) {
 }
 
 function speakPopupWord() {
-  if (activePopupWord) speakText(activePopupWord);
+  if (activePopupAudioUrl) {
+    speakText(activePopupWord, activePopupAudioUrl);
+  } else if (activePopupWord) {
+    speakText(activePopupWord);
+  }
 }
 
 function readAloudPassage() {
@@ -3106,27 +3167,56 @@ function speakCurrentWord() {
   }
 }
 
+// BỘ PHÁT ÂM TIẾNG ANH CHUẨN US ĐA TẦNG (TỪ ĐIỂN QUỐC TẾ + WEB SPEECH API)
+function speakWord(text, audioUrl) {
+  if (!text) return;
+  speakText(text, audioUrl);
+}
+
 function speakText(text, audioUrl) {
+  if (!text) return;
+  const clean = text.trim().replace(/^[^a-zA-Z\s'-]+|[^a-zA-Z\s'-]+$/g, "");
+  if (!clean) return;
+
+  // 1. Nếu có audioUrl trực tiếp
   if (audioUrl) {
     try {
       const snd = new Audio(audioUrl);
-      snd.play().catch(() => speakWithSynthesis(text));
+      snd.play().catch(() => playNativeDictAudio(clean));
       return;
     } catch (e) {}
   }
-  speakWithSynthesis(text);
+
+  // 2. Phát âm bằng Audio Stream chuẩn US từ hệ thống Từ Điển
+  playNativeDictAudio(clean);
+}
+
+function playNativeDictAudio(word) {
+  const firstWord = word.trim().split(/\s+/)[0] || word;
+  const usAudioUrl = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(firstWord)}&type=2`;
+  const audio = new Audio(usAudioUrl);
+  audio.play().catch(() => {
+    // 3. Fallback mượt mà sang Web Speech Synthesis
+    speakWithSynthesis(word);
+  });
 }
 
 function speakWithSynthesis(text) {
   if (!("speechSynthesis" in window)) return;
-  window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = "en-US";
-  const voices = window.speechSynthesis.getVoices() || [];
-  const usVoice = voices.find(v => v.lang === "en-US" && (v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Samantha") || v.name.includes("US") || v.name.includes("David") || v.name.includes("Zira")));
-  if (usVoice) u.voice = usVoice;
-  u.rate = 0.9;
-  window.speechSynthesis.speak(u);
+  try {
+    if (window.speechSynthesis.paused) {
+      window.speechSynthesis.resume();
+    }
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    const voices = window.speechSynthesis.getVoices() || [];
+    const usVoice = voices.find(v => v.lang === "en-US" && (v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Samantha") || v.name.includes("US") || v.name.includes("David") || v.name.includes("Zira")));
+    if (usVoice) u.voice = usVoice;
+    u.rate = 0.9;
+    window.speechSynthesis.speak(u);
+  } catch (e) {
+    console.warn("Speech synthesis error:", e);
+  }
 }
 
 function setupTouchAndKeyboard() {
@@ -3356,26 +3446,54 @@ function tickDeadlineCountdown() {
 function updateDailyGoalChecklist() {
   const curDay = missionRegistry.currentDay || 1;
   const curStatus = getDayMissionStatus(curDay);
-  const infoReading = getDailyAssignedReading(curDay);
 
   const wItem = document.getElementById("goalItemWords");
   const rItem = document.getElementById("goalItemReading");
   const gItem = document.getElementById("goalItemGrammar");
+  const vItem = document.getElementById("goalItemVideo");
 
   if (wItem) {
     wItem.innerHTML = curStatus.vocabDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">20 Từ vựng (ĐÃ XONG ✓)</span>`
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">20 Từ vựng Ngày ${curDay} (ĐÃ XONG ✓)</span>`
       : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i> <span>20 Từ vựng Ngày ${curDay} (${curStatus.vocabCount}/20)</span>`;
   }
   if (rItem) {
     rItem.innerHTML = curStatus.readingDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">Bài đọc (ĐÃ XONG ✓)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Bài đọc (${(infoReading.title || "Reading").substring(0, 16)}...)</span>`;
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">3 Bài đọc (ĐÃ XONG 3/3 ✓)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>3 Bài đọc hiểu & đục lỗ (${curStatus.readingDoneCount || 0}/3)</span>`;
   }
   if (gItem) {
     gItem.innerHTML = curStatus.grammarDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">Ngữ pháp (ĐÃ XONG ✓)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Chuyên đề ngữ pháp</span>`;
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">2 Chuyên đề ngữ pháp (ĐÃ XONG 2/2 ✓)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>2 Chuyên đề ngữ pháp (${curStatus.grammarDoneCount || 0}/2)</span>`;
+  }
+  if (vItem) {
+    vItem.innerHTML = curStatus.videoDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">Video Vietnam Today (ĐÃ XONG 22:00 ✓)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i> <span>1 Video Vietnam Today (Hạn chót 22:00)</span>`;
+  }
+
+  // Update Mission 4 (Video card) in overview grid
+  const vStatus = document.getElementById("taskStatusVideo");
+  const vBtn = document.getElementById("btnStartVideoText");
+  if (vStatus) {
+    vStatus.innerText = curStatus.videoDone ? "✓ Đã xem" : "Chưa xem";
+    vStatus.className = curStatus.videoDone ? "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold" : "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold";
+  }
+  if (vBtn && curStatus.videoDone) {
+    vBtn.innerText = "Xem lại & Ôn từ vựng";
+  }
+
+  // Update Mission 3 (Grammar card) in overview grid
+  const gTitle = document.getElementById("taskTitleGrammar");
+  const gStatus = document.getElementById("taskStatusGrammar");
+  const gTopics = getDailyAssignedGrammarTopics(curDay);
+  if (gTitle && gTopics.length >= 2) {
+    gTitle.innerText = `Chuyên đề: ${gTopics[0].title.split(':')[0]} & ${gTopics[1].title.split(':')[0]}`;
+  }
+  if (gStatus) {
+    gStatus.innerText = curStatus.grammarDone ? "✓ Hoàn thành (2/2)" : `${curStatus.grammarDoneCount || 0}/2 chuyên đề`;
+    gStatus.className = curStatus.grammarDone ? "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold" : "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold";
   }
 
   if (window.lucide) lucide.createIcons();
@@ -4987,34 +5105,137 @@ function renderListeningTranscript(part) {
 // MODULE 2: VIETNAM TODAY DAILY VIDEO & VOCABULARY ENGINE (VTV4)
 // ============================================================================
 let currentVideoIdx = 0;
+const WATCHED_VIDEOS_KEY = "EMH_WATCHED_VIDEOS_V1";
+
+function getWatchedVietnamTodayVideos() {
+  try {
+    const raw = localStorage.getItem(WATCHED_VIDEOS_KEY);
+    if (raw) return new Set(JSON.parse(raw));
+  } catch (e) {}
+  return new Set();
+}
+
+function saveWatchedVietnamTodayVideos(setObj) {
+  try {
+    localStorage.setItem(WATCHED_VIDEOS_KEY, JSON.stringify(Array.from(setObj)));
+  } catch (e) {}
+}
+
+function isVietnamTodayVideoWatched(vidIdx) {
+  if (typeof VIETNAM_TODAY_VIDEOS === "undefined") return false;
+  const vid = VIETNAM_TODAY_VIDEOS[vidIdx];
+  if (!vid) return false;
+  const watchedSet = getWatchedVietnamTodayVideos();
+  return watchedSet.has(vid.id || `vnt_${vidIdx}`);
+}
+
+function toggleWatchVietnamTodayVideo(vidIdx) {
+  if (typeof VIETNAM_TODAY_VIDEOS === "undefined") return;
+  const vid = VIETNAM_TODAY_VIDEOS[vidIdx];
+  if (!vid) return;
+
+  const vidId = vid.id || `vnt_${vidIdx}`;
+  const watchedSet = getWatchedVietnamTodayVideos();
+  let nowWatched = false;
+
+  if (watchedSet.has(vidId)) {
+    watchedSet.delete(vidId);
+    nowWatched = false;
+    showToast(`Đã bỏ đánh dấu xem video "${vid.title.substring(0, 30)}..."`, "info");
+  } else {
+    watchedSet.add(vidId);
+    nowWatched = true;
+    showToast(`🎉 Tuyệt vời! Bạn đã hoàn thành xem video Vietnam Today hôm nay (Hạn 22:00)! Đã ghi nhận tiến độ 100%!`, "success");
+  }
+  saveWatchedVietnamTodayVideos(watchedSet);
+
+  // Update daily mission
+  const curDay = missionRegistry.currentDay || 1;
+  const curStatus = getDayMissionStatus(curDay);
+  const watchedList = Array.from(watchedSet);
+  setDayMissionStatus(curDay, {
+    videoDone: watchedSet.size > 0,
+    completedVideos: watchedList
+  });
+
+  renderVietnamTodaySelector();
+  updateTopWatchToggleBtn(vidIdx);
+  updateDailyMissionUI();
+  updateDailyGoalChecklist();
+  if (typeof triggerBackgroundCloudSync === "function") triggerBackgroundCloudSync();
+}
+
+function updateTopWatchToggleBtn(vidIdx) {
+  const btn = document.getElementById("btnTopWatchToggle");
+  const txt = document.getElementById("btnTopWatchToggleText");
+  if (!btn || !txt) return;
+
+  const watched = isVietnamTodayVideoWatched(vidIdx);
+  if (watched) {
+    btn.className = "px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-emerald-950/50 transition active:scale-95 border border-emerald-400";
+    txt.innerText = "✓ Đã xem video này (Hoàn thành hạn 22:00)";
+  } else {
+    btn.className = "px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-emerald-600/30 text-emerald-300 hover:text-white border border-emerald-500/40 font-bold text-xs flex items-center gap-2 shadow-lg transition active:scale-95";
+    txt.innerText = "○ Đánh dấu đã xem video này (Hạn 22:00)";
+  }
+}
 
 function initVietnamTodayModule() {
   renderVietnamTodaySelector();
   loadVietnamTodayVideo(0);
 }
 
+// SIDEBAR PLAYLIST RENDERER (DANH SÁCH BẢN TIN Ở BÊN CẠNH)
 function renderVietnamTodaySelector() {
   const container = document.getElementById("vietnamTodayVideoSelector");
+  const statsBadge = document.getElementById("vntWatchedStatsBadge");
   if (!container || typeof VIETNAM_TODAY_VIDEOS === "undefined" || !VIETNAM_TODAY_VIDEOS.length) return;
+
+  const watchedSet = getWatchedVietnamTodayVideos();
+  const total = VIETNAM_TODAY_VIDEOS.length;
+  const watchedCount = watchedSet.size;
+
+  if (statsBadge) {
+    statsBadge.innerText = `${watchedCount}/${total} Đã xem`;
+    statsBadge.className = watchedCount > 0 ? "px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs border border-emerald-500/30" : "px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold text-xs";
+  }
 
   let html = "";
   VIETNAM_TODAY_VIDEOS.forEach((vid, idx) => {
-    const active = idx === currentVideoIdx;
+    const active = (idx === currentVideoIdx);
+    const isWatched = watchedSet.has(vid.id || `vnt_${idx}`);
+
     html += `
-      <div onclick="switchVietnamTodayVideo(${idx})" class="p-3.5 rounded-2xl border cursor-pointer transition space-y-1.5 ${
+      <div onclick="switchVietnamTodayVideo(${idx})" class="p-3.5 rounded-2xl border cursor-pointer transition space-y-2 group relative overflow-hidden ${
         active
-          ? "bg-rose-950/30 border-rose-500/80 shadow-lg shadow-rose-950/40 ring-1 ring-rose-500/50"
-          : "glass-card hover:bg-slate-800/80 border-slate-700/60 text-slate-300"
+          ? "bg-rose-950/40 border-rose-500/80 shadow-lg shadow-rose-950/40 ring-2 ring-rose-500/50"
+          : "glass-card hover:bg-slate-800/90 border-slate-800 text-slate-300"
       }">
-        <div class="flex items-center justify-between text-[11px]">
+        <div class="flex items-center justify-between text-[11px] gap-2">
           <span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold">${vid.category}</span>
-          <span class="text-slate-400 font-mono flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> ${vid.duration}</span>
+          <div class="flex items-center gap-2">
+            <span class="text-slate-400 font-mono text-[10px] flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> ${vid.duration}</span>
+            <button onclick="event.stopPropagation(); toggleWatchVietnamTodayVideo(${idx})" class="px-2 py-0.5 rounded-lg text-[10px] font-bold border transition flex items-center gap-1 ${
+              isWatched
+                ? "bg-emerald-500/20 border-emerald-500 text-emerald-300"
+                : "bg-slate-800/80 border-slate-700 text-slate-400 hover:text-white"
+            }" title="Bấm để đánh dấu đã xem">
+              <i data-lucide="${isWatched ? 'check-circle' : 'circle'}" class="w-3 h-3 ${isWatched ? 'text-emerald-400' : 'text-slate-500'}"></i>
+              <span>${isWatched ? 'Đã xem' : 'Chưa xem'}</span>
+            </button>
+          </div>
         </div>
-        <h4 class="font-bold text-white text-xs sm:text-sm line-clamp-2 leading-snug">${vid.title}</h4>
-        <p class="text-[11px] text-slate-400 line-clamp-1 italic">${vid.vnTitle}</p>
+
+        <div>
+          <h4 class="font-bold text-white text-xs sm:text-sm line-clamp-2 leading-snug group-hover:text-rose-200 transition">${vid.title}</h4>
+          <p class="text-[11px] text-slate-400 line-clamp-1 italic mt-0.5">${vid.vnTitle}</p>
+        </div>
+
+        ${active ? '<div class="text-[10px] text-rose-400 font-bold flex items-center gap-1"><i data-lucide="play" class="w-3 h-3 fill-rose-400"></i> Đang phát video này</div>' : ''}
       </div>
     `;
   });
+
   container.innerHTML = html;
   if (typeof lucide !== "undefined") lucide.createIcons();
 }
@@ -5082,6 +5303,7 @@ function loadVietnamTodayVideo(idx) {
 
   // 4. Script
   renderVietnamTodayScript(vid.script);
+  updateTopWatchToggleBtn(idx);
   if (typeof lucide !== "undefined") lucide.createIcons();
 }
 
@@ -5105,16 +5327,15 @@ function renderVietnamTodayVocab(vocabList) {
           <div>
             <div class="flex items-center gap-2">
               <span class="text-base sm:text-lg font-black text-amber-300 font-mono tracking-wide">${v.word}</span>
-              <button onclick="speakWord('${v.word}')" class="p-1 rounded-lg bg-indigo-500/20 text-indigo-300 hover:text-white hover:bg-indigo-600 transition" title="Nghe phát âm">
-                <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+              <button onclick="speakWord('${v.word}')" class="p-1.5 rounded-lg bg-indigo-500/20 text-indigo-300 hover:text-white hover:bg-indigo-600 transition active:scale-90" title="🔊 Nghe phát âm chuẩn US">
+                <i data-lucide="volume-2" class="w-4 h-4"></i>
               </button>
             </div>
             <div class="text-[11px] text-cyan-300 font-mono mt-0.5">${v.ipa || ""} • <span class="text-slate-300">${v.pos || ""}</span></div>
           </div>
-          <button onclick="saveVideoWordToNotebook(${currentVideoIdx}, ${idx})" class="px-2.5 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white text-xs font-bold border border-emerald-500/30 transition shadow-sm flex items-center gap-1 active:scale-95 shrink-0" title="Thêm vào Flashcard cá nhân để học hàng ngày">
+          <button id="btn-save-vnt-${currentVideoIdx}-${idx}" onclick="saveVideoWordToNotebook(${currentVideoIdx}, ${idx})" class="px-3 py-1.5 rounded-xl bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/40 transition shadow-sm flex items-center gap-1.5 active:scale-95 shrink-0" title="Thêm vào Flashcard để ôn tập lặp lại ngắt quãng">
             <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i>
-            <span class="hidden sm:inline">Lưu Flashcard</span>
-            <span class="sm:hidden">+ Lưu</span>
+            <span>+ Lưu Flashcard</span>
           </button>
         </div>
 
@@ -5142,16 +5363,57 @@ function saveVideoWordToNotebook(vidIdx, wordIdx) {
   const v = vid.vocabulary[wordIdx];
   const item = {
     word: v.word,
-    pos: v.pos,
-    pron: v.ipa,
+    pos: v.pos || "Từ vựng",
+    pron: v.ipa || `/${v.word.toLowerCase()}/`,
     meaning_vi: v.meaning,
     meaning_en: v.meaning,
-    example: v.example,
-    source: "Vietnam Today VTV4"
+    example: v.example || `Context from Vietnam Today: "${v.word}"`,
+    source: "Vietnam Today VTV4",
+    cardOrigin: "vietnam_today",
+    cardOriginText: `📺 Video: ${vid.title.substring(0, 25)}...`,
+    type: "word"
   };
 
   saveCustomWordItem(item);
-  showToast(`🎉 Đã thêm từ "${v.word}" vào danh sách Flashcard của bạn!`, "success");
+
+  const btn = document.getElementById(`btn-save-vnt-${vidIdx}-${wordIdx}`);
+  if (btn) {
+    btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i><span>✓ Đã lưu</span>`;
+    btn.className = "px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-bold transition flex items-center gap-1 shadow-md shadow-emerald-950/40 shrink-0";
+    if (typeof lucide !== "undefined") lucide.createIcons();
+  }
+
+  showToast(`🎉 Đã thêm từ "${v.word}" vào bộ Flashcard ôn tập!`, "success");
+  if (typeof triggerBackgroundCloudSync === "function") {
+    triggerBackgroundCloudSync();
+  }
+}
+
+function saveAllVietnamTodayWordsToNotebook(vidIdx) {
+  if (typeof VIETNAM_TODAY_VIDEOS === "undefined") return;
+  const vid = VIETNAM_TODAY_VIDEOS[vidIdx];
+  if (!vid || !vid.vocabulary || !vid.vocabulary.length) return;
+
+  let added = 0;
+  vid.vocabulary.forEach((v, idx) => {
+    const item = {
+      word: v.word,
+      pos: v.pos || "Từ vựng",
+      pron: v.ipa || `/${v.word.toLowerCase()}/`,
+      meaning_vi: v.meaning,
+      meaning_en: v.meaning,
+      example: v.example || `Context from Vietnam Today: "${v.word}"`,
+      source: "Vietnam Today VTV4",
+      cardOrigin: "vietnam_today",
+      cardOriginText: `📺 Video: ${vid.title.substring(0, 25)}...`,
+      type: "word"
+    };
+    saveCustomWordItem(item);
+    added++;
+  });
+
+  renderVietnamTodayVocab(vid.vocabulary);
+  showToast(`🎉 Đã lưu toàn bộ ${added} từ vựng của bản tin vào Flashcard ôn tập!`, "success");
   if (typeof triggerBackgroundCloudSync === "function") {
     triggerBackgroundCloudSync();
   }

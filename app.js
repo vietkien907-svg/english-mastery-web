@@ -2360,12 +2360,35 @@ function lookupReadingWordInfo(rawWord, contextSentence = "") {
     }
   }
 
-  // C. Fallback smart defaults
+  // C. Check word stemming (e.g. removing -ing, -ed, -s, -es, -ly)
+  const stems = [
+    lower.replace(/ing$/, ""),
+    lower.replace(/ed$/, ""),
+    lower.replace(/s$/, ""),
+    lower.replace(/es$/, ""),
+    lower.replace(/ly$/, "")
+  ];
+  for (const st of stems) {
+    if (st && st.length > 2) {
+      if (typeof READING_WORDS_LEXICON !== "undefined" && READING_WORDS_LEXICON[st]) {
+        const entry = READING_WORDS_LEXICON[st];
+        return {
+          word: clean,
+          pos: entry.pos || "Từ vựng (Word)",
+          ipa: entry.ipa || `/${lower}/`,
+          meaning_vi: entry.meaning_vi,
+          example: entry.example || contextSentence || `Example context with ${clean}.`
+        };
+      }
+    }
+  }
+
+  // D. Fallback smart defaults (Never return raw English as Vietnamese meaning)
   return {
     word: clean,
     pos: "Từ vựng (Word)",
     ipa: `/${lower}/`,
-    meaning_vi: clean,
+    meaning_vi: `Từ vựng trong bài đọc: "${clean}" (Tra cứu trực tiếp trên từ điển Cambridge bên dưới)`,
     example: contextSentence || `Example context with ${clean}.`
   };
 }
@@ -2594,12 +2617,32 @@ async function showWordPopup(wordText, context) {
     console.warn("API lookup fallback to local:", e);
   }
 
-  // Fallback to local data
+  // Fallback to local rich dictionaries & lexicon
+  const localInfo = lookupReadingWordInfo(cleanWord, context);
+  if (localInfo && localInfo.meaning_vi && localInfo.meaning_vi.toLowerCase() !== cleanWord.toLowerCase()) {
+    activePopupWordItem = {
+      word: localInfo.word || cleanWord,
+      pos: localInfo.pos || "Từ vựng",
+      pron: localInfo.ipa || `/${cleanWord}/`,
+      meaning_vi: localInfo.meaning_vi,
+      meaning_en: `Context definition for "${cleanWord}"`,
+      example: localInfo.example || context || `Example with ${cleanWord}.`
+    };
+    document.getElementById("popupWord").innerText = activePopupWordItem.word;
+    if (pronEl) {
+      pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span>${formatPronHtml(activePopupWordItem.pron || cleanWord)}`;
+    }
+    document.getElementById("popupPos").innerText = activePopupWordItem.pos || "word";
+    document.getElementById("popupMeaningVi").innerText = activePopupWordItem.meaning_vi;
+    document.getElementById("popupMeaningEn").innerText = activePopupWordItem.meaning_en;
+    return;
+  }
+
   let found = null;
   if (window.APP_DATA && window.APP_DATA.units) {
     for (const u of window.APP_DATA.units) {
-      for (const d of u.days) {
-        const match = d.words.find(w => w.word.toLowerCase() === cleanWord.toLowerCase());
+      for (const d of u.days || []) {
+        const match = d.words?.find(w => w.word && w.word.toLowerCase() === cleanWord.toLowerCase());
         if (match) { found = match; break; }
       }
       if (found) break;
@@ -2611,8 +2654,8 @@ async function showWordPopup(wordText, context) {
       word: found.word,
       pos: found.pos || "word",
       pron: found.pron || `/${cleanWord}/`,
-      meaning_vi: found.meaning_vi || "",
-      meaning_en: found.meaning_en || "",
+      meaning_vi: found.meaning_vi || "Từ vựng trọng tâm bài đọc",
+      meaning_en: found.meaning_en || "English definition available.",
       example: found.example || context
     };
     document.getElementById("popupWord").innerText = found.word;
@@ -2620,8 +2663,11 @@ async function showWordPopup(wordText, context) {
       pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span>${formatPronHtml(found.pron || cleanWord)}`;
     }
     document.getElementById("popupPos").innerText = found.pos || "word";
-    document.getElementById("popupMeaningVi").innerText = found.meaning_vi || cleanWord;
+    document.getElementById("popupMeaningVi").innerText = found.meaning_vi || "Từ vựng trọng tâm bài đọc";
     document.getElementById("popupMeaningEn").innerText = found.meaning_en || "English definition available.";
+  } else {
+    document.getElementById("popupMeaningVi").innerText = `Từ vựng trong bài đọc: "${cleanWord}" (Bấm liên kết Cambridge để xem phiên âm & định nghĩa chuẩn)`;
+    document.getElementById("popupMeaningEn").innerText = `Context: ${context || cleanWord}`;
   }
 }
 
@@ -3104,13 +3150,15 @@ function setupTouchAndKeyboard() {
     } else if (e.code === "ArrowLeft") {
       prevCard();
     } else if (["Digit1", "Numpad1"].includes(e.code)) {
-      rateSRS(1); // Quên -> Tự chuyển
+      rateSRS(1); // [1] Quên -> Tự chuyển
     } else if (["Digit2", "Numpad2"].includes(e.code)) {
-      rateSRS(2); // Khó -> Tự chuyển
+      rateSRS(2); // [2] Khó -> Tự chuyển
     } else if (["Digit3", "Numpad3"].includes(e.code)) {
-      rateSRS(3); // Nhớ -> Tự chuyển
+      rateSRS(3); // [3] Trung bình -> Tự chuyển
     } else if (["Digit4", "Numpad4"].includes(e.code)) {
-      rateSRS(4); // Dễ -> Tự chuyển
+      rateSRS(4); // [4] Nhớ -> Tự chuyển
+    } else if (["Digit5", "Numpad5"].includes(e.code)) {
+      rateSRS(5); // [5] Rất dễ -> Tự chuyển
     } else if (e.code === "KeyS") {
       speakCurrentWord();
     }

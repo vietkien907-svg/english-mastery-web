@@ -3,16 +3,16 @@
 // ============================================================================
 const READING_WORDS_LEXICON = {
   "invaluable": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/invaluable/",
-    "meaning_vi": "nghĩa trong bài đọc (invaluable)",
-    "example": "Example context: invaluable in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ɪnˈvæljuəbl/",
+    "meaning_vi": "vô giá, rất quý báu",
+    "example": "Authentic reading context: invaluable in practice."
   },
   "bountiful": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/bountiful/",
-    "meaning_vi": "nghĩa trong bài đọc (bountiful)",
-    "example": "Example context: bountiful in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈbaʊntɪfl/",
+    "meaning_vi": "dồi dào, phong phú, rộng lượng",
+    "example": "Authentic reading context: bountiful in practice."
   },
   "fatigue": {
     "pos": "Danh từ (Noun)",
@@ -21,10 +21,10 @@ const READING_WORDS_LEXICON = {
     "example": "Example context with Fatigue."
   },
   "spark": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/spark/",
-    "meaning_vi": "nghĩa trong bài đọc (spark)",
-    "example": "Example context: spark in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/spɑːk/",
+    "meaning_vi": "tia lửa; khơi dậy, châm ngòi",
+    "example": "Authentic reading context: spark in practice."
   },
   "exhausted": {
     "pos": "a",
@@ -33,10 +33,10 @@ const READING_WORDS_LEXICON = {
     "example": "Example context with Exhausted."
   },
   "cultivate": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/cultivate/",
-    "meaning_vi": "nghĩa trong bài đọc (cultivate)",
-    "example": "Example context: cultivate in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˈkʌltɪveɪt/",
+    "meaning_vi": "nuôi dưỡng, trau dồi, vun đắp",
+    "example": "Authentic reading context: cultivate in practice."
   },
   "alleviate": {
     "pos": "Động từ (Verb)",
@@ -45,28 +45,28 @@ const READING_WORDS_LEXICON = {
     "example": "Regular physical exercise alleviates mental stress."
   },
   "selling": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/selling/",
-    "meaning_vi": "nghĩa trong bài đọc (selling)",
-    "example": "Example context: selling in reading passage."
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˈselɪŋ/",
+    "meaning_vi": "việc bán buôn, thương mại",
+    "example": "Authentic reading context: selling in practice."
   },
   "do nước biển ấm lên khiến san hô đào thải vi tảo quang hợp": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/do nước biển ấm lên khiến san hô đào thải vi tảo quang hợp/",
-    "meaning_vi": "nghĩa trong bài đọc (do nước biển ấm lên khiến san hô đào thải vi tảo quang hợp)",
-    "example": "Example context: do nước biển ấm lên khiến san hô đào thải vi tảo quang hợp in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "do nước biển ấm lên khiến san hô đào thải vi tảo quang hợp",
+    "example": "Ngữ cảnh bài đọc: do nước biển ấm lên khiến san hô đào thải vi tảo quang hợp"
   },
   "inundate": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/inundate/",
-    "meaning_vi": "nghĩa trong bài đọc (inundate)",
-    "example": "Example context: inundate in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˈɪnʌndeɪt/",
+    "meaning_vi": "tràn ngập, làm ngập lụt, dồn dập",
+    "example": "Authentic reading context: inundate in practice."
   },
   "precarious": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/precarious/",
-    "meaning_vi": "nghĩa trong bài đọc (precarious)",
-    "example": "Example context: precarious in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/prɪˈkeəriəs/",
+    "meaning_vi": "bấp bênh, hiểm nghèo, không chắc chắn",
+    "example": "Authentic reading context: precarious in practice."
   },
   "insurmountable": {
     "pos": "Tính từ (Adjective)",
@@ -81,16 +81,16 @@ const READING_WORDS_LEXICON = {
     "example": ""
   },
   "sự quên lãng hoàn toàn": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/sự quên lãng hoàn toàn/",
-    "meaning_vi": "nghĩa trong bài đọc (sự quên lãng hoàn toàn)",
-    "example": "Example context: sự quên lãng hoàn toàn in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "sự quên lãng hoàn toàn",
+    "example": "Ngữ cảnh bài đọc: sự quên lãng hoàn toàn"
   },
   "sự xáo trộn": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/sự xáo trộn/",
-    "meaning_vi": "nghĩa trong bài đọc (sự xáo trộn)",
-    "example": "Example context: sự xáo trộn in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "sự xáo trộn",
+    "example": "Ngữ cảnh bài đọc: sự xáo trộn"
   },
   "flexible": {
     "pos": "Tính từ (Adjective)",
@@ -99,22 +99,22 @@ const READING_WORDS_LEXICON = {
     "example": "We can be flexible about when you start."
   },
   "unveil": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/unveil/",
-    "meaning_vi": "nghĩa trong bài đọc (unveil)",
-    "example": "Example context: unveil in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˌʌnˈveɪl/",
+    "meaning_vi": "tiết lộ, khánh thành, ra mắt",
+    "example": "Authentic reading context: unveil in practice."
   },
   "evolve": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/evolve/",
-    "meaning_vi": "nghĩa trong bài đọc (evolve)",
-    "example": "Example context: evolve in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ɪˈvɒlv/",
+    "meaning_vi": "tiến hóa, phát triển dần theo thời gian",
+    "example": "Authentic reading context: evolve in practice."
   },
   "interact": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/interact/",
-    "meaning_vi": "nghĩa trong bài đọc (interact)",
-    "example": "Example context: interact in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˌɪntərˈækt/",
+    "meaning_vi": "tương tác, tiếp xúc, giao lưu",
+    "example": "Authentic reading context: interact in practice."
   },
   "plastic": {
     "pos": "Danh từ (Noun)",
@@ -123,16 +123,16 @@ const READING_WORDS_LEXICON = {
     "example": "Pollution from plastic is causing serious problems in the oceans."
   },
   "detrimental": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/detrimental/",
-    "meaning_vi": "nghĩa trong bài đọc (detrimental)",
-    "example": "Example context: detrimental in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˌdetrɪˈmentl/",
+    "meaning_vi": "gây hại, bất lợi, thiệt hại",
+    "example": "Authentic reading context: detrimental in practice."
   },
   "valuable": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/valuable/",
-    "meaning_vi": "nghĩa trong bài đọc (valuable)",
-    "example": "Example context: valuable in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈvæljuəbl/",
+    "meaning_vi": "có giá trị, quý giá",
+    "example": "Authentic reading context: valuable in practice."
   },
   "deceive": {
     "pos": "Động từ (Verb)",
@@ -141,46 +141,46 @@ const READING_WORDS_LEXICON = {
     "example": "She didn't mean to deceive them, she just didn't want to tell them about her problem."
   },
   "hesitate": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/hesitate/",
-    "meaning_vi": "nghĩa trong bài đọc (hesitate)",
-    "example": "Example context: hesitate in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˈhezɪteɪt/",
+    "meaning_vi": "ngập ngừng, do dự, phân vân",
+    "example": "Authentic reading context: hesitate in practice."
   },
   "vanish": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/vanish/",
-    "meaning_vi": "nghĩa trong bài đọc (vanish)",
-    "example": "Example context: vanish in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˈvænɪʃ/",
+    "meaning_vi": "biến mất, tan biến hoàn toàn",
+    "example": "Authentic reading context: vanish in practice."
   },
   "chạy bằng xăng sinh học": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/chạy bằng xăng sinh học/",
-    "meaning_vi": "nghĩa trong bài đọc (chạy bằng xăng sinh học)",
-    "example": "Example context: chạy bằng xăng sinh học in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "chạy bằng xăng sinh học",
+    "example": "Ngữ cảnh bài đọc: chạy bằng xăng sinh học"
   },
   "collaboration / harmonious cooperation (sự cộng hưởng hợp tác)": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/collaboration / harmonious cooperation (sự cộng hưởng hợp tác)/",
-    "meaning_vi": "nghĩa trong bài đọc (collaboration / harmonious cooperation (sự cộng hưởng hợp tác))",
-    "example": "Example context: collaboration / harmonious cooperation (sự cộng hưởng hợp tác) in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "collaboration / harmonious cooperation (sự cộng hưởng hợp tác)",
+    "example": "Ngữ cảnh bài đọc: collaboration / harmonious cooperation (sự cộng hưởng hợp tác)"
   },
   "exponentially": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/exponentially/",
-    "meaning_vi": "nghĩa trong bài đọc (exponentially)",
-    "example": "Example context: exponentially in reading passage."
+    "pos": "Phó từ (Adverb)",
+    "ipa": "/ˌekspəˈnenʃəli/",
+    "meaning_vi": "theo cấp số nhân, cực kỳ nhanh chóng",
+    "example": "Authentic reading context: exponentially in practice."
   },
   "perilous": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/perilous/",
-    "meaning_vi": "nghĩa trong bài đọc (perilous)",
-    "example": "Example context: perilous in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈperələs/",
+    "meaning_vi": "nguy hiểm, đầy rủi ro",
+    "example": "Authentic reading context: perilous in practice."
   },
   "punishments (hình phạt)": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/punishments (hình phạt)/",
-    "meaning_vi": "nghĩa trong bài đọc (punishments (hình phạt))",
-    "example": "Example context: punishments (hình phạt) in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "punishments (hình phạt)",
+    "example": "Ngữ cảnh bài đọc: punishments (hình phạt)"
   },
   "borrow": {
     "pos": "Động từ (Verb)",
@@ -189,34 +189,34 @@ const READING_WORDS_LEXICON = {
     "example": "Can I borrow your reference book for the exam?"
   },
   "hoàn toàn phản đối và lo sợ": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/hoàn toàn phản đối và lo sợ/",
-    "meaning_vi": "nghĩa trong bài đọc (hoàn toàn phản đối và lo sợ)",
-    "example": "Example context: hoàn toàn phản đối và lo sợ in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "hoàn toàn phản đối và lo sợ",
+    "example": "Ngữ cảnh bài đọc: hoàn toàn phản đối và lo sợ"
   },
   "obscured": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/obscured/",
-    "meaning_vi": "nghĩa trong bài đọc (obscured)",
-    "example": "Example context: obscured in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/əbˈskjʊəd/",
+    "meaning_vi": "bị che khuất, bị làm mờ mịt",
+    "example": "Authentic reading context: obscured in practice."
   },
   "nutritious": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/nutritious/",
-    "meaning_vi": "nghĩa trong bài đọc (nutritious)",
-    "example": "Example context: nutritious in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/njuːˈtrɪʃəs/",
+    "meaning_vi": "giàu chất dinh dưỡng, bổ dưỡng",
+    "example": "Authentic reading context: nutritious in practice."
   },
   "kể lại nhật ký một chuyến thám hiểm đại dương": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/kể lại nhật ký một chuyến thám hiểm đại dương/",
-    "meaning_vi": "nghĩa trong bài đọc (kể lại nhật ký một chuyến thám hiểm đại dương)",
-    "example": "Example context: kể lại nhật ký một chuyến thám hiểm đại dương in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "kể lại nhật ký một chuyến thám hiểm đại dương",
+    "example": "Ngữ cảnh bài đọc: kể lại nhật ký một chuyến thám hiểm đại dương"
   },
   "resilience": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/resilience/",
-    "meaning_vi": "nghĩa trong bài đọc (resilience)",
-    "example": "Example context: resilience in reading passage."
+    "pos": "Danh từ (Noun)",
+    "ipa": "/rɪˈzɪliəns/",
+    "meaning_vi": "khả năng kiên cường phục hồi",
+    "example": "Authentic reading context: resilience in practice."
   },
   "engage": {
     "pos": "Động từ (Verb)",
@@ -225,22 +225,22 @@ const READING_WORDS_LEXICON = {
     "example": "The subject of the presentation didn't engage me."
   },
   "discharge": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/discharge/",
-    "meaning_vi": "nghĩa trong bài đọc (discharge)",
-    "example": "Example context: discharge in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/dɪsˈtʃɑːdʒ/",
+    "meaning_vi": "thải ra, phóng thích, xuất viện",
+    "example": "Authentic reading context: discharge in practice."
   },
   "curate": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/curate/",
-    "meaning_vi": "nghĩa trong bài đọc (curate)",
-    "example": "Example context: curate in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/kjʊəˈreɪt/",
+    "meaning_vi": "chọn lọc, tuyển lựa nội dung cẩn thận",
+    "example": "Authentic reading context: curate in practice."
   },
   "disassemble": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/disassemble/",
-    "meaning_vi": "nghĩa trong bài đọc (disassemble)",
-    "example": "Example context: disassemble in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˌdɪsəˈsembl/",
+    "meaning_vi": "tháo rời các bộ phận, rã máy",
+    "example": "Authentic reading context: disassemble in practice."
   },
   "destroy": {
     "pos": "Động từ (Verb)",
@@ -249,10 +249,10 @@ const READING_WORDS_LEXICON = {
     "example": ""
   },
   "stressful": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/stressful/",
-    "meaning_vi": "nghĩa trong bài đọc (stressful)",
-    "example": "Example context: stressful in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈstresfl/",
+    "meaning_vi": "căng thẳng, gây áp lực lớn",
+    "example": "Authentic reading context: stressful in practice."
   },
   "debate": {
     "pos": "Danh từ (Noun)",
@@ -261,40 +261,40 @@ const READING_WORDS_LEXICON = {
     "example": ""
   },
   "burn": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/burn/",
-    "meaning_vi": "nghĩa trong bài đọc (burn)",
-    "example": "Example context: burn in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/bɜːn/",
+    "meaning_vi": "đốt cháy, thiêu rụi",
+    "example": "Authentic reading context: burn in practice."
   },
   "expansion": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/expansion/",
-    "meaning_vi": "nghĩa trong bài đọc (expansion)",
-    "example": "Example context: expansion in reading passage."
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ɪkˈspænʃn/",
+    "meaning_vi": "sự mở rộng, sự bành trướng",
+    "example": "Authentic reading context: expansion in practice."
   },
   "charitable": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/charitable/",
-    "meaning_vi": "nghĩa trong bài đọc (charitable)",
-    "example": "Example context: charitable in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈtʃærətəbl/",
+    "meaning_vi": "từ thiện, nhân đức, hào phóng",
+    "example": "Authentic reading context: charitable in practice."
   },
   "synthesize": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/synthesize/",
-    "meaning_vi": "nghĩa trong bài đọc (synthesize)",
-    "example": "Example context: synthesize in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˈsɪnθəsaɪz/",
+    "meaning_vi": "tổng hợp lại các yếu tố",
+    "example": "Authentic reading context: synthesize in practice."
   },
   "screen": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/screen/",
-    "meaning_vi": "nghĩa trong bài đọc (screen)",
-    "example": "Example context: screen in reading passage."
+    "pos": "Động từ / Danh từ",
+    "ipa": "/skriːn/",
+    "meaning_vi": "màn hình; sàng lọc, kiểm tra",
+    "example": "Authentic reading context: screen in practice."
   },
   "infection": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/infection/",
-    "meaning_vi": "nghĩa trong bài đọc (infection)",
-    "example": "Example context: infection in reading passage."
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ɪnˈfekʃn/",
+    "meaning_vi": "sự lây nhiễm, nhiễm trùng",
+    "example": "Authentic reading context: infection in practice."
   },
   "enhance": {
     "pos": "Động từ (Verb)",
@@ -303,22 +303,22 @@ const READING_WORDS_LEXICON = {
     "example": "Daily reading significantly enhances vocabulary and comprehension."
   },
   "choke": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/choke/",
-    "meaning_vi": "nghĩa trong bài đọc (choke)",
-    "example": "Example context: choke in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/tʃəʊk/",
+    "meaning_vi": "làm nghẹt thở, bóp nghẹt, tắc nghẽn",
+    "example": "Authentic reading context: choke in practice."
   },
   "những thất bại thường gặp trong kinh doanh": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/những thất bại thường gặp trong kinh doanh/",
-    "meaning_vi": "nghĩa trong bài đọc (những thất bại thường gặp trong kinh doanh)",
-    "example": "Example context: những thất bại thường gặp trong kinh doanh in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "những thất bại thường gặp trong kinh doanh",
+    "example": "Ngữ cảnh bài đọc: những thất bại thường gặp trong kinh doanh"
   },
   "stabilize": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/stabilize/",
-    "meaning_vi": "nghĩa trong bài đọc (stabilize)",
-    "example": "Example context: stabilize in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˈsteɪbəlaɪz/",
+    "meaning_vi": "ổn định lại, làm cho vững chắc",
+    "example": "Authentic reading context: stabilize in practice."
   },
   "eliminate": {
     "pos": "Động từ (Verb)",
@@ -327,10 +327,10 @@ const READING_WORDS_LEXICON = {
     "example": "Modern filtration systems eliminate harmful bacteria from drinking water."
   },
   "cancel": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/cancel/",
-    "meaning_vi": "nghĩa trong bài đọc (cancel)",
-    "example": "Example context: cancel in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˈkænsl/",
+    "meaning_vi": "hủy bỏ, đình chỉ",
+    "example": "Authentic reading context: cancel in practice."
   },
   "expand": {
     "pos": "Động từ (Verb)",
@@ -339,58 +339,58 @@ const READING_WORDS_LEXICON = {
     "example": ""
   },
   "wasteful": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/wasteful/",
-    "meaning_vi": "nghĩa trong bài đọc (wasteful)",
-    "example": "Example context: wasteful in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈweɪstfl/",
+    "meaning_vi": "lãng phí, hoang phí tài nguyên",
+    "example": "Authentic reading context: wasteful in practice."
   },
   "distressed": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/distressed/",
-    "meaning_vi": "nghĩa trong bài đọc (distressed)",
-    "example": "Example context: distressed in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/dɪˈstrest/",
+    "meaning_vi": "đau khổ, hoảng loạn, kiệt quệ",
+    "example": "Authentic reading context: distressed in practice."
   },
   "clog": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/clog/",
-    "meaning_vi": "nghĩa trong bài đọc (clog)",
-    "example": "Example context: clog in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/klɒɡ/",
+    "meaning_vi": "làm tắc nghẽn, cản trở lưu thông",
+    "example": "Authentic reading context: clog in practice."
   },
   "agile": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/agile/",
-    "meaning_vi": "nghĩa trong bài đọc (agile)",
-    "example": "Example context: agile in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈædʒaɪl/",
+    "meaning_vi": "nhanh nhẹn, linh hoạt",
+    "example": "Authentic reading context: agile in practice."
   },
   "một người bạn thân": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/một người bạn thân/",
-    "meaning_vi": "nghĩa trong bài đọc (một người bạn thân)",
-    "example": "Example context: một người bạn thân in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "một người bạn thân",
+    "example": "Ngữ cảnh bài đọc: một người bạn thân"
   },
   "fade": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/fade/",
-    "meaning_vi": "nghĩa trong bài đọc (fade)",
-    "example": "Example context: fade in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/feɪd/",
+    "meaning_vi": "phai nhạt, mờ dần theo thời gian",
+    "example": "Authentic reading context: fade in practice."
   },
   "uninterrupted": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/uninterrupted/",
-    "meaning_vi": "nghĩa trong bài đọc (uninterrupted)",
-    "example": "Example context: uninterrupted in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˌʌnɪntəˈrʌptɪd/",
+    "meaning_vi": "liên tục, không bị gián đoạn",
+    "example": "Authentic reading context: uninterrupted in practice."
   },
   "unseen": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/unseen/",
-    "meaning_vi": "nghĩa trong bài đọc (unseen)",
-    "example": "Example context: unseen in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˌʌnˈsiːn/",
+    "meaning_vi": "vô hình, không nhìn thấy được",
+    "example": "Authentic reading context: unseen in practice."
   },
   "plant": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/plant/",
-    "meaning_vi": "nghĩa trong bài đọc (plant)",
-    "example": "Example context: plant in reading passage."
+    "pos": "Danh từ / Động từ",
+    "ipa": "/plɑːnt/",
+    "meaning_vi": "thực vật; nhà máy xí nghiệp; gieo trồng",
+    "example": "Authentic reading context: plant in practice."
   },
   "waste": {
     "pos": "Danh từ (Noun)",
@@ -399,22 +399,22 @@ const READING_WORDS_LEXICON = {
     "example": ""
   },
   "timeless": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/timeless/",
-    "meaning_vi": "nghĩa trong bài đọc (timeless)",
-    "example": "Example context: timeless in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈtaɪmləs/",
+    "meaning_vi": "vĩnh cửu, vượt thời gian",
+    "example": "Authentic reading context: timeless in practice."
   },
   "manufacture": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/manufacture/",
-    "meaning_vi": "nghĩa trong bài đọc (manufacture)",
-    "example": "Example context: manufacture in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˌmænjuˈfæktʃə/",
+    "meaning_vi": "sản xuất, chế tạo quy mô lớn",
+    "example": "Authentic reading context: manufacture in practice."
   },
   "forgive": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/forgive/",
-    "meaning_vi": "nghĩa trong bài đọc (forgive)",
-    "example": "Example context: forgive in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/fəˈɡɪv/",
+    "meaning_vi": "tha thứ, dung thứ lỗi lầm",
+    "example": "Authentic reading context: forgive in practice."
   },
   "fragile": {
     "pos": "Tính từ (Adjective)",
@@ -423,34 +423,34 @@ const READING_WORDS_LEXICON = {
     "example": "The ancient glassware is extremely fragile and requires delicate handling."
   },
   "confused": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/confused/",
-    "meaning_vi": "nghĩa trong bài đọc (confused)",
-    "example": "Example context: confused in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/kənˈfjuːzd/",
+    "meaning_vi": "bối rối, lúng túng, lẫn lộn",
+    "example": "Authentic reading context: confused in practice."
   },
   "isolated": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/isolated/",
-    "meaning_vi": "nghĩa trong bài đọc (isolated)",
-    "example": "Example context: isolated in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈaɪsəleɪtɪd/",
+    "meaning_vi": "bị cô lập, cách biệt",
+    "example": "Authentic reading context: isolated in practice."
   },
   "procrastinate": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/procrastinate/",
-    "meaning_vi": "nghĩa trong bài đọc (procrastinate)",
-    "example": "Example context: procrastinate in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/prəʊˈkræstɪneɪt/",
+    "meaning_vi": "trì hoãn, chần chừ việc cần làm",
+    "example": "Authentic reading context: procrastinate in practice."
   },
   "prevent": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/prevent/",
-    "meaning_vi": "nghĩa trong bài đọc (prevent)",
-    "example": "Example context: prevent in reading passage."
+    "pos": "Động từ (Verb)",
+    "ipa": "/prɪˈvent/",
+    "meaning_vi": "ngăn ngừa, phòng ngừa",
+    "example": "Authentic reading context: prevent in practice."
   },
   "sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)/",
-    "meaning_vi": "nghĩa trong bài đọc (sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods))",
-    "example": "Example context: sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods) in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+    "example": "Ngữ cảnh bài đọc: sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
   },
   "sterile": {
     "pos": "a",
@@ -459,16 +459,16 @@ const READING_WORDS_LEXICON = {
     "example": "Example context with Sterile."
   },
   "protective": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/protective/",
-    "meaning_vi": "nghĩa trong bài đọc (protective)",
-    "example": "Example context: protective in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/prəˈtektɪv/",
+    "meaning_vi": "bảo vệ, che chở, bảo bọc",
+    "example": "Authentic reading context: protective in practice."
   },
   "neocortex": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/neocortex/",
-    "meaning_vi": "nghĩa trong bài đọc (neocortex)",
-    "example": "Example context: neocortex in reading passage."
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˌniːəʊˈkɔːteks/",
+    "meaning_vi": "vỏ não mới (vùng điều khiển tư duy bậc cao)",
+    "example": "Authentic reading context: neocortex in practice."
   },
   "achieve": {
     "pos": "Động từ (Verb)",
@@ -477,22 +477,22 @@ const READING_WORDS_LEXICON = {
     "example": "Consistent daily practice helps learners achieve fluency."
   },
   "khi vừa mới chợp mắt": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/khi vừa mới chợp mắt/",
-    "meaning_vi": "nghĩa trong bài đọc (khi vừa mới chợp mắt)",
-    "example": "Example context: khi vừa mới chợp mắt in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "khi vừa mới chợp mắt",
+    "example": "Ngữ cảnh bài đọc: khi vừa mới chợp mắt"
   },
   "chở được khối lượng hàng chục tấn": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/chở được khối lượng hàng chục tấn/",
-    "meaning_vi": "nghĩa trong bài đọc (chở được khối lượng hàng chục tấn)",
-    "example": "Example context: chở được khối lượng hàng chục tấn in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "chở được khối lượng hàng chục tấn",
+    "example": "Ngữ cảnh bài đọc: chở được khối lượng hàng chục tấn"
   },
   "sự suy tàn": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/sự suy tàn/",
-    "meaning_vi": "nghĩa trong bài đọc (sự suy tàn)",
-    "example": "Example context: sự suy tàn in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "sự suy tàn",
+    "example": "Ngữ cảnh bài đọc: sự suy tàn"
   },
   "reliable": {
     "pos": "a",
@@ -507,28 +507,28 @@ const READING_WORDS_LEXICON = {
     "example": "Example context with Critical."
   },
   "awe-inspiring": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/awe-inspiring/",
-    "meaning_vi": "nghĩa trong bài đọc (awe-inspiring)",
-    "example": "Example context: awe-inspiring in reading passage."
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈɔː ɪnspaɪərɪŋ/",
+    "meaning_vi": "gây kinh ngạc, đáng kính nể sâu sắc",
+    "example": "Authentic reading context: awe-inspiring in practice."
   },
   "reclaim": {
     "pos": "Từ vựng (Word)",
     "ipa": "/reclaim/",
-    "meaning_vi": "nghĩa trong bài đọc (reclaim)",
-    "example": "Example context: reclaim in reading passage."
+    "meaning_vi": "đòi lại",
+    "example": "Example sentence with reclaim in context."
   },
   "preserve": {
     "pos": "Từ vựng (Word)",
     "ipa": "/preserve/",
-    "meaning_vi": "nghĩa trong bài đọc (preserve)",
-    "example": "Example context: preserve in reading passage."
+    "meaning_vi": "bảo tồn",
+    "example": "Example sentence with preserve in context."
   },
   "classical": {
     "pos": "Từ vựng (Word)",
     "ipa": "/classical/",
-    "meaning_vi": "nghĩa trong bài đọc (classical)",
-    "example": "Example context: classical in reading passage."
+    "meaning_vi": "cổ điển",
+    "example": "Example sentence with classical in context."
   },
   "intelligent": {
     "pos": "Tính từ (Adjective)",
@@ -539,8 +539,8 @@ const READING_WORDS_LEXICON = {
   "remarkable": {
     "pos": "Từ vựng (Word)",
     "ipa": "/remarkable/",
-    "meaning_vi": "nghĩa trong bài đọc (remarkable)",
-    "example": "Example context: remarkable in reading passage."
+    "meaning_vi": "đáng chú ý",
+    "example": "Example sentence with remarkable in context."
   },
   "panic": {
     "pos": "Danh từ (Noun)",
@@ -551,32 +551,32 @@ const READING_WORDS_LEXICON = {
   "costly": {
     "pos": "Từ vựng (Word)",
     "ipa": "/costly/",
-    "meaning_vi": "nghĩa trong bài đọc (costly)",
-    "example": "Example context: costly in reading passage."
+    "meaning_vi": "tốn kém",
+    "example": "Example sentence with costly in context."
   },
   "flourishing": {
     "pos": "Từ vựng (Word)",
     "ipa": "/flourishing/",
-    "meaning_vi": "nghĩa trong bài đọc (flourishing)",
-    "example": "Example context: flourishing in reading passage."
+    "meaning_vi": "hưng thịnh",
+    "example": "Example sentence with flourishing in context."
   },
   "empower": {
     "pos": "Từ vựng (Word)",
     "ipa": "/empower/",
-    "meaning_vi": "nghĩa trong bài đọc (empower)",
-    "example": "Example context: empower in reading passage."
+    "meaning_vi": "trao quyền",
+    "example": "Example sentence with empower in context."
   },
   "hydrate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/hydrate/",
-    "meaning_vi": "nghĩa trong bài đọc (hydrate)",
-    "example": "Example context: hydrate in reading passage."
+    "meaning_vi": "ngậm nước",
+    "example": "Example sentence with hydrate in context."
   },
   "nourish": {
     "pos": "Từ vựng (Word)",
     "ipa": "/nourish/",
-    "meaning_vi": "nghĩa trong bài đọc (nourish)",
-    "example": "Example context: nourish in reading passage."
+    "meaning_vi": "nuôi",
+    "example": "Example sentence with nourish in context."
   },
   "reinforce": {
     "pos": "Động từ (Verb)",
@@ -587,20 +587,20 @@ const READING_WORDS_LEXICON = {
   "wasted": {
     "pos": "Từ vựng (Word)",
     "ipa": "/wasted/",
-    "meaning_vi": "nghĩa trong bài đọc (wasted)",
-    "example": "Example context: wasted in reading passage."
+    "meaning_vi": "lãng phí",
+    "example": "Example sentence with wasted in context."
   },
   "drought": {
     "pos": "Từ vựng (Word)",
     "ipa": "/drought/",
-    "meaning_vi": "nghĩa trong bài đọc (drought)",
-    "example": "Example context: drought in reading passage."
+    "meaning_vi": "hạn hán",
+    "example": "Example sentence with drought in context."
   },
   "viable": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/viable/",
-    "meaning_vi": "nghĩa trong bài đọc (viable)",
-    "example": "Example context: viable in reading passage."
+    "pos": "adjective",
+    "ipa": "/ˈvaɪəbl/",
+    "meaning_vi": "Khả thi, có thể đứng vững sinh lời",
+    "example": "Example context with viable."
   },
   "obsolete": {
     "pos": "a",
@@ -609,70 +609,70 @@ const READING_WORDS_LEXICON = {
     "example": ""
   },
   "khi đang tập thể dục buổi sáng": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/khi đang tập thể dục buổi sáng/",
-    "meaning_vi": "nghĩa trong bài đọc (khi đang tập thể dục buổi sáng)",
-    "example": "Example context: khi đang tập thể dục buổi sáng in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "khi đang tập thể dục buổi sáng",
+    "example": "Ngữ cảnh bài đọc: khi đang tập thể dục buổi sáng"
   },
   "thờ ơ không quan tâm": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/thờ ơ không quan tâm/",
-    "meaning_vi": "nghĩa trong bài đọc (thờ ơ không quan tâm)",
-    "example": "Example context: thờ ơ không quan tâm in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "thờ ơ không quan tâm",
+    "example": "Ngữ cảnh bài đọc: thờ ơ không quan tâm"
   },
   "do các loài cá ăn hết san hô": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/do các loài cá ăn hết san hô/",
-    "meaning_vi": "nghĩa trong bài đọc (do các loài cá ăn hết san hô)",
-    "example": "Example context: do các loài cá ăn hết san hô in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "do các loài cá ăn hết san hô",
+    "example": "Ngữ cảnh bài đọc: do các loài cá ăn hết san hô"
   },
   "notify": {
     "pos": "Từ vựng (Word)",
     "ipa": "/notify/",
-    "meaning_vi": "nghĩa trong bài đọc (notify)",
-    "example": "Example context: notify in reading passage."
+    "meaning_vi": "thông báo",
+    "example": "Example sentence with notify in context."
   },
   "prosperous": {
     "pos": "Từ vựng (Word)",
     "ipa": "/prosperous/",
-    "meaning_vi": "nghĩa trong bài đọc (prosperous)",
-    "example": "Example context: prosperous in reading passage."
+    "meaning_vi": "thịnh vượng",
+    "example": "Example sentence with prosperous in context."
   },
   "store": {
     "pos": "Từ vựng (Word)",
     "ipa": "/store/",
-    "meaning_vi": "nghĩa trong bài đọc (store)",
-    "example": "Example context: store in reading passage."
+    "meaning_vi": "cửa hàng",
+    "example": "Example sentence with store in context."
   },
   "parched": {
     "pos": "Từ vựng (Word)",
     "ipa": "/parched/",
-    "meaning_vi": "nghĩa trong bài đọc (parched)",
-    "example": "Example context: parched in reading passage."
+    "meaning_vi": "khô",
+    "example": "Example sentence with parched in context."
   },
   "harmonious": {
     "pos": "Từ vựng (Word)",
     "ipa": "/harmonious/",
-    "meaning_vi": "nghĩa trong bài đọc (harmonious)",
-    "example": "Example context: harmonious in reading passage."
+    "meaning_vi": "hài hòa",
+    "example": "Example sentence with harmonious in context."
   },
   "interested in": {
     "pos": "Từ vựng (Word)",
     "ipa": "/interested in/",
-    "meaning_vi": "nghĩa trong bài đọc (interested in)",
-    "example": "Example context: interested in in reading passage."
+    "meaning_vi": "quan tâm đến",
+    "example": "Example sentence with interested in in context."
   },
   "longevity": {
     "pos": "Từ vựng (Word)",
     "ipa": "/longevity/",
-    "meaning_vi": "nghĩa trong bài đọc (longevity)",
-    "example": "Example context: longevity in reading passage."
+    "meaning_vi": "tuổi thọ",
+    "example": "Example sentence with longevity in context."
   },
   "discourage": {
     "pos": "Từ vựng (Word)",
     "ipa": "/discourage/",
-    "meaning_vi": "nghĩa trong bài đọc (discourage)",
-    "example": "Example context: discourage in reading passage."
+    "meaning_vi": "làm nản lòng",
+    "example": "Example sentence with discourage in context."
   },
   "triumphant": {
     "pos": "Tính từ (Adjective)",
@@ -683,8 +683,8 @@ const READING_WORDS_LEXICON = {
   "scarce": {
     "pos": "Từ vựng (Word)",
     "ipa": "/scarce/",
-    "meaning_vi": "nghĩa trong bài đọc (scarce)",
-    "example": "Example context: scarce in reading passage."
+    "meaning_vi": "khan hiếm",
+    "example": "Example sentence with scarce in context."
   },
   "objective": {
     "pos": "a",
@@ -695,44 +695,44 @@ const READING_WORDS_LEXICON = {
   "ignoring": {
     "pos": "Từ vựng (Word)",
     "ipa": "/ignoring/",
-    "meaning_vi": "nghĩa trong bài đọc (ignoring)",
-    "example": "Example context: ignoring in reading passage."
+    "meaning_vi": "phớt lờ",
+    "example": "Example sentence with ignoring in context."
   },
   "deplete": {
     "pos": "Từ vựng (Word)",
     "ipa": "/deplete/",
-    "meaning_vi": "nghĩa trong bài đọc (deplete)",
-    "example": "Example context: deplete in reading passage."
+    "meaning_vi": "cạn kiệt",
+    "example": "Example sentence with deplete in context."
   },
   "compact": {
     "pos": "Từ vựng (Word)",
     "ipa": "/compact/",
-    "meaning_vi": "nghĩa trong bài đọc (compact)",
-    "example": "Example context: compact in reading passage."
+    "meaning_vi": "nhỏ gọn",
+    "example": "Example sentence with compact in context."
   },
   "precise": {
     "pos": "Từ vựng (Word)",
     "ipa": "/precise/",
-    "meaning_vi": "nghĩa trong bài đọc (precise)",
-    "example": "Example context: precise in reading passage."
+    "meaning_vi": "chính xác",
+    "example": "Example sentence with precise in context."
   },
   "trí tuệ cảm xúc và tư duy phản biện": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/trí tuệ cảm xúc và tư duy phản biện/",
-    "meaning_vi": "nghĩa trong bài đọc (trí tuệ cảm xúc và tư duy phản biện)",
-    "example": "Example context: trí tuệ cảm xúc và tư duy phản biện in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "trí tuệ cảm xúc và tư duy phản biện",
+    "example": "Ngữ cảnh bài đọc: trí tuệ cảm xúc và tư duy phản biện"
   },
   "phân loại hình ảnh": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/phân loại hình ảnh/",
-    "meaning_vi": "nghĩa trong bài đọc (phân loại hình ảnh)",
-    "example": "Example context: phân loại hình ảnh in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "phân loại hình ảnh",
+    "example": "Ngữ cảnh bài đọc: phân loại hình ảnh"
   },
   "wither": {
     "pos": "Từ vựng (Word)",
     "ipa": "/wither/",
-    "meaning_vi": "nghĩa trong bài đọc (wither)",
-    "example": "Example context: wither in reading passage."
+    "meaning_vi": "khô héo",
+    "example": "Example sentence with wither in context."
   },
   "vibrant": {
     "pos": "a",
@@ -743,20 +743,20 @@ const READING_WORDS_LEXICON = {
   "welcome": {
     "pos": "Từ vựng (Word)",
     "ipa": "/welcome/",
-    "meaning_vi": "nghĩa trong bài đọc (welcome)",
-    "example": "Example context: welcome in reading passage."
+    "meaning_vi": "Chào mừng",
+    "example": "Example sentence with welcome in context."
   },
   "manipulated": {
     "pos": "Từ vựng (Word)",
     "ipa": "/manipulated/",
-    "meaning_vi": "nghĩa trong bài đọc (manipulated)",
-    "example": "Example context: manipulated in reading passage."
+    "meaning_vi": "bị thao túng",
+    "example": "Example sentence with manipulated in context."
   },
   "landfills": {
     "pos": "Từ vựng (Word)",
     "ipa": "/landfills/",
-    "meaning_vi": "nghĩa trong bài đọc (landfills)",
-    "example": "Example context: landfills in reading passage."
+    "meaning_vi": "bãi chôn lấp",
+    "example": "Example sentence with landfills in context."
   },
   "transport": {
     "pos": "Danh từ (Noun)",
@@ -767,14 +767,14 @@ const READING_WORDS_LEXICON = {
   "traverse": {
     "pos": "Từ vựng (Word)",
     "ipa": "/traverse/",
-    "meaning_vi": "nghĩa trong bài đọc (traverse)",
-    "example": "Example context: traverse in reading passage."
+    "meaning_vi": "đi qua",
+    "example": "Example sentence with traverse in context."
   },
   "rejuvenate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/rejuvenate/",
-    "meaning_vi": "nghĩa trong bài đọc (rejuvenate)",
-    "example": "Example context: rejuvenate in reading passage."
+    "meaning_vi": "trẻ hóa",
+    "example": "Example sentence with rejuvenate in context."
   },
   "rewarding": {
     "pos": "a",
@@ -785,44 +785,44 @@ const READING_WORDS_LEXICON = {
   "congested": {
     "pos": "Từ vựng (Word)",
     "ipa": "/congested/",
-    "meaning_vi": "nghĩa trong bài đọc (congested)",
-    "example": "Example context: congested in reading passage."
+    "meaning_vi": "tắc nghẽn",
+    "example": "Example sentence with congested in context."
   },
   "mitigate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/mitigate/",
-    "meaning_vi": "nghĩa trong bài đọc (mitigate)",
-    "example": "Example context: mitigate in reading passage."
+    "meaning_vi": "giảm nhẹ",
+    "example": "Example sentence with mitigate in context."
   },
   "conventional": {
     "pos": "Từ vựng (Word)",
     "ipa": "/conventional/",
-    "meaning_vi": "nghĩa trong bài đọc (conventional)",
-    "example": "Example context: conventional in reading passage."
+    "meaning_vi": "truyền thống",
+    "example": "Example sentence with conventional in context."
   },
   "sturdy": {
     "pos": "Từ vựng (Word)",
     "ipa": "/sturdy/",
-    "meaning_vi": "nghĩa trong bài đọc (sturdy)",
-    "example": "Example context: sturdy in reading passage."
+    "meaning_vi": "vững chắc",
+    "example": "Example sentence with sturdy in context."
   },
   "communicate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/communicate/",
-    "meaning_vi": "nghĩa trong bài đọc (communicate)",
-    "example": "Example context: communicate in reading passage."
+    "meaning_vi": "giao tiếp",
+    "example": "Example sentence with communicate in context."
   },
   "track": {
     "pos": "Từ vựng (Word)",
     "ipa": "/track/",
-    "meaning_vi": "nghĩa trong bài đọc (track)",
-    "example": "Example context: track in reading passage."
+    "meaning_vi": "theo dõi",
+    "example": "Example sentence with track in context."
   },
   "frail": {
     "pos": "Từ vựng (Word)",
     "ipa": "/frail/",
-    "meaning_vi": "nghĩa trong bài đọc (frail)",
-    "example": "Example context: frail in reading passage."
+    "meaning_vi": "yếu đuối",
+    "example": "Example sentence with frail in context."
   },
   "accumulate": {
     "pos": "Động từ (Verb)",
@@ -839,38 +839,38 @@ const READING_WORDS_LEXICON = {
   "dismantle": {
     "pos": "Từ vựng (Word)",
     "ipa": "/dismantle/",
-    "meaning_vi": "nghĩa trong bài đọc (dismantle)",
-    "example": "Example context: dismantle in reading passage."
+    "meaning_vi": "tháo dỡ",
+    "example": "Example sentence with dismantle in context."
   },
   "purify": {
     "pos": "Từ vựng (Word)",
     "ipa": "/purify/",
-    "meaning_vi": "nghĩa trong bài đọc (purify)",
-    "example": "Example context: purify in reading passage."
+    "meaning_vi": "thanh lọc",
+    "example": "Example sentence with purify in context."
   },
   "pleasure": {
     "pos": "Từ vựng (Word)",
     "ipa": "/pleasure/",
-    "meaning_vi": "nghĩa trong bài đọc (pleasure)",
-    "example": "Example context: pleasure in reading passage."
+    "meaning_vi": "vinh hạnh",
+    "example": "Example sentence with pleasure in context."
   },
   "poisoning": {
     "pos": "Từ vựng (Word)",
     "ipa": "/poisoning/",
-    "meaning_vi": "nghĩa trong bài đọc (poisoning)",
-    "example": "Example context: poisoning in reading passage."
+    "meaning_vi": "đầu độc",
+    "example": "Example sentence with poisoning in context."
   },
   "protect": {
     "pos": "Từ vựng (Word)",
     "ipa": "/protect/",
-    "meaning_vi": "nghĩa trong bài đọc (protect)",
-    "example": "Example context: protect in reading passage."
+    "meaning_vi": "bảo vệ",
+    "example": "Example sentence with protect in context."
   },
   "intellectual": {
     "pos": "Từ vựng (Word)",
     "ipa": "/intellectual/",
-    "meaning_vi": "nghĩa trong bài đọc (intellectual)",
-    "example": "Example context: intellectual in reading passage."
+    "meaning_vi": "trí tuệ",
+    "example": "Example sentence with intellectual in context."
   },
   "energetic": {
     "pos": "a",
@@ -881,8 +881,8 @@ const READING_WORDS_LEXICON = {
   "drinkable": {
     "pos": "Từ vựng (Word)",
     "ipa": "/drinkable/",
-    "meaning_vi": "nghĩa trong bài đọc (drinkable)",
-    "example": "Example context: drinkable in reading passage."
+    "meaning_vi": "có thể uống được",
+    "example": "Example sentence with drinkable in context."
   },
   "escape": {
     "pos": "Động từ (Verb)",
@@ -893,14 +893,14 @@ const READING_WORDS_LEXICON = {
   "evoke": {
     "pos": "Từ vựng (Word)",
     "ipa": "/evoke/",
-    "meaning_vi": "nghĩa trong bài đọc (evoke)",
-    "example": "Example context: evoke in reading passage."
+    "meaning_vi": "gợi lên",
+    "example": "Example sentence with evoke in context."
   },
   "attract": {
     "pos": "Từ vựng (Word)",
     "ipa": "/attract/",
-    "meaning_vi": "nghĩa trong bài đọc (attract)",
-    "example": "Example context: attract in reading passage."
+    "meaning_vi": "thu hút",
+    "example": "Example sentence with attract in context."
   },
   "retain": {
     "pos": "Động từ (Verb)",
@@ -911,44 +911,44 @@ const READING_WORDS_LEXICON = {
   "discerning": {
     "pos": "Từ vựng (Word)",
     "ipa": "/discerning/",
-    "meaning_vi": "nghĩa trong bài đọc (discerning)",
-    "example": "Example context: discerning in reading passage."
+    "meaning_vi": "sáng suốt",
+    "example": "Example sentence with discerning in context."
   },
   "wealthy": {
     "pos": "Từ vựng (Word)",
     "ipa": "/wealthy/",
-    "meaning_vi": "nghĩa trong bài đọc (wealthy)",
-    "example": "Example context: wealthy in reading passage."
+    "meaning_vi": "giàu có",
+    "example": "Example sentence with wealthy in context."
   },
   "supply": {
     "pos": "Từ vựng (Word)",
     "ipa": "/supply/",
-    "meaning_vi": "nghĩa trong bài đọc (supply)",
-    "example": "Example context: supply in reading passage."
+    "meaning_vi": "cung cấp",
+    "example": "Example sentence with supply in context."
   },
   "noisy": {
     "pos": "Từ vựng (Word)",
     "ipa": "/noisy/",
-    "meaning_vi": "nghĩa trong bài đọc (noisy)",
-    "example": "Example context: noisy in reading passage."
+    "meaning_vi": "ồn ào",
+    "example": "Example sentence with noisy in context."
   },
   "transfer": {
     "pos": "Từ vựng (Word)",
     "ipa": "/transfer/",
-    "meaning_vi": "nghĩa trong bài đọc (transfer)",
-    "example": "Example context: transfer in reading passage."
+    "meaning_vi": "chuyển khoản",
+    "example": "Example sentence with transfer in context."
   },
   "ông nội của anh ấy": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/ông nội của anh ấy/",
-    "meaning_vi": "nghĩa trong bài đọc (ông nội của anh ấy)",
-    "example": "Example context: ông nội của anh ấy in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "ông nội của anh ấy",
+    "example": "Ngữ cảnh bài đọc: ông nội của anh ấy"
   },
   "respectful": {
     "pos": "Từ vựng (Word)",
     "ipa": "/respectful/",
-    "meaning_vi": "nghĩa trong bài đọc (respectful)",
-    "example": "Example context: respectful in reading passage."
+    "meaning_vi": "kính trọng",
+    "example": "Example sentence with respectful in context."
   },
   "outdated": {
     "pos": "a",
@@ -959,26 +959,26 @@ const READING_WORDS_LEXICON = {
   "persuade": {
     "pos": "Từ vựng (Word)",
     "ipa": "/persuade/",
-    "meaning_vi": "nghĩa trong bài đọc (persuade)",
-    "example": "Example context: persuade in reading passage."
+    "meaning_vi": "thuyết phục",
+    "example": "Example sentence with persuade in context."
   },
   "multiply": {
     "pos": "Từ vựng (Word)",
     "ipa": "/multiply/",
-    "meaning_vi": "nghĩa trong bài đọc (multiply)",
-    "example": "Example context: multiply in reading passage."
+    "meaning_vi": "nhân lên",
+    "example": "Example sentence with multiply in context."
   },
   "celebration": {
     "pos": "Từ vựng (Word)",
     "ipa": "/celebration/",
-    "meaning_vi": "nghĩa trong bài đọc (celebration)",
-    "example": "Example context: celebration in reading passage."
+    "meaning_vi": "lễ ăn mừng",
+    "example": "Example sentence with celebration in context."
   },
   "clean": {
     "pos": "Từ vựng (Word)",
     "ipa": "/clean/",
-    "meaning_vi": "nghĩa trong bài đọc (clean)",
-    "example": "Example context: clean in reading passage."
+    "meaning_vi": "lau dọn",
+    "example": "Example sentence with clean in context."
   },
   "paralyze": {
     "pos": "Động từ (Verb)",
@@ -989,26 +989,26 @@ const READING_WORDS_LEXICON = {
   "glide": {
     "pos": "Từ vựng (Word)",
     "ipa": "/glide/",
-    "meaning_vi": "nghĩa trong bài đọc (glide)",
-    "example": "Example context: glide in reading passage."
+    "meaning_vi": "lướt đi",
+    "example": "Example sentence with glide in context."
   },
   "archive": {
     "pos": "Từ vựng (Word)",
     "ipa": "/archive/",
-    "meaning_vi": "nghĩa trong bài đọc (archive)",
-    "example": "Example context: archive in reading passage."
+    "meaning_vi": "lưu trữ",
+    "example": "Example sentence with archive in context."
   },
   "impossible": {
     "pos": "Từ vựng (Word)",
     "ipa": "/impossible/",
-    "meaning_vi": "nghĩa trong bài đọc (impossible)",
-    "example": "Example context: impossible in reading passage."
+    "meaning_vi": "không thể nào",
+    "example": "Example sentence with impossible in context."
   },
   "lower": {
     "pos": "Từ vựng (Word)",
     "ipa": "/lower/",
-    "meaning_vi": "nghĩa trong bài đọc (lower)",
-    "example": "Example context: lower in reading passage."
+    "meaning_vi": "thấp hơn",
+    "example": "Example sentence with lower in context."
   },
   "accessible": {
     "pos": "Tính từ (Adjective)",
@@ -1031,14 +1031,14 @@ const READING_WORDS_LEXICON = {
   "friction": {
     "pos": "Từ vựng (Word)",
     "ipa": "/friction/",
-    "meaning_vi": "nghĩa trong bài đọc (friction)",
-    "example": "Example context: friction in reading passage."
+    "meaning_vi": "ma sát",
+    "example": "Example sentence with friction in context."
   },
   "phân tích thành phần hóa học của nước biển sâu": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/phân tích thành phần hóa học của nước biển sâu/",
-    "meaning_vi": "nghĩa trong bài đọc (phân tích thành phần hóa học của nước biển sâu)",
-    "example": "Example context: phân tích thành phần hóa học của nước biển sâu in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "phân tích thành phần hóa học của nước biển sâu",
+    "example": "Ngữ cảnh bài đọc: phân tích thành phần hóa học của nước biển sâu"
   },
   "restore": {
     "pos": "Động từ (Verb)",
@@ -1061,14 +1061,14 @@ const READING_WORDS_LEXICON = {
   "faded": {
     "pos": "Từ vựng (Word)",
     "ipa": "/faded/",
-    "meaning_vi": "nghĩa trong bài đọc (faded)",
-    "example": "Example context: faded in reading passage."
+    "meaning_vi": "đã nhạt dần",
+    "example": "Example sentence with faded in context."
   },
   "enrich": {
     "pos": "Từ vựng (Word)",
     "ipa": "/enrich/",
-    "meaning_vi": "nghĩa trong bài đọc (enrich)",
-    "example": "Example context: enrich in reading passage."
+    "meaning_vi": "làm giàu",
+    "example": "Example sentence with enrich in context."
   },
   "eco-friendly": {
     "pos": "Tính từ (Adjective)",
@@ -1079,104 +1079,104 @@ const READING_WORDS_LEXICON = {
   "align": {
     "pos": "Từ vựng (Word)",
     "ipa": "/align/",
-    "meaning_vi": "nghĩa trong bài đọc (align)",
-    "example": "Example context: align in reading passage."
+    "meaning_vi": "căn chỉnh",
+    "example": "Example sentence with align in context."
   },
   "substitute": {
     "pos": "Từ vựng (Word)",
     "ipa": "/substitute/",
-    "meaning_vi": "nghĩa trong bài đọc (substitute)",
-    "example": "Example context: substitute in reading passage."
+    "meaning_vi": "thay thế",
+    "example": "Example sentence with substitute in context."
   },
   "calculate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/calculate/",
-    "meaning_vi": "nghĩa trong bài đọc (calculate)",
-    "example": "Example context: calculate in reading passage."
+    "meaning_vi": "tính toán",
+    "example": "Example sentence with calculate in context."
   },
   "welcoming": {
     "pos": "Từ vựng (Word)",
     "ipa": "/welcoming/",
-    "meaning_vi": "nghĩa trong bài đọc (welcoming)",
-    "example": "Example context: welcoming in reading passage."
+    "meaning_vi": "chào đón",
+    "example": "Example sentence with welcoming in context."
   },
   "propagate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/propagate/",
-    "meaning_vi": "nghĩa trong bài đọc (propagate)",
-    "example": "Example context: propagate in reading passage."
+    "meaning_vi": "tuyên truyền",
+    "example": "Example sentence with propagate in context."
   },
   "noise": {
     "pos": "Từ vựng (Word)",
     "ipa": "/noise/",
-    "meaning_vi": "nghĩa trong bài đọc (noise)",
-    "example": "Example context: noise in reading passage."
+    "meaning_vi": "tiếng ồn",
+    "example": "Example sentence with noise in context."
   },
   "luồn lách êm ái trong ngõ hẹp và không thải khí độc": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/luồn lách êm ái trong ngõ hẹp và không thải khí độc/",
-    "meaning_vi": "nghĩa trong bài đọc (luồn lách êm ái trong ngõ hẹp và không thải khí độc)",
-    "example": "Example context: luồn lách êm ái trong ngõ hẹp và không thải khí độc in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "luồn lách êm ái trong ngõ hẹp và không thải khí độc",
+    "example": "Ngữ cảnh bài đọc: luồn lách êm ái trong ngõ hẹp và không thải khí độc"
   },
   "equitable": {
     "pos": "Từ vựng (Word)",
     "ipa": "/equitable/",
-    "meaning_vi": "nghĩa trong bài đọc (equitable)",
-    "example": "Example context: equitable in reading passage."
+    "meaning_vi": "công bằng",
+    "example": "Example sentence with equitable in context."
   },
   "filter": {
     "pos": "Từ vựng (Word)",
     "ipa": "/filter/",
-    "meaning_vi": "nghĩa trong bài đọc (filter)",
-    "example": "Example context: filter in reading passage."
+    "meaning_vi": "lọc",
+    "example": "Example sentence with filter in context."
   },
   "scrutinize": {
     "pos": "Từ vựng (Word)",
     "ipa": "/scrutinize/",
-    "meaning_vi": "nghĩa trong bài đọc (scrutinize)",
-    "example": "Example context: scrutinize in reading passage."
+    "meaning_vi": "xem xét kỹ lưỡng",
+    "example": "Example sentence with scrutinize in context."
   },
   "detect": {
     "pos": "Từ vựng (Word)",
     "ipa": "/detect/",
-    "meaning_vi": "nghĩa trong bài đọc (detect)",
-    "example": "Example context: detect in reading passage."
+    "meaning_vi": "phát hiện",
+    "example": "Example sentence with detect in context."
   },
   "manageable": {
     "pos": "Từ vựng (Word)",
     "ipa": "/manageable/",
-    "meaning_vi": "nghĩa trong bài đọc (manageable)",
-    "example": "Example context: manageable in reading passage."
+    "meaning_vi": "có thể quản lý được",
+    "example": "Example sentence with manageable in context."
   },
   "transplanting": {
     "pos": "Từ vựng (Word)",
     "ipa": "/transplanting/",
-    "meaning_vi": "nghĩa trong bài đọc (transplanting)",
-    "example": "Example context: transplanting in reading passage."
+    "meaning_vi": "cấy ghép",
+    "example": "Example sentence with transplanting in context."
   },
   "debts (nợ nần)": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/debts (nợ nần)/",
-    "meaning_vi": "nghĩa trong bài đọc (debts (nợ nần))",
-    "example": "Example context: debts (nợ nần) in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "debts (nợ nần)",
+    "example": "Ngữ cảnh bài đọc: debts (nợ nần)"
   },
   "passive": {
     "pos": "Từ vựng (Word)",
     "ipa": "/passive/",
-    "meaning_vi": "nghĩa trong bài đọc (passive)",
-    "example": "Example context: passive in reading passage."
+    "meaning_vi": "thụ động",
+    "example": "Example sentence with passive in context."
   },
   "suspend": {
     "pos": "Từ vựng (Word)",
     "ipa": "/suspend/",
-    "meaning_vi": "nghĩa trong bài đọc (suspend)",
-    "example": "Example context: suspend in reading passage."
+    "meaning_vi": "đình chỉ",
+    "example": "Example sentence with suspend in context."
   },
   "life-saving": {
     "pos": "Từ vựng (Word)",
     "ipa": "/life-saving/",
-    "meaning_vi": "nghĩa trong bài đọc (life-saving)",
-    "example": "Example context: life-saving in reading passage."
+    "meaning_vi": "cứu mạng",
+    "example": "Example sentence with life-saving in context."
   },
   "assess": {
     "pos": "Động từ (Verb)",
@@ -1185,16 +1185,16 @@ const READING_WORDS_LEXICON = {
     "example": "Teachers assess students' progress through weekly mock tests."
   },
   "giá trị cảm xúc thiêng liêng của các kỷ vật gia đình": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/giá trị cảm xúc thiêng liêng của các kỷ vật gia đình/",
-    "meaning_vi": "nghĩa trong bài đọc (giá trị cảm xúc thiêng liêng của các kỷ vật gia đình)",
-    "example": "Example context: giá trị cảm xúc thiêng liêng của các kỷ vật gia đình in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "giá trị cảm xúc thiêng liêng của các kỷ vật gia đình",
+    "example": "Ngữ cảnh bài đọc: giá trị cảm xúc thiêng liêng của các kỷ vật gia đình"
   },
   "encode": {
     "pos": "Từ vựng (Word)",
     "ipa": "/encode/",
-    "meaning_vi": "nghĩa trong bài đọc (encode)",
-    "example": "Example context: encode in reading passage."
+    "meaning_vi": "mã hóa",
+    "example": "Example sentence with encode in context."
   },
   "flush": {
     "pos": "Động từ (Verb)",
@@ -1205,8 +1205,8 @@ const READING_WORDS_LEXICON = {
   "swift": {
     "pos": "Từ vựng (Word)",
     "ipa": "/swift/",
-    "meaning_vi": "nghĩa trong bài đọc (swift)",
-    "example": "Example context: swift in reading passage."
+    "meaning_vi": "nhanh",
+    "example": "Example sentence with swift in context."
   },
   "confuse": {
     "pos": "Động từ (Verb)",
@@ -1215,34 +1215,34 @@ const READING_WORDS_LEXICON = {
     "example": ""
   },
   "chứa hàng hải ngoại": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/chứa hàng hải ngoại/",
-    "meaning_vi": "nghĩa trong bài đọc (chứa hàng hải ngoại)",
-    "example": "Example context: chứa hàng hải ngoại in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "chứa hàng hải ngoại",
+    "example": "Ngữ cảnh bài đọc: chứa hàng hải ngoại"
   },
   "healthy": {
     "pos": "Từ vựng (Word)",
     "ipa": "/healthy/",
-    "meaning_vi": "nghĩa trong bài đọc (healthy)",
-    "example": "Example context: healthy in reading passage."
+    "meaning_vi": "khỏe mạnh",
+    "example": "Example sentence with healthy in context."
   },
   "obsess": {
     "pos": "Từ vựng (Word)",
     "ipa": "/obsess/",
-    "meaning_vi": "nghĩa trong bài đọc (obsess)",
-    "example": "Example context: obsess in reading passage."
+    "meaning_vi": "ám ảnh",
+    "example": "Example sentence with obsess in context."
   },
   "tốc độ tính toán số liệu": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/tốc độ tính toán số liệu/",
-    "meaning_vi": "nghĩa trong bài đọc (tốc độ tính toán số liệu)",
-    "example": "Example context: tốc độ tính toán số liệu in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "tốc độ tính toán số liệu",
+    "example": "Ngữ cảnh bài đọc: tốc độ tính toán số liệu"
   },
   "breathe": {
     "pos": "Từ vựng (Word)",
     "ipa": "/breathe/",
-    "meaning_vi": "nghĩa trong bài đọc (breathe)",
-    "example": "Example context: breathe in reading passage."
+    "meaning_vi": "thở",
+    "example": "Example sentence with breathe in context."
   },
   "automatic": {
     "pos": "a",
@@ -1259,8 +1259,8 @@ const READING_WORDS_LEXICON = {
   "legendary": {
     "pos": "Từ vựng (Word)",
     "ipa": "/legendary/",
-    "meaning_vi": "nghĩa trong bài đọc (legendary)",
-    "example": "Example context: legendary in reading passage."
+    "meaning_vi": "huyền thoại",
+    "example": "Example sentence with legendary in context."
   },
   "praise": {
     "pos": "Động từ (Verb)",
@@ -1283,14 +1283,14 @@ const READING_WORDS_LEXICON = {
   "repopulate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/repopulate/",
-    "meaning_vi": "nghĩa trong bài đọc (repopulate)",
-    "example": "Example context: repopulate in reading passage."
+    "meaning_vi": "tái sinh",
+    "example": "Example sentence with repopulate in context."
   },
   "polluting": {
     "pos": "Từ vựng (Word)",
     "ipa": "/polluting/",
-    "meaning_vi": "nghĩa trong bài đọc (polluting)",
-    "example": "Example context: polluting in reading passage."
+    "meaning_vi": "gây ô nhiễm",
+    "example": "Example sentence with polluting in context."
   },
   "ignore": {
     "pos": "Động từ (Verb)",
@@ -1301,44 +1301,44 @@ const READING_WORDS_LEXICON = {
   "optimize": {
     "pos": "Từ vựng (Word)",
     "ipa": "/optimize/",
-    "meaning_vi": "nghĩa trong bài đọc (optimize)",
-    "example": "Example context: optimize in reading passage."
+    "meaning_vi": "tối ưu hóa",
+    "example": "Example sentence with optimize in context."
   },
   "green": {
     "pos": "Từ vựng (Word)",
     "ipa": "/green/",
-    "meaning_vi": "nghĩa trong bài đọc (green)",
-    "example": "Example context: green in reading passage."
+    "meaning_vi": "màu xanh lá",
+    "example": "Example sentence with green in context."
   },
   "erect": {
     "pos": "Từ vựng (Word)",
     "ipa": "/erect/",
-    "meaning_vi": "nghĩa trong bài đọc (erect)",
-    "example": "Example context: erect in reading passage."
+    "meaning_vi": "dựng lên",
+    "example": "Example sentence with erect in context."
   },
   "confined": {
     "pos": "Từ vựng (Word)",
     "ipa": "/confined/",
-    "meaning_vi": "nghĩa trong bài đọc (confined)",
-    "example": "Example context: confined in reading passage."
+    "meaning_vi": "hạn chế",
+    "example": "Example sentence with confined in context."
   },
   "roast": {
     "pos": "Từ vựng (Word)",
     "ipa": "/roast/",
-    "meaning_vi": "nghĩa trong bài đọc (roast)",
-    "example": "Example context: roast in reading passage."
+    "meaning_vi": "thịt nướng",
+    "example": "Example sentence with roast in context."
   },
   "flourish": {
     "pos": "Từ vựng (Word)",
     "ipa": "/flourish/",
-    "meaning_vi": "nghĩa trong bài đọc (flourish)",
-    "example": "Example context: flourish in reading passage."
+    "meaning_vi": "phát triển mạnh mẽ",
+    "example": "Example sentence with flourish in context."
   },
   "đặt gần khu dân cư để rút ngắn quãng đường giao hàng chặng cuối": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/đặt gần khu dân cư để rút ngắn quãng đường giao hàng chặng cuối/",
-    "meaning_vi": "nghĩa trong bài đọc (đặt gần khu dân cư để rút ngắn quãng đường giao hàng chặng cuối)",
-    "example": "Example context: đặt gần khu dân cư để rút ngắn quãng đường giao hàng chặng cuối in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "đặt gần khu dân cư để rút ngắn quãng đường giao hàng chặng cuối",
+    "example": "Ngữ cảnh bài đọc: đặt gần khu dân cư để rút ngắn quãng đường giao hàng chặng cuối"
   },
   "informative": {
     "pos": "a",
@@ -1361,14 +1361,14 @@ const READING_WORDS_LEXICON = {
   "converse": {
     "pos": "Từ vựng (Word)",
     "ipa": "/converse/",
-    "meaning_vi": "nghĩa trong bài đọc (converse)",
-    "example": "Example context: converse in reading passage."
+    "meaning_vi": "trò chuyện",
+    "example": "Example sentence with converse in context."
   },
   "carve": {
     "pos": "Từ vựng (Word)",
     "ipa": "/carve/",
-    "meaning_vi": "nghĩa trong bài đọc (carve)",
-    "example": "Example context: carve in reading passage."
+    "meaning_vi": "khắc",
+    "example": "Example sentence with carve in context."
   },
   "independent": {
     "pos": "Tính từ (Adjective)",
@@ -1379,8 +1379,8 @@ const READING_WORDS_LEXICON = {
   "efficient": {
     "pos": "Từ vựng (Word)",
     "ipa": "/efficient/",
-    "meaning_vi": "nghĩa trong bài đọc (efficient)",
-    "example": "Example context: efficient in reading passage."
+    "meaning_vi": "có hiệu quả",
+    "example": "Example sentence with efficient in context."
   },
   "pollute": {
     "pos": "Động từ (Verb)",
@@ -1397,8 +1397,8 @@ const READING_WORDS_LEXICON = {
   "replenish": {
     "pos": "Từ vựng (Word)",
     "ipa": "/replenish/",
-    "meaning_vi": "nghĩa trong bài đọc (replenish)",
-    "example": "Example context: replenish in reading passage."
+    "meaning_vi": "bổ sung",
+    "example": "Example sentence with replenish in context."
   },
   "offend": {
     "pos": "Động từ (Verb)",
@@ -1409,26 +1409,26 @@ const READING_WORDS_LEXICON = {
   "erode": {
     "pos": "Từ vựng (Word)",
     "ipa": "/erode/",
-    "meaning_vi": "nghĩa trong bài đọc (erode)",
-    "example": "Example context: erode in reading passage."
+    "meaning_vi": "ăn mòn",
+    "example": "Example sentence with erode in context."
   },
   "secure": {
     "pos": "Từ vựng (Word)",
     "ipa": "/secure/",
-    "meaning_vi": "nghĩa trong bài đọc (secure)",
-    "example": "Example context: secure in reading passage."
+    "meaning_vi": "chắc chắn",
+    "example": "Example sentence with secure in context."
   },
   "coordinate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/coordinate/",
-    "meaning_vi": "nghĩa trong bài đọc (coordinate)",
-    "example": "Example context: coordinate in reading passage."
+    "meaning_vi": "điều phối",
+    "example": "Example sentence with coordinate in context."
   },
   "thrive": {
     "pos": "Từ vựng (Word)",
     "ipa": "/thrive/",
-    "meaning_vi": "nghĩa trong bài đọc (thrive)",
-    "example": "Example context: thrive in reading passage."
+    "meaning_vi": "phát triển mạnh",
+    "example": "Example sentence with thrive in context."
   },
   "generate": {
     "pos": "Động từ (Verb)",
@@ -1439,8 +1439,8 @@ const READING_WORDS_LEXICON = {
   "deploy": {
     "pos": "Từ vựng (Word)",
     "ipa": "/deploy/",
-    "meaning_vi": "nghĩa trong bài đọc (deploy)",
-    "example": "Example context: deploy in reading passage."
+    "meaning_vi": "triển khai",
+    "example": "Example sentence with deploy in context."
   },
   "distinguish": {
     "pos": "Động từ (Verb)",
@@ -1451,20 +1451,20 @@ const READING_WORDS_LEXICON = {
   "stimuli": {
     "pos": "Từ vựng (Word)",
     "ipa": "/stimuli/",
-    "meaning_vi": "nghĩa trong bài đọc (stimuli)",
-    "example": "Example context: stimuli in reading passage."
+    "meaning_vi": "kích thích",
+    "example": "Example sentence with stimuli in context."
   },
   "harvest": {
     "pos": "Từ vựng (Word)",
     "ipa": "/harvest/",
-    "meaning_vi": "nghĩa trong bài đọc (harvest)",
-    "example": "Example context: harvest in reading passage."
+    "meaning_vi": "mùa gặt",
+    "example": "Example sentence with harvest in context."
   },
   "connect": {
     "pos": "Từ vựng (Word)",
     "ipa": "/connect/",
-    "meaning_vi": "nghĩa trong bài đọc (connect)",
-    "example": "Example context: connect in reading passage."
+    "meaning_vi": "kết nối",
+    "example": "Example sentence with connect in context."
   },
   "toxic": {
     "pos": "Tính từ (Adjective)",
@@ -1475,62 +1475,62 @@ const READING_WORDS_LEXICON = {
   "conserve": {
     "pos": "Từ vựng (Word)",
     "ipa": "/conserve/",
-    "meaning_vi": "nghĩa trong bài đọc (conserve)",
-    "example": "Example context: conserve in reading passage."
+    "meaning_vi": "bảo tồn",
+    "example": "Example sentence with conserve in context."
   },
   "slash": {
     "pos": "Từ vựng (Word)",
     "ipa": "/slash/",
-    "meaning_vi": "nghĩa trong bài đọc (slash)",
-    "example": "Example context: slash in reading passage."
+    "meaning_vi": "gạch chéo",
+    "example": "Example sentence with slash in context."
   },
   "fertile": {
     "pos": "Từ vựng (Word)",
     "ipa": "/fertile/",
-    "meaning_vi": "nghĩa trong bài đọc (fertile)",
-    "example": "Example context: fertile in reading passage."
+    "meaning_vi": "màu mỡ",
+    "example": "Example sentence with fertile in context."
   },
   "discarding": {
     "pos": "Từ vựng (Word)",
     "ipa": "/discarding/",
-    "meaning_vi": "nghĩa trong bài đọc (discarding)",
-    "example": "Example context: discarding in reading passage."
+    "meaning_vi": "vứt bỏ",
+    "example": "Example sentence with discarding in context."
   },
   "bỏ cuộc ngay khi gặp khó khăn": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/bỏ cuộc ngay khi gặp khó khăn/",
-    "meaning_vi": "nghĩa trong bài đọc (bỏ cuộc ngay khi gặp khó khăn)",
-    "example": "Example context: bỏ cuộc ngay khi gặp khó khăn in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "bỏ cuộc ngay khi gặp khó khăn",
+    "example": "Ngữ cảnh bài đọc: bỏ cuộc ngay khi gặp khó khăn"
   },
   "counterfeit": {
     "pos": "Từ vựng (Word)",
     "ipa": "/counterfeit/",
-    "meaning_vi": "nghĩa trong bài đọc (counterfeit)",
-    "example": "Example context: counterfeit in reading passage."
+    "meaning_vi": "giả mạo",
+    "example": "Example sentence with counterfeit in context."
   },
   "reframe": {
     "pos": "Từ vựng (Word)",
     "ipa": "/reframe/",
-    "meaning_vi": "nghĩa trong bài đọc (reframe)",
-    "example": "Example context: reframe in reading passage."
+    "meaning_vi": "điều chỉnh lại",
+    "example": "Example sentence with reframe in context."
   },
   "khi đang ăn sáng": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/khi đang ăn sáng/",
-    "meaning_vi": "nghĩa trong bài đọc (khi đang ăn sáng)",
-    "example": "Example context: khi đang ăn sáng in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "khi đang ăn sáng",
+    "example": "Ngữ cảnh bài đọc: khi đang ăn sáng"
   },
   "uplifting": {
     "pos": "Từ vựng (Word)",
     "ipa": "/uplifting/",
-    "meaning_vi": "nghĩa trong bài đọc (uplifting)",
-    "example": "Example context: uplifting in reading passage."
+    "meaning_vi": "nâng cao tinh thần",
+    "example": "Example sentence with uplifting in context."
   },
   "nguy cơ tai nạn giao thông do xe tải giao hàng": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/nguy cơ tai nạn giao thông do xe tải giao hàng/",
-    "meaning_vi": "nghĩa trong bài đọc (nguy cơ tai nạn giao thông do xe tải giao hàng)",
-    "example": "Example context: nguy cơ tai nạn giao thông do xe tải giao hàng in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "nguy cơ tai nạn giao thông do xe tải giao hàng",
+    "example": "Ngữ cảnh bài đọc: nguy cơ tai nạn giao thông do xe tải giao hàng"
   },
   "deteriorate": {
     "pos": "Động từ (Verb)",
@@ -1539,16 +1539,16 @@ const READING_WORDS_LEXICON = {
     "example": "Without regular maintenance, historical buildings deteriorate rapidly."
   },
   "bố mẹ anh ấy": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/bố mẹ anh ấy/",
-    "meaning_vi": "nghĩa trong bài đọc (bố mẹ anh ấy)",
-    "example": "Example context: bố mẹ anh ấy in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "bố mẹ anh ấy",
+    "example": "Ngữ cảnh bài đọc: bố mẹ anh ấy"
   },
   "weakness": {
     "pos": "Từ vựng (Word)",
     "ipa": "/weakness/",
-    "meaning_vi": "nghĩa trong bài đọc (weakness)",
-    "example": "Example context: weakness in reading passage."
+    "meaning_vi": "điểm yếu",
+    "example": "Example sentence with weakness in context."
   },
   "biased": {
     "pos": "Tính từ (Adjective)",
@@ -1559,8 +1559,8 @@ const READING_WORDS_LEXICON = {
   "concentrate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/concentrate/",
-    "meaning_vi": "nghĩa trong bài đọc (concentrate)",
-    "example": "Example context: concentrate in reading passage."
+    "meaning_vi": "tập trung",
+    "example": "Example sentence with concentrate in context."
   },
   "persevere": {
     "pos": "Động từ (Verb)",
@@ -1571,8 +1571,8 @@ const READING_WORDS_LEXICON = {
   "ignite": {
     "pos": "Từ vựng (Word)",
     "ipa": "/ignite/",
-    "meaning_vi": "nghĩa trong bài đọc (ignite)",
-    "example": "Example context: ignite in reading passage."
+    "meaning_vi": "đốt cháy",
+    "example": "Example sentence with ignite in context."
   },
   "applaud": {
     "pos": "Động từ (Verb)",
@@ -1583,14 +1583,14 @@ const READING_WORDS_LEXICON = {
   "energized": {
     "pos": "Từ vựng (Word)",
     "ipa": "/energized/",
-    "meaning_vi": "nghĩa trong bài đọc (energized)",
-    "example": "Example context: energized in reading passage."
+    "meaning_vi": "tràn đầy năng lượng",
+    "example": "Example sentence with energized in context."
   },
   "anchor": {
     "pos": "Từ vựng (Word)",
     "ipa": "/anchor/",
-    "meaning_vi": "nghĩa trong bài đọc (anchor)",
-    "example": "Example context: anchor in reading passage."
+    "meaning_vi": "neo",
+    "example": "Example sentence with anchor in context."
   },
   "exploit": {
     "pos": "Động từ (Verb)",
@@ -1607,20 +1607,20 @@ const READING_WORDS_LEXICON = {
   "innovate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/innovate/",
-    "meaning_vi": "nghĩa trong bài đọc (innovate)",
-    "example": "Example context: innovate in reading passage."
+    "meaning_vi": "đổi mới",
+    "example": "Example sentence with innovate in context."
   },
   "hostile": {
     "pos": "Từ vựng (Word)",
     "ipa": "/hostile/",
-    "meaning_vi": "nghĩa trong bài đọc (hostile)",
-    "example": "Example context: hostile in reading passage."
+    "meaning_vi": "thù địch",
+    "example": "Example sentence with hostile in context."
   },
   "transformative": {
     "pos": "Từ vựng (Word)",
     "ipa": "/transformative/",
-    "meaning_vi": "nghĩa trong bài đọc (transformative)",
-    "example": "Example context: transformative in reading passage."
+    "meaning_vi": "biến đổi",
+    "example": "Example sentence with transformative in context."
   },
   "profound": {
     "pos": "Tính từ (Adjective)",
@@ -1649,74 +1649,74 @@ const READING_WORDS_LEXICON = {
   "insure": {
     "pos": "Từ vựng (Word)",
     "ipa": "/insure/",
-    "meaning_vi": "nghĩa trong bài đọc (insure)",
-    "example": "Example context: insure in reading passage."
+    "meaning_vi": "bảo hiểm",
+    "example": "Example sentence with insure in context."
   },
   "productive": {
     "pos": "Từ vựng (Word)",
     "ipa": "/productive/",
-    "meaning_vi": "nghĩa trong bài đọc (productive)",
-    "example": "Example context: productive in reading passage."
+    "meaning_vi": "năng suất",
+    "example": "Example sentence with productive in context."
   },
   "regulate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/regulate/",
-    "meaning_vi": "nghĩa trong bài đọc (regulate)",
-    "example": "Example context: regulate in reading passage."
+    "meaning_vi": "điều tiết",
+    "example": "Example sentence with regulate in context."
   },
   "extrude": {
     "pos": "Từ vựng (Word)",
     "ipa": "/extrude/",
-    "meaning_vi": "nghĩa trong bài đọc (extrude)",
-    "example": "Example context: extrude in reading passage."
+    "meaning_vi": "đùn ra",
+    "example": "Example sentence with extrude in context."
   },
   "motivate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/motivate/",
-    "meaning_vi": "nghĩa trong bài đọc (motivate)",
-    "example": "Example context: motivate in reading passage."
+    "meaning_vi": "động viên",
+    "example": "Example sentence with motivate in context."
   },
   "revolutionary": {
     "pos": "Từ vựng (Word)",
     "ipa": "/revolutionary/",
-    "meaning_vi": "nghĩa trong bài đọc (revolutionary)",
-    "example": "Example context: revolutionary in reading passage."
+    "meaning_vi": "mang tính cách mạng",
+    "example": "Example sentence with revolutionary in context."
   },
   "irrational": {
     "pos": "Từ vựng (Word)",
     "ipa": "/irrational/",
-    "meaning_vi": "nghĩa trong bài đọc (irrational)",
-    "example": "Example context: irrational in reading passage."
+    "meaning_vi": "phi lý",
+    "example": "Example sentence with irrational in context."
   },
   "golden": {
     "pos": "Từ vựng (Word)",
     "ipa": "/golden/",
-    "meaning_vi": "nghĩa trong bài đọc (golden)",
-    "example": "Example context: golden in reading passage."
+    "meaning_vi": "vàng",
+    "example": "Example sentence with golden in context."
   },
   "regenerate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/regenerate/",
-    "meaning_vi": "nghĩa trong bài đọc (regenerate)",
-    "example": "Example context: regenerate in reading passage."
+    "meaning_vi": "tái sinh",
+    "example": "Example sentence with regenerate in context."
   },
   "tuyển dụng tài xế": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/tuyển dụng tài xế/",
-    "meaning_vi": "nghĩa trong bài đọc (tuyển dụng tài xế)",
-    "example": "Example context: tuyển dụng tài xế in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "tuyển dụng tài xế",
+    "example": "Ngữ cảnh bài đọc: tuyển dụng tài xế"
   },
   "refuse": {
     "pos": "Từ vựng (Word)",
     "ipa": "/refuse/",
-    "meaning_vi": "nghĩa trong bài đọc (refuse)",
-    "example": "Example context: refuse in reading passage."
+    "meaning_vi": "từ chối",
+    "example": "Example sentence with refuse in context."
   },
   "chiến lược logistics xanh nhằm phát triển thương mại điện tử bền vững": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/chiến lược logistics xanh nhằm phát triển thương mại điện tử bền vững/",
-    "meaning_vi": "nghĩa trong bài đọc (chiến lược logistics xanh nhằm phát triển thương mại điện tử bền vững)",
-    "example": "Example context: chiến lược logistics xanh nhằm phát triển thương mại điện tử bền vững in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "chiến lược logistics xanh nhằm phát triển thương mại điện tử bền vững",
+    "example": "Ngữ cảnh bài đọc: chiến lược logistics xanh nhằm phát triển thương mại điện tử bền vững"
   },
   "conflict": {
     "pos": "Danh từ (Noun)",
@@ -1727,38 +1727,38 @@ const READING_WORDS_LEXICON = {
   "destabilize": {
     "pos": "Từ vựng (Word)",
     "ipa": "/destabilize/",
-    "meaning_vi": "nghĩa trong bài đọc (destabilize)",
-    "example": "Example context: destabilize in reading passage."
+    "meaning_vi": "làm mất ổn định",
+    "example": "Example sentence with destabilize in context."
   },
   "invite": {
     "pos": "Từ vựng (Word)",
     "ipa": "/invite/",
-    "meaning_vi": "nghĩa trong bài đọc (invite)",
-    "example": "Example context: invite in reading passage."
+    "meaning_vi": "mời",
+    "example": "Example sentence with invite in context."
   },
   "tránh né hoàn toàn mọi thử thách": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/tránh né hoàn toàn mọi thử thách/",
-    "meaning_vi": "nghĩa trong bài đọc (tránh né hoàn toàn mọi thử thách)",
-    "example": "Example context: tránh né hoàn toàn mọi thử thách in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "tránh né hoàn toàn mọi thử thách",
+    "example": "Ngữ cảnh bài đọc: tránh né hoàn toàn mọi thử thách"
   },
   "compound": {
     "pos": "Từ vựng (Word)",
     "ipa": "/compound/",
-    "meaning_vi": "nghĩa trong bài đọc (compound)",
-    "example": "Example context: compound in reading passage."
+    "meaning_vi": "hợp chất",
+    "example": "Example sentence with compound in context."
   },
   "melt": {
     "pos": "Từ vựng (Word)",
     "ipa": "/melt/",
-    "meaning_vi": "nghĩa trong bài đọc (melt)",
-    "example": "Example context: melt in reading passage."
+    "meaning_vi": "tan chảy",
+    "example": "Example sentence with melt in context."
   },
   "optimal": {
     "pos": "Từ vựng (Word)",
     "ipa": "/optimal/",
-    "meaning_vi": "nghĩa trong bài đọc (optimal)",
-    "example": "Example context: optimal in reading passage."
+    "meaning_vi": "tối ưu",
+    "example": "Example sentence with optimal in context."
   },
   "turbulent": {
     "pos": "a",
@@ -1769,20 +1769,20 @@ const READING_WORDS_LEXICON = {
   "saline": {
     "pos": "Từ vựng (Word)",
     "ipa": "/saline/",
-    "meaning_vi": "nghĩa trong bài đọc (saline)",
-    "example": "Example context: saline in reading passage."
+    "meaning_vi": "nước muối",
+    "example": "Example sentence with saline in context."
   },
   "ergonomic": {
     "pos": "Từ vựng (Word)",
     "ipa": "/ergonomic/",
-    "meaning_vi": "nghĩa trong bài đọc (ergonomic)",
-    "example": "Example context: ergonomic in reading passage."
+    "meaning_vi": "công thái học",
+    "example": "Example sentence with ergonomic in context."
   },
   "rigid": {
     "pos": "Từ vựng (Word)",
     "ipa": "/rigid/",
-    "meaning_vi": "nghĩa trong bài đọc (rigid)",
-    "example": "Example context: rigid in reading passage."
+    "meaning_vi": "cứng nhắc",
+    "example": "Example sentence with rigid in context."
   },
   "drop": {
     "pos": "Động từ (Verb)",
@@ -1793,14 +1793,14 @@ const READING_WORDS_LEXICON = {
   "dispense": {
     "pos": "Từ vựng (Word)",
     "ipa": "/dispense/",
-    "meaning_vi": "nghĩa trong bài đọc (dispense)",
-    "example": "Example context: dispense in reading passage."
+    "meaning_vi": "phân chia",
+    "example": "Example sentence with dispense in context."
   },
   "white": {
     "pos": "Từ vựng (Word)",
     "ipa": "/white/",
-    "meaning_vi": "nghĩa trong bài đọc (white)",
-    "example": "Example context: white in reading passage."
+    "meaning_vi": "trắng",
+    "example": "Example sentence with white in context."
   },
   "damage": {
     "pos": "Động từ (Verb)",
@@ -1809,22 +1809,22 @@ const READING_WORDS_LEXICON = {
     "example": "Chronic stress can damage cognitive performance."
   },
   "fulfilling": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/fulfilling/",
-    "meaning_vi": "nghĩa trong bài đọc (fulfilling)",
-    "example": "Example context: fulfilling in reading passage."
+    "pos": "adjective",
+    "ipa": "/fʊlˈfɪlɪŋ/",
+    "meaning_vi": "Đem lại sự mãn nguyện, ý nghĩa",
+    "example": "Example context with fulfilling."
   },
   "ethical": {
     "pos": "Từ vựng (Word)",
     "ipa": "/ethical/",
-    "meaning_vi": "nghĩa trong bài đọc (ethical)",
-    "example": "Example context: ethical in reading passage."
+    "meaning_vi": "đạo đức",
+    "example": "Example sentence with ethical in context."
   },
   "cách dọn dẹp căn gác xép bừa bộn": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/cách dọn dẹp căn gác xép bừa bộn/",
-    "meaning_vi": "nghĩa trong bài đọc (cách dọn dẹp căn gác xép bừa bộn)",
-    "example": "Example context: cách dọn dẹp căn gác xép bừa bộn in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "cách dọn dẹp căn gác xép bừa bộn",
+    "example": "Ngữ cảnh bài đọc: cách dọn dẹp căn gác xép bừa bộn"
   },
   "distribute": {
     "pos": "Động từ (Verb)",
@@ -1835,98 +1835,98 @@ const READING_WORDS_LEXICON = {
   "deconstruct": {
     "pos": "Từ vựng (Word)",
     "ipa": "/deconstruct/",
-    "meaning_vi": "nghĩa trong bài đọc (deconstruct)",
-    "example": "Example context: deconstruct in reading passage."
+    "meaning_vi": "giải cấu trúc",
+    "example": "Example sentence with deconstruct in context."
   },
   "circulate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/circulate/",
-    "meaning_vi": "nghĩa trong bài đọc (circulate)",
-    "example": "Example context: circulate in reading passage."
+    "meaning_vi": "lưu thông",
+    "example": "Example sentence with circulate in context."
   },
   "groundbreaking": {
     "pos": "Từ vựng (Word)",
     "ipa": "/groundbreaking/",
-    "meaning_vi": "nghĩa trong bài đọc (groundbreaking)",
-    "example": "Example context: groundbreaking in reading passage."
+    "meaning_vi": "đột phá",
+    "example": "Example sentence with groundbreaking in context."
   },
   "observe": {
     "pos": "Từ vựng (Word)",
     "ipa": "/observe/",
-    "meaning_vi": "nghĩa trong bài đọc (observe)",
-    "example": "Example context: observe in reading passage."
+    "meaning_vi": "quan sát",
+    "example": "Example sentence with observe in context."
   },
   "một người thợ mộc": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/một người thợ mộc/",
-    "meaning_vi": "nghĩa trong bài đọc (một người thợ mộc)",
-    "example": "Example context: một người thợ mộc in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "một người thợ mộc",
+    "example": "Ngữ cảnh bài đọc: một người thợ mộc"
   },
   "target": {
     "pos": "Từ vựng (Word)",
     "ipa": "/target/",
-    "meaning_vi": "nghĩa trong bài đọc (target)",
-    "example": "Example context: target in reading passage."
+    "meaning_vi": "mục tiêu",
+    "example": "Example sentence with target in context."
   },
   "thriving": {
     "pos": "Từ vựng (Word)",
     "ipa": "/thriving/",
-    "meaning_vi": "nghĩa trong bài đọc (thriving)",
-    "example": "Example context: thriving in reading passage."
+    "meaning_vi": "thịnh vượng",
+    "example": "Example sentence with thriving in context."
   },
   "claustrophobic": {
     "pos": "Từ vựng (Word)",
     "ipa": "/claustrophobic/",
-    "meaning_vi": "nghĩa trong bài đọc (claustrophobic)",
-    "example": "Example context: claustrophobic in reading passage."
+    "meaning_vi": "ngột ngạt",
+    "example": "Example sentence with claustrophobic in context."
   },
   "trình bày hiện tượng tẩy trắng san hô và các giải pháp bảo vệ hệ sinh thái biển": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/trình bày hiện tượng tẩy trắng san hô và các giải pháp bảo vệ hệ sinh thái biển/",
-    "meaning_vi": "nghĩa trong bài đọc (trình bày hiện tượng tẩy trắng san hô và các giải pháp bảo vệ hệ sinh thái biển)",
-    "example": "Example context: trình bày hiện tượng tẩy trắng san hô và các giải pháp bảo vệ hệ sinh thái biển in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "trình bày hiện tượng tẩy trắng san hô và các giải pháp bảo vệ hệ sinh thái biển",
+    "example": "Ngữ cảnh bài đọc: trình bày hiện tượng tẩy trắng san hô và các giải pháp bảo vệ hệ sinh thái biển"
   },
   "capture": {
     "pos": "Từ vựng (Word)",
     "ipa": "/capture/",
-    "meaning_vi": "nghĩa trong bài đọc (capture)",
-    "example": "Example context: capture in reading passage."
+    "meaning_vi": "chiếm lấy",
+    "example": "Example sentence with capture in context."
   },
   "guarantee": {
     "pos": "Từ vựng (Word)",
     "ipa": "/guarantee/",
-    "meaning_vi": "nghĩa trong bài đọc (guarantee)",
-    "example": "Example context: guarantee in reading passage."
+    "meaning_vi": "bảo đảm",
+    "example": "Example sentence with guarantee in context."
   },
   "hazardous": {
     "pos": "Từ vựng (Word)",
     "ipa": "/hazardous/",
-    "meaning_vi": "nghĩa trong bài đọc (hazardous)",
-    "example": "Example context: hazardous in reading passage."
+    "meaning_vi": "nguy hiểm",
+    "example": "Example sentence with hazardous in context."
   },
   "cách buôn bán đồ cũ sinh lời": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/cách buôn bán đồ cũ sinh lời/",
-    "meaning_vi": "nghĩa trong bài đọc (cách buôn bán đồ cũ sinh lời)",
-    "example": "Example context: cách buôn bán đồ cũ sinh lời in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "cách buôn bán đồ cũ sinh lời",
+    "example": "Ngữ cảnh bài đọc: cách buôn bán đồ cũ sinh lời"
   },
   "produce": {
     "pos": "Từ vựng (Word)",
     "ipa": "/produce/",
-    "meaning_vi": "nghĩa trong bài đọc (produce)",
-    "example": "Example context: produce in reading passage."
+    "meaning_vi": "sản xuất",
+    "example": "Example sentence with produce in context."
   },
   "sự thất bại của các cửa hàng truyền thống": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/sự thất bại của các cửa hàng truyền thống/",
-    "meaning_vi": "nghĩa trong bài đọc (sự thất bại của các cửa hàng truyền thống)",
-    "example": "Example context: sự thất bại của các cửa hàng truyền thống in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "sự thất bại của các cửa hàng truyền thống",
+    "example": "Ngữ cảnh bài đọc: sự thất bại của các cửa hàng truyền thống"
   },
   "tủy sống": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/tủy sống/",
-    "meaning_vi": "nghĩa trong bài đọc (tủy sống)",
-    "example": "Example context: tủy sống in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "tủy sống",
+    "example": "Ngữ cảnh bài đọc: tủy sống"
   },
   "sustainable": {
     "pos": "Tính từ (Adjective)",
@@ -1937,8 +1937,8 @@ const READING_WORDS_LEXICON = {
   "democratize": {
     "pos": "Từ vựng (Word)",
     "ipa": "/democratize/",
-    "meaning_vi": "nghĩa trong bài đọc (democratize)",
-    "example": "Example context: democratize in reading passage."
+    "meaning_vi": "dân chủ hóa",
+    "example": "Example sentence with democratize in context."
   },
   "consume": {
     "pos": "Động từ (Verb)",
@@ -1949,8 +1949,8 @@ const READING_WORDS_LEXICON = {
   "curtail": {
     "pos": "Từ vựng (Word)",
     "ipa": "/curtail/",
-    "meaning_vi": "nghĩa trong bài đọc (curtail)",
-    "example": "Example context: curtail in reading passage."
+    "meaning_vi": "cắt bớt",
+    "example": "Example sentence with curtail in context."
   },
   "acquire": {
     "pos": "Động từ (Verb)",
@@ -1961,32 +1961,32 @@ const READING_WORDS_LEXICON = {
   "protected by": {
     "pos": "Từ vựng (Word)",
     "ipa": "/protected by/",
-    "meaning_vi": "nghĩa trong bài đọc (protected by)",
-    "example": "Example context: protected by in reading passage."
+    "meaning_vi": "được bảo vệ bởi",
+    "example": "Example sentence with protected by in context."
   },
   "fertilize": {
     "pos": "Từ vựng (Word)",
     "ipa": "/fertilize/",
-    "meaning_vi": "nghĩa trong bài đọc (fertilize)",
-    "example": "Example context: fertilize in reading passage."
+    "meaning_vi": "bón phân",
+    "example": "Example sentence with fertilize in context."
   },
   "hippocampus (vùng hải mã)": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/hippocampus (vùng hải mã)/",
-    "meaning_vi": "nghĩa trong bài đọc (hippocampus (vùng hải mã))",
-    "example": "Example context: hippocampus (vùng hải mã) in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "hippocampus (vùng hải mã)",
+    "example": "Ngữ cảnh bài đọc: hippocampus (vùng hải mã)"
   },
   "prohibitive": {
     "pos": "Từ vựng (Word)",
     "ipa": "/prohibitive/",
-    "meaning_vi": "nghĩa trong bài đọc (prohibitive)",
-    "example": "Example context: prohibitive in reading passage."
+    "meaning_vi": "cấm đoán",
+    "example": "Example sentence with prohibitive in context."
   },
   "stagnate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/stagnate/",
-    "meaning_vi": "nghĩa trong bài đọc (stagnate)",
-    "example": "Example context: stagnate in reading passage."
+    "meaning_vi": "trì trệ",
+    "example": "Example sentence with stagnate in context."
   },
   "painful": {
     "pos": "a",
@@ -1997,20 +1997,20 @@ const READING_WORDS_LEXICON = {
   "fragmented": {
     "pos": "Từ vựng (Word)",
     "ipa": "/fragmented/",
-    "meaning_vi": "nghĩa trong bài đọc (fragmented)",
-    "example": "Example context: fragmented in reading passage."
+    "meaning_vi": "bị phân mảnh",
+    "example": "Example sentence with fragmented in context."
   },
   "forget": {
     "pos": "Từ vựng (Word)",
     "ipa": "/forget/",
-    "meaning_vi": "nghĩa trong bài đọc (forget)",
-    "example": "Example context: forget in reading passage."
+    "meaning_vi": "quên",
+    "example": "Example sentence with forget in context."
   },
   "bay qua các tòa nhà cao tầng": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/bay qua các tòa nhà cao tầng/",
-    "meaning_vi": "nghĩa trong bài đọc (bay qua các tòa nhà cao tầng)",
-    "example": "Example context: bay qua các tòa nhà cao tầng in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "bay qua các tòa nhà cao tầng",
+    "example": "Ngữ cảnh bài đọc: bay qua các tòa nhà cao tầng"
   },
   "refill": {
     "pos": "Động từ (Verb)",
@@ -2021,32 +2021,32 @@ const READING_WORDS_LEXICON = {
   "enroll": {
     "pos": "Từ vựng (Word)",
     "ipa": "/enroll/",
-    "meaning_vi": "nghĩa trong bài đọc (enroll)",
-    "example": "Example context: enroll in reading passage."
+    "meaning_vi": "tham gia",
+    "example": "Example sentence with enroll in context."
   },
   "delays (sự chậm trễ)": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/delays (sự chậm trễ)/",
-    "meaning_vi": "nghĩa trong bài đọc (delays (sự chậm trễ))",
-    "example": "Example context: delays (sự chậm trễ) in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "delays (sự chậm trễ)",
+    "example": "Ngữ cảnh bài đọc: delays (sự chậm trễ)"
   },
   "populate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/populate/",
-    "meaning_vi": "nghĩa trong bài đọc (populate)",
-    "example": "Example context: populate in reading passage."
+    "meaning_vi": "cư trú",
+    "example": "Example sentence with populate in context."
   },
   "soothing": {
     "pos": "Từ vựng (Word)",
     "ipa": "/soothing/",
-    "meaning_vi": "nghĩa trong bài đọc (soothing)",
-    "example": "Example context: soothing in reading passage."
+    "meaning_vi": "êm dịu",
+    "example": "Example sentence with soothing in context."
   },
   "colonize": {
     "pos": "Từ vựng (Word)",
     "ipa": "/colonize/",
-    "meaning_vi": "nghĩa trong bài đọc (colonize)",
-    "example": "Example context: colonize in reading passage."
+    "meaning_vi": "thuộc địa hóa",
+    "example": "Example sentence with colonize in context."
   },
   "analyze": {
     "pos": "Động từ (Verb)",
@@ -2057,8 +2057,8 @@ const READING_WORDS_LEXICON = {
   "interpret": {
     "pos": "Từ vựng (Word)",
     "ipa": "/interpret/",
-    "meaning_vi": "nghĩa trong bài đọc (interpret)",
-    "example": "Example context: interpret in reading passage."
+    "meaning_vi": "diễn giải",
+    "example": "Example sentence with interpret in context."
   },
   "accelerate": {
     "pos": "Động từ (Verb)",
@@ -2075,14 +2075,14 @@ const READING_WORDS_LEXICON = {
   "disorient": {
     "pos": "Từ vựng (Word)",
     "ipa": "/disorient/",
-    "meaning_vi": "nghĩa trong bài đọc (disorient)",
-    "example": "Example context: disorient in reading passage."
+    "meaning_vi": "mất phương hướng",
+    "example": "Example sentence with disorient in context."
   },
   "belong": {
     "pos": "Từ vựng (Word)",
     "ipa": "/belong/",
-    "meaning_vi": "nghĩa trong bài đọc (belong)",
-    "example": "Example context: belong in reading passage."
+    "meaning_vi": "thuộc về",
+    "example": "Example sentence with belong in context."
   },
   "monitor": {
     "pos": "Động từ (Verb)",
@@ -2097,10 +2097,10 @@ const READING_WORDS_LEXICON = {
     "example": ""
   },
   "trong giấc ngủ sóng chậm sâu (slow-wave deep sleep)": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/trong giấc ngủ sóng chậm sâu (slow-wave deep sleep)/",
-    "meaning_vi": "nghĩa trong bài đọc (trong giấc ngủ sóng chậm sâu (slow-wave deep sleep))",
-    "example": "Example context: trong giấc ngủ sóng chậm sâu (slow-wave deep sleep) in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "trong giấc ngủ sóng chậm sâu (slow-wave deep sleep)",
+    "example": "Ngữ cảnh bài đọc: trong giấc ngủ sóng chậm sâu (slow-wave deep sleep)"
   },
   "fascinating": {
     "pos": "a",
@@ -2117,74 +2117,74 @@ const READING_WORDS_LEXICON = {
   "encrypt": {
     "pos": "Từ vựng (Word)",
     "ipa": "/encrypt/",
-    "meaning_vi": "nghĩa trong bài đọc (encrypt)",
-    "example": "Example context: encrypt in reading passage."
+    "meaning_vi": "mã hóa",
+    "example": "Example sentence with encrypt in context."
   },
   "deflect": {
     "pos": "Từ vựng (Word)",
     "ipa": "/deflect/",
-    "meaning_vi": "nghĩa trong bài đọc (deflect)",
-    "example": "Example context: deflect in reading passage."
+    "meaning_vi": "làm chệch hướng",
+    "example": "Example sentence with deflect in context."
   },
   "ingest": {
     "pos": "Từ vựng (Word)",
     "ipa": "/ingest/",
-    "meaning_vi": "nghĩa trong bài đọc (ingest)",
-    "example": "Example context: ingest in reading passage."
+    "meaning_vi": "nuốt vào",
+    "example": "Example sentence with ingest in context."
   },
   "trendy": {
     "pos": "Từ vựng (Word)",
     "ipa": "/trendy/",
-    "meaning_vi": "nghĩa trong bài đọc (trendy)",
-    "example": "Example context: trendy in reading passage."
+    "meaning_vi": "hợp thời trang",
+    "example": "Example sentence with trendy in context."
   },
   "rot": {
     "pos": "Từ vựng (Word)",
     "ipa": "/rot/",
-    "meaning_vi": "nghĩa trong bài đọc (rot)",
-    "example": "Example context: rot in reading passage."
+    "meaning_vi": "thối rữa",
+    "example": "Example sentence with rot in context."
   },
   "streamline": {
     "pos": "Từ vựng (Word)",
     "ipa": "/streamline/",
-    "meaning_vi": "nghĩa trong bài đọc (streamline)",
-    "example": "Example context: streamline in reading passage."
+    "meaning_vi": "sắp xếp hợp lý",
+    "example": "Example sentence with streamline in context."
   },
   "harmful": {
     "pos": "Từ vựng (Word)",
     "ipa": "/harmful/",
-    "meaning_vi": "nghĩa trong bài đọc (harmful)",
-    "example": "Example context: harmful in reading passage."
+    "meaning_vi": "có hại",
+    "example": "Example sentence with harmful in context."
   },
   "khẳng định ai sẽ thay thế 100% người lao động": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/khẳng định ai sẽ thay thế 100% người lao động/",
-    "meaning_vi": "nghĩa trong bài đọc (khẳng định ai sẽ thay thế 100% người lao động)",
-    "example": "Example context: khẳng định ai sẽ thay thế 100% người lao động in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "khẳng định ai sẽ thay thế 100% người lao động",
+    "example": "Ngữ cảnh bài đọc: khẳng định ai sẽ thay thế 100% người lao động"
   },
   "cơ hoành": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/cơ hoành/",
-    "meaning_vi": "nghĩa trong bài đọc (cơ hoành)",
-    "example": "Example context: cơ hoành in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "cơ hoành",
+    "example": "Ngữ cảnh bài đọc: cơ hoành"
   },
   "pristine": {
     "pos": "Từ vựng (Word)",
     "ipa": "/pristine/",
-    "meaning_vi": "nghĩa trong bài đọc (pristine)",
-    "example": "Example context: pristine in reading passage."
+    "meaning_vi": "nguyên sơ",
+    "example": "Example sentence with pristine in context."
   },
   "behold": {
     "pos": "Từ vựng (Word)",
     "ipa": "/behold/",
-    "meaning_vi": "nghĩa trong bài đọc (behold)",
-    "example": "Example context: behold in reading passage."
+    "meaning_vi": "kìa",
+    "example": "Example sentence with behold in context."
   },
   "treasuring / valuing (trân quý, nâng niu)": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/treasuring / valuing (trân quý, nâng niu)/",
-    "meaning_vi": "nghĩa trong bài đọc (treasuring / valuing (trân quý, nâng niu))",
-    "example": "Example context: treasuring / valuing (trân quý, nâng niu) in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "treasuring / valuing (trân quý, nâng niu)",
+    "example": "Ngữ cảnh bài đọc: treasuring / valuing (trân quý, nâng niu)"
   },
   "convenient": {
     "pos": "a",
@@ -2205,40 +2205,40 @@ const READING_WORDS_LEXICON = {
     "example": "Example context with Popular."
   },
   "chờ đợi sự may mắn ngẫu nhiên": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/chờ đợi sự may mắn ngẫu nhiên/",
-    "meaning_vi": "nghĩa trong bài đọc (chờ đợi sự may mắn ngẫu nhiên)",
-    "example": "Example context: chờ đợi sự may mắn ngẫu nhiên in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "chờ đợi sự may mắn ngẫu nhiên",
+    "example": "Ngữ cảnh bài đọc: chờ đợi sự may mắn ngẫu nhiên"
   },
   "miraculous": {
     "pos": "Từ vựng (Word)",
     "ipa": "/miraculous/",
-    "meaning_vi": "nghĩa trong bài đọc (miraculous)",
-    "example": "Example context: miraculous in reading passage."
+    "meaning_vi": "kỳ diệu",
+    "example": "Example sentence with miraculous in context."
   },
   "debilitating": {
     "pos": "Từ vựng (Word)",
     "ipa": "/debilitating/",
-    "meaning_vi": "nghĩa trong bài đọc (debilitating)",
-    "example": "Example context: debilitating in reading passage."
+    "meaning_vi": "làm suy nhược",
+    "example": "Example sentence with debilitating in context."
   },
   "mentor": {
     "pos": "Từ vựng (Word)",
     "ipa": "/mentor/",
-    "meaning_vi": "nghĩa trong bài đọc (mentor)",
-    "example": "Example context: mentor in reading passage."
+    "meaning_vi": "người hướng dẫn",
+    "example": "Example sentence with mentor in context."
   },
   "extinction": {
     "pos": "Từ vựng (Word)",
     "ipa": "/extinction/",
-    "meaning_vi": "nghĩa trong bài đọc (extinction)",
-    "example": "Example context: extinction in reading passage."
+    "meaning_vi": "sự tuyệt chủng",
+    "example": "Example sentence with extinction in context."
   },
   "indispensable": {
     "pos": "Từ vựng (Word)",
     "ipa": "/indispensable/",
-    "meaning_vi": "nghĩa trong bài đọc (indispensable)",
-    "example": "Example context: indispensable in reading passage."
+    "meaning_vi": "không thể thiếu",
+    "example": "Example sentence with indispensable in context."
   },
   "exchange": {
     "pos": "Danh từ (Noun)",
@@ -2255,26 +2255,26 @@ const READING_WORDS_LEXICON = {
   "isolation": {
     "pos": "Từ vựng (Word)",
     "ipa": "/isolation/",
-    "meaning_vi": "nghĩa trong bài đọc (isolation)",
-    "example": "Example context: isolation in reading passage."
+    "meaning_vi": "sự cách ly",
+    "example": "Example sentence with isolation in context."
   },
   "impair": {
     "pos": "Từ vựng (Word)",
     "ipa": "/impair/",
-    "meaning_vi": "nghĩa trong bài đọc (impair)",
-    "example": "Example context: impair in reading passage."
+    "meaning_vi": "làm suy yếu",
+    "example": "Example sentence with impair in context."
   },
   "famous": {
     "pos": "Từ vựng (Word)",
     "ipa": "/famous/",
-    "meaning_vi": "nghĩa trong bài đọc (famous)",
-    "example": "Example context: famous in reading passage."
+    "meaning_vi": "nổi tiếng",
+    "example": "Example sentence with famous in context."
   },
   "stripped of / lacking (bị tước đi, thiếu thốn)": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/stripped of / lacking (bị tước đi, thiếu thốn)/",
-    "meaning_vi": "nghĩa trong bài đọc (stripped of / lacking (bị tước đi, thiếu thốn))",
-    "example": "Example context: stripped of / lacking (bị tước đi, thiếu thốn) in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "stripped of / lacking (bị tước đi, thiếu thốn)",
+    "example": "Ngữ cảnh bài đọc: stripped of / lacking (bị tước đi, thiếu thốn)"
   },
   "chaotic": {
     "pos": "Tính từ (Adjective)",
@@ -2285,20 +2285,20 @@ const READING_WORDS_LEXICON = {
   "modulate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/modulate/",
-    "meaning_vi": "nghĩa trong bài đọc (modulate)",
-    "example": "Example context: modulate in reading passage."
+    "meaning_vi": "ngâm nga",
+    "example": "Example sentence with modulate in context."
   },
   "intercept": {
     "pos": "Từ vựng (Word)",
     "ipa": "/intercept/",
-    "meaning_vi": "nghĩa trong bài đọc (intercept)",
-    "example": "Example context: intercept in reading passage."
+    "meaning_vi": "chặn",
+    "example": "Example sentence with intercept in context."
   },
   "propel": {
     "pos": "Từ vựng (Word)",
     "ipa": "/propel/",
-    "meaning_vi": "nghĩa trong bài đọc (propel)",
-    "example": "Example context: propel in reading passage."
+    "meaning_vi": "đẩy",
+    "example": "Example sentence with propel in context."
   },
   "boredom": {
     "pos": "Danh từ (Noun)",
@@ -2309,38 +2309,38 @@ const READING_WORDS_LEXICON = {
   "seamless": {
     "pos": "Từ vựng (Word)",
     "ipa": "/seamless/",
-    "meaning_vi": "nghĩa trong bài đọc (seamless)",
-    "example": "Example context: seamless in reading passage."
+    "meaning_vi": "liền mạch",
+    "example": "Example sentence with seamless in context."
   },
   "lengthen": {
     "pos": "Từ vựng (Word)",
     "ipa": "/lengthen/",
-    "meaning_vi": "nghĩa trong bài đọc (lengthen)",
-    "example": "Example context: lengthen in reading passage."
+    "meaning_vi": "kéo dài ra",
+    "example": "Example sentence with lengthen in context."
   },
   "dangerous": {
     "pos": "Từ vựng (Word)",
     "ipa": "/dangerous/",
-    "meaning_vi": "nghĩa trong bài đọc (dangerous)",
-    "example": "Example context: dangerous in reading passage."
+    "meaning_vi": "nguy hiểm",
+    "example": "Example sentence with dangerous in context."
   },
   "audit": {
     "pos": "Từ vựng (Word)",
     "ipa": "/audit/",
-    "meaning_vi": "nghĩa trong bài đọc (audit)",
-    "example": "Example context: audit in reading passage."
+    "meaning_vi": "kiểm toán",
+    "example": "Example sentence with audit in context."
   },
   "anxious": {
     "pos": "Từ vựng (Word)",
     "ipa": "/anxious/",
-    "meaning_vi": "nghĩa trong bài đọc (anxious)",
-    "example": "Example context: anxious in reading passage."
+    "meaning_vi": "lo lắng",
+    "example": "Example sentence with anxious in context."
   },
   "shorten": {
     "pos": "Từ vựng (Word)",
     "ipa": "/shorten/",
-    "meaning_vi": "nghĩa trong bài đọc (shorten)",
-    "example": "Example context: shorten in reading passage."
+    "meaning_vi": "rút ngắn",
+    "example": "Example sentence with shorten in context."
   },
   "trigger": {
     "pos": "Động từ (Verb)",
@@ -2357,26 +2357,26 @@ const READING_WORDS_LEXICON = {
   "gather": {
     "pos": "Từ vựng (Word)",
     "ipa": "/gather/",
-    "meaning_vi": "nghĩa trong bài đọc (gather)",
-    "example": "Example context: gather in reading passage."
+    "meaning_vi": "tập trung",
+    "example": "Example sentence with gather in context."
   },
   "extract": {
     "pos": "Từ vựng (Word)",
     "ipa": "/extract/",
-    "meaning_vi": "nghĩa trong bài đọc (extract)",
-    "example": "Example context: extract in reading passage."
+    "meaning_vi": "chiết xuất",
+    "example": "Example sentence with extract in context."
   },
   "channel": {
     "pos": "Từ vựng (Word)",
     "ipa": "/channel/",
-    "meaning_vi": "nghĩa trong bài đọc (channel)",
-    "example": "Example context: channel in reading passage."
+    "meaning_vi": "kênh",
+    "example": "Example sentence with channel in context."
   },
   "resilient": {
     "pos": "Từ vựng (Word)",
     "ipa": "/resilient/",
-    "meaning_vi": "nghĩa trong bài đọc (resilient)",
-    "example": "Example context: resilient in reading passage."
+    "meaning_vi": "đàn hồi",
+    "example": "Example sentence with resilient in context."
   },
   "adapt": {
     "pos": "Động từ (Verb)",
@@ -2387,32 +2387,32 @@ const READING_WORDS_LEXICON = {
   "disrupt": {
     "pos": "Từ vựng (Word)",
     "ipa": "/disrupt/",
-    "meaning_vi": "nghĩa trong bài đọc (disrupt)",
-    "example": "Example context: disrupt in reading passage."
+    "meaning_vi": "làm gián đoạn",
+    "example": "Example sentence with disrupt in context."
   },
   "overwhelm": {
     "pos": "Từ vựng (Word)",
     "ipa": "/overwhelm/",
-    "meaning_vi": "nghĩa trong bài đọc (overwhelm)",
-    "example": "Example context: overwhelm in reading passage."
+    "meaning_vi": "áp đảo",
+    "example": "Example sentence with overwhelm in context."
   },
   "collapsible": {
     "pos": "Từ vựng (Word)",
     "ipa": "/collapsible/",
-    "meaning_vi": "nghĩa trong bài đọc (collapsible)",
-    "example": "Example context: collapsible in reading passage."
+    "meaning_vi": "có thể thu gọn",
+    "example": "Example sentence with collapsible in context."
   },
   "stimulate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/stimulate/",
-    "meaning_vi": "nghĩa trong bài đọc (stimulate)",
-    "example": "Example context: stimulate in reading passage."
+    "meaning_vi": "kích thích",
+    "example": "Example sentence with stimulate in context."
   },
   "perish": {
     "pos": "Từ vựng (Word)",
     "ipa": "/perish/",
-    "meaning_vi": "nghĩa trong bài đọc (perish)",
-    "example": "Example context: perish in reading passage."
+    "meaning_vi": "diệt vong",
+    "example": "Example sentence with perish in context."
   },
   "survey": {
     "pos": "Danh từ (Noun)",
@@ -2423,74 +2423,74 @@ const READING_WORDS_LEXICON = {
   "inferior": {
     "pos": "Từ vựng (Word)",
     "ipa": "/inferior/",
-    "meaning_vi": "nghĩa trong bài đọc (inferior)",
-    "example": "Example context: inferior in reading passage."
+    "meaning_vi": "kém cỏi",
+    "example": "Example sentence with inferior in context."
   },
   "thực tế và lạc quan, xem ai là công cụ hỗ trợ con người": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/thực tế và lạc quan, xem ai là công cụ hỗ trợ con người/",
-    "meaning_vi": "nghĩa trong bài đọc (thực tế và lạc quan, xem ai là công cụ hỗ trợ con người)",
-    "example": "Example context: thực tế và lạc quan, xem ai là công cụ hỗ trợ con người in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "thực tế và lạc quan, xem ai là công cụ hỗ trợ con người",
+    "example": "Ngữ cảnh bài đọc: thực tế và lạc quan, xem ai là công cụ hỗ trợ con người"
   },
   "recover": {
     "pos": "Từ vựng (Word)",
     "ipa": "/recover/",
-    "meaning_vi": "nghĩa trong bài đọc (recover)",
-    "example": "Example context: recover in reading passage."
+    "meaning_vi": "hồi phục",
+    "example": "Example sentence with recover in context."
   },
   "forestall": {
     "pos": "Từ vựng (Word)",
     "ipa": "/forestall/",
-    "meaning_vi": "nghĩa trong bài đọc (forestall)",
-    "example": "Example context: forestall in reading passage."
+    "meaning_vi": "chặn trước",
+    "example": "Example sentence with forestall in context."
   },
   "dark": {
     "pos": "Từ vựng (Word)",
     "ipa": "/dark/",
-    "meaning_vi": "nghĩa trong bài đọc (dark)",
-    "example": "Example context: dark in reading passage."
+    "meaning_vi": "tối tăm",
+    "example": "Example sentence with dark in context."
   },
   "benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)/",
-    "meaning_vi": "nghĩa trong bài đọc (benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài))",
-    "example": "Example context: benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài) in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+    "example": "Ngữ cảnh bài đọc: benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
   },
   "synthetic": {
     "pos": "Từ vựng (Word)",
     "ipa": "/synthetic/",
-    "meaning_vi": "nghĩa trong bài đọc (synthetic)",
-    "example": "Example context: synthetic in reading passage."
+    "meaning_vi": "tổng hợp",
+    "example": "Example sentence with synthetic in context."
   },
   "navigate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/navigate/",
-    "meaning_vi": "nghĩa trong bài đọc (navigate)",
-    "example": "Example context: navigate in reading passage."
+    "meaning_vi": "điều hướng",
+    "example": "Example sentence with navigate in context."
   },
   "collide": {
     "pos": "Từ vựng (Word)",
     "ipa": "/collide/",
-    "meaning_vi": "nghĩa trong bài đọc (collide)",
-    "example": "Example context: collide in reading passage."
+    "meaning_vi": "va chạm",
+    "example": "Example sentence with collide in context."
   },
   "print": {
     "pos": "Từ vựng (Word)",
     "ipa": "/print/",
-    "meaning_vi": "nghĩa trong bài đọc (print)",
-    "example": "Example context: print in reading passage."
+    "meaning_vi": "in",
+    "example": "Example sentence with print in context."
   },
   "sorrow": {
     "pos": "Từ vựng (Word)",
     "ipa": "/sorrow/",
-    "meaning_vi": "nghĩa trong bài đọc (sorrow)",
-    "example": "Example context: sorrow in reading passage."
+    "meaning_vi": "nỗi buồn",
+    "example": "Example sentence with sorrow in context."
   },
   "provided with": {
     "pos": "Từ vựng (Word)",
     "ipa": "/provided with/",
-    "meaning_vi": "nghĩa trong bài đọc (provided with)",
-    "example": "Example context: provided with in reading passage."
+    "meaning_vi": "được cung cấp với",
+    "example": "Example sentence with provided with in context."
   },
   "furious": {
     "pos": "a",
@@ -2501,8 +2501,8 @@ const READING_WORDS_LEXICON = {
   "strained": {
     "pos": "Từ vựng (Word)",
     "ipa": "/strained/",
-    "meaning_vi": "nghĩa trong bài đọc (strained)",
-    "example": "Example context: strained in reading passage."
+    "meaning_vi": "căng",
+    "example": "Example sentence with strained in context."
   },
   "inspire": {
     "pos": "Động từ (Verb)",
@@ -2513,140 +2513,140 @@ const READING_WORDS_LEXICON = {
   "withstand": {
     "pos": "Từ vựng (Word)",
     "ipa": "/withstand/",
-    "meaning_vi": "nghĩa trong bài đọc (withstand)",
-    "example": "Example context: withstand in reading passage."
+    "meaning_vi": "chịu đựng được",
+    "example": "Example sentence with withstand in context."
   },
   "fluent": {
     "pos": "Từ vựng (Word)",
     "ipa": "/fluent/",
-    "meaning_vi": "nghĩa trong bài đọc (fluent)",
-    "example": "Example context: fluent in reading passage."
+    "meaning_vi": "thông thạo",
+    "example": "Example sentence with fluent in context."
   },
   "trap": {
     "pos": "Từ vựng (Word)",
     "ipa": "/trap/",
-    "meaning_vi": "nghĩa trong bài đọc (trap)",
-    "example": "Example context: trap in reading passage."
+    "meaning_vi": "cạm bẫy",
+    "example": "Example sentence with trap in context."
   },
   "shield": {
     "pos": "Từ vựng (Word)",
     "ipa": "/shield/",
-    "meaning_vi": "nghĩa trong bài đọc (shield)",
-    "example": "Example context: shield in reading passage."
+    "meaning_vi": "cái khiên",
+    "example": "Example sentence with shield in context."
   },
   "trưng bày hàng hóa bán lẻ trực tiếp": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/trưng bày hàng hóa bán lẻ trực tiếp/",
-    "meaning_vi": "nghĩa trong bài đọc (trưng bày hàng hóa bán lẻ trực tiếp)",
-    "example": "Example context: trưng bày hàng hóa bán lẻ trực tiếp in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "trưng bày hàng hóa bán lẻ trực tiếp",
+    "example": "Ngữ cảnh bài đọc: trưng bày hàng hóa bán lẻ trực tiếp"
   },
   "replicate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/replicate/",
-    "meaning_vi": "nghĩa trong bài đọc (replicate)",
-    "example": "Example context: replicate in reading passage."
+    "meaning_vi": "nhân rộng",
+    "example": "Example sentence with replicate in context."
   },
   "integrate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/integrate/",
-    "meaning_vi": "nghĩa trong bài đọc (integrate)",
-    "example": "Example context: integrate in reading passage."
+    "meaning_vi": "tích hợp",
+    "example": "Example sentence with integrate in context."
   },
   "verify": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/verify/",
-    "meaning_vi": "nghĩa trong bài đọc (verify)",
-    "example": "Example context: verify in reading passage."
+    "pos": "verb",
+    "ipa": "/ˈverɪfaɪ/",
+    "meaning_vi": "Xác minh, kiểm chứng nguồn tin",
+    "example": "Example context with verify."
   },
   "diagnose": {
     "pos": "Từ vựng (Word)",
     "ipa": "/diagnose/",
-    "meaning_vi": "nghĩa trong bài đọc (diagnose)",
-    "example": "Example context: diagnose in reading passage."
+    "meaning_vi": "chẩn đoán",
+    "example": "Example sentence with diagnose in context."
   },
   "prescribe": {
     "pos": "Từ vựng (Word)",
     "ipa": "/prescribe/",
-    "meaning_vi": "nghĩa trong bài đọc (prescribe)",
-    "example": "Example context: prescribe in reading passage."
+    "meaning_vi": "quy định",
+    "example": "Example sentence with prescribe in context."
   },
   "discipline": {
     "pos": "Từ vựng (Word)",
     "ipa": "/discipline/",
-    "meaning_vi": "nghĩa trong bài đọc (discipline)",
-    "example": "Example context: discipline in reading passage."
+    "meaning_vi": "kỷ luật",
+    "example": "Example sentence with discipline in context."
   },
   "discard": {
     "pos": "Từ vựng (Word)",
     "ipa": "/discard/",
-    "meaning_vi": "nghĩa trong bài đọc (discard)",
-    "example": "Example context: discard in reading passage."
+    "meaning_vi": "vứt bỏ",
+    "example": "Example sentence with discard in context."
   },
   "prudent": {
     "pos": "Từ vựng (Word)",
     "ipa": "/prudent/",
-    "meaning_vi": "nghĩa trong bài đọc (prudent)",
-    "example": "Example context: prudent in reading passage."
+    "meaning_vi": "khôn ngoan",
+    "example": "Example sentence with prudent in context."
   },
   "durable": {
     "pos": "Từ vựng (Word)",
     "ipa": "/durable/",
-    "meaning_vi": "nghĩa trong bài đọc (durable)",
-    "example": "Example context: durable in reading passage."
+    "meaning_vi": "bền bỉ",
+    "example": "Example sentence with durable in context."
   },
   "forbidden": {
     "pos": "Từ vựng (Word)",
     "ipa": "/forbidden/",
-    "meaning_vi": "nghĩa trong bài đọc (forbidden)",
-    "example": "Example context: forbidden in reading passage."
+    "meaning_vi": "cấm",
+    "example": "Example sentence with forbidden in context."
   },
   "fossil": {
     "pos": "Từ vựng (Word)",
     "ipa": "/fossil/",
-    "meaning_vi": "nghĩa trong bài đọc (fossil)",
-    "example": "Example context: fossil in reading passage."
+    "meaning_vi": "hóa thạch",
+    "example": "Example sentence with fossil in context."
   },
   "collaborate": {
     "pos": "Từ vựng (Word)",
     "ipa": "/collaborate/",
-    "meaning_vi": "nghĩa trong bài đọc (collaborate)",
-    "example": "Example context: collaborate in reading passage."
+    "meaning_vi": "cộng tác",
+    "example": "Example sentence with collaborate in context."
   },
   "secrete": {
     "pos": "Từ vựng (Word)",
     "ipa": "/secrete/",
-    "meaning_vi": "nghĩa trong bài đọc (secrete)",
-    "example": "Example context: secrete in reading passage."
+    "meaning_vi": "tiết ra",
+    "example": "Example sentence with secrete in context."
   },
   "do rác thải nhựa phủ kín bề mặt đáy biển": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/do rác thải nhựa phủ kín bề mặt đáy biển/",
-    "meaning_vi": "nghĩa trong bài đọc (do rác thải nhựa phủ kín bề mặt đáy biển)",
-    "example": "Example context: do rác thải nhựa phủ kín bề mặt đáy biển in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "do rác thải nhựa phủ kín bề mặt đáy biển",
+    "example": "Ngữ cảnh bài đọc: do rác thải nhựa phủ kín bề mặt đáy biển"
   },
   "tranquil": {
     "pos": "Từ vựng (Word)",
     "ipa": "/tranquil/",
-    "meaning_vi": "nghĩa trong bài đọc (tranquil)",
-    "example": "Example context: tranquil in reading passage."
+    "meaning_vi": "yên tĩnh",
+    "example": "Example sentence with tranquil in context."
   },
   "sao chép và lưu trữ văn bản": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/sao chép và lưu trữ văn bản/",
-    "meaning_vi": "nghĩa trong bài đọc (sao chép và lưu trữ văn bản)",
-    "example": "Example context: sao chép và lưu trữ văn bản in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "sao chép và lưu trữ văn bản",
+    "example": "Ngữ cảnh bài đọc: sao chép và lưu trữ văn bản"
   },
   "sự củng cố, làm cho bền vững": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/sự củng cố, làm cho bền vững/",
-    "meaning_vi": "nghĩa trong bài đọc (sự củng cố, làm cho bền vững)",
-    "example": "Example context: sự củng cố, làm cho bền vững in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "sự củng cố, làm cho bền vững",
+    "example": "Ngữ cảnh bài đọc: sự củng cố, làm cho bền vững"
   },
   "hang": {
     "pos": "Từ vựng (Word)",
     "ipa": "/hang/",
-    "meaning_vi": "nghĩa trong bài đọc (hang)",
-    "example": "Example context: hang in reading passage."
+    "meaning_vi": "treo",
+    "example": "Example sentence with hang in context."
   },
   "beneficial": {
     "pos": "Tính từ (Adjective)",
@@ -2663,20 +2663,20 @@ const READING_WORDS_LEXICON = {
   "displace": {
     "pos": "Từ vựng (Word)",
     "ipa": "/displace/",
-    "meaning_vi": "nghĩa trong bài đọc (displace)",
-    "example": "Example context: displace in reading passage."
+    "meaning_vi": "thay thế",
+    "example": "Example sentence with displace in context."
   },
   "do thiếu ánh sáng mặt trời mùa đông": {
-    "pos": "Từ vựng (Word)",
-    "ipa": "/do thiếu ánh sáng mặt trời mùa đông/",
-    "meaning_vi": "nghĩa trong bài đọc (do thiếu ánh sáng mặt trời mùa đông)",
-    "example": "Example context: do thiếu ánh sáng mặt trời mùa đông in reading passage."
+    "pos": "Lựa chọn đọc hiểu (Reading Option)",
+    "ipa": "/reading option/",
+    "meaning_vi": "do thiếu ánh sáng mặt trời mùa đông",
+    "example": "Ngữ cảnh bài đọc: do thiếu ánh sáng mặt trời mùa đông"
   },
   "silent": {
     "pos": "Từ vựng (Word)",
     "ipa": "/silent/",
-    "meaning_vi": "nghĩa trong bài đọc (silent)",
-    "example": "Example context: silent in reading passage."
+    "meaning_vi": "im lặng",
+    "example": "Example sentence with silent in context."
   },
   "rescue": {
     "pos": "Động từ (Verb)",
@@ -2687,7 +2687,7 @@ const READING_WORDS_LEXICON = {
   "hiding": {
     "pos": "Từ vựng (Word)",
     "ipa": "/hiding/",
-    "meaning_vi": "nghĩa trong bài đọc (hiding)",
-    "example": "Example context: hiding in reading passage."
+    "meaning_vi": "trốn",
+    "example": "Example sentence with hiding in context."
   }
 };

@@ -22,8 +22,8 @@ def calculate_sm2(
     if used_hint and effective_grade > 2:
         effective_grade = 2
 
-    # Map grade 1..4 to SM-2 quality q (1 -> 1, 2 -> 3, 3 -> 4, 4 -> 5)
-    q_map = {1: 1, 2: 3, 3: 4, 4: 5}
+    # Map grade 1..5 to SM-2 quality q (1: Quên, 2: Khó, 3: Trung bình, 4: Nhớ, 5: Rất dễ)
+    q_map = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
     q = q_map.get(effective_grade, 3)
 
     new_ef = current_ef

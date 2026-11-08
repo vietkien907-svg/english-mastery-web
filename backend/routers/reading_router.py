@@ -234,11 +234,12 @@ def save_word_from_reading(req: SaveWordRequest, db: Session = Depends(get_db)):
     
     if not item:
         us_pron, _ = fetch_us_phonetics_and_audio(clean_word)
+        vi_m = translate_to_vietnamese(clean_word)
         item = models.KnowledgeItem(
             word=clean_word,
             pos="word",
             pron=us_pron or f"/{clean_word}/",
-            meaning_vi=clean_word,
+            meaning_vi=vi_m or clean_word,
             meaning_en="Saved from authentic reading",
             example=req.context_sentence or f"Example with {clean_word}.",
             level="B2",

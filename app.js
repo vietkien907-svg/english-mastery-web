@@ -273,6 +273,18 @@ function switchTab(tabId) {
     loadProfileAnalytics();
   } else if (tabId === "review") {
     generateDailyQuiz();
+  } else if (tabId === "flashcard") {
+    const curDay = missionRegistry.currentDay || 1;
+    const info = getDailyAssignedVocab(curDay);
+    const titleEl = document.getElementById("currentUnitTitle");
+    if (titleEl && (!appState.studyMode || appState.studyMode === "daily_locked")) {
+      titleEl.innerText = info.unitTitle;
+    }
+    const dayBadge = document.getElementById("currentDayBadge");
+    if (dayBadge && (!appState.studyMode || appState.studyMode === "daily_locked")) {
+      dayBadge.innerText = `Ngày ${curDay}`;
+    }
+    renderFlashcard();
   }
 
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -461,6 +473,9 @@ function saveMissionRegistry() {
   if (typeof tickDeadlineCountdown === "function") {
     tickDeadlineCountdown();
   }
+  if (typeof triggerBackgroundCloudSync === "function") {
+    triggerBackgroundCloudSync();
+  }
 }
 
 function getDayMissionStatus(dayNum) {
@@ -543,31 +558,78 @@ function toggleMissionDone(type) {
   }
 }
 
-function getDailyAssignedVocab(dayNum) {
+let _cachedDailyVocabPlan = null;
+
+function buildDailyVocabPlan() {
+  if (_cachedDailyVocabPlan && _cachedDailyVocabPlan.length > 0) {
+    return _cachedDailyVocabPlan;
+  }
   const units = window.APP_DATA?.units || [];
-  const validDay = Math.max(1, Math.min(TOTAL_ROADMAP_DAYS, parseInt(dayNum) || 1));
-  
-  // Flatten all available unit days
-  const allUnitDays = [];
+  const seenWords = new Set();
+  const orderedWords = [];
+
   units.forEach((u, uIdx) => {
-    (u.days || []).forEach((d, dIdx) => {
-      allUnitDays.push({
-        unitIndex: uIdx,
-        dayIndex: dIdx,
-        unitTitle: u.unitTitle,
-        dayTitle: `Ngày ${validDay} (Lộ trình 3 tháng) • ${d.dayTitle}`,
-        words: d.words || []
+    const unitTitle = u.unitTitle || `Unit ${uIdx + 1}`;
+    (u.days || []).forEach(d => {
+      (d.words || []).forEach(w => {
+        const raw = (w.word || "").trim().toLowerCase();
+        if (raw && !seenWords.has(raw)) {
+          seenWords.add(raw);
+          orderedWords.push({
+            ...w,
+            unitIndex: uIdx,
+            unitTitle: unitTitle
+          });
+        }
       });
     });
   });
 
-  if (allUnitDays.length === 0) {
-    return { unitIndex: 0, dayIndex: 0, unitTitle: "Unit 1", dayTitle: `Ngày ${validDay}`, words: [] };
+  const totalWords = orderedWords.length;
+  if (totalWords === 0) return [];
+
+  const daysPlan = [];
+  const totalDays = TOTAL_ROADMAP_DAYS || 90;
+  const wordsPerDay = Math.floor(totalWords / totalDays);
+  const remainder = totalWords % totalDays;
+
+  let curIdx = 0;
+  for (let dayNum = 1; dayNum <= totalDays; dayNum++) {
+    const count = wordsPerDay + (dayNum <= remainder ? 1 : 0);
+    const daySlice = orderedWords.slice(curIdx, curIdx + count);
+    curIdx += count;
+
+    const primaryUnitIdx = daySlice[0]?.unitIndex ?? 0;
+    const primaryUnitTitle = daySlice[0]?.unitTitle ?? `Unit ${primaryUnitIdx + 1}`;
+
+    daysPlan.push({
+      dayNumber: dayNum,
+      unitIndex: primaryUnitIdx,
+      dayIndex: 0,
+      unitTitle: primaryUnitTitle,
+      dayTitle: `Ngày ${dayNum} • ${primaryUnitTitle}`,
+      words: daySlice
+    });
   }
 
-  // Map 1..60 evenly across all available unit days
-  const mappedIdx = Math.min(allUnitDays.length - 1, Math.floor(((validDay - 1) / TOTAL_ROADMAP_DAYS) * allUnitDays.length));
-  return allUnitDays[mappedIdx];
+  _cachedDailyVocabPlan = daysPlan;
+  return daysPlan;
+}
+
+function getDailyAssignedVocab(dayNum) {
+  const plan = buildDailyVocabPlan();
+  const validDay = Math.max(1, Math.min(TOTAL_ROADMAP_DAYS || 90, parseInt(dayNum) || 1));
+  if (plan.length >= validDay) {
+    return plan[validDay - 1];
+  }
+  return {
+    dayNumber: validDay,
+    unitIndex: 0,
+    dayIndex: 0,
+    unitTitle: "Unit 1",
+    dayTitle: `Ngày ${validDay}`,
+    words: []
+  };
 }
 
 function getWordsUpToDay(maxDayNum) {
@@ -645,15 +707,29 @@ function jumpToMissionDay(dayNum) {
   missionRegistry.currentDay = d;
   saveMissionRegistry();
 
-  if (appState.studyMode === "daily_locked") {
-    const info = getDailyAssignedVocab(d);
-    appState.currentUnitIndex = info.unitIndex;
-    appState.currentDayIndex = info.dayIndex;
-    appState.currentCardIndex = 0;
-    appState.isFlipped = false;
-  }
+  // Reset deck cache so new unit/day words load fresh
+  appState.activeInterleavedDeck = null;
+  appState.interleavedDeckKey = "";
+  appState.studyMode = "daily_locked";
+
+  const info = getDailyAssignedVocab(d);
+  appState.currentUnitIndex = info.unitIndex;
+  appState.currentDayIndex = info.dayIndex;
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = info.unitTitle;
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = `Ngày ${d}`;
+
+  renderFlashcard();
   updateDailyMissionUI();
-  showToast(`🚀 Lộ trình: Đang ở Ngày ${d} / ${total}`, "info");
+  updateDailyGoalChecklist();
+  if (typeof tickDeadlineCountdown === "function") {
+    tickDeadlineCountdown();
+  }
+  showToast(`🚀 Lộ trình: Đang ở Ngày ${d} / ${total} • ${info.unitTitle}`, "info");
 }
 
 function changeMissionDay(delta) {
@@ -664,11 +740,11 @@ function advanceToNextDay() {
   const total = getTotalMissionDays();
   const nextDay = missionRegistry.currentDay + 1;
   if (nextDay > total) {
-    showToast("🎉 Chúc mừng bạn đã hoàn thành toàn bộ lộ trình!", "success");
+    showToast("🎉 Chúc mừng bạn đã hoàn thành toàn bộ 90 ngày lộ trình!", "success");
     return;
   }
   jumpToMissionDay(nextDay);
-  showToast(`🚀 Đã chuyển sang Lộ trình Ngày ${nextDay} (Học vượt deadline)`, "success");
+  showToast(`🚀 Đã chuyển sang Ngày ${nextDay} (Học vượt lộ trình - Dữ liệu được ghi nhận)`, "success");
 }
 
 function startTodayVocabMission() {
@@ -723,7 +799,7 @@ function startTodayVocabMission() {
 }
 
 function onVocabCardViewed() {
-  if (appState.studyMode === "daily_locked") {
+  if (appState.studyMode === "daily_locked" || !appState.studyMode || appState.studyMode === "roadmap") {
     const curDay = missionRegistry.currentDay;
     const words = getCurrentDayWords();
     const totalWords = Math.min(20, words.length);
@@ -1445,6 +1521,9 @@ function updateDayProgressBadge() {
 }
 
 function getCurrentDayWords() {
+  if (appState.studyMode === "custom") {
+    return appState.customNotebook || [];
+  }
   if (appState.studyMode === "gradual_review" && appState.gradualReviewWords) {
     return appState.gradualReviewWords;
   }
@@ -1461,6 +1540,19 @@ function getCurrentDayWords() {
     return total;
   }
 
+  // Chế độ lộ trình hàng ngày (Default hoặc daily_locked)
+  if (appState.studyMode === "daily_locked" || !appState.studyMode || appState.studyMode === "roadmap") {
+    const curDay = missionRegistry.currentDay || 1;
+    const dayVocabInfo = getDailyAssignedVocab(curDay);
+    const baseWords = dayVocabInfo.words || [];
+
+    if (appState.interleavedConfig && appState.interleavedConfig.enabled && baseWords.length > 0) {
+      return getInterleavedDeckForDay(curDay, baseWords);
+    }
+    return baseWords;
+  }
+
+  // Chế độ ôn tập tự do theo Unit lựa chọn từ dropdown
   const unit = window.APP_DATA?.units?.[appState.currentUnitIndex];
   const dIdx = parseInt(appState.currentDayIndex) || 0;
   const day = unit?.days?.[dIdx];
@@ -3086,30 +3178,56 @@ function tickDeadlineCountdown() {
 
   const [targetH, targetM] = (deadlineSettings.deadlineTime || "21:30").split(":").map(Number);
   const deadlineDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), targetH, targetM, 0);
+  const midnightDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
 
-  const diffMs = deadlineDate.getTime() - now.getTime();
   const countdownEl = document.getElementById("deadlineCountdownDisplay");
   const subtextEl = document.getElementById("deadlineStatusSubtext");
+  if (!countdownEl && !subtextEl) return;
 
-  const curMissionStatus = getDayMissionStatus(missionRegistry.currentDay);
+  const curDay = missionRegistry.currentDay || 1;
+  const curMissionStatus = getDayMissionStatus(curDay);
+
+  // Tìm ngày hoàn thành cao nhất để xác định chế độ học vượt
+  let maxCompletedDay = 0;
+  for (let d = 1; d <= (TOTAL_ROADMAP_DAYS || 90); d++) {
+    const st = getDayMissionStatus(d);
+    if (st.isAllDone) maxCompletedDay = d;
+  }
+
+  const pad = (n) => String(n).padStart(2, "0");
+
+  // TRƯỜNG HỢP 1: Ngày hiện tại đã làm xong toàn bộ 3 nhiệm vụ
   if (curMissionStatus.isAllDone) {
     if (countdownEl) {
       countdownEl.innerText = "✓ ĐÃ HOÀN THÀNH HÔM NAY!";
       countdownEl.className = "text-xl sm:text-2xl font-black text-emerald-400 font-mono tracking-tight";
     }
     if (subtextEl) {
-      subtextEl.innerText = "🎉 Xuất sắc! Bạn đã hoàn thành toàn bộ 3 mục tiêu của Ngày hôm nay. Chuỗi ngày học Streak đã được bảo vệ an toàn!";
+      subtextEl.innerText = `🎉 Xuất sắc! Toàn bộ 3 nhiệm vụ Ngày ${curDay} đã xong. Chuỗi Streak 🔥 được bảo vệ an toàn! Bấm Học Vượt để làm tiếp.`;
     }
     return;
   }
 
+  // TRƯỜNG HỢP 2: Người dùng đang Học Vượt (curDay > ngày đã hoàn thành)
+  if (curDay > 1 && maxCompletedDay >= 1 && curDay > maxCompletedDay) {
+    if (countdownEl) {
+      countdownEl.innerHTML = `🚀 ĐANG HỌC VƯỢT NGÀY ${curDay}`;
+      countdownEl.className = "text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 font-mono tracking-tight";
+    }
+    if (subtextEl) {
+      subtextEl.innerHTML = `✓ <strong>Tiến độ được ghi nhận 100%:</strong> Bạn đang học vượt lộ trình. Toàn bộ từ vựng, bài đọc và ngữ pháp Ngày ${curDay} đều được lưu vĩnh viễn (không tính quá hạn)!`;
+    }
+    return;
+  }
+
+  // TRƯỜNG HỢP 3: Chưa đến giờ deadline (đếm ngược bình thường)
+  const diffMs = deadlineDate.getTime() - now.getTime();
   if (diffMs > 0) {
     const totalSecs = Math.floor(diffMs / 1000);
     const hours = Math.floor(totalSecs / 3600);
     const mins = Math.floor((totalSecs % 3600) / 60);
     const secs = totalSecs % 60;
     
-    const pad = (n) => String(n).padStart(2, "0");
     if (countdownEl) {
       countdownEl.innerText = `⏳ Còn ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`;
       countdownEl.className = "text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200 font-mono tracking-tight";
@@ -3118,7 +3236,7 @@ function tickDeadlineCountdown() {
       subtextEl.innerText = `Hạn chót ${deadlineSettings.deadlineTime} hôm nay. Hoàn thành để bảo toàn Streak!`;
     }
 
-    // 60-minute deadline warning notification
+    // Thông báo nhắc nhở trước 60 phút
     if (deadlineSettings.remindDeadline && totalSecs <= 3600 && totalSecs > 3540 && !sentNotificationsToday.has("deadline_60m")) {
       sentNotificationsToday.add("deadline_60m");
       sendMobileNotification(
@@ -3126,18 +3244,32 @@ function tickDeadlineCountdown() {
         `Chỉ còn 1 giờ nữa là đến hạn chót ${deadlineSettings.deadlineTime}. Hãy mở app để hoàn thành từ vựng và bảo vệ chuỗi Streak của bạn!`
       );
     }
-  } else {
-    // Past deadline
-    const overdueSecs = Math.abs(Math.floor(diffMs / 1000));
-    const hours = Math.floor(overdueSecs / 3600);
-    const mins = Math.floor((overdueSecs % 3600) / 60);
+    return;
+  }
+
+  // TRƯỜNG HỢP 4: Học ban đêm (quá 21:30 nhưng chưa đến 24:00 đêm)
+  // Tuyệt đối không báo quá hạn, hiển thị đếm ngược đến 24:00 và cam kết bảo vệ streak
+  const diffMidnightMs = midnightDate.getTime() - now.getTime();
+  if (diffMidnightMs > 0) {
+    const totalSecs = Math.floor(diffMidnightMs / 1000);
+    const hours = Math.floor(totalSecs / 3600);
+    const mins = Math.floor((totalSecs % 3600) / 60);
+    const secs = totalSecs % 60;
+
     if (countdownEl) {
-      countdownEl.innerText = `🚨 Đã quá hạn chót (${hours}h ${mins}m)`;
-      countdownEl.className = "text-xl sm:text-2xl font-black text-red-400 font-mono tracking-tight";
+      countdownEl.innerText = `⏳ Còn ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s đến 24:00`;
+      countdownEl.className = "text-xl sm:text-2xl font-black text-amber-300 font-mono tracking-tight";
     }
     if (subtextEl) {
-      subtextEl.innerText = "Hãy hoàn thành bài tập ngay bây giờ để hệ thống kịp ghi nhận hoạt động hôm nay!";
+      subtextEl.innerText = `✓ Cố định hoàn thành hôm nay: Hệ thống ghi nhận 100% dữ liệu bài tập và bảo vệ Streak đến 23:59 đêm nay!`;
     }
+    return;
+  }
+
+  // Fallback
+  if (countdownEl) {
+    countdownEl.innerText = `✓ Hệ thống tự động ghi nhận`;
+    countdownEl.className = "text-xl sm:text-2xl font-black text-emerald-400 font-mono tracking-tight";
   }
 
   // Morning reminder check (08:00 AM)
@@ -3498,8 +3630,11 @@ function removeCustomWordItem(word) {
 function getInterleavedDeckForDay(dIdx, baseWords) {
   if (!baseWords || baseWords.length === 0) return [];
   const cfg = appState.interleavedConfig || getInterleavedConfig();
-  const curDayNum = missionRegistry.currentDay || (dIdx + 1);
-  const cacheKey = `${appState.currentUnitIndex}_${curDayNum}_${cfg.insertCount}_${cfg.insertMode}_${cfg.includePastDays}_${cfg.includeSRS}_${cfg.includeReadingCustom}`;
+  const curDayNum = (typeof dIdx === "number" && dIdx >= 1 && dIdx <= (TOTAL_ROADMAP_DAYS || 90))
+    ? dIdx
+    : (missionRegistry.currentDay || 1);
+  const leadWord = baseWords[0]?.word || "";
+  const cacheKey = `d${curDayNum}_${leadWord}_${baseWords.length}_${cfg.insertCount}_${cfg.insertMode}_${cfg.includePastDays}_${cfg.includeSRS}_${cfg.includeReadingCustom}`;
   
   if (appState.activeInterleavedDeck && appState.interleavedDeckKey === cacheKey) {
     return appState.activeInterleavedDeck;

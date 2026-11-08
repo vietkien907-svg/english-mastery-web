@@ -680,6 +680,17 @@
             Thẻ tiếp <i data-lucide="chevron-right" class="w-4 h-4"></i>
           </button>
         </div>
+
+        <!-- Shortcut Keyboard Hint -->
+        <div class="mt-2.5 pt-2 border-t border-slate-800/80 flex items-center justify-center gap-2 flex-wrap text-[11px] text-slate-400">
+          <span class="inline-flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-cyan-300 font-mono font-bold">Ctrl</kbd> hoặc <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-cyan-300 font-mono font-bold">S</kbd>: 🔊 Đọc từ</span>
+          <span class="text-slate-600">•</span>
+          <span class="inline-flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-300 font-mono font-bold">Space</kbd>: Lật thẻ</span>
+          <span class="text-slate-600">•</span>
+          <span class="inline-flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono font-bold">←</kbd> / <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono font-bold">→</kbd>: Đổi thẻ</span>
+          <span class="text-slate-600">•</span>
+          <span class="inline-flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-emerald-300 font-mono font-bold">1 - 4</kbd>: Đánh giá SRS</span>
+        </div>
       </div>
     </section>
 
@@ -1882,12 +1893,12 @@
   <script src="/listening_data.js?v=30.0"></script>
   <script src="/vietnam_today_data.js?v=33.0"></script>
   <script src="/reading_lexicon.js?v=33.0"></script>
-  <script src="/app.js?v=33.0"></script>
+  <script src="/app.js?v=34.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=33.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=34.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

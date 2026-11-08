@@ -3085,7 +3085,17 @@ function speakWithSynthesis(text) {
 
 function setupTouchAndKeyboard() {
   window.addEventListener("keydown", (e) => {
+    // Không can thiệp khi đang nhập liệu trong ô input / textarea
+    if (["INPUT", "TEXTAREA"].includes(e.target?.tagName)) return;
+
     if (appState.activeTab !== "flashcard") return;
+
+    // PHÍM BẤM CTRL (HOẶC PHÍM S): TỰ ĐỘNG PHÁT ÂM ĐỌC TỪ FLASHCARD
+    if (e.key === "Control" || e.code === "ControlLeft" || e.code === "ControlRight") {
+      speakCurrentWord();
+      return;
+    }
+
     if (e.code === "Space") {
       e.preventDefault();
       flipCard();

@@ -39,6 +39,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   setupTouchAndKeyboard();
   initDailyDeadlineSystem();
   initCrossDeviceAutoSync();
+  initListeningModule();
+  initVietnamTodayModule();
   loadTelegramSettings();
   updateDailyMissionUI();
   tickDeadlineCountdown();
@@ -245,7 +247,7 @@ function switchTab(tabId) {
   appState.activeTab = tabId;
 
   // Sync nav buttons
-  ["today", "flashcard", "review", "reader", "grammar", "profile"].forEach(id => {
+  ["today", "flashcard", "listening", "video", "review", "reader", "grammar", "profile"].forEach(id => {
     const sec = document.getElementById(`tab-${id}`);
     if (sec) sec.classList.toggle("hidden", id !== tabId);
 
@@ -4067,4 +4069,503 @@ async function submitClaimSyncCode() {
   } finally {
     if (btn) btn.disabled = false;
   }
+}
+
+// ============================================================================
+// MODULE 1: LISTENING PRACTICE ENGINE (FORM ĐỀ THI HP3 & CAMBRIDGE B1/B2)
+// ============================================================================
+let currentListeningPartIdx = 0;
+let userListeningAnswers = {};
+let isListeningSubmitted = false;
+let listeningAudioEl = null;
+
+function initListeningModule() {
+  listeningAudioEl = document.getElementById("listeningAudio");
+  if (!listeningAudioEl) return;
+
+  setupListeningAudioEvents();
+  renderListeningPartTabs();
+  loadListeningPart(0);
+}
+
+function setupListeningAudioEvents() {
+  if (!listeningAudioEl) return;
+
+  listeningAudioEl.addEventListener("timeupdate", () => {
+    const cur = listeningAudioEl.currentTime;
+    const dur = listeningAudioEl.duration || 1;
+    const curSpan = document.getElementById("listeningTimeCurrent");
+    const durSpan = document.getElementById("listeningTimeTotal");
+    const range = document.getElementById("listeningSeekRange");
+
+    if (curSpan) curSpan.innerText = formatAudioTime(cur);
+    if (durSpan && !isNaN(dur) && dur > 0) durSpan.innerText = formatAudioTime(dur);
+    if (range && !range.dataset.dragging) {
+      range.value = (cur / dur) * 100;
+    }
+  });
+
+  listeningAudioEl.addEventListener("ended", () => {
+    const icon = document.getElementById("listeningPlayIcon");
+    if (icon) {
+      icon.setAttribute("data-lucide", "play");
+      if (typeof lucide !== "undefined") lucide.createIcons();
+    }
+  });
+}
+
+function formatAudioTime(secs) {
+  if (isNaN(secs) || secs < 0) return "00:00";
+  const m = Math.floor(secs / 60);
+  const s = Math.floor(secs % 60);
+  return `${m < 10 ? "0" : ""}${m}:${s < 10 ? "0" : ""}${s}`;
+}
+
+function renderListeningPartTabs() {
+  const container = document.getElementById("listeningPartTabs");
+  if (!container || typeof LISTENING_TESTS === "undefined" || !LISTENING_TESTS.length) return;
+
+  const test = LISTENING_TESTS[0];
+  let html = "";
+  test.parts.forEach((p, idx) => {
+    const active = idx === currentListeningPartIdx;
+    html += `
+      <button onclick="switchListeningPart(${idx})" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 ${
+        active
+          ? "bg-gradient-to-r from-cyan-600 to-indigo-600 text-white shadow-lg shadow-cyan-600/30"
+          : "bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700"
+      }">
+        <i data-lucide="headphones" class="w-4 h-4"></i>
+        <span>Part ${p.partNumber}: ${p.title.split(":")[1]?.trim() || p.title}</span>
+      </button>
+    `;
+  });
+  container.innerHTML = html;
+  if (typeof lucide !== "undefined") lucide.createIcons();
+}
+
+function switchListeningPart(idx) {
+  currentListeningPartIdx = idx;
+  userListeningAnswers = {};
+  isListeningSubmitted = false;
+  if (listeningAudioEl) {
+    listeningAudioEl.pause();
+    listeningAudioEl.currentTime = 0;
+  }
+  renderListeningPartTabs();
+  loadListeningPart(idx);
+}
+
+function loadListeningPart(idx) {
+  if (typeof LISTENING_TESTS === "undefined" || !LISTENING_TESTS.length) return;
+  const part = LISTENING_TESTS[0].parts[idx];
+  if (!part) return;
+
+  // 1. Audio track
+  if (listeningAudioEl) {
+    listeningAudioEl.src = part.audioSrc || "";
+    listeningAudioEl.load();
+  }
+  const trackTitle = document.getElementById("listeningTrackTitle");
+  if (trackTitle) trackTitle.innerText = `${part.title} (${part.questions.length} Câu hỏi trắc nghiệm)`;
+
+  const playIcon = document.getElementById("listeningPlayIcon");
+  if (playIcon) {
+    playIcon.setAttribute("data-lucide", "play");
+    if (typeof lucide !== "undefined") lucide.createIcons();
+  }
+
+  // 2. Render instruction
+  const instrEl = document.getElementById("listeningInstructionText");
+  if (instrEl) instrEl.innerText = part.instruction;
+
+  // 3. Render questions
+  renderListeningQuestions(part);
+
+  // 4. Render transcript
+  renderListeningTranscript(part);
+
+  // 5. Hide results banner
+  const scoreBanner = document.getElementById("listeningScoreBanner");
+  if (scoreBanner) scoreBanner.classList.add("hidden");
+}
+
+function renderListeningQuestions(part) {
+  const container = document.getElementById("listeningQuestionsContainer");
+  if (!container) return;
+
+  let html = "";
+  part.questions.forEach(q => {
+    const selectedOpt = userListeningAnswers[q.id];
+    let statusClass = "";
+
+    if (isListeningSubmitted) {
+      if (selectedOpt === q.correct) {
+        statusClass = "border-emerald-500/80 bg-emerald-950/20";
+      } else {
+        statusClass = "border-rose-500/80 bg-rose-950/20";
+      }
+    }
+
+    html += `
+      <div id="q_card_${q.id}" class="glass-card p-4 sm:p-5 rounded-2xl border border-slate-700/80 space-y-3 ${statusClass}">
+        <div class="flex items-start justify-between gap-2">
+          <h4 class="font-bold text-white text-sm sm:text-base leading-snug">${q.text}</h4>
+          ${
+            isListeningSubmitted
+              ? selectedOpt === q.correct
+                ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs shrink-0 flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> Đúng</span>'
+                : `<span class="px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold text-xs shrink-0 flex items-center gap-1"><i data-lucide="x" class="w-3.5 h-3.5"></i> Sai (Đáp án: ${q.correct})</span>`
+              : ""
+          }
+        </div>
+
+        <div class="grid grid-cols-1 gap-2 pt-1">
+          ${q.options.map(opt => {
+            const isSelected = selectedOpt === opt.key;
+            let optStyle = "bg-slate-800/80 hover:bg-slate-700 border-slate-700 text-slate-200";
+
+            if (isListeningSubmitted) {
+              if (opt.key === q.correct) {
+                optStyle = "bg-emerald-600/30 border-emerald-400 text-emerald-200 font-bold ring-1 ring-emerald-400";
+              } else if (isSelected) {
+                optStyle = "bg-rose-600/30 border-rose-400 text-rose-200 line-through ring-1 ring-rose-400";
+              } else {
+                optStyle = "opacity-40 bg-slate-800/40 border-slate-700 text-slate-400";
+              }
+            } else if (isSelected) {
+              optStyle = "bg-cyan-600/30 border-cyan-400 text-cyan-200 font-bold ring-2 ring-cyan-500/50";
+            }
+
+            return `
+              <div onclick="selectListeningOption(${q.id}, '${opt.key}')" class="p-3 rounded-xl border cursor-pointer transition flex items-center gap-3 ${optStyle}">
+                <span class="w-7 h-7 rounded-lg font-mono font-bold flex items-center justify-center shrink-0 ${
+                  isSelected ? "bg-cyan-500 text-black" : "bg-slate-700 text-slate-300"
+                }">${opt.key}</span>
+                <span class="text-xs sm:text-sm">${opt.text}</span>
+              </div>
+            `;
+          }).join("")}
+        </div>
+
+        ${
+          isListeningSubmitted && q.explanation
+            ? `
+          <div class="mt-3 p-3 rounded-xl bg-amber-950/30 border border-amber-500/30 text-amber-200 text-xs leading-relaxed flex items-start gap-2">
+            <i data-lucide="lightbulb" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+            <div>
+              <strong class="text-amber-300 font-bold">Giải thích chi tiết:</strong> ${q.explanation}
+            </div>
+          </div>
+        `
+            : ""
+        }
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (typeof lucide !== "undefined") lucide.createIcons();
+}
+
+function selectListeningOption(qId, optKey) {
+  if (isListeningSubmitted) return;
+  userListeningAnswers[qId] = optKey;
+  if (typeof LISTENING_TESTS !== "undefined" && LISTENING_TESTS.length) {
+    renderListeningQuestions(LISTENING_TESTS[0].parts[currentListeningPartIdx]);
+  }
+}
+
+function toggleListeningPlay() {
+  if (!listeningAudioEl) return;
+  const icon = document.getElementById("listeningPlayIcon");
+
+  if (listeningAudioEl.paused) {
+    listeningAudioEl.play().then(() => {
+      if (icon) {
+        icon.setAttribute("data-lucide", "pause");
+        if (typeof lucide !== "undefined") lucide.createIcons();
+      }
+    }).catch(e => {
+      console.warn("Audio play prevented:", e);
+      showToast("Không thể tự động phát audio, hãy bấm lại nút Play!", "warning");
+    });
+  } else {
+    listeningAudioEl.pause();
+    if (icon) {
+      icon.setAttribute("data-lucide", "play");
+      if (typeof lucide !== "undefined") lucide.createIcons();
+    }
+  }
+}
+
+function seekListening(secs) {
+  if (!listeningAudioEl) return;
+  listeningAudioEl.currentTime = Math.max(0, Math.min(listeningAudioEl.duration || 1, listeningAudioEl.currentTime + secs));
+}
+
+function onListeningSeek(percent) {
+  if (!listeningAudioEl || !listeningAudioEl.duration) return;
+  listeningAudioEl.currentTime = (percent / 100) * listeningAudioEl.duration;
+}
+
+function setListeningSpeed(rate) {
+  if (!listeningAudioEl) return;
+  listeningAudioEl.playbackRate = parseFloat(rate);
+  const btns = document.querySelectorAll(".btn-listening-speed");
+  btns.forEach(b => {
+    b.classList.toggle("bg-cyan-600", b.dataset.rate === String(rate));
+    b.classList.toggle("text-white", b.dataset.rate === String(rate));
+    b.classList.toggle("bg-slate-800", b.dataset.rate !== String(rate));
+  });
+  showToast(`Tốc độ nghe: ${rate}x`, "info");
+}
+
+function submitListeningTest() {
+  if (typeof LISTENING_TESTS === "undefined" || !LISTENING_TESTS.length) return;
+  const part = LISTENING_TESTS[0].parts[currentListeningPartIdx];
+  if (!part) return;
+
+  const total = part.questions.length;
+  const answered = Object.keys(userListeningAnswers).length;
+  if (answered < total) {
+    if (!confirm(`Bạn mới trả lời ${answered}/${total} câu. Bạn có chắc chắn muốn nộp bài để chấm điểm ngay?`)) {
+      return;
+    }
+  }
+
+  isListeningSubmitted = true;
+  let correctCount = 0;
+  part.questions.forEach(q => {
+    if (userListeningAnswers[q.id] === q.correct) {
+      correctCount++;
+    }
+  });
+
+  const pct = Math.round((correctCount / total) * 100);
+  const scoreBanner = document.getElementById("listeningScoreBanner");
+  const scoreText = document.getElementById("listeningScoreText");
+
+  if (scoreBanner && scoreText) {
+    scoreBanner.classList.remove("hidden");
+    scoreText.innerHTML = `
+      <div class="text-2xl sm:text-3xl font-black text-amber-300">Kết quả: ${correctCount} / ${total} Câu Đúng (${pct}%)</div>
+      <p class="text-xs sm:text-sm text-slate-300 mt-1">
+        ${
+          pct === 100
+            ? "🎉 Tuyệt đỉnh! Bạn trả lời chính xác 100% tất cả các câu hỏi của bài nghe này!"
+            : pct >= 80
+            ? "👏 Rất tốt! Kỹ năng nghe hiểu chi tiết của bạn đạt mức xuất sắc!"
+            : pct >= 50
+            ? "👍 Khá tốt! Hãy xem Lời thoại (Transcript) bên dưới để xem lại các câu chưa đúng nhé."
+            : "💪 Cố lên! Hãy đọc kỹ Lời thoại & Bằng chứng bên dưới để rút kinh nghiệm cho lần nghe sau nhé."
+        }
+      </p>
+    `;
+  }
+
+  renderListeningQuestions(part);
+  // Auto open transcript after submit
+  const transBox = document.getElementById("listeningTranscriptCard");
+  if (transBox) transBox.classList.remove("hidden");
+
+  showToast(`🎧 Đã chấm điểm bài nghe: ${correctCount}/${total} câu đúng (${pct}%)!`, pct >= 70 ? "success" : "info");
+}
+
+function resetListeningTest() {
+  userListeningAnswers = {};
+  isListeningSubmitted = false;
+  if (typeof LISTENING_TESTS !== "undefined" && LISTENING_TESTS.length) {
+    const part = LISTENING_TESTS[0].parts[currentListeningPartIdx];
+    renderListeningQuestions(part);
+  }
+  const scoreBanner = document.getElementById("listeningScoreBanner");
+  if (scoreBanner) scoreBanner.classList.add("hidden");
+  showToast("Đã làm mới bài nghe. Hãy chọn lại các đáp án!", "info");
+}
+
+function toggleListeningTranscript() {
+  const transBox = document.getElementById("listeningTranscriptCard");
+  if (transBox) {
+    transBox.classList.toggle("hidden");
+  }
+}
+
+function renderListeningTranscript(part) {
+  const container = document.getElementById("listeningTranscriptBody");
+  if (!container || !part.transcript) return;
+
+  let html = "";
+  part.transcript.forEach((line, idx) => {
+    html += `
+      <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
+            line.speaker.toLowerCase().includes("interviewer") ? "bg-indigo-500/20 text-indigo-300" : "bg-cyan-500/20 text-cyan-300"
+          }">${line.speaker}</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">${line.en}</p>
+        <p class="text-xs text-slate-400 leading-relaxed italic border-t border-slate-800/60 pt-1 mt-1">${line.vi}</p>
+      </div>
+    `;
+  });
+  container.innerHTML = html;
+}
+
+// ============================================================================
+// MODULE 2: VIETNAM TODAY DAILY VIDEO & VOCABULARY ENGINE (VTV4)
+// ============================================================================
+let currentVideoIdx = 0;
+
+function initVietnamTodayModule() {
+  renderVietnamTodaySelector();
+  loadVietnamTodayVideo(0);
+}
+
+function renderVietnamTodaySelector() {
+  const container = document.getElementById("vietnamTodayVideoSelector");
+  if (!container || typeof VIETNAM_TODAY_VIDEOS === "undefined" || !VIETNAM_TODAY_VIDEOS.length) return;
+
+  let html = "";
+  VIETNAM_TODAY_VIDEOS.forEach((vid, idx) => {
+    const active = idx === currentVideoIdx;
+    html += `
+      <div onclick="switchVietnamTodayVideo(${idx})" class="p-3.5 rounded-2xl border cursor-pointer transition space-y-1.5 ${
+        active
+          ? "bg-rose-950/30 border-rose-500/80 shadow-lg shadow-rose-950/40 ring-1 ring-rose-500/50"
+          : "glass-card hover:bg-slate-800/80 border-slate-700/60 text-slate-300"
+      }">
+        <div class="flex items-center justify-between text-[11px]">
+          <span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold">${vid.category}</span>
+          <span class="text-slate-400 font-mono flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> ${vid.duration}</span>
+        </div>
+        <h4 class="font-bold text-white text-xs sm:text-sm line-clamp-2 leading-snug">${vid.title}</h4>
+        <p class="text-[11px] text-slate-400 line-clamp-1 italic">${vid.vnTitle}</p>
+      </div>
+    `;
+  });
+  container.innerHTML = html;
+  if (typeof lucide !== "undefined") lucide.createIcons();
+}
+
+function switchVietnamTodayVideo(idx) {
+  currentVideoIdx = idx;
+  renderVietnamTodaySelector();
+  loadVietnamTodayVideo(idx);
+}
+
+function loadVietnamTodayVideo(idx) {
+  if (typeof VIETNAM_TODAY_VIDEOS === "undefined" || !VIETNAM_TODAY_VIDEOS.length) return;
+  const vid = VIETNAM_TODAY_VIDEOS[idx];
+  if (!vid) return;
+
+  // 1. YouTube Iframe
+  const playerContainer = document.getElementById("vietnamTodayIframeContainer");
+  if (playerContainer) {
+    playerContainer.innerHTML = `
+      <iframe class="w-full h-full rounded-2xl" src="https://www.youtube.com/embed/${vid.youtubeId}?rel=0&modestbranding=1" title="${vid.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    `;
+  }
+
+  // 2. Video Info
+  const titleEl = document.getElementById("vntVideoTitle");
+  const descEl = document.getElementById("vntVideoDesc");
+  if (titleEl) titleEl.innerText = vid.title;
+  if (descEl) descEl.innerText = `${vid.vnTitle} • ${vid.description}`;
+
+  // 3. Vocabulary
+  renderVietnamTodayVocab(vid.vocabulary);
+
+  // 4. Script
+  renderVietnamTodayScript(vid.script);
+}
+
+function renderVietnamTodayVocab(vocabList) {
+  const container = document.getElementById("vntVocabContainer");
+  const countBadge = document.getElementById("vntVocabCountBadge");
+  if (!container || !Array.isArray(vocabList)) return;
+
+  if (countBadge) countBadge.innerText = `${vocabList.length} Từ Vựng Trọng Tâm`;
+
+  let html = "";
+  vocabList.forEach((v, idx) => {
+    html += `
+      <div class="glass-card p-4 rounded-xl border border-slate-700/80 hover:border-cyan-500/50 transition space-y-2 group bg-slate-900/60">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-base sm:text-lg font-black text-amber-300 font-mono tracking-wide">${v.word}</span>
+              <button onclick="speakWord('${v.word}')" class="p-1 rounded-lg bg-indigo-500/20 text-indigo-300 hover:text-white hover:bg-indigo-600 transition" title="Nghe phát âm">
+                <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <div class="text-[11px] text-cyan-300 font-mono mt-0.5">${v.ipa || ""} • <span class="text-slate-300">${v.pos || ""}</span></div>
+          </div>
+          <button onclick="saveVideoWordToNotebook(${currentVideoIdx}, ${idx})" class="px-2.5 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white text-xs font-bold border border-emerald-500/30 transition shadow-sm flex items-center gap-1 active:scale-95 shrink-0" title="Thêm vào Flashcard cá nhân để học hàng ngày">
+            <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i>
+            <span class="hidden sm:inline">Lưu Flashcard</span>
+            <span class="sm:hidden">+ Lưu</span>
+          </button>
+        </div>
+
+        <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700/60 text-xs sm:text-sm text-slate-100 font-medium">
+          🇻🇳 ${v.meaning}
+        </div>
+
+        <div class="text-xs text-slate-300 leading-relaxed pl-2 border-l-2 border-indigo-500/40 space-y-0.5">
+          <p class="font-medium text-slate-200">${v.example}</p>
+          <p class="text-slate-400 italic text-[11px]">${v.exampleVn || ""}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (typeof lucide !== "undefined") lucide.createIcons();
+}
+
+function saveVideoWordToNotebook(vidIdx, wordIdx) {
+  if (typeof VIETNAM_TODAY_VIDEOS === "undefined") return;
+  const vid = VIETNAM_TODAY_VIDEOS[vidIdx];
+  if (!vid || !vid.vocabulary || !vid.vocabulary[wordIdx]) return;
+
+  const v = vid.vocabulary[wordIdx];
+  const item = {
+    word: v.word,
+    pos: v.pos,
+    pron: v.ipa,
+    meaning_vi: v.meaning,
+    meaning_en: v.meaning,
+    example: v.example,
+    source: "Vietnam Today VTV4"
+  };
+
+  saveCustomWordItem(item);
+  showToast(`🎉 Đã thêm từ "${v.word}" vào danh sách Flashcard của bạn!`, "success");
+  if (typeof triggerBackgroundCloudSync === "function") {
+    triggerBackgroundCloudSync();
+  }
+}
+
+function renderVietnamTodayScript(scriptList) {
+  const container = document.getElementById("vntScriptContainer");
+  if (!container || !Array.isArray(scriptList)) return;
+
+  let html = "";
+  scriptList.forEach(s => {
+    html += `
+      <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1.5">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-mono font-bold flex items-center gap-1">
+            <i data-lucide="play-circle" class="w-3 h-3"></i> ${s.time}
+          </span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">${s.en}</p>
+        <p class="text-xs text-slate-400 italic leading-relaxed pt-1 border-t border-slate-800/60">${s.vi}</p>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (typeof lucide !== "undefined") lucide.createIcons();
 }

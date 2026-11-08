@@ -114,6 +114,12 @@
         <button onclick="switchTab('flashcard')" id="nav-btn-flashcard" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="layers" class="w-4 h-4"></i> Học Deadline Hôm Nay
         </button>
+        <button onclick="switchTab('listening')" id="nav-btn-listening" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="headphones" class="w-4 h-4 text-cyan-400"></i> Luyện Nghe
+        </button>
+        <button onclick="switchTab('video')" id="nav-btn-video" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="tv" class="w-4 h-4 text-rose-400"></i> Vietnam Today
+        </button>
         <button onclick="switchTab('review')" id="nav-btn-review" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="rotate-cw" class="w-4 h-4"></i> Ôn Tập Tự Do (Chọn Unit)
         </button>
@@ -939,6 +945,227 @@
     </section>
 
     <!-- ================= TAB: PROFILE & ANALYTICS ================= -->
+    
+    <!-- ============================================================================ -->
+    <!-- TAB: LISTENING PRACTICE (FORM CHUẨN ĐỀ THI HP3 & CAMBRIDGE B1/B2) -->
+    <!-- ============================================================================ -->
+    <section id="tab-listening" class="hidden space-y-6">
+      <!-- Header Banner -->
+      <div class="glass-card rounded-2xl p-6 border border-cyan-500/40 relative overflow-hidden bg-gradient-to-br from-cyan-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs uppercase tracking-wider border border-cyan-500/30 flex items-center gap-1.5">
+                <i data-lucide="headphones" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <span>Luyện Nghe Tiếng Anh Học Phần 3</span>
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs">
+                Form Chuẩn Đề Thi HP3
+              </span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">🎧 Luyện Nghe Trắc Nghiệm A, B, C & Lời Thoại Song Ngữ</h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">Trình phát audio có tính năng tua ±5s, chỉnh tốc độ 0.75x - 1.25x, chấm điểm tức thì và giải thích đáp án chi tiết.</p>
+          </div>
+        </div>
+
+        <!-- Part Selection Tabs -->
+        <div class="flex items-center gap-2 flex-wrap" id="listeningPartTabs">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Audio Player Control Card -->
+      <div class="glass-card rounded-2xl p-5 border border-slate-700/80 bg-slate-900/90 shadow-xl space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/30">
+              <i data-lucide="volume-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-[11px] text-cyan-400 font-mono font-bold uppercase tracking-wider">Trình Phát Audio Đề Thi</div>
+              <h3 id="listeningTrackTitle" class="text-sm sm:text-base font-bold text-white">Part 1: Interview with Andrea</h3>
+            </div>
+          </div>
+
+          <!-- Speed Controls -->
+          <div class="flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700">
+            <span class="text-[10px] text-slate-400 px-1 font-bold">Tốc độ:</span>
+            <button onclick="setListeningSpeed(0.75)" data-rate="0.75" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">0.75x</button>
+            <button onclick="setListeningSpeed(1.0)" data-rate="1.0" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold bg-cyan-600 text-white transition shadow">1.0x</button>
+            <button onclick="setListeningSpeed(1.25)" data-rate="1.25" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">1.25x</button>
+          </div>
+        </div>
+
+        <!-- HTML5 Hidden Audio Element -->
+        <audio id="listeningAudio" class="hidden"></audio>
+
+        <!-- Player Seek & Action Bar -->
+        <div class="space-y-2">
+          <input type="range" id="listeningSeekRange" min="0" max="100" value="0" step="0.1" oninput="onListeningSeek(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span id="listeningTimeCurrent">00:00</span>
+            <span id="listeningTimeTotal">00:00</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 pt-1">
+          <button onclick="seekListening(-5)" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1 border border-slate-700 transition" title="Lùi lại 5 giây">
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> -5s
+          </button>
+
+          <button onclick="toggleListeningPlay()" id="btnListeningPlay" class="w-14 h-14 rounded-2xl bg-gradient-to-r from-cyan-600 via-teal-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white flex items-center justify-center shadow-lg shadow-cyan-600/40 transition active:scale-95" title="Phát / Tạm dừng">
+            <i data-lucide="play" class="w-7 h-7" id="listeningPlayIcon"></i>
+          </button>
+
+          <button onclick="seekListening(5)" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1 border border-slate-700 transition" title="Tua tới 5 giây">
+            +5s <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+
+        <!-- Instruction Notice -->
+        <div class="p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-xs text-cyan-200 flex items-start gap-2">
+          <i data-lucide="info" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+          <span id="listeningInstructionText">You will hear each part TWICE. Choose the correct letter A, B or C.</span>
+        </div>
+      </div>
+
+      <!-- Score Banner (Hidden initially) -->
+      <div id="listeningScoreBanner" class="hidden glass-card rounded-2xl p-6 border-2 border-amber-500/60 bg-gradient-to-r from-amber-950/60 via-slate-900 to-indigo-950/60 text-center space-y-2 shadow-2xl">
+        <div id="listeningScoreText"></div>
+      </div>
+
+      <!-- Questions List -->
+      <div class="space-y-4">
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <i data-lucide="help-circle" class="w-5 h-5 text-cyan-400"></i>
+          <span>Danh Sách Câu Hỏi Trắc Nghiệm</span>
+        </h3>
+        <div id="listeningQuestionsContainer" class="space-y-4">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Submit & Reset Actions Bar -->
+      <div class="glass-card p-4 rounded-2xl border border-slate-700 flex items-center justify-between gap-3 flex-wrap bg-slate-900/90">
+        <button onclick="submitListeningTest()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-950/40 transition flex items-center gap-2 active:scale-95">
+          <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+          <span>Nộp Bài & Chấm Điểm</span>
+        </button>
+
+        <div class="flex items-center gap-2">
+          <button onclick="toggleListeningTranscript()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold border border-slate-700 transition flex items-center gap-1.5">
+            <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
+            <span>Xem Lời Thoại (Transcript)</span>
+          </button>
+          <button onclick="resetListeningTest()" class="px-4 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-xs sm:text-sm font-bold border border-slate-700 transition flex items-center gap-1.5">
+            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            <span>Làm Lại</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Transcript & Answer Evidence Box -->
+      <div id="listeningTranscriptCard" class="hidden glass-card rounded-2xl p-6 border border-indigo-500/30 bg-slate-900/95 space-y-4 shadow-xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h4 class="font-bold text-white text-base flex items-center gap-2">
+            <i data-lucide="file-text" class="w-5 h-5 text-indigo-400"></i>
+            <span>Lời Thoại Bài Nghe Song Ngữ Anh - Việt (Transcript)</span>
+          </h4>
+          <button onclick="toggleListeningTranscript()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+        <div id="listeningTranscriptBody" class="space-y-3 max-h-[500px] overflow-y-auto pr-2">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- TAB: VIETNAM TODAY DAILY VIDEO & VOCABULARY HUB (VTV4) -->
+    <!-- ============================================================================ -->
+    <section id="tab-video" class="hidden space-y-6">
+      <!-- Header Banner -->
+      <div class="glass-card rounded-2xl p-6 border border-rose-500/40 relative overflow-hidden bg-gradient-to-br from-rose-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold text-xs uppercase tracking-wider border border-rose-500/30 flex items-center gap-1.5">
+                <i data-lucide="tv" class="w-3.5 h-3.5 text-rose-400"></i>
+                <span>Vietnam Today • VTV4 Daily News</span>
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs">
+                Tiếng Anh Chuẩn Quốc Tế
+              </span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">📺 Xem Video Bản Tin Vietnam Today & Học Từ Vựng Trọng Tâm</h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">Cập nhật hàng ngày về văn hóa, di sản, ẩm thực, du lịch và kinh tế Việt Nam kèm Full Script song ngữ đối chiếu.</p>
+          </div>
+        </div>
+
+        <!-- Video Selector List -->
+        <div class="space-y-2">
+          <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Chọn số bản tin Vietnam Today:</div>
+          <div id="vietnamTodayVideoSelector" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Video Player & Script Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Left: Video Embed & Meta -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="glass-card p-2 rounded-2xl border border-slate-700 bg-black/80 aspect-video shadow-2xl overflow-hidden" id="vietnamTodayIframeContainer">
+            <!-- Rendered by JS -->
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl border border-slate-700/80 bg-slate-900/90 space-y-2">
+            <h3 id="vntVideoTitle" class="text-lg sm:text-xl font-black text-white leading-snug">Vietnam Today: Preserving Traditional Craft Villages</h3>
+            <p id="vntVideoDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">Bảo tồn làng nghề truyền thống và di sản sống của Việt Nam.</p>
+          </div>
+        </div>
+
+        <!-- Right: Full Bilingual Script -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="glass-card p-5 rounded-2xl border border-slate-700/80 bg-slate-900/90 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h4 class="font-bold text-white text-sm sm:text-base flex items-center gap-2">
+                <i data-lucide="file-text" class="w-4 h-4 text-rose-400"></i>
+                <span>Full Script Lời Thoại Song Ngữ</span>
+              </h4>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">Anh - Việt</span>
+            </div>
+            <div id="vntScriptContainer" class="space-y-3 max-h-[460px] overflow-y-auto pr-2">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Vocabulary Section -->
+      <div class="glass-card rounded-2xl p-6 border border-cyan-500/30 bg-slate-900/90 space-y-5 shadow-2xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></span>
+              <h3 class="text-lg sm:text-xl font-bold text-white">📚 Từ Vựng Trọng Tâm Cần Học Sau Khi Xem Video</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">Bấm <strong>[Lưu Flashcard]</strong> để thêm từ mới này vào sổ tay học tập hàng ngày và đồng bộ ngay lên điện thoại.</p>
+          </div>
+          <span id="vntVocabCountBadge" class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs self-start sm:self-auto border border-cyan-500/30">
+            8 Từ Vựng Trọng Tâm
+          </span>
+        </div>
+
+        <!-- Vocabulary Cards Grid -->
+        <div id="vntVocabContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+
     <section id="tab-profile" class="hidden space-y-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="glass-card rounded-2xl p-6 space-y-4">
@@ -998,7 +1225,7 @@
 
   <!-- ================= BOTTOM NAVIGATION BAR (MOBILE) ================= -->
   <footer class="md:hidden fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-slate-800 px-2 py-1.5">
-    <div class="grid grid-cols-5 gap-1 text-center">
+    <div class="grid grid-cols-7 gap-0.5 text-center">
       <button onclick="switchTab('today')" id="mob-btn-today" class="mob-tab active flex flex-col items-center py-1 text-indigo-400">
         <i data-lucide="calendar" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Hôm nay</span>
@@ -1006,6 +1233,14 @@
       <button onclick="switchTab('flashcard')" id="mob-btn-flashcard" class="mob-tab flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="layers" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Thẻ từ</span>
+      </button>
+      <button onclick="switchTab('listening')" id="mob-btn-listening" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+        <i data-lucide="headphones" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Nghe</span>
+      </button>
+      <button onclick="switchTab('video')" id="mob-btn-video" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+        <i data-lucide="tv" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Video</span>
       </button>
       <button onclick="switchTab('review')" id="mob-btn-review" class="mob-tab flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="rotate-cw" class="w-5 h-5"></i>
@@ -1627,12 +1862,14 @@
 
 <!-- LOAD APPLICATION SCRIPTS -->
   <script src="/data.js?v=26.0"></script>
-  <script src="/app.js?v=28.0"></script>
+  <script src="/listening_data.js?v=28.0"></script>
+  <script src="/vietnam_today_data.js?v=28.0"></script>
+  <script src="/app.js?v=29.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=26.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=29.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

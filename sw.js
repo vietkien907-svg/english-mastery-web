@@ -1,9 +1,11 @@
-const CACHE_NAME = 'english-mastery-v28';
+const CACHE_NAME = 'english-mastery-v29';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './style.css',
   './data.js',
+  './listening_data.js',
+  './vietnam_today_data.js',
   './app.js',
   './manifest.json',
   './icon-192.png',
@@ -18,7 +20,11 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
-        keys.map((key) => caches.delete(key))
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
       );
     })
   );
@@ -26,77 +32,42 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Network first for HTML, JS and API to ensure immediate updates without stale caching
-  const isDynamic = event.request.url.includes('/api/') || 
-                    event.request.url.includes('.js') || 
-                    event.request.url.includes('.html') || 
-                    event.request.url.endsWith('/');
+  if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
 
-  if (isDynamic) {
+  // Dynamic API calls & audio streaming: Network first
+  if (url.pathname.startsWith('/api') || url.pathname.startsWith('/audio')) {
     event.respondWith(
       fetch(event.request)
-        .then((resp) => {
-          if (resp && resp.status === 200 && event.request.method === 'GET') {
-            const clone = resp.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        .then((response) => {
+          if (!response || response.status !== 200 || response.type !== 'basic') {
+            return response;
           }
-          return resp;
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          return response;
         })
         .catch(() => caches.match(event.request))
     );
     return;
   }
 
+  // Static Assets: Stale-while-revalidate
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
-  );
-});
+      const fetchPromise = fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => response);
 
-// Push & Local Notification Event Handlers for Mobile
-self.addEventListener('push', (event) => {
-  let data = { title: 'English Mastery Hub', body: 'Đã đến giờ luyện tập tiếng Anh hôm nay!', icon: './icon-192.png' };
-  try {
-    if (event.data) {
-      data = event.data.json();
-    }
-  } catch (e) {
-    if (event.data) data.body = event.data.text();
-  }
-
-  const options = {
-    body: data.body,
-    icon: data.icon || './icon-192.png',
-    badge: './icon-192.png',
-    vibrate: [200, 100, 200],
-    data: {
-      url: data.url || './index.html'
-    },
-    actions: [
-      { action: 'open', title: '🚀 Luyện Tập Ngay' },
-      { action: 'close', title: 'Đóng' }
-    ]
-  };
-
-  event.waitUntil(self.registration.showNotification(data.title, options));
-});
-
-self.addEventListener('notificationclick', (event) => {
-  event.notification.close();
-  if (event.action === 'close') return;
-
-  const targetUrl = event.notification.data?.url || './index.html';
-  event.waitUntil(
-    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
-      for (const client of clientList) {
-        if (client.url.includes('index.html') && 'focus' in client) {
-          return client.focus();
-        }
-      }
-      if (clients.openWindow) {
-        return clients.openWindow(targetUrl);
-      }
+      return response || fetchPromise;
     })
   );
 });

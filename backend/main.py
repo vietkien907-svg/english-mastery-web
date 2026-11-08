@@ -92,6 +92,9 @@ app.include_router(telegram_router.router)
 
 # Mount Static frontend assets
 FRONTEND_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+AUDIO_DIR = os.path.join(FRONTEND_DIR, "audio")
+if os.path.exists(AUDIO_DIR):
+    app.mount("/audio", StaticFiles(directory=AUDIO_DIR), name="audio")
 
 @app.get("/")
 def serve_index():
@@ -125,6 +128,14 @@ def serve_app_js():
 @app.get("/data.js")
 def serve_data_js():
     return FileResponse(os.path.join(FRONTEND_DIR, "data.js"), media_type="application/javascript")
+
+@app.get("/listening_data.js")
+def serve_listening_data():
+    return FileResponse(os.path.join(FRONTEND_DIR, "listening_data.js"), media_type="application/javascript")
+
+@app.get("/vietnam_today_data.js")
+def serve_vietnam_today_data():
+    return FileResponse(os.path.join(FRONTEND_DIR, "vietnam_today_data.js"), media_type="application/javascript")
 
 @app.get("/mobile_qr.png")
 def serve_qr():

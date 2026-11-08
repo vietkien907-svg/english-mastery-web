@@ -158,6 +158,13 @@ def serve_icon_512():
         return FileResponse(p, media_type="image/png")
     return {"error": "Icon not found"}
 
+@app.get("/map_test1_zoo.png")
+def serve_map_test1_zoo():
+    p = os.path.join(FRONTEND_DIR, "map_test1_zoo.png")
+    if os.path.exists(p):
+        return FileResponse(p, media_type="image/png")
+    return {"error": "Map image not found"}
+
 # Healthcheck
 @app.get("/api/health")
 def healthcheck():

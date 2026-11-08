@@ -1,15 +1,16 @@
 // ============================================================================
-// ENGLISH LISTENING PRACTICE MODULE (FORM CHUẨN ĐỀ THI HP3 & CAMBRIDGE B1/B2)
+// ENGLISH LISTENING PRACTICE MODULE (FORM CHUẨN ĐỀ THI HP3 - BỘ CÔNG AN)
+// Cấu trúc 3 Parts - 20 Câu: Part 1 (Q1-5), Part 2 (Q6-10), Part 3 (Q11-15 & Map Q16-20)
 // ============================================================================
 const LISTENING_TESTS = [
   {
     id: "test_1",
-    title: "Đề Thi Số 1: Listening HP3 (Chuẩn Học Viện)",
-    subtitle: "Gồm 3 Phần thi • Thời lượng: 15 Phút • Audio Player tua ±5s • Chấm điểm & Lời thoại song ngữ",
+    title: "ĐỀ SỐ 1: Listening HP3 (Đề Thi Gốc - Học Viện Kỹ Thuật & Công Nghệ An Ninh)",
+    subtitle: "20 Câu hỏi • Thời lượng: 15 Phút • Audio Player tua ±5s • Bản đồ Map Labeling & Lời thoại song ngữ",
     parts: [
       {
         partNumber: 1,
-        title: "Part 1: Phỏng Vấn Vận Động Viên Andrea (Ice Hockey)",
+        title: "Part 1: Phỏng Vấn Andrea (U16 Ice Hockey)",
         instruction: "Questions 1-5. Choose the correct letter, A, B or C. (2.5 points)\nYou will hear an interview with a 15-year-old girl called Andrea, who plays ice hockey for her National Under-16s Team.",
         audioSrc: "/audio/part1_andrea_ice_hockey.mp3",
         questions: [
@@ -22,7 +23,7 @@ const LISTENING_TESTS = [
               { key: "C", text: "basketball" }
             ],
             correct: "C",
-            explanation: "Andrea nói: 'I've always loved sport though, and have played basketball since I was five or six. I gave that up for a while when I got into football about five years ago... ice hockey not until about three years ago'. Môn đầu tiên là basketball (5-6 tuổi)."
+            explanation: "Andrea nói: 'I've always loved sport though, and have played basketball since I was five or six. I gave that up for a while when I got into football about five years ago... ice hockey not until about three years ago'. Môn đầu tiên cô ấy chơi là bóng rổ (basketball lúc 5-6 tuổi)."
           },
           {
             id: 2,
@@ -55,7 +56,7 @@ const LISTENING_TESTS = [
               { key: "C", text: "confident in her abilities" }
             ],
             correct: "C",
-            explanation: "Andrea nói: 'I'd been really happy with how I'd been playing for my club, and felt I could do just as well at a higher level. There'd been a lot of talk about me being picked, so I kind of knew it was coming' (tự tin mình sẽ chơi tốt ở cấp độ cao hơn)."
+            explanation: "Andrea nói: 'I'd been really happy with how I'd been playing for my club, and felt I could do just as well at a higher level. There'd been a lot of talk about me being picked, so I kind of knew it was coming' (tự tin mình sẽ chơi tốt tương tự ở cấp độ cao hơn)."
           },
           {
             id: 5,
@@ -87,7 +88,7 @@ const LISTENING_TESTS = [
       },
       {
         partNumber: 2,
-        title: "Part 2: Phỏng Vấn John Benton (Cuộc Thi Chạy 25km)",
+        title: "Part 2: Phỏng Vấn John Benton (25km Race)",
         instruction: "Questions 6-10. Choose the correct letter, A, B or C. (2.5 points)\nYou will hear an interview with a student called John Benton, who’s just completed a 25-kilometre running race.",
         audioSrc: "/audio/part2_john_benton_race.mp3",
         questions: [
@@ -167,9 +168,10 @@ const LISTENING_TESTS = [
       },
       {
         partNumber: 3,
-        title: "Part 3: Talk about Australian Wild Zoo",
-        instruction: "Questions 11-15. Choose the correct letter, A, B or C. (5 points)\nYou will hear parts of the talk about an Australian Wild Zoo given by a tourguide.",
+        title: "Part 3: Australian Wild Zoo & Map Labeling (Q11-20)",
+        instruction: "Questions 11-15: Choose the correct letter A, B or C. Questions 16-20: Label the map below. Write the correct letter, A-H, next to questions 16-20. (5.0 points)",
         audioSrc: "",
+        mapImage: "/map_test1_zoo.png",
         questions: [
           {
             id: 11,
@@ -180,7 +182,7 @@ const LISTENING_TESTS = [
               { key: "C", text: "The zoo has expanded its exhibition area." }
             ],
             correct: "B",
-            explanation: "Theo đáp án chuẩn Đề 1 (Key: 11. B): Sở thú vừa đưa về một lứa động vật hoang dã mới."
+            explanation: "Đáp án chính thức: 11. B. Người hướng dẫn viên thông báo: 'we have brought a brand-new batch of animals from regional sanctuaries' (sở thú đã đưa về một lứa động vật hoang dã mới)."
           },
           {
             id: 12,
@@ -191,7 +193,7 @@ const LISTENING_TESTS = [
               { key: "C", text: "Visitors are allowed to see the animals until the late night." }
             ],
             correct: "C",
-            explanation: "Theo đáp án chuẩn Đề 1 (Key: 12. C): Quy định mới cho phép du khách tham quan đến đêm muộn."
+            explanation: "Đáp án chính thức: 12. C. Hướng dẫn viên nói: 'Under our new regulation enacted in June, the zoo extends visiting hours so you can see the animals until late night'."
           },
           {
             id: 13,
@@ -202,7 +204,7 @@ const LISTENING_TESTS = [
               { key: "C", text: "Feeding" }
             ],
             correct: "C",
-            explanation: "Theo đáp án chuẩn Đề 1 (Key: 13. C): Nghiêm cấm du khách cho Kangaroo ăn (Feeding)."
+            explanation: "Đáp án chính thức: 13. C. Hướng dẫn viên nhấn mạnh: 'Please remember, when visiting the kangaroo, feeding them is strictly forbidden'."
           },
           {
             id: 14,
@@ -213,7 +215,7 @@ const LISTENING_TESTS = [
               { key: "C", text: "Because the pye-dog zone is under construction." }
             ],
             correct: "A",
-            explanation: "Theo đáp án chuẩn Đề 1 (Key: 14. A): Khu pye-dog tạm thời đóng cửa do hàng rào bảo vệ bị gãy hỏng."
+            explanation: "Đáp án chính thức: 14. A. Hướng dẫn viên nói: 'the pye-dog enclosure is temporarily closed today because the perimeter fence is broken and undergoing repair'."
           },
           {
             id: 15,
@@ -224,11 +226,407 @@ const LISTENING_TESTS = [
               { key: "C", text: "Reception desk" }
             ],
             correct: "B",
-            explanation: "Theo đáp án chuẩn Đề 1 (Key: 15. B): Mua vé giảm giá tại Photo shop."
+            explanation: "Đáp án chính thức: 15. B. Hướng dẫn viên chỉ dẫn: 'discounted tickets for special sessions can be purchased directly at the Photo Shop'."
+          },
+          {
+            id: 16,
+            text: "16. Bird hide",
+            isMap: true,
+            options: [
+              { key: "A", text: "Khu vực A (Ngũ giác Tây Bắc)" },
+              { key: "B", text: "Khu vực B (Hình chữ nhật phía Bắc)" },
+              { key: "C", text: "Khu vực C (Hình chữ nhật phía Tây)" },
+              { key: "D", text: "Khu vực D (Góc Tây Nam cạnh Gate)" },
+              { key: "E", text: "Khu vực E (Bên trái đường chính)" },
+              { key: "F", text: "Khu vực F (Hình tròn trung tâm)" },
+              { key: "G", text: "Khu vực G (Hình chữ nhật Đông Nam)" },
+              { key: "H", text: "Khu vực H (Hình chữ nhật Đông Bắc)" }
+            ],
+            correct: "G",
+            explanation: "Đáp án chính thức: 16. G. Từ GATE đi thẳng vào theo lối bên phải qua thảm cỏ về phía Đông Nam, tòa nhà hình chữ nhật bên phải chính là Bird hide (G)."
+          },
+          {
+            id: 17,
+            text: "17. Pye-dog zone",
+            isMap: true,
+            options: [
+              { key: "A", text: "Khu vực A" },
+              { key: "B", text: "Khu vực B" },
+              { key: "C", text: "Khu vực C" },
+              { key: "D", text: "Khu vực D" },
+              { key: "E", text: "Khu vực E" },
+              { key: "F", text: "Khu vực F" },
+              { key: "G", text: "Khu vực G" },
+              { key: "H", text: "Khu vực H" }
+            ],
+            correct: "B",
+            explanation: "Đáp án chính thức: 17. B. Từ khu trung tâm Kangaroo (F) nhìn thẳng về phía Bắc dọc theo lối đi uốn cong là khu chuồng Pye-dog zone (B)."
+          },
+          {
+            id: 18,
+            text: "18. Rest area",
+            isMap: true,
+            options: [
+              { key: "A", text: "Khu vực A" },
+              { key: "B", text: "Khu vực B" },
+              { key: "C", text: "Khu vực C" },
+              { key: "D", text: "Khu vực D" },
+              { key: "E", text: "Khu vực E" },
+              { key: "F", text: "Khu vực F" },
+              { key: "G", text: "Khu vực G" },
+              { key: "H", text: "Khu vực H" }
+            ],
+            correct: "A",
+            explanation: "Đáp án chính thức: 18. A. Ở góc Tây Bắc (North-West) xa nhất là khu vực hình ngũ giác yên tĩnh dành cho khách nghỉ ngơi: Rest area (A)."
+          },
+          {
+            id: 19,
+            text: "19. Kangaroo visiting site",
+            isMap: true,
+            options: [
+              { key: "A", text: "Khu vực A" },
+              { key: "B", text: "Khu vực B" },
+              { key: "C", text: "Khu vực C" },
+              { key: "D", text: "Khu vực D" },
+              { key: "E", text: "Khu vực E" },
+              { key: "F", text: "Khu vực F" },
+              { key: "G", text: "Khu vực G" },
+              { key: "H", text: "Khu vực H" }
+            ],
+            correct: "F",
+            explanation: "Đáp án chính thức: 19. F. Vị trí hình tròn ở ngay trung tâm vườn thú chính là Kangaroo visiting site (F)."
+          },
+          {
+            id: 20,
+            text: "20. Photo shop",
+            isMap: true,
+            options: [
+              { key: "A", text: "Khu vực A" },
+              { key: "B", text: "Khu vực B" },
+              { key: "C", text: "Khu vực C" },
+              { key: "D", text: "Khu vực D" },
+              { key: "E", text: "Khu vực E" },
+              { key: "F", text: "Khu vực F" },
+              { key: "G", text: "Khu vực G" },
+              { key: "H", text: "Khu vực H" }
+            ],
+            correct: "D",
+            explanation: "Đáp án chính thức: 20. D. Ngay khi bước qua cổng chính GATE, rẽ ngay về phía bên tay trái ở góc Tây Nam (South-West) là Photo shop (D)."
           }
         ],
         transcript: [
-          { speaker: "Tour Guide", en: "Good morning everyone and welcome to the Australian Wild Zoo! I'm thrilled to introduce you to our newly upgraded facilities this season. First off, you'll be delighted to know that we have brought a brand-new batch of animals from regional conservation sanctuaries. Under our new regulation enacted this June, the zoo now extends visiting hours so you can observe nocturnal animal activities until late at night! Please remember, when visiting the kangaroo sanctuary, feeding them any outside food is strictly forbidden. Also, note that the pye-dog enclosure is temporarily closed today because the perimeter fence is undergoing urgent repair. Finally, if you wish to purchase discounted admission tickets for our interactive experiences, please head directly over to the Photo Shop!", vi: "Chào buổi sáng quý khách và chào mừng đến với Sở thú Hoang dã Australia! Tôi rất vui được giới thiệu với quý khách những cơ sở vật chất mới được nâng cấp trong mùa này. Trước hết, quý khách sẽ rất thích thú khi biết sở thú vừa tiếp nhận một lứa động vật mới từ các khu bảo tồn thiên nhiên. Theo quy định mới áp dụng từ tháng 6, sở thú mở rộng giờ tham quan để quý khách có thể quan sát động vật ban đêm đến tận đêm muộn! Xin lưu ý khi vào khu vực Kangaroo, hành vi cho thú ăn bị nghiêm cấm tuyệt đối. Khu vực chó hoang pye-dog hiện đang tạm đóng cửa do hàng rào bị hỏng cần sửa chữa. Cuối cùng, nếu quý khách muốn mua vé ưu đãi cho các trải nghiệm tương tác, xin vui lòng đến trực tiếp quầy Photo Shop!" }
+          { speaker: "Tour Guide", en: "Good morning everyone and welcome to the Australian Wild Zoo! I'm thrilled to introduce you to our newly upgraded facilities this season. First off, you'll be delighted to know that we have brought a brand-new batch of animals from regional conservation sanctuaries [Q11]. Under our new regulation enacted this June, the zoo now extends visiting hours so you can observe nocturnal animal activities until late at night [Q12]! Please remember, when visiting the kangaroo sanctuary, feeding them any outside food is strictly forbidden [Q13]. Also, note that the pye-dog enclosure is temporarily closed today because the perimeter fence is broken and undergoing urgent repair [Q14]. Finally, if you wish to purchase discounted admission tickets for our interactive sessions, please head directly over to the Photo Shop [Q15]!", vi: "Chào buổi sáng quý khách và chào mừng đến với Sở thú Hoang dã Australia! Tôi rất vui được giới thiệu với quý khách những cơ sở vật chất mới được nâng cấp trong mùa này. Trước hết, quý khách sẽ rất thích thú khi biết sở thú vừa tiếp nhận một lứa động vật hoang dã mới từ các khu bảo tồn thiên nhiên [Q11]. Theo quy định mới áp dụng từ tháng 6, sở thú mở rộng giờ tham quan để quý khách có thể quan sát động vật ban đêm đến tận đêm muộn [Q12]! Xin lưu ý khi vào khu vực Kangaroo, hành vi cho thú ăn bị nghiêm cấm tuyệt đối [Q13]. Khu vực chó hoang pye-dog hiện đang tạm đóng cửa do hàng rào bị gãy hỏng cần sửa chữa khẩn cấp [Q14]. Cuối cùng, nếu quý khách muốn mua vé ưu đãi cho các trải nghiệm tương tác, xin vui lòng đến trực tiếp quầy Photo Shop [Q15]!" },
+          { speaker: "Tour Guide (Map Orientation)", en: "Now, let me orient you with our site layout. We are currently standing right here at the main GATE at the southern edge. If you turn immediately to your left at the south-western corner, that building marked D is the Photo Shop [Q20: D]. Walking along the pathway on your right past the grassy area to the south-east, building G is our Bird Hide [Q16: G]. Continuing up into the heart of the park, this large circular enclosure marked F is the famous Kangaroo Visiting Site [Q19: F]. Straight north from the kangaroos along the curving path, structure B is the Pye-Dog Zone [Q17: B]. Finally, tucked away peacefully at the far north-western corner, the five-sided building marked A is our Rest Area with shaded seating [Q18: A].", vi: "Bây giờ, tôi xin hướng dẫn quý khách sơ đồ mặt bằng sở thú. Chúng ta hiện đang đứng ngay tại CỔNG CHÍNH (GATE) ở rìa phía Nam. Nếu quý khách rẽ ngay sang bên trái ở góc Tây Nam, tòa nhà D chính là quầy Photo Shop [Q20: D]. Đi theo lối đi bên phải qua bãi cỏ về phía Đông Nam, tòa nhà G là Trạm quan sát chim - Bird Hide [Q16: G]. Tiếp tục đi lên trung tâm công viên, khu vực hình tròn F chính là Điểm tham quan Kangaroo [Q19: F]. Nhìn thẳng về phía Bắc từ khu Kangaroo dọc theo con đường cong là Khu chó hoang Pye-Dog Zone (B) [Q17: B]. Cuối cùng, nằm yên tĩnh ở góc Tây Bắc xa nhất, tòa nhà ngũ giác A là Khu nghỉ ngơi - Rest Area có ghế ngồi râm mát [Q18: A]." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "test_2",
+    title: "ĐỀ SỐ 2: Listening HP3 (Đề Thi Tương Tự 1 - Chuẩn Ma Trận Bộ Công An)",
+    subtitle: "20 Câu hỏi • Part 1 (Phỏng vấn nghệ sĩ piano) • Part 2 (Thám hiểm xe đạp) • Part 3 (Bảo tàng & Map)",
+    parts: [
+      {
+        partNumber: 1,
+        title: "Part 1: Interview with Young Musician David",
+        instruction: "Questions 1-5. Choose the correct letter, A, B or C. (2.5 points)\nYou will hear an interview with a 17-year-old student called David, who won the National Young Musician Competition.",
+        audioSrc: "",
+        questions: [
+          {
+            id: 1,
+            text: "1. Which musical instrument did David learn to play first?",
+            options: [
+              { key: "A", text: "guitar" },
+              { key: "B", text: "piano" },
+              { key: "C", text: "violin" }
+            ],
+            correct: "B",
+            explanation: "David chia sẻ: 'My parents bought an upright piano when I was six, and that was the very first instrument I touched, long before I tried the guitar in high school'."
+          },
+          {
+            id: 2,
+            text: "2. David decided to enter the competition after",
+            options: [
+              { key: "A", text: "his music teacher strongly encouraged him." },
+              { key: "B", text: "seeing an advertisement on social media." },
+              { key: "C", text: "attending a live concert by a famous pianist." }
+            ],
+            correct: "A",
+            explanation: "David nói: 'I was hesitant at first, but my school music teacher Mrs. Harrison convinced me that my technique was ready and urged me to submit an audition tape'."
+          },
+          {
+            id: 3,
+            text: "3. How does David feel when performing in front of a large audience?",
+            options: [
+              { key: "A", text: "anxious about forgetting the sheet music" },
+              { key: "B", text: "energized by the crowd's reaction" },
+              { key: "C", text: "uncomfortable under bright stage lights" }
+            ],
+            correct: "B",
+            explanation: "David nói: 'Once I hit the first chord, all fear vanished; seeing the audience engaged actually gives me an incredible surge of energy'."
+          },
+          {
+            id: 4,
+            text: "4. What was the most difficult aspect of David’s preparation?",
+            options: [
+              { key: "A", text: "memorizing intricate musical passages" },
+              { key: "B", text: "balancing practice hours with school exams" },
+              { key: "C", text: "traveling long distances for masterclasses" }
+            ],
+            correct: "B",
+            explanation: "David nhấn mạnh: 'The hardest challenge was definitely managing my schedule—I had final term exams while trying to practice 4 hours every evening'."
+          },
+          {
+            id: 5,
+            text: "5. What is David’s primary ambition for the near future?",
+            options: [
+              { key: "A", text: "join a touring orchestra abroad" },
+              { key: "B", text: "release a solo commercial album" },
+              { key: "C", text: "complete his formal degree in music composition" }
+            ],
+            correct: "C",
+            explanation: "David khẳng định: 'Although there are tour offers, my priority is completing my music degree at university before launching a full-time professional career'."
+          }
+        ],
+        transcript: [
+          { speaker: "Interviewer", en: "Welcome David! Huge congratulations on winning the National Young Musician title. When did your musical journey begin?", vi: "Chào mừng David! Chúc mừng bạn đã giành giải quán quân Nhạc công trẻ Quốc gia. Hành trình âm nhạc của bạn bắt đầu từ khi nào?" },
+          { speaker: "David", en: "Thank you! Well, my parents bought an upright piano when I was six, and that was the very first instrument I touched, long before I tried the guitar in high school [Q1: B].", vi: "Cảm ơn bạn! Bố mẹ tôi mua một cây đàn piano khi tôi 6 tuổi, và đó là nhạc cụ đầu tiên tôi tiếp xúc, rất lâu trước khi tôi thử chơi guitar hồi cấp ba [Q1: B]." },
+          { speaker: "Interviewer", en: "What made you enter such a competitive contest?", vi: "Điều gì thúc đẩy bạn tham gia một cuộc thi có tính cạnh tranh cao như vậy?" },
+          { speaker: "David", en: "I was hesitant at first, but my school music teacher Mrs. Harrison convinced me that my technique was ready and urged me to submit an audition tape [Q2: A].", vi: "Ban đầu tôi khá do dự, nhưng cô giáo dạy nhạc trường tôi là cô Harrison đã thuyết phục rằng kỹ thuật của tôi đã vững và thúc giục tôi gửi bản ghi âm dự thi [Q2: A]." },
+          { speaker: "Interviewer", en: "How do you handle performing before thousands of spectators?", vi: "Bạn xử lý áp lực biểu diễn trước hàng ngàn khán giả như thế nào?" },
+          { speaker: "David", en: "Once I hit the first chord, all fear vanished; seeing the audience engaged actually gives me an incredible surge of energy [Q3: B].", vi: "Khi tôi đánh hợp âm đầu tiên, mọi nỗi sợ đều biến mất; việc nhìn thấy khán giả đắm chìm thực sự tiếp thêm cho tôi nguồn năng lượng tuyệt vời [Q3: B]." },
+          { speaker: "Interviewer", en: "What proved to be the toughest hurdle during training?", vi: "Điều gì là thử thách lớn nhất trong quá trình luyện tập?" },
+          { speaker: "David", en: "The hardest challenge was definitely managing my schedule—I had final term exams while trying to practice 4 hours every evening [Q4: B].", vi: "Thử thách khó nhất chắc chắn là quản lý thời gian—tôi vướng kỳ thi học kỳ trong khi vẫn phải cố gắng tập 4 tiếng mỗi tối [Q4: B]." },
+          { speaker: "Interviewer", en: "And what lies ahead in your career?", vi: "Và dự định tương lai của bạn là gì?" },
+          { speaker: "David", en: "Although there are tour offers, my priority is completing my music degree at university before launching a full-time professional career [Q5: C].", vi: "Dù có lời mời đi lưu diễn, ưu tiên của tôi vẫn là hoàn thành bằng đại học ngành sáng tác âm nhạc trước khi bước vào sự nghiệp chuyên nghiệp toàn thời gian [Q5: C]." }
+        ]
+      },
+      {
+        partNumber: 2,
+        title: "Part 2: Interview with Long-Distance Cyclist Sarah",
+        instruction: "Questions 6-10. Choose the correct letter, A, B or C. (2.5 points)\nYou will hear an interview with a university student named Sarah, who completed a 500-kilometre coastal bike expedition.",
+        audioSrc: "",
+        questions: [
+          {
+            id: 6,
+            text: "6. Why did Sarah undertake the 500-km coastal ride?",
+            options: [
+              { key: "A", text: "to raise funds for marine conservation" },
+              { key: "B", text: "to break an amateur speed record" },
+              { key: "C", text: "to test a prototype touring bicycle" }
+            ],
+            correct: "A",
+            explanation: "Sarah giải thích: 'My primary goal was raising donations for a coastal marine charity protecting coral reefs'."
+          },
+          {
+            id: 7,
+            text: "7. During the journey, what was the most difficult physical challenge?",
+            options: [
+              { key: "A", text: "pedaling against powerful coastal headwinds" },
+              { key: "B", text: "climbing steep rocky mountain passes" },
+              { key: "C", text: "enduring heavy torrential afternoon rain" }
+            ],
+            correct: "A",
+            explanation: "Sarah nói: 'The coastal gale headwinds were relentless; on day three, pedaling felt like pushing against a solid brick wall'."
+          },
+          {
+            id: 8,
+            text: "8. How did Sarah arrange overnight accommodation?",
+            options: [
+              { key: "A", text: "reserved hotel rooms weeks beforehand" },
+              { key: "B", text: "pitched a lightweight tent at coastal campsites" },
+              { key: "C", text: "stayed exclusively with local host families" }
+            ],
+            correct: "B",
+            explanation: "Sarah kể: 'To keep expenses low, I carried a compact tent and camped overnight at designated public campsites along beaches'."
+          },
+          {
+            id: 9,
+            text: "9. What does Sarah say about her nutritional strategy during the ride?",
+            options: [
+              { key: "A", text: "ate heavy pasta dinners each night" },
+              { key: "B", text: "snacked frequently on nuts, oats, and bananas" },
+              { key: "C", text: "relied solely on liquid protein shakes" }
+            ],
+            correct: "B",
+            explanation: "Sarah chia sẻ: 'Instead of huge meals that make you sluggish, I munched small portions of oats, bananas, and almonds every 45 minutes'."
+          },
+          {
+            id: 10,
+            text: "10. What key advice does Sarah offer to aspiring endurance cyclists?",
+            options: [
+              { key: "A", text: "always travel in large organized pelotons" },
+              { key: "B", text: "master basic bicycle maintenance before departure" },
+              { key: "C", text: "purchase top-tier carbon-fiber equipment" }
+            ],
+            correct: "B",
+            explanation: "Sarah khuyên: 'Knowing how to patch a punctured tire and adjust a chain yourself is essential; you can't rely on bike shops in remote areas'."
+          }
+        ],
+        transcript: [
+          { speaker: "Interviewer", en: "Sarah, 500 kilometers on two wheels along rugged coastlines is breathtaking! What inspired this feat?", vi: "Sarah, 500 km trên chiếc xe đạp dọc bờ biển hiểm trở thật ngoạn mục! Điều gì đã truyền cảm hứng cho chuyến đi này?" },
+          { speaker: "Sarah", en: "My primary goal was raising donations for a coastal marine charity protecting coral reefs [Q6: A].", vi: "Mục tiêu chính của tôi là gây quỹ quyên góp cho một tổ chức từ thiện bảo tồn san hô biển ven bờ [Q6: A]." },
+          { speaker: "Interviewer", en: "What was the toughest physical obstacle along the Pacific highway?", vi: "Trở ngại thể lực khắc nghiệt nhất dọc đường quốc lộ ven biển là gì?" },
+          { speaker: "Sarah", en: "The coastal gale headwinds were relentless; on day three, pedaling felt like pushing against a solid brick wall [Q7: A].", vi: "Gió ngược từ biển thổi rát rạt không ngừng; vào ngày thứ ba, đạp xe như thể đang cố đẩy một bức tường gạch kiên cố [Q7: A]." },
+          { speaker: "Interviewer", en: "Where did you rest your head each night?", vi: "Bạn nghỉ qua đêm ở đâu?" },
+          { speaker: "Sarah", en: "To keep expenses low, I carried a compact tent and camped overnight at designated public campsites along beaches [Q8: B].", vi: "Để tiết kiệm chi phí, tôi mang theo một chiếc lều nhỏ gọn và cắm trại qua đêm tại các bãi cắm trại công cộng ven biển [Q8: B]." },
+          { speaker: "Interviewer", en: "How did you sustain your energy levels across consecutive days?", vi: "Bạn duy trì mức năng lượng như thế nào qua nhiều ngày liên tiếp?" },
+          { speaker: "Sarah", en: "Instead of huge meals that make you sluggish, I munched small portions of oats, bananas, and almonds every 45 minutes [Q9: B].", vi: "Thay vì ăn bữa lớn gây nặng bụng, tôi nhâm nhi khẩu phần nhỏ gồm yến mạch, chuối và hạnh nhân cứ mỗi 45 phút [Q9: B]." },
+          { speaker: "Interviewer", en: "What is your number one tip for beginners embarking on touring rides?", vi: "Lời khuyên số một của bạn cho người mới bắt đầu đạp xe đường trường là gì?" },
+          { speaker: "Sarah", en: "Knowing how to patch a punctured tire and adjust a chain yourself is essential; you can't rely on bike shops in remote areas [Q10: B].", vi: "Biết cách tự vá lốp thủng và căn chỉnh xích xe là điều sống còn; bạn không thể trông chờ vào tiệm sửa xe ở các vùng hẻo lánh [Q10: B]." }
+        ]
+      },
+      {
+        partNumber: 3,
+        title: "Part 3: National Security Heritage Museum & Floor Plan",
+        instruction: "Questions 11-15: Choose the correct letter A, B or C. Questions 16-20: Label the map below. (5.0 points)",
+        audioSrc: "",
+        mapImage: "/map_test1_zoo.png",
+        questions: [
+          {
+            id: 11,
+            text: "11. What is the latest exhibition gallery added to the museum this year?",
+            options: [
+              { key: "A", text: "Historical cipher and cryptology machines" },
+              { key: "B", text: "Ancient military armor and weaponry" },
+              { key: "C", text: "Aviation surveillance history" }
+            ],
+            correct: "A",
+            explanation: "Hướng dẫn viên giới thiệu: 'Our newest permanent exhibition focuses on historical cipher machines and cryptology'."
+          },
+          {
+            id: 12,
+            text: "12. Under the updated regulations, what is the evening closing time on weekends?",
+            options: [
+              { key: "A", text: "6:00 PM" },
+              { key: "B", text: "8:30 PM" },
+              { key: "C", text: "10:00 PM" }
+            ],
+            correct: "B",
+            explanation: "Thông báo nêu rõ: 'Weekend hours are now extended to 8:30 PM to accommodate evening guided tours'."
+          },
+          {
+            id: 13,
+            text: "13. Which action is strictly prohibited inside the main archive room?",
+            options: [
+              { key: "A", text: "Wearing backpacks" },
+              { key: "B", text: "Taking flash photography" },
+              { key: "C", text: "Carrying sketchbooks" }
+            ],
+            correct: "B",
+            explanation: "Quy định nêu rõ: 'Flash photography is strictly banned to preserve ancient parchment documents'."
+          },
+          {
+            id: 14,
+            text: "14. Why is the rooftop observation deck closed today?",
+            options: [
+              { key: "A", text: "Structural floor resurfacing" },
+              { key: "B", text: "Excessive wind speeds" },
+              { key: "C", text: "Private diplomatic reception" }
+            ],
+            correct: "A",
+            explanation: "Hướng dẫn viên thông báo: 'The rooftop observation deck is temporarily closed for floor resurfacing'."
+          },
+          {
+            id: 15,
+            text: "15. Where can university students collect their free multilingual audio guide?",
+            options: [
+              { key: "A", text: "Security checkpoint" },
+              { key: "B", text: "Information Desk" },
+              { key: "C", text: "Gift store" }
+            ],
+            correct: "B",
+            explanation: "Hướng dẫn viên cho biết: 'Students can present ID at the Information Desk to receive free audio headsets'."
+          },
+          {
+            id: 16,
+            text: "16. Cryptology & Cipher Gallery",
+            isMap: true,
+            options: [
+              { key: "A", text: "Khu vực A" },
+              { key: "B", text: "Khu vực B" },
+              { key: "C", text: "Khu vực C" },
+              { key: "D", text: "Khu vực D" },
+              { key: "E", text: "Khu vực E" },
+              { key: "F", text: "Khu vực F" },
+              { key: "G", text: "Khu vực G" },
+              { key: "H", text: "Khu vực H" }
+            ],
+            correct: "H",
+            explanation: "Đi từ GATE dọc theo sảnh phía Đông về phía Đông Bắc: Tòa nhà triển lãm lớn H chính là Cryptology Gallery."
+          },
+          {
+            id: 17,
+            text: "17. Archive Preservation Room",
+            isMap: true,
+            options: [
+              { key: "A", text: "Khu vực A" },
+              { key: "B", text: "Khu vực B" },
+              { key: "C", text: "Khu vực C" },
+              { key: "D", text: "Khu vực D" },
+              { key: "E", text: "Khu vực E" },
+              { key: "F", text: "Khu vực F" },
+              { key: "G", text: "Khu vực G" },
+              { key: "H", text: "Khu vực H" }
+            ],
+            correct: "B",
+            explanation: "Nằm ở phía Bắc đối diện khu trung tâm F là phòng lưu trữ tài liệu mật B."
+          },
+          {
+            id: 18,
+            text: "18. Officers Memorial Hall",
+            isMap: true,
+            options: [
+              { key: "A", text: "Khu vực A" },
+              { key: "B", text: "Khu vực B" },
+              { key: "C", text: "Khu vực C" },
+              { key: "D", text: "Khu vực D" },
+              { key: "E", text: "Khu vực E" },
+              { key: "F", text: "Khu vực F" },
+              { key: "G", text: "Khu vực G" },
+              { key: "H", text: "Khu vực H" }
+            ],
+            correct: "A",
+            explanation: "Ở góc Tây Bắc xa nhất, tòa nhà ngũ giác uy nghiêm A là Nhà tưởng niệm các anh hùng liệt sĩ."
+          },
+          {
+            id: 19,
+            text: "19. Central Interactive Courtyard",
+            isMap: true,
+            options: [
+              { key: "A", text: "Khu vực A" },
+              { key: "B", text: "Khu vực B" },
+              { key: "C", text: "Khu vực C" },
+              { key: "D", text: "Khu vực D" },
+              { key: "E", text: "Khu vực E" },
+              { key: "F", text: "Khu vực F" },
+              { key: "G", text: "Khu vực G" },
+              { key: "H", text: "Khu vực H" }
+            ],
+            correct: "F",
+            explanation: "Khuôn viên tròn lớn ở vị trí trung tâm F chính là Central Interactive Courtyard."
+          },
+          {
+            id: 20,
+            text: "20. Information & Headset Desk",
+            isMap: true,
+            options: [
+              { key: "A", text: "Khu vực A" },
+              { key: "B", text: "Khu vực B" },
+              { key: "C", text: "Khu vực C" },
+              { key: "D", text: "Khu vực D" },
+              { key: "E", text: "Khu vực E" },
+              { key: "F", text: "Khu vực F" },
+              { key: "G", text: "Khu vực G" },
+              { key: "H", text: "Khu vực H" }
+            ],
+            correct: "D",
+            explanation: "Ngay lối vào bên trái cổng GATE ở góc Tây Nam là quầy Information Desk (D)."
+          }
+        ],
+        transcript: [
+          { speaker: "Guide", en: "Welcome cadets and visitors to the National Security Heritage Museum. We are proud to inaugurate our state-of-the-art Cryptology and Cipher Gallery this year [Q11: A]. Weekend opening hours have now been extended until 8:30 PM [Q12: B]. Inside the special archives, flash photography is strictly prohibited to safeguard delicate historical inks [Q13: B]. Please note the rooftop viewing platform is closed today due to scheduled maintenance [Q14: A]. Students may collect free digital audio headsets at our Information Desk [Q15: B].", vi: "Chào mừng các học viên và du khách đến với Bảo tàng Di sản An ninh Quốc gia. Chúng tôi tự hào khánh thành Phòng trưng bày Mật mã học trong năm nay [Q11: A]. Giờ mở cửa cuối tuần hiện kéo dài đến 8:30 tối [Q12: B]. Bên trong phòng lưu trữ, hành vi chụp ảnh có đèn flash bị cấm nghiêm ngặt để bảo vệ các tài liệu cổ [Q13: B]. Xin lưu ý đài quan sát trên mái tạm đóng cửa hôm nay để bảo dưỡng [Q14: A]. Học viên có thể nhận tai nghe thuyết minh miễn phí tại Quầy Thông tin [Q15: B]." },
+          { speaker: "Guide (Layout)", en: "Standing at the southern entrance GATE, building D on your immediate left is the Information Desk where you collect audio guides [Q20: D]. Walking north-east up the eastern wing, the long hall H houses the Cryptology and Cipher Gallery [Q16: H]. In the center of the complex, the circular plaza F is the Central Interactive Courtyard [Q19: F]. Directly north of the courtyard, structure B is the Archive Preservation Room [Q17: B]. In the peaceful north-western corner, the pentagon-shaped hall A is the Officers Memorial Hall [Q18: A].", vi: "Đứng tại cổng vào phía Nam GATE, tòa nhà D ngay bên tay trái quý khách là Quầy Thông tin nhận tai nghe [Q20: D]. Đi về phía Đông Bắc dọc cánh phía Đông, đại sảnh H là Phòng Mật mã học [Q16: H]. Ở trung tâm khu phức hợp, quảng trường tròn F là Sân tương tác trung tâm [Q19: F]. Ngay phía Bắc quảng trường, tòa nhà B là Phòng bảo quản văn khố [Q17: B]. Nằm tại góc Tây Bắc trang nghiêm, đại sảnh ngũ giác A là Nhà tưởng niệm cán bộ chiến sĩ [Q18: A]." }
         ]
       }
     ]

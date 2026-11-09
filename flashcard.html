@@ -958,126 +958,202 @@
     </section>
 
     <!-- ================= TAB: CONTEXT READER ================= -->
-    <section id="tab-reader" class="hidden space-y-6">
-      <div class="glass-card rounded-2xl p-6">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+        <section id="tab-reader" class="hidden space-y-4">
+      <!-- 1. Header & Exam Control Center -->
+      <div class="glass-card rounded-2xl p-5 border border-indigo-500/30 bg-gradient-to-br from-indigo-950/60 via-slate-900/90 to-slate-950 shadow-2xl space-y-4">
+        <!-- Top Row: Title & Exam Quick Switcher -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-800/80 pb-4">
           <div>
-            <h2 class="text-xl font-bold text-white flex items-center gap-2">
-              <i data-lucide="newspaper" class="w-5 h-5 text-cyan-400"></i>
-              <span>Kho 150 Bài Đọc Luyện Thi Chuẩn Đa Dạng (VSTEP, IELTS, TOEIC Part 7 & Cloze)</span>
-            </h2>
-            <p class="text-xs text-slate-400 mt-1">100 bài đọc chuẩn 7 câu (4 câu đục lỗ + 3 câu đọc hiểu), phân bố 3 bài/ngày suốt 90 ngày. Chạm vào bất kỳ từ nào để tra cứu song ngữ US và nạp vào ngày học!</p>
-          </div>
-          <select id="readingSelect" onchange="renderReadingPassage(this.value)" class="bg-slate-800 border border-slate-700 text-xs md:text-sm text-slate-200 rounded-xl px-3 py-2 outline-none focus:border-indigo-500 max-w-sm"></select>
-        </div>
-
-        <!-- 3-MONTH ROADMAP FILTER BAR -->
-        <div class="mt-3 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs">
-          <span class="text-slate-400 font-bold shrink-0 flex items-center gap-1">
-            <i data-lucide="calendar" class="w-3.5 h-3.5 text-indigo-400"></i> Lộ trình 3 Tháng:
-          </span>
-          <button onclick="filterReadingByMonth('all')" id="monthBtn_all" class="month-filter-btn active px-3 py-1 rounded-xl font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap">
-            🌟 Tất cả 150 bài đọc
-          </button>
-          <button onclick="filterReadingByMonth(1)" id="monthBtn_1" class="month-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            🗓️ Tháng 1 (Ngày 1 - 30)
-          </button>
-          <button onclick="filterReadingByMonth(2)" id="monthBtn_2" class="month-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            🗓️ Tháng 2 (Ngày 31 - 60)
-          </button>
-          <button onclick="filterReadingByMonth(3)" id="monthBtn_3" class="month-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            🗓️ Tháng 3 (Ngày 61 - 90)
-          </button>
-        </div>
-
-        <!-- Exam Filter Category Bar -->
-        <div class="mt-4 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
-        <!-- LEVEL SELECTOR BAR (B1 là đa số, tự chọn nâng level B2, C1) -->
-        <div class="mt-2.5 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs">
-          <span class="text-slate-400 font-bold shrink-0 flex items-center gap-1">
-            <i data-lucide="filter" class="w-3.5 h-3.5 text-cyan-400"></i> Lọc Level:
-          </span>
-          <button onclick="filterReadingByLevel('all')" id="levelBtn_all" class="level-filter-btn active px-3 py-1 rounded-xl font-bold bg-cyan-600 text-white shadow transition whitespace-nowrap">
-            Tất cả level (100)
-          </button>
-          <button onclick="filterReadingByLevel('B1')" id="levelBtn_B1" class="level-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-emerald-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-emerald-500/30">
-            🟢 🟢 Level B1 (Đa số - 70 bài)
-          </button>
-          <button onclick="filterReadingByLevel('B2')" id="levelBtn_B2" class="level-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-amber-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-amber-500/30">
-            🟡 🟡 Level B2 (Nâng cao - 20 bài)
-          </button>
-          <button onclick="filterReadingByLevel('C1')" id="levelBtn_C1" class="level-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-rose-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-rose-500/30">
-            🔴 🔴 Level C1 / VSTEP / IELTS (10 bài)
-          </button>
-        </div>
-
-          <button onclick="filterReadingByExam('all')" id="examBtn_all" class="exam-filter-btn active px-3.5 py-1.5 rounded-xl font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap">
-            🌟 Tất cả (150 bài)
-          </button>
-          <button onclick="filterReadingByExam('VSTEP')" id="examBtn_vstep" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-emerald-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-emerald-500/30">
-            🇻🇳 VSTEP B1-B2-C1
-          </button>
-          <button onclick="filterReadingByExam('IELTS')" id="examBtn_IELTS" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-cyan-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-cyan-500/30">
-            🎓 IELTS Academic
-          </button>
-          <button onclick="filterReadingByExam('TOEIC')" id="examBtn_toeic" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-amber-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-amber-500/30">
-            💼 TOEIC Part 7
-          </button>
-          <button onclick="filterReadingByExam('CLOZE')" id="examBtn_CLOZE" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            🎯 Đục Lỗ (Cloze Test) (3)
-          </button>
-          <button onclick="filterReadingByExam('IELTS')" id="examBtn_IELTS" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            🎓 IELTS Academic (5)
-          </button>
-          <button onclick="filterReadingByExam('VSTEP')" id="examBtn_VSTEP" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            🇻🇳 VSTEP B1-B2-C1 (5)
-          </button>
-          <button onclick="filterReadingByExam('TOEIC')" id="examBtn_TOEIC" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            💼 TOEIC Part 6 & 7 (6)
-          </button>
-          <button onclick="filterReadingByExam('APTIS')" id="examBtn_APTIS" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            🇬🇧 APTIS Reading (3)
-          </button>
-          <button onclick="filterReadingByExam('PET')" id="examBtn_PET" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            🏕️ PET B1 (3)
-          </button>
-          <button onclick="filterReadingByExam('BaoQuocTe')" id="examBtn_BaoQuocTe" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
-            📰 Báo Quốc Tế (9)
-          </button>
-        </div>
-        <div class="mt-2 p-3 rounded-xl bg-indigo-950/40 border border-indigo-500/30 flex items-center justify-between gap-3 text-xs text-indigo-200">
-          <span class="flex items-center gap-2">
-            <i data-lucide="mouse-pointer" class="w-4 h-4 text-amber-400"></i>
-            <span>💡 <strong>Tra từ tương tác:</strong> Chạm vào <strong>bất kỳ từ nào</strong> trong bài đọc để tra nghĩa song ngữ, nghe phát âm và bấm thêm vào ngày học!</span>
-          </span>
-          <span id="readingCategoryTagBadge" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px] whitespace-nowrap">28 Bài Luyện Thi</span>
-        </div>
-
-        <div class="mt-6 space-y-4">
-          <h3 id="readingArticleTitle" class="text-lg md:text-xl font-bold text-white">Tiêu đề bài đọc</h3>
-          <div class="p-2 flex gap-2 flex-wrap text-xs text-slate-400">
-            <span class="px-2.5 py-1 rounded-md bg-indigo-900/60 text-indigo-300 border border-indigo-700/60 font-semibold" id="readingExamBadge">[IELTS]</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-indigo-300 border border-slate-700 font-semibold" id="readingUnitTag">Nguồn trích dẫn</span>
-            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-cyan-300 border border-slate-700 font-semibold" id="readingLevelTag">Level B2</span>
-            <button onclick="completeReadingMission()" class="ml-auto px-3.5 py-1.5 rounded-xl bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
-              <i data-lucide="check-circle" class="w-4 h-4"></i>
-              <span>Hoàn thành bài đọc hôm nay</span>
-            </button>
-            <button onclick="readAloudPassage()" class="text-xs flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300 font-semibold">
-              <i data-lucide="volume-2" class="w-4 h-4"></i> Đọc cả bài
-            </button>
-          </div>
-
-          <div id="readingContent" class="text-base sm:text-lg text-slate-200 leading-loose p-5 rounded-2xl bg-slate-900/80 border border-slate-800/80 font-normal"></div>
-
-          <div class="mt-8 space-y-4 border-t border-slate-800 pt-6">
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-sm uppercase tracking-wider text-indigo-400 flex items-center gap-2">
-                <i data-lucide="help-circle" class="w-4 h-4"></i> Câu hỏi đọc hiểu đề thi (Reading Comprehension)
-              </h4>
-              <span class="text-xs text-slate-400">Bấm chọn đáp án để xem giải thích chi tiết</span>
+            <div class="flex items-center gap-2 flex-wrap mb-1.5">
+              <span class="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-xs uppercase tracking-wider border border-indigo-500/30 flex items-center gap-1.5">
+                <i data-lucide="monitor" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <span>IELTS & VSTEP Computer-Delivered Reading System</span>
+              </span>
+              <span id="readingHeaderExamBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs border border-emerald-500/30">
+                Chuẩn Thi Máy Tính
+              </span>
             </div>
-            <div id="readingQuestionsList" class="space-y-4"></div>
+            <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+              <i data-lucide="book-open" class="w-6 h-6 text-indigo-400"></i>
+              <span>Phòng Thi Đọc Hiểu Chuẩn Quốc Tế (The IELTS Dictionary & Ace of English)</span>
+            </h2>
+            <p class="text-xs text-slate-300 mt-1">Giao diện chia đôi màn hình 2 cột độc lập, đồng hồ đếm ngược, thanh điều hướng câu hỏi chân trang, tra từ điển tương tác và phân tích đáp án 3 bước.</p>
+          </div>
+
+          <!-- Passage Select Dropdown -->
+          <div class="flex items-center gap-2">
+            <select id="readingSelect" onchange="renderReadingPassage(this.value)" class="bg-slate-800 border border-indigo-500/40 text-xs sm:text-sm text-slate-100 rounded-xl px-3 py-2 outline-none focus:border-indigo-400 shadow-inner max-w-xs md:max-w-md truncate"></select>
+          </div>
+        </div>
+
+        <!-- Filters (Roadmap 3 Months, Exam Types, Levels) -->
+        <div class="space-y-2.5 text-xs">
+          <!-- 3-Month Roadmap Filter -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <span class="text-slate-400 font-bold shrink-0 flex items-center gap-1">
+              <i data-lucide="calendar" class="w-3.5 h-3.5 text-indigo-400"></i> Lộ trình:
+            </span>
+            <button onclick="filterReadingByMonth('all')" id="monthBtn_all" class="month-filter-btn active px-3 py-1 rounded-xl font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap">
+              🌟 Tất cả 150 bài đọc
+            </button>
+            <button onclick="filterReadingByMonth(1)" id="monthBtn_1" class="month-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+              🗓️ Tháng 1 (Bài 1 - 50)
+            </button>
+            <button onclick="filterReadingByMonth(2)" id="monthBtn_2" class="month-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+              🗓️ Tháng 2 (Bài 51 - 100)
+            </button>
+            <button onclick="filterReadingByMonth(3)" id="monthBtn_3" class="month-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+              🗓️ Tháng 3 (Bài 101 - 150)
+            </button>
+          </div>
+
+          <!-- Exam Format Filter -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <span class="text-slate-400 font-bold shrink-0 flex items-center gap-1">
+              <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-cyan-400"></i> Định dạng:
+            </span>
+            <button onclick="filterReadingByExam('all')" id="examBtn_all" class="exam-filter-btn active px-3 py-1 rounded-xl font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap">
+              Tất cả định dạng
+            </button>
+            <button onclick="filterReadingByExam('VSTEP')" id="examBtn_vstep" class="exam-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-emerald-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-emerald-500/30">
+              🇻🇳 VSTEP Reading (Ace of English)
+            </button>
+            <button onclick="filterReadingByExam('IELTS')" id="examBtn_ielts" class="exam-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-cyan-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-cyan-500/30">
+              🎓 IELTS Academic (The IELTS Dictionary)
+            </button>
+            <button onclick="filterReadingByExam('TOEIC')" id="examBtn_toeic" class="exam-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-amber-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-amber-500/30">
+              💼 TOEIC Part 7
+            </button>
+            <button onclick="filterReadingByExam('BaoQuocTe')" id="examBtn_baoguocte" class="exam-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
+              📰 Báo Quốc Tế
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Test Control Bar: Practice Mode vs Real Test Mode, Countdown Timer, Font Size, Highlighter -->
+        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-700/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <!-- Left: Mode Switcher -->
+          <div class="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950/80 border border-slate-800">
+            <button onclick="setReadingMode('practice')" id="btnModePractice" class="px-3 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 bg-indigo-600 text-white shadow">
+              <i data-lucide="book-open-check" class="w-3.5 h-3.5"></i>
+              <span>Luyện Tập (Practice)</span>
+            </button>
+            <button onclick="setReadingMode('real_test')" id="btnModeRealTest" class="px-3 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+              <i data-lucide="timer" class="w-3.5 h-3.5"></i>
+              <span>Thi Thử Thật (Real Test)</span>
+            </button>
+          </div>
+
+          <!-- Center: Countdown Timer (Real Test Mode) -->
+          <div id="readingTimerContainer" class="hidden flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/80 border border-slate-800 font-mono">
+            <i data-lucide="clock" class="w-4 h-4 text-amber-400 animate-pulse"></i>
+            <span id="readingTimerDisplay" class="font-bold text-sm text-amber-300">60:00</span>
+            <button onclick="toggleReadingTimerPause()" id="btnPauseTimer" class="p-1 rounded text-slate-400 hover:text-white" title="Tạm dừng / Tiếp tục">
+              <i data-lucide="pause" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          <!-- Right: Tools (Font Size A-/A+, Highlighter, Bilingual Translation) -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <!-- Font Zoom -->
+            <div class="flex items-center p-0.5 rounded-lg bg-slate-950 border border-slate-800">
+              <button onclick="adjustReadingFontSize(-1)" class="px-2 py-1 rounded text-slate-300 hover:text-white font-bold" title="Thu nhỏ chữ">A-</button>
+              <span class="text-[10px] text-slate-500 px-1">Cỡ chữ</span>
+              <button onclick="adjustReadingFontSize(1)" class="px-2 py-1 rounded text-slate-300 hover:text-white font-bold" title="Phóng to chữ">A+</button>
+            </div>
+
+            <!-- Highlighter -->
+            <button onclick="toggleReadingHighlighter()" id="btnHighlighter" class="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium border border-slate-700 transition flex items-center gap-1" title="Bôi đen chữ trong bài đọc để tô màu">
+              <i data-lucide="highlighter" class="w-3.5 h-3.5 text-yellow-400"></i>
+              <span id="txtHighlighter">Bút Dạ Quang</span>
+            </button>
+
+            <!-- Bilingual Toggle -->
+            <button onclick="toggleReadingBilingual()" id="btnReadingBilingual" class="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium border border-slate-700 transition flex items-center gap-1">
+              <i data-lucide="languages" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <span id="txtBilingual">Dịch Song Ngữ</span>
+            </button>
+
+            <!-- Audio Read Aloud -->
+            <button onclick="readAloudPassage()" class="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium border border-slate-700 transition flex items-center gap-1" title="Đọc toàn bài bằng giọng AI chuẩn US">
+              <i data-lucide="volume-2" class="w-3.5 h-3.5 text-indigo-400"></i>
+              <span>Nghe Toàn Bài</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile View Switcher (Passage vs Questions) -->
+        <div class="flex lg:hidden items-center p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-bold">
+          <button onclick="switchMobileReadingTab('passage')" id="btnMobileTabPassage" class="flex-1 py-2 rounded-lg text-center bg-indigo-600 text-white transition">
+            📖 Bài Đọc (Passage)
+          </button>
+          <button onclick="switchMobileReadingTab('questions')" id="btnMobileTabQuestions" class="flex-1 py-2 rounded-lg text-center text-slate-400 hover:text-white transition">
+            ❓ Câu Hỏi (<span id="mobileAnsweredCount">0/8</span>)
+          </button>
+        </div>
+
+        <!-- 3. SPLIT-SCREEN TWO-COLUMN WORKSPACE (Desktop Side-by-Side 50:50) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 h-auto lg:h-[72vh] min-h-[580px]">
+          <!-- LEFT COLUMN: READING PASSAGE (Cuộn độc lập) -->
+          <div id="leftPassageCol" class="h-full flex flex-col rounded-2xl bg-slate-900/70 border border-slate-800 overflow-hidden shadow-inner">
+            <!-- Left Pane Sticky Header -->
+            <div class="p-3.5 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between gap-2 shrink-0">
+              <div class="min-w-0">
+                <h3 id="readingArticleTitle" class="font-bold text-sm text-white truncate">Tiêu đề bài đọc</h3>
+                <div class="flex items-center gap-2 mt-0.5 text-[11px] text-slate-400">
+                  <span id="readingUnitTag" class="text-indigo-300">Ace of English / Cambridge IELTS</span>
+                  <span>•</span>
+                  <span id="readingLevelTag" class="text-cyan-300 font-semibold">Level B2 - C1</span>
+                </div>
+              </div>
+              <span id="readingCategoryTagBadge" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px] shrink-0">
+                Chuẩn VSTEP
+              </span>
+            </div>
+
+            <!-- Left Pane Passage Scrollable Body -->
+            <div id="readingContent" class="flex-1 p-5 overflow-y-auto leading-relaxed text-slate-200 text-base space-y-4 select-text">
+              <!-- Content rendered dynamically with Paragraph markers: Paragraph A, B, C... -->
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: QUESTIONS & WORKSHEET (Cuộn độc lập) -->
+          <div id="rightQuestionsCol" class="h-full flex flex-col rounded-2xl bg-slate-900/70 border border-slate-800 overflow-hidden shadow-inner hidden lg:flex">
+            <!-- Right Pane Sticky Header -->
+            <div class="p-3.5 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between gap-2 shrink-0">
+              <div class="flex items-center gap-2">
+                <i data-lucide="help-circle" class="w-4 h-4 text-indigo-400"></i>
+                <span class="font-bold text-sm text-white">Bảng Câu Hỏi & Đáp Án (Questions)</span>
+              </div>
+              <span id="readingQuestionCounterBadge" class="text-xs font-mono px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                Đã làm: 0/8
+              </span>
+            </div>
+
+            <!-- Right Pane Questions Scrollable List -->
+            <div id="readingQuestionsList" class="flex-1 p-4 overflow-y-auto space-y-4">
+              <!-- Questions cards rendered dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. BOTTOM QUESTION PALETTE & SUBMIT BAR (Sticky bar at bottom of card) -->
+        <div class="sticky bottom-0 z-20 -mx-5 -mb-5 p-3.5 bg-slate-950/95 backdrop-blur-md border-t border-slate-800/90 rounded-b-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xl">
+          <div class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+            <span class="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1">
+              <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-indigo-400"></i> Câu hỏi:
+            </span>
+            <div id="readingQuestionPalette" class="flex items-center gap-1.5 flex-wrap sm:flex-nowrap">
+              <!-- Dynamic Palette Buttons: 1, 2, 3, 4, 5, 6, 7, 8 -->
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 shrink-0 justify-end">
+            <span id="readingPaletteProgressText" class="text-xs text-slate-400 font-mono hidden sm:inline-block">0/8 đã trả lời</span>
+            <button onclick="confirmSubmitReadingTest()" id="btnSubmitReadingTest" class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg transition active:scale-95 flex items-center gap-1.5">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              <span>Nộp Bài (Submit)</span>
+            </button>
           </div>
         </div>
       </div>
@@ -2306,6 +2382,55 @@
         </div>
       </div>
     </div>
+
+  <!-- READING POST-TEST SCORE & REVIEW MODAL -->
+  <div id="readingScoreModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+    <div class="glass-card max-w-lg w-full rounded-3xl p-6 border border-emerald-500/40 bg-gradient-to-b from-slate-900 to-slate-950 shadow-2xl space-y-5 text-center relative animate-fade-in">
+      <div class="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-500/40 flex items-center justify-center mx-auto shadow-lg shadow-emerald-950/50">
+        <i data-lucide="award" class="w-8 h-8 text-emerald-400"></i>
+      </div>
+
+      <div class="space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Kết Quả Bài Thi Đọc Hiểu</span>
+        <h3 id="rsmTitle" class="text-xl font-black text-white">Hoàn Thành Bài Đọc Chuẩn Quốc Tế</h3>
+      </div>
+
+      <!-- Score Circles & Equivalences -->
+      <div class="grid grid-cols-2 gap-3 p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
+        <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-1">
+          <span class="text-[11px] text-slate-400 font-medium">Điểm Đọc Hiểu</span>
+          <div id="rsmScore" class="text-2xl font-black text-emerald-300 font-mono">7 / 8</div>
+          <span id="rsmPercent" class="text-xs text-emerald-400 font-bold">87.5% Chính xác</span>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-1">
+          <span class="text-[11px] text-slate-400 font-medium">Quy Đổi Chứng Chỉ</span>
+          <div id="rsmBand" class="text-xl font-black text-cyan-300 font-mono">IELTS 7.5</div>
+          <span id="rsmVstep" class="text-xs text-amber-300 font-bold">VSTEP C1 (8.5/10)</span>
+        </div>
+      </div>
+
+      <!-- Stats Breakdown -->
+      <div class="flex items-center justify-around text-xs text-slate-300 py-1">
+        <span id="rsmCorrectCount" class="text-emerald-400 font-semibold">✓ 7 Đúng</span>
+        <span class="text-slate-600">•</span>
+        <span id="rsmWrongCount" class="text-rose-400 font-semibold">✗ 1 Sai</span>
+        <span class="text-slate-600">•</span>
+        <span id="rsmTimeElapsed" class="text-slate-400 font-mono">⏱️ Đã nộp bài</span>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-3 pt-2">
+        <button onclick="closeReadingScoreModalAndReview()" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-xs shadow-lg transition active:scale-95 flex items-center justify-center gap-1.5">
+          <i data-lucide="search" class="w-4 h-4"></i>
+          <span>Xem Lại & Đối Chiếu Manh Mối (Review)</span>
+        </button>
+        <button onclick="retakeCurrentReadingTest()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-semibold text-xs border border-slate-700 transition flex items-center justify-center gap-1 active:scale-95" title="Làm lại đề thi">
+          <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+          <span>Làm Lại</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

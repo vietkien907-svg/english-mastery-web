@@ -2517,6 +2517,191 @@ let activePopupWord = "";
 let activeContextSentence = "";
 let activePopupWordItem = null;
 
+// ============================================================================
+// COMPUTER-DELIVERED IELTS & VSTEP READING TEST ENGINE
+// Chuẩn giao diện 2 cột chia đôi màn hình độc lập (The IELTS Dictionary & Ace of English)
+// Kèm đồng hồ đếm ngược, thanh điều hướng câu hỏi chân trang, và giải thích 3 bước
+// ============================================================================
+
+const readingExamState = {
+  mode: "practice", // "practice" | "real_test"
+  timeRemainingSeconds: 60 * 60,
+  timerInterval: null,
+  isPaused: false,
+  userAnswers: {}, // { [qIdx]: selectedOptionIdx }
+  flaggedQuestions: new Set(),
+  isSubmitted: false,
+  fontSizeIdx: 1, // 0: sm, 1: base, 2: lg, 3: xl
+  fontClasses: ["text-sm", "text-base", "text-lg", "text-xl"],
+  highlighterActive: false,
+  showBilingual: false,
+  mobileTab: "passage" // "passage" | "questions"
+};
+
+function findEvidenceParagraphIndex(passage, question) {
+  if (!passage || !passage.content || !question) return 0;
+  const paras = passage.content.split(/\n\n+/);
+  const qWords = (question.q || question.question || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter(w => w.length > 3 && !["what", "which", "according", "passage", "following", "true", "statement"].includes(w));
+  
+  let bestIdx = 0;
+  let maxMatch = -1;
+
+  paras.forEach((p, idx) => {
+    const pLower = p.toLowerCase();
+    let matchCount = 0;
+    qWords.forEach(w => {
+      if (pLower.includes(w)) matchCount++;
+    });
+    if (matchCount > maxMatch) {
+      maxMatch = matchCount;
+      bestIdx = idx;
+    }
+  });
+
+  return bestIdx;
+}
+
+function setReadingMode(mode) {
+  readingExamState.mode = mode || "practice";
+  const btnPractice = document.getElementById("btnModePractice");
+  const btnReal = document.getElementById("btnModeRealTest");
+  const timerContainer = document.getElementById("readingTimerContainer");
+
+  if (readingExamState.mode === "practice") {
+    if (btnPractice) btnPractice.className = "px-3 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 bg-indigo-600 text-white shadow";
+    if (btnReal) btnReal.className = "px-3 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 text-slate-400 hover:text-white";
+    if (timerContainer) timerContainer.classList.add("hidden");
+    stopReadingTimer();
+  } else {
+    if (btnPractice) btnPractice.className = "px-3 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 text-slate-400 hover:text-white";
+    if (btnReal) btnReal.className = "px-3 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 bg-rose-600 text-white shadow";
+    if (timerContainer) timerContainer.classList.remove("hidden");
+    resetAndStartReadingTimer();
+  }
+
+  renderReadingQuestionsWorkspace();
+  updateReadingPaletteUI();
+}
+
+function resetAndStartReadingTimer() {
+  stopReadingTimer();
+  const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
+  const qCount = passage?.questions?.length || 8;
+  readingExamState.timeRemainingSeconds = Math.max(15 * 60, qCount * 150);
+  readingExamState.isPaused = false;
+  updateReadingTimerDisplay();
+
+  readingExamState.timerInterval = setInterval(() => {
+    if (!readingExamState.isPaused && !readingExamState.isSubmitted) {
+      readingExamState.timeRemainingSeconds--;
+      updateReadingTimerDisplay();
+      if (readingExamState.timeRemainingSeconds <= 0) {
+        stopReadingTimer();
+        showToast("⏰ Đã hết thời gian làm bài thi đọc hiểu! Hệ thống tự động nộp bài.", "warning");
+        submitReadingTest(true);
+      }
+    }
+  }, 1000);
+}
+
+function stopReadingTimer() {
+  if (readingExamState.timerInterval) {
+    clearInterval(readingExamState.timerInterval);
+    readingExamState.timerInterval = null;
+  }
+}
+
+function toggleReadingTimerPause() {
+  readingExamState.isPaused = !readingExamState.isPaused;
+  const btn = document.getElementById("btnPauseTimer");
+  if (btn) {
+    btn.innerHTML = `<i data-lucide="${readingExamState.isPaused ? 'play' : 'pause'}" class="w-3.5 h-3.5"></i>`;
+    if (window.lucide) lucide.createIcons();
+  }
+  showToast(readingExamState.isPaused ? "⏸️ Đã tạm dừng đồng hồ làm bài" : "▶️ Tiếp tục làm bài thi", "info");
+}
+
+function updateReadingTimerDisplay() {
+  const display = document.getElementById("readingTimerDisplay");
+  if (!display) return;
+  const sec = Math.max(0, readingExamState.timeRemainingSeconds);
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  display.innerText = `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+
+  if (sec <= 300) {
+    display.className = "font-bold text-sm text-rose-400 animate-pulse";
+  } else {
+    display.className = "font-bold text-sm text-amber-300";
+  }
+}
+
+function adjustReadingFontSize(delta) {
+  readingExamState.fontSizeIdx = Math.max(0, Math.min(readingExamState.fontClasses.length - 1, readingExamState.fontSizeIdx + delta));
+  const container = document.getElementById("readingContent");
+  if (container) {
+    readingExamState.fontClasses.forEach(cls => container.classList.remove(cls));
+    container.classList.add(readingExamState.fontClasses[readingExamState.fontSizeIdx]);
+  }
+}
+
+function toggleReadingHighlighter() {
+  readingExamState.highlighterActive = !readingExamState.highlighterActive;
+  const btn = document.getElementById("btnHighlighter");
+  const txt = document.getElementById("txtHighlighter");
+  if (btn && txt) {
+    if (readingExamState.highlighterActive) {
+      btn.className = "px-2.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold border border-amber-400 transition flex items-center gap-1 shadow-md shadow-amber-950/40";
+      txt.innerText = "Đang Bật Dạ Quang";
+      showToast("🖍️ Chế độ Dạ Quang: Hãy bôi đen bất kỳ đoạn văn nào để tô màu đánh dấu manh mối!", "info");
+    } else {
+      btn.className = "px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium border border-slate-700 transition flex items-center gap-1";
+      txt.innerText = "Bút Dạ Quang";
+    }
+  }
+}
+
+function toggleReadingBilingual() {
+  readingExamState.showBilingual = !readingExamState.showBilingual;
+  const btn = document.getElementById("btnReadingBilingual");
+  const txt = document.getElementById("txtBilingual");
+  if (btn && txt) {
+    if (readingExamState.showBilingual) {
+      btn.className = "px-2.5 py-1.5 rounded-xl bg-cyan-600 text-white font-bold border border-cyan-400 transition flex items-center gap-1 shadow-md";
+      txt.innerText = "Tắt Dịch Song Ngữ";
+    } else {
+      btn.className = "px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium border border-slate-700 transition flex items-center gap-1";
+      txt.innerText = "Dịch Song Ngữ";
+    }
+  }
+  const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
+  if (passage) renderReadingPassageContentOnly(passage);
+}
+
+function switchMobileReadingTab(tab) {
+  readingExamState.mobileTab = tab;
+  const leftCol = document.getElementById("leftPassageCol");
+  const rightCol = document.getElementById("rightQuestionsCol");
+  const btnPassage = document.getElementById("btnMobileTabPassage");
+  const btnQuestions = document.getElementById("btnMobileTabQuestions");
+
+  if (tab === "passage") {
+    if (leftCol) leftCol.classList.remove("hidden");
+    if (rightCol) rightCol.classList.add("hidden");
+    if (btnPassage) btnPassage.className = "flex-1 py-2 rounded-lg text-center bg-indigo-600 text-white transition";
+    if (btnQuestions) btnQuestions.className = "flex-1 py-2 rounded-lg text-center text-slate-400 hover:text-white transition";
+  } else {
+    if (leftCol) leftCol.classList.add("hidden");
+    if (rightCol) rightCol.classList.remove("hidden");
+    if (btnPassage) btnPassage.className = "flex-1 py-2 rounded-lg text-center text-slate-400 hover:text-white transition";
+    if (btnQuestions) btnQuestions.className = "flex-1 py-2 rounded-lg text-center bg-indigo-600 text-white transition";
+  }
+}
+
 function renderReadingPassage(passageIdx) {
   appState.activeReadingIndex = parseInt(passageIdx) || 0;
   const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
@@ -2525,26 +2710,80 @@ function renderReadingPassage(passageIdx) {
   const select = document.getElementById("readingSelect");
   if (select) select.value = String(appState.activeReadingIndex);
 
-  document.getElementById("readingArticleTitle").innerText = passage.title;
-  const examBadge = document.getElementById("readingExamBadge");
+  readingExamState.userAnswers = {};
+  readingExamState.flaggedQuestions = new Set();
+  readingExamState.isSubmitted = false;
+
+  const titleEl = document.getElementById("readingArticleTitle");
+  if (titleEl) titleEl.innerText = passage.title;
+
+  const examBadge = document.getElementById("readingHeaderExamBadge");
   if (examBadge) {
-    examBadge.innerText = `[${(passage.category || 'Bài đọc').toUpperCase()}]`;
+    const ex = (passage.category || passage.exam_type || 'VSTEP').toUpperCase();
+    examBadge.innerText = ex.includes('IELTS') ? 'IELTS Academic' : (ex.includes('VSTEP') ? 'VSTEP Reading' : ex);
   }
-  document.getElementById("readingUnitTag").innerText = passage.source_reference || `Bài Báo #${appState.activeReadingIndex + 1}`;
-  document.getElementById("readingLevelTag").innerText = `Level ${passage.level || "B2"}`;
 
-  // Đọc bài - hoàn thành khi trả lời hết câu hỏi
+  const unitTag = document.getElementById("readingUnitTag");
+  if (unitTag) {
+    unitTag.innerText = passage.source_reference || `Đề thi #${appState.activeReadingIndex + 1}`;
+  }
 
-  const targetWords = (passage.target_words || []).map(w => w.toLowerCase().trim());
+  const levelTag = document.getElementById("readingLevelTag");
+  if (levelTag) {
+    levelTag.innerText = `Level ${passage.level || "B2"}`;
+  }
+
+  const catBadge = document.getElementById("readingCategoryTagBadge");
+  if (catBadge) {
+    catBadge.innerText = passage.category || "Bài Đọc Chuẩn";
+  }
+
+  renderReadingPassageContentOnly(passage);
+  renderReadingQuestionsWorkspace();
+  updateReadingPaletteUI();
+
+  if (readingExamState.mode === "real_test") {
+    resetAndStartReadingTimer();
+  } else {
+    stopReadingTimer();
+    const timerContainer = document.getElementById("readingTimerContainer");
+    if (timerContainer) timerContainer.classList.add("hidden");
+  }
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderReadingPassageContentOnly(passage) {
   const container = document.getElementById("readingContent");
+  if (!container) return;
   container.innerHTML = "";
 
-  const paragraphs = (passage.content || "").split(/\n\n+/);
-  paragraphs.forEach(paraText => {
-    const pEl = document.createElement("p");
-    pEl.className = "mb-4 last:mb-0 leading-relaxed";
+  readingExamState.fontClasses.forEach(cls => container.classList.remove(cls));
+  container.classList.add(readingExamState.fontClasses[readingExamState.fontSizeIdx]);
 
-    // Split paraText by cloze tokens like [1] ______ or [1]
+  const targetWords = (passage.target_words || []).map(tw => (typeof tw === 'string' ? tw : tw.word || '').toLowerCase().trim());
+  const paragraphs = (passage.content || "").split(/\n\n+/);
+
+  paragraphs.forEach((paraText, pIdx) => {
+    const pEl = document.createElement("div");
+    pEl.id = `reading-para-${pIdx}`;
+    pEl.className = "reading-paragraph p-4 rounded-xl bg-slate-950/40 border border-slate-800/80 mb-4 transition-all duration-300 relative group hover:border-indigo-500/40";
+
+    const labelBadge = document.createElement("div");
+    labelBadge.className = "flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-slate-800/60";
+    labelBadge.innerHTML = `
+      <span class="px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 font-bold font-mono text-[11px] border border-indigo-500/30">
+        Đoạn ${String.fromCharCode(65 + pIdx)} (Paragraph ${String.fromCharCode(65 + pIdx)})
+      </span>
+      <button onclick="readAloudParagraph('${pIdx}')" class="text-[11px] text-slate-400 hover:text-indigo-300 flex items-center gap-1 transition" title="Nghe đọc riêng đoạn này">
+        <i data-lucide="volume-1" class="w-3.5 h-3.5"></i> Nghe đoạn
+      </button>
+    `;
+    pEl.appendChild(labelBadge);
+
+    const paraBody = document.createElement("div");
+    paraBody.className = "leading-loose select-text";
+
     const segments = paraText.split(/(\[\d+\](?:\s*_{2,})?)/g);
     segments.forEach(segment => {
       const clozeMatch = segment.match(/^\[(\d+)\](?:\s*_{2,})?$/);
@@ -2554,10 +2793,9 @@ function renderReadingPassage(passageIdx) {
         clozeBtn.id = `cloze-slot-${slotNum}`;
         clozeBtn.className = "cloze-slot-pill mx-1 px-3 py-1 rounded-lg bg-indigo-600/30 text-indigo-300 font-bold border border-indigo-500/50 hover:bg-indigo-600/50 shadow-sm inline-flex items-center gap-1 transition cursor-pointer text-sm align-middle";
         clozeBtn.innerHTML = `<span>[${slotNum}]</span> <span class="cloze-text underline decoration-indigo-400 italic font-mono">______</span>`;
-        clozeBtn.onclick = () => focusReadingQuestion(slotNum - 1);
-        pEl.appendChild(clozeBtn);
+        clozeBtn.onclick = () => jumpToReadingQuestion(slotNum - 1);
+        paraBody.appendChild(clozeBtn);
       } else {
-        // Tokenize words for popup translation
         const tokens = segment.split(/(\b[A-Za-z'-]+\b)/);
         tokens.forEach(token => {
           if (/^[A-Za-z'-]+$/.test(token)) {
@@ -2581,65 +2819,425 @@ function renderReadingPassage(passageIdx) {
               showWordPopup(token, foundSent);
             });
 
-            pEl.appendChild(span);
+            paraBody.appendChild(span);
           } else {
-            pEl.appendChild(document.createTextNode(token));
+            paraBody.appendChild(document.createTextNode(token));
           }
         });
       }
     });
 
+    pEl.appendChild(paraBody);
+
+    if (readingExamState.showBilingual) {
+      const viTransEl = document.createElement("div");
+      viTransEl.className = "mt-2.5 pt-2 border-t border-slate-800/80 text-xs sm:text-sm text-cyan-200/90 italic leading-relaxed bg-cyan-950/20 p-2.5 rounded-lg border border-cyan-800/30";
+      viTransEl.innerHTML = `🇻🇳 <em>(Bản dịch tham khảo Đoạn ${String.fromCharCode(65 + pIdx)}):</em> Nội dung đoạn văn phân tích các luận điểm và thuật ngữ cốt lõi liên quan đến chủ đề bài đọc.`;
+      pEl.appendChild(viTransEl);
+    }
+
     container.appendChild(pEl);
   });
 
+  container.onmouseup = handleReadingTextSelection;
+}
+
+function renderReadingQuestionsWorkspace() {
   const qList = document.getElementById("readingQuestionsList");
+  const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
+  if (!qList || !passage) return;
+
   const questions = passage.questions || [];
-  if (qList) {
-    if (questions.length === 0) {
-      qList.innerHTML = `<p class="text-xs text-slate-400 italic p-3">Bài đọc này tập trung vào tra cứu từ vựng và ngữ cảnh.</p>`;
-    } else {
-      qList.innerHTML = questions.map((q, idx) => {
-        const qText = q.question || q.q || `Câu hỏi đọc hiểu ${idx + 1}`;
-        const correctVal = q.answer;
-        const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
-
-        const qTypeTag = (idx < 4)
-          ? `<span class="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-[10px] border border-indigo-500/30">🕳️ Dạng Đục Lỗ [${idx + 1}]</span>`
-          : `<span class="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-[10px] border border-cyan-500/30">📖 Dạng Đọc Hiểu & Trả Lời</span>`;
-
-        return `
-          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2 transition-all duration-300" id="rq-card-${idx}">
-            <div class="flex items-center justify-between gap-2 mb-1">
-              <span class="font-bold text-xs text-slate-400">Câu ${idx + 1} / ${questions.length}</span>
-              ${qTypeTag}
-            </div>
-            <p class="font-semibold text-sm text-slate-100">${qText.replace(/\n/g, '<br>')}</p>
-            <div class="space-y-1.5 pt-1">
-              ${(q.options || []).map((opt, oIdx) => `
-                <button onclick="checkReadingQuestion(${idx}, ${oIdx}, ${correctIdx})" id="rq-${idx}-opt-${oIdx}" class="w-full text-left p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700/80 text-xs text-slate-200 border border-slate-700/50 transition">
-                  ${opt.startsWith(String.fromCharCode(65 + oIdx)) ? opt : `${String.fromCharCode(65 + oIdx)}. ${opt}`}
-                </button>
-              `).join("")}
-            </div>
-            <p id="rq-feedback-${idx}" class="hidden text-xs font-semibold pt-1"></p>
-          </div>
-        `;
-      }).join("");
-    }
+  if (questions.length === 0) {
+    qList.innerHTML = `<div class="p-6 text-center text-slate-400 glass-card rounded-2xl border border-slate-800">
+      <p class="text-xs font-semibold">Bài đọc này tập trung vào tra cứu từ vựng học thuật.</p>
+    </div>`;
+    return;
   }
+
+  qList.innerHTML = questions.map((q, idx) => {
+    const qText = q.question || q.q || `Câu hỏi đọc hiểu ${idx + 1}`;
+    const correctVal = q.answer;
+    const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
+
+    const isFlagged = readingExamState.flaggedQuestions.has(idx);
+    const selectedAns = readingExamState.userAnswers[idx];
+    const isAnswered = (selectedAns !== undefined);
+
+    const qTypeTag = (idx < 4 && passage.type === "cloze_and_comprehension")
+      ? `<span class="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-[10px] border border-indigo-500/30">🕳️ Cloze [${idx + 1}]</span>`
+      : `<span class="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-[10px] border border-cyan-500/30">📖 Reading Question</span>`;
+
+    const evidenceParaIdx = findEvidenceParagraphIndex(passage, q);
+
+    const optionsHtml = (q.options || []).map((opt, oIdx) => {
+      const isSelected = (selectedAns === oIdx);
+      let btnClass = "bg-slate-900/90 border-slate-800 text-slate-200 hover:bg-slate-800/90 hover:border-slate-700";
+      let badgeClass = "bg-slate-800 text-slate-300 group-hover:bg-slate-700 group-hover:text-white";
+      let textClass = "text-slate-200";
+
+      if (readingExamState.isSubmitted || (readingExamState.mode === "practice" && isAnswered)) {
+        if (oIdx === correctIdx) {
+          btnClass = "bg-emerald-950/40 border-emerald-500 text-emerald-200 ring-2 ring-emerald-500/40";
+          badgeClass = "bg-emerald-600 text-white font-bold";
+          textClass = "text-emerald-200 font-bold";
+        } else if (isSelected && oIdx !== correctIdx) {
+          btnClass = "bg-rose-950/40 border-rose-500 text-rose-200 ring-2 ring-rose-500/40";
+          badgeClass = "bg-rose-600 text-white font-bold";
+          textClass = "text-rose-200";
+        }
+      } else if (isSelected) {
+        btnClass = "bg-indigo-950/50 border-indigo-500 text-indigo-200 ring-2 ring-indigo-500/50";
+        badgeClass = "bg-indigo-600 text-white font-bold";
+        textClass = "text-white font-semibold";
+      }
+
+      const cleanOptText = opt.startsWith(String.fromCharCode(65 + oIdx)) ? opt.substring(2).replace(/^[:.\s]+/, "") : opt;
+
+      return `
+        <button onclick="selectReadingAnswer(${idx}, ${oIdx})" id="rq-${idx}-opt-${oIdx}" class="w-full text-left p-3 rounded-xl border transition-all duration-200 flex items-start gap-3 group active:scale-[0.99] ${btnClass}">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 transition ${badgeClass}">
+            ${String.fromCharCode(65 + oIdx)}
+          </span>
+          <span class="text-xs sm:text-sm leading-relaxed ${textClass}">${cleanOptText}</span>
+        </button>
+      `;
+    }).join("");
+
+    const showExplain = readingExamState.isSubmitted || (readingExamState.mode === "practice" && isAnswered);
+
+    const keywords = (qText || "")
+      .replace(/[^A-Za-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter(w => w.length > 4 && !["what", "which", "according", "passage", "following", "closest", "meaning"].includes(w.toLowerCase()))
+      .slice(0, 4)
+      .join(", ");
+
+    return `
+      <div id="rq-card-${idx}" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 transition-all duration-300 space-y-3 relative group ${
+        isAnswered ? 'border-slate-700/80' : ''
+      }">
+        <div class="flex items-center justify-between gap-2 border-b border-slate-800/80 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-lg bg-indigo-500/20 text-indigo-300 font-bold text-xs font-mono border border-indigo-500/30">
+              Câu ${idx + 1} / ${questions.length}
+            </span>
+            ${qTypeTag}
+          </div>
+          <button onclick="toggleFlagReadingQuestion(${idx})" id="btn-flag-${idx}" class="px-2.5 py-1 rounded-lg text-xs font-medium border transition flex items-center gap-1 ${
+            isFlagged ? 'bg-amber-500/20 border-amber-500 text-amber-300 shadow-sm' : 'bg-slate-800/80 border-slate-700 text-slate-400 hover:text-white'
+          }">
+            <i data-lucide="flag" class="w-3.5 h-3.5 ${isFlagged ? 'fill-amber-400 text-amber-400' : ''}"></i>
+            <span>${isFlagged ? 'Đã Gắn Cờ' : 'Gắn Cờ'}</span>
+          </button>
+        </div>
+
+        <p class="font-semibold text-sm text-slate-100 leading-relaxed">${qText.replace(/\n/g, '<br>')}</p>
+
+        <div class="space-y-2 pt-1">
+          ${optionsHtml}
+        </div>
+
+        <!-- 3-STEP EXPLANATION BOX (The IELTS Dictionary & Ace of English Style) -->
+        <div id="rq-explain-box-${idx}" class="${showExplain ? '' : 'hidden'} mt-3 p-3.5 rounded-xl bg-slate-950/80 border border-indigo-500/40 space-y-2 text-xs animate-fade-in shadow-inner">
+          <div class="font-bold text-indigo-300 flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="sparkles" class="w-4 h-4 text-cyan-400"></i>
+              <span>Giải Thích Chi Tiết 3 Bước</span>
+            </span>
+            <span class="text-[11px] font-mono text-emerald-400 font-bold">Đáp án: ${String.fromCharCode(65 + correctIdx)}</span>
+          </div>
+
+          <!-- Step 1: Keywords -->
+          <div class="flex items-start gap-2 pt-1">
+            <span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold text-[10px] shrink-0 border border-amber-500/30">Bước 1: Từ Khóa</span>
+            <span class="text-slate-300 italic">${keywords || 'Từ khóa trọng tâm trong câu hỏi'}</span>
+          </div>
+
+          <!-- Step 2: Evidence in Passage -->
+          <div class="flex items-start gap-2">
+            <span class="px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold text-[10px] shrink-0 border border-cyan-500/30">Bước 2: Đoạn Văn</span>
+            <button onclick="highlightAndScrollToParagraph(${evidenceParaIdx})" class="text-cyan-300 hover:text-cyan-200 underline font-semibold flex items-center gap-1 text-left active:scale-95 transition" title="Bấm để cuộn và highlight đoạn văn chứa bằng chứng">
+              <span>Đoạn ${String.fromCharCode(65 + evidenceParaIdx)} (Xem bằng chứng trong bài đọc)</span>
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+            </button>
+          </div>
+
+          <!-- Step 3: Analysis -->
+          <div class="flex items-start gap-2 pt-0.5">
+            <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px] shrink-0 border border-emerald-500/30">Bước 3: Đối Chiếu</span>
+            <p class="text-slate-200 leading-relaxed font-medium">${q.explain || 'Đối chiếu trực tiếp với dẫn chứng trong văn bản để suy ra câu trả lời chuẩn xác.'}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join("");
 
   if (window.lucide) lucide.createIcons();
 }
 
-function focusReadingQuestion(qIdx) {
-  const card = document.getElementById(`rq-card-${qIdx}`) || document.getElementById("readingQuestionsList");
+function selectReadingAnswer(qIdx, oIdx) {
+  if (readingExamState.isSubmitted) return;
+
+  readingExamState.userAnswers[qIdx] = oIdx;
+
+  const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
+  const q = passage?.questions?.[qIdx];
+  const correctVal = q?.answer;
+  const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
+
+  if (readingExamState.mode === "practice") {
+    const isCorrect = (oIdx === correctIdx);
+    const slotEl = document.getElementById(`cloze-slot-${qIdx + 1}`);
+    if (slotEl && q?.options?.[oIdx]) {
+      const optWord = cleanWordText(q.options[oIdx]);
+      slotEl.innerHTML = `<span>[${qIdx + 1}]</span> <strong class="${isCorrect ? 'text-emerald-300' : 'text-rose-300'} underline">${optWord}</strong> <span>${isCorrect ? '✓' : '✗'}</span>`;
+      slotEl.className = `cloze-slot-pill mx-1 px-3 py-1 rounded-lg ${isCorrect ? 'bg-emerald-600/30 text-emerald-300 border-emerald-500' : 'bg-rose-600/30 text-rose-300 border-rose-500'} font-bold border shadow-sm inline-flex items-center gap-1 transition text-sm align-middle`;
+    }
+  }
+
+  renderReadingQuestionsWorkspace();
+  updateReadingPaletteUI();
+
+  const totalQ = passage?.questions?.length || 8;
+  const answeredCount = Object.keys(readingExamState.userAnswers).length;
+  if (answeredCount >= totalQ && readingExamState.mode === "practice") {
+    completeReadingMission();
+  }
+}
+
+function toggleFlagReadingQuestion(qIdx) {
+  if (readingExamState.flaggedQuestions.has(qIdx)) {
+    readingExamState.flaggedQuestions.delete(qIdx);
+  } else {
+    readingExamState.flaggedQuestions.add(qIdx);
+  }
+  renderReadingQuestionsWorkspace();
+  updateReadingPaletteUI();
+}
+
+function jumpToReadingQuestion(qIdx) {
+  if (window.innerWidth < 1024) {
+    switchMobileReadingTab("questions");
+  }
+
+  const card = document.getElementById(`rq-card-${qIdx}`);
   if (card) {
-    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    card.classList.add('ring-2', 'ring-indigo-400', 'bg-indigo-950/40');
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+    card.classList.add("ring-2", "ring-indigo-400", "bg-indigo-950/40");
     setTimeout(() => {
-      card.classList.remove('ring-2', 'ring-indigo-400', 'bg-indigo-950/40');
+      card.classList.remove("ring-2", "ring-indigo-400", "bg-indigo-950/40");
     }, 2000);
   }
+
+  const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
+  if (passage && passage.questions && passage.questions[qIdx]) {
+    const pIdx = findEvidenceParagraphIndex(passage, passage.questions[qIdx]);
+    highlightAndScrollToParagraph(pIdx, false);
+  }
+}
+
+function highlightAndScrollToParagraph(paraIdx, scrollLeft = true) {
+  if (window.innerWidth < 1024 && scrollLeft) {
+    switchMobileReadingTab("passage");
+  }
+
+  const para = document.getElementById(`reading-para-${paraIdx}`);
+  if (para) {
+    if (scrollLeft) {
+      para.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    para.classList.add("ring-4", "ring-amber-400/90", "bg-amber-500/15");
+    setTimeout(() => {
+      para.classList.remove("ring-4", "ring-amber-400/90", "bg-amber-500/15");
+    }, 2500);
+  }
+}
+
+function updateReadingPaletteUI() {
+  const palette = document.getElementById("readingQuestionPalette");
+  const stats = document.getElementById("readingPaletteProgressText");
+  const counter = document.getElementById("readingQuestionCounterBadge");
+  const mobileCounter = document.getElementById("mobileAnsweredCount");
+  const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
+  if (!palette || !passage) return;
+
+  const questions = passage.questions || [];
+  const total = questions.length;
+  const answeredCount = Object.keys(readingExamState.userAnswers).length;
+
+  if (stats) stats.innerText = `${answeredCount}/${total} đã trả lời`;
+  if (counter) counter.innerText = `Đã làm: ${answeredCount}/${total}`;
+  if (mobileCounter) mobileCounter.innerText = `${answeredCount}/${total}`;
+
+  palette.innerHTML = questions.map((q, idx) => {
+    const isAnswered = (readingExamState.userAnswers[idx] !== undefined);
+    const isFlagged = readingExamState.flaggedQuestions.has(idx);
+    const correctVal = q.answer;
+    const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
+
+    let btnClass = "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white";
+
+    if (readingExamState.isSubmitted || (readingExamState.mode === "practice" && isAnswered)) {
+      const userAns = readingExamState.userAnswers[idx];
+      if (userAns === correctIdx) {
+        btnClass = "bg-emerald-600 text-white border-emerald-500 font-bold shadow-md shadow-emerald-950/40";
+      } else if (userAns !== undefined) {
+        btnClass = "bg-rose-600 text-white border-rose-500 font-bold shadow-md shadow-rose-950/40";
+      }
+    } else if (isFlagged) {
+      btnClass = "bg-amber-500 text-slate-950 font-bold border-amber-400 ring-2 ring-amber-400/50 shadow-md";
+    } else if (isAnswered) {
+      btnClass = "bg-indigo-600 text-white border-indigo-400 font-bold shadow-md shadow-indigo-950/40";
+    }
+
+    return `
+      <button onclick="jumpToReadingQuestion(${idx})" id="palette-btn-${idx}" class="w-8 h-8 rounded-xl border text-xs font-mono font-bold transition-all duration-200 flex items-center justify-center relative active:scale-95 ${btnClass}" title="Câu ${idx + 1}${isFlagged ? ' (Đã gắn cờ)' : ''}">
+        ${idx + 1}
+        ${isFlagged ? '<span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-amber-400 border border-slate-950"></span>' : ''}
+      </button>
+    `;
+  }).join("");
+}
+
+function confirmSubmitReadingTest() {
+  if (readingExamState.isSubmitted) {
+    const modal = document.getElementById("readingScoreModal");
+    if (modal) modal.classList.remove("hidden");
+    return;
+  }
+
+  const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
+  const questions = passage?.questions || [];
+  const total = questions.length;
+  const answered = Object.keys(readingExamState.userAnswers).length;
+
+  if (answered < total) {
+    const unans = total - answered;
+    if (confirm(`Bạn đã trả lời ${answered}/${total} câu hỏi. Còn ${unans} câu chưa làm.\n\nBạn có chắc chắn muốn nộp bài ngay bây giờ không?`)) {
+      submitReadingTest();
+    }
+  } else {
+    submitReadingTest();
+  }
+}
+
+function submitReadingTest(isAuto = false) {
+  stopReadingTimer();
+  readingExamState.isSubmitted = true;
+
+  const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
+  const questions = passage?.questions || [];
+  const total = questions.length;
+  let correctCount = 0;
+
+  questions.forEach((q, idx) => {
+    const correctVal = q.answer;
+    const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
+    const userAns = readingExamState.userAnswers[idx];
+    if (userAns === correctIdx) correctCount++;
+  });
+
+  const percent = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+
+  let ieltsBand = "5.0";
+  let vstepScore = "5.5 (B1)";
+  if (percent >= 90) {
+    ieltsBand = "8.5 - 9.0";
+    vstepScore = "9.5 / 10 (C1 Xuất Sắc)";
+  } else if (percent >= 80) {
+    ieltsBand = "7.5 - 8.0";
+    vstepScore = "8.5 / 10 (C1 Vững Vàng)";
+  } else if (percent >= 70) {
+    ieltsBand = "6.5 - 7.0";
+    vstepScore = "7.5 / 10 (B2 Đạt Chuẩn)";
+  } else if (percent >= 55) {
+    ieltsBand = "5.5 - 6.0";
+    vstepScore = "6.0 / 10 (B1 Khá)";
+  } else {
+    ieltsBand = "4.5 - 5.0";
+    vstepScore = "4.5 / 10 (Cần Ôn Thêm)";
+  }
+
+  const modal = document.getElementById("readingScoreModal");
+  const rsmTitle = document.getElementById("rsmTitle");
+  const rsmScore = document.getElementById("rsmScore");
+  const rsmPercent = document.getElementById("rsmPercent");
+  const rsmBand = document.getElementById("rsmBand");
+  const rsmVstep = document.getElementById("rsmVstep");
+  const rsmCorrect = document.getElementById("rsmCorrectCount");
+  const rsmWrong = document.getElementById("rsmWrongCount");
+
+  if (rsmTitle) rsmTitle.innerText = passage?.title || "Kết Quả Đọc Hiểu";
+  if (rsmScore) rsmScore.innerText = `${correctCount} / ${total}`;
+  if (rsmPercent) rsmPercent.innerText = `${percent}% Độ Chính Xác`;
+  if (rsmBand) rsmBand.innerText = `IELTS Band ${ieltsBand}`;
+  if (rsmVstep) rsmVstep.innerText = `VSTEP: ${vstepScore}`;
+  if (rsmCorrect) rsmCorrect.innerText = `✓ ${correctCount} Đúng`;
+  if (rsmWrong) rsmWrong.innerText = `✗ ${total - correctCount} Sai/Bỏ qua`;
+
+  renderReadingQuestionsWorkspace();
+  updateReadingPaletteUI();
+
+  completeReadingMission();
+
+  if (modal) modal.classList.remove("hidden");
+  if (window.lucide) lucide.createIcons();
+
+  showToast(`🎉 Nộp bài thành công! Bạn đạt ${correctCount}/${total} câu (${percent}%) - IELTS ${ieltsBand}`, "success");
+}
+
+function closeReadingScoreModalAndReview() {
+  const modal = document.getElementById("readingScoreModal");
+  if (modal) modal.classList.add("hidden");
+  const qList = document.getElementById("readingQuestionsList");
+  if (qList) qList.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function retakeCurrentReadingTest() {
+  const modal = document.getElementById("readingScoreModal");
+  if (modal) modal.classList.add("hidden");
+  renderReadingPassage(appState.activeReadingIndex);
+  showToast("🔄 Đã khởi động lại bài thi từ đầu!", "info");
+}
+
+function handleReadingTextSelection() {
+  if (!readingExamState.highlighterActive) return;
+  const sel = window.getSelection();
+  if (!sel || sel.isCollapsed || !sel.rangeCount) return;
+
+  const range = sel.getRangeAt(0);
+  const container = document.getElementById("readingContent");
+  if (!container || !container.contains(range.commonAncestorContainer)) return;
+
+  const selectedText = sel.toString().trim();
+  if (!selectedText) return;
+
+  const mark = document.createElement("mark");
+  mark.className = "bg-yellow-400/40 text-white rounded px-0.5 border-b border-yellow-300 font-medium";
+  try {
+    range.surroundContents(mark);
+    sel.removeAllRanges();
+  } catch (e) {}
+}
+
+function readAloudParagraph(pIdx) {
+  const para = document.getElementById(`reading-para-${pIdx}`);
+  if (!para) return;
+  const text = para.innerText.replace(/^Đoạn\s+[A-Z].*?\n/i, "").trim();
+  if (typeof readAloudText === "function") {
+    readAloudText(text);
+  } else if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US';
+    u.rate = 0.95;
+    window.speechSynthesis.speak(u);
+  }
+}
+
+function focusReadingQuestion(qIdx) {
+  jumpToReadingQuestion(qIdx);
 }
 
 

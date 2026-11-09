@@ -129,11 +129,8 @@
         <button onclick="switchTab('listening')" id="nav-btn-listening" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Luyện nghe chuẩn đề thi (HP3, VSTEP, Cambridge, IELTS) - Deadline 2 bài/ngày">
           <i data-lucide="headphones" class="w-4 h-4 text-cyan-400"></i> 🎧 Luyện Nghe (2 Đề/Ngày)
         </button>
-        <button onclick="switchTab('cinema')" id="nav-btn-cinema" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Học tiếng Anh giao tiếp qua trích đoạn phim song ngữ kinh điển">
-          <i data-lucide="film" class="w-4 h-4 text-pink-400"></i> 🎬 Phim Song Ngữ
-        </button>
-        <button onclick="switchTab('video')" id="nav-btn-video" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="tv" class="w-4 h-4 text-rose-400"></i> Vietnam Today
+        <button onclick="switchTab('video')" id="nav-btn-video" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Bản tin truyền hình tiếng Anh Vietnam Today (VTV4) cập nhật hằng ngày">
+          <i data-lucide="tv" class="w-4 h-4 text-rose-400"></i> 📺 Vietnam Today (Hằng Ngày)
         </button>
         <button onclick="switchTab('review')" id="nav-btn-review" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="rotate-cw" class="w-4 h-4"></i> Ôn Tập Tự Do (Chọn Unit)
@@ -196,7 +193,7 @@
             </div>
             <div id="goalItemVideo" class="flex items-center gap-1.5">
               <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
-              <span id="goalItemVideoText">1 Video / Phim Song Ngữ (Hạn 22:00)</span>
+              <span id="goalItemVideoText">1 Video Vietnam Today / Bản Tin (Hạn 22:00)</span>
             </div>
           </div>
         </div>
@@ -394,30 +391,26 @@
 
 
 
-        <!-- ================= PHIM SONG NGỮ & 100 VIDEO BÁO QUỐC TẾ HIGHLIGHT ================= -->
-        <div class="glass-card rounded-2xl p-5 border-2 border-pink-500/50 bg-gradient-to-r from-pink-950/60 via-purple-950/50 to-slate-950 space-y-4 shadow-2xl relative overflow-hidden">
+        <!-- ================= BẢN TIN VIETNAM TODAY (VTV4) CẬP NHẬT HẰNG NGÀY HIGHLIGHT ================= -->
+        <div class="glass-card rounded-2xl p-5 border-2 border-rose-500/50 bg-gradient-to-r from-rose-950/70 via-red-950/50 to-slate-950 space-y-4 shadow-2xl relative overflow-hidden">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-pink-600 to-rose-400 flex items-center justify-center text-white shadow-lg shadow-pink-600/40 shrink-0">
-                <i data-lucide="clapperboard" class="w-6 h-6"></i>
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-rose-600/40 shrink-0">
+                <i data-lucide="tv" class="w-6 h-6"></i>
               </div>
               <div>
-                <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded-full bg-pink-500/25 text-pink-300 font-extrabold text-[11px] border border-pink-500/40">🎬 MỤC MỚI CẬP NHẬT</span>
-                  <span class="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-[11px]">100+ Video Quốc Tế</span>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-0.5 rounded-full bg-rose-500/25 text-rose-300 font-extrabold text-[11px] border border-rose-500/40">🔴 CẬP NHẬT HẰNG NGÀY</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[11px]">Vietnam Today • VTV4</span>
                 </div>
-                <h3 class="text-base sm:text-lg font-black text-white mt-0.5">Rạp Phim Song Ngữ & 100 Video Bản Tin Quốc Tế</h3>
-                <p class="text-xs text-slate-300 mt-0.5">Luyện nghe phản xạ với Friends, Pursuit of Happyness, Forrest Gump và 100 video phóng sự từ BBC, CNN, Bloomberg, TED-Ed, Reuters.</p>
+                <h3 class="text-base sm:text-lg font-black text-white mt-0.5">Kho Bản Tin Thời Sự Tiếng Anh Vietnam Today</h3>
+                <p class="text-xs text-slate-300 mt-0.5">Xem bản tin thời sự tiếng Anh VTV4 cập nhật mới mỗi ngày kèm từ vựng học thuật và Script song ngữ để hoàn thành hạn chót 22:00!</p>
               </div>
             </div>
             <div class="flex items-center gap-2 shrink-0 flex-wrap">
-              <button onclick="switchTab('cinema')" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-bold text-xs shadow-lg shadow-pink-600/30 transition flex items-center gap-2 active:scale-95">
-                <i data-lucide="film" class="w-4 h-4"></i>
-                <span>Xem Phim Song Ngữ Ngay</span>
-              </button>
-              <button onclick="switchTab('video')" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 hover:text-white border border-cyan-500/30 font-bold text-xs transition flex items-center gap-2">
-                <i data-lucide="tv" class="w-4 h-4"></i>
-                <span>100 Video Báo Nước Ngoài</span>
+              <button onclick="switchTab('video')" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-bold text-xs shadow-lg shadow-rose-600/30 transition flex items-center gap-2 active:scale-95">
+                <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+                <span>Xem Bản Tin Vietnam Today Ngay</span>
               </button>
             </div>
           </div>
@@ -473,7 +466,7 @@
                 <span id="sttSessionEvening" class="text-xs text-slate-400 font-semibold">Chưa xong</span>
               </div>
               <h4 class="font-bold text-white text-sm">Buổi Tối: Xem Video / Phim & Chốt Streak</h4>
-              <p class="text-xs text-slate-400">Xem video Vietnam Today hoặc Phim song ngữ trước 22:00.</p>
+              <p class="text-xs text-slate-400">Xem video Vietnam Today phát sóng mới trước 22:00.</p>
               <button onclick="switchTab('video')" class="w-full py-1.5 rounded-lg bg-rose-600/30 hover:bg-rose-600 text-rose-300 hover:text-white text-xs font-bold transition">
                 Xem Video & Chốt Đích →
               </button>
@@ -1159,391 +1152,6 @@
     <!-- TAB: LISTENING PRACTICE (FORM CHUẨN ĐỀ THI HP3 & CAMBRIDGE B1/B2) -->
     <!-- ============================================================================ -->
         <!-- ============================================================================ -->
-    <!-- TAB: BILINGUAL CINEMA & TV SERIES (PHIM SONG NGỮ ANH - VIỆT) -->
-    <!-- ============================================================================ -->
-        <!-- ============================================================================ -->
-    <!-- TAB: EXAM LISTENING PRACTICE (ĐỀ THI ĐA NGUỒN: HP3, VSTEP, CAMBRIDGE, IELTS) -->
-    <!-- ============================================================================ -->
-    <section id="tab-listening" class="hidden space-y-6">
-      <!-- Header Banner -->
-      <div class="glass-card rounded-2xl p-6 border border-cyan-500/40 relative overflow-hidden bg-gradient-to-br from-cyan-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-          <div>
-            <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs uppercase tracking-wider border border-cyan-500/30 flex items-center gap-1.5">
-                <i data-lucide="headphones" class="w-3.5 h-3.5 text-cyan-400"></i>
-                <span>Luyện Nghe Chuẩn Đề Thi Đa Nguồn</span>
-              </span>
-              <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs">
-                HP3 An Ninh • VSTEP B1-B2 • Cambridge
-              </span>
-              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs border border-emerald-500/30 flex items-center gap-1">
-                <i data-lucide="check-circle" class="w-3 h-3"></i> Deadline: 2 Bài Nghe / Ngày
-              </span>
-            </div>
-            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">🎧 Luyện Nghe Trắc Nghiệm Chuẩn Đề & Lời Thoại Song Ngữ</h2>
-            <p class="text-xs sm:text-sm text-slate-300 mt-1">Trình phát audio có tính năng tua ±5s, chỉnh tốc độ 0.75x - 1.25x, chấm điểm tức thì, giải thích chi tiết và phân tích bẫy đề thi.</p>
-          </div>
-          <div class="shrink-0 flex items-center gap-2">
-            <span id="listeningDailyStatusBadge" class="px-3 py-1.5 rounded-xl bg-cyan-600/30 border border-cyan-500/40 text-cyan-300 font-bold text-xs flex items-center gap-1">
-              ⏳ Hôm nay: 0/2 bài nghe
-            </span>
-          </div>
-        </div>
-
-        <!-- Test Selection (HP3 / VSTEP / Cambridge) -->
-        <div class="space-y-1.5 border-b border-slate-800 pb-3">
-          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-            <i data-lucide="folder-check" class="w-3.5 h-3.5 text-cyan-400"></i>
-            <span>Chọn Đề Thi (Nhiều Nguồn Chuẩn Đề):</span>
-          </div>
-          <div class="flex items-center gap-2 flex-wrap" id="listeningTestSelector">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-
-        <!-- Part Selection Tabs -->
-        <div class="space-y-1.5">
-          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-            <i data-lucide="layers" class="w-3.5 h-3.5 text-indigo-400"></i>
-            <span>Chọn Phần Thi (Parts):</span>
-          </div>
-          <div class="flex items-center gap-2 flex-wrap" id="listeningPartTabs">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Audio Player Control Card -->
-      <div class="glass-card rounded-2xl p-5 border border-slate-700/80 bg-slate-900/90 shadow-xl space-y-4">
-        <div class="flex items-center justify-between flex-wrap gap-2">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/30">
-              <i data-lucide="volume-2" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <div class="text-[11px] text-cyan-400 font-mono font-bold uppercase tracking-wider">Trình Phát Audio Đề Thi</div>
-              <h3 id="listeningTrackTitle" class="text-sm sm:text-base font-bold text-white">Part 1: Interview with Andrea</h3>
-            </div>
-          </div>
-
-          <!-- Speed Controls -->
-          <div class="flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700">
-            <span class="text-[10px] text-slate-400 px-1 font-bold">Tốc độ:</span>
-            <button onclick="setListeningSpeed(0.75)" data-rate="0.75" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">0.75x</button>
-            <button onclick="setListeningSpeed(1.0)" data-rate="1.0" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold bg-cyan-600 text-white transition shadow">1.0x</button>
-            <button onclick="setListeningSpeed(1.25)" data-rate="1.25" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">1.25x</button>
-          </div>
-        </div>
-
-        <!-- HTML5 Hidden Audio Element -->
-        <audio id="listeningAudio" class="hidden"></audio>
-
-        <!-- Player Seek & Action Bar -->
-        <div class="space-y-2">
-          <input type="range" id="listeningSeekRange" min="0" max="100" value="0" step="0.1" oninput="onListeningSeek(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
-          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
-            <span id="listeningTimeCurrent">00:00</span>
-            <span id="listeningTimeTotal">00:00</span>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-center gap-3 pt-1">
-          <button onclick="seekListening(-5)" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1 border border-slate-700 transition" title="Lùi lại 5 giây">
-            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> -5s
-          </button>
-
-          <button onclick="toggleListeningPlay()" id="btnListeningPlay" class="w-14 h-14 rounded-2xl bg-gradient-to-r from-cyan-600 via-teal-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white flex items-center justify-center shadow-lg shadow-cyan-600/40 transition active:scale-95" title="Phát / Tạm dừng">
-            <i data-lucide="play" class="w-7 h-7" id="listeningPlayIcon"></i>
-          </button>
-
-          <button onclick="seekListening(5)" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1 border border-slate-700 transition" title="Tua tới 5 giây">
-            +5s <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
-          </button>
-        </div>
-
-        <!-- Instruction Notice -->
-        <div class="p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-xs text-cyan-200 flex items-start gap-2">
-          <i data-lucide="info" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
-          <span id="listeningInstructionText">You will hear each part TWICE. Choose the correct letter A, B, C or D.</span>
-        </div>
-      </div>
-
-      <!-- Score Banner (Hidden initially) -->
-      <div id="listeningScoreBanner" class="hidden glass-card rounded-2xl p-6 border-2 border-amber-500/60 bg-gradient-to-r from-amber-950/60 via-slate-900 to-indigo-950/60 text-center space-y-2 shadow-2xl">
-        <div id="listeningScoreText"></div>
-      </div>
-
-      <!-- Questions List -->
-      <div class="space-y-4">
-        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-          <i data-lucide="help-circle" class="w-5 h-5 text-cyan-400"></i>
-          <span>Danh Sách Câu Hỏi Trắc Nghiệm</span>
-        </h3>
-        <div id="listeningQuestionsContainer" class="space-y-4">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-
-      <!-- Submit & Reset Actions Bar -->
-      <div class="glass-card p-4 rounded-2xl border border-slate-700 flex items-center justify-between gap-3 flex-wrap bg-slate-900/90">
-        <button onclick="submitListeningTest()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-950/40 transition flex items-center gap-2 active:scale-95">
-          <i data-lucide="check-circle-2" class="w-4 h-4"></i>
-          <span>Nộp Bài & Chấm Điểm</span>
-        </button>
-
-        <div class="flex items-center gap-2">
-          <button onclick="toggleListeningTranscript()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold border border-slate-700 transition flex items-center gap-1.5">
-            <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
-            <span>Xem Lời Thoại (Transcript)</span>
-          </button>
-          <button onclick="resetListeningTest()" class="px-4 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-xs sm:text-sm font-bold border border-slate-700 transition flex items-center gap-1.5">
-            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-            <span>Làm Lại</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Transcript & Answer Evidence Box -->
-      <div id="listeningTranscriptCard" class="hidden glass-card rounded-2xl p-6 border border-indigo-500/30 bg-slate-900/95 space-y-4 shadow-xl">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-          <h4 class="font-bold text-white text-base flex items-center gap-2">
-            <i data-lucide="file-text" class="w-5 h-5 text-indigo-400"></i>
-            <span>Lời Thoại Bài Nghe Song Ngữ Anh - Việt (Transcript)</span>
-          </h4>
-          <button onclick="toggleListeningTranscript()" class="text-slate-400 hover:text-white p-1 rounded-lg">
-            <i data-lucide="x" class="w-4 h-4"></i>
-          </button>
-        </div>
-        <div id="listeningTranscriptBody" class="space-y-3 max-h-[500px] overflow-y-auto pr-2">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-    </section>
-
-
-    <section id="tab-cinema" class="hidden space-y-6">
-      <!-- Header Banner with View Toggles -->
-      <div class="glass-card rounded-2xl p-6 border border-pink-500/40 relative overflow-hidden bg-gradient-to-br from-pink-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-4">
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-2.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 font-bold text-xs uppercase tracking-wider border border-pink-500/30 flex items-center gap-1.5">
-                <i data-lucide="film" class="w-3.5 h-3.5 text-pink-400"></i>
-                <span>Bilingual Cinema Hub • Phim Song Ngữ</span>
-              </span>
-              <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs">
-                Phát Âm & Ngữ Điệu Đời Thường
-              </span>
-              <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs">
-                Tra Từ 1-Click Trong Sub & Flashcard
-              </span>
-            </div>
-            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">🎬 Luyện Tiếng Anh Qua Phim Song Ngữ & Kho Từ Vựng Giao Tiếp</h2>
-            <p class="text-xs sm:text-sm text-slate-300 mt-1">Học phản xạ giao tiếp tự nhiên qua các trích đoạn kinh điển (Friends, Forrest Gump, The Pursuit of Happyness...). Bấm trực tiếp vào từng từ trong phụ đề để tra cứu và thêm ngay vào Flashcard!</p>
-          </div>
-
-          <!-- View Switcher & Subtitle Mode -->
-          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 shrink-0">
-            <!-- Tab Mode Selector: Xem Phim vs Kho Từ Vựng Tổng Hợp -->
-            <div class="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-700/80 shadow-md">
-              <button onclick="switchCinemaView('player')" id="btnCinemaViewPlayer" class="px-3 py-1.5 rounded-lg bg-pink-600 text-white font-bold text-xs shadow transition flex items-center gap-1.5">
-                <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
-                <span>Xem Phim & Lời Thoại</span>
-              </button>
-              <button onclick="switchCinemaView('vocab')" id="btnCinemaViewVocabDeck" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white font-bold text-xs transition flex items-center gap-1.5">
-                <i data-lucide="book-open-check" class="w-3.5 h-3.5 text-amber-400"></i>
-                <span>Kho Từ Vựng Toàn Bộ Phim</span>
-              </button>
-            </div>
-
-            <!-- Subtitle Mode (visible in player view) -->
-            <div id="cinemaSubModeBar" class="flex items-center gap-1.5 bg-slate-900/80 p-1 rounded-xl border border-slate-800">
-              <span class="text-[11px] text-slate-400 px-1 font-medium hidden sm:inline">Sub:</span>
-              <button onclick="setCinemaSubMode('bilingual')" id="btnSubBilingual" class="px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-bold text-xs shadow transition">Song Ngữ</button>
-              <button onclick="setCinemaSubMode('en')" id="btnSubEn" class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition">Chỉ Tiếng Anh</button>
-              <button onclick="setCinemaSubMode('none')" id="btnSubNone" class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition">Ẩn Sub</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- VIEW 1: MOVIE PLAYER & INTERACTIVE SUBTITLES WORKSPACE -->
-      <div id="cinemaPlayerView" class="space-y-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          <!-- Left: Video Player & Script (Col 8) -->
-          <div class="lg:col-span-8 space-y-6">
-            <!-- Video Frame -->
-            <div class="glass-card p-2 rounded-2xl border border-slate-700 bg-black aspect-video shadow-2xl overflow-hidden" id="cinemaVideoPlayerContainer">
-              <!-- Rendered by JS -->
-            </div>
-
-            <!-- Movie Info Card & Direct Action Buttons -->
-            <div class="glass-card p-5 rounded-2xl border border-slate-700/80 bg-slate-900/90 space-y-3">
-              <div id="cinemaMovieTitle" class="text-lg sm:text-xl font-black text-white leading-snug">
-                <!-- Rendered by JS -->
-              </div>
-              <div id="cinemaMovieDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <!-- Rendered by JS -->
-              </div>
-            </div>
-
-            <!-- Key Expressions & Idioms in Movie -->
-            <div class="glass-card rounded-2xl p-6 border border-amber-500/30 bg-slate-900/90 space-y-4 shadow-xl">
-              <div class="flex items-center gap-2 border-b border-slate-800 pb-3">
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
-                <h3 class="font-bold text-white text-base">💎 Cụm Từ & Thành Ngữ Đắt Giá Trong Trích Đoạn</h3>
-              </div>
-              <div id="cinemaExpressionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <!-- Rendered by JS -->
-              </div>
-            </div>
-
-            <!-- Interactive Bilingual Subtitles -->
-            <div class="glass-card rounded-2xl p-6 border border-pink-500/30 bg-slate-900/90 space-y-4 shadow-xl">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                <div class="flex items-center gap-2">
-                  <i data-lucide="subtitles" class="w-5 h-5 text-pink-400"></i>
-                  <h3 class="font-bold text-white text-base">📜 Lời Thoại Phim Song Ngữ (Interactive Subtitles)</h3>
-                </div>
-                <p class="text-xs text-slate-400">Bấm nút loa để nghe từng câu, bấm bất kỳ từ nào để tra nghĩa & lưu Flashcard.</p>
-              </div>
-              <div id="cinemaSubtitlesList" class="space-y-3 max-h-[550px] overflow-y-auto pr-1">
-                <!-- Rendered by JS -->
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Movie Playlist & Vocab Notebook (Col 4) -->
-          <div class="lg:col-span-4 space-y-6">
-            <!-- Movie Playlist Selector -->
-            <div class="glass-card rounded-2xl p-5 border border-slate-700/80 bg-slate-900/90 space-y-4 shadow-xl">
-              <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                <h3 class="font-bold text-white text-sm uppercase tracking-wider flex items-center gap-2">
-                  <i data-lucide="clapperboard" class="w-4 h-4 text-pink-400"></i>
-                  <span>Danh Sách Phim Tuyển Chọn</span>
-                </h3>
-                <span id="cinemaMoviesCountBadge" class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold">8 trích đoạn</span>
-              </div>
-              <!-- Genre Filters for 200 Movies -->
-            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs" id="cinemaGenreFilterBar">
-              <button onclick="filterCinemaByGenre('all')" id="btnCinemaGenre_all" class="cinema-genre-btn active px-2.5 py-1 rounded-lg font-bold bg-pink-600 text-white shadow whitespace-nowrap text-[11px]">Tất cả (200)</button>
-              <button onclick="filterCinemaByGenre('crime')" id="btnCinemaGenre_crime" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-bold bg-slate-800 text-rose-300 hover:text-white whitespace-nowrap text-[11px] border border-rose-500/40">🕵️ Trinh thám & Tội phạm (60)</button>
-              <button onclick="filterCinemaByGenre('sitcom')" id="btnCinemaGenre_sitcom" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Sitcom (35)</button>
-              <button onclick="filterCinemaByGenre('drama')" id="btnCinemaGenre_drama" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Tâm lý (35)</button>
-              <button onclick="filterCinemaByGenre('scifi')" id="btnCinemaGenre_scifi" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Viễn tưởng (35)</button>
-              <button onclick="filterCinemaByGenre('business')" id="btnCinemaGenre_business" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Kinh doanh (25)</button>
-              <button onclick="filterCinemaByGenre('animation')" id="btnCinemaGenre_animation" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Hoạt hình (5)</button>
-              <button onclick="filterCinemaByGenre('romance')" id="btnCinemaGenre_romance" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Lãng mạn (5)</button>
-            </div>
-
-            <!-- Dynamic Sub-Topic Filter Bar for Selected Genre -->
-            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs" id="cinemaSubTopicFilterBar">
-              <!-- Rendered dynamically by JS -->
-            </div>
-
-            <!-- Search box and Sort Controls in Movie playlist -->
-            <div class="flex items-center gap-2">
-              <div class="relative flex-1">
-                <input 
-                  type="text" 
-                  id="cinemaMovieSearchInput" 
-                  oninput="searchCinemaPlaylist(this.value)" 
-                  placeholder="🔍 Tìm theo từ khóa (Friends, CSGT, Lóng Luông, từ vựng...)" 
-                  class="w-full pl-8 pr-7 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-pink-500"
-                />
-                <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2"></i>
-                <button onclick="clearCinemaSearch()" id="btnClearCinemaSearch" class="hidden absolute right-2 top-1.5 text-slate-400 hover:text-white text-xs font-bold" title="Xóa tìm kiếm">✕</button>
-              </div>
-              <select id="cinemaSortSelector" onchange="changeCinemaSortOrder(this.value)" class="bg-slate-800 text-[11px] text-slate-300 border border-slate-700 rounded-xl px-2 py-1.5 outline-none font-semibold">
-                <option value="default">📌 Chuẩn Series</option>
-                <option value="level_asc">📊 Độ khó</option>
-                <option value="duration_asc">⏱️ Thời lượng</option>
-                <option value="title_asc">🔤 Tên A-Z</option>
-              </select>
-            </div>
-            <div id="cinemaSearchStatusText" class="text-[11px] text-slate-400 flex items-center justify-between px-1">
-              <!-- Rendered by JS -->
-            </div>
-
-            <div id="cinemaPlaylistSelector" class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
-                <!-- Rendered by JS -->
-              </div>
-            </div>
-
-            <!-- Essential Vocab from this Movie -->
-            <div class="glass-card rounded-2xl p-5 border border-cyan-500/30 bg-slate-900/90 space-y-4 shadow-xl">
-              <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                <div>
-                  <h3 class="font-bold text-white text-sm uppercase tracking-wider flex items-center gap-2">
-                    <i data-lucide="book-marked" class="w-4 h-4 text-cyan-400"></i>
-                    <span>Từ Vựng Của Trích Đoạn Này</span>
-                  </h3>
-                  <p class="text-[11px] text-slate-400 mt-0.5">Từ vựng giao tiếp thực tế trong phim</p>
-                </div>
-                <button onclick="saveAllCinemaWordsToFlashcard()" class="px-3 py-1.5 rounded-xl bg-pink-600/30 hover:bg-pink-600 text-pink-300 hover:text-white text-xs font-bold transition flex items-center gap-1 border border-pink-500/40 shadow-sm active:scale-95">
-                  <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i> + Lưu tất cả
-                </button>
-              </div>
-              <div id="cinemaVocabContainer" class="space-y-2.5">
-                <!-- Rendered by JS -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- VIEW 2: COMPREHENSIVE AGGREGATED MOVIE VOCABULARY DECK -->
-      <div id="cinemaAggregatedVocabView" class="hidden space-y-6">
-        <!-- Filter Toolbar -->
-        <div class="glass-card p-5 rounded-2xl border border-amber-500/40 bg-slate-900/90 shadow-xl space-y-4">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
-            <div>
-              <div class="flex items-center gap-2">
-                <i data-lucide="layers" class="w-5 h-5 text-amber-400"></i>
-                <h3 class="font-bold text-white text-base">📚 Kho Từ Vựng Toàn Bộ Các Bộ Phim Song Ngữ</h3>
-                <span id="cinemaTotalVocabBadge" class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs border border-amber-500/30">
-                  600+ Từ Vựng (200 Phim)
-                </span>
-              </div>
-              <p class="text-xs text-slate-300 mt-1">Tổng hợp toàn bộ từ vựng, thành ngữ giao tiếp từ tất cả các trích đoạn phim kinh điển. Học từ vựng theo ngữ cảnh thực tế và lưu vào Flashcard Spaced Repetition!</p>
-            </div>
-            <div class="shrink-0">
-              <button onclick="saveFilteredCinemaWordsToFlashcard()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 hover:to-rose-500 text-white font-bold text-xs shadow-lg shadow-amber-950/40 transition flex items-center gap-2 active:scale-95">
-                <i data-lucide="sparkles" class="w-4 h-4"></i>
-                <span id="btnSaveAllFilteredMovieVocabText">+ Thêm Toàn Bộ Vào Flashcard Ôn Tập</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Filter Controls -->
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <!-- Filter by Movie -->
-            <div class="flex items-center gap-2 flex-wrap" id="cinemaMovieFilterButtons">
-              <!-- Rendered by JS -->
-            </div>
-
-            <!-- Search Filter -->
-            <div class="relative w-full md:w-64">
-              <input 
-                type="text" 
-                id="cinemaVocabSearchInput"
-                oninput="filterCinemaVocabBySearch(this.value)"
-                placeholder="Tìm từ vựng hoặc nghĩa..."
-                class="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-xs placeholder-slate-400 focus:outline-none focus:border-amber-500"
-              />
-              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Word Cards Grid -->
-        <div id="cinemaAggregatedVocabGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-    </section>
-
     <section id="tab-video" class="hidden space-y-6">
       <!-- Header Banner -->
       <div class="glass-card rounded-2xl p-6 border border-rose-500/40 relative overflow-hidden bg-gradient-to-br from-rose-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-3">
@@ -1566,7 +1174,8 @@
             
             <!-- Source Channel Filters -->
             <div class="flex items-center gap-1.5 pt-3 flex-wrap">
-              <button onclick="filterNewsVideoSource('all')" id="btnVidSrcAll" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white font-bold text-xs shadow transition">Tất Cả (106 Video)</button>
+              <button onclick="filterNewsVideoSource('all')" id="btnVidSrcAll" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white font-bold text-xs shadow transition">Tất Cả Video</button>
+              <button onclick="filterNewsVideoSource('Vietnam Today')" id="btnVidSrcVNT" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-bold text-xs transition shadow border border-amber-400/40">🇻🇳 Vietnam Today VTV4 (Ưu Tiên)</button>
               <button onclick="filterNewsVideoSource('BBC News')" id="btnVidSrcBBC" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">BBC News</button>
               <button onclick="filterNewsVideoSource('CNN 10')" id="btnVidSrcCNN" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">CNN 10</button>
               <button onclick="filterNewsVideoSource('Bloomberg')" id="btnVidSrcBloomberg" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">Bloomberg</button>
@@ -1575,7 +1184,6 @@
               <button onclick="filterNewsVideoSource('National Geographic')" id="btnVidSrcNatGeo" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">NatGeo</button>
               <button onclick="filterNewsVideoSource('Vox')" id="btnVidSrcVox" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">Vox</button>
               <button onclick="filterNewsVideoSource('CNBC')" id="btnVidSrcCNBC" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">CNBC</button>
-              <button onclick="filterNewsVideoSource('Vietnam Today')" id="btnVidSrcVNT" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">Vietnam Today (VTV4)</button>
             </div>
           </div>
           <div class="shrink-0">
@@ -1659,10 +1267,16 @@
           <div class="glass-card rounded-2xl p-5 border border-slate-700/80 bg-slate-900/90 space-y-4 shadow-xl">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
               <div>
-                <h3 class="font-black text-sm uppercase tracking-wider text-slate-200 flex items-center gap-1.5">
-                  <i data-lucide="list-video" class="w-4 h-4 text-rose-400"></i>
-                  <span>Danh Sách Video Tin Tức</span>
-                </h3>
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="font-black text-sm uppercase tracking-wider text-slate-200 flex items-center gap-1.5">
+                    <i data-lucide="list-video" class="w-4 h-4 text-rose-400"></i>
+                    <span>Danh Sách Video Tin Tức</span>
+                  </h3>
+                  <button onclick="checkAndSyncDailyVietnamTodayVideo(true)" class="px-2.5 py-1 rounded-lg bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-bold text-[10px] flex items-center gap-1 shadow transition active:scale-95" title="Bấm để kiểm tra và nạp bản tin Vietnam Today phát sóng mới nhất hôm nay">
+                    <i data-lucide="refresh-cw" class="w-3 h-3"></i>
+                    <span>🔄 Cập nhật Hôm nay</span>
+                  </button>
+                </div>
                 <p class="text-[11px] text-slate-400 mt-0.5">Chọn video và tick đã xem:</p>
               </div>
               <span id="vntWatchedStatsBadge" class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs border border-emerald-500/30">
@@ -1799,13 +1413,9 @@
         <i data-lucide="headphones" class="w-5 h-5 text-cyan-400"></i>
         <span class="text-[10px] font-semibold mt-1">Nghe (2/N)</span>
       </button>
-      <button onclick="switchTab('cinema')" id="mob-btn-cinema" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400" title="Phim Song Ngữ">
-        <i data-lucide="film" class="w-5 h-5 text-pink-400"></i>
-        <span class="text-[10px] font-semibold mt-1">Phim</span>
-      </button>
-      <button onclick="switchTab('video')" id="mob-btn-video" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
-        <i data-lucide="tv" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold mt-1">Video</span>
+      <button onclick="switchTab('video')" id="mob-btn-video" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400" title="Vietnam Today VTV4">
+        <i data-lucide="tv" class="w-5 h-5 text-rose-400"></i>
+        <span class="text-[10px] font-semibold mt-1">VTV4 News</span>
       </button>
       <button onclick="switchTab('review')" id="mob-btn-review" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="rotate-cw" class="w-5 h-5"></i>
@@ -2538,19 +2148,18 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=48.0"></script>
-  <script src="./listening_data.js?v=48.0"></script>
-  <script src="./vietnam_today_data.js?v=48.0"></script>
-  <script src="./international_news_videos.js?v=48.0"></script>
-  <script src="./bilingual_cinema_data.js?v=48.0"></script>
-  <script src="./bilingual_news_data.js?v=48.0"></script>
-  <script src="./reading_lexicon.js?v=48.0"></script>
-  <script src="./app.js?v=48.0"></script>
+  <script src="./data.js?v=49.0"></script>
+  <script src="./listening_data.js?v=49.0"></script>
+  <script src="./vietnam_today_data.js?v=49.0"></script>
+  <script src="./international_news_videos.js?v=49.0"></script>
+  <script src="./bilingual_news_data.js?v=49.0"></script>
+  <script src="./reading_lexicon.js?v=49.0"></script>
+  <script src="./app.js?v=49.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=48.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=49.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

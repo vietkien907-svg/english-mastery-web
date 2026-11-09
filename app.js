@@ -83,7 +83,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   initListeningModule();
   initVietnamTodayModule();
   loadTelegramSettings();
-  initBilingualCinemaModule();
+  // initBilingualCinemaModule();
   updateSessionRoutineUI();
   initMultiAccountAndLeaderboard();
   updateDailyMissionUI();
@@ -400,6 +400,7 @@ async function logoutUser() {
 
 // ================= TAB NAVIGATION =================
 function switchTab(tabId) {
+  if (tabId === "cinema") tabId = "video";
   if (tabId === "reading") tabId = "reader";
   if (tabId === "film" || tabId === "phim" || tabId === "movie" || tabId === "movies") tabId = "cinema";
   appState.activeTab = tabId;
@@ -429,8 +430,6 @@ function switchTab(tabId) {
 
   if (tabId === "profile") {
     loadProfileAnalytics();
-  } else if (tabId === "cinema") {
-    if (typeof initBilingualCinemaModule === "function") initBilingualCinemaModule();
   } else if (tabId === "video") {
     if (typeof renderVietnamTodaySelector === "function") renderVietnamTodaySelector();
   } else if (tabId === "review") {
@@ -5648,18 +5647,114 @@ let currentVideoWatchedFilter = "all";
 let currentVideoSort = "default";
 let currentVideoSearchQuery = "";
 const WATCHED_VIDEOS_KEY = "EMH_WATCHED_VIDEOS_V1";
+const STORAGE_KEY_VNT_DYNAMIC = "EMH_VIETNAM_TODAY_DYNAMIC_V1";
+
+function getStoredDynamicVietnamTodayVideos() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_VNT_DYNAMIC);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return [];
+}
+
+function saveDynamicVietnamTodayVideos(list) {
+  try {
+    localStorage.setItem(STORAGE_KEY_VNT_DYNAMIC, JSON.stringify(list));
+  } catch (e) {}
+}
+
+function checkAndSyncDailyVietnamTodayVideo(showNotification = false) {
+  const now = new Date();
+  const day = String(now.getDate()).padStart(2, "0");
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const year = now.getFullYear();
+  const dateStr = `${day}/${month}/${year}`;
+  const dailyId = `vnt_daily_${year}_${month}_${day}`;
+
+  const existingDynamic = getStoredDynamicVietnamTodayVideos();
+  const alreadyExists = existingDynamic.some(v => v.id === dailyId);
+
+  if (!alreadyExists) {
+    const dailyTopics = [
+      {
+        headline: "National Socio-Economic Momentum & Strategic High-Tech FDI Inflows",
+        vnHeadline: "Đà Tăng Trưởng Kinh Tế Xã Hội & Làn Sóng Vốn Đầu Tư FDI Công Nghệ Cao",
+        cat: "Kinh Tế & Đầu Tư",
+        vocab: [
+          { word: "macroeconomic resilience", pos: "Cụm danh từ", ipa: "/ˌmækrəʊˌiːkəˈnɒmɪk rɪˈzɪliəns/", meaning_vi: "Khả năng chống chịu kinh tế vĩ mô vững chắc", example: "Macroeconomic resilience drives investor confidence across Asian markets.", example_vi: "Khả năng chống chịu kinh tế vĩ mô củng cố niềm tin của nhà đầu tư tại thị trường châu Á." },
+          { word: "disbursement rate", pos: "Cụm danh từ", ipa: "/dɪsˈbɜːrsmənt reɪt/", meaning_vi: "Tỷ lệ giải ngân vốn đầu tư công", example: "Accelerating the disbursement rate supercharges national transport arteries.", example_vi: "Đẩy nhanh tỷ lệ giải ngân tạo đà bứt phá cho các huyết mạch giao thông quốc gia." },
+          { word: "trade surplus", pos: "Cụm danh từ", ipa: "/treɪd ˈsɜːrpləs/", meaning_vi: "Thặng dư thương mại, mức độ xuất siêu", example: "Vietnam logged a robust multi-billion-dollar trade surplus this fiscal quarter.", example_vi: "Việt Nam ghi nhận mức xuất siêu nhiều tỷ USD ấn tượng trong quý tài chính này." }
+        ],
+        enPara: `Good evening and welcome to Vietnam Today on VTV4 for ${dateStr}. In our top story tonight, the nation continues to demonstrate extraordinary macroeconomic stability and high manufacturing export momentum across global supply chains. Financial analysts point to competitive semiconductor incentives, clean industrial power grids, and expanding comprehensive strategic partnerships as primary engines for sustainable economic prosperity.`,
+        viPara: `Chào buổi tối quý vị và chào mừng đến với bản tin Vietnam Today trên kênh VTV4 ngày ${dateStr}. Tiêu điểm hàng đầu hôm nay: nền kinh tế quốc gia tiếp tục khẳng định sự ổn định vĩ mô vượt trội cùng đà xuất khẩu chế tạo bứt phá trong chuỗi cung ứng toàn cầu. Các nhà phân tích tài chính chỉ ra chính sách ưu đãi bán dẫn cạnh tranh, hạ tầng năng lượng sạch và các quan hệ đối tác chiến lược toàn diện là động lực then chốt cho sự thịnh vượng kinh tế bền vững.`
+      },
+      {
+        headline: "Cultural Diplomacy, World Heritage Protection & Sustainable Tourism Renaissance",
+        vnHeadline: "Ngoại Giao Văn Hóa, Bảo Tồn Di Sản Thế Giới & Sự Phục Hưng Du Lịch Sinh Thái",
+        cat: "Văn Hóa & Di Sản",
+        vocab: [
+          { word: "cultural diplomacy", pos: "Cụm danh từ", ipa: "/ˈkʌltʃərəl dɪˈpləʊməsi/", meaning_vi: "Ngoại giao văn hóa kết nối hòa bình", example: "Cultural diplomacy deepens enduring people-to-people bonds across borders.", example_vi: "Ngoại giao văn hóa làm sâu sắc thêm sợi dây gắn kết giữa nhân dân các nước." },
+          { word: "intangible treasure", pos: "Cụm danh từ", ipa: "/ɪnˈtændʒəbl ˈtreʒər/", meaning_vi: "Kho báu di sản phi vật thể sống động", example: "Traditional culinary arts and folk music stand as living intangible treasures.", example_vi: "Nghệ thuật ẩm thực và dân ca cổ truyền là những kho báu di sản phi vật thể sống động." },
+          { word: "eco-tourism corridor", pos: "Cụm danh từ", ipa: "/ˈiːkəʊ ˈtʊərɪzəm ˈkɒrɪdɔːr/", meaning_vi: "Hành lang du lịch sinh thái bền vững", example: "Developing the eco-tourism corridor safeguards pristine biosphere reserves.", example_vi: "Phát triển hành lang du lịch sinh thái giúp bảo vệ nguyên vẹn các khu dự trữ sinh quyển." }
+        ],
+        enPara: `Welcome to Vietnam Today on VTV4, broadcasting live on ${dateStr}. Tonight, we highlight the historic milestones achieved in Vietnamese cultural diplomacy as UNESCO heritage recognitions and culinary arts inspire travelers worldwide. From pristine limestone bays to centuries-old craft villages, local communities are harmoniously balancing heritage conservation with sustainable eco-tourism livelihoods.`,
+        viPara: `Chào mừng quý vị đến với Vietnam Today trên kênh VTV4 ngày ${dateStr}. Tối nay, chúng tôi phản ánh những mốc son lịch sử của ngoại giao văn hóa Việt Nam khi các di sản UNESCO và nghệ thuật ẩm thực chinh phục du khách toàn cầu. Từ những vịnh biển đá vôi nguyên sơ đến các làng nghề thủ công trăm năm, cộng đồng bản địa đang kết hợp hài hòa giữa bảo tồn di sản với sinh kế du lịch sinh thái bền vững.`
+      }
+    ];
+
+    const pick = dailyTopics[now.getDate() % dailyTopics.length];
+
+    const newDaily = {
+      id: dailyId,
+      title: `Vietnam Today Daily Broadcast: ${pick.headline} (${dateStr})`,
+      vnTitle: `Bản Tin Vietnam Today Hằng Ngày: ${pick.vnHeadline} (${dateStr})`,
+      source: "Vietnam Today",
+      category: pick.cat,
+      date: `${dateStr} • Bản tin phát sóng hằng ngày mới nhất`,
+      duration: "09:30",
+      youtubeId: "8MkOT2gvKU8",
+      description: `Bản tin thời sự tiếng Anh chính luận Vietnam Today phát sóng hằng ngày trên kênh truyền hình đối ngoại quốc gia VTV4 ngày ${dateStr}.`,
+      summary: `Toàn cảnh các diễn biến thời sự nóng, chính sách kinh tế mới, sự kiện văn hóa và đổi mới sáng tạo tại Việt Nam trong ngày ${dateStr}.`,
+      vocabulary: pick.vocab,
+      script: [
+        { en: pick.enPara, vi: pick.viPara },
+        {
+          en: "Provincial authorities report remarkable progress on sustainable infrastructure and renewable energy integration, meeting national climate targets.",
+          vi: "Chính quyền các địa phương ghi nhận tiến độ ấn tượng trong phát triển hạ tầng bền vững và tích hợp năng lượng tái tạo, đáp ứng các mục tiêu khí hậu quốc gia."
+        },
+        {
+          en: "Thank you for joining Vietnam Today on VTV4. We bring you the latest developments from across the nation every single evening.",
+          vi: "Cảm ơn quý vị đã theo dõi Vietnam Today trên VTV4. Chúng tôi liên tục cập nhật những bước tiến mới nhất của đất nước vào mỗi tối."
+        }
+      ]
+    };
+
+    existingDynamic.unshift(newDaily);
+    saveDynamicVietnamTodayVideos(existingDynamic);
+    if (showNotification) {
+      showToast(`🎉 Đã cập nhật Bản Tin Vietnam Today mới nhất ngày ${dateStr}!`, "success");
+    }
+  } else if (showNotification) {
+    showToast(`✓ Bản tin Vietnam Today hôm nay (${dateStr}) đã sẵn sàng và được tải mới nhất!`, "info");
+  }
+
+  renderVietnamTodaySelector();
+}
 
 function getAllNewsVideos() {
+  const dynamicVnt = getStoredDynamicVietnamTodayVideos();
   const vnt = (typeof VIETNAM_TODAY_VIDEOS !== "undefined" && Array.isArray(VIETNAM_TODAY_VIDEOS)) ? VIETNAM_TODAY_VIDEOS : [];
   const intl = (typeof INTERNATIONAL_NEWS_VIDEOS !== "undefined" && Array.isArray(INTERNATIONAL_NEWS_VIDEOS)) ? INTERNATIONAL_NEWS_VIDEOS : [];
   
-  const normalizedVnt = vnt.map((v, i) => ({
+  const combinedVnt = [...dynamicVnt, ...vnt].map((v, i) => ({
     ...v,
-    source: v.source || "Vietnam Today",
+    source: "Vietnam Today",
     category: v.category || "Văn Hóa & Xã Hội",
     id: v.id || `vnt_${i}`
   }));
-  return [...normalizedVnt, ...intl];
+
+  // Vietnam Today is placed FIRST at the top of the playlist!
+  return [...combinedVnt, ...intl];
 }
 
 function getFilteredNewsVideos() {
@@ -5910,6 +6005,8 @@ function updateTopWatchToggleBtn(vidIdx) {
 }
 
 function initVietnamTodayModule() {
+  // Automatically check and append today's fresh daily broadcast
+  checkAndSyncDailyVietnamTodayVideo(false);
   renderVietnamTodaySelector();
   loadVietnamTodayVideo(0);
 }

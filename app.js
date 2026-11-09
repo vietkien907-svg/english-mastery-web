@@ -5,6 +5,13 @@ const API_BASE = window.location.origin;
 const STORAGE_KEY_AUTH = "EMH_AUTH_TOKEN_V2";
 const STORAGE_KEY_OFFLINE_QUEUE = "EMH_OFFLINE_QUEUE_V2";
 
+function getVideoSourceSearchUrl(item, addOfficialClip = false) {
+  const query = [item?.title, item?.series, item?.source, addOfficialClip ? "official clip" : ""]
+    .filter(Boolean)
+    .join(" ");
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+}
+
 let appState = {
   activeTab: "today",
   authToken: localStorage.getItem(STORAGE_KEY_AUTH) || "",
@@ -5842,20 +5849,33 @@ function loadVietnamTodayVideo(idx) {
   const vid = filtered[idx];
   if (!vid) return;
 
-  // 1. YouTube Iframe with robust cross-origin & no-cookie support
+  const isVerifiedVietnamTodaySource = vid.source === "Vietnam Today" && Boolean(vid.youtubeId);
+  const videoSourceUrl = isVerifiedVietnamTodaySource
+    ? `https://www.youtube.com/watch?v=${encodeURIComponent(vid.youtubeId)}`
+    : getVideoSourceSearchUrl(vid);
+
+  // Only embed the verified VTV4 sources. Other records use a title-specific
+  // YouTube search link because their stored IDs can point to unrelated videos.
   const playerContainer = document.getElementById("vietnamTodayIframeContainer");
   if (playerContainer) {
-    playerContainer.innerHTML = `
+    playerContainer.innerHTML = isVerifiedVietnamTodaySource ? `
       <div class="relative w-full h-full flex flex-col justify-center items-center bg-black/90 rounded-2xl overflow-hidden group">
         <iframe 
           id="ytPlayerFrame"
           class="w-full h-full rounded-2xl border-0 aspect-video" 
-          src="https://www.youtube.com/embed/${vid.youtubeId}?rel=0&playsinline=1&modestbranding=1" 
+          src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(vid.youtubeId)}?rel=0&playsinline=1&modestbranding=1"
           title="${vid.title}" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
           allowfullscreen>
         </iframe>
+      </div>
+    ` : `
+      <div class="w-full h-full min-h-48 flex flex-col items-center justify-center gap-3 rounded-2xl border border-slate-700 bg-slate-950 p-5 text-center">
+        <i data-lucide="youtube" class="w-10 h-10 text-red-500"></i>
+        <p class="text-sm font-bold text-white">Mở nguồn video phù hợp</p>
+        <p class="max-w-md text-xs text-slate-400">Mã video lưu cho mục này chưa khớp tiêu đề. Mở kết quả tìm kiếm YouTube theo đúng tiêu đề để chọn bản tin phù hợp.</p>
+        <a href="${videoSourceUrl}" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-red-600 px-4 py-2 text-xs font-bold text-white hover:bg-red-500">Tìm và xem video trên YouTube</a>
       </div>
     `;
   }
@@ -5875,8 +5895,8 @@ function loadVietnamTodayVideo(idx) {
     descEl.innerHTML = `
       <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${vid.vnTitle} • ${vid.description}</p>
       <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 mt-2">
-        <a href="https://www.youtube.com/watch?v=${vid.youtubeId}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-red-950/40">
-          <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> Xem trực tiếp trên YouTube
+        <a href="${videoSourceUrl}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-red-950/40">
+          <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> ${isVerifiedVietnamTodaySource ? "Xem trực tiếp trên YouTube" : "Tìm video đúng tiêu đề"}
         </a>
         <button onclick="reloadVietnamTodayPlayer()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
           <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Tải lại Player
@@ -6342,20 +6362,18 @@ function loadCinemaMovie(idx) {
   if (typeof BILINGUAL_MOVIES === "undefined" || !BILINGUAL_MOVIES[idx]) return;
   const m = BILINGUAL_MOVIES[idx];
 
-  // 1. YouTube Iframe with robust parameters
+  const videoSourceUrl = getVideoSourceSearchUrl(m, true);
+
+  // The stored cinema IDs are not reliably matched to their listed titles.
+  // Send learners to title-specific results instead of playing unrelated clips.
   const playerContainer = document.getElementById("cinemaVideoPlayerContainer");
   if (playerContainer) {
     playerContainer.innerHTML = `
-      <div class="relative w-full h-full flex flex-col justify-center items-center bg-black/95 rounded-2xl overflow-hidden group">
-        <iframe 
-          id="cinemaPlayerFrame"
-          class="w-full h-full rounded-2xl border-0 aspect-video" 
-          src="https://www.youtube.com/embed/${m.youtubeId}?rel=0&playsinline=1&modestbranding=1" 
-          title="${m.title}" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-        </iframe>
+      <div class="w-full h-full min-h-48 flex flex-col items-center justify-center gap-3 rounded-2xl border border-slate-700 bg-slate-950 p-5 text-center">
+        <i data-lucide="youtube" class="w-10 h-10 text-red-500"></i>
+        <p class="text-sm font-bold text-white">Mở trích đoạn đúng bộ phim</p>
+        <p class="max-w-md text-xs text-slate-400">Mở kết quả tìm kiếm theo tên phim và trích đoạn để chọn nguồn YouTube phù hợp.</p>
+        <a href="${videoSourceUrl}" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-red-600 px-4 py-2 text-xs font-bold text-white hover:bg-red-500">Tìm và xem trích đoạn trên YouTube</a>
       </div>
     `;
   }
@@ -6378,8 +6396,8 @@ function loadCinemaMovie(idx) {
     descEl.innerHTML = `
       <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${m.vnTitle} • ${m.description}</p>
       <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 mt-2">
-        <a href="https://www.youtube.com/watch?v=${m.youtubeId}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-red-950/40">
-          <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> Mở xem trực tiếp trên YouTube
+        <a href="${videoSourceUrl}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-red-950/40">
+          <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> Tìm và xem trên YouTube
         </a>
         <button onclick="reloadCinemaMoviePlayer()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
           <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Tải lại Player

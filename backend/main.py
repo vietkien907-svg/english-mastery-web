@@ -137,6 +137,18 @@ def serve_listening_data():
 def serve_vietnam_today_data():
     return FileResponse(os.path.join(FRONTEND_DIR, "vietnam_today_data.js"), media_type="application/javascript")
 
+@app.get("/international_news_videos.js")
+def serve_international_news_videos():
+    return FileResponse(os.path.join(FRONTEND_DIR, "international_news_videos.js"), media_type="application/javascript")
+
+@app.get("/bilingual_cinema_data.js")
+def serve_bilingual_cinema_data():
+    return FileResponse(os.path.join(FRONTEND_DIR, "bilingual_cinema_data.js"), media_type="application/javascript")
+
+@app.get("/bilingual_news_data.js")
+def serve_bilingual_news_data():
+    return FileResponse(os.path.join(FRONTEND_DIR, "bilingual_news_data.js"), media_type="application/javascript")
+
 @app.get("/reading_lexicon.js")
 def serve_reading_lexicon():
     return FileResponse(os.path.join(FRONTEND_DIR, "reading_lexicon.js"), media_type="application/javascript")

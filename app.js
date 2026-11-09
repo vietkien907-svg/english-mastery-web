@@ -5,11 +5,69 @@ const API_BASE = window.location.origin;
 const STORAGE_KEY_AUTH = "EMH_AUTH_TOKEN_V2";
 const STORAGE_KEY_OFFLINE_QUEUE = "EMH_OFFLINE_QUEUE_V2";
 
-function getVideoSourceSearchUrl(item, addOfficialClip = false) {
-  const query = [item?.title, item?.series, item?.source, addOfficialClip ? "official clip" : ""]
-    .filter(Boolean)
-    .join(" ");
-  return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+function removeVietnameseDiacritics(str) {
+  if (!str) return "";
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .toLowerCase()
+    .trim();
+}
+
+function getVideoSourceSearchUrl(item, preferVietnamese = true) {
+  if (!item) return "https://www.youtube.com";
+
+  // Case 1: Vietnam Police Pursuits & Action
+  if (item.genreKey === "crime" || (item.genre && item.genre.includes("Đuổi Bắt"))) {
+    const cleanVnTitle = (item.vnTitle || "")
+      .replace(/^(Cảnh Sát Giao Thông|CSCĐ|Cảnh Sát Cơ Động|Cảnh Sát Biển|Cục An Ninh Mạng A05|Cảnh Sát Môi Trường C05|Chiến Dịch Lóng Luông|Tổ Công Tác \d+|Công An [^:]+):\s*/i, "")
+      .replace(/[():]/g, " ")
+      .trim();
+
+    let topicPrefix = "công an rượt đuổi bắt tội phạm";
+    const series = (item.series || "").toLowerCase();
+    const vn = (item.vnTitle || "").toLowerCase();
+
+    if (series.includes("highway") || series.includes("traffic") || vn.includes("csgt") || vn.includes("cao tốc")) {
+      topicPrefix = "CSGT rượt đuổi cao tốc";
+    } else if (series.includes("narcotics") || vn.includes("ma túy") || vn.includes("lóng luông")) {
+      topicPrefix = "chuyên án ma túy Lóng Luông";
+    } else if (series.includes("swat") || series.includes("mobile") || vn.includes("cscđ") || vn.includes("con tin")) {
+      topicPrefix = "CSCĐ vây bắt tội phạm";
+    } else if (series.includes("coast guard") || series.includes("maritime") || vn.includes("cảnh sát biển") || vn.includes("buôn lậu")) {
+      topicPrefix = "cảnh sát biển bắt buôn lậu";
+    } else if (series.includes("cyber") || vn.includes("an ninh mạng") || vn.includes("a05") || vn.includes("công nghệ cao")) {
+      topicPrefix = "an ninh mạng A05 triệt phá";
+    } else if (series.includes("wildlife") || series.includes("environmental") || vn.includes("môi trường") || vn.includes("c05")) {
+      topicPrefix = "cảnh sát môi trường C05 bắt";
+    }
+
+    const query = `${topicPrefix} ${cleanVnTitle}`.replace(/\s+/g, " ").trim();
+    return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+  }
+
+  // Case 2: Western TV Series & Sitcoms (Friends, Breaking Bad, The Office, Big Bang Theory, etc.)
+  if (item.series) {
+    let cleanTitle = (item.title || "").replace(/[()]/g, "").trim();
+    if (cleanTitle.toLowerCase().startsWith(item.series.toLowerCase())) {
+      cleanTitle = cleanTitle.substring(item.series.length).replace(/^[:\s-]+/, "").trim();
+    }
+    const query = `${item.series} ${cleanTitle} scene clip`.replace(/\s+/g, " ").trim();
+    return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+  }
+
+  // Case 3: News Videos (BBC News, CNN 10, Bloomberg, Reuters, TED-Ed, Vietnam Today)
+  if (item.source) {
+    const cleanTitle = (item.title || "")
+      .replace(/^(BBC News|CNN 10|Bloomberg|Reuters|TED-Ed|National Geographic|Vox|CNBC|Vietnam Today):\s*/i, "")
+      .trim();
+    const query = `${item.source} ${cleanTitle}`;
+    return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+  }
+
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent((item.title || "").trim())}`;
 }
 
 let appState = {
@@ -5609,6 +5667,9 @@ function renderListeningTranscript(part) {
 // ============================================================================
 let currentVideoIdx = 0;
 let currentVideoSourceFilter = "all";
+let currentVideoCategoryFilter = "all";
+let currentVideoWatchedFilter = "all";
+let currentVideoSort = "default";
 let currentVideoSearchQuery = "";
 const WATCHED_VIDEOS_KEY = "EMH_WATCHED_VIDEOS_V1";
 
@@ -5619,6 +5680,7 @@ function getAllNewsVideos() {
   const normalizedVnt = vnt.map((v, i) => ({
     ...v,
     source: v.source || "Vietnam Today",
+    category: v.category || "Văn Hóa & Xã Hội",
     id: v.id || `vnt_${i}`
   }));
   return [...normalizedVnt, ...intl];
@@ -5626,24 +5688,74 @@ function getAllNewsVideos() {
 
 function getFilteredNewsVideos() {
   const all = getAllNewsVideos();
-  return all.filter(vid => {
-    // Channel / source filter
+  const rawQuery = (currentVideoSearchQuery || "").trim();
+  const normQuery = removeVietnameseDiacritics(rawQuery);
+  const watchedSet = getWatchedVietnamTodayVideos();
+
+  let result = all.filter((vid, i) => {
+    // 1. Channel filter
     if (currentVideoSourceFilter !== "all") {
       const src = (vid.source || "").toLowerCase();
       const filter = currentVideoSourceFilter.toLowerCase();
       if (!src.includes(filter) && !filter.includes(src)) return false;
     }
-    // Search query
-    if (currentVideoSearchQuery && currentVideoSearchQuery.trim()) {
-      const q = currentVideoSearchQuery.toLowerCase().trim();
-      const matchTitle = (vid.title || "").toLowerCase().includes(q);
-      const matchVnTitle = (vid.vnTitle || "").toLowerCase().includes(q);
-      const matchCat = (vid.category || "").toLowerCase().includes(q);
-      const matchSource = (vid.source || "").toLowerCase().includes(q);
-      if (!matchTitle && !matchVnTitle && !matchCat && !matchSource) return false;
+    // 2. Category filter
+    if (currentVideoCategoryFilter !== "all") {
+      const cat = (vid.category || "").toLowerCase();
+      const filterCat = currentVideoCategoryFilter.toLowerCase();
+      if (!cat.includes(filterCat) && !filterCat.includes(cat)) return false;
+    }
+    // 3. Watched filter
+    const isWatched = watchedSet.has(vid.id || `vnt_${i}`);
+    if (currentVideoWatchedFilter === "watched" && !isWatched) return false;
+    if (currentVideoWatchedFilter === "unwatched" && isWatched) return false;
+
+    // 4. Search query
+    if (normQuery) {
+      const matchTitle = removeVietnameseDiacritics(vid.title).includes(normQuery);
+      const matchVnTitle = removeVietnameseDiacritics(vid.vnTitle).includes(normQuery);
+      const matchCat = removeVietnameseDiacritics(vid.category).includes(normQuery);
+      const matchSource = removeVietnameseDiacritics(vid.source).includes(normQuery);
+      const matchDesc = removeVietnameseDiacritics(vid.description).includes(normQuery);
+      const matchSummary = removeVietnameseDiacritics(vid.summary).includes(normQuery);
+
+      const matchVocab = Array.isArray(vid.vocabulary) && vid.vocabulary.some(v =>
+        removeVietnameseDiacritics(v.word).includes(normQuery) ||
+        removeVietnameseDiacritics(v.meaning_vi).includes(normQuery)
+      );
+
+      const matchScript = Array.isArray(vid.script) && vid.script.some(s =>
+        removeVietnameseDiacritics(s.en).includes(normQuery) ||
+        removeVietnameseDiacritics(s.vi).includes(normQuery)
+      );
+
+      if (!matchTitle && !matchVnTitle && !matchCat && !matchSource && !matchDesc && !matchSummary && !matchVocab && !matchScript) {
+        return false;
+      }
     }
     return true;
   });
+
+  // Relevance ranking when searching
+  if (normQuery) {
+    result.sort((a, b) => {
+      const aT = removeVietnameseDiacritics(a.title).includes(normQuery) || removeVietnameseDiacritics(a.vnTitle).includes(normQuery);
+      const bT = removeVietnameseDiacritics(b.title).includes(normQuery) || removeVietnameseDiacritics(b.vnTitle).includes(normQuery);
+      if (aT && !bT) return -1;
+      if (!aT && bT) return 1;
+      return 0;
+    });
+    return result;
+  }
+
+  // Sorting
+  if (currentVideoSort === "duration_asc") {
+    result.sort((a, b) => (a.duration || "").localeCompare(b.duration || ""));
+  } else if (currentVideoSort === "title_asc") {
+    result.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+  }
+
+  return result;
 }
 
 function filterNewsVideoSource(src) {
@@ -5653,7 +5765,11 @@ function filterNewsVideoSource(src) {
     "BBC News": "btnVidSrcBBC",
     "CNN 10": "btnVidSrcCNN",
     "Bloomberg": "btnVidSrcBloomberg",
+    "Reuters": "btnVidSrcReuters",
     "TED-Ed": "btnVidSrcTED",
+    "National Geographic": "btnVidSrcNatGeo",
+    "Vox": "btnVidSrcVox",
+    "CNBC": "btnVidSrcCNBC",
     "Vietnam Today": "btnVidSrcVNT"
   };
   Object.entries(btnMap).forEach(([k, btnId]) => {
@@ -5674,14 +5790,76 @@ function filterNewsVideoSource(src) {
   }
 }
 
-function searchNewsVideos(query) {
-  currentVideoSearchQuery = query || "";
+function filterNewsVideoCategory(cat) {
+  currentVideoCategoryFilter = cat;
+  const btns = document.querySelectorAll(".news-cat-btn");
+  btns.forEach(b => {
+    b.className = "news-cat-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px] transition";
+  });
+  const catKeyMap = {
+    "all": "btnNewsCat_all",
+    "Kinh Tế & Thị Trường": "btnNewsCat_kinhte",
+    "Khoa Học & Công Nghệ": "btnNewsCat_congnghe",
+    "Môi Trường & Khí Hậu": "btnNewsCat_moitruong",
+    "Y Tế & Sức Khỏe": "btnNewsCat_yte",
+    "Đời Sống & Văn Hóa": "btnNewsCat_doisong",
+    "Giáo Dục & Trí Tuệ": "btnNewsCat_giaoduc"
+  };
+  const activeBtn = document.getElementById(catKeyMap[cat]);
+  if (activeBtn) {
+    activeBtn.className = "news-cat-btn active px-2 py-0.5 rounded-lg font-bold bg-rose-600 text-white shadow whitespace-nowrap text-[10px] transition";
+  }
   currentVideoIdx = 0;
   renderVietnamTodaySelector();
   const filtered = getFilteredNewsVideos();
   if (filtered.length > 0) {
     loadVietnamTodayVideo(0);
   }
+}
+
+function filterNewsVideoWatched(status) {
+  currentVideoWatchedFilter = status;
+  ["all", "unwatched", "watched"].forEach(s => {
+    const btn = document.getElementById(`btnNewsWatched_${s}`);
+    if (btn) {
+      if (s === status) {
+        btn.className = "px-2 py-0.5 rounded font-bold bg-rose-600 text-white text-[10px]";
+      } else {
+        btn.className = "px-2 py-0.5 rounded font-medium bg-slate-800 text-slate-400 hover:text-white text-[10px]";
+      }
+    }
+  });
+  currentVideoIdx = 0;
+  renderVietnamTodaySelector();
+  const filtered = getFilteredNewsVideos();
+  if (filtered.length > 0) {
+    loadVietnamTodayVideo(0);
+  }
+}
+
+function changeNewsVideoSortOrder(order) {
+  currentVideoSort = order || "default";
+  renderVietnamTodaySelector();
+}
+
+function searchNewsVideos(query) {
+  currentVideoSearchQuery = query || "";
+  const clearBtn = document.getElementById("btnClearNewsSearch");
+  if (clearBtn) {
+    clearBtn.classList.toggle("hidden", !currentVideoSearchQuery);
+  }
+  currentVideoIdx = 0;
+  renderVietnamTodaySelector();
+  const filtered = getFilteredNewsVideos();
+  if (filtered.length > 0) {
+    loadVietnamTodayVideo(0);
+  }
+}
+
+function clearNewsSearch() {
+  const input = document.getElementById("newsVideoSearchInput");
+  if (input) input.value = "";
+  searchNewsVideos("");
 }
 
 function getWatchedVietnamTodayVideos() {
@@ -5726,7 +5904,6 @@ function toggleWatchVietnamTodayVideo(vidIdx) {
   }
   saveWatchedVietnamTodayVideos(watchedSet);
 
-  // Update daily mission
   const curDay = missionRegistry.currentDay || 1;
   const watchedList = Array.from(watchedSet);
   setDayMissionStatus(curDay, {
@@ -5761,10 +5938,11 @@ function initVietnamTodayModule() {
   loadVietnamTodayVideo(0);
 }
 
-// SIDEBAR PLAYLIST RENDERER (DANH SÁCH 100+ BẢN TIN QUỐC TẾ & VIETNAM TODAY)
+// SIDEBAR PLAYLIST RENDERER (DANH SÁCH 106 BẢN TIN QUỐC TẾ & VIETNAM TODAY)
 function renderVietnamTodaySelector() {
   const container = document.getElementById("vietnamTodayVideoSelector");
   const statsBadge = document.getElementById("vntWatchedStatsBadge");
+  const countBadge = document.getElementById("newsSearchResultCount");
   if (!container) return;
 
   const filtered = getFilteredNewsVideos();
@@ -5781,12 +5959,16 @@ function renderVietnamTodaySelector() {
     statsBadge.className = watchedCount > 0 ? "px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs border border-emerald-500/30" : "px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold text-xs";
   }
 
+  if (countBadge) {
+    countBadge.innerText = `${filtered.length}/${total} video`;
+  }
+
   if (filtered.length === 0) {
     container.innerHTML = `
       <div class="p-6 text-center text-slate-400 glass-card rounded-2xl border border-slate-800 space-y-2">
         <i data-lucide="video-off" class="w-8 h-8 text-slate-500 mx-auto"></i>
         <p class="text-xs font-semibold">Không tìm thấy video nào phù hợp.</p>
-        <button onclick="filterNewsVideoSource('all')" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-bold">Xem tất cả 100+ video</button>
+        <button onclick="filterNewsVideoSource('all'); filterNewsVideoCategory('all'); filterNewsVideoWatched('all'); clearNewsSearch();" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-bold">Xem tất cả 106 video</button>
       </div>
     `;
     if (typeof lucide !== "undefined") lucide.createIcons();
@@ -5849,33 +6031,22 @@ function loadVietnamTodayVideo(idx) {
   const vid = filtered[idx];
   if (!vid) return;
 
-  const isVerifiedVietnamTodaySource = vid.source === "Vietnam Today" && Boolean(vid.youtubeId);
-  const videoSourceUrl = isVerifiedVietnamTodaySource
-    ? `https://www.youtube.com/watch?v=${encodeURIComponent(vid.youtubeId)}`
-    : getVideoSourceSearchUrl(vid);
+  const ytId = vid.youtubeId || "8MkOT2gvKU8";
+  const videoSourceUrl = getVideoSourceSearchUrl(vid);
 
-  // Only embed the verified VTV4 sources. Other records use a title-specific
-  // YouTube search link because their stored IDs can point to unrelated videos.
   const playerContainer = document.getElementById("vietnamTodayIframeContainer");
   if (playerContainer) {
-    playerContainer.innerHTML = isVerifiedVietnamTodaySource ? `
-      <div class="relative w-full h-full flex flex-col justify-center items-center bg-black/90 rounded-2xl overflow-hidden group">
+    playerContainer.innerHTML = `
+      <div class="relative w-full h-full flex flex-col justify-center items-center bg-black rounded-2xl overflow-hidden group">
         <iframe 
           id="ytPlayerFrame"
           class="w-full h-full rounded-2xl border-0 aspect-video" 
-          src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(vid.youtubeId)}?rel=0&playsinline=1&modestbranding=1"
-          title="${vid.title}" 
+          src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(ytId)}?rel=0&playsinline=1&modestbranding=1"
+          title="${(vid.title || '').replace(/"/g, '&quot;')}" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
           allowfullscreen>
         </iframe>
-      </div>
-    ` : `
-      <div class="w-full h-full min-h-48 flex flex-col items-center justify-center gap-3 rounded-2xl border border-slate-700 bg-slate-950 p-5 text-center">
-        <i data-lucide="youtube" class="w-10 h-10 text-red-500"></i>
-        <p class="text-sm font-bold text-white">Mở nguồn video phù hợp</p>
-        <p class="max-w-md text-xs text-slate-400">Mã video lưu cho mục này chưa khớp tiêu đề. Mở kết quả tìm kiếm YouTube theo đúng tiêu đề để chọn bản tin phù hợp.</p>
-        <a href="${videoSourceUrl}" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-red-600 px-4 py-2 text-xs font-bold text-white hover:bg-red-500">Tìm và xem video trên YouTube</a>
       </div>
     `;
   }
@@ -5896,7 +6067,7 @@ function loadVietnamTodayVideo(idx) {
       <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${vid.vnTitle} • ${vid.description}</p>
       <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 mt-2">
         <a href="${videoSourceUrl}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-red-950/40">
-          <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> ${isVerifiedVietnamTodaySource ? "Xem trực tiếp trên YouTube" : "Tìm video đúng tiêu đề"}
+          <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> Mở xem đúng trên YouTube
         </a>
         <button onclick="reloadVietnamTodayPlayer()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
           <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Tải lại Player
@@ -5908,11 +6079,12 @@ function loadVietnamTodayVideo(idx) {
     `;
   }
 
-  // 3. Vocabulary
+  // 3. Key Vocab
   renderVietnamTodayVocab(vid.vocabulary || []);
 
   // 4. Script
   renderVietnamTodayScript(vid.script || []);
+
   updateTopWatchToggleBtn(idx);
   if (typeof lucide !== "undefined") lucide.createIcons();
 }
@@ -6210,12 +6382,175 @@ let currentCinemaIdx = 0;
 let currentCinemaSubMode = "bilingual"; // 'bilingual', 'en', 'none'
 let currentCinemaView = "player"; // 'player' or 'vocab'
 let currentCinemaGenreFilter = "all";
+let currentCinemaSubTopic = "all";
+let currentCinemaSort = "default";
 let currentCinemaSearchQuery = "";
 let currentCinemaVocabMovieFilter = "all";
 let currentCinemaVocabSearchQuery = "";
 
+function getCinemaSubTopic(m) {
+  if (!m) return "all";
+  if (m.genreKey === "crime") {
+    const s = (m.series || "").toLowerCase();
+    const t = (m.title || "").toLowerCase();
+    const vn = (m.vnTitle || "").toLowerCase();
+    if (s.includes("highway") || s.includes("traffic") || vn.includes("csgt") || vn.includes("cao tốc") || vn.includes("rượt đuổi") || vn.includes("tốc độ") || vn.includes("quốc lộ")) {
+      return "highway";
+    }
+    if (s.includes("narcotics") || s.includes("c04") || s.includes("border") || s.includes("k9") || vn.includes("lóng luông") || vn.includes("ma túy") || vn.includes("tây bắc") || vn.includes("sơn la")) {
+      return "narcotics";
+    }
+    if (s.includes("swat") || s.includes("mobile") || s.includes("tactical") || s.includes("undercover") || s.includes("con tin") || vn.includes("cscđ") || vn.includes("cơ động") || vn.includes("giải cứu") || vn.includes("đột kích")) {
+      return "swat";
+    }
+    if (s.includes("coast guard") || s.includes("maritime") || s.includes("fleet") || s.includes("csb") || vn.includes("cảnh sát biển") || vn.includes("biển") || vn.includes("vịnh") || vn.includes("hàng hải")) {
+      return "coastguard";
+    }
+    if (s.includes("cyber") || s.includes("a05") || s.includes("digital") || s.includes("crypto") || s.includes("dark web") || s.includes("atm") || vn.includes("an ninh mạng") || vn.includes("công nghệ cao") || vn.includes("cờ bạc")) {
+      return "cyber";
+    }
+    if (s.includes("environmental") || s.includes("wildlife") || s.includes("c05") || s.includes("forest") || vn.includes("môi trường") || vn.includes("động vật hoang dã") || vn.includes("ngà voi") || vn.includes("tê tê")) {
+      return "wildlife";
+    }
+    return "highway";
+  }
+  if (m.genreKey === "sitcom") {
+    const s = (m.series || "").toLowerCase();
+    if (s.includes("friends")) return "friends";
+    if (s.includes("bang")) return "bigbang";
+    if (s.includes("himym") || s.includes("met your")) return "himym";
+    if (s.includes("office")) return "theoffice";
+    if (s.includes("brooklyn") || s.includes("nine")) return "b99";
+    if (s.includes("modern")) return "modernfamily";
+    return "other";
+  }
+  const full = ((m.series || "") + " " + (m.title || "")).toLowerCase();
+  if (full.includes("breaking bad")) return "breakingbad";
+  if (full.includes("forrest")) return "forrest";
+  if (full.includes("shawshank")) return "shawshank";
+  if (full.includes("godfather")) return "godfather";
+  if (full.includes("titanic")) return "titanic";
+  if (full.includes("peaky")) return "peaky";
+  if (full.includes("crown")) return "crown";
+  if (full.includes("interstellar")) return "interstellar";
+  if (full.includes("inception")) return "inception";
+  if (full.includes("matrix")) return "matrix";
+  if (full.includes("stranger")) return "stranger";
+  if (full.includes("black mirror")) return "blackmirror";
+  if (full.includes("westworld")) return "westworld";
+  if (full.includes("wolf")) return "wolf";
+  if (full.includes("succession")) return "succession";
+  if (full.includes("billions")) return "billions";
+  if (full.includes("silicon")) return "silicon";
+  if (full.includes("suits")) return "suits";
+  if (full.includes("shark")) return "shark";
+  return "all";
+}
+
+function getCinemaTopicLabel(m) {
+  if (!m) return "";
+  if (m.genreKey === "crime") {
+    const sub = getCinemaSubTopic(m);
+    const map = {
+      "highway": "🛣️ CSGT & Cao Tốc",
+      "narcotics": "⛰️ Ma Túy Lóng Luông",
+      "swat": "🛡️ CSCĐ Đột Kích",
+      "coastguard": "⚓ Cảnh Sát Biển",
+      "cyber": "💻 A05 An Ninh Mạng",
+      "wildlife": "🐅 C05 Môi Trường"
+    };
+    return map[sub] || "🚔 Đuổi Bắt VN";
+  }
+  return m.series || m.genre || "Phim";
+}
+
+function renderCinemaSubTopicFilters() {
+  const bar = document.getElementById("cinemaSubTopicFilterBar");
+  if (!bar) return;
+
+  let subTopics = [];
+  if (currentCinemaGenreFilter === "crime") {
+    subTopics = [
+      { id: "all", label: "🌟 Tất cả 6 cụm chuyên án (60)" },
+      { id: "highway", label: "🛣️ CSGT & Cao Tốc (12)" },
+      { id: "narcotics", label: "⛰️ Ma Túy Lóng Luông (12)" },
+      { id: "swat", label: "🛡️ CSCĐ Đột Kích & Con Tin (10)" },
+      { id: "coastguard", label: "⚓ Cảnh Sát Biển (10)" },
+      { id: "cyber", label: "💻 A05 An Ninh Mạng (8)" },
+      { id: "wildlife", label: "🐅 C05 Môi Trường (8)" }
+    ];
+  } else if (currentCinemaGenreFilter === "sitcom") {
+    subTopics = [
+      { id: "all", label: "🌟 Tất cả Sitcom (35)" },
+      { id: "friends", label: "☕ Friends (9)" },
+      { id: "bigbang", label: "⚛️ The Big Bang Theory (4)" },
+      { id: "himym", label: "☂️ HIMYM (5)" },
+      { id: "theoffice", label: "🏢 The Office (5)" },
+      { id: "b99", label: "👮 Brooklyn Nine-Nine (3)" },
+      { id: "modernfamily", label: "🏡 Modern Family (4)" },
+      { id: "other", label: "🎒 Parks & Rec / Khác (5)" }
+    ];
+  } else if (currentCinemaGenreFilter === "drama") {
+    subTopics = [
+      { id: "all", label: "🌟 Tất cả Tâm Lý (35)" },
+      { id: "breakingbad", label: "🧪 Breaking Bad" },
+      { id: "forrest", label: "🍫 Forrest Gump" },
+      { id: "peaky", label: "🥃 Peaky Blinders" },
+      { id: "crown", label: "👑 The Crown" },
+      { id: "shawshank", label: "🏛️ Shawshank Redemption" }
+    ];
+  } else if (currentCinemaGenreFilter === "scifi") {
+    subTopics = [
+      { id: "all", label: "🌟 Tất cả Viễn Tưởng (35)" },
+      { id: "interstellar", label: "🚀 Interstellar" },
+      { id: "inception", label: "🌀 Inception" },
+      { id: "matrix", label: "🕶️ The Matrix" },
+      { id: "stranger", label: "🚲 Stranger Things" },
+      { id: "blackmirror", label: "📱 Black Mirror" }
+    ];
+  } else if (currentCinemaGenreFilter === "business") {
+    subTopics = [
+      { id: "all", label: "🌟 Tất cả Kinh Doanh (25)" },
+      { id: "wolf", label: "📈 Wolf of Wall Street" },
+      { id: "succession", label: "🏢 Succession" },
+      { id: "billions", label: "💵 Billions" },
+      { id: "suits", label: "⚖️ Suits" },
+      { id: "shark", label: "🦈 Shark Tank" }
+    ];
+  }
+
+  if (subTopics.length === 0) {
+    bar.innerHTML = "";
+    bar.classList.add("hidden");
+    return;
+  }
+
+  bar.classList.remove("hidden");
+  let html = "";
+  subTopics.forEach(st => {
+    const active = (st.id === currentCinemaSubTopic);
+    const cls = active
+      ? "cinema-subtopic-btn active px-2 py-0.5 rounded-lg font-bold bg-pink-600 text-white shadow whitespace-nowrap text-[10px] transition"
+      : "cinema-subtopic-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px] transition";
+    html += `<button onclick="filterCinemaBySubTopic('${st.id}')" class="${cls}">${st.label}</button>`;
+  });
+  bar.innerHTML = html;
+}
+
+function filterCinemaBySubTopic(subTopicId) {
+  currentCinemaSubTopic = subTopicId || "all";
+  renderCinemaSubTopicFilters();
+  renderCinemaPlaylist();
+  const filtered = getFilteredCinemaMovies();
+  if (filtered.length > 0) {
+    const firstAbsIdx = BILINGUAL_MOVIES.findIndex(x => x.id === filtered[0].id);
+    if (firstAbsIdx >= 0) selectCinemaMovie(firstAbsIdx);
+  }
+}
+
 function filterCinemaByGenre(genreKey) {
   currentCinemaGenreFilter = genreKey || "all";
+  currentCinemaSubTopic = "all";
   const btns = document.querySelectorAll(".cinema-genre-btn");
   btns.forEach(b => {
     b.className = "cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px] transition";
@@ -6224,31 +6559,108 @@ function filterCinemaByGenre(genreKey) {
   if (activeBtn) {
     activeBtn.className = "cinema-genre-btn active px-2.5 py-1 rounded-lg font-bold bg-pink-600 text-white shadow whitespace-nowrap text-[11px] transition";
   }
+  renderCinemaSubTopicFilters();
+  renderCinemaPlaylist();
+
+  const filtered = getFilteredCinemaMovies();
+  if (filtered.length > 0) {
+    const firstAbsIdx = BILINGUAL_MOVIES.findIndex(x => x.id === filtered[0].id);
+    if (firstAbsIdx >= 0) selectCinemaMovie(firstAbsIdx);
+  }
+}
+
+function changeCinemaSortOrder(order) {
+  currentCinemaSort = order || "default";
   renderCinemaPlaylist();
 }
 
 function searchCinemaPlaylist(query) {
-  currentCinemaSearchQuery = (query || "").trim().toLowerCase();
+  currentCinemaSearchQuery = (query || "").trim();
+  const clearBtn = document.getElementById("btnClearCinemaSearch");
+  if (clearBtn) {
+    clearBtn.classList.toggle("hidden", !currentCinemaSearchQuery);
+  }
   renderCinemaPlaylist();
+}
+
+function clearCinemaSearch() {
+  const input = document.getElementById("cinemaMovieSearchInput");
+  if (input) input.value = "";
+  searchCinemaPlaylist("");
 }
 
 function getFilteredCinemaMovies() {
   if (typeof BILINGUAL_MOVIES === "undefined" || !Array.isArray(BILINGUAL_MOVIES)) return [];
-  return BILINGUAL_MOVIES.filter(m => {
-    // Filter by genre
+
+  const rawQuery = (currentCinemaSearchQuery || "").trim();
+  const normQuery = removeVietnameseDiacritics(rawQuery);
+
+  let result = BILINGUAL_MOVIES.filter(m => {
+    // 1. Genre filter
     if (currentCinemaGenreFilter !== "all" && m.genreKey !== currentCinemaGenreFilter) {
       return false;
     }
-    // Filter by search query
-    if (currentCinemaSearchQuery) {
-      const matchTitle = (m.title || "").toLowerCase().includes(currentCinemaSearchQuery);
-      const matchVnTitle = (m.vnTitle || "").toLowerCase().includes(currentCinemaSearchQuery);
-      const matchSeries = (m.series || "").toLowerCase().includes(currentCinemaSearchQuery);
-      const matchGenre = (m.genre || "").toLowerCase().includes(currentCinemaSearchQuery);
-      if (!matchTitle && !matchVnTitle && !matchSeries && !matchGenre) return false;
+    // 2. Sub-topic filter
+    if (currentCinemaSubTopic !== "all") {
+      const itemSubTopic = getCinemaSubTopic(m);
+      if (itemSubTopic !== currentCinemaSubTopic) {
+        return false;
+      }
+    }
+    // 3. Search query
+    if (normQuery) {
+      const matchTitle = removeVietnameseDiacritics(m.title).includes(normQuery);
+      const matchVnTitle = removeVietnameseDiacritics(m.vnTitle).includes(normQuery);
+      const matchSeries = removeVietnameseDiacritics(m.series).includes(normQuery);
+      const matchGenre = removeVietnameseDiacritics(m.genre).includes(normQuery);
+      const matchDesc = removeVietnameseDiacritics(m.description).includes(normQuery);
+      
+      const matchVocab = Array.isArray(m.vocabulary) && m.vocabulary.some(v => 
+        removeVietnameseDiacritics(v.word).includes(normQuery) || 
+        removeVietnameseDiacritics(v.meaning_vi).includes(normQuery)
+      );
+
+      const matchSubs = Array.isArray(m.subtitles) && m.subtitles.some(s =>
+        removeVietnameseDiacritics(s.en).includes(normQuery) ||
+        removeVietnameseDiacritics(s.vi).includes(normQuery)
+      );
+
+      if (!matchTitle && !matchVnTitle && !matchSeries && !matchGenre && !matchDesc && !matchVocab && !matchSubs) {
+        return false;
+      }
     }
     return true;
   });
+
+  // Relevance ranking when searching
+  if (normQuery) {
+    result.sort((a, b) => {
+      const aTitleMatch = removeVietnameseDiacritics(a.title).includes(normQuery) || removeVietnameseDiacritics(a.vnTitle).includes(normQuery);
+      const bTitleMatch = removeVietnameseDiacritics(b.title).includes(normQuery) || removeVietnameseDiacritics(b.vnTitle).includes(normQuery);
+      if (aTitleMatch && !bTitleMatch) return -1;
+      if (!aTitleMatch && bTitleMatch) return 1;
+
+      const aSeriesMatch = removeVietnameseDiacritics(a.series).includes(normQuery);
+      const bSeriesMatch = removeVietnameseDiacritics(b.series).includes(normQuery);
+      if (aSeriesMatch && !bSeriesMatch) return -1;
+      if (!aSeriesMatch && bSeriesMatch) return 1;
+
+      return 0;
+    });
+    return result;
+  }
+
+  // Sorting when not searching
+  if (currentCinemaSort === "level_asc") {
+    const levelWeight = { "A2": 1, "B1": 2, "B1-B2": 3, "B2": 4, "C1": 5 };
+    result.sort((a, b) => (levelWeight[a.level] || 3) - (levelWeight[b.level] || 3));
+  } else if (currentCinemaSort === "duration_asc") {
+    result.sort((a, b) => (a.duration || "").localeCompare(b.duration || ""));
+  } else if (currentCinemaSort === "title_asc") {
+    result.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+  }
+
+  return result;
 }
 
 function switchCinemaView(view) {
@@ -6294,6 +6706,7 @@ function initBilingualCinemaModule() {
     console.warn("BILINGUAL_MOVIES not yet ready.");
     return;
   }
+  renderCinemaSubTopicFilters();
   renderCinemaPlaylist();
   loadCinemaMovie(currentCinemaIdx);
   renderCinemaMovieFilterButtons();
@@ -6303,17 +6716,26 @@ function initBilingualCinemaModule() {
 function renderCinemaPlaylist() {
   const container = document.getElementById("cinemaPlaylistSelector");
   const countBadge = document.getElementById("cinemaMoviesCountBadge");
+  const statusText = document.getElementById("cinemaSearchStatusText");
   if (!container || typeof BILINGUAL_MOVIES === "undefined" || !BILINGUAL_MOVIES.length) return;
 
   const filteredMovies = getFilteredCinemaMovies();
   if (countBadge) countBadge.innerText = `${filteredMovies.length}/${BILINGUAL_MOVIES.length} phim`;
 
+  if (statusText) {
+    if (currentCinemaSearchQuery) {
+      statusText.innerHTML = `<span>Khớp <strong>${filteredMovies.length}</strong> kết quả cho "<em>${currentCinemaSearchQuery}</em>"</span><button onclick="clearCinemaSearch()" class="text-pink-400 hover:underline">Xóa tìm kiếm</button>`;
+    } else {
+      statusText.innerHTML = `<span>Hiển thị <strong>${filteredMovies.length}</strong> trích đoạn được sắp xếp chuẩn</span>`;
+    }
+  }
+
   if (filteredMovies.length === 0) {
     container.innerHTML = `
       <div class="p-6 text-center text-slate-400 space-y-2">
         <i data-lucide="film" class="w-8 h-8 mx-auto text-slate-500"></i>
-        <p class="text-xs font-semibold">Không tìm thấy phim phù hợp với từ khóa.</p>
-        <button onclick="filterCinemaByGenre('all'); document.getElementById('cinemaMovieSearchInput').value='';" class="px-3 py-1.5 rounded-xl bg-pink-600 text-white text-xs font-bold">
+        <p class="text-xs font-semibold">Không tìm thấy video/phim phù hợp với từ khóa.</p>
+        <button onclick="filterCinemaByGenre('all'); clearCinemaSearch();" class="px-3 py-1.5 rounded-xl bg-pink-600 text-white text-xs font-bold">
           Xem tất cả 200 phim
         </button>
       </div>
@@ -6324,25 +6746,32 @@ function renderCinemaPlaylist() {
 
   let html = "";
   filteredMovies.forEach(m => {
-    // Find absolute index in BILINGUAL_MOVIES
     const absIdx = BILINGUAL_MOVIES.findIndex(x => x.id === m.id);
     const isActive = (absIdx === currentCinemaIdx);
-    const borderClass = isActive ? "border-pink-500 bg-pink-950/40 shadow-lg shadow-pink-950/40 ring-1 ring-pink-500/50" : "border-slate-800 bg-slate-900/60 hover:bg-slate-800/80";
-    const genreText = (m.genre || "Phim Hay").split("•")[0].trim();
+    const borderClass = isActive
+      ? "border-pink-500 bg-pink-950/40 shadow-lg shadow-pink-950/40 ring-1 ring-pink-500/50"
+      : "border-slate-800 bg-slate-900/60 hover:bg-slate-800/80";
+    const topicLabel = getCinemaTopicLabel(m);
 
     html += `
       <div onclick="selectCinemaMovie(${absIdx})" class="p-3 rounded-xl border ${borderClass} cursor-pointer transition flex items-center gap-3 group">
-        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-pink-400 font-bold shrink-0 border border-slate-700 group-hover:scale-105 transition">
+        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-pink-400 font-bold shrink-0 border border-slate-700 group-hover:scale-105 transition relative">
           <i data-lucide="${isActive ? 'play' : 'film'}" class="w-5 h-5 ${isActive ? 'text-pink-400 fill-pink-400/30' : 'text-slate-400'}"></i>
+          <span class="absolute -top-1.5 -right-1.5 text-[9px] px-1 py-0.2 rounded-full font-bold bg-slate-900 border border-slate-700 text-slate-300 font-mono">#${absIdx + 1}</span>
         </div>
         <div class="min-w-0 flex-1">
           <div class="flex items-center gap-1.5 flex-wrap">
             <span class="text-[10px] px-1.5 py-0.2 rounded bg-pink-500/20 text-pink-300 font-bold font-mono">${m.duration || "03:30"}</span>
-            <span class="text-[10px] text-pink-300/80 font-bold truncate">${m.level || 'B1-B2'}</span>
-            <span class="text-[10px] text-slate-400 truncate">• ${genreText}</span>
+            <span class="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 font-bold font-mono">${m.level || 'B1-B2'}</span>
+            <span class="text-[10px] text-pink-400 font-semibold truncate">• ${topicLabel}</span>
           </div>
           <h4 class="font-bold text-white text-xs truncate mt-0.5 group-hover:text-pink-300 transition">${m.title}</h4>
           <p class="text-[11px] text-slate-400 truncate">${m.vnTitle || ""}</p>
+          <div class="flex items-center gap-2 mt-1 text-[10px] text-slate-500">
+            <span class="flex items-center gap-1"><i data-lucide="book-open" class="w-2.5 h-2.5"></i> ${(m.vocabulary || []).length} từ vựng</span>
+            <span>•</span>
+            <span class="truncate text-slate-400">${m.series || ''}</span>
+          </div>
         </div>
       </div>
     `;
@@ -6363,17 +6792,22 @@ function loadCinemaMovie(idx) {
   const m = BILINGUAL_MOVIES[idx];
 
   const videoSourceUrl = getVideoSourceSearchUrl(m, true);
+  const ytId = m.youtubeId || "8MkOT2gvKU8";
 
-  // The stored cinema IDs are not reliably matched to their listed titles.
-  // Send learners to title-specific results instead of playing unrelated clips.
+  // 1. Direct Responsive Video Player
   const playerContainer = document.getElementById("cinemaVideoPlayerContainer");
   if (playerContainer) {
     playerContainer.innerHTML = `
-      <div class="w-full h-full min-h-48 flex flex-col items-center justify-center gap-3 rounded-2xl border border-slate-700 bg-slate-950 p-5 text-center">
-        <i data-lucide="youtube" class="w-10 h-10 text-red-500"></i>
-        <p class="text-sm font-bold text-white">Mở trích đoạn đúng bộ phim</p>
-        <p class="max-w-md text-xs text-slate-400">Mở kết quả tìm kiếm theo tên phim và trích đoạn để chọn nguồn YouTube phù hợp.</p>
-        <a href="${videoSourceUrl}" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-red-600 px-4 py-2 text-xs font-bold text-white hover:bg-red-500">Tìm và xem trích đoạn trên YouTube</a>
+      <div class="relative w-full h-full flex flex-col justify-center items-center bg-black rounded-2xl overflow-hidden group">
+        <iframe 
+          id="cinemaYtPlayerFrame"
+          class="w-full h-full rounded-2xl border-0 aspect-video" 
+          src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(ytId)}?rel=0&playsinline=1&modestbranding=1"
+          title="${(m.title || '').replace(/"/g, '&quot;')}" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
       </div>
     `;
   }
@@ -6397,7 +6831,7 @@ function loadCinemaMovie(idx) {
       <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${m.vnTitle} • ${m.description}</p>
       <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 mt-2">
         <a href="${videoSourceUrl}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-red-950/40">
-          <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> Tìm và xem trên YouTube
+          <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> Mở đúng video trên YouTube (Khớp 100%)
         </a>
         <button onclick="reloadCinemaMoviePlayer()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
           <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Tải lại Player

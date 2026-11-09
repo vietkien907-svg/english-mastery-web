@@ -1437,16 +1437,33 @@
               <button onclick="filterCinemaByGenre('romance')" id="btnCinemaGenre_romance" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Lãng mạn (5)</button>
             </div>
 
-            <!-- Search box in Movie playlist -->
-            <div class="relative">
-              <input 
-                type="text" 
-                id="cinemaMovieSearchInput" 
-                oninput="searchCinemaPlaylist(this.value)" 
-                placeholder="Tìm phim, series (Friends, Forrest Gump...)" 
-                class="w-full pl-8 pr-3 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-pink-500"
-              />
-              <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2"></i>
+            <!-- Dynamic Sub-Topic Filter Bar for Selected Genre -->
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs" id="cinemaSubTopicFilterBar">
+              <!-- Rendered dynamically by JS -->
+            </div>
+
+            <!-- Search box and Sort Controls in Movie playlist -->
+            <div class="flex items-center gap-2">
+              <div class="relative flex-1">
+                <input 
+                  type="text" 
+                  id="cinemaMovieSearchInput" 
+                  oninput="searchCinemaPlaylist(this.value)" 
+                  placeholder="🔍 Tìm theo từ khóa (Friends, CSGT, Lóng Luông, từ vựng...)" 
+                  class="w-full pl-8 pr-7 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-pink-500"
+                />
+                <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2"></i>
+                <button onclick="clearCinemaSearch()" id="btnClearCinemaSearch" class="hidden absolute right-2 top-1.5 text-slate-400 hover:text-white text-xs font-bold" title="Xóa tìm kiếm">✕</button>
+              </div>
+              <select id="cinemaSortSelector" onchange="changeCinemaSortOrder(this.value)" class="bg-slate-800 text-[11px] text-slate-300 border border-slate-700 rounded-xl px-2 py-1.5 outline-none font-semibold">
+                <option value="default">📌 Chuẩn Series</option>
+                <option value="level_asc">📊 Độ khó</option>
+                <option value="duration_asc">⏱️ Thời lượng</option>
+                <option value="title_asc">🔤 Tên A-Z</option>
+              </select>
+            </div>
+            <div id="cinemaSearchStatusText" class="text-[11px] text-slate-400 flex items-center justify-between px-1">
+              <!-- Rendered by JS -->
             </div>
 
             <div id="cinemaPlaylistSelector" class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
@@ -1549,11 +1566,15 @@
             
             <!-- Source Channel Filters -->
             <div class="flex items-center gap-1.5 pt-3 flex-wrap">
-              <button onclick="filterNewsVideoSource('all')" id="btnVidSrcAll" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white font-bold text-xs shadow transition">Tất Cả (100+ Video)</button>
+              <button onclick="filterNewsVideoSource('all')" id="btnVidSrcAll" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white font-bold text-xs shadow transition">Tất Cả (106 Video)</button>
               <button onclick="filterNewsVideoSource('BBC News')" id="btnVidSrcBBC" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">BBC News</button>
               <button onclick="filterNewsVideoSource('CNN 10')" id="btnVidSrcCNN" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">CNN 10</button>
               <button onclick="filterNewsVideoSource('Bloomberg')" id="btnVidSrcBloomberg" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">Bloomberg</button>
+              <button onclick="filterNewsVideoSource('Reuters')" id="btnVidSrcReuters" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">Reuters</button>
               <button onclick="filterNewsVideoSource('TED-Ed')" id="btnVidSrcTED" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">TED-Ed</button>
+              <button onclick="filterNewsVideoSource('National Geographic')" id="btnVidSrcNatGeo" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">NatGeo</button>
+              <button onclick="filterNewsVideoSource('Vox')" id="btnVidSrcVox" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">Vox</button>
+              <button onclick="filterNewsVideoSource('CNBC')" id="btnVidSrcCNBC" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">CNBC</button>
               <button onclick="filterNewsVideoSource('Vietnam Today')" id="btnVidSrcVNT" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">Vietnam Today (VTV4)</button>
             </div>
           </div>
@@ -1652,6 +1673,48 @@
             <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-center gap-2">
               <i data-lucide="alarm-clock" class="w-4 h-4 shrink-0 text-amber-400"></i>
               <span><strong>Mục tiêu:</strong> Xem ít nhất 1 video trước <strong>22:00</strong> tối nay để duy trì tiến độ!</span>
+            </div>
+
+            <!-- Search bar & Sort Controls for News Videos -->
+            <div class="flex items-center gap-2">
+              <div class="relative flex-1">
+                <input 
+                  type="text" 
+                  id="newsVideoSearchInput" 
+                  oninput="searchNewsVideos(this.value)" 
+                  placeholder="🔍 Tìm tin tức (AI, Economy, Climate, BBC...)" 
+                  class="w-full pl-8 pr-7 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-rose-500"
+                />
+                <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2"></i>
+                <button onclick="clearNewsSearch()" id="btnClearNewsSearch" class="hidden absolute right-2 top-1.5 text-slate-400 hover:text-white text-xs font-bold" title="Xóa tìm kiếm">✕</button>
+              </div>
+              <select id="newsVideoSortSelector" onchange="changeNewsVideoSortOrder(this.value)" class="bg-slate-800 text-[11px] text-slate-300 border border-slate-700 rounded-xl px-2 py-1.5 outline-none font-semibold">
+                <option value="default">📌 Mặc định</option>
+                <option value="duration_asc">⏱️ Thời lượng</option>
+                <option value="title_asc">🔤 Tên A-Z</option>
+              </select>
+            </div>
+
+            <!-- Topic Category Pills for News Videos -->
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs" id="newsVideoCategoryFilterBar">
+              <button onclick="filterNewsVideoCategory('all')" id="btnNewsCat_all" class="news-cat-btn active px-2 py-0.5 rounded-lg font-bold bg-rose-600 text-white whitespace-nowrap text-[10px]">Tất cả (106)</button>
+              <button onclick="filterNewsVideoCategory('Kinh Tế & Thị Trường')" id="btnNewsCat_kinhte" class="news-cat-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px]">💼 Kinh Tế</button>
+              <button onclick="filterNewsVideoCategory('Khoa Học & Công Nghệ')" id="btnNewsCat_congnghe" class="news-cat-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px]">🤖 Công Nghệ & AI</button>
+              <button onclick="filterNewsVideoCategory('Môi Trường & Khí Hậu')" id="btnNewsCat_moitruong" class="news-cat-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px]">🌿 Môi Trường</button>
+              <button onclick="filterNewsVideoCategory('Y Tế & Sức Khỏe')" id="btnNewsCat_yte" class="news-cat-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px]">🧬 Y Tế</button>
+              <button onclick="filterNewsVideoCategory('Đời Sống & Văn Hóa')" id="btnNewsCat_doisong" class="news-cat-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px]">🏛️ Đời Sống</button>
+              <button onclick="filterNewsVideoCategory('Giáo Dục & Trí Tuệ')" id="btnNewsCat_giaoduc" class="news-cat-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px]">🎓 Giáo Dục</button>
+            </div>
+
+            <!-- Watched status filter -->
+            <div class="flex items-center justify-between text-[11px] pt-1">
+              <div class="flex items-center gap-1">
+                <span class="text-slate-400 text-[10px]">Trạng thái:</span>
+                <button onclick="filterNewsVideoWatched('all')" id="btnNewsWatched_all" class="px-2 py-0.5 rounded font-bold bg-rose-600 text-white text-[10px]">Tất cả</button>
+                <button onclick="filterNewsVideoWatched('unwatched')" id="btnNewsWatched_unwatched" class="px-2 py-0.5 rounded font-medium bg-slate-800 text-slate-400 hover:text-white text-[10px]">⏳ Chưa xem</button>
+                <button onclick="filterNewsVideoWatched('watched')" id="btnNewsWatched_watched" class="px-2 py-0.5 rounded font-medium bg-slate-800 text-slate-400 hover:text-white text-[10px]">✅ Đã xem</button>
+              </div>
+              <span id="newsSearchResultCount" class="text-slate-400 text-[10px] font-mono"></span>
             </div>
 
             <!-- Video List with Tick Checkbox -->
@@ -2475,19 +2538,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=46.0"></script>
-  <script src="./listening_data.js?v=46.0"></script>
-  <script src="./vietnam_today_data.js?v=46.0"></script>
-  <script src="./international_news_videos.js?v=46.0"></script>
-  <script src="./bilingual_cinema_data.js?v=46.0"></script>
-  <script src="./bilingual_news_data.js?v=46.0"></script>
-  <script src="./reading_lexicon.js?v=46.0"></script>
-  <script src="./app.js?v=46.0"></script>
+  <script src="./data.js?v=47.0"></script>
+  <script src="./listening_data.js?v=47.0"></script>
+  <script src="./vietnam_today_data.js?v=47.0"></script>
+  <script src="./international_news_videos.js?v=47.0"></script>
+  <script src="./bilingual_cinema_data.js?v=47.0"></script>
+  <script src="./bilingual_news_data.js?v=47.0"></script>
+  <script src="./reading_lexicon.js?v=47.0"></script>
+  <script src="./app.js?v=47.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=46.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=47.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

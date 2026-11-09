@@ -3135,61 +3135,166 @@ function readAloudPassage() {
   if (passage) speakText(passage.content);
 }
 
-// ================= CUSTOM WORD CREATION MODAL =================
-function openAddWordModal() {
-  document.getElementById("newWordInput").value = "";
-  document.getElementById("newWordPos").value = "word";
-  document.getElementById("newWordPron").value = "";
-  document.getElementById("newWordMeaningVi").value = "";
-  document.getElementById("newWordMeaningEn").value = "";
-  document.getElementById("newWordExample").value = "";
-  document.getElementById("addWordModal").classList.remove("hidden");
-  document.getElementById("newWordInput").focus();
+// ================= CUSTOM WORD CREATION & DICTIONARY LOOKUP ENGINE =================
+function openAddWordModal(prefillWord = "") {
+  const input = document.getElementById("newWordInput");
+  if (input) {
+    input.value = prefillWord || "";
+  }
+  const posEl = document.getElementById("newWordPos");
+  if (posEl) posEl.value = "Từ vựng";
+  const pronEl = document.getElementById("newWordPron");
+  if (pronEl) pronEl.value = "";
+  const viEl = document.getElementById("newWordMeaningVi");
+  if (viEl) viEl.value = "";
+  const enEl = document.getElementById("newWordMeaningEn");
+  if (enEl) enEl.value = "";
+  const exEl = document.getElementById("newWordExample");
+  if (exEl) exEl.value = "";
+  const exVnEl = document.getElementById("newWordExampleVn");
+  if (exVnEl) exVnEl.value = "";
+
+  const speakBtn = document.getElementById("btnSpeakNewWordModal");
+  if (speakBtn) speakBtn.classList.add("hidden");
+
+  renderRecentAddedWordsList();
+
+  const modal = document.getElementById("addWordModal");
+  if (modal) {
+    modal.classList.remove("hidden");
+    setTimeout(() => {
+      if (input) input.focus();
+    }, 100);
+  }
+
+  if (prefillWord) {
+    autoLookupNewWord();
+  }
 }
 
 function closeAddWordModal() {
-  document.getElementById("addWordModal").classList.add("hidden");
+  const modal = document.getElementById("addWordModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function speakModalWord() {
+  const word = document.getElementById("newWordInput")?.value.trim();
+  if (word) {
+    speakWord(word);
+  }
 }
 
 async function autoLookupNewWord() {
-  const word = document.getElementById("newWordInput").value.trim();
+  const inputEl = document.getElementById("newWordInput");
+  const word = (inputEl?.value || "").trim();
   if (!word) {
-    showToast("Vui lòng nhập từ tiếng Anh trước khi tra!", "warning");
+    showToast("Vui lòng nhập từ hoặc cụm từ tiếng Anh trước khi tra!", "warning");
     return;
   }
 
-  showToast(`Đang tự động tra nghĩa cho "${word}"...`, "info");
+  showToast(`🔍 Đang tra cứu từ điển cho "${word}"...`, "info");
+  const clean = word.toLowerCase().trim().replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, "");
+
+  let foundData = false;
+
+  // 1. Check local comprehensive translation engine (100% offline coverage!)
   try {
-    const res = await apiCall(`/api/reading/lookup-word?word=${encodeURIComponent(word)}`);
-    if (res) {
-      if (res.pos) document.getElementById("newWordPos").value = res.pos;
-      if (res.pron) document.getElementById("newWordPron").value = res.pron;
-      if (res.meaning_vi) document.getElementById("newWordMeaningVi").value = res.meaning_vi;
-      if (res.meaning_en) document.getElementById("newWordMeaningEn").value = res.meaning_en;
-      if (res.example) document.getElementById("newWordExample").value = res.example;
-      showToast(`Đã tự động điền nghĩa và phát âm cho "${word}"!`, "success");
+    const local = await translateWordClient(word);
+    if (local && local.meaning_vi && local.meaning_vi.toLowerCase() !== clean) {
+      if (local.pos) document.getElementById("newWordPos").value = local.pos;
+      if (local.ipa) document.getElementById("newWordPron").value = local.ipa;
+      if (local.meaning_vi) document.getElementById("newWordMeaningVi").value = local.meaning_vi;
+      if (local.example) document.getElementById("newWordExample").value = local.example;
+      foundData = true;
     }
-  } catch (e) {
-    showToast("Không tìm thấy tự động, vui lòng tự nhập nghĩa!", "warning");
+  } catch (e) {}
+
+  // 2. Fetch from Free Dictionary API for authentic English definition, IPA, and audio
+  try {
+    const dictRes = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(clean)}`);
+    if (dictRes.ok) {
+      const data = await dictRes.json();
+      if (Array.isArray(data) && data.length > 0) {
+        const item = data[0];
+        // Pronunciation
+        if (item.phonetic && !document.getElementById("newWordPron").value) {
+          document.getElementById("newWordPron").value = item.phonetic;
+        } else if (item.phonetics && item.phonetics.length > 0) {
+          const ph = item.phonetics.find(p => p.text) || item.phonetics[0];
+          if (ph && ph.text && !document.getElementById("newWordPron").value) {
+            document.getElementById("newWordPron").value = ph.text;
+          }
+        }
+        // Meanings & POS
+        if (item.meanings && item.meanings.length > 0) {
+          const m = item.meanings[0];
+          if (m.partOfSpeech && (!document.getElementById("newWordPos").value || document.getElementById("newWordPos").value === "Từ vựng")) {
+            const posMap = { "noun": "Danh từ (Noun)", "verb": "Động từ (Verb)", "adjective": "Tính từ (Adj)", "adverb": "Phó từ (Adv)" };
+            document.getElementById("newWordPos").value = posMap[m.partOfSpeech] || m.partOfSpeech;
+          }
+          if (m.definitions && m.definitions.length > 0) {
+            const def = m.definitions[0];
+            if (def.definition && !document.getElementById("newWordMeaningEn").value) {
+              document.getElementById("newWordMeaningEn").value = def.definition;
+            }
+            if (def.example && !document.getElementById("newWordExample").value) {
+              document.getElementById("newWordExample").value = def.example;
+            }
+          }
+        }
+        foundData = true;
+      }
+    }
+  } catch (err) {}
+
+  // 3. Fallback to server API if available
+  if (!document.getElementById("newWordMeaningVi").value) {
+    try {
+      const res = await apiCall(`/api/reading/lookup-word?word=${encodeURIComponent(word)}`);
+      if (res) {
+        if (res.pos && !document.getElementById("newWordPos").value) document.getElementById("newWordPos").value = res.pos;
+        if (res.pron && !document.getElementById("newWordPron").value) document.getElementById("newWordPron").value = res.pron;
+        if (res.meaning_vi) document.getElementById("newWordMeaningVi").value = res.meaning_vi;
+        if (res.meaning_en && !document.getElementById("newWordMeaningEn").value) document.getElementById("newWordMeaningEn").value = res.meaning_en;
+        if (res.example && !document.getElementById("newWordExample").value) document.getElementById("newWordExample").value = res.example;
+        foundData = true;
+      }
+    } catch (e) {}
+  }
+
+  // 4. Fallback default IPA if still empty
+  if (!document.getElementById("newWordPron").value) {
+    document.getElementById("newWordPron").value = `/${clean}/`;
+  }
+
+  // Show voice speaker button
+  const speakBtn = document.getElementById("btnSpeakNewWordModal");
+  if (speakBtn) speakBtn.classList.remove("hidden");
+
+  if (foundData) {
+    showToast(`🎉 Đã tra cứu thành công từ "${word}"! Bạn có thể chỉnh sửa và lưu.`, "success");
+  } else {
+    showToast(`Đã nạp từ "${word}". Vui lòng điền nghĩa tiếng Việt và bấm Lưu!`, "info");
   }
 }
 
 async function submitNewWordToDay() {
-  const word = document.getElementById("newWordInput").value.trim();
-  const meaningVi = document.getElementById("newWordMeaningVi").value.trim();
-  const meaningEn = document.getElementById("newWordMeaningEn").value.trim();
-  const pos = document.getElementById("newWordPos").value.trim() || "word";
-  const pron = document.getElementById("newWordPron").value.trim() || `/${word}/`;
-  const example = document.getElementById("newWordExample").value.trim();
+  const word = (document.getElementById("newWordInput")?.value || "").trim();
+  const meaningVi = (document.getElementById("newWordMeaningVi")?.value || "").trim();
+  const meaningEn = (document.getElementById("newWordMeaningEn")?.value || "").trim();
+  const pos = (document.getElementById("newWordPos")?.value || "").trim() || "Từ vựng";
+  const pron = (document.getElementById("newWordPron")?.value || "").trim() || `/${word.toLowerCase()}/`;
+  const example = (document.getElementById("newWordExample")?.value || "").trim();
+  const exampleVn = (document.getElementById("newWordExampleVn")?.value || "").trim();
+  const destChoice = document.querySelector('input[name="destChoiceRadio"]:checked')?.value || "day";
 
   if (!word || !meaningVi) {
     showToast("Vui lòng nhập đầy đủ từ tiếng Anh và nghĩa tiếng Việt!", "warning");
     return;
   }
 
-  const curWords = getCurrentDayWords();
+  const curDayNumber = missionRegistry.currentDay || 1;
   const curUnit = window.APP_DATA?.units?.[appState.currentUnitIndex];
-  const curDayNumber = appState.currentDayIndex + 1;
 
   const payload = {
     word,
@@ -3198,31 +3303,87 @@ async function submitNewWordToDay() {
     meaning_vi: meaningVi,
     meaning_en: meaningEn || `Definition of ${word}`,
     example: example || `Example sentence with ${word}.`,
+    example_vi: exampleVn || "",
+    source: "Tự thêm",
+    cardOrigin: "custom",
+    cardOriginText: destChoice === "day" ? `📝 Tự thêm (Ngày ${curDayNumber})` : "📚 Sổ tay từ vựng tích lũy",
     unit_title: curUnit?.unitTitle || "Bài học cá nhân",
-    day_number: curDayNumber
+    day_number: curDayNumber,
+    created_at: new Date().toISOString()
   };
 
-  // Save to persistent custom storage
-  const newItem = saveCustomWordItem({
-    ...payload,
-    type: "word",
-    level: "B1+",
-    source: "manual"
-  });
-  curWords.push(newItem);
-  appState.activeInterleavedDeck = null;
+  // 1. Save to persistent custom storage
+  const newItem = saveCustomWordItem(payload);
 
-  // Sync with server if logged in
+  // 2. Add to current day's active flashcards if selected
+  if (destChoice === "day") {
+    const curWords = getCurrentDayWords();
+    if (Array.isArray(curWords)) {
+      curWords.unshift(newItem);
+    }
+  }
+
+  // 3. Sync with server if logged in
   if (appState.authToken) {
     apiCall("/api/study/add-to-day", "POST", payload).catch(err => console.warn(err));
   }
 
+  appState.activeInterleavedDeck = null;
   renderFlashcard();
   updateDayProgressBadge();
+  renderRecentAddedWordsList();
   closeAddWordModal();
 
-  showToast(`🎉 Đã thêm thành công từ "${word}" vào Ngày ${curDayNumber}! Bạn có thể luyện thẻ ngay!`, "success");
+  showToast(`🎉 Đã thêm thành công từ "${word}" vào bộ Flashcard ôn tập!`, "success");
+  if (typeof triggerBackgroundCloudSync === "function") triggerBackgroundCloudSync();
 }
+
+function renderRecentAddedWordsList() {
+  const container = document.getElementById("recentAddedWordsContainer");
+  const countBadge = document.getElementById("recentAddedWordsCountBadge");
+  if (!container) return;
+
+  const words = getSavedCustomWords();
+  if (countBadge) countBadge.innerText = `${words.length} từ`;
+
+  if (words.length === 0) {
+    container.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-2">Bạn chưa thêm từ mới nào. Hãy tra và thêm từ đầu tiên!</p>`;
+    return;
+  }
+
+  // Show last 6 words
+  const recent = words.slice(0, 6);
+  let html = "";
+  recent.forEach(w => {
+    html += `
+      <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs hover:border-emerald-500/40 transition">
+        <div class="min-w-0 flex-1 pr-2">
+          <div class="flex items-center gap-2">
+            <strong class="text-amber-300 font-mono text-sm">${w.word}</strong>
+            <button onclick="speakWord('${w.word}')" class="p-1 rounded bg-slate-700 hover:bg-indigo-600 text-indigo-300 hover:text-white transition" title="Nghe đọc">
+              <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+            </button>
+            <span class="text-[10px] text-slate-400 font-mono">${w.pron || ''}</span>
+          </div>
+          <p class="text-slate-200 truncate mt-0.5">${w.meaning_vi}</p>
+        </div>
+        <button onclick="deleteCustomWordFromModal('${w.word}')" class="p-1.5 rounded-lg bg-rose-500/20 text-rose-300 hover:bg-rose-600 hover:text-white transition shrink-0" title="Xóa từ này">
+          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function deleteCustomWordFromModal(word) {
+  removeCustomWordItem(word);
+  renderRecentAddedWordsList();
+  renderFlashcard();
+}
+
 
 // ================= DAILY REVIEW QUIZ =================
 function generateDailyQuiz() {

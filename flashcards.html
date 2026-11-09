@@ -222,6 +222,10 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
             <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="openAddWordModal()" class="px-3 py-1.5 rounded-lg bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white text-xs font-bold border border-emerald-500/40 transition flex items-center gap-1.5 shadow" title="Tra cứu từ điển và thêm từ mới">
+              <i data-lucide="book-plus" class="w-3.5 h-3.5"></i>
+              <span>+ Tra & Thêm Từ</span>
+            </button>
               <span class="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-xs uppercase tracking-wider border border-indigo-500/30 flex items-center gap-1.5">
                 <i data-lucide="lock" class="w-3.5 h-3.5 text-indigo-400"></i>
                 <span>Lộ Trình Cố Định Hôm Nay</span>
@@ -677,6 +681,10 @@
         </div>
 
         <div class="flex items-center gap-2">
+          <button onclick="openAddWordModal()" class="px-3.5 py-2 rounded-xl bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white text-xs font-bold border border-emerald-500/40 transition flex items-center gap-1.5 shadow active:scale-95" title="Tra cứu từ điển và thêm từ mới vào ngày này">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+            <span>+ Thêm & Tra Từ</span>
+          </button>
           <button onclick="switchTab('review')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-indigo-300 text-xs font-bold border border-slate-700 transition flex items-center gap-1.5 shadow" title="Sang phòng Ôn tập để tự do chọn Unit">
             <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
             <span>Sang Ôn Tập (Tự chọn Unit)</span>
@@ -1951,62 +1959,174 @@
     </div>
   </div>
 
-  <!-- ================= MODAL: ADD CUSTOM WORD TO CURRENT DAY ================= -->
-  <div id="addWordModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeAddWordModal()">
-    <div class="glass-card max-w-md w-full rounded-2xl p-6 border border-slate-700 shadow-2xl relative space-y-4" onclick="event.stopPropagation()">
+  <!-- ================= MODAL: DICTIONARY LOOKUP & CUSTOM VOCAB CREATOR ================= -->
+  <div id="addWordModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto" onclick="closeAddWordModal()">
+    <div class="glass-card max-w-lg w-full rounded-2xl p-5 sm:p-6 border border-slate-700 bg-slate-900 shadow-2xl relative space-y-4 my-auto max-h-[92vh] overflow-y-auto" onclick="event.stopPropagation()">
+      <!-- Header -->
       <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-        <h3 class="font-bold text-lg text-white flex items-center gap-2">
-          <i data-lucide="plus-circle" class="w-5 h-5 text-emerald-400"></i>
-          <span>Thêm Từ Mới Vào Ngày Học Hiện Tại</span>
-        </h3>
-        <button onclick="closeAddWordModal()" class="text-slate-400 hover:text-white transition">
+        <div>
+          <h3 class="font-bold text-base sm:text-lg text-white flex items-center gap-2">
+            <i data-lucide="book-plus" class="w-5 h-5 text-emerald-400"></i>
+            <span>Tra Từ Điển & Thêm Từ Vào Flashcard</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Tra cứu nghĩa, phát âm IPA, nghe giọng US và thêm vào bộ ôn tập</p>
+        </div>
+        <button onclick="closeAddWordModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <div class="space-y-3 text-xs">
+      <!-- Main Form -->
+      <div class="space-y-3.5 text-xs">
+        <!-- English Word Input & Lookup Button -->
         <div>
-          <label class="block text-slate-300 font-semibold mb-1">Từ / Cụm từ tiếng Anh (*):</label>
+          <label class="block text-slate-200 font-bold mb-1.5 flex items-center justify-between">
+            <span>Từ hoặc Cụm từ tiếng Anh (*):</span>
+            <span class="text-[11px] text-slate-400 font-normal">Gõ từ rồi ấn Enter hoặc bấm Tra</span>
+          </label>
           <div class="flex gap-2">
-            <input type="text" id="newWordInput" placeholder="Ví dụ: resilience, breakthrough..." class="flex-1 px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white outline-none focus:border-indigo-500 text-sm">
-            <button onclick="autoLookupNewWord()" class="px-3 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition whitespace-nowrap flex items-center gap-1 shadow-sm">
-              <i data-lucide="search" class="w-3.5 h-3.5"></i> Tra tự động
+            <div class="relative flex-1">
+              <input 
+                type="text" 
+                id="newWordInput" 
+                onkeydown="if(event.key==='Enter'){event.preventDefault();autoLookupNewWord();}"
+                placeholder="Ví dụ: resilience, breakthrough, figure out..." 
+                class="w-full px-3.5 py-2.5 rounded-xl bg-slate-800/90 border border-slate-700 text-white outline-none focus:border-emerald-500 font-medium text-sm sm:text-base placeholder-slate-500"
+              />
+            </div>
+            <button 
+              type="button" 
+              onclick="autoLookupNewWord()" 
+              class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold transition whitespace-nowrap flex items-center gap-1.5 shadow-md shadow-emerald-950/40 active:scale-95"
+            >
+              <i data-lucide="search" class="w-4 h-4"></i>
+              <span>Tra Từ</span>
+            </button>
+            <button 
+              type="button" 
+              id="btnSpeakNewWordModal" 
+              onclick="speakModalWord()" 
+              class="hidden px-3 py-2.5 rounded-xl bg-amber-500/20 text-amber-300 hover:bg-amber-600 hover:text-white font-bold border border-amber-500/30 transition flex items-center gap-1 active:scale-90"
+              title="Nghe phát âm chuẩn US"
+            >
+              <i data-lucide="volume-2" class="w-4 h-4"></i>
             </button>
           </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-2">
+        <!-- POS & IPA -->
+        <div class="grid grid-cols-2 gap-2.5">
           <div>
-            <label class="block text-slate-400 font-semibold mb-1">Loại từ (POS):</label>
-            <input type="text" id="newWordPos" placeholder="n, v, adj, collocation..." class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white outline-none focus:border-indigo-500">
+            <label class="block text-slate-300 font-semibold mb-1">Loại từ (Part of Speech):</label>
+            <input 
+              type="text" 
+              id="newWordPos" 
+              placeholder="Danh từ, Động từ, Tính từ..." 
+              class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white outline-none focus:border-indigo-500"
+            />
           </div>
           <div>
-            <label class="block text-slate-400 font-semibold mb-1">Phiên âm (IPA):</label>
-            <input type="text" id="newWordPron" placeholder="/.../" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white outline-none focus:border-indigo-500 font-mono">
+            <label class="block text-slate-300 font-semibold mb-1">Phiên âm (IPA):</label>
+            <input 
+              type="text" 
+              id="newWordPron" 
+              placeholder="/.../" 
+              class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-cyan-300 outline-none focus:border-cyan-500 font-mono"
+            />
           </div>
         </div>
 
+        <!-- Vietnamese Meaning -->
         <div>
-          <label class="block text-amber-300 font-semibold mb-1">🇻🇳 Nghĩa Tiếng Việt (*):</label>
-          <input type="text" id="newWordMeaningVi" placeholder="Nghĩa tiếng Việt rõ ràng, dễ nhớ..." class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-amber-300 font-semibold outline-none focus:border-amber-500 text-sm">
+          <label class="block text-amber-300 font-bold mb-1">🇻🇳 Nghĩa Tiếng Việt (*):</label>
+          <input 
+            type="text" 
+            id="newWordMeaningVi" 
+            placeholder="Nghĩa tiếng Việt ngắn gọn, xúc tích, dễ ghi nhớ..." 
+            class="w-full px-3 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-amber-300 font-semibold outline-none focus:border-amber-500 text-sm"
+          />
         </div>
 
+        <!-- English Definition -->
         <div>
-          <label class="block text-indigo-300 font-semibold mb-1">🇬🇧 English Definition:</label>
-          <input type="text" id="newWordMeaningEn" placeholder="English explanation / definition..." class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 outline-none focus:border-indigo-500">
+          <label class="block text-indigo-300 font-semibold mb-1">🇬🇧 Định Nghĩa Tiếng Anh (English Definition):</label>
+          <input 
+            type="text" 
+            id="newWordMeaningEn" 
+            placeholder="English definition / Cambridge explanation..." 
+            class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 outline-none focus:border-indigo-500"
+          />
         </div>
 
-        <div>
-          <label class="block text-slate-400 font-semibold mb-1">Câu ví dụ minh họa (Tùy chọn):</label>
-          <input type="text" id="newWordExample" placeholder="Ví dụ: She showed great resilience..." class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 italic outline-none focus:border-indigo-500">
+        <!-- Context Example & Translation -->
+        <div class="space-y-2">
+          <div>
+            <label class="block text-slate-300 font-semibold mb-1">Câu ví dụ minh họa (Example Sentence):</label>
+            <input 
+              type="text" 
+              id="newWordExample" 
+              placeholder="Ví dụ: She showed great resilience in overcoming challenges..." 
+              class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 italic outline-none focus:border-indigo-500"
+            />
+          </div>
+          <div>
+            <label class="block text-slate-400 font-semibold mb-1">Dịch nghĩa câu ví dụ (Tùy chọn):</label>
+            <input 
+              type="text" 
+              id="newWordExampleVn" 
+              placeholder="Bản dịch tiếng Việt của câu ví dụ trên..." 
+              class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 italic outline-none focus:border-indigo-500"
+            />
+          </div>
         </div>
-      </div>
 
-      <div class="pt-2 flex gap-2">
-        <button onclick="closeAddWordModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 transition">Hủy</button>
-        <button onclick="submitNewWordToDay()" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition shadow-lg shadow-emerald-600/30">
-          Lưu & Đưa Vào Học Ngay
-        </button>
+        <!-- Destination Choice -->
+        <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1.5">
+          <label class="block text-slate-300 font-bold">Nơi lưu từ vựng:</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-900/80 border border-slate-700 cursor-pointer hover:border-emerald-500 transition">
+              <input type="radio" name="destChoiceRadio" value="day" checked class="text-emerald-500 focus:ring-0">
+              <span class="text-white font-medium">🎯 Thẻ Flashcard ngày hôm nay</span>
+            </label>
+            <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-900/80 border border-slate-700 cursor-pointer hover:border-indigo-500 transition">
+              <input type="radio" name="destChoiceRadio" value="notebook" class="text-indigo-500 focus:ring-0">
+              <span class="text-white font-medium">📚 Sổ tay từ vựng tích lũy</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="pt-2 flex gap-2.5">
+          <button 
+            type="button" 
+            onclick="closeAddWordModal()" 
+            class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 transition"
+          >
+            Hủy
+          </button>
+          <button 
+            type="button" 
+            onclick="submitNewWordToDay()" 
+            class="flex-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs sm:text-sm font-bold transition shadow-lg shadow-emerald-950/40 flex items-center justify-center gap-1.5 active:scale-95"
+          >
+            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+            <span>✨ Lưu & Thêm Vào Học Ngay</span>
+          </button>
+        </div>
+
+        <!-- Recently Added Custom Words Notebook -->
+        <div class="pt-3 border-t border-slate-800 space-y-2">
+          <div class="flex items-center justify-between text-slate-400 font-bold text-[11px]">
+            <span class="flex items-center gap-1">
+              <i data-lucide="history" class="w-3.5 h-3.5 text-indigo-400"></i>
+              <span>Các từ bạn đã thêm gần đây:</span>
+            </span>
+            <span id="recentAddedWordsCountBadge" class="px-2 py-0.2 rounded-full bg-slate-800 text-slate-400">0 từ</span>
+          </div>
+          <div id="recentAddedWordsContainer" class="space-y-1.5 max-h-36 overflow-y-auto pr-1">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
       </div>
     </div>
   </div>

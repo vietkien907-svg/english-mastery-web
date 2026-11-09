@@ -1160,27 +1160,52 @@
             <div class="flex items-center gap-2 flex-wrap">
               <span class="px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold text-xs uppercase tracking-wider border border-rose-500/30 flex items-center gap-1.5">
                 <i data-lucide="tv" class="w-3.5 h-3.5 text-rose-400"></i>
-                <span>Vietnam Today • VTV4 Daily News</span>
+                <span>Vietnam Today • BBC • TED Learning Hub</span>
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs">
-                Tiếng Anh Chuẩn Quốc Tế
+                Kênh Học Tiếng Anh Chuẩn Quốc Tế
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs flex items-center gap-1 border border-amber-500/30">
                 <i data-lucide="clock" class="w-3 h-3"></i> Hạn chót: 22:00 Mỗi Ngày
               </span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">📺 100+ Video Bản Tin Quốc Tế & Vietnam Today (BBC, CNN, Bloomberg, TED-Ed)</h2>
-            <p class="text-xs sm:text-sm text-slate-300 mt-1">Kho hơn 100 video phóng sự quốc tế phân tích chuyên sâu đa lĩnh vực kèm Script song ngữ và từ vựng học thuật. Xem 1 video mỗi ngày để hoàn tất deadline 22:00!</p>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">📺 Kho 165+ Video Bài Học Quốc Tế (Vietnam Today, BBC Learning English, TED Talks, TED-Ed)</h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">Học tiếng Anh chuẩn quốc tế qua các kênh chính thức: BBC Learning English, TED Talks, TED-Ed & Vietnam Today VTV4. Tự động đồng bộ bài học mới mỗi ngày, script song ngữ và từ vựng học thuật!</p>
             
+            <!-- Official Channels Quick Access Links -->
+            <div class="flex items-center gap-2 pt-2 pb-1 flex-wrap text-xs">
+              <span class="text-slate-400 font-semibold text-[11px] flex items-center gap-1">
+                <i data-lucide="youtube" class="w-3.5 h-3.5 text-red-500"></i> Kênh Chính Thức:
+              </span>
+              <a href="https://www.youtube.com/@bbclearningenglish" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1 font-medium transition" title="Mở kênh YouTube @bbclearningenglish">
+                <span>🇬🇧 @bbclearningenglish</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+              <a href="https://www.youtube.com/@TED" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-300 border border-red-500/30 flex items-center gap-1 font-medium transition" title="Mở kênh YouTube @TED">
+                <span>🔴 @TED Talks</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+              <a href="https://www.youtube.com/@TEDEd" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 flex items-center gap-1 font-medium transition" title="Mở kênh YouTube @TEDEd">
+                <span>🎓 @TEDEd</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+              <a href="https://www.youtube.com/@VTV4go" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1 font-medium transition" title="Mở kênh YouTube VTV4 @VTV4go">
+                <span>🇻🇳 @VTV4go (Vietnam Today)</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+
             <!-- Source Channel Filters -->
-            <div class="flex items-center gap-1.5 pt-3 flex-wrap">
+            <div class="flex items-center gap-1.5 pt-2 flex-wrap">
               <button onclick="filterNewsVideoSource('all')" id="btnVidSrcAll" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white font-bold text-xs shadow transition">Tất Cả Video</button>
-              <button onclick="filterNewsVideoSource('Vietnam Today')" id="btnVidSrcVNT" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-bold text-xs transition shadow border border-amber-400/40">🇻🇳 Vietnam Today VTV4 (Ưu Tiên)</button>
+              <button onclick="filterNewsVideoSource('Vietnam Today')" id="btnVidSrcVNT" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-bold text-xs transition shadow border border-amber-400/40">🇻🇳 Vietnam Today VTV4</button>
+              <button onclick="filterNewsVideoSource('BBC Learning English')" id="btnVidSrcBBCLearning" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition border border-amber-500/30">🇬🇧 BBC Learning English</button>
+              <button onclick="filterNewsVideoSource('TED Talks')" id="btnVidSrcTEDTalks" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition border border-red-500/30">🔴 TED Talks</button>
+              <button onclick="filterNewsVideoSource('TED-Ed')" id="btnVidSrcTEDEd" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition border border-indigo-500/30">🎓 TED-Ed</button>
               <button onclick="filterNewsVideoSource('BBC News')" id="btnVidSrcBBC" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">BBC News</button>
               <button onclick="filterNewsVideoSource('CNN 10')" id="btnVidSrcCNN" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">CNN 10</button>
               <button onclick="filterNewsVideoSource('Bloomberg')" id="btnVidSrcBloomberg" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">Bloomberg</button>
               <button onclick="filterNewsVideoSource('Reuters')" id="btnVidSrcReuters" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">Reuters</button>
-              <button onclick="filterNewsVideoSource('TED-Ed')" id="btnVidSrcTED" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">TED-Ed</button>
               <button onclick="filterNewsVideoSource('National Geographic')" id="btnVidSrcNatGeo" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">NatGeo</button>
               <button onclick="filterNewsVideoSource('Vox')" id="btnVidSrcVox" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">Vox</button>
               <button onclick="filterNewsVideoSource('CNBC')" id="btnVidSrcCNBC" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition">CNBC</button>
@@ -1311,7 +1336,7 @@
 
             <!-- Topic Category Pills for News Videos -->
             <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs" id="newsVideoCategoryFilterBar">
-              <button onclick="filterNewsVideoCategory('all')" id="btnNewsCat_all" class="news-cat-btn active px-2 py-0.5 rounded-lg font-bold bg-rose-600 text-white whitespace-nowrap text-[10px]">Tất cả (106)</button>
+              <button onclick="filterNewsVideoCategory('all')" id="btnNewsCat_all" class="news-cat-btn active px-2 py-0.5 rounded-lg font-bold bg-rose-600 text-white whitespace-nowrap text-[10px]">Tất cả (165+)</button>
               <button onclick="filterNewsVideoCategory('Kinh Tế & Thị Trường')" id="btnNewsCat_kinhte" class="news-cat-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px]">💼 Kinh Tế</button>
               <button onclick="filterNewsVideoCategory('Khoa Học & Công Nghệ')" id="btnNewsCat_congnghe" class="news-cat-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px]">🤖 Công Nghệ & AI</button>
               <button onclick="filterNewsVideoCategory('Môi Trường & Khí Hậu')" id="btnNewsCat_moitruong" class="news-cat-btn px-2 py-0.5 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[10px]">🌿 Môi Trường</button>
@@ -2148,18 +2173,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=49.0"></script>
-  <script src="./listening_data.js?v=49.0"></script>
-  <script src="./vietnam_today_data.js?v=49.0"></script>
-  <script src="./international_news_videos.js?v=49.0"></script>
-  <script src="./bilingual_news_data.js?v=49.0"></script>
-  <script src="./reading_lexicon.js?v=49.0"></script>
-  <script src="./app.js?v=49.0"></script>
+  <script src="./data.js?v=50.0"></script>
+  <script src="./listening_data.js?v=50.0"></script>
+  <script src="./vietnam_today_data.js?v=50.0"></script>
+  <script src="./educational_channels_data.js?v=50.0"></script>
+  <script src="./international_news_videos.js?v=50.0"></script>
+  <script src="./bilingual_news_data.js?v=50.0"></script>
+  <script src="./reading_lexicon.js?v=50.0"></script>
+  <script src="./app.js?v=50.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=49.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=50.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

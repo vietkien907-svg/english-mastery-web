@@ -5604,3 +5604,7 @@ const INTERNATIONAL_NEWS_VIDEOS = [
     ]
   }
 ];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { INTERNATIONAL_NEWS_VIDEOS };
+}

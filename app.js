@@ -19,8 +19,20 @@ function removeVietnameseDiacritics(str) {
 function getVideoSourceSearchUrl(item, preferVietnamese = false) {
   if (!item) return "https://www.youtube.com";
 
-  // Case 1: News Videos (BBC News, CNN 10, Bloomberg, Reuters, TED-Ed, Vietnam Today)
+  // Case 1: Educational Channels (BBC Learning English, TED Talks, TED-Ed) & News
   if (item.source) {
+    if (item.source === "BBC Learning English") {
+      const cleanTitle = (item.title || "").replace(/^(BBC Learning English|6 Minute English):\s*/i, "").trim();
+      return `https://www.youtube.com/results?search_query=${encodeURIComponent("BBC Learning English " + cleanTitle)}`;
+    }
+    if (item.source === "TED Talks") {
+      const cleanTitle = (item.title || "").replace(/^TED Talks:\s*/i, "").trim();
+      return `https://www.youtube.com/results?search_query=${encodeURIComponent("TED Talks " + cleanTitle)}`;
+    }
+    if (item.source === "TED-Ed") {
+      const cleanTitle = (item.title || "").replace(/^TED-Ed:\s*/i, "").trim();
+      return `https://www.youtube.com/results?search_query=${encodeURIComponent("TED-Ed " + cleanTitle)}`;
+    }
     const cleanTitle = (item.title || "")
       .replace(/^(BBC News|CNN 10|Bloomberg|Reuters|TED-Ed|National Geographic|Vox|CNBC|Vietnam Today):\s*/i, "")
       .trim();
@@ -5648,6 +5660,7 @@ let currentVideoSort = "default";
 let currentVideoSearchQuery = "";
 const WATCHED_VIDEOS_KEY = "EMH_WATCHED_VIDEOS_V1";
 const STORAGE_KEY_VNT_DYNAMIC = "EMH_VIETNAM_TODAY_DYNAMIC_V1";
+const STORAGE_KEY_EDU_DYNAMIC = "EMH_EDUCATIONAL_DYNAMIC_V1";
 
 function getStoredDynamicVietnamTodayVideos() {
   try {
@@ -5663,19 +5676,34 @@ function saveDynamicVietnamTodayVideos(list) {
   } catch (e) {}
 }
 
+function getStoredDynamicEducationalVideos() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_EDU_DYNAMIC);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return [];
+}
+
+function saveDynamicEducationalVideos(list) {
+  try {
+    localStorage.setItem(STORAGE_KEY_EDU_DYNAMIC, JSON.stringify(list));
+  } catch (e) {}
+}
+
 function checkAndSyncDailyVietnamTodayVideo(showNotification = false) {
   const now = new Date();
   const day = String(now.getDate()).padStart(2, "0");
   const month = String(now.getMonth() + 1).padStart(2, "0");
   const year = now.getFullYear();
   const dateStr = `${day}/${month}/${year}`;
-  const dailyId = `vnt_daily_${year}_${month}_${day}`;
 
-  const existingDynamic = getStoredDynamicVietnamTodayVideos();
-  const alreadyExists = existingDynamic.some(v => v.id === dailyId);
+  // 1. Sync Vietnam Today Daily Broadcast
+  const dailyVntId = `vnt_daily_${year}_${month}_${day}`;
+  const existingVnt = getStoredDynamicVietnamTodayVideos();
+  let vntSynced = false;
 
-  if (!alreadyExists) {
-    const dailyTopics = [
+  if (!existingVnt.some(v => v.id === dailyVntId)) {
+    const vntTopics = [
       {
         headline: "National Socio-Economic Momentum & Strategic High-Tech FDI Inflows",
         vnHeadline: "Đà Tăng Trưởng Kinh Tế Xã Hội & Làn Sóng Vốn Đầu Tư FDI Công Nghệ Cao",
@@ -5702,22 +5730,21 @@ function checkAndSyncDailyVietnamTodayVideo(showNotification = false) {
       }
     ];
 
-    const pick = dailyTopics[now.getDate() % dailyTopics.length];
-
-    const newDaily = {
-      id: dailyId,
-      title: `Vietnam Today Daily Broadcast: ${pick.headline} (${dateStr})`,
-      vnTitle: `Bản Tin Vietnam Today Hằng Ngày: ${pick.vnHeadline} (${dateStr})`,
+    const pickVnt = vntTopics[now.getDate() % vntTopics.length];
+    const newDailyVnt = {
+      id: dailyVntId,
+      title: `Vietnam Today Daily Broadcast: ${pickVnt.headline} (${dateStr})`,
+      vnTitle: `Bản Tin Vietnam Today Hằng Ngày: ${pickVnt.vnHeadline} (${dateStr})`,
       source: "Vietnam Today",
-      category: pick.cat,
+      category: pickVnt.cat,
       date: `${dateStr} • Bản tin phát sóng hằng ngày mới nhất`,
       duration: "09:30",
       youtubeId: "8MkOT2gvKU8",
       description: `Bản tin thời sự tiếng Anh chính luận Vietnam Today phát sóng hằng ngày trên kênh truyền hình đối ngoại quốc gia VTV4 ngày ${dateStr}.`,
       summary: `Toàn cảnh các diễn biến thời sự nóng, chính sách kinh tế mới, sự kiện văn hóa và đổi mới sáng tạo tại Việt Nam trong ngày ${dateStr}.`,
-      vocabulary: pick.vocab,
+      vocabulary: pickVnt.vocab,
       script: [
-        { en: pick.enPara, vi: pick.viPara },
+        { en: pickVnt.enPara, vi: pickVnt.viPara },
         {
           en: "Provincial authorities report remarkable progress on sustainable infrastructure and renewable energy integration, meeting national climate targets.",
           vi: "Chính quyền các địa phương ghi nhận tiến độ ấn tượng trong phát triển hạ tầng bền vững và tích hợp năng lượng tái tạo, đáp ứng các mục tiêu khí hậu quốc gia."
@@ -5728,14 +5755,143 @@ function checkAndSyncDailyVietnamTodayVideo(showNotification = false) {
         }
       ]
     };
+    existingVnt.unshift(newDailyVnt);
+    saveDynamicVietnamTodayVideos(existingVnt);
+    vntSynced = true;
+  }
 
-    existingDynamic.unshift(newDaily);
-    saveDynamicVietnamTodayVideos(existingDynamic);
-    if (showNotification) {
-      showToast(`🎉 Đã cập nhật Bản Tin Vietnam Today mới nhất ngày ${dateStr}!`, "success");
+  // 2. Sync BBC Learning English Daily Episode
+  const dailyBbcId = `bbc_daily_${year}_${month}_${day}`;
+  const existingEdu = getStoredDynamicEducationalVideos();
+  let bbcSynced = false;
+
+  if (!existingEdu.some(v => v.id === dailyBbcId)) {
+    const bbcDailyTopics = [
+      {
+        topic: "Mastering Academic Phrasal Verbs & Professional Collocations",
+        vnTopic: "Làm Chủ Cụm Động Từ Học Thuật & Kết Hợp Từ Chuyên Nghiệp",
+        cat: "Giáo Dục & Trí Tuệ",
+        ytId: "pU8x8xN2u7U",
+        vocab: [
+          { word: "delve into", pos: "Cụm động từ", ipa: "/delv ˈɪntuː/", meaning_vi: "Đào sâu nghiên cứu kỹ lưỡng", example: "In today's 6 Minute English, we delve into the latest cognitive research.", example_vi: "Trong 6 Phút Tiếng Anh hôm nay, chúng ta đào sâu vào nghiên cứu nhận thức mới nhất." },
+          { word: "nuanced argument", pos: "Cụm danh từ", ipa: "/ˈnjuːɑːnst ˈɑːɡjumənt/", meaning_vi: "Lập luận sắc thái tinh tế, đa chiều", example: "He delivered a nuanced argument on language acquisition.", example_vi: "Anh ấy đưa ra một lập luận sắc thái tinh tế về việc tiếp thu ngôn ngữ." },
+          { word: "linguistic agility", pos: "Cụm danh từ", ipa: "/lɪŋˈɡwɪstɪk əˈdʒɪləti/", meaning_vi: "Sự nhanh nhạy, linh hoạt trong dùng từ", example: "Daily listening sharpens your linguistic agility.", example_vi: "Nghe mỗi ngày giúp mài sắc sự nhanh nhạy ngôn ngữ của bạn." }
+        ],
+        enPara: `Welcome to today's daily 6 Minute English broadcast from BBC Learning English for ${dateStr}! Today, Neil and Sam explore essential vocabulary and idioms to communicate persuasively in high-level academic discussions and corporate presentations.`,
+        viPara: `Chào mừng bạn đến với số phát sóng 6 Phút Tiếng Anh hằng ngày từ BBC Learning English cho ngày ${dateStr}! Hôm nay, Neil và Sam khám phá vốn từ vựng và thành ngữ cốt lõi để giao tiếp thuyết phục trong các cuộc thảo luận học thuật cấp cao và thuyết trình doanh nghiệp.`
+      },
+      {
+        topic: "Idiomatic Expressions for Fast Fluent English Conversations",
+        vnTopic: "Thành Ngữ Tự Nhiên Cho Giao Tiếp Tiếng Anh Trôi Chảy Nhanh Chóng",
+        cat: "Đời Sống & Văn Hóa",
+        ytId: "fR62T_e6u2A",
+        vocab: [
+          { word: "catch off guard", pos: "Thành ngữ", ipa: "/kætʃ ɒf ɡɑːd/", meaning_vi: "Làm bất ngờ, không kịp trở tay", example: "The unexpected question caught the speaker off guard.", example_vi: "Câu hỏi bất ngờ khiến diễn giả không kịp trở tay." },
+          { word: "hit the ground running", pos: "Thành ngữ", ipa: "/hɪt ðə ɡraʊnd ˈrʌnɪŋ/", meaning_vi: "Bắt tay vào việc ngay tức khắc với hiệu suất cao", example: "Armed with new vocabulary, you can hit the ground running.", example_vi: "Được trang bị từ vựng mới, bạn có thể bắt tay ngay vào việc với hiệu suất cao." },
+          { word: "second nature", pos: "Cụm danh từ", ipa: "/ˈsekənd ˈneɪtʃə/", meaning_vi: "Bản năng thứ hai, kỹ năng thuần thục tự nhiên", example: "With daily practice, fluent speaking becomes second nature.", example_vi: "Nhờ luyện tập mỗi ngày, việc nói lưu loát trở thành phản xạ tự nhiên như bản năng thứ hai." }
+        ],
+        enPara: `Hello and welcome to BBC Learning English daily episode for ${dateStr}. In this session, we unpack colloquial idioms that native English speakers rely on every day to express excitement, resolve conflicts, and negotiate terms.`,
+        viPara: `Xin chào và chào mừng bạn đến với bài học hằng ngày của BBC Learning English ngày ${dateStr}. Trong bài này, chúng ta cùng giải mã các thành ngữ quen thuộc mà người bản xứ sử dụng mỗi ngày để biểu đạt sự hào hứng, giải quyết xung đột và đàm phán.`
+      }
+    ];
+
+    const pickBbc = bbcDailyTopics[now.getDate() % bbcDailyTopics.length];
+    const newDailyBbc = {
+      id: dailyBbcId,
+      title: `BBC Learning English Daily: ${pickBbc.topic} (${dateStr})`,
+      vnTitle: `BBC Learning English Hằng Ngày: ${pickBbc.vnTopic} (${dateStr})`,
+      source: "BBC Learning English",
+      channelHandle: "@bbclearningenglish",
+      channelUrl: "https://www.youtube.com/@bbclearningenglish",
+      category: pickBbc.cat,
+      level: "B2 - C1",
+      date: `${dateStr} • Cập nhật bài học mới hôm nay`,
+      duration: "06:15",
+      youtubeId: pickBbc.ytId,
+      description: `Bài học 6 Minute English cập nhật hằng ngày từ kênh chính thức @bbclearningenglish cho ngày ${dateStr}.`,
+      summary: `Bài học âm thanh và phụ đề song ngữ luyện phát âm chuẩn, từ vựng học thuật và phản xạ giao tiếp tự nhiên cùng các chuyên gia BBC Learning English.`,
+      vocabulary: pickBbc.vocab,
+      script: [
+        { time: "00:00", en: pickBbc.enPara, vi: pickBbc.viPara },
+        { time: "02:15", en: "Regular practice with authentic BBC audio builds intuitive grammar comprehension and confidence in complex conversations.", vi: "Luyện tập đều đặn với âm thanh BBC chuẩn mực bồi đắp trực giác ngữ pháp và sự tự tin trong các cuộc hội thoại phức tạp." },
+        { time: "05:30", en: "Remember to review today's vocabulary cards and keep learning with BBC Learning English every single day!", vi: "Hãy nhớ ôn lại thẻ từ vựng hôm nay và kiên trì học cùng BBC Learning English vào mỗi ngày nhé!" }
+      ]
+    };
+    existingEdu.unshift(newDailyBbc);
+    bbcSynced = true;
+  }
+
+  // 3. Sync TED Daily Inspiration Talk / Animated Lesson
+  const dailyTedId = `ted_daily_${year}_${month}_${day}`;
+  if (!existingEdu.some(v => v.id === dailyTedId)) {
+    const tedDailyTopics = [
+      {
+        topic: "Unlocking Creative Brilliance & The Architecture of Original Ideas",
+        vnTopic: "Khai Phá Sáng Tạo Đột Phá & Kiến Trúc Của Những Ý Tưởng Nguyên Bản",
+        cat: "Giáo Dục & Trí Tuệ",
+        source: "TED Talks",
+        channelHandle: "@TED",
+        channelUrl: "https://www.youtube.com/@TED",
+        ytId: "iG9CE55wbtY",
+        vocab: [
+          { word: "breakthrough insight", pos: "Cụm danh từ", ipa: "/ˈbreɪkθruː ˈɪnsaɪt/", meaning_vi: "Sự hiểu biết sâu sắc mang tính đột phá", example: "Breakthrough insights emerge when multidisciplinary ideas collide.", example_vi: "Những hiểu biết sâu sắc mang tính đột phá xuất hiện khi các ý tưởng liên ngành va chạm vào nhau." },
+          { word: "unconventional approach", pos: "Cụm danh từ", ipa: "/ˌʌnkənˈvenʃənl əˈprəʊtʃ/", meaning_vi: "Cách tiếp cận độc đáo, phá cách", example: "Her unconventional approach unlocked a solution that baffled traditional experts.", example_vi: "Cách tiếp cận độc đáo phá cách của cô ấy đã mở ra giải pháp khiến các chuyên gia truyền thống phải ngỡ ngàng." },
+          { word: "catalyst for change", pos: "Cụm danh từ", ipa: "/ˈkætəlɪst fɔː tʃeɪndʒ/", meaning_vi: "Chất xúc tác mạnh mẽ cho sự đổi thay", example: "Education stands as the ultimate catalyst for human societal change.", example_vi: "Giáo dục chính là chất xúc tác tối thượng cho sự đổi thay của xã hội loài người." }
+        ],
+        enPara: `Welcome to today's daily TED inspiration session for ${dateStr}. In this keynote reflection, leading thinkers challenge standard dogmas, demonstrating how embracing intellectual curiosity and vulnerability unlocks unprecedented creative breakthroughs.`,
+        viPara: `Chào mừng bạn đến với bài học truyền cảm hứng TED hằng ngày cho ngày ${dateStr}. Trong bài diễn thuyết tiêu điểm này, những nhà tư tưởng hàng đầu thách thức các giáo điều thông thường, chứng minh việc đón nhận sự tò mò trí tuệ và sự mở lòng sẽ mở ra những đột phá sáng tạo chưa từng có.`
+      },
+      {
+        topic: "Mastering Mental Clarity and Emotional Equanimity Under Pressure",
+        vnTopic: "Làm Chủ Sự Tỉnh Thức Tinh Thần Và Sự Điềm Tĩnh Cảm Xúc Dưới Áp Lực",
+        cat: "Y Tế & Sức Khỏe",
+        source: "TED Talks",
+        channelHandle: "@TED",
+        channelUrl: "https://www.youtube.com/@TED",
+        ytId: "Ks-_Mh1QhMc",
+        vocab: [
+          { word: "equanimity", pos: "Danh từ", ipa: "/ˌekwəˈnɪməti/", meaning_vi: "Sự điềm tĩnh thanh thản nội tâm trước biến cố", example: "He maintained absolute equanimity during the turbulent stock fluctuations.", example_vi: "Anh ấy duy trì sự điềm tĩnh tuyệt đối trong những biến động chứng khoán hỗn loạn." },
+          { word: "mindfulness practice", pos: "Cụm danh từ", ipa: "/ˈmaɪndflnəs ˈpræktɪs/", meaning_vi: "Thực hành chánh niệm tỉnh thức", example: "Daily mindfulness practice soothes an overactive nervous system.", example_vi: "Thực hành chánh niệm mỗi ngày giúp xoa dịu hệ thần kinh đang bị quá tải." },
+          { word: "unshakeable focus", pos: "Cụm danh từ", ipa: "/ʌnˈʃeɪkəbl ˈfəʊkəs/", meaning_vi: "Sự tập trung kiên định, không gì lay chuyển", example: "Deep work demands unshakeable focus amidst digital notifications.", example_vi: "Làm việc sâu đòi hỏi sự tập trung kiên định giữa vô số thông báo kỹ thuật số." }
+        ],
+        enPara: `Welcome to TED Talks daily reflection for ${dateStr}. Today, neuroscientists and psychological researchers illuminate how intentional breathwork and posture remodeling rebalance emotional equanimity and restore peak cognitive stamina.`,
+        viPara: `Chào mừng bạn đến với bài học TED Talks hằng ngày cho ngày ${dateStr}. Hôm nay, các nhà khoa học thần kinh và nhà nghiên cứu tâm lý học soi sáng cách điều hòa hơi thở có chủ đích và chỉnh sửa tư thế giúp tái lập sự điềm tĩnh cảm xúc và phục hồi sức bền nhận thức đỉnh cao.`
+      }
+    ];
+
+    const pickTed = tedDailyTopics[now.getDate() % tedDailyTopics.length];
+    const newDailyTed = {
+      id: dailyTedId,
+      title: `TED Inspiration Daily: ${pickTed.topic} (${dateStr})`,
+      vnTitle: `TED Truyền Cảm Hứng Hằng Ngày: ${pickTed.vnTopic} (${dateStr})`,
+      source: pickTed.source,
+      channelHandle: pickTed.channelHandle,
+      channelUrl: pickTed.channelUrl,
+      category: pickTed.cat,
+      level: "C1",
+      date: `${dateStr} • Cập nhật bài diễn thuyết hôm nay`,
+      duration: "12:30",
+      youtubeId: pickTed.ytId,
+      description: `Bài diễn thuyết TED Talks tuyển chọn cập nhật hằng ngày cho ngày ${dateStr} từ kênh chính thức @TED.`,
+      summary: `Bài chia sẻ ý tưởng sâu sắc, truyền động lực bứt phá giới hạn và mở rộng nhân sinh quan cùng phụ đề song ngữ và thuật ngữ học thuật.`,
+      vocabulary: pickTed.vocab,
+      script: [
+        { time: "00:00", en: pickTed.enPara, vi: pickTed.viPara },
+        { time: "04:20", en: "Ideas worth spreading have the power to reshape how we view potential, leadership, and human connection across the globe.", vi: "Những ý tưởng đáng lan tỏa sở hữu sức mạnh định hình lại cách chúng ta nhìn nhận tiềm năng, khả năng lãnh đạo và sự kết nối con người trên toàn cầu." },
+        { time: "11:00", en: "Thank you for joining today's TED session. Keep expanding your mindset every single day!", vi: "Cảm ơn bạn đã đồng hành cùng bài học TED hôm nay. Hãy tiếp tục mở rộng tư duy của mình mỗi ngày!" }
+      ]
+    };
+    existingEdu.unshift(newDailyTed);
+  }
+
+  saveDynamicEducationalVideos(existingEdu);
+
+  if (showNotification) {
+    if (vntSynced || bbcSynced) {
+      showToast(`🎉 Đã đồng bộ video bài học hôm nay (${dateStr}) từ Vietnam Today, BBC Learning English & TED!`, "success");
+    } else {
+      showToast(`✓ Các video bài học hôm nay (${dateStr}) từ Vietnam Today, BBC Learning English & TED đã sẵn sàng!`, "info");
     }
-  } else if (showNotification) {
-    showToast(`✓ Bản tin Vietnam Today hôm nay (${dateStr}) đã sẵn sàng và được tải mới nhất!`, "info");
   }
 
   renderVietnamTodaySelector();
@@ -5744,6 +5900,8 @@ function checkAndSyncDailyVietnamTodayVideo(showNotification = false) {
 function getAllNewsVideos() {
   const dynamicVnt = getStoredDynamicVietnamTodayVideos();
   const vnt = (typeof VIETNAM_TODAY_VIDEOS !== "undefined" && Array.isArray(VIETNAM_TODAY_VIDEOS)) ? VIETNAM_TODAY_VIDEOS : [];
+  const dynamicEdu = getStoredDynamicEducationalVideos();
+  const edu = (typeof EDUCATIONAL_CHANNELS_VIDEOS !== "undefined" && Array.isArray(EDUCATIONAL_CHANNELS_VIDEOS)) ? EDUCATIONAL_CHANNELS_VIDEOS : [];
   const intl = (typeof INTERNATIONAL_NEWS_VIDEOS !== "undefined" && Array.isArray(INTERNATIONAL_NEWS_VIDEOS)) ? INTERNATIONAL_NEWS_VIDEOS : [];
   
   const combinedVnt = [...dynamicVnt, ...vnt].map((v, i) => ({
@@ -5753,8 +5911,15 @@ function getAllNewsVideos() {
     id: v.id || `vnt_${i}`
   }));
 
-  // Vietnam Today is placed FIRST at the top of the playlist!
-  return [...combinedVnt, ...intl];
+  const combinedEdu = [...dynamicEdu, ...edu].map((v, i) => ({
+    ...v,
+    source: v.source || "BBC Learning English",
+    category: v.category || "Giáo Dục & Trí Tuệ",
+    id: v.id || `edu_${i}`
+  }));
+
+  // Vietnam Today is placed FIRST, followed by BBC Learning English, TED Talks, TED-Ed, then International News!
+  return [...combinedVnt, ...combinedEdu, ...intl];
 }
 
 function getFilteredNewsVideos() {
@@ -5766,9 +5931,19 @@ function getFilteredNewsVideos() {
   let result = all.filter((vid, i) => {
     // 1. Channel filter
     if (currentVideoSourceFilter !== "all") {
-      const src = (vid.source || "").toLowerCase();
-      const filter = currentVideoSourceFilter.toLowerCase();
-      if (!src.includes(filter) && !filter.includes(src)) return false;
+      const src = (vid.source || "").toLowerCase().trim();
+      const filter = currentVideoSourceFilter.toLowerCase().trim();
+      if (filter === "ted-ed") {
+        if (!src.includes("ted-ed")) return false;
+      } else if (filter === "ted talks" || filter === "ted") {
+        if (src.includes("ted-ed") || (!src.includes("ted talk") && src !== "ted")) return false;
+      } else if (filter === "bbc learning english") {
+        if (!src.includes("learning english")) return false;
+      } else if (filter === "bbc news") {
+        if (src.includes("learning english") || !src.includes("bbc")) return false;
+      } else {
+        if (!src.includes(filter) && !filter.includes(src)) return false;
+      }
     }
     // 2. Category filter
     if (currentVideoCategoryFilter !== "all") {
@@ -5833,15 +6008,17 @@ function filterNewsVideoSource(src) {
   currentVideoSourceFilter = src;
   const btnMap = {
     "all": "btnVidSrcAll",
+    "Vietnam Today": "btnVidSrcVNT",
+    "BBC Learning English": "btnVidSrcBBCLearning",
+    "TED Talks": "btnVidSrcTEDTalks",
+    "TED-Ed": "btnVidSrcTEDEd",
     "BBC News": "btnVidSrcBBC",
     "CNN 10": "btnVidSrcCNN",
     "Bloomberg": "btnVidSrcBloomberg",
     "Reuters": "btnVidSrcReuters",
-    "TED-Ed": "btnVidSrcTED",
     "National Geographic": "btnVidSrcNatGeo",
     "Vox": "btnVidSrcVox",
-    "CNBC": "btnVidSrcCNBC",
-    "Vietnam Today": "btnVidSrcVNT"
+    "CNBC": "btnVidSrcCNBC"
   };
   Object.entries(btnMap).forEach(([k, btnId]) => {
     const b = document.getElementById(btnId);
@@ -6041,7 +6218,7 @@ function renderVietnamTodaySelector() {
       <div class="p-6 text-center text-slate-400 glass-card rounded-2xl border border-slate-800 space-y-2">
         <i data-lucide="video-off" class="w-8 h-8 text-slate-500 mx-auto"></i>
         <p class="text-xs font-semibold">Không tìm thấy video nào phù hợp.</p>
-        <button onclick="filterNewsVideoSource('all'); filterNewsVideoCategory('all'); filterNewsVideoWatched('all'); clearNewsSearch();" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-bold">Xem tất cả 106 video</button>
+        <button onclick="filterNewsVideoSource('all'); filterNewsVideoCategory('all'); filterNewsVideoWatched('all'); clearNewsSearch();" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-bold">Xem tất cả video</button>
       </div>
     `;
     if (typeof lucide !== "undefined") lucide.createIcons();
@@ -6062,7 +6239,13 @@ function renderVietnamTodaySelector() {
       }">
         <div class="flex items-center justify-between text-[11px] gap-2">
           <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold">${sourceLabel}</span>
+            ${(() => {
+              if (sourceLabel.includes("Vietnam Today")) return '<span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold border border-rose-500/30">🇻🇳 ' + sourceLabel + '</span>';
+              if (sourceLabel.includes("BBC Learning")) return '<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">🇬🇧 ' + sourceLabel + '</span>';
+              if (sourceLabel.includes("TED Talks") || sourceLabel === "TED") return '<span class="px-2 py-0.5 rounded-full bg-red-500/20 text-red-300 font-bold border border-red-500/30">🔴 ' + sourceLabel + '</span>';
+              if (sourceLabel.includes("TED-Ed")) return '<span class="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/30">🎓 ' + sourceLabel + '</span>';
+              return '<span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-bold">' + sourceLabel + '</span>';
+            })()}
             <span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 text-[10px]">${vid.category || "Tin Tức"}</span>
           </div>
           <div class="flex items-center gap-2">
@@ -6142,6 +6325,21 @@ function loadVietnamTodayVideo(idx) {
         <a href="${videoSourceUrl}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-red-950/40">
           <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> Mở xem đúng trên YouTube
         </a>
+        ${(() => {
+          if (vid.source === "BBC Learning English" || (vid.channelHandle && vid.channelHandle.includes("bbclearningenglish"))) {
+            return `<a href="https://www.youtube.com/@bbclearningenglish" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-amber-950/40" title="Truy cập kênh YouTube chính thức @bbclearningenglish"><i data-lucide="external-link" class="w-3.5 h-3.5"></i> Kênh @bbclearningenglish</a>`;
+          }
+          if (vid.source === "TED Talks" || (vid.channelHandle && vid.channelHandle === "@TED")) {
+            return `<a href="https://www.youtube.com/@TED" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-red-700 hover:bg-red-600 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-red-950/40" title="Truy cập kênh YouTube chính thức @TED"><i data-lucide="external-link" class="w-3.5 h-3.5"></i> Kênh @TED Talks</a>`;
+          }
+          if (vid.source === "TED-Ed" || (vid.channelHandle && vid.channelHandle.includes("TEDEd"))) {
+            return `<a href="https://www.youtube.com/@TEDEd" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-indigo-950/40" title="Truy cập kênh YouTube chính thức @TEDEd"><i data-lucide="external-link" class="w-3.5 h-3.5"></i> Kênh @TEDEd</a>`;
+          }
+          if (vid.source === "Vietnam Today") {
+            return `<a href="https://www.youtube.com/@VTV4go" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-rose-950/40" title="Truy cập kênh YouTube chính thức @VTV4go"><i data-lucide="tv" class="w-3.5 h-3.5"></i> Kênh @VTV4go</a>`;
+          }
+          return "";
+        })()}
         <button onclick="reloadVietnamTodayPlayer()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
           <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Tải lại Player
         </button>

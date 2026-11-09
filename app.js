@@ -363,7 +363,7 @@ function switchTab(tabId) {
   appState.activeTab = tabId;
 
   // Sync nav buttons
-  ["today", "flashcard", "listening", "video", "review", "reader", "grammar", "profile"].forEach(id => {
+  ["today", "flashcard", "listening", "cinema", "video", "review", "reader", "grammar", "profile"].forEach(id => {
     const sec = document.getElementById(`tab-${id}`);
     if (sec) sec.classList.toggle("hidden", id !== tabId);
 
@@ -620,7 +620,13 @@ function getDayMissionStatus(dayNum) {
     : (data.grammarDoneCount || (data.grammarDone ? 2 : 0));
   const isGrammar = !!data.grammarDone || (grammarCount >= 2);
 
-  // Video Vietnam Today: Hạn chót 22:00
+  // Luyện Nghe Đề Thi: Mục tiêu 2 bài chuẩn form mỗi ngày (HP3, VSTEP, Cambridge)
+  const listeningCount = (data.completedListeningTests && Array.isArray(data.completedListeningTests))
+    ? data.completedListeningTests.length
+    : (data.listeningDoneCount || (data.listeningDone ? 2 : 0));
+  const isListening = !!data.listeningDone || (listeningCount >= 2);
+
+  // Video Vietnam Today / Phim: Hạn chót 22:00
   const watchedVideos = getWatchedVietnamTodayVideos();
   const isVideo = !!data.videoDone || (data.completedVideos && data.completedVideos.length > 0) || watchedVideos.size > 0;
 
@@ -628,6 +634,7 @@ function getDayMissionStatus(dayNum) {
   if (isVocab) count++;
   if (isReading) count++;
   if (isGrammar) count++;
+  if (isListening) count++;
   if (isVideo) count++;
 
   return {
@@ -639,10 +646,13 @@ function getDayMissionStatus(dayNum) {
     grammarDone: isGrammar,
     grammarDoneCount: grammarCount,
     completedGrammarTopics: data.completedGrammarTopics || [],
+    listeningDone: isListening,
+    listeningDoneCount: Math.min(2, listeningCount),
+    completedListeningTests: data.completedListeningTests || [],
     videoDone: isVideo,
     completedVideos: data.completedVideos || (isVideo ? Array.from(watchedVideos) : []),
     completedCount: count,
-    isAllDone: (count >= 3 && isVocab && isReading) // Core completed + video bonus
+    isAllDone: (isVocab && isReading && isGrammar && isListening)
   };
 }
 
@@ -3732,6 +3742,7 @@ function updateDailyGoalChecklist() {
   const wItem = document.getElementById("goalItemWords");
   const rItem = document.getElementById("goalItemReading");
   const gItem = document.getElementById("goalItemGrammar");
+  const lItem = document.getElementById("goalItemListening");
   const vItem = document.getElementById("goalItemVideo");
 
   if (wItem) {
@@ -3741,18 +3752,23 @@ function updateDailyGoalChecklist() {
   }
   if (rItem) {
     rItem.innerHTML = curStatus.readingDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">3 Bài đọc (ĐÃ XONG 3/3 ✓)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>3 Bài đọc hiểu & đục lỗ (${curStatus.readingDoneCount || 0}/3)</span>`;
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">1 Bài đọc VSTEP (ĐÃ XONG ✓)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Bài đọc VSTEP chuẩn (${curStatus.readingDoneCount || 0}/1)</span>`;
   }
   if (gItem) {
     gItem.innerHTML = curStatus.grammarDone
       ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">2 Chuyên đề ngữ pháp (ĐÃ XONG 2/2 ✓)</span>`
       : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>2 Chuyên đề ngữ pháp (${curStatus.grammarDoneCount || 0}/2)</span>`;
   }
+  if (lItem) {
+    lItem.innerHTML = curStatus.listeningDone
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">2 Bài nghe chuẩn form (ĐÃ XONG 2/2 ✓)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>2 Bài nghe chuẩn form (${curStatus.listeningDoneCount || 0}/2)</span>`;
+  }
   if (vItem) {
     vItem.innerHTML = curStatus.videoDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">Video Vietnam Today (ĐÃ XONG 22:00 ✓)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i> <span>1 Video Vietnam Today (Hạn chót 22:00)</span>`;
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">Video / Phim Song Ngữ (ĐÃ XONG 22:00 ✓)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i> <span>1 Video / Phim Song Ngữ (Hạn chót 22:00)</span>`;
   }
 
   // Update Mission 4 (Video card) in overview grid
@@ -5335,7 +5351,37 @@ function submitListeningTest() {
   const transBox = document.getElementById("listeningTranscriptCard");
   if (transBox) transBox.classList.remove("hidden");
 
-  showToast(`🎧 Đã chấm điểm: ${correctCount}/${total} câu đúng (${pct}%)!`, pct >= 70 ? "success" : "info");
+  // Ghi nhận hoàn thành bài nghe chuẩn form vào Deadline hôm nay (Mục tiêu 2 bài/ngày)
+  const curDay = missionRegistry.currentDay || 1;
+  const curStatus = getDayMissionStatus(curDay);
+  const partKey = `${test.id}_p${part.partNumber}`;
+
+  let doneList = [...(curStatus.completedListeningTests || [])];
+  if (!doneList.includes(partKey)) {
+    doneList.push(partKey);
+  }
+
+  const isAllListeningDone = doneList.length >= 2;
+  setDayMissionStatus(curDay, {
+    completedListeningTests: doneList,
+    listeningDoneCount: Math.min(2, doneList.length),
+    listeningDone: isAllListeningDone
+  });
+
+  const dailyBadge = document.getElementById("listeningDailyStatusBadge");
+  if (dailyBadge) {
+    dailyBadge.innerText = isAllListeningDone ? "✓ Hôm nay: Đã xong 2/2 bài nghe!" : `⏳ Hôm nay: ${doneList.length}/2 bài nghe`;
+    dailyBadge.className = isAllListeningDone ? "px-3 py-1.5 rounded-xl bg-emerald-600/30 border border-emerald-500/50 text-emerald-300 font-bold text-xs flex items-center gap-1" : "px-3 py-1.5 rounded-xl bg-cyan-600/30 border border-cyan-500/40 text-cyan-300 font-bold text-xs flex items-center gap-1";
+  }
+
+  updateDailyGoalChecklist();
+  updateDailyMissionUI();
+
+  if (isAllListeningDone) {
+    showToast(`🎉 Xuất sắc! Bạn đã hoàn thành trọn vẹn mục tiêu 2 bài nghe chuẩn form hôm nay (${correctCount}/${total} câu đúng)!`, "success");
+  } else {
+    showToast(`✓ Đã nộp bài nghe: ${correctCount}/${total} câu đúng (${doneList.length}/2 bài hôm nay). Hãy làm thêm 1 bài nữa để hoàn thành deadline nhé!`, "info");
+  }
 }
 
 function resetListeningTest() {

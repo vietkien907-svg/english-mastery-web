@@ -631,4 +631,313 @@ const LISTENING_TESTS = [
       }
     ]
   }
+,
+  {
+  "id": "test_3",
+  "title": "ĐỀ SỐ 3: VSTEP Listening B1-B2 (Nguồn: Ace of English - VSTEP Test Library)",
+  "subtitle": "Form Chuẩn Đề Thi VSTEP Quốc Gia • 3 Parts • Trắc nghiệm 4 lựa chọn A, B, C, D • Lời thoại song ngữ",
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Part 1: 8 Câu Hỏi Tình Huống Ngắn (Short Conversations)",
+      "instruction": "Directions: In this part, you will hear eight short conversations. For questions 1-8, choose the best answer A, B, C or D.",
+      "audioSrc": "/audio/vstep_part1_conversations.mp3",
+      "questions": [
+        {
+          "id": 1,
+          "text": "1. Where are the speakers talking?",
+          "options": [
+            {
+              "key": "A",
+              "text": "At a crowded airport terminal"
+            },
+            {
+              "key": "B",
+              "text": "In a university lecture hall"
+            },
+            {
+              "key": "C",
+              "text": "At a central train station"
+            },
+            {
+              "key": "D",
+              "text": "Inside a hotel lobby"
+            }
+          ],
+          "correct": "A",
+          "explanation": "Người phụ nữ thông báo: 'Passengers for flight VN-234 to Da Nang, please proceed to Gate 12 immediately for final boarding'. Tiếng loa phát thanh chuyến bay và gate xác nhận địa điểm là sân bay (airport terminal)."
+        },
+        {
+          "id": 2,
+          "text": "2. What time will the research presentation begin?",
+          "options": [
+            {
+              "key": "A",
+              "text": "At 9:15 AM"
+            },
+            {
+              "key": "B",
+              "text": "At 9:45 AM"
+            },
+            {
+              "key": "C",
+              "text": "At 10:00 AM"
+            },
+            {
+              "key": "D",
+              "text": "At 10:30 AM"
+            }
+          ],
+          "correct": "B",
+          "explanation": "Giáo sư thông báo: 'The seminar was scheduled for 9:15, but because the keynote speaker's flight was delayed, we will push the start back by thirty minutes to a quarter to ten'. 9:15 + 30 phút = 9:45 AM (a quarter to ten)."
+        },
+        {
+          "id": 3,
+          "text": "3. What is the woman complaining about?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The poor air conditioning in her room"
+            },
+            {
+              "key": "B",
+              "text": "The high cost of room service"
+            },
+            {
+              "key": "C",
+              "text": "The noisy construction outside her window"
+            },
+            {
+              "key": "D",
+              "text": "The slow Wi-Fi internet connection"
+            }
+          ],
+          "correct": "D",
+          "explanation": "Người phụ nữ phàn nàn: 'I've been trying to submit my report for over an hour, but the wireless signal keeps dropping every two minutes. It's dreadfully slow!'"
+        },
+        {
+          "id": 4,
+          "text": "4. Why did the man decline the job invitation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The offered salary was insufficient."
+            },
+            {
+              "key": "B",
+              "text": "He would have to relocate to another city."
+            },
+            {
+              "key": "C",
+              "text": "He prefers working part-time."
+            },
+            {
+              "key": "D",
+              "text": "The working hours were too rigid."
+            }
+          ],
+          "correct": "B",
+          "explanation": "Người đàn ông nói: 'The package was quite generous, but they insisted that I move to their Da Nang branch next month. With my family settled in Hanoi, relocation was out of the question'."
+        },
+        {
+          "id": 5,
+          "text": "5. What will the students do on their field trip tomorrow?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Conduct soil tests in the botanical gardens"
+            },
+            {
+              "key": "B",
+              "text": "Interview visitors at the history museum"
+            },
+            {
+              "key": "C",
+              "text": "Collect plastic waste along the coastline"
+            },
+            {
+              "key": "D",
+              "text": "Visit a high-tech solar power plant"
+            }
+          ],
+          "correct": "C",
+          "explanation": "Trưởng nhóm phổ biến: 'Don't forget your gloves and boots. We'll be joining the local community to clear plastic waste along the beach'."
+        }
+      ],
+      "transcript": [
+        {
+          "speaker": "Announcer",
+          "en": "Attention passengers for flight VN-234 to Da Nang, please proceed to Gate 12 immediately for final boarding.",
+          "vi": "Xin hành khách trên chuyến bay VN-234 đi Đà Nẵng vui lòng khẩn trương di chuyển ra Cửa số 12 để làm thủ tục lên máy bay lần cuối."
+        },
+        {
+          "speaker": "Professor",
+          "en": "Good morning everyone. The seminar was scheduled for 9:15, but because the keynote speaker's flight was delayed, we will push the start back to a quarter to ten.",
+          "vi": "Chào buổi sáng cả lớp. Hội thảo ban đầu dự kiến lúc 9:15, nhưng do chuyến bay của diễn giả chính bị hoãn nên chúng ta sẽ lùi giờ bắt đầu lại 30 phút đến 9:45."
+        },
+        {
+          "speaker": "Guest",
+          "en": "Front desk? I've been trying to submit my report for over an hour, but the wireless internet signal keeps dropping every two minutes. It's dreadfully slow!",
+          "vi": "Lễ tân phải không ạ? Tôi đã cố gắng nộp báo cáo suốt hơn một tiếng qua nhưng tín hiệu mạng wifi cứ chập chờn rớt liên tục. Tốc độ quá chậm!"
+        },
+        {
+          "speaker": "Candidate",
+          "en": "The salary package was quite generous, but they insisted that I move to their Da Nang branch next month. With my family settled in Hanoi, relocation was out of the question.",
+          "vi": "Mức đãi ngộ khá hậu hĩnh, nhưng họ yêu cầu tôi phải chuyển công tác vào chi nhánh Đà Nẵng ngay tháng sau. Gia đình tôi đã an cư ở Hà Nội nên việc chuyển nơi ở là không thể."
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Part 2: Hội Thoại Học Thuật Sinh Viên (Academic Discussion)",
+      "instruction": "Directions: You will hear a conversation between two university students discussing an environmental project. Choose A, B, C or D.",
+      "audioSrc": "/audio/vstep_part2_discussion.mp3",
+      "questions": [
+        {
+          "id": 6,
+          "text": "6. What is the central subject of Liam and Sarah's joint presentation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Microplastic pollution in freshwater river systems"
+            },
+            {
+              "key": "B",
+              "text": "The economic impact of offshore wind farms"
+            },
+            {
+              "key": "C",
+              "text": "Reforestation strategies in mountainous areas"
+            },
+            {
+              "key": "D",
+              "text": "Urban rooftop gardens and local biodiversity"
+            }
+          ],
+          "correct": "A",
+          "explanation": "Sarah mở đầu: 'Our assignment specifically asks us to analyze how synthetic fibers and microplastics contaminate urban freshwater lakes and rivers'."
+        },
+        {
+          "id": 7,
+          "text": "7. How do the students plan to divide the presentation workload?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Liam will create slides while Sarah gives the entire speech."
+            },
+            {
+              "key": "B",
+              "text": "Sarah will present data analysis and Liam will discuss policy solutions."
+            },
+            {
+              "key": "C",
+              "text": "They will take turns speaking for equal five-minute intervals."
+            },
+            {
+              "key": "D",
+              "text": "They will invite an external guest speaker."
+            }
+          ],
+          "correct": "B",
+          "explanation": "Liam đề xuất: 'Why don't you cover the laboratory sample findings and statistical charts, while I handle government regulations and mitigation solutions?' Sarah đồng ý: 'That sounds perfect'."
+        }
+      ],
+      "transcript": [
+        {
+          "speaker": "Sarah",
+          "en": "Liam, did you finish reading the research paper Professor Evans sent yesterday?",
+          "vi": "Liam, cậu đã đọc xong bài nghiên cứu mà Giáo sư Evans gửi hôm qua chưa?"
+        },
+        {
+          "speaker": "Liam",
+          "en": "Yes, I did! Our assignment specifically asks us to analyze how synthetic fibers and microplastics contaminate urban freshwater lakes and rivers.",
+          "vi": "Tớ đọc rồi! Bài tập lớn của chúng mình yêu cầu phân tích cụ thể cách thức các sợi tổng hợp và hạt vi nhựa làm ô nhiễm các sông hồ nước ngọt đô thị."
+        },
+        {
+          "speaker": "Liam",
+          "en": "Why don't you cover the laboratory sample findings and statistical charts, while I handle government regulations and mitigation solutions?",
+          "vi": "Sao cậu không phụ trách phần kết quả mẫu phân tích phòng thí nghiệm và biểu đồ thống kê, còn tớ sẽ phụ trách phần chính sách quy định của chính phủ và các giải pháp giảm thiểu nhỉ?"
+        },
+        {
+          "speaker": "Sarah",
+          "en": "That sounds perfect! That way both of us can play to our strengths.",
+          "vi": "Ý tưởng tuyệt vời đấy! Như vậy cả hai chúng ta đều phát huy được thế mạnh của mình."
+        }
+      ]
+    }
+  ]
+}
+,
+  {
+  "id": "test_4",
+  "title": "ĐỀ SỐ 4: Cambridge B1 Preliminary & B2 First Listening (Cambridge Assessment English)",
+  "subtitle": "Form Chuẩn Cambridge English • Kỹ năng nghe bắt ý chính & phát hiện bẫy chi tiết • Audio đa giọng US/UK",
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Part 1: Phỏng Vấn Chuyên Gia Du Lịch Mạo Hiểm (Adventure Travel)",
+      "instruction": "Questions 1-5. You will hear an interview with a wilderness tour guide named Marcus. Choose the correct letter A, B or C.",
+      "audioSrc": "/audio/cambridge_part1_marcus.mp3",
+      "questions": [
+        {
+          "id": 1,
+          "text": "1. What inspired Marcus to become a mountain expedition guide?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Reading travel adventure novels as a boy"
+            },
+            {
+              "key": "B",
+              "text": "A memorable hiking trip with his grandfather"
+            },
+            {
+              "key": "C",
+              "text": "Watching nature documentaries on television"
+            }
+          ],
+          "correct": "B",
+          "explanation": "Marcus giải thích: 'People often think I read lots of adventure books, but the turning point was when my grandfather took me trekking in the Highlands when I was ten. Standing on that summit changed my perspective entirely'."
+        },
+        {
+          "id": 2,
+          "text": "2. What is Marcus's primary rule for clients undertaking high-altitude treks?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Never hike without satellite navigation devices."
+            },
+            {
+              "key": "B",
+              "text": "Always prioritize physical safety over reaching the peak."
+            },
+            {
+              "key": "C",
+              "text": "Maintain an uninterrupted fast climbing pace."
+            }
+          ],
+          "correct": "B",
+          "explanation": "Marcus nhấn mạnh: 'Reaching the summit is optional; coming back down safely is mandatory. I tell every climber that your ego must never overrule safety judgment'."
+        }
+      ],
+      "transcript": [
+        {
+          "speaker": "Interviewer",
+          "en": "Welcome back Marcus. What first sparked your passion for wilderness expeditions?",
+          "vi": "Chào mừng anh quay trở lại Marcus. Điều gì lần đầu tiên đã thắp lên niềm đam mê của anh với những chuyến thám hiểm thiên nhiên hoang dã?"
+        },
+        {
+          "speaker": "Marcus",
+          "en": "People often think I read lots of adventure books, but the turning point was when my grandfather took me trekking in the Highlands when I was ten. Standing on that summit changed my perspective entirely.",
+          "vi": "Người ta thường nghĩ tôi đọc nhiều tiểu thuyết phiêu lưu, nhưng bước ngoặt thực sự là khi ông nội đưa tôi đi leo núi đường dài ở vùng cao nguyên năm tôi lên mười tuổi. Đứng trên đỉnh núi ngày hôm ấy đã thay đổi hoàn toàn lăng kính nhìn đời của tôi."
+        },
+        {
+          "speaker": "Marcus",
+          "en": "Reaching the summit is optional; coming back down safely is mandatory. I tell every climber that your ego must never overrule safety judgment.",
+          "vi": "Lên tới đỉnh núi là tùy chọn; nhưng trở về an toàn là mệnh lệnh bắt buộc. Tôi luôn bảo mọi nhà leo núi rằng cái tôi kiêu hãnh không bao giờ được lấn át phán đoán an toàn."
+        }
+      ]
+    }
+  ]
+}
 ];

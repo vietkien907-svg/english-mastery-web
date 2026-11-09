@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>English Mastery Hub - Nền Tảng Học Tiếng Anh Cá Nhân</title>
   <meta name="description" content="Ứng dụng học từ vựng, collocation, idiom, đọc hiểu và 21 tuần ngữ pháp đa thiết bị, đồng bộ vĩnh viễn.">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="./manifest.json">
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <meta name="theme-color" content="#4f46e5">
   <meta name="mobile-web-app-capable" content="yes">
@@ -37,7 +37,7 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body class="pb-24 md:pb-8 flex flex-col min-h-screen text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
 
@@ -1306,9 +1306,9 @@
 
 
     <section id="tab-cinema" class="hidden space-y-6">
-      <!-- Header Banner -->
-      <div class="glass-card rounded-2xl p-6 border border-pink-500/40 relative overflow-hidden bg-gradient-to-br from-pink-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-3">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <!-- Header Banner with View Toggles -->
+      <div class="glass-card rounded-2xl p-6 border border-pink-500/40 relative overflow-hidden bg-gradient-to-br from-pink-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2 flex-wrap">
               <span class="px-2.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 font-bold text-xs uppercase tracking-wider border border-pink-500/30 flex items-center gap-1.5">
@@ -1319,110 +1319,173 @@
                 Phát Âm & Ngữ Điệu Đời Thường
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs">
-                Tra Từ 1-Click Trong Sub
+                Tra Từ 1-Click Trong Sub & Flashcard
               </span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">🎬 Luyện Tiếng Anh Qua Phim & Trích Đoạn Series Song Ngữ</h2>
-            <p class="text-xs sm:text-sm text-slate-300 mt-1">Luyện nghe phản xạ tự nhiên qua các phân cảnh kinh điển (Friends, The Pursuit of Happyness, Forrest Gump...). Bấm trực tiếp vào từng từ trong phụ đề để tra nghĩa tiếng Việt và lưu vào Flashcard!</p>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <span class="text-xs text-slate-400 font-medium">Chế độ phụ đề:</span>
-            <button onclick="setCinemaSubMode('bilingual')" id="btnSubBilingual" class="px-3 py-1.5 rounded-xl bg-indigo-600 text-white font-bold text-xs shadow transition">Song Ngữ</button>
-            <button onclick="setCinemaSubMode('en')" id="btnSubEn" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition">Chỉ Tiếng Anh</button>
-            <button onclick="setCinemaSubMode('none')" id="btnSubNone" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition">Ẩn Sub (Thử Thách)</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main Workspace: Video Player + Playlist & Subtitles -->
-
-      <!-- ================= BILINGUAL NEWS ARTICLE VIEW CONTAINER ================= -->
-      <div id="bilingualNewsContainer" class="hidden space-y-6">
-        <!-- Rendered by JS: Articles list selector + Full parallel bilingual paragraphs view -->
-      </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Left: Video Player & Script (Col 8) -->
-        <div class="lg:col-span-8 space-y-6">
-          <!-- Video Frame -->
-          <div class="glass-card p-2 rounded-2xl border border-slate-700 bg-black aspect-video shadow-2xl overflow-hidden" id="cinemaVideoPlayerContainer">
-            <!-- Rendered by JS -->
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">🎬 Luyện Tiếng Anh Qua Phim Song Ngữ & Kho Từ Vựng Giao Tiếp</h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">Học phản xạ giao tiếp tự nhiên qua các trích đoạn kinh điển (Friends, Forrest Gump, The Pursuit of Happyness...). Bấm trực tiếp vào từng từ trong phụ đề để tra cứu và thêm ngay vào Flashcard!</p>
           </div>
 
-          <!-- Movie Info Card & Direct Action Buttons -->
-          <div class="glass-card p-5 rounded-2xl border border-slate-700/80 bg-slate-900/90 space-y-3">
-            <div id="cinemaMovieTitle" class="text-lg sm:text-xl font-black text-white leading-snug">
-              <!-- Rendered by JS -->
-            </div>
-            <div id="cinemaMovieDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
-
-          <!-- Key Expressions & Idioms in Movie -->
-          <div class="glass-card rounded-2xl p-6 border border-amber-500/30 bg-slate-900/90 space-y-4 shadow-xl">
-            <div class="flex items-center gap-2 border-b border-slate-800 pb-3">
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
-              <h3 class="font-bold text-white text-base">💎 Cụm Từ & Thành Ngữ Đắt Giá Trong Trích Đoạn</h3>
-            </div>
-            <div id="cinemaExpressionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
-
-          <!-- Interactive Bilingual Subtitles -->
-          <div class="glass-card rounded-2xl p-6 border border-pink-500/30 bg-slate-900/90 space-y-4 shadow-xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-              <div class="flex items-center gap-2">
-                <i data-lucide="subtitles" class="w-5 h-5 text-pink-400"></i>
-                <h3 class="font-bold text-white text-base">📜 Lời Thoại Phim Song Ngữ (Interactive Subtitles)</h3>
-              </div>
-              <p class="text-xs text-slate-400">Bấm nút loa để nghe từng câu thoại, bấm từ để tra cứu.</p>
-            </div>
-            <div id="cinemaSubtitlesList" class="space-y-3 max-h-[550px] overflow-y-auto pr-1">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Movie Playlist & Vocab Notebook (Col 4) -->
-        <div class="lg:col-span-4 space-y-6">
-          <!-- Movie Playlist Selector -->
-          <div class="glass-card rounded-2xl p-5 border border-slate-700/80 bg-slate-900/90 space-y-4 shadow-xl">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-              <h3 class="font-bold text-white text-sm uppercase tracking-wider flex items-center gap-2">
-                <i data-lucide="clapperboard" class="w-4 h-4 text-pink-400"></i>
-                <span>Danh Sách Phim Tuyển Chọn</span>
-              </h3>
-              <span id="cinemaMoviesCountBadge" class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold">4 trích đoạn</span>
-            </div>
-            <div id="cinemaPlaylistSelector" class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
-
-          <!-- Essential Vocab from this Movie -->
-          <div class="glass-card rounded-2xl p-5 border border-cyan-500/30 bg-slate-900/90 space-y-4 shadow-xl">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-              <h3 class="font-bold text-white text-sm uppercase tracking-wider flex items-center gap-2">
-                <i data-lucide="book-marked" class="w-4 h-4 text-cyan-400"></i>
-                <span>Từ Vựng Phim Đã Lưu</span>
-              </h3>
-              <button onclick="saveAllCinemaWordsToFlashcard()" class="text-xs text-cyan-300 hover:text-white font-bold transition flex items-center gap-1">
-                <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i> + Lưu tất cả
+          <!-- View Switcher & Subtitle Mode -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 shrink-0">
+            <!-- Tab Mode Selector: Xem Phim vs Kho Từ Vựng Tổng Hợp -->
+            <div class="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-700/80 shadow-md">
+              <button onclick="switchCinemaView('player')" id="btnCinemaViewPlayer" class="px-3 py-1.5 rounded-lg bg-pink-600 text-white font-bold text-xs shadow transition flex items-center gap-1.5">
+                <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
+                <span>Xem Phim & Lời Thoại</span>
+              </button>
+              <button onclick="switchCinemaView('vocab')" id="btnCinemaViewVocabDeck" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white font-bold text-xs transition flex items-center gap-1.5">
+                <i data-lucide="book-open-check" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>Kho Từ Vựng Toàn Bộ Phim</span>
               </button>
             </div>
-            <div id="cinemaVocabContainer" class="space-y-2.5">
-              <!-- Rendered by JS -->
+
+            <!-- Subtitle Mode (visible in player view) -->
+            <div id="cinemaSubModeBar" class="flex items-center gap-1.5 bg-slate-900/80 p-1 rounded-xl border border-slate-800">
+              <span class="text-[11px] text-slate-400 px-1 font-medium hidden sm:inline">Sub:</span>
+              <button onclick="setCinemaSubMode('bilingual')" id="btnSubBilingual" class="px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-bold text-xs shadow transition">Song Ngữ</button>
+              <button onclick="setCinemaSubMode('en')" id="btnSubEn" class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition">Chỉ Tiếng Anh</button>
+              <button onclick="setCinemaSubMode('none')" id="btnSubNone" class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition">Ẩn Sub</button>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- VIEW 1: MOVIE PLAYER & INTERACTIVE SUBTITLES WORKSPACE -->
+      <div id="cinemaPlayerView" class="space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Left: Video Player & Script (Col 8) -->
+          <div class="lg:col-span-8 space-y-6">
+            <!-- Video Frame -->
+            <div class="glass-card p-2 rounded-2xl border border-slate-700 bg-black aspect-video shadow-2xl overflow-hidden" id="cinemaVideoPlayerContainer">
+              <!-- Rendered by JS -->
+            </div>
+
+            <!-- Movie Info Card & Direct Action Buttons -->
+            <div class="glass-card p-5 rounded-2xl border border-slate-700/80 bg-slate-900/90 space-y-3">
+              <div id="cinemaMovieTitle" class="text-lg sm:text-xl font-black text-white leading-snug">
+                <!-- Rendered by JS -->
+              </div>
+              <div id="cinemaMovieDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+
+            <!-- Key Expressions & Idioms in Movie -->
+            <div class="glass-card rounded-2xl p-6 border border-amber-500/30 bg-slate-900/90 space-y-4 shadow-xl">
+              <div class="flex items-center gap-2 border-b border-slate-800 pb-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+                <h3 class="font-bold text-white text-base">💎 Cụm Từ & Thành Ngữ Đắt Giá Trong Trích Đoạn</h3>
+              </div>
+              <div id="cinemaExpressionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+
+            <!-- Interactive Bilingual Subtitles -->
+            <div class="glass-card rounded-2xl p-6 border border-pink-500/30 bg-slate-900/90 space-y-4 shadow-xl">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="subtitles" class="w-5 h-5 text-pink-400"></i>
+                  <h3 class="font-bold text-white text-base">📜 Lời Thoại Phim Song Ngữ (Interactive Subtitles)</h3>
+                </div>
+                <p class="text-xs text-slate-400">Bấm nút loa để nghe từng câu, bấm bất kỳ từ nào để tra nghĩa & lưu Flashcard.</p>
+              </div>
+              <div id="cinemaSubtitlesList" class="space-y-3 max-h-[550px] overflow-y-auto pr-1">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Movie Playlist & Vocab Notebook (Col 4) -->
+          <div class="lg:col-span-4 space-y-6">
+            <!-- Movie Playlist Selector -->
+            <div class="glass-card rounded-2xl p-5 border border-slate-700/80 bg-slate-900/90 space-y-4 shadow-xl">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <h3 class="font-bold text-white text-sm uppercase tracking-wider flex items-center gap-2">
+                  <i data-lucide="clapperboard" class="w-4 h-4 text-pink-400"></i>
+                  <span>Danh Sách Phim Tuyển Chọn</span>
+                </h3>
+                <span id="cinemaMoviesCountBadge" class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold">8 trích đoạn</span>
+              </div>
+              <div id="cinemaPlaylistSelector" class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+
+            <!-- Essential Vocab from this Movie -->
+            <div class="glass-card rounded-2xl p-5 border border-cyan-500/30 bg-slate-900/90 space-y-4 shadow-xl">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div>
+                  <h3 class="font-bold text-white text-sm uppercase tracking-wider flex items-center gap-2">
+                    <i data-lucide="book-marked" class="w-4 h-4 text-cyan-400"></i>
+                    <span>Từ Vựng Của Trích Đoạn Này</span>
+                  </h3>
+                  <p class="text-[11px] text-slate-400 mt-0.5">Từ vựng giao tiếp thực tế trong phim</p>
+                </div>
+                <button onclick="saveAllCinemaWordsToFlashcard()" class="px-3 py-1.5 rounded-xl bg-pink-600/30 hover:bg-pink-600 text-pink-300 hover:text-white text-xs font-bold transition flex items-center gap-1 border border-pink-500/40 shadow-sm active:scale-95">
+                  <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i> + Lưu tất cả
+                </button>
+              </div>
+              <div id="cinemaVocabContainer" class="space-y-2.5">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW 2: COMPREHENSIVE AGGREGATED MOVIE VOCABULARY DECK -->
+      <div id="cinemaAggregatedVocabView" class="hidden space-y-6">
+        <!-- Filter Toolbar -->
+        <div class="glass-card p-5 rounded-2xl border border-amber-500/40 bg-slate-900/90 shadow-xl space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="w-5 h-5 text-amber-400"></i>
+                <h3 class="font-bold text-white text-base">📚 Kho Từ Vựng Toàn Bộ Các Bộ Phim Song Ngữ</h3>
+                <span id="cinemaTotalVocabBadge" class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs border border-amber-500/30">
+                  40+ Từ Vựng
+                </span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1">Tổng hợp toàn bộ từ vựng, thành ngữ giao tiếp từ tất cả các trích đoạn phim kinh điển. Học từ vựng theo ngữ cảnh thực tế và lưu vào Flashcard Spaced Repetition!</p>
+            </div>
+            <div class="shrink-0">
+              <button onclick="saveFilteredCinemaWordsToFlashcard()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 hover:to-rose-500 text-white font-bold text-xs shadow-lg shadow-amber-950/40 transition flex items-center gap-2 active:scale-95">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span id="btnSaveAllFilteredMovieVocabText">+ Thêm Toàn Bộ Vào Flashcard Ôn Tập</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Filter Controls -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <!-- Filter by Movie -->
+            <div class="flex items-center gap-2 flex-wrap" id="cinemaMovieFilterButtons">
+              <!-- Rendered by JS -->
+            </div>
+
+            <!-- Search Filter -->
+            <div class="relative w-full md:w-64">
+              <input 
+                type="text" 
+                id="cinemaVocabSearchInput"
+                oninput="filterCinemaVocabBySearch(this.value)"
+                placeholder="Tìm từ vựng hoặc nghĩa..."
+                class="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-800/80 border border-slate-700 text-white text-xs placeholder-slate-400 focus:outline-none focus:border-amber-500"
+              />
+              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Word Cards Grid -->
+        <div id="cinemaAggregatedVocabGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Rendered by JS -->
         </div>
       </div>
     </section>
 
-    <!-- ============================================================================ -->
-    <!-- TAB: VIETNAM TODAY DAILY VIDEO & VOCABULARY HUB (VTV4) -->
-    <!-- ============================================================================ -->
     <section id="tab-video" class="hidden space-y-6">
       <!-- Header Banner -->
       <div class="glass-card rounded-2xl p-6 border border-rose-500/40 relative overflow-hidden bg-gradient-to-br from-rose-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-3">
@@ -1619,36 +1682,36 @@
 
   <!-- ================= BOTTOM NAVIGATION BAR (MOBILE) ================= -->
   <footer class="md:hidden fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-slate-800 px-2 py-1.5">
-    <div class="grid grid-cols-7 gap-0.5 text-center">
-      <button onclick="switchTab('today')" id="mob-btn-today" class="mob-tab active flex flex-col items-center py-1 text-indigo-400">
+    <div class="flex items-center justify-between gap-1 text-center overflow-x-auto no-scrollbar py-0.5">
+      <button onclick="switchTab('today')" id="mob-btn-today" class="mob-tab active shrink-0 min-w-[54px] flex flex-col items-center py-1 text-indigo-400">
         <i data-lucide="calendar" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Hôm nay</span>
       </button>
-      <button onclick="switchTab('flashcard')" id="mob-btn-flashcard" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+      <button onclick="switchTab('flashcard')" id="mob-btn-flashcard" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="layers" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Thẻ từ</span>
       </button>
-      <button onclick="switchTab('listening')" id="mob-btn-listening" class="mob-tab flex flex-col items-center py-1 text-slate-400" title="Luyện nghe chuẩn đề thi">
+      <button onclick="switchTab('listening')" id="mob-btn-listening" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400" title="Luyện nghe chuẩn đề thi">
         <i data-lucide="headphones" class="w-5 h-5 text-cyan-400"></i>
         <span class="text-[10px] font-semibold mt-1">Nghe (2/N)</span>
       </button>
-      <button onclick="switchTab('cinema')" id="mob-btn-cinema" class="mob-tab flex flex-col items-center py-1 text-slate-400" title="Phim Song Ngữ">
+      <button onclick="switchTab('cinema')" id="mob-btn-cinema" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400" title="Phim Song Ngữ">
         <i data-lucide="film" class="w-5 h-5 text-pink-400"></i>
         <span class="text-[10px] font-semibold mt-1">Phim</span>
       </button>
-      <button onclick="switchTab('video')" id="mob-btn-video" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+      <button onclick="switchTab('video')" id="mob-btn-video" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="tv" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Video</span>
       </button>
-      <button onclick="switchTab('review')" id="mob-btn-review" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+      <button onclick="switchTab('review')" id="mob-btn-review" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="rotate-cw" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Ôn tập</span>
       </button>
-      <button onclick="switchTab('reader')" id="mob-btn-reader" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+      <button onclick="switchTab('reader')" id="mob-btn-reader" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="newspaper" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Đọc hiểu</span>
       </button>
-      <button onclick="switchTab('grammar')" id="mob-btn-grammar" class="mob-tab flex flex-col items-center py-1 text-slate-400">
+      <button onclick="switchTab('grammar')" id="mob-btn-grammar" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="book-marked" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Ngữ pháp</span>
       </button>
@@ -1990,7 +2053,7 @@
         </p>
 
         <div class="inline-block p-3 rounded-2xl bg-white shadow-xl">
-          <img src="/mobile_qr.png?v=3" alt="QR Code" class="w-48 h-48 mx-auto" id="mobileQrImg" />
+          <img src="./mobile_qr.png?v=3" alt="QR Code" class="w-48 h-48 mx-auto" id="mobileQrImg" />
         </div>
 
         <div class="space-y-1.5 text-left bg-slate-900/90 p-3 rounded-xl border border-indigo-500/40 text-xs">
@@ -2259,19 +2322,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=42.0"></script>
-  <script src="/listening_data.js?v=42.0"></script>
-  <script src="/vietnam_today_data.js?v=42.0"></script>
-  <script src="/international_news_videos.js?v=42.0"></script>
-  <script src="/bilingual_cinema_data.js?v=42.0"></script>
-  <script src="/bilingual_news_data.js?v=42.0"></script>
-  <script src="/reading_lexicon.js?v=42.0"></script>
-  <script src="/app.js?v=42.0"></script>
+  <script src="./data.js?v=43.0"></script>
+  <script src="./listening_data.js?v=43.0"></script>
+  <script src="./vietnam_today_data.js?v=43.0"></script>
+  <script src="./international_news_videos.js?v=43.0"></script>
+  <script src="./bilingual_cinema_data.js?v=43.0"></script>
+  <script src="./bilingual_news_data.js?v=43.0"></script>
+  <script src="./reading_lexicon.js?v=43.0"></script>
+  <script src="./app.js?v=43.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=42.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=43.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

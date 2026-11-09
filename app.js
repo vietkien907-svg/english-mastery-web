@@ -360,6 +360,7 @@ async function logoutUser() {
 // ================= TAB NAVIGATION =================
 function switchTab(tabId) {
   if (tabId === "reading") tabId = "reader";
+  if (tabId === "film" || tabId === "phim" || tabId === "movie" || tabId === "movies") tabId = "cinema";
   appState.activeTab = tabId;
 
   // Sync nav buttons
@@ -5999,13 +6000,61 @@ async function translateWordClient(rawWord, contextSentence = "") {
 
 // ============================================================================
 // BILINGUAL CINEMA & TV SERIES CONTROLLER (PHIM SONG NGỮ ANH - VIỆT)
+// Comprehensive Movie Watch + Aggregated Vocab Deck with Spaced Repetition Flashcard
 // ============================================================================
 let currentCinemaIdx = 0;
 let currentCinemaSubMode = "bilingual"; // 'bilingual', 'en', 'none'
+let currentCinemaView = "player"; // 'player' or 'vocab'
+let currentCinemaVocabMovieFilter = "all";
+let currentCinemaVocabSearchQuery = "";
+
+function switchCinemaView(view) {
+  currentCinemaView = view;
+  const playerView = document.getElementById("cinemaPlayerView");
+  const vocabView = document.getElementById("cinemaAggregatedVocabView");
+  const btnPlayer = document.getElementById("btnCinemaViewPlayer");
+  const btnVocab = document.getElementById("btnCinemaViewVocabDeck");
+  const subModeBar = document.getElementById("cinemaSubModeBar");
+
+  if (view === "vocab") {
+    if (playerView) playerView.classList.add("hidden");
+    if (vocabView) vocabView.classList.remove("hidden");
+    if (subModeBar) subModeBar.classList.add("hidden");
+
+    if (btnVocab) {
+      btnVocab.className = "px-3 py-1.5 rounded-lg bg-pink-600 text-white font-bold text-xs shadow transition flex items-center gap-1.5";
+    }
+    if (btnPlayer) {
+      btnPlayer.className = "px-3 py-1.5 rounded-lg text-slate-300 hover:text-white font-bold text-xs transition flex items-center gap-1.5";
+    }
+
+    renderCinemaMovieFilterButtons();
+    renderAllCinemaAggregatedVocab();
+  } else {
+    if (vocabView) vocabView.classList.add("hidden");
+    if (playerView) playerView.classList.remove("hidden");
+    if (subModeBar) subModeBar.classList.remove("hidden");
+
+    if (btnPlayer) {
+      btnPlayer.className = "px-3 py-1.5 rounded-lg bg-pink-600 text-white font-bold text-xs shadow transition flex items-center gap-1.5";
+    }
+    if (btnVocab) {
+      btnVocab.className = "px-3 py-1.5 rounded-lg text-slate-300 hover:text-white font-bold text-xs transition flex items-center gap-1.5";
+    }
+  }
+
+  if (window.lucide) lucide.createIcons();
+}
 
 function initBilingualCinemaModule() {
+  if (typeof BILINGUAL_MOVIES === "undefined" || !Array.isArray(BILINGUAL_MOVIES) || !BILINGUAL_MOVIES.length) {
+    console.warn("BILINGUAL_MOVIES not yet ready.");
+    return;
+  }
   renderCinemaPlaylist();
-  loadCinemaMovie(0);
+  loadCinemaMovie(currentCinemaIdx);
+  renderCinemaMovieFilterButtons();
+  renderAllCinemaAggregatedVocab();
 }
 
 function renderCinemaPlaylist() {
@@ -6018,19 +6067,21 @@ function renderCinemaPlaylist() {
   let html = "";
   BILINGUAL_MOVIES.forEach((m, idx) => {
     const isActive = (idx === currentCinemaIdx);
-    const borderClass = isActive ? "border-pink-500 bg-pink-950/40 shadow-lg" : "border-slate-800 bg-slate-900/60 hover:bg-slate-800/80";
+    const borderClass = isActive ? "border-pink-500 bg-pink-950/40 shadow-lg shadow-pink-950/40 ring-1 ring-pink-500/50" : "border-slate-800 bg-slate-900/60 hover:bg-slate-800/80";
+    const genreText = (m.genre || "Phim Hay").split("•")[0].trim();
+
     html += `
-      <div onclick="selectCinemaMovie(${idx})" class="p-3 rounded-xl border ${borderClass} cursor-pointer transition flex items-center gap-3">
-        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-pink-400 font-bold shrink-0 border border-slate-700">
-          <i data-lucide="${isActive ? 'play' : 'film'}" class="w-5 h-5"></i>
+      <div onclick="selectCinemaMovie(${idx})" class="p-3 rounded-xl border ${borderClass} cursor-pointer transition flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-pink-400 font-bold shrink-0 border border-slate-700 group-hover:scale-105 transition">
+          <i data-lucide="${isActive ? 'play' : 'film'}" class="w-5 h-5 ${isActive ? 'text-pink-400 fill-pink-400/30' : 'text-slate-400'}"></i>
         </div>
         <div class="min-w-0 flex-1">
           <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="text-[10px] px-1.5 py-0.2 rounded bg-pink-500/20 text-pink-300 font-bold font-mono">${m.duration}</span>
-            <span class="text-[10px] text-slate-400">${m.genre.split('•')[0]}</span>
+            <span class="text-[10px] px-1.5 py-0.2 rounded bg-pink-500/20 text-pink-300 font-bold font-mono">${m.duration || "03:30"}</span>
+            <span class="text-[10px] text-slate-400 truncate">${genreText}</span>
           </div>
-          <h4 class="font-bold text-white text-xs truncate mt-0.5">${m.title}</h4>
-          <p class="text-[11px] text-slate-400 truncate">${m.vnTitle}</p>
+          <h4 class="font-bold text-white text-xs truncate mt-0.5 group-hover:text-pink-300 transition">${m.title}</h4>
+          <p class="text-[11px] text-slate-400 truncate">${m.vnTitle || ""}</p>
         </div>
       </div>
     `;
@@ -6075,7 +6126,10 @@ function loadCinemaMovie(idx) {
     titleEl.innerHTML = `
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <span>${m.title}</span>
-        <span class="text-xs px-2.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 font-bold border border-pink-500/30 font-mono">${m.level}</span>
+        <div class="flex items-center gap-2">
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 font-bold border border-pink-500/30 font-mono">${m.level || 'B1-B2'}</span>
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 font-mono">${m.duration || ''}</span>
+        </div>
       </div>
     `;
   }
@@ -6089,18 +6143,21 @@ function loadCinemaMovie(idx) {
         <button onclick="reloadCinemaMoviePlayer()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
           <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Tải lại Player
         </button>
+        <button onclick="switchCinemaView('vocab')" class="px-3 py-1.5 rounded-xl bg-amber-600/30 hover:bg-amber-600 text-amber-300 hover:text-white text-xs font-semibold border border-amber-500/40 transition flex items-center gap-1">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i> Xem kho từ vựng toàn bộ phim (${m.vocabulary ? m.vocabulary.length : 0} từ phim này)
+        </button>
       </div>
     `;
   }
 
   // 3. Key Expressions
-  renderCinemaExpressions(m.key_expressions);
+  renderCinemaExpressions(m.key_expressions || [], idx);
 
   // 4. Subtitles
-  renderCinemaSubtitles(m.subtitles);
+  renderCinemaSubtitles(m.subtitles || [], idx);
 
-  // 5. Vocab
-  renderCinemaVocab(m.vocabulary);
+  // 5. Vocab from this movie
+  renderCinemaVocab(m.vocabulary || [], idx);
 
   if (window.lucide) lucide.createIcons();
 }
@@ -6116,49 +6173,76 @@ function setCinemaSubMode(mode) {
     const btn = document.getElementById(`btnSub${m.charAt(0).toUpperCase() + m.slice(1)}`);
     if (btn) {
       if (m === mode) {
-        btn.className = "px-3 py-1.5 rounded-xl bg-indigo-600 text-white font-bold text-xs shadow transition";
+        btn.className = "px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-bold text-xs shadow transition";
       } else {
-        btn.className = "px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition";
+        btn.className = "px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition";
       }
     }
   });
 
   const curMovie = BILINGUAL_MOVIES[currentCinemaIdx];
-  if (curMovie) renderCinemaSubtitles(curMovie.subtitles);
+  if (curMovie) renderCinemaSubtitles(curMovie.subtitles || [], currentCinemaIdx);
 }
 
-function renderCinemaExpressions(expressions) {
+function playCinemaExpressionByIndex(movieIdx, exprIdx) {
+  const m = BILINGUAL_MOVIES[movieIdx];
+  if (!m || !m.key_expressions || !m.key_expressions[exprIdx]) return;
+  const expr = m.key_expressions[exprIdx];
+  speakText(expr.phrase);
+}
+
+function renderCinemaExpressions(expressions, movieIdx) {
   const container = document.getElementById("cinemaExpressionsContainer");
   if (!container || !Array.isArray(expressions)) return;
 
+  if (expressions.length === 0) {
+    container.innerHTML = `<p class="text-xs text-slate-400 italic">Đang cập nhật các thành ngữ trích đoạn...</p>`;
+    return;
+  }
+
   let html = "";
-  expressions.forEach(e => {
+  expressions.forEach((e, exprIdx) => {
+    const noteText = e.note || e.example || "";
     html += `
       <div class="p-3.5 rounded-xl bg-slate-900/60 border border-amber-500/20 space-y-1 hover:border-amber-500/40 transition">
         <div class="flex items-center justify-between gap-2">
           <span class="font-bold text-amber-300 text-xs sm:text-sm">"${e.phrase}"</span>
-          <button onclick="speakText('${e.phrase.replace(/'/g, "\'")}')" class="p-1 rounded bg-amber-500/20 text-amber-300 hover:text-white hover:bg-amber-500 transition" title="Nghe phát âm">
+          <button onclick="playCinemaExpressionByIndex(${movieIdx}, ${exprIdx})" class="p-1 rounded bg-amber-500/20 text-amber-300 hover:text-white hover:bg-amber-500 transition" title="Nghe phát âm">
             <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
           </button>
         </div>
-        <p class="text-xs text-slate-200 font-medium">${e.vi}</p>
-        <p class="text-[11px] text-slate-400 italic">${e.note || ""}</p>
+        <p class="text-xs text-slate-200 font-medium">${e.vi || ""}</p>
+        ${noteText ? `<p class="text-[11px] text-slate-400 italic">Ghi chú: ${noteText}</p>` : ""}
       </div>
     `;
   });
+
   container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
 }
 
-function renderCinemaSubtitles(subtitles) {
+function playSubtitleSentenceByIndex(movieIdx, subIdx) {
+  const m = BILINGUAL_MOVIES[movieIdx];
+  if (!m || !m.subtitles || !m.subtitles[subIdx]) return;
+  speakText(m.subtitles[subIdx].en);
+}
+
+function lookupSubtitleWordByIndex(movieIdx, subIdx, cleanWord) {
+  const m = BILINGUAL_MOVIES[movieIdx];
+  const sentence = (m && m.subtitles && m.subtitles[subIdx]) ? m.subtitles[subIdx].en : "";
+  showWordPopup(cleanWord, sentence);
+}
+
+function renderCinemaSubtitles(subtitles, movieIdx) {
   const container = document.getElementById("cinemaSubtitlesList");
   if (!container || !Array.isArray(subtitles)) return;
 
   if (currentCinemaSubMode === "none") {
     container.innerHTML = `
-      <div class="p-6 text-center text-slate-400 space-y-2">
-        <i data-lucide="eye-off" class="w-8 h-8 mx-auto text-slate-500"></i>
-        <p class="text-xs font-semibold">Chế độ thử thách: Đã ẩn toàn bộ phụ đề để rèn luyện thính giác tự nhiên.</p>
-        <button onclick="setCinemaSubMode('bilingual')" class="px-3 py-1.5 rounded-xl bg-pink-600/30 text-pink-300 hover:bg-pink-600 hover:text-white text-xs font-bold transition">
+      <div class="p-8 text-center text-slate-400 space-y-3">
+        <i data-lucide="eye-off" class="w-8 h-8 mx-auto text-pink-400"></i>
+        <p class="text-xs font-semibold text-slate-200">Chế độ thử thách: Đã ẩn toàn bộ phụ đề để rèn luyện thính giác tự nhiên.</p>
+        <button onclick="setCinemaSubMode('bilingual')" class="px-4 py-2 rounded-xl bg-pink-600/30 text-pink-300 hover:bg-pink-600 hover:text-white text-xs font-bold transition">
           Bật lại phụ đề song ngữ
         </button>
       </div>
@@ -6169,25 +6253,25 @@ function renderCinemaSubtitles(subtitles) {
 
   let html = "";
   subtitles.forEach((s, sIdx) => {
-    // Make each word clickable for 1-click lookup
+    // Safe word tokenization without quote collisions
     const wordsTokens = s.en.split(/\s+/).map(tok => {
       const clean = tok.replace(/[^a-zA-Z]/g, "");
       if (!clean) return tok;
-      return `<span onclick="showWordPopup('${clean}', '${s.en.replace(/'/g, "\'")}')" class="hover:text-pink-300 hover:underline cursor-pointer transition">${tok}</span>`;
+      return `<span onclick="lookupSubtitleWordByIndex(${movieIdx}, ${sIdx}, '${clean}')" class="hover:text-pink-300 hover:underline cursor-pointer transition font-medium">${tok}</span>`;
     }).join(" ");
 
     html += `
-      <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1 hover:border-pink-500/30 transition">
+      <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1.5 hover:border-pink-500/30 transition group">
         <div class="flex items-center justify-between gap-2">
           <span class="px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 font-mono font-bold text-[10px] flex items-center gap-1">
             <i data-lucide="clock" class="w-3 h-3"></i> ${s.start}
           </span>
-          <button onclick="speakText('${s.en.replace(/'/g, "\'")}')" class="p-1 rounded bg-slate-800 hover:bg-pink-600/30 text-slate-400 hover:text-pink-300 transition" title="Nghe câu thoại">
+          <button onclick="playSubtitleSentenceByIndex(${movieIdx}, ${sIdx})" class="p-1 rounded bg-slate-800 hover:bg-pink-600/30 text-slate-400 hover:text-pink-300 transition" title="Nghe toàn bộ câu thoại này">
             <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
           </button>
         </div>
         <p class="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">${wordsTokens}</p>
-        ${currentCinemaSubMode === "bilingual" ? `<p class="text-xs text-slate-400 italic pt-1 border-t border-slate-800/60">${s.vi}</p>` : ""}
+        ${currentCinemaSubMode === "bilingual" ? `<p class="text-xs text-slate-400 italic pt-1 border-t border-slate-800/60 leading-relaxed">${s.vi}</p>` : ""}
       </div>
     `;
   });
@@ -6196,30 +6280,67 @@ function renderCinemaSubtitles(subtitles) {
   if (window.lucide) lucide.createIcons();
 }
 
-function renderCinemaVocab(vocabList) {
+function renderCinemaVocab(vocabList, movieIdx) {
   const container = document.getElementById("cinemaVocabContainer");
   if (!container || !Array.isArray(vocabList)) return;
 
+  const curMovie = BILINGUAL_MOVIES[movieIdx] || {};
   let html = "";
-  vocabList.forEach(v => {
+  vocabList.forEach((v, vIdx) => {
+    const btnId = `btn-save-movie-word-${movieIdx}-${vIdx}`;
     html += `
-      <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800 space-y-1 text-xs">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-1.5">
-            <strong class="text-white text-sm">${v.word}</strong>
-            <span class="text-[10px] text-slate-400 font-mono">${v.ipa}</span>
+      <div class="glass-card p-3.5 rounded-xl border border-slate-800 hover:border-cyan-500/40 transition space-y-2 bg-slate-900/70">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-1.5">
+              <strong class="text-amber-300 text-sm font-mono">${v.word}</strong>
+              <button onclick="speakWord('${v.word}')" class="p-1 rounded bg-slate-800 hover:bg-cyan-600/30 text-cyan-400 transition" title="Nghe phát âm">
+                <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <div class="text-[10px] text-cyan-300 font-mono">${v.ipa || ''} • <span class="text-slate-400">${v.pos || ''}</span></div>
           </div>
-          <button onclick="speakWord('${v.word}')" class="p-1 rounded bg-slate-800 hover:bg-cyan-600/30 text-cyan-400 transition" title="Nghe phát âm">
-            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+          <button id="${btnId}" onclick="saveSingleCinemaWordToFlashcard('${v.word}', '${v.meaning_vi || v.meaning}', '${v.pos || 'Từ vựng'}', '${v.ipa || ''}', '${(v.example || '').replace(/'/g, "\\'")}', '${(curMovie.title || '').replace(/'/g, "\\'")}', '${btnId}')" class="px-2.5 py-1 rounded-lg bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-[11px] font-bold border border-indigo-500/40 transition flex items-center gap-1 shadow-sm shrink-0">
+            <i data-lucide="bookmark-plus" class="w-3 h-3"></i> + Lưu
           </button>
         </div>
-        <p class="text-cyan-300 font-semibold">${v.meaning_vi || v.meaning}</p>
+        <p class="text-xs text-slate-100 font-medium">🇻🇳 ${v.meaning_vi || v.meaning}</p>
         <p class="text-[11px] text-slate-400 italic">"${v.example}"</p>
       </div>
     `;
   });
+
   container.innerHTML = html;
   if (window.lucide) lucide.createIcons();
+}
+
+function saveSingleCinemaWordToFlashcard(word, meaning_vi, pos, ipa, example, movieTitle, btnId) {
+  const item = {
+    word: word,
+    pos: pos || "Từ vựng",
+    pron: ipa || `/${word.toLowerCase()}/`,
+    meaning_vi: meaning_vi,
+    meaning_en: `Context from movie: ${movieTitle}`,
+    example: example || `Dialogue sentence in ${movieTitle}`,
+    source: "Phim Song Ngữ",
+    cardOrigin: "cinema",
+    cardOriginText: `🎬 Phim: ${(movieTitle || 'Điện ảnh').substring(0, 20)}...`,
+    type: "word"
+  };
+
+  saveCustomWordItem(item);
+
+  if (btnId) {
+    const btn = document.getElementById(btnId);
+    if (btn) {
+      btn.innerHTML = `<i data-lucide="check" class="w-3 h-3"></i> ✓ Đã lưu`;
+      btn.className = "px-2.5 py-1 rounded-lg bg-emerald-600 text-white text-[11px] font-bold transition flex items-center gap-1 shadow-sm shrink-0";
+      if (window.lucide) lucide.createIcons();
+    }
+  }
+
+  showToast(`🎉 Đã thêm từ "${word}" vào bộ Flashcard ôn tập!`, "success");
+  if (typeof triggerBackgroundCloudSync === "function") triggerBackgroundCloudSync();
 }
 
 function saveAllCinemaWordsToFlashcard() {
@@ -6230,7 +6351,7 @@ function saveAllCinemaWordsToFlashcard() {
   curMovie.vocabulary.forEach(v => {
     const item = {
       word: v.word,
-      pos: v.pos || "word",
+      pos: v.pos || "Từ vựng",
       pron: v.ipa || `/${v.word}/`,
       meaning_vi: v.meaning_vi || v.meaning,
       meaning_en: `Vocabulary from movie: ${curMovie.title}`,
@@ -6243,8 +6364,204 @@ function saveAllCinemaWordsToFlashcard() {
     saveCustomWordItem(item);
     added++;
   });
-  showToast(`🎉 Đã lưu toàn bộ ${added} từ vựng của phim vào bộ Flashcard ôn tập!`, "success");
+
+  renderCinemaVocab(curMovie.vocabulary, currentCinemaIdx);
+  showToast(`🎉 Đã lưu toàn bộ ${added} từ vựng của phim "${curMovie.title.substring(0, 25)}..." vào Flashcard ôn tập!`, "success");
+  if (typeof triggerBackgroundCloudSync === "function") triggerBackgroundCloudSync();
 }
+
+// ============================================================================
+// AGGREGATED MOVIE VOCABULARY DECK CONTROLLER (TỔNG HỢP TOÀN BỘ TỪ VỰNG PHIM)
+// ============================================================================
+function getAllCinemaWords() {
+  if (typeof BILINGUAL_MOVIES === "undefined" || !Array.isArray(BILINGUAL_MOVIES)) return [];
+  const words = [];
+  BILINGUAL_MOVIES.forEach((m, mIdx) => {
+    (m.vocabulary || []).forEach((v, vIdx) => {
+      words.push({
+        ...v,
+        movieIdx: mIdx,
+        vocabIdx: vIdx,
+        movieId: m.id,
+        movieTitle: m.title,
+        movieVnTitle: m.vnTitle
+      });
+    });
+  });
+  return words;
+}
+
+function getFilteredCinemaWords() {
+  const all = getAllCinemaWords();
+  return all.filter(item => {
+    // Filter by movie
+    if (currentCinemaVocabMovieFilter !== "all" && item.movieId !== currentCinemaVocabMovieFilter) {
+      return false;
+    }
+    // Filter by search query
+    if (currentCinemaVocabSearchQuery && currentCinemaVocabSearchQuery.trim()) {
+      const q = currentCinemaVocabSearchQuery.toLowerCase().trim();
+      const matchWord = (item.word || "").toLowerCase().includes(q);
+      const matchMeaning = (item.meaning_vi || item.meaning || "").toLowerCase().includes(q);
+      const matchExample = (item.example || "").toLowerCase().includes(q);
+      const matchMovie = (item.movieTitle || "").toLowerCase().includes(q);
+      if (!matchWord && !matchMeaning && !matchExample && !matchMovie) return false;
+    }
+    return true;
+  });
+}
+
+function renderCinemaMovieFilterButtons() {
+  const container = document.getElementById("cinemaMovieFilterButtons");
+  if (!container || typeof BILINGUAL_MOVIES === "undefined" || !Array.isArray(BILINGUAL_MOVIES)) return;
+
+  let html = `
+    <button onclick="filterCinemaVocabByMovie('all')" id="btnMovieFilter-all" class="px-3 py-1.5 rounded-xl font-bold text-xs transition ${currentCinemaVocabMovieFilter === 'all' ? 'bg-amber-600 text-white shadow' : 'bg-slate-800 text-slate-300 hover:text-white'}">
+      Tất Cả Phim
+    </button>
+  `;
+
+  BILINGUAL_MOVIES.forEach(m => {
+    const isSelected = (currentCinemaVocabMovieFilter === m.id);
+    const shortTitle = m.title.split(":")[0];
+    html += `
+      <button onclick="filterCinemaVocabByMovie('${m.id}')" id="btnMovieFilter-${m.id}" class="px-3 py-1.5 rounded-xl font-bold text-xs transition ${isSelected ? 'bg-amber-600 text-white shadow' : 'bg-slate-800 text-slate-300 hover:text-white'}">
+        ${shortTitle}
+      </button>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function filterCinemaVocabByMovie(movieId) {
+  currentCinemaVocabMovieFilter = movieId;
+  renderCinemaMovieFilterButtons();
+  renderAllCinemaAggregatedVocab();
+}
+
+function filterCinemaVocabBySearch(query) {
+  currentCinemaVocabSearchQuery = query || "";
+  renderAllCinemaAggregatedVocab();
+}
+
+function renderAllCinemaAggregatedVocab() {
+  const container = document.getElementById("cinemaAggregatedVocabGrid");
+  const badge = document.getElementById("cinemaTotalVocabBadge");
+  const btnText = document.getElementById("btnSaveAllFilteredMovieVocabText");
+  if (!container) return;
+
+  const filtered = getFilteredCinemaWords();
+  const all = getAllCinemaWords();
+
+  if (badge) {
+    badge.innerText = `${filtered.length}/${all.length} Từ Vựng Phim`;
+  }
+  if (btnText) {
+    btnText.innerText = `+ Thêm Toàn Bộ ${filtered.length} Từ Này Vào Flashcard`;
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full p-8 text-center text-slate-400 glass-card rounded-2xl border border-slate-800 space-y-3">
+        <i data-lucide="book-x" class="w-8 h-8 mx-auto text-slate-500"></i>
+        <p class="text-sm font-semibold text-slate-300">Không tìm thấy từ vựng phim nào phù hợp với bộ lọc.</p>
+        <button onclick="filterCinemaVocabByMovie('all')" class="px-4 py-2 rounded-xl bg-amber-600 text-white font-bold text-xs">
+          Xem tất cả từ vựng phim
+        </button>
+      </div>
+    `;
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
+
+  let html = "";
+  filtered.forEach((item, idx) => {
+    const btnId = `btn-save-agg-word-${item.movieIdx}-${item.vocabIdx}`;
+    html += `
+      <div class="glass-card p-4 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition space-y-3 bg-slate-900/80 shadow-lg group flex flex-col justify-between">
+        <div class="space-y-2">
+          <!-- Top row: Word, IPA, Audio & Action -->
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-lg font-black text-amber-300 font-mono tracking-wide">${item.word}</span>
+                <button onclick="speakWord('${item.word}')" class="p-1.5 rounded-lg bg-amber-500/20 text-amber-300 hover:text-white hover:bg-amber-600 transition active:scale-90" title="🔊 Nghe phát âm chuẩn US">
+                  <i data-lucide="volume-2" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <div class="text-[11px] text-cyan-300 font-mono mt-0.5">
+                ${item.ipa || ''} • <span class="text-slate-400">${item.pos || 'Từ vựng'}</span>
+              </div>
+            </div>
+
+            <button id="${btnId}" onclick="saveSingleCinemaWordToFlashcard('${item.word}', '${item.meaning_vi || item.meaning}', '${item.pos || 'Từ vựng'}', '${item.ipa || ''}', '${(item.example || '').replace(/'/g, "\\'")}', '${(item.movieTitle || '').replace(/'/g, "\\'")}', '${btnId}')" class="px-3 py-1.5 rounded-xl bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/40 transition shadow-sm flex items-center gap-1 active:scale-95 shrink-0">
+              <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i>
+              <span>+ Lưu Flashcard</span>
+            </button>
+          </div>
+
+          <!-- Meaning badge -->
+          <div class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs sm:text-sm text-slate-100 font-medium leading-snug">
+            🇻🇳 ${item.meaning_vi || item.meaning}
+          </div>
+
+          <!-- Context example -->
+          <div class="text-xs text-slate-300 pl-2.5 border-l-2 border-amber-500/50 space-y-1">
+            <p class="font-medium text-slate-200 leading-relaxed">${item.example}</p>
+            ${item.example_vi ? `<p class="text-slate-400 italic text-[11px] leading-relaxed">${item.example_vi}</p>` : ''}
+          </div>
+        </div>
+
+        <!-- Footer: Source Movie Badge & Jump to Scene -->
+        <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-2 mt-2">
+          <span class="text-[10px] text-pink-300 font-medium truncate flex items-center gap-1">
+            <i data-lucide="film" class="w-3 h-3 text-pink-400"></i>
+            ${item.movieTitle.split(':')[0]}
+          </span>
+          <button onclick="selectCinemaMovie(${item.movieIdx}); switchCinemaView('player')" class="text-[10px] text-slate-400 hover:text-white font-semibold transition flex items-center gap-0.5">
+            Xem phân cảnh <i data-lucide="arrow-right" class="w-3 h-3"></i>
+          </button>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function saveFilteredCinemaWordsToFlashcard() {
+  const filtered = getFilteredCinemaWords();
+  if (!filtered.length) {
+    showToast("Không có từ vựng nào để lưu!", "warning");
+    return;
+  }
+
+  let added = 0;
+  filtered.forEach(item => {
+    const flashcardItem = {
+      word: item.word,
+      pos: item.pos || "Từ vựng",
+      pron: item.ipa || `/${item.word.toLowerCase()}/`,
+      meaning_vi: item.meaning_vi || item.meaning,
+      meaning_en: `Context from movie: ${item.movieTitle}`,
+      example: item.example || `Dialogue sentence in ${item.movieTitle}`,
+      source: "Phim Song Ngữ",
+      cardOrigin: "cinema",
+      cardOriginText: `🎬 Phim: ${(item.movieTitle || 'Điện ảnh').substring(0, 20)}...`,
+      type: "word"
+    };
+    saveCustomWordItem(flashcardItem);
+    added++;
+  });
+
+  renderAllCinemaAggregatedVocab();
+  showToast(`🎉 Đã thêm thành công toàn bộ ${added} từ vựng phim vào bộ Flashcard ôn tập!`, "success");
+  if (typeof triggerBackgroundCloudSync === "function") triggerBackgroundCloudSync();
+}
+
 
 // ============================================================================
 // BILINGUAL GLOBAL NEWS CONTROLLER (BÁO SONG NGỮ QUỐC TẾ)

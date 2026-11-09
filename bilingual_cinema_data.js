@@ -1,4867 +1,4097 @@
 // ============================================================================
 // BILINGUAL CINEMA & TV SERIES HUB (HỌC TIẾNG ANH QUA 200 BỘ PHIM SONG NGỮ)
-// Ưu tiên đặc biệt 60 Phim Trinh Thám & Tội Phạm Đỉnh Cao (Sherlock, Breaking Bad, Saul, Mindhunter...)
-// Giảm hoạt hình (5 phim) và lãng mạn (5 phim) theo yêu cầu người học
+// ĐẶC BIỆT: 60 Video Hành Động & Đuổi Bắt Tội Phạm Của Việt Nam Bằng Tiếng Anh (Vietnam Police Pursuits)
+// Kèm theo 140 trích đoạn phim song ngữ quốc tế (Sitcom, Tâm lý, Viễn tưởng, Thương trường...)
 // ============================================================================
 
 var BILINGUAL_MOVIES = [
   {
     "id": "movie_1",
-    "title": "Sherlock S01E01: A Study in Pink - The Deduction Masterclass",
-    "vnTitle": "Sherlock S01E01: Màn Suy Luận Người Phụ Nữ Áo Hồng",
-    "series": "Sherlock S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Vietnam Highway Police: High-Speed Pursuit on Phap Van Expressway",
+    "vnTitle": "Cảnh Sát Giao Thông: Màn Rượt Đuổi Tốc Độ Cao Trên Cao Tốc Pháp Vân",
+    "series": "Vietnam Highway Patrol",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "qM-gZintWDc",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Sherlock S01E01: A Study in Pink - The Deduction Masterclass.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Vietnam traffic police officers engage in a high-speed pursuit of an armed contraband vehicle attempting to evade multiple highway checkpoints on the Phap Van - Cau Gie expressway.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Hot pursuit",
+        "vi": "Truy đuổi ráo riết, đuổi bắt bám sát",
+        "note": "Thuật ngữ pháp lý & cảnh sát chỉ việc truy kích tội phạm bỏ chạy."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
+        "phrase": "Box in the vehicle",
+        "vi": "Kỹ thuật ép xe tạo thế gọng kìm",
+        "note": "Chiến thuật cảnh sát dùng xe tuần tra chặn đầu và khóa đuôi đối tượng."
       },
       {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Cut off the escape route",
+        "vi": "Cắt đứt đường tẩu thoát",
+        "note": "Phong tỏa các lối rẽ và chốt chặn phía trước."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "The suspect pickup truck refused to pull over and accelerated through the automated toll barrier.",
+        "vi": "Chiếc xe bán tải khả nghi không chấp hành hiệu lệnh dừng xe mà tăng tốc húc đổ thanh chắn trạm thu phí."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Patrol units immediately initiated a tactical pursuit, coordinating with downstream checkpoints.",
+        "vi": "Các tổ tuần tra lập tức triển khai truy kích chiến thuật, hiệp đồng với các chốt chặn phía trước."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "Officers executed a synchronized box-in maneuver, forcing the runaway vehicle onto the emergency shoulder.",
+        "vi": "Các chiến sĩ thực hiện kỹ thuật ép xe đồng bộ, dồn chiếc xe bỏ chạy vào làn dừng khẩn cấp."
+      },
+      {
+        "start": "00:28",
+        "en": "The driver was incapacitated and apprehended without causing civilian casualties.",
+        "vi": "Đối tượng lái xe bị vô hiệu hóa và bắt giữ mà không gây bất kỳ thiệt hại nào cho người dân."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
-        "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "word": "apprehend",
+        "pos": "Động từ",
+        "ipa": "/ˌæprɪˈhend/",
+        "meaning_vi": "Bắt giữ, tóm gọn đối tượng tội phạm",
+        "example": "Police apprehended the runaway driver.",
+        "example_vi": "Cảnh sát đã bắt gọn đối tượng lái xe bỏ trốn."
       },
       {
-        "word": "perpetrator",
+        "word": "contraband",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/ˈkɑːntrəbænd/",
+        "meaning_vi": "Hàng lậu, hàng cấm vận chuyển",
+        "example": "Officers discovered concealed contraband in the trunk.",
+        "example_vi": "Các chiến sĩ phát hiện hàng cấm giấu kỹ trong cốp xe."
       },
       {
-        "word": "alibi",
-        "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "word": "maneuver",
+        "pos": "Danh từ / Động từ",
+        "ipa": "/məˈnuːvər/",
+        "meaning_vi": "Thao tác cơ động, chiến thuật điều khiển xe",
+        "example": "A tactical maneuver forced the car to halt.",
+        "example_vi": "Thao tác chiến thuật đã buộc chiếc xe phải dừng lại."
       }
     ]
   },
   {
     "id": "movie_2",
-    "title": "Sherlock S01E02: The Blind Banker - Cipher Code Mystery",
-    "vnTitle": "Sherlock S01E02: Bí Ẩn Ký Hiệu Mật Mã Ngân Hàng",
-    "series": "Sherlock S01E02",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "HCMC Task Force 363: Midnight Pursuit of Armed Street Syndicate",
+    "vnTitle": "Tổ Công Tác 363 TP.HCM: Truy Đuổi Băng Nhóm Cướp Giật Ban Đêm",
+    "series": "HCMC Rapid Action Task Force",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "K_tLirMW20o",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Sherlock S01E02: The Blind Banker - Cipher Code Mystery.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Special Task Force 363 in Ho Chi Minh City conducts aggressive high-speed motorcycle pursuit through downtown boulevards to neutralize an armed robbery gang.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Caught red-handed",
+        "vi": "Bắt quả tang tại trận",
+        "note": "Bắt ngay khi đối tượng đang thực hiện hành vi phạm tội."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Neutralize the threat",
+        "vi": "Vô hiệu hóa mối đe dọa",
+        "note": "Tước vũ khí và khống chế kẻ nguy hiểm."
       }
     ],
     "subtitles": [
       {
-        "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "start": "00:05",
+        "en": "Undercover operatives spotted two suspects on high-powered motorbikes stalking pedestrians.",
+        "vi": "Trinh sát ngầm phát hiện hai đối tượng đi xe phân khối lớn bám theo người đi bộ."
       },
       {
-        "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "start": "00:13",
+        "en": "When signaled to stop, the suspects made an aggressive U-turn and fled into narrow alleyways.",
+        "vi": "Khi có hiệu lệnh dừng xe, các đối tượng liều lĩnh quay đầu tháo chạy vào các ngõ hẻm."
       },
       {
-        "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "start": "00:21",
+        "en": "Task Force 363 riders cornered the duo and subdued them before they could draw concealed knives.",
+        "vi": "Các chiến sĩ Tổ 363 dồn đối tượng vào góc hẹp và quật ngã trước khi chúng kịp rút dao thủ sẵn."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
-        "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "word": "undercover",
+        "pos": "Tính từ",
+        "ipa": "/ˌʌndərˈkʌvər/",
+        "meaning_vi": "Cải trang, bí mật, mật vụ ngầm",
+        "example": "Undercover agents tracked the suspects.",
+        "example_vi": "Các trinh sát cải trang đã theo dấu đối tượng."
       },
       {
-        "word": "perpetrator",
-        "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "word": "subdue",
+        "pos": "Động từ",
+        "ipa": "/səbˈduː/",
+        "meaning_vi": "Khống chế, khuất phục, quật ngã",
+        "example": "Officers quickly subdued the resisting suspect.",
+        "example_vi": "Các chiến sĩ nhanh chóng khống chế đối tượng chống cự."
       },
       {
-        "word": "alibi",
+        "word": "pedestrian",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/pəˈdestriən/",
+        "meaning_vi": "Người đi bộ trên đường",
+        "example": "Robbers targeted vulnerable pedestrians.",
+        "example_vi": "Nhóm cướp nhắm vào những người đi bộ sơ hở."
       }
     ]
   },
   {
     "id": "movie_3",
-    "title": "Sherlock S01E03: The Great Game - Moriarty's Pool Countdown",
-    "vnTitle": "Sherlock S01E03: Ván Cờ Moriarty & Đếm Ngược Bể Bơi",
-    "series": "Sherlock S01E03",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Hanoi Special Patrol 141: Intercepting Weapons on Ring Road 3",
+    "vnTitle": "Tổ Công Tác 141 Hà Nội: Chặn Bắt Vận Chuyển Vũ Khí Trên Vành Đai 3",
+    "series": "Hanoi Task Force 141",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "kU8X5b-86Z8",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Sherlock S01E03: The Great Game - Moriarty's Pool Countdown.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Hanoi 141 interdisciplinary police task force spots an evasive car on Ring Road 3, initiating an immediate interception that uncovers concealed illegal firearms.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Evasive maneuvers",
+        "vi": "Hành vi lạng lách né tránh tuần tra",
+        "note": "Hành động cố tình bỏ chạy."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Safety perimeter",
+        "vi": "Vành đai an toàn xung quanh hiện trường",
+        "note": "Bảo vệ khu vực kiểm tra."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "The patrol unit established a tactical cordon near the expressway exit.",
+        "vi": "Tổ công tác lập tức thiết lập hàng rào chiến thuật gần lối ra cao tốc."
       },
       {
-        "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "start": "00:11",
+        "en": "A suspicious sedan attempted to reverse against highway traffic to escape.",
+        "vi": "Một chiếc sedan khả nghi cố tình lùi ngược chiều trên cao tốc để chạy trốn."
       },
       {
-        "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "start": "00:19",
+        "en": "Armed officers breached the vehicle windows and secured loaded firearms under the passenger seat.",
+        "vi": "Cảnh sát phá cửa kính xe, khống chế và thu giữ súng đạn đã lên nòng dưới ghế phụ."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
-        "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "word": "cordon",
+        "pos": "Danh từ / Động từ",
+        "ipa": "/ˈkɔːrdn/",
+        "meaning_vi": "Hàng rào phong tỏa, chốt chặn cách ly",
+        "example": "Police placed a strict cordon around the scene.",
+        "example_vi": "Cảnh sát lập hàng rào phong tỏa nghiêm ngặt hiện trường."
       },
       {
-        "word": "perpetrator",
+        "word": "firearm",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/ˈfaɪərɑːrm/",
+        "meaning_vi": "Súng đạn, vũ khí nóng quân dụng",
+        "example": "Possession of unregistered firearms is strictly illegal.",
+        "example_vi": "Tàng trữ súng đạn không phép là hành vi vi phạm nghiêm trọng."
       },
       {
-        "word": "alibi",
-        "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "word": "intercept",
+        "pos": "Động từ",
+        "ipa": "/ˌɪntərˈsept/",
+        "meaning_vi": "Đón lõng, chặn đầu, bắt giữ",
+        "example": "Patrol teams intercepted the getaway vehicle.",
+        "example_vi": "Các tổ tuần tra đã đón lõng chặn đứng xe tẩu thoát."
       }
     ]
   },
   {
     "id": "movie_4",
-    "title": "Sherlock S02E01: A Scandal in Belgravia - Irene Adler's Code",
-    "vnTitle": "Sherlock S02E01: Mật Mã Trái Tim Irene Adler",
-    "series": "Sherlock S02E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Hanoi - Hai Phong Expressway: High-Speed Midnight Interception",
+    "vnTitle": "Cao Tốc Hà Nội - Hải Phòng: Rượt Đuổi Xe Hàng Lậu Ban Đêm",
+    "series": "Vietnam Highway Patrol",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "DvtxOzO6OAE",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Sherlock S02E01: A Scandal in Belgravia - Irene Adler's Code.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Hanoi - Hai Phong Expressway: High-Speed Midnight Interception.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_5",
-    "title": "Sherlock S02E02: The Hounds of Baskerville - Mind Palace",
-    "vnTitle": "Sherlock S02E02: Lâu Đài Ký Ức & Quái Vật Baskerville",
-    "series": "Sherlock S02E02",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Da Nang Mobile Police: Chasing Armed Motorcycle Syndicate",
+    "vnTitle": "Cảnh Sát Cơ Động Đà Nẵng: Truy Kích Nhóm Tội Phạm Xe Máy",
+    "series": "Da Nang Special Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "bLvqoHBptjg",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Sherlock S02E02: The Hounds of Baskerville - Mind Palace.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Da Nang Mobile Police: Chasing Armed Motorcycle Syndicate.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_6",
-    "title": "Sherlock S02E03: The Reichenbach Fall - Rooftop Confrontation",
-    "vnTitle": "Sherlock S02E03: Đối Đầu Trên Sân Thượng Reichenbach",
-    "series": "Sherlock S02E03",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "National Route 1A: Traffic Police Tactical Blockade of Runaway Truck",
+    "vnTitle": "Quốc Lộ 1A: CSGT Lập Chốt Phong Tỏa Chặn Xe Tải Bỏ Chạy",
+    "series": "Vietnam Traffic Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "vi0Lbjs5ECI",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Sherlock S02E03: The Reichenbach Fall - Rooftop Confrontation.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in National Route 1A: Traffic Police Tactical Blockade of Runaway Truck.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_7",
-    "title": "Sherlock S03E01: The Empty Hearse - The Return of Sherlock",
-    "vnTitle": "Sherlock S03E01: Sự Trở Lại Đầy Bất Ngờ",
-    "series": "Sherlock S03E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Dong Nai Police: Cross-District Chase of Fugitive Bank Robber",
+    "vnTitle": "Công An Đồng Nai: Rượt Đuổi Xuyên Huyện Kẻ Cướp Ngân Hàng",
+    "series": "Criminal Investigation Department",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "LgZBN_5b-eI",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Sherlock S03E01: The Empty Hearse - The Return of Sherlock.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Dong Nai Police: Cross-District Chase of Fugitive Bank Robber.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_8",
-    "title": "Sherlock S03E02: The Sign of Three - The Best Man Speech",
-    "vnTitle": "Sherlock S03E02: Diễn Văn Phù Rể Phá Án Đám Cưới",
-    "series": "Sherlock S03E02",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Binh Duong Special Patrol: Intercepting Illegal Street Racers and Robbers",
+    "vnTitle": "Công An Bình Dương: Trấn Áp Nhóm Đua Xe Quậy Phá & Cướp Giật",
+    "series": "Special Police Patrol",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "Ja2fgquYTCg",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Sherlock S03E02: The Sign of Three - The Best Man Speech.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Binh Duong Special Patrol: Intercepting Illegal Street Racers and Robbers.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_9",
-    "title": "Sherlock S03E03: His Last Vow - Charles Augustus Magnussen",
-    "vnTitle": "Sherlock S03E03: Lời Thề Cuối Cùng & Kẻ Tống Tiền",
-    "series": "Sherlock S03E03",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Quang Ninh Coastal Road: Border Patrol Chases Smuggling Speed Van",
+    "vnTitle": "Đường Ven Biển Quảng Ninh: Biên Phòng Đuổi Bắt Xe Chở Hàng Lậu",
+    "series": "Border Defense Force",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
     "youtubeId": "8MkOT2gvKU8",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Sherlock S03E03: His Last Vow - Charles Augustus Magnussen.",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Quang Ninh Coastal Road: Border Patrol Chases Smuggling Speed Van.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_10",
-    "title": "Sherlock S04E02: The Lying Detective - Culverton Smith",
-    "vnTitle": "Sherlock S04E02: Thám Tử Nói Dối & Tên Sát Nhân",
-    "series": "Sherlock S04E02",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Lang Son Mountain Highway: Ambush and Pursuit of Smuggling Convoy",
+    "vnTitle": "Đường Đèo Lạng Sơn: Phục Kích & Truy Đuổi Đoàn Xe Buôn Lậu",
+    "series": "Border Checkpoint Security",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
     "youtubeId": "U_Z4Uu6dYgU",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Sherlock S04E02: The Lying Detective - Culverton Smith.",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Lang Son Mountain Highway: Ambush and Pursuit of Smuggling Convoy.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_11",
-    "title": "Breaking Bad S01E01: Pilot - Chemistry is the Study of Change",
-    "vnTitle": "Biến Chất S01E01: Hóa Học Là Sự Biến Đổi Cuộc Sống",
-    "series": "Breaking Bad S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Tay Ninh Border Highway: Fast Interception of Contraband Transporters",
+    "vnTitle": "Quốc Lộ Tây Ninh: Chặn Bắt Chớp Nhoáng Kẻ Chở Hàng Lậu Vượt Biên",
+    "series": "Anti-Smuggling Task Force",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "zSWdZVtXT7E",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Breaking Bad S01E01: Pilot - Chemistry is the Study of Change.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Tay Ninh Border Highway: Fast Interception of Contraband Transporters.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_12",
-    "title": "Breaking Bad S01E06: Crazy Handful of Nothin' - Fulminated Mercury",
-    "vnTitle": "Biến Chất S01E06: Thủy Ngân Nổ Đe Dọa Trùm Tuco",
-    "series": "Breaking Bad S01E06",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Hai Phong City Tactical Blockade: Apprehending Dangerous Wanted Criminal",
+    "vnTitle": "Công An Hải Phòng: Phong Tỏa Tuyến Phố Bắt Đối Tượng Truy Nã Nguy Hiểm",
+    "series": "Hai Phong Rapid Response",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "yoGkj1nI-bU",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Breaking Bad S01E06: Crazy Handful of Nothin' - Fulminated Mercury.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Hai Phong City Tactical Blockade: Apprehending Dangerous Wanted Criminal.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_13",
-    "title": "Breaking Bad S02E09: 4 Days Out - Science in the Desert",
-    "vnTitle": "Biến Chất S02E09: Bốn Ngày Giữa Sa Mạc",
-    "series": "Breaking Bad S02E09",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Operation Long Luong: Elite Police Assault on Armed Drug Stronghold",
+    "vnTitle": "Chiến Dịch Lóng Luông: Đột Kích Cứ Điểm Ma Túy Khét Tiếng",
+    "series": "Vietnam Anti-Narcotics Police (C04)",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "QfbaI9r3rYQ",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Breaking Bad S02E09: 4 Days Out - Science in the Desert.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Operation Long Luong: Elite Police Assault on Armed Drug Stronghold.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_14",
-    "title": "Breaking Bad S03E07: One Minute - Hank Schrader's Parking Lot Stand",
-    "vnTitle": "Biến Chất S03E07: Một Phút Sinh Tử Của Hank Schrader",
-    "series": "Breaking Bad S03E07",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Tay Trang Pass Ambush: Dien Bien Police Seize 120 Heroin Bricks",
+    "vnTitle": "Phục Kích Đèo Tây Trang: Công An Điện Biên Bắt 120 Bánh Heroin",
+    "series": "Dien Bien Border Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "eI4ANlYhUbg",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Breaking Bad S03E07: One Minute - Hank Schrader's Parking Lot Stand.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Tay Trang Pass Ambush: Dien Bien Police Seize 120 Heroin Bricks.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_15",
-    "title": "Breaking Bad S04E06: Cornered - I Am the One Who Knocks",
-    "vnTitle": "Biến Chất S04E06: Tôi Mới Là Kẻ Gõ Cửa",
-    "series": "Breaking Bad S04E06",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Son La Anti-Drug Force: Armed Standoff in Deep Limestone Valley",
+    "vnTitle": "Công An Sơn La: Đấu Súng Vây Bắt Tội Phạm Ma Túy Trong Thung Lũng",
+    "series": "Special Task Force",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "8hP9D6kZseM",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Breaking Bad S04E06: Cornered - I Am the One Who Knocks.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Son La Anti-Drug Force: Armed Standoff in Deep Limestone Valley.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_16",
-    "title": "Breaking Bad S04E10: Salud - Don Eladio's Poisoned Tequila",
-    "vnTitle": "Biến Chất S04E10: Rượu Tequila Độc Của Gus Fring",
-    "series": "Breaking Bad S04E10",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Moc Bai International Border Gate: Busting Transnational Drug Ring",
+    "vnTitle": "Cửa Khẩu Quốc Tế Mộc Bài: Triệt Phá Đường Dây Ma Túy Xuyên Biên Giới",
+    "series": "Border Customs & Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "6hB3S9bIaco",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Breaking Bad S04E10: Salud - Don Eladio's Poisoned Tequila.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Moc Bai International Border Gate: Busting Transnational Drug Ring.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_17",
-    "title": "Breaking Bad S04E13: Face Off - The Demise of Gus Fring",
-    "vnTitle": "Biến Chất S04E13: Kết Cục Của Trùm Ma Túy Gus Fring",
-    "series": "Breaking Bad S04E13",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Nghe An Forest Ambush: Tracking Armed Smugglers on Mountain Trails",
+    "vnTitle": "Công An Nghệ An: Phục Kích Đường Dây Ma Túy Vượt Rừng Ban Đêm",
+    "series": "Mountain Police Battalion",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "gG22XNhtnoY",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Breaking Bad S04E13: Face Off - The Demise of Gus Fring.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Nghe An Forest Ambush: Tracking Armed Smugglers on Mountain Trails.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_18",
-    "title": "Breaking Bad S05E05: Dead Freight - The Desert Train Heist",
-    "vnTitle": "Biến Chất S05E05: Vụ Cướp Tàu Sa Mạc Hoàn Hảo",
-    "series": "Breaking Bad S05E05",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Lao Cai Border Guards: Intercepting Meth Smugglers Across River Border",
+    "vnTitle": "Biên Phòng Lào Cai: Bắt Giữ Kẻ Vận Chuyển Ma Túy Vượt Sông Nậm Thi",
+    "series": "Lao Cai Border Defense",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "YoHD9XEInc0",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Breaking Bad S05E05: Dead Freight - The Desert Train Heist.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Lao Cai Border Guards: Intercepting Meth Smugglers Across River Border.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_19",
-    "title": "Breaking Bad S05E07: Say My Name - You're Goddamn Right",
-    "vnTitle": "Biến Chất S05E07: Hãy Gọi Đúng Tên Tôi: Heisenberg",
-    "series": "Breaking Bad S05E07",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Ha Tinh Special Task Force: Seizing 500 Kilograms of Golden Triangle Meth",
+    "vnTitle": "Đặc Nhiệm Hà Tĩnh: Bắt Giữ Nửa Tấn Ma Túy Từ Tam Giác Vàng",
+    "series": "Anti-Narcotics Department",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "EXeTwQWrcwY",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Breaking Bad S05E07: Say My Name - You're Goddamn Right.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Ha Tinh Special Task Force: Seizing 500 Kilograms of Golden Triangle Meth.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_20",
-    "title": "Breaking Bad S05E14: Ozymandias - Hank's Tragic Fate",
-    "vnTitle": "Biến Chất S05E14: Bi Kịch Đỉnh Điểm Gia Đình Walter White",
-    "series": "Breaking Bad S05E14",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Vietnam Police K9 Tracking: Hunting Fugitive Drug Kingpin in Jungle",
+    "vnTitle": "Chó Nghiệp Vụ K9: Lần Theo Dấu Vết Trùm Ma Túy Lẩn Trốn Rừng Sâu",
+    "series": "Elite K9 Tracking Unit",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "mUTgW6p_yHY",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Breaking Bad S05E14: Ozymandias - Hank's Tragic Fate.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Vietnam Police K9 Tracking: Hunting Fugitive Drug Kingpin in Jungle.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_21",
-    "title": "Better Call Saul S01E09: Pimento - Chuck's Betrayal",
-    "vnTitle": "Gọi Cho Saul S01E09: Sự Phản Bội Cay Đắng Của Người Anh",
-    "series": "Better Call Saul S01E09",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Dak Lak Mountain Raid: Dismantling Hidden Drug Manufacturing Laboratory",
+    "vnTitle": "Đột Kích Tây Nguyên: Phá Xưởng Sản Xuất Ma Túy Trong Rẫy Cà Phê",
+    "series": "Central Highlands Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "qM-gZintWDc",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Better Call Saul S01E09: Pimento - Chuck's Betrayal.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Dak Lak Mountain Raid: Dismantling Hidden Drug Manufacturing Laboratory.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_22",
-    "title": "Better Call Saul S03E05: Chicanery - The Courtroom Breakdown",
-    "vnTitle": "Gọi Cho Saul S03E05: Màn Vạch Mặt Chuck Tại Phiên Tòa",
-    "series": "Better Call Saul S03E05",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Quang Tri Border Patrol: Live Gunfire Confrontation with Armed Traffickers",
+    "vnTitle": "Biên Phòng Quảng Tri: Nổ Súng Khống Chế Toán Buôn Ma Túy Vũ Trang",
+    "series": "Border Reconnaissance Unit",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "K_tLirMW20o",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Better Call Saul S03E05: Chicanery - The Courtroom Breakdown.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Quang Tri Border Patrol: Live Gunfire Confrontation with Armed Traffickers.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_23",
-    "title": "Better Call Saul S04E10: Winner - It's All Good Man",
-    "vnTitle": "Gọi Cho Saul S04E10: Kẻ Chiến Thắng & Sự Ra Đời Của Saul Goodman",
-    "series": "Better Call Saul S04E10",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Tan Son Nhat Airport Security: Uncovering Concealed Luggage Narcotics",
+    "vnTitle": "An Ninh Sân Bay Tân Sơn Nhất: Bắt Lô Ma Túy Cất Giấu Tinh Vi Trong Hành Lý",
+    "series": "Airport Customs & Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "kU8X5b-86Z8",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Better Call Saul S04E10: Winner - It's All Good Man.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Tan Son Nhat Airport Security: Uncovering Concealed Luggage Narcotics.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_24",
-    "title": "Better Call Saul S05E08: Bagman - 7 Million Dollars in the Desert",
-    "vnTitle": "Gọi Cho Saul S05E08: Bảy Triệu Đô Vượt Sa Mạc",
-    "series": "Better Call Saul S05E08",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Vietnam - Laos Joint Operation: Striking Transnational Narcotics Cartel",
+    "vnTitle": "Phối Hợp Việt - Lào: Tấn Công Xóa Sổ Đường Dây Ma Túy Khủng",
+    "series": "International Police Alliance",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "DvtxOzO6OAE",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Better Call Saul S05E08: Bagman - 7 Million Dollars in the Desert.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Vietnam - Laos Joint Operation: Striking Transnational Narcotics Cartel.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_25",
-    "title": "Better Call Saul S05E09: Bad Choice Road - Lalo Interrogates Kim",
-    "vnTitle": "Gọi Cho Saul S05E09: Lalo Thẩm Vấn Kim Căng Não",
-    "series": "Better Call Saul S05E09",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Vietnam Mobile Police (CSCĐ): Rapid Urban Deployment and Takedown",
+    "vnTitle": "Cảnh Sát Cơ Động (CSCĐ): Xuất Kích Chớp Nhoáng Trấn Áp Bạo Loạn",
+    "series": "Mobile Police Command",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "bLvqoHBptjg",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Better Call Saul S05E09: Bad Choice Road - Lalo Interrogates Kim.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Vietnam Mobile Police (CSCĐ): Rapid Urban Deployment and Takedown.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_26",
-    "title": "Better Call Saul S06E08: Point and Shoot - Lalo's Final Move",
-    "vnTitle": "Gọi Cho Saul S06E08: Cuộc Thanh Trừng Trong Bóng Tối",
-    "series": "Better Call Saul S06E08",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Hanoi Police SWAT: Hostage Rescue Operation in Multi-Story Building",
+    "vnTitle": "Đặc Nhiệm Hà Nội: Giải Cứu Con Tin Nghẹt Thở Trong Nhà Cao Tầng",
+    "series": "Hanoi SWAT Team",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "vi0Lbjs5ECI",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Better Call Saul S06E08: Point and Shoot - Lalo's Final Move.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Hanoi Police SWAT: Hostage Rescue Operation in Multi-Story Building.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_27",
-    "title": "Mindhunter S01E01: Behavioral Science Unit Inception",
-    "vnTitle": "Săn Lùng Sát Nhân S01E01: Khởi Nguồn Đơn Vị Hành Vi",
-    "series": "Mindhunter S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "HCMC Midnight Raid: Neutralizing Underground Gambling Syndicate",
+    "vnTitle": "Công An TP.HCM: Đột Kích Triệt Phá Sới Bạc Ngầm Quy Mô Khủng",
+    "series": "Criminal Investigation Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "LgZBN_5b-eI",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Mindhunter S01E01: Behavioral Science Unit Inception.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in HCMC Midnight Raid: Neutralizing Underground Gambling Syndicate.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_28",
-    "title": "Mindhunter S01E02: Interviewing Ed Kemper",
-    "vnTitle": "Săn Lùng Sát Nhân S01E02: Phỏng Vấn Sát Thủ Ed Kemper",
-    "series": "Mindhunter S01E02",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Binh Duong Industrial Zone: Rapid Action Clears Armed Extortion Gang",
+    "vnTitle": "Khu Công Nghiệp Bình Dương: Triệt Xóa Băng Nhóm Bảo Kê Đòi Nợ",
+    "series": "Rapid Action Command",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "Ja2fgquYTCg",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Mindhunter S01E02: Interviewing Ed Kemper.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Binh Duong Industrial Zone: Rapid Action Clears Armed Extortion Gang.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_29",
-    "title": "Mindhunter S01E05: The Shoe Fetish Killer Profile",
-    "vnTitle": "Săn Lùng Sát Nhân S01E05: Lập Hồ Sơ Kẻ Giết Người Bệnh Hoạn",
-    "series": "Mindhunter S01E05",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "SWAT Tactical Breaching: Tearing Down Fortified Safehouse Doors",
+    "vnTitle": "Chiến Thuật Đột Phá SWAT: Phá Cửa Thép Khống Chế Tội Phạm Có Vũ Khí",
+    "series": "Special Tactical Unit",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
     "youtubeId": "8MkOT2gvKU8",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Mindhunter S01E05: The Shoe Fetish Killer Profile.",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in SWAT Tactical Breaching: Tearing Down Fortified Safehouse Doors.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_30",
-    "title": "Mindhunter S02E02: Interviewing Charles Manson",
-    "vnTitle": "Săn Lùng Sát Nhân S02E02: Đối Thoại Với Kẻ Cầm Đầu Giáo Phái Manson",
-    "series": "Mindhunter S02E02",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Hai Phong Police: Midnight Arrest of Dangerous Underworld Boss",
+    "vnTitle": "Công An Hải Phòng: Vây Bắt Trùm Xã Hội Đen Lúc Nửa Đêm",
+    "series": "Undercover Crime Unit",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
     "youtubeId": "U_Z4Uu6dYgU",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Mindhunter S02E02: Interviewing Charles Manson.",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Hai Phong Police: Midnight Arrest of Dangerous Underworld Boss.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_31",
-    "title": "Mindhunter S02E05: The Atlanta Child Murders Investigation",
-    "vnTitle": "Săn Lùng Sát Nhân S02E05: Vụ Án Trẻ Em Mất Tích Ở Atlanta",
-    "series": "Mindhunter S02E05",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Can Tho Riverine Police: High-Speed Tactical Boat Pursuit on Hau River",
+    "vnTitle": "Cảnh Sát Đường Thủy Cần Thơ: Xuồng Cao Tốc Rượt Bắt Tội Phạm Trên Sông",
+    "series": "Riverine Police Force",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "zSWdZVtXT7E",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Mindhunter S02E05: The Atlanta Child Murders Investigation.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Can Tho Riverine Police: High-Speed Tactical Boat Pursuit on Hau River.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_32",
-    "title": "Knives Out: The Donut Hole Within a Donut Hole",
-    "vnTitle": "Kẻ Đâm Lén: Ẩn Dụ Về Chiếc Bánh Donut Của Thám Tử",
-    "series": "Knives Out",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Da Lat Cliff Operation: Special Police Rappel Down Mountain to Catch Escapee",
+    "vnTitle": "Công An Lâm Đồng: Đu Dây Vách Núi Vây Bắt Tội Phạm Vượt Ngục",
+    "series": "Mountain SWAT Division",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "yoGkj1nI-bU",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Knives Out: The Donut Hole Within a Donut Hole.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Da Lat Cliff Operation: Special Police Rappel Down Mountain to Catch Escapee.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_33",
-    "title": "Glass Onion: The Miles Bron Murder Mystery Weekend",
-    "vnTitle": "Kẻ Đâm Lén 2: Vụ Án Giả Hóa Thật Trên Hòn Đảo",
-    "series": "Glass Onion",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Tien Giang Raid: Seizing Illegal Military Weapon Armory in Orchard House",
+    "vnTitle": "Công An Tiền Giang: Đột Kích Thu Giữ Kho Vũ Khí Nóng Quân Dụng",
+    "series": "Special Task Force",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "QfbaI9r3rYQ",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Glass Onion: The Miles Bron Murder Mystery Weekend.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Tien Giang Raid: Seizing Illegal Military Weapon Armory in Orchard House.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_34",
-    "title": "Se7en: What's in the Box? (The Final Sin)",
-    "vnTitle": "Bảy Tội Lỗi Chết Người: Có Gì Trong Chiếc Hộp Cuối Cùng?",
-    "series": "Se7en",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "National Counter-Terrorism Exercise: Storming Hijacked Passenger Plane",
+    "vnTitle": "Diễn Tập Chống Khủng Bố Quốc Gia: Tấn Công Giải Cứu Máy Bay Bị Không Tặc",
+    "series": "National SWAT Division",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "eI4ANlYhUbg",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Se7en: What's in the Box? (The Final Sin).",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in National Counter-Terrorism Exercise: Storming Hijacked Passenger Plane.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_35",
-    "title": "The Silence of the Lambs: Clarice Meets Hannibal Lecter",
-    "vnTitle": "Sự Im Lặng Của Bầy Cừu: Clarice Đối Diện Bác Sĩ Hannibal",
-    "series": "The Silence of the Lambs",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Vietnam Coast Guard: Intercepting Illicit Oil Tanker in Tonkin Gulf",
+    "vnTitle": "Cảnh Sát Biển: Rượt Bắt Tàu Buôn Lậu Xăng Dầu Trên Vịnh Bắc Bộ",
+    "series": "Vietnam Coast Guard (CSB)",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "8hP9D6kZseM",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong The Silence of the Lambs: Clarice Meets Hannibal Lecter.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Vietnam Coast Guard: Intercepting Illicit Oil Tanker in Tonkin Gulf.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_36",
-    "title": "The Silence of the Lambs: Quid Pro Quo Interrogation",
-    "vnTitle": "Sự Im Lặng Của Bầy Cừu: Trao Đổi Thông Tin Quid Pro Quo",
-    "series": "The Silence of the Lambs",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Vung Tau Maritime Pursuit: Coast Guard Vessels Box In Smuggling Ship",
+    "vnTitle": "Vùng Biển Vũng Tàu: Cảnh Sát Biển Vây Ép Bắt Giữ Tàu Hàng Lậu",
+    "series": "Coast Guard Region 3",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "6hB3S9bIaco",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong The Silence of the Lambs: Quid Pro Quo Interrogation.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Vung Tau Maritime Pursuit: Coast Guard Vessels Box In Smuggling Ship.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_37",
-    "title": "Shutter Island: The Law of 4 (Which Would Be Worse?)",
-    "vnTitle": "Đảo Kinh Hoàng: Định Luật Số 4 & Lựa Chọn Sống Như Quái Vật",
-    "series": "Shutter Island",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Southwest Maritime Patrol: Seizing Contraband Vessels off Kien Giang",
+    "vnTitle": "Vùng Biển Tây Nam: Bắt Giữ Các Tàu Vận Chuyển Hàng Lậu Tại Kiên Giang",
+    "series": "Maritime Border Guard",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "gG22XNhtnoY",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Shutter Island: The Law of 4 (Which Would Be Worse?).",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Southwest Maritime Patrol: Seizing Contraband Vessels off Kien Giang.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_38",
-    "title": "Zodiac: The Cipher Letters and Fingerprint Mystery",
-    "vnTitle": "Kẻ Giết Người Hoàng Đạo: Mật Mã Chữ Ký & Dấu Vân Tay",
-    "series": "Zodiac",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Coast Guard Boarding Team: Storming Runaway Ship in Heavy Swells",
+    "vnTitle": "Đặc Nhiệm Cảnh Sát Biển: Đu Dây Đổ Bộ Khống Chế Tàu Chạy Trốn Giữa Sóng Lớn",
+    "series": "Coast Guard Special Operations",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "YoHD9XEInc0",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Zodiac: The Cipher Letters and Fingerprint Mystery.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Coast Guard Boarding Team: Storming Runaway Ship in Heavy Swells.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_39",
-    "title": "Gone Girl: The Cool Girl Monologue",
-    "vnTitle": "Cô Gái Mất Tích: Đoạn Độc Thoại Bất Hủ Về Cô Gái Hoàn Hảo",
-    "series": "Gone Girl",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Seizing 2 Million Liters of Illicit Diesel Fuel at Maritime Border",
+    "vnTitle": "Bắt Giữ Hai Triệu Lít Dầu Diesel Buôn Lậu Trên Vùng Biển Biên Giới",
+    "series": "Maritime Enforcement Unit",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "EXeTwQWrcwY",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Gone Girl: The Cool Girl Monologue.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Seizing 2 Million Liters of Illicit Diesel Fuel at Maritime Border.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_40",
-    "title": "Memento: Short-Term Memory and the Tattoos",
-    "vnTitle": "Kẻ Mất Trí Nhớ: Ký Ức Ngắn Hạn & Hình Xăm Bằng Chứng",
-    "series": "Memento",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Gale Force Maritime Chase: Police Patrol Vessels Board Fleeing Smuggler",
+    "vnTitle": "Rượt Đuổi Trong Sóng Gió Cấp 7: Tàu Cảnh Sát Đón Lõng Khống Chế Tàu Lậu",
+    "series": "Offshore Patrol Command",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "mUTgW6p_yHY",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Memento: Short-Term Memory and the Tattoos.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Gale Force Maritime Chase: Police Patrol Vessels Board Fleeing Smuggler.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_41",
-    "title": "Prison Break S01E01: The Blueprint Tattoo Plan",
-    "vnTitle": "Vượt Ngục S01E01: Bản Vẽ Hình Xăm Vượt Ngục",
-    "series": "Prison Break S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Quang Binh Coastal Chase: Intercepting High-Speed Wildlife Smuggling Boat",
+    "vnTitle": "Vùng Biển Quảng Bình: Rượt Đuổi Xuồng Cao Tốc Chở Động Vật Quý Hiếm",
+    "series": "Coastal Border Fleet",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "qM-gZintWDc",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Prison Break S01E01: The Blueprint Tattoo Plan.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Quang Binh Coastal Chase: Intercepting High-Speed Wildlife Smuggling Boat.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_42",
-    "title": "Prison Break S01E10: Sleight of Hand Escape Route",
-    "vnTitle": "Vượt Ngục S01E10: Lối Thoát Hiểm Bí Mật",
-    "series": "Prison Break S01E10",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Coast Guard UAV Reconnaissance: Coordinating Mid-Sea Smuggling Takedown",
+    "vnTitle": "Flycam Cảnh Sát Biển: Dẫn Đường Cho Tàu Chiến Đấu Bắt Tàu Sang Mạn Lậu",
+    "series": "UAV Surveillance Division",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "K_tLirMW20o",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Prison Break S01E10: Sleight of Hand Escape Route.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Coast Guard UAV Reconnaissance: Coordinating Mid-Sea Smuggling Takedown.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_43",
-    "title": "True Detective S01E01: Time is a Flat Circle",
-    "vnTitle": "Thám Tử Chân Chính S01E01: Thời Gian Là Một Vòng Tròn Phẳng",
-    "series": "True Detective S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Anti-Piracy Task Force: Securing International Commercial Shipping Lanes",
+    "vnTitle": "Lực Lượng Chống Cướp Biển: Bảo Vệ Tuyến Hàng Hải Thương Mại Quốc Tế",
+    "series": "International Maritime Force",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "kU8X5b-86Z8",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong True Detective S01E01: Time is a Flat Circle.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Anti-Piracy Task Force: Securing International Commercial Shipping Lanes.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_44",
-    "title": "True Detective S01E04: The 6-Minute Single Take Raid",
-    "vnTitle": "Thám Tử Chân Chính S01E04: Cảnh Quay Liền 6 Phút Đột Kích Đỉnh Cao",
-    "series": "True Detective S01E04",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Ha Long Bay Night Patrol: Border Guard Neutralizes Illegal Coal Fleet",
+    "vnTitle": "Vịnh Hạ Long: Hải Đội Biên Phòng Phục Kích Đoàn Tàu Chở Than Lậu",
+    "series": "Ha Long Border Squadron",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "DvtxOzO6OAE",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong True Detective S01E04: The 6-Minute Single Take Raid.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Ha Long Bay Night Patrol: Border Guard Neutralizes Illegal Coal Fleet.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_45",
-    "title": "The Mentalist S01E01: Patrick Jane Predicts the Killer",
-    "vnTitle": "Ảo Thuật Gia Tâm Lý: Patrick Jane Đọc Vị Kẻ Thủ Ác",
-    "series": "The Mentalist S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Vietnam Cyber Police (A05): Dismantling Multi-Million Transnational Scam",
+    "vnTitle": "Cục An Ninh Mạng A05: Triệt Phá Sào Huyệt Lừa Đảo Trực Tuyến Xuyên Quốc Gia",
+    "series": "Cyber Security Dept (A05)",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "bLvqoHBptjg",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong The Mentalist S01E01: Patrick Jane Predicts the Killer.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Vietnam Cyber Police (A05): Dismantling Multi-Million Transnational Scam.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_46",
-    "title": "Criminal Minds S01E01: Profiling the Footpath Killer",
-    "vnTitle": "Hành Vi Tội Phạm: Phân Tích Dấu Chân Kẻ Sát Nhân",
-    "series": "Criminal Minds S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Interpol & Vietnam Police Joint Strike: Cracking Illegal Telecom Ring",
+    "vnTitle": "Phối Hợp Interpol: Bắt Giữ Đường Dây Mạo Danh Công An Lừa Đảo Viễn Thông",
+    "series": "Interpol Vietnam Division",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "vi0Lbjs5ECI",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Criminal Minds S01E01: Profiling the Footpath Killer.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Interpol & Vietnam Police Joint Strike: Cracking Illegal Telecom Ring.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_47",
-    "title": "Peaky Blinders S01E01: By Order of the Peaky Blinders",
-    "vnTitle": "Bóng Ma Anh Quốc: Mệnh Lệnh Của Gia Tộc Shelby",
-    "series": "Peaky Blinders S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Digital Forensics Operation: Seizing Trillion-Dong Gambling Servers",
+    "vnTitle": "Khám Xét Kỹ Thuật Số: Tịch Thu Máy Chủ Đánh Bạc Trực Tuyến Hàng Nghìn Tỷ",
+    "series": "Digital Forensics Lab",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "LgZBN_5b-eI",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Peaky Blinders S01E01: By Order of the Peaky Blinders.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Digital Forensics Operation: Seizing Trillion-Dong Gambling Servers.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_48",
-    "title": "Peaky Blinders S02E06: The Epsom Derby Execution Bluff",
-    "vnTitle": "Bóng Ma Anh Quốc: Cú Lật Kèo Tại Trường Đua Ngựa",
-    "series": "Peaky Blinders S02E06",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Simultaneous Multi-City Raids: Busting Crypto Ponzi Scam in Hanoi & HCMC",
+    "vnTitle": "Đột Kích Đồng Loạt: Bắt Giữ Đường Dây Lừa Đảo Tiền Ảo Đa Cấp",
+    "series": "Economic & High-Tech Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "Ja2fgquYTCg",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Peaky Blinders S02E06: The Epsom Derby Execution Bluff.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Simultaneous Multi-City Raids: Busting Crypto Ponzi Scam in Hanoi & HCMC.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_49",
-    "title": "Hannibal S01E01: Apéritif - Will Graham's Crime Scene Reconstruction",
-    "vnTitle": "Hannibal S01E01: Tái Hiện Hiện Trường Bằng Trí Tưởng Tượng",
-    "series": "Hannibal S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Dark Web Crackdown: Neutralizing Underground Personal Data Traffickers",
+    "vnTitle": "Đột Kích Dark Web: Triệt Phá Ổ Nhóm Mua Bán Dữ Liệu Cá Nhân Trái Phép",
+    "series": "Cyber Defense Task Force",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
     "youtubeId": "8MkOT2gvKU8",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Hannibal S01E01: Apéritif - Will Graham's Crime Scene Reconstruction.",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Dark Web Crackdown: Neutralizing Underground Personal Data Traffickers.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_50",
-    "title": "Broadchurch S01E01: The Body on the Beach",
-    "vnTitle": "Thị Trấn Broadchurch: Thi Thể Dưới Chân Vách Đá",
-    "series": "Broadchurch S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "ATM Skimming Ring Caught Live: Apprehending Transnational Gang at Night",
+    "vnTitle": "Bắt Quả Tang Tại Cây ATM: Khống Chế Ổ Nhóm Cài Thiết Bị Đánh Cắp Thẻ",
+    "series": "Urban Police Task Force",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
     "youtubeId": "U_Z4Uu6dYgU",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Broadchurch S01E01: The Body on the Beach.",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in ATM Skimming Ring Caught Live: Apprehending Transnational Gang at Night.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_51",
-    "title": "Dexter S01E01: Tonight's the Night (The Code of Harry)",
-    "vnTitle": "Dexter S01E01: Bộ Quy Tắc Săn Tội Phạm Của Harry",
-    "series": "Dexter S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Financial Network Defense: Repelling and Tracing High-Level Bank Cyberattacks",
+    "vnTitle": "Phòng Thủ Tài Chính: Đập Tan Cuộc Tấn Công Mạng Quy Mô Lớn Vào Ngân Hàng",
+    "series": "Critical Infrastructure Defense",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "zSWdZVtXT7E",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Dexter S01E01: Tonight's the Night (The Code of Harry).",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Financial Network Defense: Repelling and Tracing High-Level Bank Cyberattacks.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_52",
-    "title": "The Godfather: An Offer He Can't Refuse",
-    "vnTitle": "Bố Già: Lời Đề Nghị Không Thể Từ Chối",
-    "series": "The Godfather",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Luxury Villa Telecom Scam Center: Arresting 50 Foreign Nationals in Da Nang",
+    "vnTitle": "Biệt Thự Đen Đà Nẵng: Bắt Giữ 50 Đối Tượng Nước Ngoài Lập Trung Tâm Lừa Đảo",
+    "series": "Transnational Crime Bureau",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "yoGkj1nI-bU",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong The Godfather: An Offer He Can't Refuse.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Luxury Villa Telecom Scam Center: Arresting 50 Foreign Nationals in Da Nang.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_53",
-    "title": "The Godfather Part II: Keep Your Friends Close",
-    "vnTitle": "Bố Già 2: Giữ Bạn Ở Gần, Giữ Kẻ Thù Ở Gần Hơn",
-    "series": "The Godfather Part II",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Noi Bai Airport Inspection: Seizing 300 Kilograms of Contraband Ivory",
+    "vnTitle": "Hải Quan Nội Bài: Bắt Giữ Lô Hàng 300kg Ngà Voi Nhập Lậu Tinh Vi",
+    "series": "Environmental Crime Police (C05)",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "QfbaI9r3rYQ",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong The Godfather Part II: Keep Your Friends Close.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Noi Bai Airport Inspection: Seizing 300 Kilograms of Contraband Ivory.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_54",
-    "title": "L.A. Confidential: Good Cop, Bad Cop Interrogation",
-    "vnTitle": "Bí Ẩn Los Angeles: Màn Hỏi Cung Cảnh Sát Thiện Ác",
-    "series": "L.A. Confidential",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Highway 1 Midnight Sting: Intercepting Refrigerated Truck with Pangolins",
+    "vnTitle": "Phục Kích Quốc Lộ 1: Bắt Giữ Xe Đông Lạnh Chở Hàng Trăm Cá Thể Tê Tê",
+    "series": "Wildlife Protection Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "eI4ANlYhUbg",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong L.A. Confidential: Good Cop, Bad Cop Interrogation.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Highway 1 Midnight Sting: Intercepting Refrigerated Truck with Pangolins.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_55",
-    "title": "The Departed: The Rooftop Confrontation (I'm a Cop)",
-    "vnTitle": "Kẻ Quá Đạo: Đối Đầu Trên Sân Thượng Cảnh Sát Chìm",
-    "series": "The Departed",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Tien Sa Port Takedown: Discovering Concealed Rhino Horn in Timber Crates",
+    "vnTitle": "Cảng Tiên Sa: Phát Hiện Sừng Tê Giác Giấu Kín Trong Container Gỗ Nhập Khẩu",
+    "series": "Da Nang Customs & Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "8hP9D6kZseM",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong The Departed: The Rooftop Confrontation (I'm a Cop).",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Tien Sa Port Takedown: Discovering Concealed Rhino Horn in Timber Crates.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_56",
-    "title": "Heat (1995): Al Pacino and De Niro Coffee Shop Scene",
-    "vnTitle": "Kỳ Phùng Địch Thủ: Cuộc Gặp Lịch Sử Giữa Cảnh Sát & Tướng Cướp",
-    "series": "Heat (1995)",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Forest Sanctuary Operation: Rescuing Illegally Captive Tigers and Bears",
+    "vnTitle": "Chiến Dịch Rừng Xanh: Giải Cứu Hổ & Gấu Bị Nuôi Nhốt Trái Phép",
+    "series": "Forest Protection Task Force",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "6hB3S9bIaco",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Heat (1995): Al Pacino and De Niro Coffee Shop Scene.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Forest Sanctuary Operation: Rescuing Illegally Captive Tigers and Bears.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_57",
-    "title": "Fargo S01E01: The Crocodile Dilemma (Lorne Malvo)",
-    "vnTitle": "Fargo S01E01: Nghịch Lý Cá Sấu Của Kẻ Sát Nhân",
-    "series": "Fargo S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Red River Midnight Patrol: Intercepting Illegal Sand Mining Fleet",
+    "vnTitle": "Tuần Tra Đêm Sông Hồng: Cảnh Sát Đường Thủy Chặn Đứng Tàu Cát Tặc",
+    "series": "Riverine Enforcement Police",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "gG22XNhtnoY",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Fargo S01E01: The Crocodile Dilemma (Lorne Malvo).",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Red River Midnight Patrol: Intercepting Illegal Sand Mining Fleet.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_58",
-    "title": "Line of Duty S01E01: Anti-Corruption Interrogation",
-    "vnTitle": "Nhiệm Vụ Cảnh Sát: Phỏng Vấn Chống Tham Nhũng",
-    "series": "Line of Duty S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Toxic Waste Dumping Raid: Industrial Tanker Caught Red-Handed at River Headwaters",
+    "vnTitle": "Bắt Quả Tang Xe Bồn Xả Thẳng Nước Thải Độc Hại Ra Đầu Nguồn Nước",
+    "series": "Environmental Inspection Team",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "YoHD9XEInc0",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Line of Duty S01E01: Anti-Corruption Interrogation.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Toxic Waste Dumping Raid: Industrial Tanker Caught Red-Handed at River Headwaters.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_59",
-    "title": "Monk S01E01: The OCD Detective Spots the Flaw",
-    "vnTitle": "Thám Tử Monk: Chứng Ám Ảnh Cưỡng Chế & Manh Mối Nhỏ Nhất",
-    "series": "Monk S01E01",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Tan Son Nhat Airport Takedown: Rare Endangered Reptiles Smuggling Intercepted",
+    "vnTitle": "Sân Bay Tân Sơn Nhất: Ngăn Chặn Vận Chuyển Bò Sát Quý Hiếm Động Vật Hoang Dã",
+    "series": "Air Border Security",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "EXeTwQWrcwY",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Monk S01E01: The OCD Detective Spots the Flaw.",
+    "youtubeId": "8MkOT2gvKU8",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Tan Son Nhat Airport Takedown: Rare Endangered Reptiles Smuggling Intercepted.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },
   {
     "id": "movie_60",
-    "title": "Agatha Christie's Poirot: Murder on the Orient Express Reveal",
-    "vnTitle": "Án Mạng Trên Chuyến Tàu Tốc Hành Phương Đông: Thám Tử Poirot Vạch Mặt",
-    "series": "Agatha Christie's Poirot",
-    "genre": "Trinh Thám & Tâm Lý Tội Phạm",
+    "title": "Ha Tinh Border Sting: Cracking Cross-Border Rare Animal Smuggling Syndicate",
+    "vnTitle": "Biên Giới Hà Tĩnh: Phá Án Bắt Giữ Đường Dây Buôn Động Vật Quý Hiếm Vượt Biên",
+    "series": "Ha Tinh Border Command",
+    "genre": "Hành Động & Đuổi Bắt Tội Phạm VN",
     "genreKey": "crime",
-    "level": "B2 - C1",
+    "level": "B1 - B2",
     "duration": "04:30",
-    "youtubeId": "mUTgW6p_yHY",
-    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80",
-    "description": "Trinh thám, suy luận logic sắc bén và phân tích tâm lý tội phạm chuyên sâu trong Agatha Christie's Poirot: Murder on the Orient Express Reveal.",
+    "youtubeId": "U_Z4Uu6dYgU",
+    "cover": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&q=80",
+    "description": "Footage and in-depth tactical breakdown of Vietnam security forces executing professional crime-fighting operations and pursuits in Ha Tinh Border Sting: Cracking Cross-Border Rare Animal Smuggling Syndicate.",
     "key_expressions": [
       {
-        "phrase": "Piece together the puzzle",
-        "vi": "Xâu chuỗi các mảnh ghép bằng chứng",
-        "note": "Kỹ năng phân tích điều tra."
+        "phrase": "Close in on the suspects",
+        "vi": "Khép chặt vòng vây đối tượng",
+        "note": "Chiến thuật bao vây từ mọi hướng."
       },
       {
-        "phrase": "Beyond a reasonable doubt",
-        "vi": "Không còn bất kỳ nghi ngờ hợp lý nào",
-        "note": "Tiêu chuẩn kết tội tư pháp."
-      },
-      {
-        "phrase": "Read between the lines",
-        "vi": "Thấu hiểu ẩn ý sâu xa đằng sau lời khai",
-        "note": "Phát hiện sự dối trá."
+        "phrase": "Execute a tactical raid",
+        "vi": "Tiến hành đột kích chiến thuật",
+        "note": "Hành động bất ngờ áp đảo tội phạm."
       }
     ],
     "subtitles": [
       {
         "start": "00:04",
-        "en": "Every tiny detail at a crime scene tells an interconnected narrative.",
-        "vi": "Từng chi tiết nhỏ tại hiện trường vụ án đều kể một câu chuyện liên kết chặt chẽ."
+        "en": "Surveillance confirmed the criminal syndicate was preparing to transfer contraband cargo.",
+        "vi": "Công tác trinh sát xác nhận đường dây tội phạm đang chuẩn bị bốc dỡ hàng cấm."
       },
       {
         "start": "00:12",
-        "en": "The perpetrator made one fatal psychological miscalculation.",
-        "vi": "Thủ phạm đã phạm phải một sai lầm chết người trong tính toán tâm lý."
+        "en": "Tactical units surrounded all designated perimeter exit points before initiating the assault.",
+        "vi": "Các đơn vị tác chiến đã phong tỏa toàn bộ lối thoát hiểm vành đai trước khi phát lệnh tấn công."
       },
       {
         "start": "00:20",
-        "en": "Once you eliminate the impossible, whatever remains, however improbable, must be the truth.",
-        "vi": "Một khi loại trừ điều bất khả, điều còn lại dù khó tin đến đâu cũng chính là sự thật."
+        "en": "The suspects were caught entirely by surprise and surrendered without armed resistance.",
+        "vi": "Các đối tượng hoàn toàn bị bất ngờ và buông vũ khí đầu hàng không kịp chống cự."
       }
     ],
     "vocabulary": [
       {
-        "word": "deduction",
+        "word": "surveillance",
         "pos": "Danh từ",
-        "ipa": "/dɪˈdʌkʃn/",
-        "meaning_vi": "Sự suy luận logic, phương pháp diễn dịch",
-        "example": "His powers of deduction revealed the culprit.",
-        "example_vi": "Khả năng suy luận của ông đã vạch mặt kẻ thủ ác."
+        "ipa": "/sɜːrˈveɪləns/",
+        "meaning_vi": "Sự trinh sát, theo dõi giám sát bí mật",
+        "example": "Officers conducted round-the-clock surveillance.",
+        "example_vi": "Các chiến sĩ tiến hành trinh sát theo dõi suốt ngày đêm."
       },
       {
-        "word": "perpetrator",
+        "word": "perimeter",
         "pos": "Danh từ",
-        "ipa": "/ˈpɜːrpətreɪtər/",
-        "meaning_vi": "Thủ phạm, kẻ trực tiếp gây án",
-        "example": "The perpetrator left no physical evidence behind.",
-        "example_vi": "Thủ phạm không để lại bất kỳ bằng chứng vật lý nào."
+        "ipa": "/pəˈrɪmɪtər/",
+        "meaning_vi": "Vành đai phong tỏa xung quanh",
+        "example": "Police locked down the entire perimeter.",
+        "example_vi": "Cảnh sát đã phong tỏa toàn bộ vành đai xung quanh."
       },
       {
-        "word": "alibi",
+        "word": "syndicate",
         "pos": "Danh từ",
-        "ipa": "/ˈæləbaɪ/",
-        "meaning_vi": "Chứng cứ ngoại phạm không thể chối cãi",
-        "example": "He possessed an airtight alibi for the night of the crime.",
-        "example_vi": "Anh ta có chứng cứ ngoại phạm vững chắc vào đêm xảy ra vụ án."
-      },
-      {
-        "word": "motive",
-        "pos": "Danh từ",
-        "ipa": "/ˈmoʊtɪv/",
-        "meaning_vi": "Động cơ gây án, lý do phạm tội",
-        "example": "Financial desperation was the primary motive.",
-        "example_vi": "Sự túng quẫn tài chính chính là động cơ hàng đầu."
+        "ipa": "/ˈsɪndɪkət/",
+        "meaning_vi": "Đường dây tội phạm có tổ chức",
+        "example": "The transnational syndicate was completely dismantled.",
+        "example_vi": "Đường dây tội phạm xuyên quốc gia đã bị triệt phá hoàn toàn."
       }
     ]
   },

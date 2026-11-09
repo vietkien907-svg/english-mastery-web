@@ -387,6 +387,10 @@ function switchTab(tabId) {
 
   if (tabId === "profile") {
     loadProfileAnalytics();
+  } else if (tabId === "cinema") {
+    if (typeof initBilingualCinemaModule === "function") initBilingualCinemaModule();
+  } else if (tabId === "video") {
+    if (typeof renderVietnamTodaySelector === "function") renderVietnamTodaySelector();
   } else if (tabId === "review") {
     generateDailyQuiz();
   } else if (tabId === "flashcard") {
@@ -5425,10 +5429,85 @@ function renderListeningTranscript(part) {
 }
 
 // ============================================================================
-// MODULE 2: VIETNAM TODAY DAILY VIDEO & VOCABULARY ENGINE (VTV4)
+// VIETNAM TODAY & 100 INTERNATIONAL NEWS VIDEO HUB CONTROLLER
+// Supports BBC News, CNN 10, Bloomberg, TED-Ed, Reuters, Vox, CNBC, VTV4
 // ============================================================================
 let currentVideoIdx = 0;
+let currentVideoSourceFilter = "all";
+let currentVideoSearchQuery = "";
 const WATCHED_VIDEOS_KEY = "EMH_WATCHED_VIDEOS_V1";
+
+function getAllNewsVideos() {
+  const vnt = (typeof VIETNAM_TODAY_VIDEOS !== "undefined" && Array.isArray(VIETNAM_TODAY_VIDEOS)) ? VIETNAM_TODAY_VIDEOS : [];
+  const intl = (typeof INTERNATIONAL_NEWS_VIDEOS !== "undefined" && Array.isArray(INTERNATIONAL_NEWS_VIDEOS)) ? INTERNATIONAL_NEWS_VIDEOS : [];
+  
+  const normalizedVnt = vnt.map((v, i) => ({
+    ...v,
+    source: v.source || "Vietnam Today",
+    id: v.id || `vnt_${i}`
+  }));
+  return [...normalizedVnt, ...intl];
+}
+
+function getFilteredNewsVideos() {
+  const all = getAllNewsVideos();
+  return all.filter(vid => {
+    // Channel / source filter
+    if (currentVideoSourceFilter !== "all") {
+      const src = (vid.source || "").toLowerCase();
+      const filter = currentVideoSourceFilter.toLowerCase();
+      if (!src.includes(filter) && !filter.includes(src)) return false;
+    }
+    // Search query
+    if (currentVideoSearchQuery && currentVideoSearchQuery.trim()) {
+      const q = currentVideoSearchQuery.toLowerCase().trim();
+      const matchTitle = (vid.title || "").toLowerCase().includes(q);
+      const matchVnTitle = (vid.vnTitle || "").toLowerCase().includes(q);
+      const matchCat = (vid.category || "").toLowerCase().includes(q);
+      const matchSource = (vid.source || "").toLowerCase().includes(q);
+      if (!matchTitle && !matchVnTitle && !matchCat && !matchSource) return false;
+    }
+    return true;
+  });
+}
+
+function filterNewsVideoSource(src) {
+  currentVideoSourceFilter = src;
+  const btnMap = {
+    "all": "btnVidSrcAll",
+    "BBC News": "btnVidSrcBBC",
+    "CNN 10": "btnVidSrcCNN",
+    "Bloomberg": "btnVidSrcBloomberg",
+    "TED-Ed": "btnVidSrcTED",
+    "Vietnam Today": "btnVidSrcVNT"
+  };
+  Object.entries(btnMap).forEach(([k, btnId]) => {
+    const b = document.getElementById(btnId);
+    if (b) {
+      if (k === src) {
+        b.className = "px-3 py-1.5 rounded-xl bg-rose-600 text-white font-bold text-xs shadow transition";
+      } else {
+        b.className = "px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition";
+      }
+    }
+  });
+  currentVideoIdx = 0;
+  renderVietnamTodaySelector();
+  const filtered = getFilteredNewsVideos();
+  if (filtered.length > 0) {
+    loadVietnamTodayVideo(0);
+  }
+}
+
+function searchNewsVideos(query) {
+  currentVideoSearchQuery = query || "";
+  currentVideoIdx = 0;
+  renderVietnamTodaySelector();
+  const filtered = getFilteredNewsVideos();
+  if (filtered.length > 0) {
+    loadVietnamTodayVideo(0);
+  }
+}
 
 function getWatchedVietnamTodayVideos() {
   try {
@@ -5445,16 +5524,16 @@ function saveWatchedVietnamTodayVideos(setObj) {
 }
 
 function isVietnamTodayVideoWatched(vidIdx) {
-  if (typeof VIETNAM_TODAY_VIDEOS === "undefined") return false;
-  const vid = VIETNAM_TODAY_VIDEOS[vidIdx];
+  const filtered = getFilteredNewsVideos();
+  const vid = filtered[vidIdx];
   if (!vid) return false;
   const watchedSet = getWatchedVietnamTodayVideos();
   return watchedSet.has(vid.id || `vnt_${vidIdx}`);
 }
 
 function toggleWatchVietnamTodayVideo(vidIdx) {
-  if (typeof VIETNAM_TODAY_VIDEOS === "undefined") return;
-  const vid = VIETNAM_TODAY_VIDEOS[vidIdx];
+  const filtered = getFilteredNewsVideos();
+  const vid = filtered[vidIdx];
   if (!vid) return;
 
   const vidId = vid.id || `vnt_${vidIdx}`;
@@ -5468,13 +5547,12 @@ function toggleWatchVietnamTodayVideo(vidIdx) {
   } else {
     watchedSet.add(vidId);
     nowWatched = true;
-    showToast(`🎉 Tuyệt vời! Bạn đã hoàn thành xem video Vietnam Today hôm nay (Hạn 22:00)! Đã ghi nhận tiến độ 100%!`, "success");
+    showToast(`🎉 Tuyệt vời! Bạn đã hoàn thành xem video bản tin hôm nay (Hạn 22:00)! Đã ghi nhận tiến độ!`, "success");
   }
   saveWatchedVietnamTodayVideos(watchedSet);
 
   // Update daily mission
   const curDay = missionRegistry.currentDay || 1;
-  const curStatus = getDayMissionStatus(curDay);
   const watchedList = Array.from(watchedSet);
   setDayMissionStatus(curDay, {
     videoDone: watchedSet.size > 0,
@@ -5508,25 +5586,43 @@ function initVietnamTodayModule() {
   loadVietnamTodayVideo(0);
 }
 
-// SIDEBAR PLAYLIST RENDERER (DANH SÁCH BẢN TIN Ở BÊN CẠNH)
+// SIDEBAR PLAYLIST RENDERER (DANH SÁCH 100+ BẢN TIN QUỐC TẾ & VIETNAM TODAY)
 function renderVietnamTodaySelector() {
   const container = document.getElementById("vietnamTodayVideoSelector");
   const statsBadge = document.getElementById("vntWatchedStatsBadge");
-  if (!container || typeof VIETNAM_TODAY_VIDEOS === "undefined" || !VIETNAM_TODAY_VIDEOS.length) return;
+  if (!container) return;
 
+  const filtered = getFilteredNewsVideos();
+  const allVideos = getAllNewsVideos();
   const watchedSet = getWatchedVietnamTodayVideos();
-  const total = VIETNAM_TODAY_VIDEOS.length;
-  const watchedCount = watchedSet.size;
+  const total = allVideos.length;
+  let watchedCount = 0;
+  allVideos.forEach((v, i) => {
+    if (watchedSet.has(v.id || `vnt_${i}`)) watchedCount++;
+  });
 
   if (statsBadge) {
-    statsBadge.innerText = `${watchedCount}/${total} Đã xem`;
+    statsBadge.innerText = `${watchedCount}/${total} Đã xem (${filtered.length} hiển thị)`;
     statsBadge.className = watchedCount > 0 ? "px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs border border-emerald-500/30" : "px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold text-xs";
   }
 
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="p-6 text-center text-slate-400 glass-card rounded-2xl border border-slate-800 space-y-2">
+        <i data-lucide="video-off" class="w-8 h-8 text-slate-500 mx-auto"></i>
+        <p class="text-xs font-semibold">Không tìm thấy video nào phù hợp.</p>
+        <button onclick="filterNewsVideoSource('all')" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-bold">Xem tất cả 100+ video</button>
+      </div>
+    `;
+    if (typeof lucide !== "undefined") lucide.createIcons();
+    return;
+  }
+
   let html = "";
-  VIETNAM_TODAY_VIDEOS.forEach((vid, idx) => {
+  filtered.forEach((vid, idx) => {
     const active = (idx === currentVideoIdx);
     const isWatched = watchedSet.has(vid.id || `vnt_${idx}`);
+    const sourceLabel = vid.source || "Bản tin";
 
     html += `
       <div onclick="switchVietnamTodayVideo(${idx})" class="p-3.5 rounded-2xl border cursor-pointer transition space-y-2 group relative overflow-hidden ${
@@ -5535,7 +5631,10 @@ function renderVietnamTodaySelector() {
           : "glass-card hover:bg-slate-800/90 border-slate-800 text-slate-300"
       }">
         <div class="flex items-center justify-between text-[11px] gap-2">
-          <span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold">${vid.category}</span>
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold">${sourceLabel}</span>
+            <span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 text-[10px]">${vid.category || "Tin Tức"}</span>
+          </div>
           <div class="flex items-center gap-2">
             <span class="text-slate-400 font-mono text-[10px] flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> ${vid.duration}</span>
             <button onclick="event.stopPropagation(); toggleWatchVietnamTodayVideo(${idx})" class="px-2 py-0.5 rounded-lg text-[10px] font-bold border transition flex items-center gap-1 ${
@@ -5570,8 +5669,9 @@ function switchVietnamTodayVideo(idx) {
 }
 
 function loadVietnamTodayVideo(idx) {
-  if (typeof VIETNAM_TODAY_VIDEOS === "undefined" || !VIETNAM_TODAY_VIDEOS.length) return;
-  const vid = VIETNAM_TODAY_VIDEOS[idx];
+  const filtered = getFilteredNewsVideos();
+  if (!filtered.length) return;
+  const vid = filtered[idx];
   if (!vid) return;
 
   // 1. YouTube Iframe with robust cross-origin & no-cookie support
@@ -5599,6 +5699,7 @@ function loadVietnamTodayVideo(idx) {
     titleEl.innerHTML = `
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <span>${vid.title}</span>
+        <span class="text-xs px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold border border-rose-500/30">${vid.source || 'Tin Tức'}</span>
       </div>
     `;
   }
@@ -5612,18 +5713,18 @@ function loadVietnamTodayVideo(idx) {
         <button onclick="reloadVietnamTodayPlayer()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
           <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Tải lại Player
         </button>
-        <a href="https://www.youtube.com/c/VTVWorldVN" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-cyan-300 text-xs font-semibold border border-slate-700/80 transition flex items-center gap-1">
-          <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Kênh VTV World
-        </a>
+        <span class="text-xs text-slate-400 font-mono py-1 px-2.5 rounded-lg bg-slate-800/60 border border-slate-800">
+          Chủ đề: ${vid.category || 'Quốc tế'}
+        </span>
       </div>
     `;
   }
 
   // 3. Vocabulary
-  renderVietnamTodayVocab(vid.vocabulary);
+  renderVietnamTodayVocab(vid.vocabulary || []);
 
   // 4. Script
-  renderVietnamTodayScript(vid.script);
+  renderVietnamTodayScript(vid.script || []);
   updateTopWatchToggleBtn(idx);
   if (typeof lucide !== "undefined") lucide.createIcons();
 }
@@ -5677,8 +5778,8 @@ function renderVietnamTodayVocab(vocabList) {
 }
 
 function saveVideoWordToNotebook(vidIdx, wordIdx) {
-  if (typeof VIETNAM_TODAY_VIDEOS === "undefined") return;
-  const vid = VIETNAM_TODAY_VIDEOS[vidIdx];
+  const filtered = getFilteredNewsVideos();
+  const vid = filtered[vidIdx];
   if (!vid || !vid.vocabulary || !vid.vocabulary[wordIdx]) return;
 
   const v = vid.vocabulary[wordIdx];
@@ -5688,10 +5789,10 @@ function saveVideoWordToNotebook(vidIdx, wordIdx) {
     pron: v.ipa || `/${v.word.toLowerCase()}/`,
     meaning_vi: v.meaning,
     meaning_en: v.meaning,
-    example: v.example || `Context from Vietnam Today: "${v.word}"`,
-    source: "Vietnam Today VTV4",
-    cardOrigin: "vietnam_today",
-    cardOriginText: `📺 Video: ${vid.title.substring(0, 25)}...`,
+    example: v.example || `Context: "${v.word}"`,
+    source: vid.source || "Tin tức quốc tế",
+    cardOrigin: "news_video",
+    cardOriginText: `📺 ${vid.source || 'Video'}: ${vid.title.substring(0, 25)}...`,
     type: "word"
   };
 
@@ -5711,8 +5812,8 @@ function saveVideoWordToNotebook(vidIdx, wordIdx) {
 }
 
 function saveAllVietnamTodayWordsToNotebook(vidIdx) {
-  if (typeof VIETNAM_TODAY_VIDEOS === "undefined") return;
-  const vid = VIETNAM_TODAY_VIDEOS[vidIdx];
+  const filtered = getFilteredNewsVideos();
+  const vid = filtered[vidIdx];
   if (!vid || !vid.vocabulary || !vid.vocabulary.length) return;
 
   let added = 0;
@@ -5723,10 +5824,10 @@ function saveAllVietnamTodayWordsToNotebook(vidIdx) {
       pron: v.ipa || `/${v.word.toLowerCase()}/`,
       meaning_vi: v.meaning,
       meaning_en: v.meaning,
-      example: v.example || `Context from Vietnam Today: "${v.word}"`,
-      source: "Vietnam Today VTV4",
-      cardOrigin: "vietnam_today",
-      cardOriginText: `📺 Video: ${vid.title.substring(0, 25)}...`,
+      example: v.example || `Context: "${v.word}"`,
+      source: vid.source || "Tin tức quốc tế",
+      cardOrigin: "news_video",
+      cardOriginText: `📺 ${vid.source || 'Video'}: ${vid.title.substring(0, 25)}...`,
       type: "word"
     };
     saveCustomWordItem(item);
@@ -5762,7 +5863,6 @@ function renderVietnamTodayScript(scriptList) {
   container.innerHTML = html;
   if (typeof lucide !== "undefined") lucide.createIcons();
 }
-
 
 
 // ============================================================================
@@ -5804,7 +5904,22 @@ async function translateWordClient(rawWord, contextSentence = "") {
     }
   }
 
-  // 3. Vietnam Today & Cinema Vocab
+  // 3. Vietnam Today, International News & Cinema Vocab
+  if (typeof INTERNATIONAL_NEWS_VIDEOS !== "undefined") {
+    for (const vid of INTERNATIONAL_NEWS_VIDEOS) {
+      for (const v of vid.vocabulary || []) {
+        if (v.word && v.word.toLowerCase() === lower) {
+          return {
+            word: v.word,
+            pos: v.pos || "Từ vựng",
+            ipa: v.ipa || `/${lower}/`,
+            meaning_vi: v.meaning,
+            example: v.example || contextSentence
+          };
+        }
+      }
+    }
+  }
   if (typeof VIETNAM_TODAY_VIDEOS !== "undefined") {
     for (const vid of VIETNAM_TODAY_VIDEOS) {
       for (const v of vid.vocabulary || []) {

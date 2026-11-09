@@ -58,7 +58,19 @@
       </div>
 
       <div class="flex items-center gap-2">
-                <!-- Quick Manual Sync Button -->
+                <!-- Leaderboard & Competition Drawer Button -->
+        <button onclick="toggleLeaderboardDrawer()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/35 text-amber-300 text-xs font-bold border border-amber-500/40 transition shadow-sm active:scale-95" title="Bảng xếp hạng thi đua học tập giữa các học viên">
+          <i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span class="hidden sm:inline font-mono">🏆 Thi Đua</span>
+        </button>
+
+        <!-- Fast Multi-Account Switcher Button -->
+        <button onclick="openMultiAccountModal()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/35 text-indigo-300 text-xs font-bold border border-indigo-500/40 transition shadow-sm active:scale-95" title="Chuyển đổi tài khoản hoặc cấp tài khoản học viên mới">
+          <i data-lucide="users" class="w-3.5 h-3.5 text-indigo-400"></i>
+          <span id="headerAccountName" class="hidden md:inline">Đổi Tài Khoản</span>
+        </button>
+
+        <!-- Quick Manual Sync Button -->
         <button id="btnManualSyncHeader" onclick="manualSyncNow(true)" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/35 text-emerald-300 text-xs font-bold border border-emerald-500/40 transition shadow-sm active:scale-95" title="Bấm để đồng bộ thủ công ngay lập tức">
           <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-emerald-400" id="manualSyncIcon"></i>
           <span class="hidden md:inline">Đồng Bộ Thủ Công</span>
@@ -114,8 +126,8 @@
         <button onclick="switchTab('flashcard')" id="nav-btn-flashcard" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="layers" class="w-4 h-4"></i> Học Deadline Hôm Nay
         </button>
-        <button onclick="switchTab('listening')" id="nav-btn-listening" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="headphones" class="w-4 h-4 text-cyan-400"></i> Luyện Nghe
+        <button onclick="switchTab('listening')" id="nav-btn-listening" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Luyện nghe nói tiếng Anh qua trích đoạn phim song ngữ kinh điển">
+          <i data-lucide="film" class="w-4 h-4 text-pink-400"></i> 🎬 Phim Song Ngữ
         </button>
         <button onclick="switchTab('video')" id="nav-btn-video" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="tv" class="w-4 h-4 text-rose-400"></i> Vietnam Today
@@ -123,8 +135,8 @@
         <button onclick="switchTab('review')" id="nav-btn-review" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="rotate-cw" class="w-4 h-4"></i> Ôn Tập Tự Do (Chọn Unit)
         </button>
-        <button onclick="switchTab('reader')" id="nav-btn-reader" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="newspaper" class="w-4 h-4"></i> Đọc hiểu ngữ cảnh
+        <button onclick="switchTab('reader')" id="nav-btn-reader" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Luyện đọc bài thi VSTEP chuẩn và báo song ngữ quốc tế">
+          <i data-lucide="book-open" class="w-4 h-4 text-cyan-400"></i> Đọc & Báo Song Ngữ
         </button>
         <button onclick="switchTab('grammar')" id="nav-btn-grammar" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="book-marked" class="w-4 h-4"></i> 25 Chuyên Đề Ngữ Pháp
@@ -368,6 +380,98 @@
           </button>
         </div></div>
       </div>
+
+
+        <!-- ================= 3 PHIÊN HỌC NGẮT QUÃNG SÁNG - TRƯA - TỐI ================= -->
+        <div class="glass-card rounded-2xl p-5 border border-indigo-500/30 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-950 space-y-4 shadow-xl">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+              <h3 class="font-bold text-white text-base">⏰ Lộ Trình 3 Phiên Học Ngắt Quãng Trong Ngày</h3>
+            </div>
+            <span id="currentSessionBadge" class="text-xs px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/30">Đang ở phiên học hiện tại</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <!-- Phiên 1: Sáng -->
+            <div id="sessionCardMorning" class="p-4 rounded-xl border border-slate-800 bg-slate-900/80 space-y-2 transition-all duration-300">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 font-bold text-[11px] flex items-center gap-1">
+                  🌅 06:00 - 11:30
+                </span>
+                <span id="sttSessionMorning" class="text-xs text-slate-400 font-semibold">Chưa xong</span>
+              </div>
+              <h4 class="font-bold text-white text-sm">Buổi Sáng: Nạp 20 Từ Vựng Mới</h4>
+              <p class="text-xs text-slate-400">Tiếp thu từ mới theo Unit hôm nay khi tinh thần minh mẫn nhất.</p>
+              <button onclick="switchTab('flashcard')" class="w-full py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold transition">
+                Vào Học Từ Vựng →
+              </button>
+            </div>
+
+            <!-- Phiên 2: Trưa -->
+            <div id="sessionCardNoon" class="p-4 rounded-xl border border-slate-800 bg-slate-900/80 space-y-2 transition-all duration-300">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 font-bold text-[11px] flex items-center gap-1">
+                  ☀️ 11:30 - 17:30
+                </span>
+                <span id="sttSessionNoon" class="text-xs text-slate-400 font-semibold">Chưa xong</span>
+              </div>
+              <h4 class="font-bold text-white text-sm">Buổi Trưa: Đọc Hiểu & Ngữ Pháp</h4>
+              <p class="text-xs text-slate-400">1 bài đọc VSTEP chuẩn dài hoặc bài tập ngữ pháp Cô Trang Anh.</p>
+              <button onclick="switchTab('reader')" class="w-full py-1.5 rounded-lg bg-cyan-600/30 hover:bg-cyan-600 text-cyan-300 hover:text-white text-xs font-bold transition">
+                Luyện Bài Đọc Chuẩn →
+              </button>
+            </div>
+
+            <!-- Phiên 3: Tối -->
+            <div id="sessionCardEvening" class="p-4 rounded-xl border border-slate-800 bg-slate-900/80 space-y-2 transition-all duration-300">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 font-bold text-[11px] flex items-center gap-1">
+                  🌙 17:30 - 22:00
+                </span>
+                <span id="sttSessionEvening" class="text-xs text-slate-400 font-semibold">Chưa xong</span>
+              </div>
+              <h4 class="font-bold text-white text-sm">Buổi Tối: Xem Video / Phim & Chốt Streak</h4>
+              <p class="text-xs text-slate-400">Xem video Vietnam Today hoặc Phim song ngữ trước 22:00.</p>
+              <button onclick="switchTab('video')" class="w-full py-1.5 rounded-lg bg-rose-600/30 hover:bg-rose-600 text-rose-300 hover:text-white text-xs font-bold transition">
+                Xem Video & Chốt Đích →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPETITIVE STUDY GROUP LEADERBOARD MINI-PANEL -->
+        <div class="glass-card rounded-2xl p-5 border border-amber-500/30 bg-gradient-to-br from-amber-950/30 via-slate-900/90 to-slate-950 space-y-4 shadow-xl">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 shadow">
+                <i data-lucide="trophy" class="w-5 h-5 text-amber-400"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="font-bold text-white text-base">🏆 Bảng Thi Đua Tiến Độ Học Tập</h3>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">Cạnh Tranh Trực Tiếp</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5">So sánh Streak, Từ đã thuộc & Tiến độ hôm nay giữa các tài khoản học viên.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="toggleLeaderboardDrawer()" class="px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/35 text-amber-300 text-xs font-bold border border-amber-500/40 transition flex items-center gap-1.5">
+                <i data-lucide="list-ordered" class="w-3.5 h-3.5"></i>
+                <span>Xem Chi Tiết Bảng Đua Top</span>
+              </button>
+              <button onclick="openMultiAccountModal()" class="px-3 py-1.5 rounded-xl bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/40 transition flex items-center gap-1.5">
+                <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
+                <span>Đổi / Thêm Học Viên</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mini Podium Ranking Preview -->
+          <div id="homeLeaderboardPreview" class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
 
       <!-- ================= DAILY DEADLINE & SPACED REPETITION ROADMAP ================= -->
       <div class="glass-card rounded-2xl p-5 sm:p-6 space-y-5 border border-slate-700/80">
@@ -1000,151 +1104,120 @@
     <!-- ============================================================================ -->
     <!-- TAB: LISTENING PRACTICE (FORM CHUẨN ĐỀ THI HP3 & CAMBRIDGE B1/B2) -->
     <!-- ============================================================================ -->
+        <!-- ============================================================================ -->
+    <!-- TAB: BILINGUAL CINEMA & TV SERIES (PHIM SONG NGỮ ANH - VIỆT) -->
+    <!-- ============================================================================ -->
     <section id="tab-listening" class="hidden space-y-6">
       <!-- Header Banner -->
-      <div class="glass-card rounded-2xl p-6 border border-cyan-500/40 relative overflow-hidden bg-gradient-to-br from-cyan-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+      <div class="glass-card rounded-2xl p-6 border border-pink-500/40 relative overflow-hidden bg-gradient-to-br from-pink-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs uppercase tracking-wider border border-cyan-500/30 flex items-center gap-1.5">
-                <i data-lucide="headphones" class="w-3.5 h-3.5 text-cyan-400"></i>
-                <span>Luyện Nghe Tiếng Anh Học Phần 3</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 font-bold text-xs uppercase tracking-wider border border-pink-500/30 flex items-center gap-1.5">
+                <i data-lucide="film" class="w-3.5 h-3.5 text-pink-400"></i>
+                <span>Bilingual Cinema Hub • Phim Song Ngữ</span>
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs">
+                Phát Âm & Ngữ Điệu Đời Thường
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs">
-                Form Chuẩn Đề Thi HP3
+                Tra Từ 1-Click Trong Sub
               </span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">🎧 Luyện Nghe Trắc Nghiệm A, B, C & Lời Thoại Song Ngữ</h2>
-            <p class="text-xs sm:text-sm text-slate-300 mt-1">Trình phát audio có tính năng tua ±5s, chỉnh tốc độ 0.75x - 1.25x, chấm điểm tức thì và giải thích đáp án chi tiết.</p>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">🎬 Luyện Tiếng Anh Qua Phim & Trích Đoạn Series Song Ngữ</h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">Luyện nghe phản xạ tự nhiên qua các phân cảnh kinh điển (Friends, The Pursuit of Happyness, Forrest Gump...). Bấm trực tiếp vào từng từ trong phụ đề để tra nghĩa tiếng Việt và lưu vào Flashcard!</p>
           </div>
-        </div>
-
-        <!-- Test Selection (Đề 1 / Đề 2) -->
-        <div class="space-y-1.5 border-b border-slate-800 pb-3">
-          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-            <i data-lucide="folder-check" class="w-3.5 h-3.5 text-cyan-400"></i>
-            <span>Chọn Đề Thi (Form Chuẩn HP3 An Ninh):</span>
-          </div>
-          <div class="flex items-center gap-2 flex-wrap" id="listeningTestSelector">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-
-        <!-- Part Selection Tabs -->
-        <div class="space-y-1.5">
-          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-            <i data-lucide="layers" class="w-3.5 h-3.5 text-indigo-400"></i>
-            <span>Chọn Phần Thi (3 Parts):</span>
-          </div>
-          <div class="flex items-center gap-2 flex-wrap" id="listeningPartTabs">
-            <!-- Rendered by JS -->
+          <div class="flex items-center gap-2 shrink-0">
+            <span class="text-xs text-slate-400 font-medium">Chế độ phụ đề:</span>
+            <button onclick="setCinemaSubMode('bilingual')" id="btnSubBilingual" class="px-3 py-1.5 rounded-xl bg-indigo-600 text-white font-bold text-xs shadow transition">Song Ngữ</button>
+            <button onclick="setCinemaSubMode('en')" id="btnSubEn" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition">Chỉ Tiếng Anh</button>
+            <button onclick="setCinemaSubMode('none')" id="btnSubNone" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition">Ẩn Sub (Thử Thách)</button>
           </div>
         </div>
       </div>
 
-      <!-- Audio Player Control Card -->
-      <div class="glass-card rounded-2xl p-5 border border-slate-700/80 bg-slate-900/90 shadow-xl space-y-4">
-        <div class="flex items-center justify-between flex-wrap gap-2">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/30">
-              <i data-lucide="volume-2" class="w-5 h-5"></i>
+      <!-- Main Workspace: Video Player + Playlist & Subtitles -->
+
+      <!-- ================= BILINGUAL NEWS ARTICLE VIEW CONTAINER ================= -->
+      <div id="bilingualNewsContainer" class="hidden space-y-6">
+        <!-- Rendered by JS: Articles list selector + Full parallel bilingual paragraphs view -->
+      </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Left: Video Player & Script (Col 8) -->
+        <div class="lg:col-span-8 space-y-6">
+          <!-- Video Frame -->
+          <div class="glass-card p-2 rounded-2xl border border-slate-700 bg-black aspect-video shadow-2xl overflow-hidden" id="cinemaVideoPlayerContainer">
+            <!-- Rendered by JS -->
+          </div>
+
+          <!-- Movie Info Card & Direct Action Buttons -->
+          <div class="glass-card p-5 rounded-2xl border border-slate-700/80 bg-slate-900/90 space-y-3">
+            <div id="cinemaMovieTitle" class="text-lg sm:text-xl font-black text-white leading-snug">
+              <!-- Rendered by JS -->
             </div>
-            <div>
-              <div class="text-[11px] text-cyan-400 font-mono font-bold uppercase tracking-wider">Trình Phát Audio Đề Thi</div>
-              <h3 id="listeningTrackTitle" class="text-sm sm:text-base font-bold text-white">Part 1: Interview with Andrea</h3>
+            <div id="cinemaMovieDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <!-- Rendered by JS -->
             </div>
           </div>
 
-          <!-- Speed Controls -->
-          <div class="flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700">
-            <span class="text-[10px] text-slate-400 px-1 font-bold">Tốc độ:</span>
-            <button onclick="setListeningSpeed(0.75)" data-rate="0.75" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">0.75x</button>
-            <button onclick="setListeningSpeed(1.0)" data-rate="1.0" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold bg-cyan-600 text-white transition shadow">1.0x</button>
-            <button onclick="setListeningSpeed(1.25)" data-rate="1.25" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">1.25x</button>
+          <!-- Key Expressions & Idioms in Movie -->
+          <div class="glass-card rounded-2xl p-6 border border-amber-500/30 bg-slate-900/90 space-y-4 shadow-xl">
+            <div class="flex items-center gap-2 border-b border-slate-800 pb-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+              <h3 class="font-bold text-white text-base">💎 Cụm Từ & Thành Ngữ Đắt Giá Trong Trích Đoạn</h3>
+            </div>
+            <div id="cinemaExpressionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Interactive Bilingual Subtitles -->
+          <div class="glass-card rounded-2xl p-6 border border-pink-500/30 bg-slate-900/90 space-y-4 shadow-xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="subtitles" class="w-5 h-5 text-pink-400"></i>
+                <h3 class="font-bold text-white text-base">📜 Lời Thoại Phim Song Ngữ (Interactive Subtitles)</h3>
+              </div>
+              <p class="text-xs text-slate-400">Bấm nút loa để nghe từng câu thoại, bấm từ để tra cứu.</p>
+            </div>
+            <div id="cinemaSubtitlesList" class="space-y-3 max-h-[550px] overflow-y-auto pr-1">
+              <!-- Rendered by JS -->
+            </div>
           </div>
         </div>
 
-        <!-- HTML5 Hidden Audio Element -->
-        <audio id="listeningAudio" class="hidden"></audio>
-
-        <!-- Player Seek & Action Bar -->
-        <div class="space-y-2">
-          <input type="range" id="listeningSeekRange" min="0" max="100" value="0" step="0.1" oninput="onListeningSeek(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
-          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
-            <span id="listeningTimeCurrent">00:00</span>
-            <span id="listeningTimeTotal">00:00</span>
+        <!-- Right: Movie Playlist & Vocab Notebook (Col 4) -->
+        <div class="lg:col-span-4 space-y-6">
+          <!-- Movie Playlist Selector -->
+          <div class="glass-card rounded-2xl p-5 border border-slate-700/80 bg-slate-900/90 space-y-4 shadow-xl">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h3 class="font-bold text-white text-sm uppercase tracking-wider flex items-center gap-2">
+                <i data-lucide="clapperboard" class="w-4 h-4 text-pink-400"></i>
+                <span>Danh Sách Phim Tuyển Chọn</span>
+              </h3>
+              <span id="cinemaMoviesCountBadge" class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold">4 trích đoạn</span>
+            </div>
+            <div id="cinemaPlaylistSelector" class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
+              <!-- Rendered by JS -->
+            </div>
           </div>
-        </div>
 
-        <div class="flex items-center justify-center gap-3 pt-1">
-          <button onclick="seekListening(-5)" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1 border border-slate-700 transition" title="Lùi lại 5 giây">
-            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> -5s
-          </button>
-
-          <button onclick="toggleListeningPlay()" id="btnListeningPlay" class="w-14 h-14 rounded-2xl bg-gradient-to-r from-cyan-600 via-teal-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white flex items-center justify-center shadow-lg shadow-cyan-600/40 transition active:scale-95" title="Phát / Tạm dừng">
-            <i data-lucide="play" class="w-7 h-7" id="listeningPlayIcon"></i>
-          </button>
-
-          <button onclick="seekListening(5)" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1 border border-slate-700 transition" title="Tua tới 5 giây">
-            +5s <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
-          </button>
-        </div>
-
-        <!-- Instruction Notice -->
-        <div class="p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-xs text-cyan-200 flex items-start gap-2">
-          <i data-lucide="info" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
-          <span id="listeningInstructionText">You will hear each part TWICE. Choose the correct letter A, B or C.</span>
-        </div>
-      </div>
-
-      <!-- Score Banner (Hidden initially) -->
-      <div id="listeningScoreBanner" class="hidden glass-card rounded-2xl p-6 border-2 border-amber-500/60 bg-gradient-to-r from-amber-950/60 via-slate-900 to-indigo-950/60 text-center space-y-2 shadow-2xl">
-        <div id="listeningScoreText"></div>
-      </div>
-
-      <!-- Questions List -->
-      <div class="space-y-4">
-        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-          <i data-lucide="help-circle" class="w-5 h-5 text-cyan-400"></i>
-          <span>Danh Sách Câu Hỏi Trắc Nghiệm</span>
-        </h3>
-        <div id="listeningQuestionsContainer" class="space-y-4">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-
-      <!-- Submit & Reset Actions Bar -->
-      <div class="glass-card p-4 rounded-2xl border border-slate-700 flex items-center justify-between gap-3 flex-wrap bg-slate-900/90">
-        <button onclick="submitListeningTest()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-950/40 transition flex items-center gap-2 active:scale-95">
-          <i data-lucide="check-circle-2" class="w-4 h-4"></i>
-          <span>Nộp Bài & Chấm Điểm</span>
-        </button>
-
-        <div class="flex items-center gap-2">
-          <button onclick="toggleListeningTranscript()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold border border-slate-700 transition flex items-center gap-1.5">
-            <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
-            <span>Xem Lời Thoại (Transcript)</span>
-          </button>
-          <button onclick="resetListeningTest()" class="px-4 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-xs sm:text-sm font-bold border border-slate-700 transition flex items-center gap-1.5">
-            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-            <span>Làm Lại</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Transcript & Answer Evidence Box -->
-      <div id="listeningTranscriptCard" class="hidden glass-card rounded-2xl p-6 border border-indigo-500/30 bg-slate-900/95 space-y-4 shadow-xl">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-          <h4 class="font-bold text-white text-base flex items-center gap-2">
-            <i data-lucide="file-text" class="w-5 h-5 text-indigo-400"></i>
-            <span>Lời Thoại Bài Nghe Song Ngữ Anh - Việt (Transcript)</span>
-          </h4>
-          <button onclick="toggleListeningTranscript()" class="text-slate-400 hover:text-white p-1 rounded-lg">
-            <i data-lucide="x" class="w-4 h-4"></i>
-          </button>
-        </div>
-        <div id="listeningTranscriptBody" class="space-y-3 max-h-[500px] overflow-y-auto pr-2">
-          <!-- Rendered by JS -->
+          <!-- Essential Vocab from this Movie -->
+          <div class="glass-card rounded-2xl p-5 border border-cyan-500/30 bg-slate-900/90 space-y-4 shadow-xl">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h3 class="font-bold text-white text-sm uppercase tracking-wider flex items-center gap-2">
+                <i data-lucide="book-marked" class="w-4 h-4 text-cyan-400"></i>
+                <span>Từ Vựng Phim Đã Lưu</span>
+              </h3>
+              <button onclick="saveAllCinemaWordsToFlashcard()" class="text-xs text-cyan-300 hover:text-white font-bold transition flex items-center gap-1">
+                <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i> + Lưu tất cả
+              </button>
+            </div>
+            <div id="cinemaVocabContainer" class="space-y-2.5">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1182,7 +1255,13 @@
       </div>
 
       <!-- Main Workspace: 2 Columns Side-by-Side -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- ================= BILINGUAL NEWS ARTICLE VIEW CONTAINER ================= -->
+      <div id="bilingualNewsContainer" class="hidden space-y-6">
+        <!-- Rendered by JS: Articles list selector + Full parallel bilingual paragraphs view -->
+      </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         <!-- Left: Main Video Player, Info, Vocab, Script (Col 8) -->
         <div class="lg:col-span-8 space-y-6">
           <!-- Video Embed Player -->
@@ -1341,9 +1420,9 @@
         <i data-lucide="layers" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Thẻ từ</span>
       </button>
-      <button onclick="switchTab('listening')" id="mob-btn-listening" class="mob-tab flex flex-col items-center py-1 text-slate-400">
-        <i data-lucide="headphones" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold mt-1">Nghe</span>
+      <button onclick="switchTab('listening')" id="mob-btn-listening" class="mob-tab flex flex-col items-center py-1 text-slate-400" title="Phim Song Ngữ">
+        <i data-lucide="film" class="w-5 h-5 text-pink-400"></i>
+        <span class="text-[10px] font-semibold mt-1">Phim</span>
       </button>
       <button onclick="switchTab('video')" id="mob-btn-video" class="mob-tab flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="tv" class="w-5 h-5"></i>
@@ -1968,18 +2047,138 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="/data.js?v=38.0"></script>
-  <script src="/listening_data.js?v=38.0"></script>
-  <script src="/vietnam_today_data.js?v=38.0"></script>
-  <script src="/reading_lexicon.js?v=38.0"></script>
-  <script src="/app.js?v=38.0"></script>
+  <script src="/data.js?v=40.0"></script>
+  <script src="/listening_data.js?v=40.0"></script>
+  <script src="/vietnam_today_data.js?v=40.0"></script>
+  <script src="/bilingual_cinema_data.js?v=40.0"></script>
+  <script src="/bilingual_news_data.js?v=40.0"></script>
+  <script src="/reading_lexicon.js?v=40.0"></script>
+  <script src="/app.js?v=40.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=38.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=39.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>
+
+    <!-- ================= SLIDE-OVER SIDEBAR: LEADERBOARD & THI ĐUA HỌC TẬP ================= -->
+    <div id="leaderboardDrawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+      <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity" onclick="toggleLeaderboardDrawer()"></div>
+      <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+        <div class="pointer-events-auto w-screen max-w-md bg-slate-900 border-l border-slate-800 shadow-2xl flex flex-col">
+          <!-- Drawer Header -->
+          <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-900/90 sticky top-0 z-10">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 shadow">
+                <i data-lucide="trophy" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-black text-white text-base leading-tight">🏆 Bảng Xếp Hạng Thi Đua</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Tiến độ & Streak giữa các học viên</p>
+              </div>
+            </div>
+            <button onclick="toggleLeaderboardDrawer()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+          <!-- Drawer Content (Scrollable) -->
+          <div class="p-5 space-y-5 overflow-y-auto flex-1">
+            <!-- Filter Tabs -->
+            <div class="grid grid-cols-3 gap-1 bg-slate-950/80 p-1 rounded-xl border border-slate-800 text-xs text-center font-bold">
+              <button onclick="filterLeaderboardMode('all')" id="lb-tab-all" class="py-1.5 rounded-lg bg-indigo-600 text-white shadow">Toàn Bộ</button>
+              <button onclick="filterLeaderboardMode('streak')" id="lb-tab-streak" class="py-1.5 rounded-lg text-slate-400 hover:text-white transition">Chuỗi 🔥</button>
+              <button onclick="filterLeaderboardMode('vocab')" id="lb-tab-vocab" class="py-1.5 rounded-lg text-slate-400 hover:text-white transition">Từ Thuộc 📚</button>
+            </div>
+
+            <!-- Top 3 Podium (Visual) -->
+            <div id="leaderboardPodium" class="grid grid-cols-3 gap-2 items-end pt-2">
+              <!-- Rendered by JS -->
+            </div>
+
+            <!-- Leaderboard List -->
+            <div class="space-y-2.5" id="leaderboardListContainer">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Drawer Footer: Quick Switch / Add Account -->
+          <div class="p-4 border-t border-slate-800 bg-slate-950/90 space-y-2">
+            <button onclick="openMultiAccountModal(); toggleLeaderboardDrawer();" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30 transition">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>
+              <span>Cấp Tài Khoản Mới / Đổi Người Học</span>
+            </button>
+            <p class="text-[11px] text-center text-slate-500">Mỗi học viên có tiến độ, streak và từ vựng độc lập.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= MODAL: MULTI-ACCOUNT MANAGER & FAST SWITCHER ================= -->
+    <div id="multiAccountModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm hidden p-4">
+      <div class="glass-card rounded-2xl max-w-lg w-full p-6 border border-indigo-500/30 shadow-2xl space-y-5 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-300">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Quản Lý Nhiều Tài Khoản & Thi Đua</h3>
+              <p class="text-xs text-slate-400">Chuyển đổi hồ sơ học viên 1-click hoặc cấp tài khoản mới</p>
+            </div>
+          </div>
+          <button onclick="closeMultiAccountModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Saved Accounts List -->
+        <div class="space-y-3">
+          <div class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
+            <span>Danh Sách Học Viên Trên Thiết Bị Này:</span>
+            <span id="savedAccountsCountBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400">3 tài khoản</span>
+          </div>
+          <div id="savedAccountsListContainer" class="space-y-2">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Create New Account Form -->
+        <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3">
+          <h4 class="font-bold text-xs uppercase text-indigo-300 flex items-center gap-1.5">
+            <i data-lucide="user-plus" class="w-4 h-4"></i> Cấp Thêm Tài Khoản / Bạn Cùng Tiến Mới
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+            <div>
+              <label class="block text-slate-400 mb-1">Tên học viên:</label>
+              <input type="text" id="newAccName" placeholder="VD: Trần Thị Mai..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white outline-none focus:border-indigo-500">
+            </div>
+            <div>
+              <label class="block text-slate-400 mb-1">Mục tiêu thi:</label>
+              <select id="newAccTarget" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white outline-none focus:border-indigo-500">
+                <option value="IELTS">IELTS 7.0+</option>
+                <option value="VSTEP">VSTEP B2 / C1</option>
+                <option value="Speakout B1+">Speakout B1+ Toàn Diện</option>
+                <option value="Giao Tiếp">Tiếng Anh Giao Tiếp</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-400 mb-1">Email đăng nhập:</label>
+              <input type="email" id="newAccEmail" placeholder="hocvien@example.com..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white outline-none focus:border-indigo-500">
+            </div>
+            <div>
+              <label class="block text-slate-400 mb-1">Mật khẩu:</label>
+              <input type="password" id="newAccPassword" placeholder="Tối thiểu 6 ký tự..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white outline-none focus:border-indigo-500">
+            </div>
+          </div>
+          <button onclick="createNewAccountFromModal()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-xs transition shadow-md shadow-indigo-600/25 flex items-center justify-center gap-2">
+            <i data-lucide="check" class="w-4 h-4"></i> Cấp Tài Khoản & Bắt Đầu Học Ngay
+          </button>
+        </div>
+      </div>
+    </div>
+
 </body>
 </html>

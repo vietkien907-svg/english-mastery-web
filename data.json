@@ -251,30 +251,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "Materials"
-            },
-            {
-              "id": "spk_add_generous",
-              "word": "Generous",
-              "pos": "adjective",
-              "pron": "/ˈdʒenərəs/",
-              "meaning_vi": "Rộng lượng, hào phóng",
-              "meaning_en": "Definition and context for 'Generous'",
-              "example": "Practice with 'Generous': Rộng lượng, hào phóng.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 1: Me & Mine (Sở hữu & Đồ vật)"
-            },
-            {
-              "id": "spk_add_make_small_talk",
-              "word": "Make small talk",
-              "pos": "phrase",
-              "pron": "/meɪk smɔːl tɔːk/",
-              "meaning_vi": "Trò chuyện xã giao, phá băng",
-              "meaning_en": "Definition and context for 'Make small talk'",
-              "example": "Practice with 'Make small talk': Trò chuyện xã giao, phá băng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 1: Me & Mine (Sở hữu & Đồ vật)"
             }
           ]
         },
@@ -438,30 +414,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "Personal preferences"
-            },
-            {
-              "id": "spk_add_outgoing",
-              "word": "Outgoing",
-              "pos": "adjective",
-              "pron": "/ˌaʊtˈɡəʊɪŋ/",
-              "meaning_vi": "Cởi mở, hướng ngoại, thích kết bạn",
-              "meaning_en": "Definition and context for 'Outgoing'",
-              "example": "Practice with 'Outgoing': Cởi mở, hướng ngoại, thích kết bạn.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 1: Me & Mine (Sở hữu & Đồ vật)"
-            },
-            {
-              "id": "spk_add_gig_economy",
-              "word": "Gig economy",
-              "pos": "noun",
-              "pron": "/ɡɪɡ ɪˈkɒnəmi/",
-              "meaning_vi": "Nền kinh tế làm việc tự do ngắn hạn",
-              "meaning_en": "Definition and context for 'Gig economy'",
-              "example": "Practice with 'Gig economy': Nền kinh tế làm việc tự do ngắn hạn.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 1: Me & Mine (Sở hữu & Đồ vật)"
             }
           ]
         },
@@ -697,30 +649,6 @@
               "level": "B2",
               "type": "collocation",
               "topic": "Family"
-            },
-            {
-              "id": "spk_add_stubborn",
-              "word": "Stubborn",
-              "pos": "adjective",
-              "pron": "/ˈstʌbən/",
-              "meaning_vi": "Bướng bỉnh, cứng đầu, ngoan cố",
-              "meaning_en": "Definition and context for 'Stubborn'",
-              "example": "Practice with 'Stubborn': Bướng bỉnh, cứng đầu, ngoan cố.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 1: Me & Mine (Sở hữu & Đồ vật)"
-            },
-            {
-              "id": "spk_add_fulfilling",
-              "word": "Fulfilling",
-              "pos": "adjective",
-              "pron": "/fʊlˈfɪlɪŋ/",
-              "meaning_vi": "Đem lại sự mãn nguyện, ý nghĩa",
-              "meaning_en": "Definition and context for 'Fulfilling'",
-              "example": "Practice with 'Fulfilling': Đem lại sự mãn nguyện, ý nghĩa.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 1: Me & Mine (Sở hữu & Đồ vật)"
             }
           ]
         },
@@ -1352,18 +1280,6 @@
               "level": "B2",
               "type": "collocation",
               "topic": "Family"
-            },
-            {
-              "id": "spk_add_get_on_with",
-              "word": "Get on with",
-              "pos": "phrasal verb",
-              "pron": "/ɡet ɒn wɪð/",
-              "meaning_vi": "Ăn ý, hoà thuận với ai",
-              "meaning_en": "Definition and context for 'Get on with'",
-              "example": "Practice with 'Get on with': Ăn ý, hoà thuận với ai.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 1: Me & Mine (Sở hữu & Đồ vật)"
             }
           ]
         }
@@ -1392,18 +1308,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "Making changes"
-            },
-            {
-              "id": "spk_add_astonished",
-              "word": "Astonished",
-              "pos": "adjective",
-              "pron": "/əˈstɒnɪʃt/",
-              "meaning_vi": "Vô cùng kinh ngạc, sững sờ",
-              "meaning_en": "Definition and context for 'Astonished'",
-              "example": "Practice with 'Astonished': Vô cùng kinh ngạc, sững sờ.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 2: Behaviour (Hành vi & Cảm xúc)"
             }
           ]
         },
@@ -1651,18 +1555,6 @@
               "level": "B1+",
               "type": "collocation",
               "topic": "Collocations: feelings and behaviour"
-            },
-            {
-              "id": "spk_add_plot_twist",
-              "word": "Plot twist",
-              "pos": "noun",
-              "pron": "/plɒt twɪst/",
-              "meaning_vi": "Bước ngoặt cốt truyện bất ngờ",
-              "meaning_en": "Definition and context for 'Plot twist'",
-              "example": "Practice with 'Plot twist': Bước ngoặt cốt truyện bất ngờ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 2: Behaviour (Hành vi & Cảm xúc)"
             }
           ]
         },
@@ -1910,18 +1802,6 @@
               "level": "B2",
               "type": "idiom",
               "topic": "Behaviour"
-            },
-            {
-              "id": "spk_add_narrative",
-              "word": "Narrative",
-              "pos": "noun",
-              "pron": "/ˈnærətɪv/",
-              "meaning_vi": "Lời kể, bản tự sự, câu chuyện",
-              "meaning_en": "Definition and context for 'Narrative'",
-              "example": "Practice with 'Narrative': Lời kể, bản tự sự, câu chuyện.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 2: Behaviour (Hành vi & Cảm xúc)"
             }
           ]
         },
@@ -1953,18 +1833,6 @@
               "level": "B2",
               "type": "idiom",
               "topic": "Behaviour"
-            },
-            {
-              "id": "spk_add_get_stuck_in_traffic",
-              "word": "Get stuck in traffic",
-              "pos": "phrase",
-              "pron": "/ɡet stʌk ɪn ˈtræfɪk/",
-              "meaning_vi": "Bị kẹt xe, tắc đường",
-              "meaning_en": "Definition and context for 'Get stuck in traffic'",
-              "example": "Practice with 'Get stuck in traffic': Bị kẹt xe, tắc đường.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 2: Behaviour (Hành vi & Cảm xúc)"
             }
           ]
         },
@@ -2744,30 +2612,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "Negative prefixes"
-            },
-            {
-              "id": "spk_add_pedestrian_zone",
-              "word": "Pedestrian zone",
-              "pos": "noun",
-              "pron": "/pəˈdestriən zəʊn/",
-              "meaning_vi": "Tuyến phố đi bộ cấm xe",
-              "meaning_en": "Definition and context for 'Pedestrian zone'",
-              "example": "Practice with 'Pedestrian zone': Tuyến phố đi bộ cấm xe.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 3: Working Life (Công việc & Tính cách)"
-            },
-            {
-              "id": "spk_add_traffic_congestion",
-              "word": "Traffic congestion",
-              "pos": "noun",
-              "pron": "/ˈtræfɪk kənˈdʒestʃən/",
-              "meaning_vi": "Ùn tắc giao thông nghiêm trọng",
-              "meaning_en": "Definition and context for 'Traffic congestion'",
-              "example": "Practice with 'Traffic congestion': Ùn tắc giao thông nghiêm trọng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 3: Working Life (Công việc & Tính cách)"
             }
           ]
         },
@@ -2955,30 +2799,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "Negative prefixes"
-            },
-            {
-              "id": "spk_add_bustling",
-              "word": "Bustling",
-              "pos": "adjective",
-              "pron": "/ˈbʌslɪŋ/",
-              "meaning_vi": "Nhộn nhịp, tấp nập, hối hả",
-              "meaning_en": "Definition and context for 'Bustling'",
-              "example": "Practice with 'Bustling': Nhộn nhịp, tấp nập, hối hả.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 3: Working Life (Công việc & Tính cách)"
-            },
-            {
-              "id": "spk_add_weigh_the_pros_and_cons",
-              "word": "Weigh the pros and cons",
-              "pos": "phrase",
-              "pron": "/weɪ ðə prəʊz ænd kɒnz/",
-              "meaning_vi": "Cân nhắc kỹ mặt lợi và hại",
-              "meaning_en": "Definition and context for 'Weigh the pros and cons'",
-              "example": "Practice with 'Weigh the pros and cons': Cân nhắc kỹ mặt lợi và hại.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 3: Working Life (Công việc & Tính cách)"
             }
           ]
         },
@@ -3178,18 +2998,6 @@
               "level": "B2",
               "type": "collocation",
               "topic": "Work"
-            },
-            {
-              "id": "spk_add_picturesque",
-              "word": "Picturesque",
-              "pos": "adjective",
-              "pron": "/ˌpɪktʃəˈresk/",
-              "meaning_vi": "Đẹp cổ kính như tranh vẽ",
-              "meaning_en": "Definition and context for 'Picturesque'",
-              "example": "Practice with 'Picturesque': Đẹp cổ kính như tranh vẽ.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 3: Working Life (Công việc & Tính cách)"
             }
           ]
         },
@@ -3809,18 +3617,6 @@
               "level": "B2",
               "type": "collocation",
               "topic": "Work"
-            },
-            {
-              "id": "spk_add_commute",
-              "word": "Commute",
-              "pos": "verb / noun",
-              "pron": "/kəˈmjuːt/",
-              "meaning_vi": "Đi lại làm việc hằng ngày",
-              "meaning_en": "Definition and context for 'Commute'",
-              "example": "Practice with 'Commute': Đi lại làm việc hằng ngày.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 3: Working Life (Công việc & Tính cách)"
             }
           ]
         }
@@ -4077,30 +3873,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "Films and film-making"
-            },
-            {
-              "id": "spk_add_accomplishment",
-              "word": "Accomplishment",
-              "pos": "noun",
-              "pron": "/əˈkʌmplɪʃmənt/",
-              "meaning_vi": "Thành tựu đáng tự hào",
-              "meaning_en": "Definition and context for 'Accomplishment'",
-              "example": "Practice with 'Accomplishment': Thành tựu đáng tự hào.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)"
-            },
-            {
-              "id": "spk_add_tournament",
-              "word": "Tournament",
-              "pos": "noun",
-              "pron": "/ˈtʊənəmənt/",
-              "meaning_vi": "Giải thi đấu thể thao",
-              "meaning_en": "Definition and context for 'Tournament'",
-              "example": "Practice with 'Tournament': Giải thi đấu thể thao.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)"
             }
           ]
         },
@@ -4312,18 +4084,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "The news"
-            },
-            {
-              "id": "spk_add_overcome",
-              "word": "Overcome",
-              "pos": "verb",
-              "pron": "/ˌəʊvəˈkʌm/",
-              "meaning_vi": "Vượt qua thử thách, khó khăn",
-              "meaning_en": "Definition and context for 'Overcome'",
-              "example": "Practice with 'Overcome': Vượt qua thử thách, khó khăn.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)"
             }
           ]
         },
@@ -4511,18 +4271,6 @@
               "level": "B2",
               "type": "idiom",
               "topic": "Media"
-            },
-            {
-              "id": "spk_add_perseverance",
-              "word": "Perseverance",
-              "pos": "noun",
-              "pron": "/ˌpɜːsɪˈvɪərəns/",
-              "meaning_vi": "Sự kiên trì, bền chí không nản",
-              "meaning_en": "Definition and context for 'Perseverance'",
-              "example": "Practice with 'Perseverance': Sự kiên trì, bền chí không nản.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)"
             }
           ]
         },
@@ -5154,18 +4902,6 @@
               "level": "B2",
               "type": "idiom",
               "topic": "Media"
-            },
-            {
-              "id": "spk_add_resilience",
-              "word": "Resilience",
-              "pos": "noun",
-              "pron": "/rɪˈzɪliəns/",
-              "meaning_vi": "Khả năng kiên cường phục hồi",
-              "meaning_en": "Definition and context for 'Resilience'",
-              "example": "Practice with 'Resilience': Khả năng kiên cường phục hồi.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)"
             }
           ]
         }
@@ -5530,30 +5266,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "Describing products"
-            },
-            {
-              "id": "spk_add_clickbait",
-              "word": "Clickbait",
-              "pos": "noun",
-              "pron": "/ˈklɪkbeɪt/",
-              "meaning_vi": "Tin tức giật gân câu lượt click",
-              "meaning_en": "Definition and context for 'Clickbait'",
-              "example": "Practice with 'Clickbait': Tin tức giật gân câu lượt click.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 5: Consumer (Tiêu dùng & Mua sắm)"
-            },
-            {
-              "id": "spk_add_verify",
-              "word": "Verify",
-              "pos": "verb",
-              "pron": "/ˈverɪfaɪ/",
-              "meaning_vi": "Xác minh, kiểm chứng nguồn tin",
-              "meaning_en": "Definition and context for 'Verify'",
-              "example": "Practice with 'Verify': Xác minh, kiểm chứng nguồn tin.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 5: Consumer (Tiêu dùng & Mua sắm)"
             }
           ]
         },
@@ -5681,18 +5393,6 @@
               "level": "B1",
               "type": "collocation",
               "topic": "Consumer"
-            },
-            {
-              "id": "spk_add_misinformation",
-              "word": "Misinformation",
-              "pos": "noun",
-              "pron": "/ˌmɪsɪnfəˈmeɪʃn/",
-              "meaning_vi": "Thông tin sai lệch, thất thiệt",
-              "meaning_en": "Definition and context for 'Misinformation'",
-              "example": "Practice with 'Misinformation': Thông tin sai lệch, thất thiệt.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 5: Consumer (Tiêu dùng & Mua sắm)"
             }
           ]
         },
@@ -6168,18 +5868,6 @@
               "level": "B1",
               "type": "collocation",
               "topic": "Consumer"
-            },
-            {
-              "id": "spk_add_hoax",
-              "word": "Hoax",
-              "pos": "noun",
-              "pron": "/həʊks/",
-              "meaning_vi": "Trò lừa bịp, tin giả bịa đặt",
-              "meaning_en": "Definition and context for 'Hoax'",
-              "example": "Practice with 'Hoax': Trò lừa bịp, tin giả bịa đặt.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 5: Consumer (Tiêu dùng & Mua sắm)"
             }
           ]
         }
@@ -6328,18 +6016,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "7B VB"
-            },
-            {
-              "id": "spk_add_masterpiece",
-              "word": "Masterpiece",
-              "pos": "noun",
-              "pron": "/ˈmɑːstəpiːs/",
-              "meaning_vi": "Kiệt tác nghệ thuật để đời",
-              "meaning_en": "Definition and context for 'Masterpiece'",
-              "example": "Practice with 'Masterpiece': Kiệt tác nghệ thuật để đời.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 6: Places (Đô thị & Du lịch)"
             }
           ]
         },
@@ -6683,18 +6359,6 @@
               "level": "B2",
               "type": "idiom",
               "topic": "Travel"
-            },
-            {
-              "id": "spk_add_sculpture",
-              "word": "Sculpture",
-              "pos": "noun",
-              "pron": "/ˈskʌlptʃə/",
-              "meaning_vi": "Tác phẩm điêu khắc, tạc tượng",
-              "meaning_en": "Definition and context for 'Sculpture'",
-              "example": "Practice with 'Sculpture': Tác phẩm điêu khắc, tạc tượng.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 6: Places (Đô thị & Du lịch)"
             }
           ]
         },
@@ -7170,18 +6834,6 @@
               "level": "B2",
               "type": "idiom",
               "topic": "Travel"
-            },
-            {
-              "id": "spk_add_ceramics",
-              "word": "Ceramics",
-              "pos": "noun",
-              "pron": "/səˈræmɪks/",
-              "meaning_vi": "Nghệ thuật đồ gốm sứ",
-              "meaning_en": "Definition and context for 'Ceramics'",
-              "example": "Practice with 'Ceramics': Nghệ thuật đồ gốm sứ.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 6: Places (Đô thị & Du lịch)"
             }
           ]
         }
@@ -7438,18 +7090,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "Internet words"
-            },
-            {
-              "id": "spk_add_overshare",
-              "word": "Overshare",
-              "pos": "verb",
-              "pron": "/ˌəʊvəˈʃeə/",
-              "meaning_vi": "Chia sẻ quá trớn đời tư lên mạng",
-              "meaning_en": "Definition and context for 'Overshare'",
-              "example": "Practice with 'Overshare': Chia sẻ quá trớn đời tư lên mạng.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 7: Connect (Giao tiếp & Công nghệ)"
             }
           ]
         },
@@ -7589,18 +7229,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "Adverbs"
-            },
-            {
-              "id": "spk_add_digital_footprint",
-              "word": "Digital footprint",
-              "pos": "noun",
-              "pron": "/ˈdɪdʒɪtl ˈfʊtprɪnt/",
-              "meaning_vi": "Dấu vết kỹ thuật số lưu lại",
-              "meaning_en": "Definition and context for 'Digital footprint'",
-              "example": "Practice with 'Digital footprint': Dấu vết kỹ thuật số lưu lại.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 7: Connect (Giao tiếp & Công nghệ)"
             }
           ]
         },
@@ -7764,18 +7392,6 @@
               "level": "B2",
               "type": "idiom",
               "topic": "Communication"
-            },
-            {
-              "id": "spk_add_cybersecurity",
-              "word": "Cybersecurity",
-              "pos": "noun",
-              "pron": "/ˌsaɪbəsɪˈkjʊərəti/",
-              "meaning_vi": "An ninh mạng, bảo mật thông tin",
-              "meaning_en": "Definition and context for 'Cybersecurity'",
-              "example": "Practice with 'Cybersecurity': An ninh mạng, bảo mật thông tin.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 7: Connect (Giao tiếp & Công nghệ)"
             }
           ]
         },
@@ -8311,18 +7927,6 @@
               "level": "B2",
               "type": "idiom",
               "topic": "Communication"
-            },
-            {
-              "id": "spk_add_digital_detox",
-              "word": "Digital detox",
-              "pos": "noun",
-              "pron": "/ˈdɪdʒɪtl ˈdiːtɒks/",
-              "meaning_vi": "Cai thiết bị số, giải độc công nghệ",
-              "meaning_en": "Definition and context for 'Digital detox'",
-              "example": "Practice with 'Digital detox': Cai thiết bị số, giải độc công nghệ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 7: Connect (Giao tiếp & Công nghệ)"
             }
           ]
         }
@@ -8507,30 +8111,6 @@
               "level": "B1+",
               "type": "word",
               "topic": "Presenting"
-            },
-            {
-              "id": "spk_add_know-how",
-              "word": "Know-how",
-              "pos": "noun",
-              "pron": "/ˈnəʊ haʊ/",
-              "meaning_vi": "Bí quyết, kinh nghiệm thực tiễn",
-              "meaning_en": "Definition and context for 'Know-how'",
-              "example": "Practice with 'Know-how': Bí quyết, kinh nghiệm thực tiễn.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)"
-            },
-            {
-              "id": "spk_add_viable",
-              "word": "Viable",
-              "pos": "adjective",
-              "pron": "/ˈvaɪəbl/",
-              "meaning_vi": "Khả thi, có thể đứng vững sinh lời",
-              "meaning_en": "Definition and context for 'Viable'",
-              "example": "Practice with 'Viable': Khả thi, có thể đứng vững sinh lời.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)"
             }
           ]
         },
@@ -8886,18 +8466,6 @@
               "level": "B2",
               "type": "collocation",
               "topic": "Wisdom"
-            },
-            {
-              "id": "spk_add_brush_up_on",
-              "word": "Brush up on",
-              "pos": "phrasal verb",
-              "pron": "/brʌʃ ʌp ɒn/",
-              "meaning_vi": "Ôn tập lại kỹ năng, kiến thức cũ",
-              "meaning_en": "Definition and context for 'Brush up on'",
-              "example": "Practice with 'Brush up on': Ôn tập lại kỹ năng, kiến thức cũ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)"
             }
           ]
         },
@@ -9421,18 +8989,6 @@
               "level": "B2",
               "type": "collocation",
               "topic": "Wisdom"
-            },
-            {
-              "id": "spk_add_trial_and_error",
-              "word": "Trial and error",
-              "pos": "phrase",
-              "pron": "/ˈtraɪəl ənd ˈerə/",
-              "meaning_vi": "Phương pháp thử và sai",
-              "meaning_en": "Definition and context for 'Trial and error'",
-              "example": "Practice with 'Trial and error': Phương pháp thử và sai.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)"
             }
           ]
         }
@@ -9689,18 +9245,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_electronic_device",
-              "word": "Electronic device",
-              "pos": "noun phrase",
-              "pron": "/iˌlekˈtrɑː.nɪk dɪˈvaɪs/",
-              "meaning_vi": "thiết bị điện tử",
-              "meaning_en": "Definition and context for 'Electronic device'",
-              "example": "Practice with 'Electronic device': thiết bị điện tử.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 9: Sức khỏe & Chế độ ăn (Health & Diet)"
             }
           ]
         },
@@ -9948,18 +9492,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_atmospheric_pressure",
-              "word": "Atmospheric pressure",
-              "pos": "noun phrase",
-              "pron": "/ˌætməsˈferɪk ˈpreʃər/",
-              "meaning_vi": "áp suất khí quyển",
-              "meaning_en": "Definition and context for 'Atmospheric pressure'",
-              "example": "Practice with 'Atmospheric pressure': áp suất khí quyển.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 9: Sức khỏe & Chế độ ăn (Health & Diet)"
             }
           ]
         },
@@ -10207,18 +9739,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_digestive",
-              "word": "Digestive",
-              "pos": "adjective",
-              "pron": "/dɪˈdʒestɪv/",
-              "meaning_vi": "về tiêu hóa",
-              "meaning_en": "Definition and context for 'Digestive'",
-              "example": "Practice with 'Digestive': về tiêu hóa.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 9: Sức khỏe & Chế độ ăn (Health & Diet)"
             }
           ]
         },
@@ -12183,18 +11703,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_thought-_provoking",
-              "word": "Thought- provoking",
-              "pos": "adjective",
-              "pron": "/ˈθɔːt prəvəʊkɪŋ/",
-              "meaning_vi": "kích thích tư duy",
-              "meaning_en": "Definition and context for 'Thought- provoking'",
-              "example": "Practice with 'Thought- provoking': kích thích tư duy.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 10: Thực phẩm & Lối sống (Food & Lifestyle)"
             }
           ]
         },
@@ -12442,18 +11950,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_densely_populated",
-              "word": "Densely populated",
-              "pos": "adjective",
-              "pron": "/ˈdensli ˈpɑːpjuleɪt/",
-              "meaning_vi": "dân cư đông đúc",
-              "meaning_en": "Definition and context for 'Densely populated'",
-              "example": "Practice with 'Densely populated': dân cư đông đúc.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 10: Thực phẩm & Lối sống (Food & Lifestyle)"
             }
           ]
         },
@@ -12701,18 +12197,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_absent-minded",
-              "word": "Absent-minded",
-              "pos": "adjective",
-              "pron": "/ˌæbsənt ˈmaɪndɪd/",
-              "meaning_vi": "lơ đãng, đãng trí",
-              "meaning_en": "Definition and context for 'Absent-minded'",
-              "example": "Practice with 'Absent-minded': lơ đãng, đãng trí.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 10: Thực phẩm & Lối sống (Food & Lifestyle)"
             }
           ]
         },
@@ -12960,18 +12444,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_anti-inflammatory",
-              "word": "Anti-inflammatory",
-              "pos": "noun",
-              "pron": "/ˌæntaɪ ɪnˈflæmətɔːri/",
-              "meaning_vi": "thuốc kháng viêm",
-              "meaning_en": "Definition and context for 'Anti-inflammatory'",
-              "example": "Practice with 'Anti-inflammatory': thuốc kháng viêm.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 10: Thực phẩm & Lối sống (Food & Lifestyle)"
             }
           ]
         },
@@ -13219,18 +12691,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_antiseptic_cream",
-              "word": "Antiseptic cream",
-              "pos": "noun phrase",
-              "pron": "/ˌæntiˈseptɪk kriːm/",
-              "meaning_vi": "kem sát trùng",
-              "meaning_en": "Definition and context for 'Antiseptic cream'",
-              "example": "Practice with 'Antiseptic cream': kem sát trùng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 10: Thực phẩm & Lối sống (Food & Lifestyle)"
             }
           ]
         },
@@ -13358,18 +12818,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_musical_instrument",
-              "word": "Musical instrument",
-              "pos": "noun phrase",
-              "pron": "/ˌmjuːzɪkl ˈɪnstrəmənt/",
-              "meaning_vi": "nhạc cụ",
-              "meaning_en": "Definition and context for 'Musical instrument'",
-              "example": "Practice with 'Musical instrument': nhạc cụ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 10: Thực phẩm & Lối sống (Food & Lifestyle)"
             }
           ]
         },
@@ -13521,18 +12969,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": ""
-            },
-            {
-              "id": "spk_add_trend_trendy_/trend/",
-              "word": "Trend Trendy /trend/",
-              "pos": "noun",
-              "pron": "/ˈtrendi/",
-              "meaning_vi": "a",
-              "meaning_en": "Definition and context for 'Trend Trendy /trend/'",
-              "example": "Practice with 'Trend Trendy /trend/': a.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 10: Thực phẩm & Lối sống (Food & Lifestyle)"
             }
           ]
         },
@@ -15260,18 +14696,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_emotional",
-              "word": "Emotional",
-              "pos": "adjective",
-              "pron": "/ɪˈməʊʃənl/",
-              "meaning_vi": "gây xúc động, dễ xúc động",
-              "meaning_en": "Definition and context for 'Emotional'",
-              "example": "Practice with 'Emotional': gây xúc động, dễ xúc động.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 11: Giai đoạn đời người & Nhà ở (Stages of Life & Housing)"
             }
           ]
         },
@@ -15519,18 +14943,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_household_chores",
-              "word": "Household chores",
-              "pos": "noun",
-              "pron": "/'haushould tʃɔːr/",
-              "meaning_vi": "các công việc vặt trong nhà, trong gia đình",
-              "meaning_en": "Definition and context for 'Household chores'",
-              "example": "Practice with 'Household chores': các công việc vặt trong nhà, trong gia đình.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 11: Giai đoạn đời người & Nhà ở (Stages of Life & Housing)"
             }
           ]
         },
@@ -15778,18 +15190,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_semi-detached_house",
-              "word": "Semi-detached house",
-              "pos": "noun phrase",
-              "pron": "/ˌsemaɪ dɪˈtætʃt ˈhaʊs/",
-              "meaning_vi": "nhà liền kề song lập",
-              "meaning_en": "Definition and context for 'Semi-detached house'",
-              "example": "Practice with 'Semi-detached house': nhà liền kề song lập.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 11: Giai đoạn đời người & Nhà ở (Stages of Life & Housing)"
             }
           ]
         },
@@ -16037,18 +15437,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_beautifully_restored",
-              "word": "Beautifully restored",
-              "pos": "adjective",
-              "pron": "/ˈbjuːtɪfli rɪˈstɔːrzd/",
-              "meaning_vi": "được khôi phục đẹp mắt",
-              "meaning_en": "Definition and context for 'Beautifully restored'",
-              "example": "Practice with 'Beautifully restored': được khôi phục đẹp mắt.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 11: Giai đoạn đời người & Nhà ở (Stages of Life & Housing)"
             }
           ]
         },
@@ -16296,18 +15684,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_conveniently_located",
-              "word": "Conveniently located",
-              "pos": "adjective",
-              "pron": "/kənˈviːniəntli ˈləʊkeɪtɪd/",
-              "meaning_vi": "vị trí thuận tiện",
-              "meaning_en": "Definition and context for 'Conveniently located'",
-              "example": "Practice with 'Conveniently located': vị trí thuận tiện.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 11: Giai đoạn đời người & Nhà ở (Stages of Life & Housing)"
             }
           ]
         },
@@ -18704,18 +18080,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_customer_service",
-              "word": "Customer service",
-              "pos": "noun phrase",
-              "pron": "/ˌkʌstəmər ˈsɜːrvɪs/",
-              "meaning_vi": "dịch vụ chăm sóc khách hàng",
-              "meaning_en": "Definition and context for 'Customer service'",
-              "example": "Practice with 'Customer service': dịch vụ chăm sóc khách hàng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 12: Giải trí & Thương mại (Leisure & E-commerce)"
             }
           ]
         },
@@ -18963,18 +18327,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_convenience_store",
-              "word": "Convenience store",
-              "pos": "noun phrase",
-              "pron": "/kənˈviːniəns stɔːr/",
-              "meaning_vi": "cửa hàng tiện lợi",
-              "meaning_en": "Definition and context for 'Convenience store'",
-              "example": "Practice with 'Convenience store': cửa hàng tiện lợi.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 12: Giải trí & Thương mại (Leisure & E-commerce)"
             }
           ]
         },
@@ -19198,18 +18550,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_trumpet",
-              "word": "Trumpet",
-              "pos": "noun",
-              "pron": "/ˈtrʌmpɪt/",
-              "meaning_vi": "v",
-              "meaning_en": "Definition and context for 'Trumpet'",
-              "example": "Practice with 'Trumpet': v.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 12: Giải trí & Thương mại (Leisure & E-commerce)"
             }
           ]
         },
@@ -19289,18 +18629,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": ""
-            },
-            {
-              "id": "spk_add_worship",
-              "word": "Worship",
-              "pos": "verb",
-              "pron": "/ˈwɝː.ʃɪp/",
-              "meaning_vi": "n",
-              "meaning_en": "Definition and context for 'Worship'",
-              "example": "Practice with 'Worship': n.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 12: Giải trí & Thương mại (Leisure & E-commerce)"
             }
           ]
         },
@@ -20332,30 +19660,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_classical_music",
-              "word": "Classical music",
-              "pos": "noun phrase",
-              "pron": "/ˌklæsɪkl ˈmjuːzɪk/",
-              "meaning_vi": "nhạc cổ điển",
-              "meaning_en": "Definition and context for 'Classical music'",
-              "example": "Practice with 'Classical music': nhạc cổ điển.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 13: Môi trường & Nghệ thuật (Arts & Environment)"
-            },
-            {
-              "id": "spk_add_renewable_energy_source",
-              "word": "Renewable energy source",
-              "pos": "noun phrase",
-              "pron": "/rɪˈnuːəbl ˈenərdʒi sɔːrs/",
-              "meaning_vi": "nguồn năng lượng tái tạo",
-              "meaning_en": "Definition and context for 'Renewable energy source'",
-              "example": "Practice with 'Renewable energy source': nguồn năng lượng tái tạo.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 13: Môi trường & Nghệ thuật (Arts & Environment)"
             }
           ]
         },
@@ -20603,18 +19907,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_low-pitched",
-              "word": "Low-pitched",
-              "pos": "adjective",
-              "pron": "/ˌləʊ ˈpɪtʃt/",
-              "meaning_vi": "âm vực thấp",
-              "meaning_en": "Definition and context for 'Low-pitched'",
-              "example": "Practice with 'Low-pitched': âm vực thấp.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 13: Môi trường & Nghệ thuật (Arts & Environment)"
             }
           ]
         },
@@ -20862,18 +20154,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_practical-minded",
-              "word": "Practical-minded",
-              "pos": "adjective",
-              "pron": "/ˌpræktɪkl ˈmaɪndɪd/",
-              "meaning_vi": "có đầu óc thực tế",
-              "meaning_en": "Definition and context for 'Practical-minded'",
-              "example": "Practice with 'Practical-minded': có đầu óc thực tế.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 13: Môi trường & Nghệ thuật (Arts & Environment)"
             }
           ]
         },
@@ -20977,18 +20257,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_household_appliance",
-              "word": "Household appliance",
-              "pos": "noun phrase",
-              "pron": "/ˈhaʊs.hoʊld əˈplaɪ.əns/",
-              "meaning_vi": "thiết bị gia dụng",
-              "meaning_en": "Definition and context for 'Household appliance'",
-              "example": "Practice with 'Household appliance': thiết bị gia dụng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 13: Môi trường & Nghệ thuật (Arts & Environment)"
             }
           ]
         },
@@ -21092,18 +20360,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": ""
-            },
-            {
-              "id": "spk_add_natural_resources",
-              "word": "Natural resources",
-              "pos": "noun phrase",
-              "pron": "/ˌnætʃ.ər.əl rɪˈzɔː.sɪz/",
-              "meaning_vi": "nguồn tài nguyên thiên nhiên",
-              "meaning_en": "Definition and context for 'Natural resources'",
-              "example": "Practice with 'Natural resources': nguồn tài nguyên thiên nhiên.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 13: Môi trường & Nghệ thuật (Arts & Environment)"
             }
           ]
         },
@@ -22023,18 +21279,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": ""
-            },
-            {
-              "id": "spk_add_public_transportation",
-              "word": "Public transportation",
-              "pos": "noun phrase",
-              "pron": "/ˌpʌblɪk ˈtrænspɔːrt/",
-              "meaning_vi": "phương tiện công cộng",
-              "meaning_en": "Definition and context for 'Public transportation'",
-              "example": "Practice with 'Public transportation': phương tiện công cộng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 13: Môi trường & Nghệ thuật (Arts & Environment)"
             }
           ]
         }
@@ -22291,18 +21535,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 8/5/2024"
-            },
-            {
-              "id": "spk_add_emergency_services",
-              "word": "Emergency services",
-              "pos": "noun phrase",
-              "pron": "/ɪˈmɜːrdʒənsi sɜːrvɪsɪz/",
-              "meaning_vi": "dịch vụ cấp cứu, khẩn cấp",
-              "meaning_en": "Definition and context for 'Emergency services'",
-              "example": "Practice with 'Emergency services': dịch vụ cấp cứu, khẩn cấp.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 14: Thiên nhiên & Động vật hoang dã (Nature & Wildlife)"
             }
           ]
         },
@@ -22550,18 +21782,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 10/5/2024"
-            },
-            {
-              "id": "spk_add_floating_water_season",
-              "word": "Floating water season",
-              "pos": "noun phrase",
-              "pron": "/ˈfloʊ.t̬ɪŋ ˈwɑː.t̬ɚ ˈsiː.zən/",
-              "meaning_vi": "mùa nước nổi",
-              "meaning_en": "Definition and context for 'Floating water season'",
-              "example": "Practice with 'Floating water season': mùa nước nổi.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 14: Thiên nhiên & Động vật hoang dã (Nature & Wildlife)"
             }
           ]
         },
@@ -22665,18 +21885,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 10/5/2024"
-            },
-            {
-              "id": "spk_add_endangered_species",
-              "word": "Endangered species",
-              "pos": "noun phrase",
-              "pron": "/ɪnˈdeɪn·dʒərd ˈspi·ʃiz/",
-              "meaning_vi": "những loài có nguy có bị tuyệt chủng",
-              "meaning_en": "Definition and context for 'Endangered species'",
-              "example": "Practice with 'Endangered species': những loài có nguy có bị tuyệt chủng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 14: Thiên nhiên & Động vật hoang dã (Nature & Wildlife)"
             }
           ]
         },
@@ -22876,18 +22084,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 10/5/2024"
-            },
-            {
-              "id": "spk_add_survival",
-              "word": "Survival",
-              "pos": "noun",
-              "pron": "/sɚˈvaɪ.vəl/",
-              "meaning_vi": "sự sống sót, sự tồn tại",
-              "meaning_en": "Definition and context for 'Survival'",
-              "example": "Practice with 'Survival': sự sống sót, sự tồn tại.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 14: Thiên nhiên & Động vật hoang dã (Nature & Wildlife)"
             }
           ]
         },
@@ -23663,18 +22859,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 10/5/2024"
-            },
-            {
-              "id": "spk_add_tourist_destination",
-              "word": "Tourist destination",
-              "pos": "noun phrase",
-              "pron": "/ˈtʊr.ɪst ˌdes.təˈneɪ.ʃən/",
-              "meaning_vi": "điểm đến du lịch",
-              "meaning_en": "Definition and context for 'Tourist destination'",
-              "example": "Practice with 'Tourist destination': điểm đến du lịch.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 14: Thiên nhiên & Động vật hoang dã (Nature & Wildlife)"
             }
           ]
         }
@@ -23931,18 +23115,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 15/5/2024"
-            },
-            {
-              "id": "spk_add_critically_endangered_spe",
-              "word": "Critically endangered species",
-              "pos": "noun phrase",
-              "pron": "/ˈkrɪtɪkli ɪnˈdeɪndʒərd ˈspiːʃiːz/",
-              "meaning_vi": "loài có nguy cơ tuyệt chủng cao",
-              "meaning_en": "Definition and context for 'Critically endangered species'",
-              "example": "Practice with 'Critically endangered species': loài có nguy cơ tuyệt chủng cao.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 15: Biến đổi khí hậu & Hệ sinh thái (Climate & Ecosystem)"
             }
           ]
         },
@@ -24154,18 +23326,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 17/5/2024"
-            },
-            {
-              "id": "spk_add_geographic_range",
-              "word": "Geographic range",
-              "pos": "noun phrase",
-              "pron": "/ˌdʒiːəˈɡræfɪk reɪndʒ/",
-              "meaning_vi": "phạm vi địa lý",
-              "meaning_en": "Definition and context for 'Geographic range'",
-              "example": "Practice with 'Geographic range': phạm vi địa lý.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 15: Biến đổi khí hậu & Hệ sinh thái (Climate & Ecosystem)"
             }
           ]
         },
@@ -24269,18 +23429,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 15/5/2024"
-            },
-            {
-              "id": "spk_add_urban_expansion",
-              "word": "Urban expansion",
-              "pos": "noun phrase",
-              "pron": "/ˌɜːrbən ɪkˈspænʃn/",
-              "meaning_vi": "mở rộng đô thị",
-              "meaning_en": "Definition and context for 'Urban expansion'",
-              "example": "Practice with 'Urban expansion': mở rộng đô thị.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 15: Biến đổi khí hậu & Hệ sinh thái (Climate & Ecosystem)"
             }
           ]
         },
@@ -24828,18 +23976,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 17/5/2024"
-            },
-            {
-              "id": "spk_add_carbon_neutral",
-              "word": "Carbon neutral",
-              "pos": "adjective",
-              "pron": "/ˌkɑːrbən ˈnuːtrəl/",
-              "meaning_vi": "trung hòa cacbon",
-              "meaning_en": "Definition and context for 'Carbon neutral'",
-              "example": "Practice with 'Carbon neutral': trung hòa cacbon.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 15: Biến đổi khí hậu & Hệ sinh thái (Climate & Ecosystem)"
             }
           ]
         }
@@ -25096,30 +24232,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 20/5/2024"
-            },
-            {
-              "id": "spk_add_recyclable",
-              "word": "Recyclable",
-              "pos": "adjective",
-              "pron": "/ˌriːˈsaɪkləbl/",
-              "meaning_vi": "có thể tái chế",
-              "meaning_en": "Definition and context for 'Recyclable'",
-              "example": "Practice with 'Recyclable': có thể tái chế.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 16: Du lịch & Học tập trọn đời (Travel & Lifelong Learning)"
-            },
-            {
-              "id": "spk_add_learning_community",
-              "word": "Learning community",
-              "pos": "noun phrase",
-              "pron": "/lɜːrnɪŋ kəˌmjuːnəti/",
-              "meaning_vi": "cộng đồng học tập",
-              "meaning_en": "Definition and context for 'Learning community'",
-              "example": "Practice with 'Learning community': cộng đồng học tập.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 16: Du lịch & Học tập trọn đời (Travel & Lifelong Learning)"
             }
           ]
         },
@@ -25367,30 +24479,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 24/5/2024"
-            },
-            {
-              "id": "spk_add_cardboard_box",
-              "word": "Cardboard box",
-              "pos": "noun phrase",
-              "pron": "/ˈkɑːrdbɔːrd bɑːks/",
-              "meaning_vi": "thùng các – tông, hộp bìa cứng",
-              "meaning_en": "Definition and context for 'Cardboard box'",
-              "example": "Practice with 'Cardboard box': thùng các – tông, hộp bìa cứng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 16: Du lịch & Học tập trọn đời (Travel & Lifelong Learning)"
-            },
-            {
-              "id": "spk_add_adult_education",
-              "word": "Adult education",
-              "pos": "noun phrase",
-              "pron": "/ˌædʌlt edʒuˈkeɪʃn/",
-              "meaning_vi": "giáo dục người lớn",
-              "meaning_en": "Definition and context for 'Adult education'",
-              "example": "Practice with 'Adult education': giáo dục người lớn.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 16: Du lịch & Học tập trọn đời (Travel & Lifelong Learning)"
             }
           ]
         },
@@ -25542,18 +24630,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 24/5/2024"
-            },
-            {
-              "id": "spk_add_water_filling_station",
-              "word": "Water filling station",
-              "pos": "noun phrase",
-              "pron": "/ˈwɔːtər ˈfɪlɪŋ steɪʃn/",
-              "meaning_vi": "trạm cấp nước",
-              "meaning_en": "Definition and context for 'Water filling station'",
-              "example": "Practice with 'Water filling station': trạm cấp nước.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 16: Du lịch & Học tập trọn đời (Travel & Lifelong Learning)"
             }
           ]
         },
@@ -25693,18 +24769,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 24/5/2024"
-            },
-            {
-              "id": "spk_add_household_waste",
-              "word": "Household waste",
-              "pos": "noun phrase",
-              "pron": "/ˌhaʊshəʊld weɪst/",
-              "meaning_vi": "rác thải sinh hoạt",
-              "meaning_en": "Definition and context for 'Household waste'",
-              "example": "Practice with 'Household waste': rác thải sinh hoạt.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 16: Du lịch & Học tập trọn đời (Travel & Lifelong Learning)"
             }
           ]
         },
@@ -26468,18 +25532,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 24/5/2024"
-            },
-            {
-              "id": "spk_add_chemical_fertilizer",
-              "word": "Chemical fertilizer",
-              "pos": "noun phrase",
-              "pron": "/ˌkemɪkl ˈfɜːrtəlaɪzər/",
-              "meaning_vi": "phân bón hóa học",
-              "meaning_en": "Definition and context for 'Chemical fertilizer'",
-              "example": "Practice with 'Chemical fertilizer': phân bón hóa học.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 16: Du lịch & Học tập trọn đời (Travel & Lifelong Learning)"
             }
           ]
         }
@@ -26736,30 +25788,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 27/5/2024"
-            },
-            {
-              "id": "spk_add_formal_education",
-              "word": "Formal education",
-              "pos": "noun phrase",
-              "pron": "/ˈfɔːrml edʒuˈkeɪʃn/",
-              "meaning_vi": "giáo dục chính quy",
-              "meaning_en": "Definition and context for 'Formal education'",
-              "example": "Practice with 'Formal education': giáo dục chính quy.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 17: Công nghệ & Tư duy phát triển (Technology & Mindset)"
-            },
-            {
-              "id": "spk_add_artificial_intelligence",
-              "word": "Artificial intelligence",
-              "pos": "noun phrase",
-              "pron": "/ˌɑːrtɪfɪʃl ɪnˈtelɪdʒəns/",
-              "meaning_vi": "trí tuệ nhân tạo",
-              "meaning_en": "Definition and context for 'Artificial intelligence'",
-              "example": "Practice with 'Artificial intelligence': trí tuệ nhân tạo.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 17: Công nghệ & Tư duy phát triển (Technology & Mindset)"
             }
           ]
         },
@@ -27007,30 +26035,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 31/5/2024"
-            },
-            {
-              "id": "spk_add_growth_mindset",
-              "word": "Growth mindset",
-              "pos": "noun phrase",
-              "pron": "/ˌɡrəʊθ ˈmaɪndset/",
-              "meaning_vi": "tư duy phát triển",
-              "meaning_en": "Definition and context for 'Growth mindset'",
-              "example": "Practice with 'Growth mindset': tư duy phát triển.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 17: Công nghệ & Tư duy phát triển (Technology & Mindset)"
-            },
-            {
-              "id": "spk_add_interactive_whiteboard",
-              "word": "Interactive whiteboard",
-              "pos": "noun phrase",
-              "pron": "/ˌɪntəræktɪv ˈwaɪtbɔːrd/",
-              "meaning_vi": "bảng điện tử, bảng tương tác",
-              "meaning_en": "Definition and context for 'Interactive whiteboard'",
-              "example": "Practice with 'Interactive whiteboard': bảng điện tử, bảng tương tác.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 17: Công nghệ & Tư duy phát triển (Technology & Mindset)"
             }
           ]
         },
@@ -27062,30 +26066,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 31/5/2024"
-            },
-            {
-              "id": "spk_add_financial_help",
-              "word": "Financial help",
-              "pos": "noun phrase",
-              "pron": "/faɪˌnænʃl ˈjɪr help/",
-              "meaning_vi": "trợ giúp tài chính",
-              "meaning_en": "Definition and context for 'Financial help'",
-              "example": "Practice with 'Financial help': trợ giúp tài chính.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 17: Công nghệ & Tư duy phát triển (Technology & Mindset)"
-            },
-            {
-              "id": "spk_add_electronic_media",
-              "word": "Electronic media",
-              "pos": "noun phrase",
-              "pron": "/ɪˌlektrɑːnɪk ˈmiːdiə/",
-              "meaning_vi": "phương tiện truyền thông điện tử",
-              "meaning_en": "Definition and context for 'Electronic media'",
-              "example": "Practice with 'Electronic media': phương tiện truyền thông điện tử.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 17: Công nghệ & Tư duy phát triển (Technology & Mindset)"
             }
           ]
         },
@@ -27153,30 +26133,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 31/5/2024"
-            },
-            {
-              "id": "spk_add_job_promotion",
-              "word": "Job promotion",
-              "pos": "noun phrase",
-              "pron": "/ˈdʒɑːb prəˈməʊʃn/",
-              "meaning_vi": "thăng tiến công việc",
-              "meaning_en": "Definition and context for 'Job promotion'",
-              "example": "Practice with 'Job promotion': thăng tiến công việc.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 17: Công nghệ & Tư duy phát triển (Technology & Mindset)"
-            },
-            {
-              "id": "spk_add_problem_-solving",
-              "word": "Problem -solving",
-              "pos": "noun",
-              "pron": "/ˈprɑːbləm sɑːlvɪŋ/",
-              "meaning_vi": "giải quyết vấn đề",
-              "meaning_en": "Definition and context for 'Problem -solving'",
-              "example": "Practice with 'Problem -solving': giải quyết vấn đề.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 17: Công nghệ & Tư duy phát triển (Technology & Mindset)"
             }
           ]
         },
@@ -27748,18 +26704,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 31/5/2024"
-            },
-            {
-              "id": "spk_add_virtual_classroom",
-              "word": "Virtual classroom",
-              "pos": "noun phrase",
-              "pron": "/ˌvɜːrtʃuəl ˈklæsrʊm/",
-              "meaning_vi": "phòng học ảo",
-              "meaning_en": "Definition and context for 'Virtual classroom'",
-              "example": "Practice with 'Virtual classroom': phòng học ảo.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 17: Công nghệ & Tư duy phát triển (Technology & Mindset)"
             }
           ]
         }
@@ -28016,42 +26960,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 5/6/2024"
-            },
-            {
-              "id": "spk_add_software_engineering",
-              "word": "Software engineering",
-              "pos": "noun phrase",
-              "pron": "/ˈsɔːftwer endʒɪnɪrɪŋ/",
-              "meaning_vi": "kỹ thuật phần mềm",
-              "meaning_en": "Definition and context for 'Software engineering'",
-              "example": "Practice with 'Software engineering': kỹ thuật phần mềm.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 18: Giáo dục đại học & Nghề nghiệp (Higher Education & Careers)"
-            },
-            {
-              "id": "spk_add_critical_thinking_skill",
-              "word": "Critical thinking skill",
-              "pos": "noun phrase",
-              "pron": "/ˌkrɪt̬.ɪ.kəl ˈθɪŋ.kɪŋ skɪl/",
-              "meaning_vi": "kỹ năng tư duy phản biện",
-              "meaning_en": "Definition and context for 'Critical thinking skill'",
-              "example": "Practice with 'Critical thinking skill': kỹ năng tư duy phản biện.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 18: Giáo dục đại học & Nghề nghiệp (Higher Education & Careers)"
-            },
-            {
-              "id": "spk_add_considerable",
-              "word": "Considerable",
-              "pos": "adjective",
-              "pron": "/kənˈsɪdərəbl/",
-              "meaning_vi": "đáng kể, đáng chú ý",
-              "meaning_en": "Definition and context for 'Considerable'",
-              "example": "Practice with 'Considerable': đáng kể, đáng chú ý.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 18: Giáo dục đại học & Nghề nghiệp (Higher Education & Careers)"
             }
           ]
         },
@@ -28275,30 +27183,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 7/6/2024"
-            },
-            {
-              "id": "spk_add_university_degree",
-              "word": "University degree",
-              "pos": "noun phrase",
-              "pron": "/ˌjuːnɪvɜːrsəti dɪˈɡriː/",
-              "meaning_vi": "bằng đại học",
-              "meaning_en": "Definition and context for 'University degree'",
-              "example": "Practice with 'University degree': bằng đại học.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 18: Giáo dục đại học & Nghề nghiệp (Higher Education & Careers)"
-            },
-            {
-              "id": "spk_add_academic_qualification",
-              "word": "Academic qualification",
-              "pos": "noun phrase",
-              "pron": "/ˌækəˈdemɪk ˌkwɑːlɪfɪˈkeɪʃn/",
-              "meaning_vi": "bằng cấp học thuật, trình độ học vấn",
-              "meaning_en": "Definition and context for 'Academic qualification'",
-              "example": "Practice with 'Academic qualification': bằng cấp học thuật, trình độ học vấn.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 18: Giáo dục đại học & Nghề nghiệp (Higher Education & Careers)"
             }
           ]
         },
@@ -28462,30 +27346,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 7/6/2024"
-            },
-            {
-              "id": "spk_add_optional",
-              "word": "Optional",
-              "pos": "adjective",
-              "pron": "/ˈɑːp.ʃən.əl/",
-              "meaning_vi": "tuỳ ý, tùy chọn",
-              "meaning_en": "Definition and context for 'Optional'",
-              "example": "Practice with 'Optional': tuỳ ý, tùy chọn.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 18: Giáo dục đại học & Nghề nghiệp (Higher Education & Careers)"
-            },
-            {
-              "id": "spk_add_on-the-job_training",
-              "word": "On-the-job training",
-              "pos": "noun phrase",
-              "pron": "/ɑːn ðə dʒɑːb ˈtreɪnɪŋ/",
-              "meaning_vi": "đào tạo tại chỗ, huấn luyện tại chỗ",
-              "meaning_en": "Definition and context for 'On-the-job training'",
-              "example": "Practice with 'On-the-job training': đào tạo tại chỗ, huấn luyện tại chỗ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 18: Giáo dục đại học & Nghề nghiệp (Higher Education & Careers)"
             }
           ]
         },
@@ -29105,30 +27965,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 7/6/2024"
-            },
-            {
-              "id": "spk_add_educational_journey",
-              "word": "Educational journey",
-              "pos": "noun phrase",
-              "pron": "/ˌedʒ.əˈkeɪ.ʃən.əl ˈdʒɝː.ni/",
-              "meaning_vi": "hành trình giáo dục",
-              "meaning_en": "Definition and context for 'Educational journey'",
-              "example": "Practice with 'Educational journey': hành trình giáo dục.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 18: Giáo dục đại học & Nghề nghiệp (Higher Education & Careers)"
-            },
-            {
-              "id": "spk_add_product_reviewer",
-              "word": "Product reviewer",
-              "pos": "noun phrase",
-              "pron": "/ˌprɑːdʌkt rɪˈvjuːər/",
-              "meaning_vi": "người đánh giá sản phẩm",
-              "meaning_en": "Definition and context for 'Product reviewer'",
-              "example": "Practice with 'Product reviewer': người đánh giá sản phẩm.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 18: Giáo dục đại học & Nghề nghiệp (Higher Education & Careers)"
             }
           ]
         }
@@ -29385,18 +28221,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 12/6/2024"
-            },
-            {
-              "id": "spk_add_human_interaction",
-              "word": "Human interaction",
-              "pos": "noun phrase",
-              "pron": "/ˌhjuːmən ˌɪntərˈækʃn/",
-              "meaning_vi": "tương tác con người",
-              "meaning_en": "Definition and context for 'Human interaction'",
-              "example": "Practice with 'Human interaction': tương tác con người.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 19: Kỹ năng làm việc & Nghề nghiệp (Work Skills & Occupations)"
             }
           ]
         },
@@ -29644,18 +28468,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 14/6/2024"
-            },
-            {
-              "id": "spk_add_software_developer",
-              "word": "Software developer",
-              "pos": "noun phrase",
-              "pron": "/ˈsɔːftwer dɪˈveləpər/",
-              "meaning_vi": "nhà phát triển phần mềm",
-              "meaning_en": "Definition and context for 'Software developer'",
-              "example": "Practice with 'Software developer': nhà phát triển phần mềm.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 19: Kỹ năng làm việc & Nghề nghiệp (Work Skills & Occupations)"
             }
           ]
         },
@@ -29903,18 +28715,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 14/6/2024"
-            },
-            {
-              "id": "spk_add_problem-solving_skills",
-              "word": "Problem-solving skills",
-              "pos": "noun",
-              "pron": "/ˈprɑːbləm sɑːlvɪŋ skɪlz/",
-              "meaning_vi": "kỹ năng giải quyết vấn đề",
-              "meaning_en": "Definition and context for 'Problem-solving skills'",
-              "example": "Practice with 'Problem-solving skills': kỹ năng giải quyết vấn đề.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 19: Kỹ năng làm việc & Nghề nghiệp (Work Skills & Occupations)"
             }
           ]
         },
@@ -30162,18 +28962,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 14/6/2024"
-            },
-            {
-              "id": "spk_add_stress_management",
-              "word": "Stress management",
-              "pos": "noun phrase",
-              "pron": "/stres ˈmænɪdʒmənt/",
-              "meaning_vi": "kiểm soát căng thẳng",
-              "meaning_en": "Definition and context for 'Stress management'",
-              "example": "Practice with 'Stress management': kiểm soát căng thẳng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 19: Kỹ năng làm việc & Nghề nghiệp (Work Skills & Occupations)"
             }
           ]
         },
@@ -30289,18 +29077,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 14/6/2024"
-            },
-            {
-              "id": "spk_add_construction_worker",
-              "word": "Construction worker",
-              "pos": "noun phrase",
-              "pron": "/kənˈstrʌkʃn wɜːrkər/",
-              "meaning_vi": "công nhân xây dựng",
-              "meaning_en": "Definition and context for 'Construction worker'",
-              "example": "Practice with 'Construction worker': công nhân xây dựng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 19: Kỹ năng làm việc & Nghề nghiệp (Work Skills & Occupations)"
             }
           ]
         },
@@ -30536,18 +29312,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 14/6/2024"
-            },
-            {
-              "id": "spk_add_self-understanding",
-              "word": "Self-understanding",
-              "pos": "noun",
-              "pron": "/self ˌʌndərˈstændɪŋ/",
-              "meaning_vi": "thấu hiểu bản thân",
-              "meaning_en": "Definition and context for 'Self-understanding'",
-              "example": "Practice with 'Self-understanding': thấu hiểu bản thân.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 19: Kỹ năng làm việc & Nghề nghiệp (Work Skills & Occupations)"
             }
           ]
         },
@@ -31851,18 +30615,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 14/6/2024"
-            },
-            {
-              "id": "spk_add_mainstream_education",
-              "word": "Mainstream education",
-              "pos": "noun phrase",
-              "pron": "/ˈmeɪnstriːm edʒuˈkeɪʃn/",
-              "meaning_vi": "giáo dục chính quy",
-              "meaning_en": "Definition and context for 'Mainstream education'",
-              "example": "Practice with 'Mainstream education': giáo dục chính quy.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 19: Kỹ năng làm việc & Nghề nghiệp (Work Skills & Occupations)"
             }
           ]
         }
@@ -32119,30 +30871,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 19/6/2024"
-            },
-            {
-              "id": "spk_add_interpersonal_skills",
-              "word": "Interpersonal skills",
-              "pos": "noun phrase",
-              "pron": "/ˌɪntərˈpɜːrsənl skɪlz/",
-              "meaning_vi": "kỹ năng giao tiếp, kỹ năng cá nhân",
-              "meaning_en": "Definition and context for 'Interpersonal skills'",
-              "example": "Practice with 'Interpersonal skills': kỹ năng giao tiếp, kỹ năng cá nhân.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 20: Giao lưu văn hóa & Phong tục (Cross-Cultural & Traditions)"
-            },
-            {
-              "id": "spk_add_language_barrier",
-              "word": "Language barrier",
-              "pos": "noun phrase",
-              "pron": "/ˈlæŋɡwɪdʒ ˈbæriər/",
-              "meaning_vi": "rào cản ngôn ngữ",
-              "meaning_en": "Definition and context for 'Language barrier'",
-              "example": "Practice with 'Language barrier': rào cản ngôn ngữ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 20: Giao lưu văn hóa & Phong tục (Cross-Cultural & Traditions)"
             }
           ]
         },
@@ -32330,30 +31058,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 21/6/2024"
-            },
-            {
-              "id": "spk_add_bamboo_dancing",
-              "word": "Bamboo dancing",
-              "pos": "noun phrase",
-              "pron": "/ˌbæmˈbuː ˈdænsɪŋ/",
-              "meaning_vi": "múa sạp",
-              "meaning_en": "Definition and context for 'Bamboo dancing'",
-              "example": "Practice with 'Bamboo dancing': múa sạp.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 20: Giao lưu văn hóa & Phong tục (Cross-Cultural & Traditions)"
-            },
-            {
-              "id": "spk_add_national_costume",
-              "word": "National costume",
-              "pos": "noun phrase",
-              "pron": "/ˌnæʃnəl ˈkɑːstuːm/",
-              "meaning_vi": "trang phục dân tộc",
-              "meaning_en": "Definition and context for 'National costume'",
-              "example": "Practice with 'National costume': trang phục dân tộc.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 20: Giao lưu văn hóa & Phong tục (Cross-Cultural & Traditions)"
             }
           ]
         },
@@ -32469,30 +31173,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 21/6/2024"
-            },
-            {
-              "id": "spk_add_cultural_diversity",
-              "word": "Cultural diversity",
-              "pos": "noun phrase",
-              "pron": "/ˈkʌltʃərəl daɪˈvɜːrsəti/",
-              "meaning_vi": "sự đa dạng văn hóa",
-              "meaning_en": "Definition and context for 'Cultural diversity'",
-              "example": "Practice with 'Cultural diversity': sự đa dạng văn hóa.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 20: Giao lưu văn hóa & Phong tục (Cross-Cultural & Traditions)"
-            },
-            {
-              "id": "spk_add_common_practice",
-              "word": "Common practice",
-              "pos": "noun phrase",
-              "pron": "/ˌkɑːmən ˈpræktɪs/",
-              "meaning_vi": "thông lệ",
-              "meaning_en": "Definition and context for 'Common practice'",
-              "example": "Practice with 'Common practice': thông lệ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 20: Giao lưu văn hóa & Phong tục (Cross-Cultural & Traditions)"
             }
           ]
         },
@@ -33028,30 +31708,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 21/6/2024"
-            },
-            {
-              "id": "spk_add_extracurricular_activity",
-              "word": "Extracurricular activity",
-              "pos": "noun phrase",
-              "pron": "/ˌekstrəkəˈrɪkjələr ækˈtɪvəti/",
-              "meaning_vi": "hoạt động ngoại khóa",
-              "meaning_en": "Definition and context for 'Extracurricular activity'",
-              "example": "Practice with 'Extracurricular activity': hoạt động ngoại khóa.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 20: Giao lưu văn hóa & Phong tục (Cross-Cultural & Traditions)"
-            },
-            {
-              "id": "spk_add_common_behavior",
-              "word": "Common behavior",
-              "pos": "noun phrase",
-              "pron": "/ˌkɑːmən bɪˈheɪvjər/",
-              "meaning_vi": "hành vi thông thường",
-              "meaning_en": "Definition and context for 'Common behavior'",
-              "example": "Practice with 'Common behavior': hành vi thông thường.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 20: Giao lưu văn hóa & Phong tục (Cross-Cultural & Traditions)"
             }
           ]
         }
@@ -33308,18 +31964,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 24/6/2024"
-            },
-            {
-              "id": "spk_add_prominent_figure",
-              "word": "Prominent figure",
-              "pos": "noun phrase",
-              "pron": "/ˈprɑːmɪnənt ˈfɪɡjər/",
-              "meaning_vi": "nhân vật nổi bật",
-              "meaning_en": "Definition and context for 'Prominent figure'",
-              "example": "Practice with 'Prominent figure': nhân vật nổi bật.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 21: Cử chỉ, Cảm xúc & Truyền thông (Gestures, Feelings & Media)"
             }
           ]
         },
@@ -33567,18 +32211,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 24/6/2024"
-            },
-            {
-              "id": "spk_add_vibrant_costume",
-              "word": "Vibrant costume",
-              "pos": "noun phrase",
-              "pron": "/ˈvaɪbrənt kɑːstuːm/",
-              "meaning_vi": "trang phục rực rỡ",
-              "meaning_en": "Definition and context for 'Vibrant costume'",
-              "example": "Practice with 'Vibrant costume': trang phục rực rỡ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 21: Cử chỉ, Cảm xúc & Truyền thông (Gestures, Feelings & Media)"
             }
           ]
         },
@@ -33826,18 +32458,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 24/6/2024"
-            },
-            {
-              "id": "spk_add_public_loudspeaker",
-              "word": "Public loudspeaker",
-              "pos": "noun phrase",
-              "pron": "/ˈpʌblɪk ˌlaʊdˈspiːkər/",
-              "meaning_vi": "loa công cộng",
-              "meaning_en": "Definition and context for 'Public loudspeaker'",
-              "example": "Practice with 'Public loudspeaker': loa công cộng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 21: Cử chỉ, Cảm xúc & Truyền thông (Gestures, Feelings & Media)"
             }
           ]
         },
@@ -34085,18 +32705,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 28/6/2024"
-            },
-            {
-              "id": "spk_add_publication",
-              "word": "Publication",
-              "pos": "noun",
-              "pron": "/ˌpʌblɪˈkeɪʃn/",
-              "meaning_vi": "sự xuất bản, sự công bố",
-              "meaning_en": "Definition and context for 'Publication'",
-              "example": "Practice with 'Publication': sự xuất bản, sự công bố.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 21: Cử chỉ, Cảm xúc & Truyền thông (Gestures, Feelings & Media)"
             }
           ]
         },
@@ -34260,18 +32868,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 28/6/2024"
-            },
-            {
-              "id": "spk_add_online_predator",
-              "word": "Online predator",
-              "pos": "noun phrase",
-              "pron": "/ˌɑːnlaɪn ˈpredətər/",
-              "meaning_vi": "kẻ săn mồi trực tuyến",
-              "meaning_en": "Definition and context for 'Online predator'",
-              "example": "Practice with 'Online predator': kẻ săn mồi trực tuyến.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 21: Cử chỉ, Cảm xúc & Truyền thông (Gestures, Feelings & Media)"
             }
           ]
         },
@@ -36042,18 +34638,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 1/7/2024"
-            },
-            {
-              "id": "spk_add_exercise_equipment",
-              "word": "Exercise equipment",
-              "pos": "noun phrase",
-              "pron": "/ˈeksərsaɪz ɪˈkwɪpmənt/",
-              "meaning_vi": "thiết bị tập thể dục",
-              "meaning_en": "Definition and context for 'Exercise equipment'",
-              "example": "Practice with 'Exercise equipment': thiết bị tập thể dục.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 22: Tin tức & Đời sống cộng đồng (News, Community & Sports)"
             }
           ]
         },
@@ -36301,18 +34885,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 3/7/2024"
-            },
-            {
-              "id": "spk_add_basketball_court",
-              "word": "Basketball court",
-              "pos": "noun phrase",
-              "pron": "/ˈbæskɪtbɔːl kɔːrt/",
-              "meaning_vi": "sân bóng rổ",
-              "meaning_en": "Definition and context for 'Basketball court'",
-              "example": "Practice with 'Basketball court': sân bóng rổ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 22: Tin tức & Đời sống cộng đồng (News, Community & Sports)"
             }
           ]
         },
@@ -37821,18 +36393,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 8/7/2024"
-            },
-            {
-              "id": "spk_add_gender_inequality",
-              "word": "Gender inequality",
-              "pos": "noun phrase",
-              "pron": "/ˈdʒendər ˌɪnɪˈkwɑːləti/",
-              "meaning_vi": "bất bình đẳng giới",
-              "meaning_en": "Definition and context for 'Gender inequality'",
-              "example": "Practice with 'Gender inequality': bất bình đẳng giới.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 23: Vấn đề toàn cầu & Đô thị hóa (Global Issues & Urbanization)"
             }
           ]
         },
@@ -38080,18 +36640,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 10/7/2024"
-            },
-            {
-              "id": "spk_add_hashtag_activism",
-              "word": "Hashtag activism",
-              "pos": "noun phrase",
-              "pron": "/ˈhæʃtæɡ ˈæktɪvɪzəm/",
-              "meaning_vi": "hoạt động gắn thẻ (#)",
-              "meaning_en": "Definition and context for 'Hashtag activism'",
-              "example": "Practice with 'Hashtag activism': hoạt động gắn thẻ (#).",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 23: Vấn đề toàn cầu & Đô thị hóa (Global Issues & Urbanization)"
             }
           ]
         },
@@ -40044,30 +38592,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 19/7/2024"
-            },
-            {
-              "id": "spk_add_population_density",
-              "word": "Population density",
-              "pos": "noun phrase",
-              "pron": "/pɑːpjuˈleɪʃn ˈdensəti/",
-              "meaning_vi": "mật độ dân số",
-              "meaning_en": "Definition and context for 'Population density'",
-              "example": "Practice with 'Population density': mật độ dân số.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 24: Dân số, Nhà ở & Sinh thái (Population, Slums & Ecology)"
-            },
-            {
-              "id": "spk_add_non-renewable",
-              "word": "Non-renewable",
-              "pos": "adjective",
-              "pron": "/nonriˈniuːəbəl/",
-              "meaning_vi": "không thể tái tạo, không thể phục hồi",
-              "meaning_en": "Definition and context for 'Non-renewable'",
-              "example": "Practice with 'Non-renewable': không thể tái tạo, không thể phục hồi.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 24: Dân số, Nhà ở & Sinh thái (Population, Slums & Ecology)"
             }
           ]
         },
@@ -40279,18 +38803,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 19/7/2024"
-            },
-            {
-              "id": "spk_add_low-cost_housing",
-              "word": "Low-cost housing",
-              "pos": "noun phrase",
-              "pron": "/ˌləʊ ˈkɔːst ˈhaʊzɪŋ/",
-              "meaning_vi": "nhà ở giá rẻ",
-              "meaning_en": "Definition and context for 'Low-cost housing'",
-              "example": "Practice with 'Low-cost housing': nhà ở giá rẻ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 24: Dân số, Nhà ở & Sinh thái (Population, Slums & Ecology)"
             }
           ]
         },
@@ -40826,18 +39338,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 19/7/2024"
-            },
-            {
-              "id": "spk_add_fire_department",
-              "word": "Fire department",
-              "pos": "noun phrase",
-              "pron": "/ˈfaɪər dɪpɑːrtmənt/",
-              "meaning_vi": "sở cứu hỏa",
-              "meaning_en": "Definition and context for 'Fire department'",
-              "example": "Practice with 'Fire department': sở cứu hỏa.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 24: Dân số, Nhà ở & Sinh thái (Population, Slums & Ecology)"
             }
           ]
         }
@@ -41202,42 +39702,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 26/7/2024"
-            },
-            {
-              "id": "spk_add_community_activity",
-              "word": "Community Activity",
-              "pos": "noun phrase",
-              "pron": "/kəˌmjuːnəti ækˈtɪvəti/",
-              "meaning_vi": "hoạt động cộng đồng",
-              "meaning_en": "Definition and context for 'Community Activity'",
-              "example": "Practice with 'Community Activity': hoạt động cộng đồng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 25: Năng lượng xanh & Cộng đồng (Green Living & Community)"
-            },
-            {
-              "id": "spk_add_energy-saving_devices",
-              "word": "Energy-saving devices",
-              "pos": "noun phrase",
-              "pron": "/ˈenərdʒi seɪvɪŋ dɪˈvaɪs/",
-              "meaning_vi": "thiết bị tiết kiệm năng lượng",
-              "meaning_en": "Definition and context for 'Energy-saving devices'",
-              "example": "Practice with 'Energy-saving devices': thiết bị tiết kiệm năng lượng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 25: Năng lượng xanh & Cộng đồng (Green Living & Community)"
-            },
-            {
-              "id": "spk_add_working_schedule",
-              "word": "Working schedule",
-              "pos": "noun phrase",
-              "pron": "/ˈwɝː.kɪŋ ˈskedʒ.uːl/",
-              "meaning_vi": "lịch trình làm việc",
-              "meaning_en": "Definition and context for 'Working schedule'",
-              "example": "Practice with 'Working schedule': lịch trình làm việc.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 25: Năng lượng xanh & Cộng đồng (Green Living & Community)"
             }
           ]
         },
@@ -41341,30 +39805,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 26/7/2024"
-            },
-            {
-              "id": "spk_add_carbon_dioxide",
-              "word": "Carbon dioxide",
-              "pos": "noun phrase",
-              "pron": "/ˌkɑːrbən daɪˈɑːksaɪd/",
-              "meaning_vi": "khí cacbonic",
-              "meaning_en": "Definition and context for 'Carbon dioxide'",
-              "example": "Practice with 'Carbon dioxide': khí cacbonic.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 25: Năng lượng xanh & Cộng đồng (Green Living & Community)"
-            },
-            {
-              "id": "spk_add_hydroelectric_dam",
-              "word": "Hydroelectric dam",
-              "pos": "noun phrase",
-              "pron": "/ˌhaɪdrəʊɪˈlektrɪk dæm/",
-              "meaning_vi": "đập thủy điện",
-              "meaning_en": "Definition and context for 'Hydroelectric dam'",
-              "example": "Practice with 'Hydroelectric dam': đập thủy điện.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 25: Năng lượng xanh & Cộng đồng (Green Living & Community)"
             }
           ]
         },
@@ -41816,30 +40256,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 26/7/2024"
-            },
-            {
-              "id": "spk_add_sulfur_dioxide",
-              "word": "Sulfur dioxide",
-              "pos": "noun phrase",
-              "pron": "/ˌsʌlfər daɪˈɑːksaɪd/",
-              "meaning_vi": "lưu huỳnh đioxit",
-              "meaning_en": "Definition and context for 'Sulfur dioxide'",
-              "example": "Practice with 'Sulfur dioxide': lưu huỳnh đioxit.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 25: Năng lượng xanh & Cộng đồng (Green Living & Community)"
-            },
-            {
-              "id": "spk_add_domestic_violence",
-              "word": "Domestic violence",
-              "pos": "noun phrase",
-              "pron": "/dəˈmestɪk ˈvaɪə.ləns/",
-              "meaning_vi": "bạo lực gia đình",
-              "meaning_en": "Definition and context for 'Domestic violence'",
-              "example": "Practice with 'Domestic violence': bạo lực gia đình.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 25: Năng lượng xanh & Cộng đồng (Green Living & Community)"
             }
           ]
         }
@@ -42180,18 +40596,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 2/8/2024"
-            },
-            {
-              "id": "spk_add_computer_-_controlled",
-              "word": "Computer - controlled",
-              "pos": "adjective",
-              "pron": "/kəmˈpjuː.t̬ɚ kənˈtroʊld/",
-              "meaning_vi": "được điều khiển bằng máy tính",
-              "meaning_en": "Definition and context for 'Computer - controlled'",
-              "example": "Practice with 'Computer - controlled': được điều khiển bằng máy tính.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 26: Bình đẳng & Đô thị thông minh (Equal Rights & Smart City)"
             }
           ]
         },
@@ -42307,18 +40711,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 2/8/2024"
-            },
-            {
-              "id": "spk_add_living_conditions",
-              "word": "Living conditions",
-              "pos": "noun phrase",
-              "pron": "/ˈlɪv.ɪŋ kənˈdɪʃ.ənz/",
-              "meaning_vi": "điều kiện sống, điều kiện sinh hoạt",
-              "meaning_en": "Definition and context for 'Living conditions'",
-              "example": "Practice with 'Living conditions': điều kiện sống, điều kiện sinh hoạt.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 26: Bình đẳng & Đô thị thông minh (Equal Rights & Smart City)"
             }
           ]
         },
@@ -42758,18 +41150,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 2/8/2024"
-            },
-            {
-              "id": "spk_add_robotics_expert",
-              "word": "Robotics expert",
-              "pos": "noun phrase",
-              "pron": "/rəʊˈbɑːtɪks ˈekspɜːrt/",
-              "meaning_vi": "chuyên gia về robot",
-              "meaning_en": "Definition and context for 'Robotics expert'",
-              "example": "Practice with 'Robotics expert': chuyên gia về robot.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 26: Bình đẳng & Đô thị thông minh (Equal Rights & Smart City)"
             }
           ]
         }
@@ -43026,30 +41406,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 5/8/2024"
-            },
-            {
-              "id": "spk_add_means_of_transport",
-              "word": "Means of transport",
-              "pos": "noun phrase",
-              "pron": "/miːnz ʌv ˈtrænspɔːrt/",
-              "meaning_vi": "phương tiện vận tải",
-              "meaning_en": "Definition and context for 'Means of transport'",
-              "example": "Practice with 'Means of transport': phương tiện vận tải.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 27: Giao thông & Du lịch hiện đại (Transport & Modern Tourism)"
-            },
-            {
-              "id": "spk_add_temple_of_literature",
-              "word": "Temple of Literature",
-              "pos": "noun phrase",
-              "pron": "/ˈtempl ʌv ˈlɪtrətʃər/",
-              "meaning_vi": "văn miếu quốc tử giám",
-              "meaning_en": "Definition and context for 'Temple of Literature'",
-              "example": "Practice with 'Temple of Literature': văn miếu quốc tử giám.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 27: Giao thông & Du lịch hiện đại (Transport & Modern Tourism)"
             }
           ]
         },
@@ -43297,30 +41653,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 7/8/2024"
-            },
-            {
-              "id": "spk_add_self-catering_apartment",
-              "word": "Self-catering apartment",
-              "pos": "noun phrase",
-              "pron": "/ˌself ˈkeɪtərɪŋ əˈpɑːrtmənt/",
-              "meaning_vi": "căn hộ tự phục vụ",
-              "meaning_en": "Definition and context for 'Self-catering apartment'",
-              "example": "Practice with 'Self-catering apartment': căn hộ tự phục vụ.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 27: Giao thông & Du lịch hiện đại (Transport & Modern Tourism)"
-            },
-            {
-              "id": "spk_add_sustainable_material",
-              "word": "Sustainable material",
-              "pos": "noun phrase",
-              "pron": "/səˈsteɪnəbl məˈtɪriəl/",
-              "meaning_vi": "vật liệu bền vững",
-              "meaning_en": "Definition and context for 'Sustainable material'",
-              "example": "Practice with 'Sustainable material': vật liệu bền vững.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 27: Giao thông & Du lịch hiện đại (Transport & Modern Tourism)"
             }
           ]
         },
@@ -43568,30 +41900,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 9/8/2024"
-            },
-            {
-              "id": "spk_add_environment-_friendly",
-              "word": "Environment- friendly",
-              "pos": "adjective",
-              "pron": "/ɪnˌvaɪrənment ˈfrendli/",
-              "meaning_vi": "thân thiện với môi trường",
-              "meaning_en": "Definition and context for 'Environment- friendly'",
-              "example": "Practice with 'Environment- friendly': thân thiện với môi trường.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 27: Giao thông & Du lịch hiện đại (Transport & Modern Tourism)"
-            },
-            {
-              "id": "spk_add_silk_mosquito_net",
-              "word": "Silk mosquito net",
-              "pos": "noun",
-              "pron": "/sɪlk məˈskiːtəʊ net/",
-              "meaning_vi": "màn chống muỗi bằng lụa",
-              "meaning_en": "Definition and context for 'Silk mosquito net'",
-              "example": "Practice with 'Silk mosquito net': màn chống muỗi bằng lụa.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 27: Giao thông & Du lịch hiện đại (Transport & Modern Tourism)"
             }
           ]
         },
@@ -43611,18 +41919,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 9/8/2024"
-            },
-            {
-              "id": "spk_add_tourist_attraction",
-              "word": "Tourist attraction",
-              "pos": "noun phrase",
-              "pron": "/ˈtʊr.ɪst əˈtræk.ʃən/",
-              "meaning_vi": "địa đi ểm thu hút khách du l ịch, điểm",
-              "meaning_en": "Definition and context for 'Tourist attraction'",
-              "example": "Practice with 'Tourist attraction': địa đi ểm thu hút khách du l ịch, điểm.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 27: Giao thông & Du lịch hiện đại (Transport & Modern Tourism)"
             }
           ]
         },
@@ -43750,18 +42046,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 9/8/2024"
-            },
-            {
-              "id": "spk_add_smokeless_industry",
-              "word": "Smokeless industry",
-              "pos": "noun phrase",
-              "pron": "/ˈsmoʊk.ləs ˈɪn.də.stri/",
-              "meaning_vi": "ngành công nghiệp không khói",
-              "meaning_en": "Definition and context for 'Smokeless industry'",
-              "example": "Practice with 'Smokeless industry': ngành công nghiệp không khói.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 27: Giao thông & Du lịch hiện đại (Transport & Modern Tourism)"
             }
           ]
         },
@@ -44621,18 +42905,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 9/8/2024"
-            },
-            {
-              "id": "spk_add_travel_agency",
-              "word": "Travel agency",
-              "pos": "noun phrase",
-              "pron": "/ˈtræv.əl ˌeɪ.dʒən.si/",
-              "meaning_vi": "đại lý du lịch",
-              "meaning_en": "Definition and context for 'Travel agency'",
-              "example": "Practice with 'Travel agency': đại lý du lịch.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 27: Giao thông & Du lịch hiện đại (Transport & Modern Tourism)"
             }
           ]
         }
@@ -44889,18 +43161,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 13/8/2024"
-            },
-            {
-              "id": "spk_add_passport_control",
-              "word": "Passport control",
-              "pos": "noun phrase",
-              "pron": "/ˈpæspɔːrt kənˈtrəʊl/",
-              "meaning_vi": "kiểm soát hộ chiếu",
-              "meaning_en": "Definition and context for 'Passport control'",
-              "example": "Practice with 'Passport control': kiểm soát hộ chiếu.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 28: Tài chính, Mua sắm & Khám phá (Finance, Shopping & Nature)"
             }
           ]
         },
@@ -45148,18 +43408,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 14/8/2024"
-            },
-            {
-              "id": "spk_add_departure_lounge",
-              "word": "Departure lounge",
-              "pos": "noun phrase",
-              "pron": "/dɪˈpɑːrtʃər laʊndʒ/",
-              "meaning_vi": "phòng chờ khởi hành",
-              "meaning_en": "Definition and context for 'Departure lounge'",
-              "example": "Practice with 'Departure lounge': phòng chờ khởi hành.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 28: Tài chính, Mua sắm & Khám phá (Finance, Shopping & Nature)"
             }
           ]
         },
@@ -45407,18 +43655,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 16/8/2024"
-            },
-            {
-              "id": "spk_add_time-share_apartment",
-              "word": "Time-share apartment",
-              "pos": "noun",
-              "pron": "/ˈtaɪm ʃer əpɑːrtmənt/",
-              "meaning_vi": "một ngôi nhà hoặc căn hộ nghỉ mát (thuộc sở",
-              "meaning_en": "Definition and context for 'Time-share apartment'",
-              "example": "Practice with 'Time-share apartment': một ngôi nhà hoặc căn hộ nghỉ mát (thuộc sở.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 28: Tài chính, Mua sắm & Khám phá (Finance, Shopping & Nature)"
             }
           ]
         },
@@ -45666,18 +43902,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 16/8/2024"
-            },
-            {
-              "id": "spk_add_reserve",
-              "word": "Reserve",
-              "pos": "noun",
-              "pron": "/rɪˈzɜːrv/",
-              "meaning_vi": "dự trữ, bảo tồn, đặt trước",
-              "meaning_en": "Definition and context for 'Reserve'",
-              "example": "Practice with 'Reserve': dự trữ, bảo tồn, đặt trước.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 28: Tài chính, Mua sắm & Khám phá (Finance, Shopping & Nature)"
             }
           ]
         },
@@ -45781,18 +44005,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 16/8/2024"
-            },
-            {
-              "id": "spk_add_confirmation_of_booking",
-              "word": "Confirmation of booking",
-              "pos": "noun phrase",
-              "pron": "/ˌkɑːnfərˈmeɪʃn ʌv ˈbʊkɪŋ/",
-              "meaning_vi": "xác nhận đặt phòng",
-              "meaning_en": "Definition and context for 'Confirmation of booking'",
-              "example": "Practice with 'Confirmation of booking': xác nhận đặt phòng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 28: Tài chính, Mua sắm & Khám phá (Finance, Shopping & Nature)"
             }
           ]
         },
@@ -46064,18 +44276,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 16/8/2024"
-            },
-            {
-              "id": "spk_add_confirmation_slip",
-              "word": "Confirmation slip",
-              "pos": "noun phrase",
-              "pron": "/ˌkɑːnfərˈmeɪʃn slɪp/",
-              "meaning_vi": "phiếu xác nhận",
-              "meaning_en": "Definition and context for 'Confirmation slip'",
-              "example": "Practice with 'Confirmation slip': phiếu xác nhận.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 28: Tài chính, Mua sắm & Khám phá (Finance, Shopping & Nature)"
             }
           ]
         },
@@ -47403,18 +45603,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 16/8/2024"
-            },
-            {
-              "id": "spk_add_colony_of_penguins",
-              "word": "Colony of penguins",
-              "pos": "noun phrase",
-              "pron": "/ˈkɑːləni ʌv peŋɡwɪnz/",
-              "meaning_vi": "đàn chim cánh cụt",
-              "meaning_en": "Definition and context for 'Colony of penguins'",
-              "example": "Practice with 'Colony of penguins': đàn chim cánh cụt.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 28: Tài chính, Mua sắm & Khám phá (Finance, Shopping & Nature)"
             }
           ]
         }
@@ -47671,30 +45859,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 21/8/2024"
-            },
-            {
-              "id": "spk_add_historical_building",
-              "word": "Historical building",
-              "pos": "noun phrase",
-              "pron": "/hɪˌstɔːrɪkl ˈbɪldɪŋ/",
-              "meaning_vi": "tòa nhà lịch sử",
-              "meaning_en": "Definition and context for 'Historical building'",
-              "example": "Practice with 'Historical building': tòa nhà lịch sử.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 29: Di sản & Lễ hội văn hóa (Culture, Heritage & Festivals)"
-            },
-            {
-              "id": "spk_add_gender_equality",
-              "word": "Gender equality",
-              "pos": "noun phrase",
-              "pron": "/ˈdʒen.dɚ iˈkwɑː.lə.t̬i/",
-              "meaning_vi": "bình đẳng giới",
-              "meaning_en": "Definition and context for 'Gender equality'",
-              "example": "Practice with 'Gender equality': bình đẳng giới.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 29: Di sản & Lễ hội văn hóa (Culture, Heritage & Festivals)"
             }
           ]
         },
@@ -47942,30 +46106,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 23/8/2024"
-            },
-            {
-              "id": "spk_add_payment_method",
-              "word": "Payment method",
-              "pos": "noun phrase",
-              "pron": "/ˈpeɪmənt meθəd/",
-              "meaning_vi": "phương thức thanh toán",
-              "meaning_en": "Definition and context for 'Payment method'",
-              "example": "Practice with 'Payment method': phương thức thanh toán.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 29: Di sản & Lễ hội văn hóa (Culture, Heritage & Festivals)"
-            },
-            {
-              "id": "spk_add_cultural",
-              "word": "Cultural",
-              "pos": "adjective",
-              "pron": "/ˈkʌl.tʃɚ.əl/",
-              "meaning_vi": "thuộc văn hóa",
-              "meaning_en": "Definition and context for 'Cultural'",
-              "example": "Practice with 'Cultural': thuộc văn hóa.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 29: Di sản & Lễ hội văn hóa (Culture, Heritage & Festivals)"
             }
           ]
         },
@@ -48081,30 +46221,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 23/8/2024"
-            },
-            {
-              "id": "spk_add_bank_transfer",
-              "word": "Bank transfer",
-              "pos": "noun phrase",
-              "pron": "/bæŋk ˈtrænsfɜːr/",
-              "meaning_vi": "chuyển khoản ngân hàng",
-              "meaning_en": "Definition and context for 'Bank transfer'",
-              "example": "Practice with 'Bank transfer': chuyển khoản ngân hàng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 29: Di sản & Lễ hội văn hóa (Culture, Heritage & Festivals)"
-            },
-            {
-              "id": "spk_add_cultural_exchange",
-              "word": "Cultural exchange",
-              "pos": "noun phrase",
-              "pron": "/ˈkʌl.tʃɚ.əl ɪksˈtʃeɪndʒ/",
-              "meaning_vi": "giao lưu văn hóa",
-              "meaning_en": "Definition and context for 'Cultural exchange'",
-              "example": "Practice with 'Cultural exchange': giao lưu văn hóa.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 29: Di sản & Lễ hội văn hóa (Culture, Heritage & Festivals)"
             }
           ]
         },
@@ -48700,18 +46816,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 23/8/2024"
-            },
-            {
-              "id": "spk_add_remote_control",
-              "word": "Remote control",
-              "pos": "noun phrase",
-              "pron": "/rɪˌməʊt kənˈtrəʊl/",
-              "meaning_vi": "điều khiển từ xa",
-              "meaning_en": "Definition and context for 'Remote control'",
-              "example": "Practice with 'Remote control': điều khiển từ xa.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 29: Di sản & Lễ hội văn hóa (Culture, Heritage & Festivals)"
             }
           ]
         }
@@ -48968,18 +47072,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 30/8/2024"
-            },
-            {
-              "id": "spk_add_secretary_general",
-              "word": "Secretary General",
-              "pos": "noun phrase",
-              "pron": "/ ˈsekrəteri ˌdʒenrəl/",
-              "meaning_vi": "tổng thư ký",
-              "meaning_en": "Definition and context for 'Secretary General'",
-              "example": "Practice with 'Secretary General': tổng thư ký.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 30: Thỏa thuận & Dự án cộng đồng (Agreements & Community Projects)"
             }
           ]
         },
@@ -49011,18 +47103,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 30/8/2024"
-            },
-            {
-              "id": "spk_add_opening_ceremony_closing_",
-              "word": "Opening ceremony Closing ceremony",
-              "pos": "noun phrase",
-              "pron": "/ˈəʊpənɪŋ ˈserəməni/",
-              "meaning_vi": "np",
-              "meaning_en": "Definition and context for 'Opening ceremony Closing ceremony'",
-              "example": "Practice with 'Opening ceremony Closing ceremony': np.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 30: Thỏa thuận & Dự án cộng đồng (Agreements & Community Projects)"
             }
           ]
         },
@@ -49550,30 +47630,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 2/9/2024"
-            },
-            {
-              "id": "spk_add_basic_base_basement",
-              "word": "Basic Base Basement",
-              "pos": "/beis/",
-              "pron": "/ˈbeɪ.sɪk/",
-              "meaning_vi": "/ˈbeismənt/",
-              "meaning_en": "Definition and context for 'Basic Base Basement'",
-              "example": "Practice with 'Basic Base Basement': /ˈbeismənt/.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 31: Phát minh, Tiện ích & Thiết bị (Inventions, Gadgets & Hardware)"
-            },
-            {
-              "id": "spk_add_bluetooth_headset",
-              "word": "Bluetooth headset",
-              "pos": "noun phrase",
-              "pron": "/ˈbluːtuːθ ˈhedset/",
-              "meaning_vi": "tai nghe bluetooth",
-              "meaning_en": "Definition and context for 'Bluetooth headset'",
-              "example": "Practice with 'Bluetooth headset': tai nghe bluetooth.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 31: Phát minh, Tiện ích & Thiết bị (Inventions, Gadgets & Hardware)"
             }
           ]
         },
@@ -49821,30 +47877,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 6/9/2024"
-            },
-            {
-              "id": "spk_add_random_access_memory",
-              "word": "Random Access Memory",
-              "pos": "noun phrase",
-              "pron": "/ˈræn.dəm ˈæk.ses ˈmem.ər.i/",
-              "meaning_vi": "RAM (bộ nhớ tạm thời của máy)",
-              "meaning_en": "Definition and context for 'Random Access Memory'",
-              "example": "Practice with 'Random Access Memory': RAM (bộ nhớ tạm thời của máy).",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 31: Phát minh, Tiện ích & Thiết bị (Inventions, Gadgets & Hardware)"
-            },
-            {
-              "id": "spk_add_games_console",
-              "word": "Games console",
-              "pos": "noun phrase",
-              "pron": "/ˈɡeɪmz kɑːnsəʊl/",
-              "meaning_vi": "máy trò chơi",
-              "meaning_en": "Definition and context for 'Games console'",
-              "example": "Practice with 'Games console': máy trò chơi.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 31: Phát minh, Tiện ích & Thiết bị (Inventions, Gadgets & Hardware)"
             }
           ]
         },
@@ -49936,18 +47968,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 6/9/2024"
-            },
-            {
-              "id": "spk_add_visually-impaired",
-              "word": "Visually-impaired",
-              "pos": "adjective",
-              "pron": "/ˈvɪʒuəli ɪmˈperd/",
-              "meaning_vi": "khiếm thị",
-              "meaning_en": "Definition and context for 'Visually-impaired'",
-              "example": "Practice with 'Visually-impaired': khiếm thị.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 31: Phát minh, Tiện ích & Thiết bị (Inventions, Gadgets & Hardware)"
             }
           ]
         },
@@ -50027,18 +48047,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 6/9/2024"
-            },
-            {
-              "id": "spk_add_player",
-              "word": "player",
-              "pos": "noun phrase",
-              "pron": "/ˌem piː ˈθriː pleɪər/",
-              "meaning_vi": "máy nghe nhạc mp3",
-              "meaning_en": "Definition and context for 'player'",
-              "example": "Practice with 'player': máy nghe nhạc mp3.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 31: Phát minh, Tiện ích & Thiết bị (Inventions, Gadgets & Hardware)"
             }
           ]
         },
@@ -50682,18 +48690,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 6/9/2024"
-            },
-            {
-              "id": "spk_add_bluetooth_speaker",
-              "word": "Bluetooth speaker",
-              "pos": "noun phrase",
-              "pron": "/ˈbluːtuːθ ˈspiːkər/",
-              "meaning_vi": "loa bluetooth",
-              "meaning_en": "Definition and context for 'Bluetooth speaker'",
-              "example": "Practice with 'Bluetooth speaker': loa bluetooth.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 31: Phát minh, Tiện ích & Thiết bị (Inventions, Gadgets & Hardware)"
             }
           ]
         }
@@ -50950,30 +48946,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 11/9/2024"
-            },
-            {
-              "id": "spk_add_virtual_assistant",
-              "word": "Virtual assistant",
-              "pos": "noun phrase",
-              "pron": "/ˈvɜːrtʃuəl əˈsɪstənt/",
-              "meaning_vi": "trợ lý ảo",
-              "meaning_en": "Definition and context for 'Virtual assistant'",
-              "example": "Practice with 'Virtual assistant': trợ lý ảo.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 32: Trí tuệ nhân tạo & Điện ảnh (Artificial Intelligence & Media)"
-            },
-            {
-              "id": "spk_add_unfortunately",
-              "word": "Unfortunately",
-              "pos": "adverb",
-              "pron": "/ʌnˈfɔːrtʃənətli/",
-              "meaning_vi": "không may thay, thật đáng tiếc",
-              "meaning_en": "Definition and context for 'Unfortunately'",
-              "example": "Practice with 'Unfortunately': không may thay, thật đáng tiếc.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 32: Trí tuệ nhân tạo & Điện ảnh (Artificial Intelligence & Media)"
             }
           ]
         },
@@ -51221,30 +49193,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 13/9/2024"
-            },
-            {
-              "id": "spk_add_digital_portfolio",
-              "word": "Digital portfolio",
-              "pos": "noun phrase",
-              "pron": "/ˌdɪdʒɪtl pɔːrtˈfəʊliəʊ/",
-              "meaning_vi": "danh mục đầu tư kỹ thuật số",
-              "meaning_en": "Definition and context for 'Digital portfolio'",
-              "example": "Practice with 'Digital portfolio': danh mục đầu tư kỹ thuật số.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 32: Trí tuệ nhân tạo & Điện ảnh (Artificial Intelligence & Media)"
-            },
-            {
-              "id": "spk_add_romantic_comedy",
-              "word": "Romantic comedy",
-              "pos": "noun phrase",
-              "pron": "/rəʊˈmæntɪk ˈkɑːmədi/",
-              "meaning_vi": "phim hài lãng mạn",
-              "meaning_en": "Definition and context for 'Romantic comedy'",
-              "example": "Practice with 'Romantic comedy': phim hài lãng mạn.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 32: Trí tuệ nhân tạo & Điện ảnh (Artificial Intelligence & Media)"
             }
           ]
         },
@@ -51276,30 +49224,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 13/9/2024"
-            },
-            {
-              "id": "spk_add_personalized_learning",
-              "word": "Personalized learning",
-              "pos": "noun phrase",
-              "pron": "/ˈpɜːrsənəlaɪzd ˈlɜːrnɪŋ/",
-              "meaning_vi": "học tập cá nhân hoá",
-              "meaning_en": "Definition and context for 'Personalized learning'",
-              "example": "Practice with 'Personalized learning': học tập cá nhân hoá.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 32: Trí tuệ nhân tạo & Điện ảnh (Artificial Intelligence & Media)"
-            },
-            {
-              "id": "spk_add_science_fiction_film",
-              "word": "Science fiction film",
-              "pos": "noun phrase",
-              "pron": "/ˌsaɪəns ˈfɪkʃn fɪlm/",
-              "meaning_vi": "phim khoa học viễn tưởng",
-              "meaning_en": "Definition and context for 'Science fiction film'",
-              "example": "Practice with 'Science fiction film': phim khoa học viễn tưởng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 32: Trí tuệ nhân tạo & Điện ảnh (Artificial Intelligence & Media)"
             }
           ]
         },
@@ -51523,30 +49447,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 13/9/2024"
-            },
-            {
-              "id": "spk_add_ai-powered_game",
-              "word": "AI-powered game",
-              "pos": "noun phrase",
-              "pron": "/ˌeɪ ˈaɪ ˈpaʊərd ɡeɪm/",
-              "meaning_vi": "trò chơi được hỗ trợ bởi AI",
-              "meaning_en": "Definition and context for 'AI-powered game'",
-              "example": "Practice with 'AI-powered game': trò chơi được hỗ trợ bởi AI.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 32: Trí tuệ nhân tạo & Điện ảnh (Artificial Intelligence & Media)"
-            },
-            {
-              "id": "spk_add_improvement",
-              "word": "Improvement",
-              "pos": "noun",
-              "pron": "/ɪmˈpruːvmənt/",
-              "meaning_vi": "sự cải tiến",
-              "meaning_en": "Definition and context for 'Improvement'",
-              "example": "Practice with 'Improvement': sự cải tiến.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 32: Trí tuệ nhân tạo & Điện ảnh (Artificial Intelligence & Media)"
             }
           ]
         },
@@ -52274,18 +50174,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 13/9/2024"
-            },
-            {
-              "id": "spk_add_human_gesture",
-              "word": "Human gesture",
-              "pos": "noun phrase",
-              "pron": "/ˌhjuːmən ˈdʒestʃər/",
-              "meaning_vi": "cử chỉ con người",
-              "meaning_en": "Definition and context for 'Human gesture'",
-              "example": "Practice with 'Human gesture': cử chỉ con người.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 32: Trí tuệ nhân tạo & Điện ảnh (Artificial Intelligence & Media)"
             }
           ]
         }
@@ -52542,18 +50430,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 20/9/2024"
-            },
-            {
-              "id": "spk_add_surfing_instructor",
-              "word": "Surfing instructor",
-              "pos": "noun phrase",
-              "pron": "/ˈsɜːrfɪŋ ɪnˈstrʌktər/",
-              "meaning_vi": "người hướng dẫn lướt sóng",
-              "meaning_en": "Definition and context for 'Surfing instructor'",
-              "example": "Practice with 'Surfing instructor': người hướng dẫn lướt sóng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 33: Vật liệu, Nghề nghiệp & Cảm xúc (Materials, Professions & Emotions)"
             }
           ]
         },
@@ -52693,18 +50569,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 20/9/2024"
-            },
-            {
-              "id": "spk_add_stress_stressed_stressful",
-              "word": "Stress Stressed Stressful",
-              "pos": "/strest/",
-              "pron": "/stres/",
-              "meaning_vi": "/ˈstresfl/",
-              "meaning_en": "Definition and context for 'Stress Stressed Stressful'",
-              "example": "Practice with 'Stress Stressed Stressful': /ˈstresfl/.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 33: Vật liệu, Nghề nghiệp & Cảm xúc (Materials, Professions & Emotions)"
             }
           ]
         },
@@ -52760,18 +50624,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 18/9/2024"
-            },
-            {
-              "id": "spk_add_cross",
-              "word": "Cross",
-              "pos": "adjective",
-              "pron": "/krɔːs/",
-              "meaning_vi": "v",
-              "meaning_en": "Definition and context for 'Cross'",
-              "example": "Practice with 'Cross': v.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 33: Vật liệu, Nghề nghiệp & Cảm xúc (Materials, Professions & Emotions)"
             }
           ]
         },
@@ -53443,42 +51295,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 27/9/2024"
-            },
-            {
-              "id": "spk_add_computer_coding",
-              "word": "Computer coding",
-              "pos": "noun phrase",
-              "pron": "/kəmˈpjuːtər kəʊdɪŋ/",
-              "meaning_vi": "mã hóa máy tính",
-              "meaning_en": "Definition and context for 'Computer coding'",
-              "example": "Practice with 'Computer coding': mã hóa máy tính.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 34: Thành tựu, Lịch sử & Tầm nhìn (Achievements, History & Vision)"
-            },
-            {
-              "id": "spk_add_biological_parents",
-              "word": "Biological parents",
-              "pos": "noun phrase",
-              "pron": "/ˌbaɪəˌlɑːdʒɪkl ˈperənts/",
-              "meaning_vi": "cha mẹ ruột",
-              "meaning_en": "Definition and context for 'Biological parents'",
-              "example": "Practice with 'Biological parents': cha mẹ ruột.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 34: Thành tựu, Lịch sử & Tầm nhìn (Achievements, History & Vision)"
-            },
-            {
-              "id": "spk_add_embarrassment",
-              "word": "Embarrassment",
-              "pos": "noun",
-              "pron": "/ɪmˈbærəsmənt/",
-              "meaning_vi": "sự lúng túng",
-              "meaning_en": "Definition and context for 'Embarrassment'",
-              "example": "Practice with 'Embarrassment': sự lúng túng.",
-              "level": "B1+",
-              "type": "word",
-              "topic": "Unit 34: Thành tựu, Lịch sử & Tầm nhìn (Achievements, History & Vision)"
             }
           ]
         },
@@ -53546,42 +51362,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 25/9/2024"
-            },
-            {
-              "id": "spk_add_personal_account",
-              "word": "Personal account",
-              "pos": "noun phrase",
-              "pron": "/ˌpɜːrsənl əˈkaʊnt/",
-              "meaning_vi": "tài khoản cá nhân",
-              "meaning_en": "Definition and context for 'Personal account'",
-              "example": "Practice with 'Personal account': tài khoản cá nhân.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 34: Thành tựu, Lịch sử & Tầm nhìn (Achievements, History & Vision)"
-            },
-            {
-              "id": "spk_add_computer-_animated",
-              "word": "Computer- animated",
-              "pos": "noun",
-              "pron": "/kəmˌpjuːtər ˈænɪmeɪtɪd/",
-              "meaning_vi": "hoạt hình máy tính",
-              "meaning_en": "Definition and context for 'Computer- animated'",
-              "example": "Practice with 'Computer- animated': hoạt hình máy tính.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 34: Thành tựu, Lịch sử & Tầm nhìn (Achievements, History & Vision)"
-            },
-            {
-              "id": "spk_add_mentally_unwell",
-              "word": "Mentally unwell",
-              "pos": "tinh",
-              "pron": "/ˈmentəli ʌnˈwel/",
-              "meaning_vi": "thần không khỏe",
-              "meaning_en": "Definition and context for 'Mentally unwell'",
-              "example": "Practice with 'Mentally unwell': thần không khỏe.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 34: Thành tựu, Lịch sử & Tầm nhìn (Achievements, History & Vision)"
             }
           ]
         },
@@ -53877,30 +51657,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 27/9/2024"
-            },
-            {
-              "id": "spk_add_impressive_achievement",
-              "word": "Impressive achievement",
-              "pos": "noun phrase",
-              "pron": "/ɪmˈpresɪv əˈtʃiːvmənt/",
-              "meaning_vi": "thành tích ấn tượng",
-              "meaning_en": "Definition and context for 'Impressive achievement'",
-              "example": "Practice with 'Impressive achievement': thành tích ấn tượng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 34: Thành tựu, Lịch sử & Tầm nhìn (Achievements, History & Vision)"
-            },
-            {
-              "id": "spk_add_roman_empire",
-              "word": "Roman Empire",
-              "pos": "noun phrase",
-              "pron": "/ˌrəʊmən ˈempaɪər/",
-              "meaning_vi": "Đế chế La Mã",
-              "meaning_en": "Definition and context for 'Roman Empire'",
-              "example": "Practice with 'Roman Empire': Đế chế La Mã.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 34: Thành tựu, Lịch sử & Tầm nhìn (Achievements, History & Vision)"
             }
           ]
         }
@@ -54157,30 +51913,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 4/10/2024"
-            },
-            {
-              "id": "spk_add_public_transport",
-              "word": "Public transport",
-              "pos": "noun phrase",
-              "pron": "/ˌpʌb.lɪk ˈtræn.spɔːrt/",
-              "meaning_vi": "phương tiện giao thông công cộng",
-              "meaning_en": "Definition and context for 'Public transport'",
-              "example": "Practice with 'Public transport': phương tiện giao thông công cộng.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 35: Trách nhiệm & Quản lý thời gian (Responsibility & Time Management)"
-            },
-            {
-              "id": "spk_add_stressed_stressful_/stres",
-              "word": "Stressed Stressful /strest/",
-              "pos": "adjective",
-              "pron": "/ˈstresfl/",
-              "meaning_vi": "a",
-              "meaning_en": "Definition and context for 'Stressed Stressful /strest/'",
-              "example": "Practice with 'Stressed Stressful /strest/': a.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 35: Trách nhiệm & Quản lý thời gian (Responsibility & Time Management)"
             }
           ]
         },
@@ -54212,18 +51944,6 @@
               "level": "A2-B1",
               "type": "collocation",
               "topic": "Ngày 4/10/2024"
-            },
-            {
-              "id": "spk_add_sense_of_responsibility",
-              "word": "Sense of responsibility",
-              "pos": "noun phrase",
-              "pron": "/sens əv rɪˌspɑːn.səˈbɪl.ə.t̬i/",
-              "meaning_vi": "tinh thần trách nhiệm",
-              "meaning_en": "Definition and context for 'Sense of responsibility'",
-              "example": "Practice with 'Sense of responsibility': tinh thần trách nhiệm.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 35: Trách nhiệm & Quản lý thời gian (Responsibility & Time Management)"
             }
           ]
         },
@@ -54495,18 +52215,6 @@
               "level": "A2-B1",
               "type": "word",
               "topic": "Ngày 4/10/2024"
-            },
-            {
-              "id": "spk_add_time_management",
-              "word": "Time management",
-              "pos": "noun phrase",
-              "pron": "/ˌtaɪm ˈmænɪdʒmənt/",
-              "meaning_vi": "quản lý thời gian",
-              "meaning_en": "Definition and context for 'Time management'",
-              "example": "Practice with 'Time management': quản lý thời gian.",
-              "level": "B1+",
-              "type": "collocation",
-              "topic": "Unit 35: Trách nhiệm & Quản lý thời gian (Responsibility & Time Management)"
             }
           ]
         }
@@ -55282,6 +52990,28 @@
           ],
           "answer": "B",
           "explain": "Cấu trúc truyền khiến với Get: Get + somebody + TO V -> to carry."
+        },
+        {
+          "q": "The committee decided that all confidential files ______ before the audit began.",
+          "options": [
+            "A. had been destroyed",
+            "B. destroyed",
+            "C. were destroying",
+            "D. have been destroyed"
+          ],
+          "answer": "A",
+          "explain": "Hành động tiêu hủy xảy ra trước hành động 'began' trong quá khứ và ở thể bị động -> Quá khứ hoàn thành bị động: had been + V3/ed."
+        },
+        {
+          "q": "They had their house ______ by professional interior designers.",
+          "options": [
+            "A. redecorated",
+            "B. redecorating",
+            "C. to redecorate",
+            "D. redecorate"
+          ],
+          "answer": "A",
+          "explain": "Cấu trúc truyền khiến bị động (Causative form): have + something + V3/ed -> had their house redecorated."
         }
       ],
       "fill_blanks": [
@@ -55300,6 +53030,25 @@
           "alternatives": [],
           "hint": "Cấu trúc truyền khiến: Have + something + Vp2",
           "explain": "Cấu trúc: Have + sth + Vp2 (nhờ sửa cái gì). 'my car' là vật được sửa -> repaired."
+        },
+        {
+          "sentence": "The new administrative building (construct) ______ by a Japanese firm at this time next month.",
+          "answer": "will be being constructed",
+          "alternatives": [
+            "will be constructed",
+            "is being constructed"
+          ],
+          "hint": "Bị động tương lai tiếp diễn: S + will be being + V3/ed (hoặc tương lai đơn)",
+          "explain": "Quy tắc bị động tiếp diễn với mốc thời gian xác định trong tương lai: will be being + V3/ed."
+        },
+        {
+          "sentence": "It is reported that the ancient pagoda (damage) ______ during the violent storm last week.",
+          "answer": "was damaged",
+          "alternatives": [
+            "has been damaged"
+          ],
+          "hint": "Bị động quá khứ đơn (last week)",
+          "explain": "Quy tắc bị động với thời gian quá khứ rõ ràng 'last week': was/were + V3/ed -> was damaged."
         }
       ]
     },
@@ -55343,6 +53092,28 @@
           ],
           "answer": "B",
           "explain": "Ước một điều trái với thực tế ở hiện tại (right now) lùi về Quá khứ đơn: had."
+        },
+        {
+          "q": "______ you work harder, you will not pass the upcoming VSTEP B2 examination.",
+          "options": [
+            "A. Unless",
+            "B. Provided that",
+            "C. As long as",
+            "D. If"
+          ],
+          "answer": "A",
+          "explain": "Unless = If not ('Trừ khi bạn chăm chỉ hơn, bạn sẽ không thể đỗ kỳ thi')."
+        },
+        {
+          "q": "Had the rescue team arrived a few minutes later, the trapped mountaineers ______.",
+          "options": [
+            "A. could have perished",
+            "B. will perish",
+            "C. would perish",
+            "D. perish"
+          ],
+          "answer": "A",
+          "explain": "Đảo ngữ câu điều kiện loại 3: Had + S + V3/ed, S + would/could have + V3/ed."
         }
       ],
       "fill_blanks": [
@@ -55361,6 +53132,24 @@
           ],
           "hint": "Điều kiện hỗn hợp: Điều kiện quá khứ, kết quả hiện tại 'right now'",
           "explain": "Vế chính có dấu hiệu 'right now' ở hiện tại -> câu điều kiện hỗn hợp: would not be."
+        },
+        {
+          "sentence": "If he (listen) ______ to my warning yesterday, he would not be in such deep trouble right now.",
+          "answer": "had listened",
+          "alternatives": [
+            "had listened"
+          ],
+          "hint": "Điều kiện trộn: Vế If quá khứ (loại 3) -> Vế chính hiện tại (loại 2)",
+          "explain": "Quy tắc Mixed Conditional: 'yesterday' ở vế If dùng QKHT (had listened), 'now' ở vế chính dùng would + V_bare."
+        },
+        {
+          "sentence": "I wish I (have) ______ enough courage to speak up at the meeting this morning.",
+          "answer": "had had",
+          "alternatives": [
+            "had had"
+          ],
+          "hint": "Ước cho quá khứ: S + wish + S + had + V3/ed",
+          "explain": "Quy tắc câu ước trong quá khứ ('this morning' đã qua) lùi về thì Quá khứ hoàn thành: had had."
         }
       ]
     },
@@ -55404,6 +53193,28 @@
           ],
           "answer": "B",
           "explain": "Tường thuật câu hỏi Yes/No dùng liên từ 'if' hoặc 'whether'."
+        },
+        {
+          "q": "He asked me ______ for the international scholarship the following year.",
+          "options": [
+            "A. whether I would apply",
+            "B. if will I apply",
+            "C. did I apply",
+            "D. that I applied"
+          ],
+          "answer": "A",
+          "explain": "Tường thuật câu hỏi Yes/No: S + asked + if/whether + S + V (lùi thì). Will -> would."
+        },
+        {
+          "q": "The manager apologized ______ informing us of the project delay in advance.",
+          "options": [
+            "A. for not",
+            "B. to not",
+            "C. not to",
+            "D. on not"
+          ],
+          "answer": "A",
+          "explain": "Cấu trúc: apologize to someone for (not) doing something."
         }
       ],
       "fill_blanks": [
@@ -55422,6 +53233,24 @@
           ],
           "hint": "Cấu trúc: Apologize to someone for + V-ing",
           "explain": "Sau giới từ 'for' động từ thêm -ing -> being / having been."
+        },
+        {
+          "sentence": "The police officer ordered the suspect (put) ______ his hands up immediately.",
+          "answer": "to put",
+          "alternatives": [
+            "to put"
+          ],
+          "hint": "Cấu trúc gián tiếp câu mệnh lệnh: order sb to do sth",
+          "explain": "Quy tắc: order / tell / ask + someone + to V_bare."
+        },
+        {
+          "sentence": "She denied (steal) ______ the confidential documents from the company safe.",
+          "answer": "stealing",
+          "alternatives": [
+            "having stolen"
+          ],
+          "hint": "Cấu trúc deny + V-ing / having + V3/ed",
+          "explain": "Quy tắc tường thuật phủ nhận hành vi: deny + V-ing hoặc having stolen."
         }
       ]
     },
@@ -55520,6 +53349,28 @@
           ],
           "answer": "A",
           "explain": "Rút gọn mệnh đề quan hệ chủ động (Candidates who participate -> Candidates participating)."
+        },
+        {
+          "q": "The international convention was attended by over 500 delegates, most of ______ were environmental experts.",
+          "options": [
+            "A. whom",
+            "B. who",
+            "C. which",
+            "D. that"
+          ],
+          "answer": "A",
+          "explain": "Cấu trúc lượng từ + giới từ + whom (chỉ người) trong mệnh đề quan hệ không xác định."
+        },
+        {
+          "q": "Neil Armstrong was the first human ______ on the surface of the Moon.",
+          "options": [
+            "A. to walk",
+            "B. walking",
+            "C. walked",
+            "D. who walk"
+          ],
+          "answer": "A",
+          "explain": "Rút gọn MĐQH sau 'the first / the second / the only / so sánh nhất' bắt buộc dùng to-infinitive: to walk."
         }
       ],
       "fill_blanks": [
@@ -55536,6 +53387,24 @@
           "alternatives": [],
           "hint": "Có 'the first' nên rút gọn mệnh đề quan hệ thành To-V",
           "explain": "Quy tắc: Sau the first / second / last / only rút gọn mệnh đề quan hệ bằng To-V: to walk."
+        },
+        {
+          "sentence": "The scientific breakthrough, (publish) ______ in Nature last week, has astounded biologists.",
+          "answer": "published",
+          "alternatives": [
+            "which was published"
+          ],
+          "hint": "Rút gọn MĐQH thể bị động -> dùng Quá khứ phân từ V3/ed",
+          "explain": "Quy tắc rút gọn MĐQH bị động: 'which was published' rút gọn thành 'published'."
+        },
+        {
+          "sentence": "Professor Miller is the pioneer (theories) ______ revolutionized modern macroeconomic policies.",
+          "answer": "whose theories",
+          "alternatives": [
+            "whose"
+          ],
+          "hint": "Đại từ quan hệ chỉ sở hữu: whose + N",
+          "explain": "Quy tắc sở hữu cách: whose theories (những lý thuyết của vị giáo sư ấy)."
         }
       ]
     },
@@ -55564,6 +53433,28 @@
           ],
           "answer": "B",
           "explain": "Có chứng cứ ngoại phạm chắc chắn (đang họp ở London) -> Tom chắc chắn không thể là thủ phạm: can't have committed."
+        },
+        {
+          "q": "You ______ bought all that milk; we already had three unopened cartons in the fridge.",
+          "options": [
+            "A. needn't have",
+            "B. mustn't have",
+            "C. shouldn't",
+            "D. couldn't"
+          ],
+          "answer": "A",
+          "explain": "Needn't have + V3/ed: lẽ ra không cần phải làm nhưng trong thực tế đã lỡ làm rồi."
+        },
+        {
+          "q": "Mark wasn't at the party yesterday; he ______ working late at the laboratory.",
+          "options": [
+            "A. might have been",
+            "B. must be",
+            "C. should have been",
+            "D. can be"
+          ],
+          "answer": "A",
+          "explain": "Suy đoán không chắc chắn về một sự việc trong quá khứ: might / may have + V3/ed."
         }
       ],
       "fill_blanks": [
@@ -55582,6 +53473,26 @@
           ],
           "hint": "Lẽ ra nên tham khảo ý kiến bác sĩ (nhưng đã không làm trong quá khứ)",
           "explain": "Cấu trúc: Should have Vp2 diễn tả một việc lẽ ra nên làm trong quá khứ: should have consulted."
+        },
+        {
+          "sentence": "You (not leave) ______ your laptop unattended in public places; someone might take it.",
+          "answer": "should not leave",
+          "alternatives": [
+            "must not leave",
+            "shouldn't leave",
+            "ought not to leave"
+          ],
+          "hint": "Khuyên bảo / cảnh báo không nên làm gì: should not + V_bare",
+          "explain": "Quy tắc khuyên răn: should not / ought not to + V."
+        },
+        {
+          "sentence": "The pavement is soaking wet; it (rain) ______ heavily during the night.",
+          "answer": "must have rained",
+          "alternatives": [
+            "must have rained"
+          ],
+          "hint": "Dự đoán chắc chắn trong quá khứ dựa trên bằng chứng rõ ràng: must have + V3/ed",
+          "explain": "Quy tắc suy đoán quá khứ: must have + V3/ed (hẳn là đã mưa vì vỉa hè ướt sũng)."
         }
       ]
     },
@@ -55706,6 +53617,28 @@
           ],
           "answer": "A",
           "explain": "Cấu trúc đảo ngữ: Not until + thời gian + Trợ động từ + S + V -> did the committee announce."
+        },
+        {
+          "q": "Under no circumstances ______ employees to disclose proprietary company passwords.",
+          "options": [
+            "A. are allowed",
+            "B. are permitted",
+            "C. should you allow",
+            "D. are you allowed"
+          ],
+          "answer": "B",
+          "explain": "Đảo ngữ với cụm từ phủ định đứng đầu câu 'Under no circumstances' + trợ động từ / to be + S."
+        },
+        {
+          "q": "Only after the DNA results arrived ______ convinced of the suspect's innocence.",
+          "options": [
+            "A. was the detective",
+            "B. the detective was",
+            "C. did the detective",
+            "D. had the detective"
+          ],
+          "answer": "A",
+          "explain": "Đảo ngữ với 'Only after + MĐ/cụm': vế chính đảo to be/trợ động từ lên trước chủ ngữ: was the detective convinced."
         }
       ],
       "fill_blanks": [
@@ -55724,6 +53657,24 @@
           ],
           "hint": "Đảo ngữ với Never before: Trợ động từ + S (humanity - số ít)",
           "explain": "Chủ ngữ 'humanity' (nhân loại) là danh từ số ít -> đảo trợ động từ has lên trước."
+        },
+        {
+          "sentence": "Scarcely (the flight take) ______ off when the pilot detected a hydraulic failure.",
+          "answer": "had the flight taken",
+          "alternatives": [
+            "had the plane taken"
+          ],
+          "hint": "Cấu trúc đảo ngữ: Scarcely + had + S + V3/ed + when + S + V2/ed",
+          "explain": "Quy tắc đảo ngữ vừa mới... thì...: Scarcely had + S + V3/ed when S + V2/ed."
+        },
+        {
+          "sentence": "Not only (she speak) ______ four foreign languages fluently, but she also plays the violin brilliantly.",
+          "answer": "does she speak",
+          "alternatives": [
+            "does she speak"
+          ],
+          "hint": "Đảo ngữ hiện tại đơn: Not only + does + S + V_bare",
+          "explain": "Quy tắc: Not only + trợ động từ + S + V ... but also..."
         }
       ]
     },
@@ -55942,6 +53893,28 @@
           ],
           "answer": "A",
           "explain": "'Turn down' có nghĩa là từ chối (refuse/reject) một lời đề nghị công việc."
+        },
+        {
+          "q": "I accidentally ______ an old university professor while shopping in Hanoi last weekend.",
+          "options": [
+            "A. ran into",
+            "B. looked into",
+            "C. broke into",
+            "D. came into"
+          ],
+          "answer": "A",
+          "explain": "Run into someone = tình cờ bắt gặp ai đó (bump into / meet by chance)."
+        },
+        {
+          "q": "The company had to ______ twenty factory workers due to the severe economic downturn.",
+          "options": [
+            "A. lay off",
+            "B. put off",
+            "C. turn off",
+            "D. take off"
+          ],
+          "answer": "A",
+          "explain": "Lay off = sa thải nhân viên do khó khăn kinh tế / thiếu việc làm."
         }
       ],
       "fill_blanks": [
@@ -55958,6 +53931,24 @@
           "alternatives": [],
           "hint": "Cụm 'Put off' có nghĩa là trì hoãn (postpone)",
           "explain": "Put off = hoãn lại -> put off."
+        },
+        {
+          "sentence": "Due to torrential rainfall, the organizers decided to (call) ______ off the outdoor music concert.",
+          "answer": "call",
+          "alternatives": [
+            "call off"
+          ],
+          "hint": "Hủy bỏ sự kiện: call off",
+          "explain": "Phrasal verb: call off = cancel (hủy bỏ hoàn toàn sự kiện)."
+        },
+        {
+          "sentence": "She has been trying to (cut) ______ down on sugary beverages to enhance her overall health.",
+          "answer": "cut",
+          "alternatives": [
+            "cut down on"
+          ],
+          "hint": "Cắt giảm tiêu thụ: cut down on",
+          "explain": "Phrasal verb: cut down on sth = reduce consumption of sth."
         }
       ]
     },
@@ -56219,94 +54210,136 @@
   "readings": [
     {
       "id": 1,
-      "title": "Bài 1: The Emotional Value of Keepsakes",
-      "category": "Daily Life",
-      "level": "B1",
-      "source_reference": "Cambridge Life Stories Archive",
-      "content": "Alex spent Saturday afternoon tidying up the old attic in his family home. Among discarded wooden chairs, he discovered a genuine carved box that once belonged to his grandfather. Inside lay several handwritten letters and an antique wrist watch.\n\nAlthough these objects were not [1] ______ in commercial value, they carried immense emotional significance. Touching the worn parchment brought Alex genuine [2] ______ as he envisioned the journeys his grandfather had undertaken decades ago.\n\nIn our modern consumer society, people frequently purchase disposable gadgets instead of cherishing lasting items. Alex decided to clean the watch and [3] ______ it on his study wall. The heirloom reminds him daily that authentic joy stems from memories that [4] ______ deeply to our roots.",
+      "title": "Passage 1: The Cognitive Benefits of Bilingualism (VSTEP B2-C1)",
+      "category": "Tâm Lý Học & Ngôn Ngữ",
+      "level": "B2 - C1",
+      "source_reference": "Ace of English - VSTEP Test Library (Reading Skills)",
+      "content": "For much of the twentieth century, educators and researchers mistakenly believed that raising children bilingually could hinder their intellectual development. Monolingualism was perceived as the natural norm, and introducing a second language was thought to confuse a child's linguistic faculties, potentially lowering academic performance. However, contemporary neurological and psychological research has decisively overturned this outdated view. Far from creating intellectual interference, mastering two or more languages appears to confer profound cognitive advantages that endure throughout a person's lifespan.\n\nThe primary cognitive benefit of bilingualism resides in what neuroscientists refer to as the executive function system. This system encompasses a suite of cognitive processes, including working memory, cognitive flexibility, and inhibitory control. When a bilingual individual speaks, both of their language systems are simultaneously active in the brain. Consequently, the brain must continuously resolve competition between competing vocabulary items and syntactic structures. This requires the speaker to suppress the unwanted language while selecting the appropriate words from the intended language. This persistent mental workout reinforces the neural pathways in the prefrontal cortex, which governs complex decision-making and multitasking.\n\nEmpirical experiments have repeatedly demonstrated that bilingual children and adults outperform their monolingual peers on tasks demanding selective attention and rapid task-switching. For example, in sorting experiments where rules change arbitrarily—such as categorizing shapes by color and then abruptly by geometric pattern—bilingual participants adapt substantially faster with significantly fewer errors. Furthermore, this enhanced mental flexibility is accompanied by superior metalinguistic awareness, enabling bilinguals to dissect grammatical structures and deduce the meanings of novel words with greater agility.\n\nPerhaps the most remarkable discovery regarding bilingualism pertains to cognitive longevity in later life. Epidemiological investigations led by cognitive psychologists have revealed that bilingual individuals exhibit symptoms of neurodegenerative disorders, such as Alzheimer's disease, approximately four to five years later than comparable monolinguals. While bilingualism does not halt the physical degradation of brain tissue, it builds a robust 'cognitive reserve'—an enhanced neural network that allows the brain to compensate for anatomical damage and maintain lucid functionality for a substantially longer duration.",
       "target_words": [
-        "valuable",
-        "pleasure",
-        "hang",
-        "belong"
+        {
+          "word": "hinder",
+          "pos": "Động từ (Verb)",
+          "ipa": "/ˈhɪndər/",
+          "meaning_vi": "Cản trở, kìm hãm sự phát triển",
+          "example": "Outdated beliefs hindered research into bilingualism."
+        },
+        {
+          "word": "suppress",
+          "pos": "Động từ (Verb)",
+          "ipa": "/səˈpres/",
+          "meaning_vi": "Ức chế, đè nén, triệt tiêu",
+          "example": "The brain must suppress the non-target language."
+        },
+        {
+          "word": "cognitive reserve",
+          "pos": "Cụm danh từ (Noun Phrase)",
+          "ipa": "/ˈkɑːɡnətɪv rɪˈzɜːrv/",
+          "meaning_vi": "Dự trữ nhận thức, sức bền thần kinh",
+          "example": "Bilingualism builds a strong cognitive reserve against dementia."
+        },
+        {
+          "word": "lucid",
+          "pos": "Tính từ (Adjective)",
+          "ipa": "/ˈluːsɪd/",
+          "meaning_vi": "Minh mẫn, rõ ràng, sáng suốt",
+          "example": "He remained lucid even in his advanced years."
+        },
+        {
+          "word": "agility",
+          "pos": "Danh từ (Noun)",
+          "ipa": "/əˈdʒɪləti/",
+          "meaning_vi": "Sự nhanh nhạy, linh hoạt của trí tuệ",
+          "example": "Bilinguals solve reasoning tests with remarkable mental agility."
+        }
       ],
       "questions": [
         {
-          "q": "Chọn từ thích hợp điền vào vị trí [1]:",
+          "q": "What is the primary topic of the passage?",
           "options": [
-            "A. valuable",
-            "B. dangerous",
-            "C. impossible",
-            "D. painful"
-          ],
-          "answer": 0,
-          "explain": "valuable (có giá trị về mặt tài chính/kinh tế)."
-        },
-        {
-          "q": "Chọn từ thích hợp điền vào vị trí [2]:",
-          "options": [
-            "A. sorrow",
-            "B. pleasure",
-            "C. boredom",
-            "D. noise"
+            "A. Historical opposition to bilingualism in twentieth-century schooling.",
+            "B. The neurological and cognitive advantages of speaking two languages.",
+            "C. Methods of diagnosing Alzheimer's disease in aging adults.",
+            "D. A comparison between geometric sorting tasks and linguistic tests."
           ],
           "answer": 1,
-          "explain": "pleasure (niềm vui, sự thích thú sâu sắc)."
+          "explain": "Đáp án B đúng. Toàn bộ bài đọc tập trung phân tích các lợi ích nhận thức và thần kinh sâu sắc của việc biết hai ngôn ngữ (executive function, mental flexibility, cognitive reserve)."
         },
         {
-          "q": "Chọn từ thích hợp điền vào vị trí [3]:",
+          "q": "According to paragraph 1, what was a common belief about bilingual children in the twentieth century?",
           "options": [
-            "A. drop",
-            "B. destroy",
-            "C. hang",
-            "D. forget"
+            "A. They acquired executive control faster than adults.",
+            "B. Their intellectual progression could be compromised.",
+            "C. They were naturally suited for scientific research.",
+            "D. They had smaller working memory capacities."
+          ],
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đoạn 1 nêu rõ: 'raising children bilingually could hinder their intellectual development' (việc nuôi dạy trẻ song ngữ có thể kìm hãm sự phát triển trí tuệ)."
+        },
+        {
+          "q": "The word 'suppress' in paragraph 2 is closest in meaning to:",
+          "options": [
+            "A. stimulate",
+            "B. restrain",
+            "C. duplicate",
+            "D. express"
+          ],
+          "answer": 1,
+          "explain": "Đáp án B đúng. 'Suppress' có nghĩa là ức chế, kiềm chế, đồng nghĩa với 'restrain'."
+        },
+        {
+          "q": "Why does speaking two languages provide a 'mental workout' for the brain?",
+          "options": [
+            "A. The speaker must constantly memorize new phonetic alphabets.",
+            "B. Both language systems remain active, requiring constant inhibition of the unused language.",
+            "C. Bilingual individuals are required to speak at double the normal pace.",
+            "D. It forces the prefrontal cortex to cease all neurological activity."
+          ],
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đoạn 2 giải thích: 'both of their language systems are simultaneously active in the brain... This requires the speaker to suppress the unwanted language while selecting the appropriate words'."
+        },
+        {
+          "q": "The phrase 'this outdated view' in paragraph 1 refers to the idea that:",
+          "options": [
+            "A. Monolingualism is disadvantageous.",
+            "B. Executive function determines intelligence.",
+            "C. Learning two languages confuses children and harms development.",
+            "D. Neurological research should be rejected."
           ],
           "answer": 2,
-          "explain": "hang (treo lên tường phòng học)."
+          "explain": "Đáp án C đúng. Quan điểm lỗi thời được nhắc đến ở câu trước là: trẻ học song ngữ sẽ bị rối loạn và kìm hãm phát triển trí tuệ."
         },
         {
-          "q": "Chọn từ thích hợp điền vào vị trí [4]:",
+          "q": "In paragraph 3, the author mentions shape-sorting experiments to demonstrate that bilinguals:",
           "options": [
-            "A. escape",
-            "B. belong",
-            "C. refuse",
-            "D. vanish"
+            "A. Excel primarily at geometric visual art.",
+            "B. Cannot adhere to traditional task instructions.",
+            "C. Adapt more swiftly when analytical rules change unexpectedly.",
+            "D. Make identical numbers of errors as monolinguals."
           ],
-          "answer": 1,
-          "explain": "belong to our roots (thuộc về, gắn bó với cội nguồn)."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn 3 nêu: bilingual participants adapt substantially faster with significantly fewer errors khi quy tắc phân loại thay đổi đột ngột."
         },
         {
-          "q": "Ý chính của bài đọc là gì?",
+          "q": "According to paragraph 4, how does bilingualism influence the onset of Alzheimer's symptoms?",
           "options": [
-            "A. Cách buôn bán đồ cũ sinh lời",
-            "B. Giá trị cảm xúc thiêng liêng của các kỷ vật gia đình",
-            "C. Cách dọn dẹp căn gác xép bừa bộn",
-            "D. Lịch sử ngành sản xuất đồng hồ đeo tay"
+            "A. It completely cures all forms of physical brain deterioration.",
+            "B. It delays the manifestation of symptoms by approximately 4 to 5 years.",
+            "C. It speeds up the breakdown of neural pathways.",
+            "D. It restricts patients to only one language during recovery."
           ],
           "answer": 1,
-          "explain": "Bài đọc nhấn mạnh giá trị tinh thần to lớn của kỷ vật gia đình hơn là giá trị thương mại."
+          "explain": "Đáp án B đúng. Đoạn 4 chỉ rõ: 'bilingual individuals exhibit symptoms of Alzheimer's disease approximately four to five years later than comparable monolinguals'."
         },
         {
-          "q": "Chiếc hộp cổ Alex tìm thấy trên gác xép từng thuộc về ai?",
+          "q": "Which of the following can be inferred from the passage?",
           "options": [
-            "A. Một người bạn thân",
-            "B. Ông nội của anh ấy",
-            "C. Bố mẹ anh ấy",
-            "D. Một người thợ mộc"
+            "A. Older adults should not attempt to learn a second language.",
+            "B. Cognitive benefits only apply to people who master three or more languages.",
+            "C. The neural challenges of managing two languages produce lasting biological protections.",
+            "D. Monolingual education is legally prohibited in modern schools."
           ],
-          "answer": 1,
-          "explain": "Bài đọc nêu rõ chiếc hộp 'belonged to his grandfather' (thuộc về ông nội anh)."
-        },
-        {
-          "q": "Từ 'cherishing' trong đoạn 3 gần nghĩa nhất với từ nào?",
-          "options": [
-            "A. ignoring",
-            "B. treasuring / valuing (trân quý, nâng niu)",
-            "C. discarding",
-            "D. selling"
-          ],
-          "answer": 1,
-          "explain": "cherish nghĩa là yêu thương, trân quý, nâng niu (= treasuring)."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Thách thức liên tục quản lý hai ngôn ngữ tạo nên cơ chế bảo vệ nhận thức (cognitive reserve) lâu bền trong não bộ."
         }
       ],
       "month": 1,
@@ -56316,98 +54349,140 @@
         67
       ],
       "type": "cloze_and_comprehension",
-      "question_count": 7
+      "question_count": 8
     },
     {
       "id": 2,
-      "title": "Bài 2: Artificial Intelligence and Future Careers",
-      "category": "Technology",
-      "level": "B2",
-      "source_reference": "BBC Technology Insights",
-      "content": "The rapid acceleration of generative artificial intelligence is fundamentally altering the global employment landscape. While past automation primarily displaced manual labor, modern algorithms can now write software code, synthesize corporate reports, and [1] ______ intricate visual artworks within seconds.\n\nEconomists emphasize that artificial intelligence should be viewed as an augmentative partner rather than an existential threat. Professionals who proactively integrate machine-learning tools into their daily workflows consistently report higher productivity. However, workers who resist adopting digital technologies risk becoming [2] ______ in an increasingly competitive marketplace.\n\nEducational institutions worldwide are currently overhauling their curricula to emphasize distinctly human competencies. Capabilities such as critical thinking, emotional intelligence, and cross-cultural empathy are remarkably difficult for neural networks to [3] ______.\n\nUltimately, the future of work will belong to adaptable individuals who master the synergy between algorithmic computation and human creativity, ensuring our technological tools remain [4] ______ to societal progress.",
+      "title": "Passage 2: Ocean Acidification and Marine Biodiversity (VSTEP B2-C1)",
+      "category": "Môi Trường & Sinh Học Biển",
+      "level": "B2 - C1",
+      "source_reference": "Ace of English - VSTEP Test Library (Reading Skills)",
+      "content": "Since the advent of the Industrial Revolution, human activities—principally the combustion of fossil fuels, cement manufacturing, and widespread deforestation—have released hundreds of billions of metric tons of carbon dioxide into the Earth's atmosphere. While the atmospheric accumulation of greenhouse gases has fueled global warming, the world's oceans have acted as a massive buffer, absorbing roughly 30 percent of all anthropogenic carbon dioxide emissions. Without this substantial marine sink, atmospheric temperatures would have escalated even more catastrophically. However, this vital oceanic buffering comes at a severe ecological price: a fundamental alteration of seawater chemistry known as ocean acidification.\n\nWhen carbon dioxide dissolves in water, it initiates a series of chemical reactions forming carbonic acid. This acid dissociates into hydrogen ions and bicarbonate ions, which in turn causes the concentration of free hydrogen ions to increase, thereby lowering the pH of the ocean. Since the late eighteenth century, the average surface ocean pH has declined from 8.2 to 8.1. Because the pH scale is logarithmic, this seemingly modest drop of 0.1 units represents an alarming 30 percent increase in acidity. Projections suggest that unless carbon emissions drop precipitously, surface seawater acidity could rise by more than 100 percent by the end of this century.\n\nThe biological implications of this shift are profound, particularly for calcifying organisms. Creatures such as corals, clams, oysters, sea urchins, and tiny pelagic snails known as pteropods rely on ambient carbonate ions to construct their protective shells and calcium carbonate skeletons. As excess hydrogen ions bind with available carbonate ions, they drastically reduce the saturation horizon of carbonate minerals. In severely acidified waters, calcifying organisms must expend excessive metabolic energy simply to maintain their shells, leaving diminished resources for growth, reproduction, and disease defense. Under extreme conditions, thin calcium carbonate shells can literally begin to dissolve.\n\nThe vulnerability of pteropods is of paramount concern to marine biologists. Often referred to as 'sea butterflies,' these diminutive swimming snails form the bedrock of polar and subpolar marine food webs, serving as a primary dietary staple for salmon, herring, seabirds, and baleen whales. Laboratory studies indicate that pteropod shells exposed to anticipated future ocean conditions dissolve within weeks. The collapse of pteropod populations could trigger devastating trophic cascades throughout oceanic ecosystems, threatening not only commercial fisheries but global food security for coastal human populations.",
       "target_words": [
-        "generate",
-        "obsolete",
-        "replicate",
-        "beneficial"
+        {
+          "word": "combustion",
+          "pos": "Danh từ (Noun)",
+          "ipa": "/kəmˈbʌstʃən/",
+          "meaning_vi": "Sự đốt cháy, quá trình đốt nhiên liệu",
+          "example": "The combustion of fossil fuels releases carbon dioxide."
+        },
+        {
+          "word": "buffer",
+          "pos": "Danh từ / Động từ",
+          "ipa": "/ˈbʌfər/",
+          "meaning_vi": "Vật đệm, tấm lá chắn làm giảm tác động",
+          "example": "Oceans have acted as a buffer against atmospheric warming."
+        },
+        {
+          "word": "calcifying",
+          "pos": "Tính từ (Adjective)",
+          "ipa": "/ˈkælsɪfaɪɪŋ/",
+          "meaning_vi": "Tạo vỏ vôi, canxi hóa",
+          "example": "Calcifying marine organisms build calcium carbonate shells."
+        },
+        {
+          "word": "diminutive",
+          "pos": "Tính từ (Adjective)",
+          "ipa": "/dɪˈmɪnjətɪv/",
+          "meaning_vi": "Nhỏ bé, tí hon",
+          "example": "Pteropods are diminutive creatures that sustain massive whales."
+        },
+        {
+          "word": "trophic cascade",
+          "pos": "Cụm danh từ (Noun Phrase)",
+          "ipa": "/ˈtroʊfɪk kæˈskeɪd/",
+          "meaning_vi": "Hiệu ứng thác chuỗi thức ăn sinh thái",
+          "example": "The disappearance of prey causes a devastating trophic cascade."
+        }
       ],
       "questions": [
         {
-          "q": "Chọn từ thích hợp điền vào vị trí [1]:",
+          "q": "What is the central focus of the passage?",
           "options": [
-            "A. generate",
-            "B. destroy",
-            "C. prevent",
-            "D. cancel"
+            "A. Industrial cement production techniques and their economic value.",
+            "B. The chemical mechanisms and ecological consequences of ocean acidification.",
+            "C. The migration patterns of baleen whales and sea birds.",
+            "D. Technological methods for extracting carbonic acid from seawater."
+          ],
+          "answer": 1,
+          "explain": "Đáp án B đúng. Bài đọc phân tích nguyên nhân hóa học của axit hóa đại dương và những hiểm họa sinh thái đe dọa các sinh vật biển."
+        },
+        {
+          "q": "According to paragraph 1, approximately what percentage of human-emitted carbon dioxide has been absorbed by oceans?",
+          "options": [
+            "A. 10 percent",
+            "B. 30 percent",
+            "C. 50 percent",
+            "D. 80 percent"
+          ],
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đoạn 1 viết: 'absorbing roughly 30 percent of all anthropogenic carbon dioxide emissions'."
+        },
+        {
+          "q": "Why does a 0.1 decrease in ocean pH represent a 30 percent increase in acidity?",
+          "options": [
+            "A. The pH scale is logarithmic rather than linear.",
+            "B. Salt ions multiply the effects of hydrogen ions tenfold.",
+            "C. Water temperature fluctuations distort scientific sensors.",
+            "D. Marine plants consume acidic chemicals inconsistently."
           ],
           "answer": 0,
-          "explain": "generate (tạo ra, sản sinh tác phẩm nghệ thuật số)."
+          "explain": "Đáp án A đúng. Đoạn 2 nêu rõ: 'Because the pH scale is logarithmic, this seemingly modest drop of 0.1 units represents an alarming 30 percent increase in acidity'."
         },
         {
-          "q": "Chọn từ thích hợp điền vào vị trí [2]:",
+          "q": "The word 'precipitously' in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. obsolete",
-            "C. wealthy",
-            "D. popular"
+            "A. gradually",
+            "B. sharply",
+            "C. accidentally",
+            "D. uniformly"
           ],
           "answer": 1,
-          "explain": "obsolete (lỗi thời, bị đào thải khỏi thị trường)."
+          "explain": "Đáp án B đúng. 'Precipitously' mang nghĩa đột ngột, mạnh mẽ, dốc đứng, đồng nghĩa với 'sharply' hoặc 'rapidly'."
         },
         {
-          "q": "Chọn từ thích hợp điền vào vị trí [3]:",
+          "q": "How does ocean acidification directly harm calcifying organisms?",
           "options": [
-            "A. forgive",
-            "B. replicate",
-            "C. applaud",
-            "D. borrow"
+            "A. It raises oceanic water temperatures to boiling points.",
+            "B. It depletes carbonate ions needed to build and preserve shells.",
+            "C. It prevents sunlight from penetrating surface seawater.",
+            "D. It removes oxygen completely from coral reefs."
           ],
           "answer": 1,
-          "explain": "replicate (mô phỏng, sao chép lại năng lực con người)."
+          "explain": "Đáp án B đúng. Axit hóa làm cạn kiệt các ion cacbonat tự do, khiến sinh vật phải tiêu tốn quá nhiều năng lượng trao đổi chất để xây dựng và duy trì vỏ vôi."
         },
         {
-          "q": "Chọn từ thích hợp điền vào vị trí [4]:",
+          "q": "Why are pteropods considered exceptionally crucial in marine ecosystems?",
           "options": [
-            "A. harmful",
-            "B. beneficial",
-            "C. silent",
-            "D. hostile"
+            "A. They are the primary predators of large sharks and killer whales.",
+            "B. They form the foundational food source for many fish, seabirds, and whales.",
+            "C. They generate over 90 percent of the world's commercial cement.",
+            "D. Their shells neutralize all carbonic acid in polar regions."
           ],
           "answer": 1,
-          "explain": "beneficial (có lợi, thúc đẩy tiến bộ xã hội)."
+          "explain": "Đáp án B đúng. Đoạn 4 chỉ ra: 'these diminutive swimming snails form the bedrock of polar and subpolar marine food webs, serving as a primary dietary staple for salmon, herring, seabirds, and baleen whales'."
         },
         {
-          "q": "Tác giả có thái độ như thế nào đối với Trí tuệ nhân tạo (AI)?",
+          "q": "The term 'trophic cascades' in paragraph 4 refers to:",
           "options": [
-            "A. Hoàn toàn phản đối và lo sợ",
-            "B. Thực tế và lạc quan, xem AI là công cụ hỗ trợ con người",
-            "C. Thờ ơ không quan tâm",
-            "D. Khẳng định AI sẽ thay thế 100% người lao động"
+            "A. Sudden underwater volcanic eruptions.",
+            "B. Chain reactions of disruption throughout an entire food chain.",
+            "C. Rapid technological breakthroughs in fisheries.",
+            "D. Seasonal migrations of marine phytoplankton."
           ],
           "answer": 1,
-          "explain": "Tác giả nhìn nhận AI là 'augmentative partner' giúp nâng cao hiệu suất nếu biết cộng hưởng."
+          "explain": "Đáp án B đúng. 'Trophic cascades' là sự xáo trộn hoặc sụp đổ dây chuyền qua các bậc dinh dưỡng của chuỗi thức ăn sinh thái."
         },
         {
-          "q": "Kỹ năng nào của con người được đánh giá là cực kỳ khó để AI mô phỏng?",
+          "q": "Which conclusion is best supported by the passage?",
           "options": [
-            "A. Tốc độ tính toán số liệu",
-            "B. Trí tuệ cảm xúc và tư duy phản biện",
-            "C. Sao chép và lưu trữ văn bản",
-            "D. Phân loại hình ảnh"
+            "A. Marine organisms will easily adapt to acidification without human intervention.",
+            "B. Ocean acidification is an isolated crisis affecting only tropical corals.",
+            "C. Unmitigated carbon emissions threaten foundational species that sustain global food systems.",
+            "D. Atmospheric carbon dioxide levels have peaked and begun to decline."
           ],
-          "answer": 1,
-          "explain": "Đoạn 3 nêu rõ: critical thinking, emotional intelligence khó để AI mô phỏng."
-        },
-        {
-          "q": "Từ 'synergy' trong đoạn cuối gần nghĩa nhất với từ nào?",
-          "options": [
-            "A. conflict",
-            "B. collaboration / harmonious cooperation (sự cộng hưởng hợp tác)",
-            "C. isolation",
-            "D. weakness"
-          ],
-          "answer": 1,
-          "explain": "synergy nghĩa là sự cộng hưởng, phối hợp mang lại hiệu quả vượt trội."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Nếu không cắt giảm khí thải carbon, sự tan rã của các loài sinh vật nền tảng như pteropod sẽ đe dọa an ninh lương thực của toàn nhân loại."
         }
       ],
       "month": 1,
@@ -56417,98 +54492,140 @@
         68
       ],
       "type": "cloze_and_comprehension",
-      "question_count": 7
+      "question_count": 8
     },
     {
       "id": 3,
-      "title": "Bài 3: Marine Ecosystems and Coral Bleaching",
-      "category": "Environment",
-      "level": "B2",
-      "source_reference": "National Geographic Marine Series",
-      "content": "Coral reefs are among the most vibrant ecosystems on our planet, sheltering nearly a quarter of all marine organisms despite occupying less than one percent of the ocean floor. Unfortunately, prolonged rises in sea surface temperatures have triggered mass coral bleaching.\n\nWhen water becomes abnormally warm, coral polyps expel the symbiotic microalgae living within their tissues. Deprived of these photosynthetic partners, the coral turns completely [1] ______ and faces starvation if cooler conditions do not promptly return.\n\nMarine scientists are deploying creative solutions to counteract this crisis. In tropical reserves, researchers are cultivating heat-tolerant coral strains and [2] ______ larval cultures onto degraded limestone structures.\n\nSimultaneously, coastal nations are curbing destructive overfishing and agricultural runoff. Preventing terrestrial pollutants gives surviving reefs the vital [3] ______ they need to recover. Without decisive climate action, scientists warn that millions of marine species face irreversible [4] ______.",
+      "title": "Passage 3: Sleep Architecture and Memory Consolidation (VSTEP B2-C1)",
+      "category": "Thần Kinh Học & Giấc Ngủ",
+      "level": "B2 - C1",
+      "source_reference": "Ace of English - VSTEP Test Library (Reading Skills)",
+      "content": "For centuries, sleep was regarded as an essentially passive state—a nightly shutdown of consciousness during which the brain merely rested and recuperated from the demands of waking life. However, pioneering electroencephalography (EEG) studies conducted in the mid-twentieth century fundamentally dismantled this misconception. Sleep is now recognized as a highly dynamic, meticulously orchestrated neurological process characterized by alternating stages of rapid eye movement (REM) and non-rapid eye movement (NREM) sleep. Far from remaining idle, the sleeping brain engages in intensive computational activities that are indispensable for learning, cognitive functioning, and memory consolidation.\n\nMemory consolidation represents the biological process through which newly acquired, fragile information is converted into stable, long-lasting neural representations. When we study new vocabulary or acquire a complex skill during the day, the hippocampus acts as a temporary holding repository. However, the hippocampus has finite storage capacity and is highly susceptible to retroactive interference. To prevent catastrophic memory decay, the brain must transfer these newly formed engrams to the neocortex, where long-term semantic knowledge is permanently archived. This critical transfer occurs almost exclusively during specific phases of nocturnal sleep.\n\nDuring slow-wave sleep (SWS), the deepest stage of NREM sleep, the brain generates synchronous high-amplitude electrical waves. These slow oscillations drive rhythmic bursts of neuronal activity between the hippocampus and the cerebral cortex, known as 'sleep spindles.' Neuroimaging investigations demonstrate that during sleep spindles, the hippocampus literally replays the neural firing patterns experienced during waking learning sessions, but at tenfold speeds. This rapid neural replay acts like a high-speed data backup, repeatedly stimulating cortical networks until synaptic connections are physically strengthened.\n\nMeanwhile, REM sleep—the dream-laden stage marked by rapid saccadic eye movements and muscle paralysis—serves a distinct yet complementary cognitive purpose. While NREM sleep consolidates factual data and explicit memories, REM sleep facilitates associative integration. During REM dreaming, the brain connects newly consolidated concepts with distant, pre-existing knowledge structures, generating novel associations and creative insights. Depriving students of adequate sleep following study sessions severely impairs both the retention of specific terminology and the ability to synthesize overarching concepts.",
       "target_words": [
-        "white",
-        "transplanting",
-        "resilience",
-        "extinction"
+        {
+          "word": "recuperate",
+          "pos": "Động từ (Verb)",
+          "ipa": "/rɪˈkuːpəreɪt/",
+          "meaning_vi": "Hồi phục sức lực, tĩnh dưỡng",
+          "example": "The body needs sleep to recuperate from daily exertion."
+        },
+        {
+          "word": "consolidation",
+          "pos": "Danh từ (Noun)",
+          "ipa": "/kənˌsɑːlɪˈdeɪʃn/",
+          "meaning_vi": "Sự củng cố, cố kết thông tin vào trí nhớ",
+          "example": "Sleep is crucial for memory consolidation."
+        },
+        {
+          "word": "susceptible",
+          "pos": "Tính từ (Adjective)",
+          "ipa": "/səˈseptəbl/",
+          "meaning_vi": "Dễ bị ảnh hưởng, dễ bị tổn thương",
+          "example": "Short-term memory is susceptible to interference."
+        },
+        {
+          "word": "engram",
+          "pos": "Danh từ (Noun)",
+          "ipa": "/ˈenɡræm/",
+          "meaning_vi": "Vết hằn trí nhớ, dấu vết thần kinh",
+          "example": "The brain transfers newly formed engrams to the neocortex."
+        },
+        {
+          "word": "synchronous",
+          "pos": "Tính từ (Adjective)",
+          "ipa": "/ˈsɪŋkrənəs/",
+          "meaning_vi": "Đồng bộ, diễn ra cùng nhịp",
+          "example": "Slow-wave sleep generates synchronous high-amplitude waves."
+        }
       ],
       "questions": [
         {
-          "q": "Chọn từ thích hợp điền vào vị trí [1]:",
+          "q": "What is the primary objective of the author in this passage?",
           "options": [
-            "A. green",
-            "B. white",
-            "C. dark",
-            "D. golden"
+            "A. To compare commercial EEG devices used in clinical sleep hospitals.",
+            "B. To explain the neurological stages of sleep and their roles in memory consolidation.",
+            "C. To argue that dreaming has no evolutionary or psychological value.",
+            "D. To describe surgical procedures for treating severe chronic insomnia."
           ],
           "answer": 1,
-          "explain": "white (san hô bị tẩy trắng hoàn toàn khi mất vi tảo)."
+          "explain": "Đáp án B đúng. Tác giả giải thích các giai đoạn giấc ngủ (NREM, REM) và cơ chế thần kinh chuyển đổi trí nhớ tạm thời sang vỏ não dài hạn."
         },
         {
-          "q": "Chọn từ thích hợp điền vào vị trí [2]:",
+          "q": "The word 'misconception' in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. discarding",
-            "B. transplanting",
-            "C. poisoning",
-            "D. hiding"
+            "A. proven hypothesis",
+            "B. erroneous belief",
+            "C. scientific consensus",
+            "D. psychological disorder"
           ],
           "answer": 1,
-          "explain": "transplanting (cấy ghép ấu trùng san hô lên nền đá vôi)."
+          "explain": "Đáp án B đúng. 'Misconception' nghĩa là quan niệm sai lầm, nhận thức sai, đồng nghĩa với 'erroneous belief'."
         },
         {
-          "q": "Chọn từ thích hợp điền vào vị trí [3]:",
+          "q": "According to paragraph 2, why cannot the hippocampus serve as a permanent storage site for memories?",
           "options": [
-            "A. resilience",
-            "B. panic",
-            "C. infection",
-            "D. plastic"
-          ],
-          "answer": 0,
-          "explain": "resilience (khả năng phục hồi, chống chịu)."
-        },
-        {
-          "q": "Chọn từ thích hợp điền vào vị trí [4]:",
-          "options": [
-            "A. celebration",
-            "B. extinction",
-            "C. expansion",
-            "D. harvest"
+            "A. It completely ceases functioning during deep sleep.",
+            "B. It possesses limited capacity and is vulnerable to memory decay and interference.",
+            "C. It cannot communicate with the prefrontal cortex.",
+            "D. It generates excessive body heat during academic study."
           ],
           "answer": 1,
-          "explain": "extinction (nguy cơ tuyệt chủng vĩnh viễn)."
+          "explain": "Đáp án B đúng. Đoạn 2 nêu: 'the hippocampus has finite storage capacity and is highly susceptible to retroactive interference'."
         },
         {
-          "q": "Mục đích chính của bài viết là gì?",
+          "q": "What phenomenon occurs during 'sleep spindles' in slow-wave sleep?",
           "options": [
-            "A. Trình bày hiện tượng tẩy trắng san hô và các giải pháp bảo vệ hệ sinh thái biển",
-            "B. Hướng dẫn kỹ thuật lặn biển ngắm san hô",
-            "C. Kể lại nhật ký một chuyến thám hiểm đại dương",
-            "D. Phân tích thành phần hóa học của nước biển sâu"
-          ],
-          "answer": 0,
-          "explain": "Bài đọc tập trung vào cơ chế tẩy trắng san hô và nỗ lực bảo tồn sinh vật biển."
-        },
-        {
-          "q": "Nguyên nhân trực tiếp khiến san hô bị bạc trắng là gì?",
-          "options": [
-            "A. Do các loài cá ăn hết san hô",
-            "B. Do nước biển ấm lên khiến san hô đào thải vi tảo quang hợp",
-            "C. Do rác thải nhựa phủ kín bề mặt đáy biển",
-            "D. Do thiếu ánh sáng mặt trời mùa đông"
+            "A. The eyes move rapidly in all directions while muscles twitch violently.",
+            "B. The hippocampus replays daytime neural patterns at accelerated speeds to the neocortex.",
+            "C. The brain discards all memories acquired in the previous forty-eight hours.",
+            "D. Heart rate and blood pressure increase to daytime running levels."
           ],
           "answer": 1,
-          "explain": "Đoạn 2 chỉ rõ: nước ấm bất thường khiến san hô expel vi tảo cộng sinh."
+          "explain": "Đáp án B đúng. Đoạn 3 chỉ ra: 'the hippocampus literally replays the neural firing patterns experienced during waking learning sessions, but at tenfold speeds'."
         },
         {
-          "q": "Từ 'deprived of' trong đoạn 2 gần nghĩa nhất với từ nào?",
+          "q": "According to paragraph 4, how does REM sleep differ from NREM sleep regarding memory?",
           "options": [
-            "A. provided with",
-            "B. stripped of / lacking (bị tước đi, thiếu thốn)",
-            "C. protected by",
-            "D. interested in"
+            "A. REM sleep consolidates factual data, while NREM sleep promotes creative connections.",
+            "B. NREM sleep stores facts, whereas REM sleep integrates concepts into associative networks.",
+            "C. REM sleep damages existing memories to make room for new vocabulary.",
+            "D. NREM sleep occurs only when individuals are dreaming actively."
           ],
           "answer": 1,
-          "explain": "deprived of = bị tước đoạt, thiếu thốn điều thiết yếu."
+          "explain": "Đáp án B đúng. Đoạn 4 nêu rõ: NREM củng cố dữ kiện và trí nhớ tường minh, trong khi REM giúp tích hợp liên tưởng và tạo ra hiểu biết sáng tạo."
+        },
+        {
+          "q": "The word 'finite' in paragraph 2 is opposite in meaning to:",
+          "options": [
+            "A. limited",
+            "B. infinite",
+            "C. substantial",
+            "D. functional"
+          ],
+          "answer": 1,
+          "explain": "Đáp án B đúng. 'Finite' có nghĩa là hữu hạn, có giới hạn; trái nghĩa với 'infinite' (vô hạn)."
+        },
+        {
+          "q": "Which consequence of post-study sleep deprivation is emphasized at the end of the passage?",
+          "options": [
+            "A. Permanent loss of physical vision.",
+            "B. Impairment of both memory retention and conceptual synthesis.",
+            "C. An inability to generate normal eye movements during daytime.",
+            "D. Sudden acceleration of slow-wave electrical signals."
+          ],
+          "answer": 1,
+          "explain": "Đáp án B đúng. Câu kết đoạn 4 khẳng định: thiếu ngủ làm suy giảm nghiêm trọng cả khả năng ghi nhớ từ ngữ lẫn khả năng tổng hợp khái niệm."
+        },
+        {
+          "q": "It can be inferred from the text that a student preparing for a major English exam should:",
+          "options": [
+            "A. Stay awake all night studying to maximize hippocampal storage.",
+            "B. Avoid sleeping immediately after memorizing difficult vocabulary.",
+            "C. Prioritize complete, unfragmented sleep to allow memory consolidation to occur.",
+            "D. Use stimulants to eliminate slow-wave NREM sleep cycles."
+          ],
+          "answer": 2,
+          "explain": "Đáp án C đúng. Người học cần ngủ đủ giấc trọn vẹn để não bộ hoàn tất quá trình củng cố và chuyển giao trí nhớ."
         }
       ],
       "month": 1,
@@ -56518,7 +54635,7 @@
         68
       ],
       "type": "cloze_and_comprehension",
-      "question_count": 7
+      "question_count": 8
     },
     {
       "id": 4,

@@ -2,6 +2,420 @@
 // READING LEXICON DICTIONARY (PHÂN TÍCH TỪ VỰNG KHI CHỌN SAI & FLASHCARD)
 // ============================================================================
 const READING_WORDS_LEXICON = {
+  "comprehend": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˌkɑːmprɪˈhend/",
+    "meaning_vi": "Hiểu, lĩnh hội sâu sắc",
+    "example": "She could not comprehend the scale of the disaster."
+  },
+  "comprehension": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˌkɑːmprɪˈhenʃn/",
+    "meaning_vi": "Sự hiểu biết, khả năng đọc hiểu",
+    "example": "Reading comprehension is tested thoroughly in VSTEP."
+  },
+  "comprehensive": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˌkɑːmprɪˈhensɪv/",
+    "meaning_vi": "Toàn diện, bao quát mọi mặt",
+    "example": "The book provides a comprehensive review of English grammar."
+  },
+  "inevitable": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ɪnˈevɪtəbl/",
+    "meaning_vi": "Không thể tránh khỏi, tất yếu",
+    "example": "Technological changes are inevitable in the modern workplace."
+  },
+  "inevitably": {
+    "pos": "Trạng từ (Adverb)",
+    "ipa": "/ɪnˈevɪtəbli/",
+    "meaning_vi": "Một cách tất yếu, chắc chắn sẽ xảy ra",
+    "example": "Increased automation inevitably leads to shifts in employment."
+  },
+  "subsequent": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈsʌbsɪkwənt/",
+    "meaning_vi": "Xảy ra sau đó, tiếp theo",
+    "example": "Subsequent studies confirmed the original findings."
+  },
+  "subsequently": {
+    "pos": "Trạng từ (Adverb)",
+    "ipa": "/ˈsʌbsɪkwəntli/",
+    "meaning_vi": "Sau đó, tiếp theo sau",
+    "example": "He was arrested and subsequently released on bail."
+  },
+  "fundamental": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˌfʌndəˈmentl/",
+    "meaning_vi": "Cơ bản, thiết yếu, nền tảng",
+    "example": "There are fundamental differences between the two theories."
+  },
+  "fundamentally": {
+    "pos": "Trạng từ (Adverb)",
+    "ipa": "/ˌfʌndəˈmentli/",
+    "meaning_vi": "Về mặt bản chất, về cơ bản",
+    "example": "Our way of communication has fundamentally transformed."
+  },
+  "substantial": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/səbˈstænʃl/",
+    "meaning_vi": "Đáng kể, quan trọng, to lớn",
+    "example": "Substantial progress has been made in clean energy development."
+  },
+  "substantially": {
+    "pos": "Trạng từ (Adverb)",
+    "ipa": "/səbˈstænʃəli/",
+    "meaning_vi": "Một cách đáng kể, phần lớn",
+    "example": "Prices have dropped substantially this year."
+  },
+  "deterioration": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/dɪˌtɪriəˈreɪʃn/",
+    "meaning_vi": "Sự xuống cấp, sự suy giảm phẩm chất",
+    "example": "Environmental deterioration requires immediate global action."
+  },
+  "paramount": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈpærəmaʊnt/",
+    "meaning_vi": "Tối quan trọng, có tầm quan trọng tối thượng",
+    "example": "Safety is of paramount importance in aviation."
+  },
+  "jeopardize": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˈdʒepərdaɪz/",
+    "meaning_vi": "Gây nguy hiểm, liều mạng đe dọa",
+    "example": "Pollution could jeopardize the survival of marine species."
+  },
+  "unprecedented": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ʌnˈpresɪdentɪd/",
+    "meaning_vi": "Chưa từng có tiền lệ, vô tiền khoáng hậu",
+    "example": "The project achieved unprecedented speed in completion."
+  },
+  "precedent": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˈpresɪdənt/",
+    "meaning_vi": "Tiền lệ, án lệ trước đó",
+    "example": "This decision set a legal precedent for future cases."
+  },
+  "ubiquitous": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/juːˈbɪkwɪtəs/",
+    "meaning_vi": "Có mặt khắp nơi, phổ biến rộng rãi",
+    "example": "Smartphones have become ubiquitous in daily modern life."
+  },
+  "scrutiny": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˈskruːtəni/",
+    "meaning_vi": "Sự xem xét kỹ lưỡng, sự giám sát chặt chẽ",
+    "example": "Her financial accounts were under intense public scrutiny."
+  },
+  "feasible": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈfiːzəbl/",
+    "meaning_vi": "Khả thi, có thể thực hiện được",
+    "example": "Solar power is now an economically feasible alternative."
+  },
+  "feasibility": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˌfiːzəˈbɪləti/",
+    "meaning_vi": "Tính khả thi",
+    "example": "The committee is conducting a feasibility study on the new bridge."
+  },
+  "mitigation": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˌmɪtɪˈɡeɪʃn/",
+    "meaning_vi": "Sự giảm nhẹ, biện pháp giảm thiểu",
+    "example": "Disaster mitigation plans were quickly deployed."
+  },
+  "exacerbate": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/ɪɡˈzæsərbeɪt/",
+    "meaning_vi": "Làm trầm trọng thêm, làm xấu đi",
+    "example": "The drought exacerbated water shortages across the region."
+  },
+  "profoundly": {
+    "pos": "Trạng từ (Adverb)",
+    "ipa": "/prəˈfaʊndli/",
+    "meaning_vi": "Một cách sâu sắc, hết sức",
+    "example": "We are profoundly grateful for your generous support."
+  },
+  "ambiguous": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/æmˈbɪɡjuəs/",
+    "meaning_vi": "Mơ hồ, có thể hiểu theo nhiều nghĩa",
+    "example": "The wording of the law was surprisingly ambiguous."
+  },
+  "ambiguity": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˌæmbɪˈɡjuːəti/",
+    "meaning_vi": "Sự mơ hồ, tính đa nghĩa",
+    "example": "Try to avoid ambiguity in formal academic essays."
+  },
+  "lucid": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈluːsɪd/",
+    "meaning_vi": "Rõ ràng, minh bạch, dễ hiểu",
+    "example": "The professor gave a lucid explanation of quantum physics."
+  },
+  "obscure": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/əbˈskjʊr/",
+    "meaning_vi": "Tối nghĩa, ít người biết đến",
+    "example": "He chose an obscure poet as the subject of his thesis."
+  },
+  "prominent": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈprɑːmɪnənt/",
+    "meaning_vi": "Nổi bật, xuất chúng, quan trọng",
+    "example": "She is a prominent researcher in renewable energy."
+  },
+  "prominence": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˈprɑːmɪnəns/",
+    "meaning_vi": "Sự nổi bật, địa vị quan trọng",
+    "example": "The issue gained prominence after the national summit."
+  },
+  "conspicuous": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/kənˈspɪkjuəs/",
+    "meaning_vi": "Dễ thấy, nổi bật, đáng chú ý",
+    "example": "His bright red jacket made him conspicuous in the crowd."
+  },
+  "perseverance": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˌpɜːrsəˈvɪrəns/",
+    "meaning_vi": "Sự kiên trì, lòng nhẫn nại bền bỉ",
+    "example": "Success is largely due to hard work and perseverance."
+  },
+  "pragmatic": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/præɡˈmætɪk/",
+    "meaning_vi": "Thực tế, thực dụng, trọng tính khả thi",
+    "example": "We need a pragmatic approach to solving the traffic crisis."
+  },
+  "paradigm": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˈpærədaɪm/",
+    "meaning_vi": "Mô hình mẫu, khuôn mẫu tư duy",
+    "example": "The discovery created a new paradigm in genetic engineering."
+  },
+  "catalyst": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˈkætəlɪst/",
+    "meaning_vi": "Chất xúc tác, nhân tố thúc đẩy biến đổi",
+    "example": "High-speed internet acted as a catalyst for digital startups."
+  },
+  "diminish": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/dɪˈmɪnɪʃ/",
+    "meaning_vi": "Giảm bớt, thu nhỏ lại, yếu dần",
+    "example": "The medicine helped diminish the patient's pain."
+  },
+  "augment": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/ɔːɡˈment/",
+    "meaning_vi": "Gia tăng, tăng cường, làm lớn hơn",
+    "example": "He worked evening shifts to augment his regular income."
+  },
+  "bolster": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˈboʊlstər/",
+    "meaning_vi": "Củng cố, nâng đỡ, tiếp sức",
+    "example": "Foreign investment helped bolster the domestic economy."
+  },
+  "undermine": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˌʌndərˈmaɪn/",
+    "meaning_vi": "Làm xói mòn, ngấm ngầm làm suy yếu",
+    "example": "Constant criticism can undermine a student's confidence."
+  },
+  "coherent": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/koʊˈhɪrənt/",
+    "meaning_vi": "Mạch lạc, chặt chẽ, gắn kết",
+    "example": "Write a coherent essay with clear transitions between ideas."
+  },
+  "coherence": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/koʊˈhɪrəns/",
+    "meaning_vi": "Tính mạch lạc, sự liên kết chặt chẽ",
+    "example": "The speech lacked coherence and jumped between unrelated topics."
+  },
+  "cohesive": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/koʊˈhiːsɪv/",
+    "meaning_vi": "Có tính gắn kết, đoàn kết chặt chẽ",
+    "example": "A cohesive team achieves goals much more effectively."
+  },
+  "intricate": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈɪntrɪkət/",
+    "meaning_vi": "Tinh xảo, phức tạp, tỉ mỉ",
+    "example": "The traditional embroidery displays intricate geometric patterns."
+  },
+  "concur": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/kənˈkɜːr/",
+    "meaning_vi": "Đồng tình, nhất trí quan điểm",
+    "example": "Most experts concur that early childhood education is vital."
+  },
+  "dissent": {
+    "pos": "Danh từ / Động từ",
+    "ipa": "/dɪˈsent/",
+    "meaning_vi": "Sự bất đồng quan điểm, phản đối",
+    "example": "No one voiced any dissent during the final vote."
+  },
+  "disparity": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/dɪˈspærəti/",
+    "meaning_vi": "Sự chênh lệch, sự bất bình đẳng",
+    "example": "There is a wide economic disparity between rural and urban areas."
+  },
+  "equilibrium": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˌiːkwɪˈlɪbriəm/",
+    "meaning_vi": "Trạng thái cân bằng, sự bình thản",
+    "example": "The ecosystem maintained a delicate biological equilibrium."
+  },
+  "fluctuate": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/ˈflʌktʃueɪt/",
+    "meaning_vi": "Dao động, biến động thất thường",
+    "example": "Vegetable prices fluctuate depending on the season."
+  },
+  "fluctuation": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˌflʌktʃuˈeɪʃn/",
+    "meaning_vi": "Sự dao động, sự biến động",
+    "example": "Currency fluctuations can affect international tourism."
+  },
+  "stagnant": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈstæɡnənt/",
+    "meaning_vi": "Trì trệ, ứ đọng, không phát triển",
+    "example": "A stagnant economy leads to higher unemployment rates."
+  },
+  "volatile": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈvɑːlətl/",
+    "meaning_vi": "Dễ biến đổi, thất thường, không ổn định",
+    "example": "The stock market has been exceptionally volatile this week."
+  },
+  "volatility": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˌvɑːləˈtɪləti/",
+    "meaning_vi": "Tính dễ biến động, mức độ thất thường",
+    "example": "Investors worry about price volatility in petroleum."
+  },
+  "lucrative": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈluːkrətɪv/",
+    "meaning_vi": "Sinh lợi cao, mang lại nhiều tiền",
+    "example": "Software engineering continues to be a lucrative career path."
+  },
+  "prolific": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/prəˈlɪfɪk/",
+    "meaning_vi": "Sáng tác nhiều, màu mỡ, năng suất cao",
+    "example": "Trang Anh is a prolific author of English grammar textbooks."
+  },
+  "meticulous": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/məˈtɪkjələs/",
+    "meaning_vi": "Tỉ mỉ, cẩn thận từng chi tiết nhỏ",
+    "example": "He keeps meticulous notes during every laboratory experiment."
+  },
+  "meticulously": {
+    "pos": "Trạng từ (Adverb)",
+    "ipa": "/məˈtɪkjələsli/",
+    "meaning_vi": "Một cách tỉ mỉ, hết sức cẩn thận",
+    "example": "The research papers were meticulously analyzed."
+  },
+  "plausible": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈplɔːzəbl/",
+    "meaning_vi": "Hợp lý, đáng tin cậy, có thể đúng",
+    "example": "The detective presented a plausible explanation for the crime."
+  },
+  "implausible": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ɪmˈplɔːzəbl/",
+    "meaning_vi": "Khó tin, không hợp lý",
+    "example": "His excuse for missing the examination seemed highly implausible."
+  },
+  "quintessential": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˌkwɪntɪˈsenʃl/",
+    "meaning_vi": "Tinh túy nhất, mẫu mực tiêu biểu nhất",
+    "example": "Pho is the quintessential Vietnamese national dish."
+  },
+  "epitome": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ɪˈpɪtəmi/",
+    "meaning_vi": "Hiện thân hoàn hảo, biểu tượng điển hình",
+    "example": "She is the epitome of dedication and academic excellence."
+  },
+  "conundrum": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/kəˈnʌndrəm/",
+    "meaning_vi": "Câu hỏi hóc búa, bài toán nan giải",
+    "example": "Balancing economic growth and conservation is a difficult conundrum."
+  },
+  "dilemma": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/daɪˈlemə/",
+    "meaning_vi": "Thế tiến thoái lưỡng nan, tình huống khó xử",
+    "example": "Doctors often face ethical dilemmas in emergency care."
+  },
+  "disseminate": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/dɪˈsemɪneɪt/",
+    "meaning_vi": "Phổ biến, lan truyền rộng rãi (thông tin, tri thức)",
+    "example": "The internet allows researchers to disseminate findings globally."
+  },
+  "dissemination": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/dɪˌsemɪˈneɪʃn/",
+    "meaning_vi": "Sự phổ biến, sự truyền bá",
+    "example": "Rapid dissemination of news is crucial during natural emergencies."
+  },
+  "substantiate": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/səbˈstænʃieɪt/",
+    "meaning_vi": "Chứng minh bằng chứng cứ xác thực",
+    "example": "You must provide data to substantiate your essay arguments."
+  },
+  "refute": {
+    "pos": "Động từ (Verb)",
+    "ipa": "/rɪˈfjuːt/",
+    "meaning_vi": "Bác bỏ, chứng minh một luận điểm là sai",
+    "example": "The scientist gathered new experiments to refute the old theory."
+  },
+  "tangible": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈtændʒəbl/",
+    "meaning_vi": "Hữu hình, có thể sờ thấy, rõ ràng",
+    "example": "The program produced tangible benefits for local farmers."
+  },
+  "intangible": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ɪnˈtændʒəbl/",
+    "meaning_vi": "Phi vật thể, vô hình (văn hóa, danh tiếng)",
+    "example": "Customer goodwill is an intangible asset for any business."
+  },
+  "vulnerability": {
+    "pos": "Danh từ (Noun)",
+    "ipa": "/ˌvʌlnərəˈbɪləti/",
+    "meaning_vi": "Tính dễ bị tổn thương, điểm yếu",
+    "example": "Cybersecurity experts identified several vulnerabilities in the system."
+  },
+  "formidable": {
+    "pos": "Tính từ (Adjective)",
+    "ipa": "/ˈfɔːrmɪdəbl/",
+    "meaning_vi": "Đáng gờm, ghê gớm, dữ dội",
+    "example": "He faced formidable opponents in the international debate tournament."
+  },
   "invaluable": {
     "pos": "Tính từ (Adjective)",
     "ipa": "/ɪnˈvæljuəbl/",

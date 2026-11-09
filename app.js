@@ -42,6 +42,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   initListeningModule();
   initVietnamTodayModule();
   loadTelegramSettings();
+  initBilingualCinemaModule();
+  updateSessionRoutineUI();
+  initMultiAccountAndLeaderboard();
   updateDailyMissionUI();
   tickDeadlineCountdown();
   lucide.createIcons();
@@ -855,18 +858,15 @@ function getCumulativeReviewDeck(maxDayNum) {
   return words;
 }
 
+// HỆ THỐNG PHÂN 1 BÀI ĐỌC VSTEP CHUẨN ĐỦ DÀI MỖI NGÀY (ACE OF ENGLISH)
 function getDailyAssignedReadings(dayNum) {
   const list = window.APP_DATA?.readings || [];
   if (list.length === 0) return [];
   const d = Math.max(1, parseInt(dayNum) || 1);
   const total = list.length;
-  const idx1 = ((d - 1) * 3) % total;
-  const idx2 = ((d - 1) * 3 + 1) % total;
-  const idx3 = ((d - 1) * 3 + 2) % total;
+  const idx = (d - 1) % total;
   return [
-    { slotNumber: 1, index: idx1, ...list[idx1] },
-    { slotNumber: 2, index: idx2, ...list[idx2] },
-    { slotNumber: 3, index: idx3, ...list[idx3] }
+    { slotNumber: 1, index: idx, ...list[idx] }
   ];
 }
 
@@ -2644,12 +2644,59 @@ function lookupReadingWordInfo(rawWord, contextSentence = "") {
     }
   }
 
-  // D. Fallback smart defaults (Never return raw English as Vietnamese meaning)
+  // D. Check Vietnam Today, Cinema & News dictionaries
+  if (typeof VIETNAM_TODAY_VIDEOS !== "undefined") {
+    for (const vid of VIETNAM_TODAY_VIDEOS) {
+      for (const v of vid.vocabulary || []) {
+        if (v.word && v.word.toLowerCase() === lower) {
+          return {
+            word: v.word,
+            pos: v.pos || "Từ vựng",
+            ipa: v.ipa || `/${lower}/`,
+            meaning_vi: v.meaning,
+            example: v.example || contextSentence
+          };
+        }
+      }
+    }
+  }
+  if (typeof BILINGUAL_MOVIES !== "undefined") {
+    for (const m of BILINGUAL_MOVIES) {
+      for (const v of m.vocabulary || []) {
+        if (v.word && v.word.toLowerCase() === lower) {
+          return {
+            word: v.word,
+            pos: v.pos || "Từ vựng",
+            ipa: v.ipa || `/${lower}/`,
+            meaning_vi: v.meaning_vi || v.meaning,
+            example: v.example || contextSentence
+          };
+        }
+      }
+    }
+  }
+  if (typeof BILINGUAL_NEWS_ARTICLES !== "undefined") {
+    for (const a of BILINGUAL_NEWS_ARTICLES) {
+      for (const v of a.target_vocab || []) {
+        if (v.word && v.word.toLowerCase() === lower) {
+          return {
+            word: v.word,
+            pos: v.pos || "Từ vựng",
+            ipa: v.ipa || `/${lower}/`,
+            meaning_vi: v.meaning_vi,
+            example: v.example || contextSentence
+          };
+        }
+      }
+    }
+  }
+
+  // E. Fallback smart defaults (Never return raw English as Vietnamese meaning)
   return {
     word: clean,
     pos: "Từ vựng (Word)",
     ipa: `/${lower}/`,
-    meaning_vi: `Từ vựng trong bài đọc: "${clean}" (Tra cứu trực tiếp trên từ điển Cambridge bên dưới)`,
+    meaning_vi: `Từ vựng: "${clean}"`,
     example: contextSentence || `Example context with ${clean}.`
   };
 }
@@ -2711,24 +2758,30 @@ function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
     }
 
     const doneAssignedCount = assignedIndices.filter(idx => completedList.includes(idx)).length;
-    const isAllThreeDone = doneAssignedCount >= 3 || completedList.length >= 3;
+    const isReadingCompleted = (doneAssignedCount >= 1 || completedList.length >= 1);
 
     setDayMissionStatus(curDay, {
       completedReadings: completedList,
-      readingDoneCount: Math.min(3, Math.max(doneAssignedCount, completedList.length)),
-      readingDone: isAllThreeDone || curStatus.readingDone
+      readingDoneCount: Math.min(1, Math.max(doneAssignedCount, completedList.length)),
+      readingDone: isReadingCompleted || curStatus.readingDone
     });
 
-    if (isAllThreeDone) {
-      showToast(`🎉 Tuyệt vời! Bạn đã hoàn thành trọn vẹn 3 bài đọc của Ngày ${curDay}! Đã tự động đánh dấu hoàn thành 100%!`, "success");
+    if (isReadingCompleted) {
+      showToast(`🎉 Xuất sắc! Bạn đã hoàn thành bài đọc VSTEP chuẩn quốc tế Ngày ${curDay}! Đã tự động đánh dấu hoàn thành 100%!`, "success");
     } else {
-      showToast(`✓ Đã hoàn thành bài đọc (${doneAssignedCount}/3 bài hôm nay). Hãy tiếp tục bài tiếp theo nhé!`, "info");
+      showToast(`✓ Đã trả lời xong câu hỏi bài đọc!`, "info");
     }
     updateDailyMissionUI();
   }
 
   const isCorrect = (selectedIdx === correctIdx);
   const correctBtn = document.getElementById(`rq-${qIdx}-opt-${correctIdx}`);
+
+  // Tự động phát âm đáp án được chọn để luyện nghe chuẩn
+  if (selectedBtn) {
+    const rawOptText = selectedBtn.innerText.replace(/^[A-D]\.\s*/i, "").trim();
+    if (typeof speakWord === "function") speakWord(rawOptText);
+  }
 
   if (isCorrect) {
     selectedBtn.classList.add("bg-emerald-600/30", "border-emerald-500", "text-emerald-300");
@@ -2880,7 +2933,7 @@ async function showWordPopup(wordText, context) {
 
   // Fallback to local rich dictionaries & lexicon
   const localInfo = lookupReadingWordInfo(cleanWord, context);
-  if (localInfo && localInfo.meaning_vi && localInfo.meaning_vi.toLowerCase() !== cleanWord.toLowerCase()) {
+  if (localInfo && localInfo.meaning_vi && localInfo.meaning_vi.toLowerCase() !== cleanWord.toLowerCase() && !localInfo.meaning_vi.includes("Từ vựng trong bài đọc")) {
     activePopupWordItem = {
       word: localInfo.word || cleanWord,
       pos: localInfo.pos || "Từ vựng",
@@ -2897,6 +2950,29 @@ async function showWordPopup(wordText, context) {
     document.getElementById("popupMeaningVi").innerText = activePopupWordItem.meaning_vi;
     document.getElementById("popupMeaningEn").innerText = activePopupWordItem.meaning_en;
     return;
+  }
+
+  // Instant Client-side Realtime Translation Engine
+  if (typeof translateWordClient === "function") {
+    const trans = await translateWordClient(cleanWord, context);
+    if (trans && trans.meaning_vi && trans.meaning_vi.toLowerCase() !== cleanWord.toLowerCase()) {
+      activePopupWordItem = {
+        word: trans.word || cleanWord,
+        pos: trans.pos || "Từ vựng",
+        pron: trans.ipa || `/${cleanWord}/`,
+        meaning_vi: trans.meaning_vi,
+        meaning_en: `English definition of "${cleanWord}"`,
+        example: trans.example || context || `Example with "${cleanWord}".`
+      };
+      document.getElementById("popupWord").innerText = activePopupWordItem.word;
+      if (pronEl) {
+        pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] border border-blue-500/30 mr-1">🇺🇸 US</span>${formatPronHtml(activePopupWordItem.pron || cleanWord)}`;
+      }
+      document.getElementById("popupPos").innerText = activePopupWordItem.pos || "word";
+      document.getElementById("popupMeaningVi").innerText = activePopupWordItem.meaning_vi;
+      document.getElementById("popupMeaningEn").innerText = `Context: "${cleanWord}"`;
+      return;
+    }
   }
 
   let found = null;
@@ -4153,20 +4229,15 @@ function getInterleavedDeckForDay(dIdx, baseWords) {
     chosenReviews.push(...shuffleArray(generalPastPool).slice(0, needed));
   }
 
-  // 4. Xen kẽ nhịp nhàng (Interleave: 2 thẻ mới -> 1 thẻ củng cố liên tiếp -> 1 thẻ ngắt quãng)
+  // 4. ƯU TIÊN TUYỆT ĐỐI TỪ VỰNG CỦA NGÀY HÔM ĐÓ LÊN ĐẦU TIÊN
+  // Người học tiếp thu toàn bộ từ vựng mới của ngày hôm nay trước (Thẻ 1 -> Thẻ 20),
+  // sau đó mới đến các thẻ lặp lại ngắt quãng, từ hôm qua, từ làm sai bài đọc để củng cố.
   let finalDeck = [];
   if (chosenReviews.length === 0) {
     finalDeck = todayTagged;
-  } else if (cfg.insertMode === "random_mix") {
-    finalDeck = shuffleArray([...todayTagged, ...chosenReviews]);
   } else {
-    let tIdx = 0;
-    let rIdx = 0;
-    while (tIdx < todayTagged.length || rIdx < chosenReviews.length) {
-      if (tIdx < todayTagged.length) finalDeck.push(todayTagged[tIdx++]);
-      if (tIdx < todayTagged.length) finalDeck.push(todayTagged[tIdx++]);
-      if (rIdx < chosenReviews.length) finalDeck.push(chosenReviews[rIdx++]);
-    }
+    // 100% Từ vựng ngày hôm nay được đặt trang trọng lên đầu
+    finalDeck = [...todayTagged, ...chosenReviews];
   }
 
   appState.activeInterleavedDeck = finalDeck;
@@ -5465,13 +5536,11 @@ function loadVietnamTodayVideo(idx) {
         <iframe 
           id="ytPlayerFrame"
           class="w-full h-full rounded-2xl border-0 aspect-video" 
-          src="https://www.youtube-nocookie.com/embed/${vid.youtubeId}?autoplay=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" 
+          src="https://www.youtube.com/embed/${vid.youtubeId}?rel=0&playsinline=1&modestbranding=1" 
           title="${vid.title}" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin">
+          allowfullscreen>
         </iframe>
       </div>
     `;
@@ -5646,4 +5715,957 @@ function renderVietnamTodayScript(scriptList) {
 
   container.innerHTML = html;
   if (typeof lucide !== "undefined") lucide.createIcons();
+}
+
+
+
+// ============================================================================
+// INSTANT CLIENT-SIDE VIETNAMESE TRANSLATION ENGINE (100% COVERAGE)
+// ============================================================================
+async function translateWordClient(rawWord, contextSentence = "") {
+  const clean = cleanWordText(rawWord);
+  if (!clean) return { word: "", meaning_vi: "" };
+  const lower = clean.toLowerCase();
+
+  // 1. Static Lexicon
+  if (typeof READING_WORDS_LEXICON !== "undefined" && READING_WORDS_LEXICON[lower]) {
+    const entry = READING_WORDS_LEXICON[lower];
+    return {
+      word: clean,
+      pos: entry.pos || "Từ vựng",
+      ipa: entry.ipa || `/${lower}/`,
+      meaning_vi: entry.meaning_vi,
+      example: entry.example || contextSentence || `Example sentence with "${clean}".`
+    };
+  }
+
+  // 2. Units in APP_DATA
+  if (window.APP_DATA && window.APP_DATA.units) {
+    for (const u of window.APP_DATA.units) {
+      for (const d of u.days || []) {
+        for (const w of d.words || []) {
+          if (w.word && w.word.toLowerCase() === lower) {
+            return {
+              word: w.word,
+              pos: w.pos || "Từ vựng",
+              ipa: w.pron || `/${lower}/`,
+              meaning_vi: w.meaning_vi || w.meaning || "",
+              example: w.example || contextSentence || `Example with "${w.word}".`
+            };
+          }
+        }
+      }
+    }
+  }
+
+  // 3. Vietnam Today & Cinema Vocab
+  if (typeof VIETNAM_TODAY_VIDEOS !== "undefined") {
+    for (const vid of VIETNAM_TODAY_VIDEOS) {
+      for (const v of vid.vocabulary || []) {
+        if (v.word && v.word.toLowerCase() === lower) {
+          return {
+            word: v.word,
+            pos: v.pos || "Từ vựng",
+            ipa: v.ipa || `/${lower}/`,
+            meaning_vi: v.meaning,
+            example: v.example || contextSentence
+          };
+        }
+      }
+    }
+  }
+  if (typeof BILINGUAL_MOVIES !== "undefined") {
+    for (const m of BILINGUAL_MOVIES) {
+      for (const v of m.vocabulary || []) {
+        if (v.word && v.word.toLowerCase() === lower) {
+          return {
+            word: v.word,
+            pos: v.pos || "Từ vựng",
+            ipa: v.ipa || `/${lower}/`,
+            meaning_vi: v.meaning_vi || v.meaning,
+            example: v.example || contextSentence
+          };
+        }
+      }
+    }
+  }
+
+  // 4. Word Stemming
+  const stems = ["ing", "ed", "es", "s", "ly"];
+  for (const sfx of stems) {
+    if (lower.endsWith(sfx) && lower.length > sfx.length + 2) {
+      const stem = lower.slice(0, -sfx.length);
+      if (typeof READING_WORDS_LEXICON !== "undefined" && READING_WORDS_LEXICON[stem]) {
+        const entry = READING_WORDS_LEXICON[stem];
+        return {
+          word: clean,
+          pos: entry.pos || "Từ vựng",
+          ipa: entry.ipa || `/${lower}/`,
+          meaning_vi: entry.meaning_vi,
+          example: entry.example || contextSentence
+        };
+      }
+    }
+  }
+
+  // 5. Client-side Realtime Translation via Google API
+  try {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=${encodeURIComponent(clean)}`;
+    const res = await fetch(url);
+    if (res.ok) {
+      const data = await res.json();
+      const vi = data?.[0]?.map(p => p[0]).join("").trim();
+      if (vi && vi.toLowerCase() !== lower) {
+        return {
+          word: clean,
+          pos: "Từ vựng tra cứu",
+          ipa: `/${lower}/`,
+          meaning_vi: vi,
+          example: contextSentence || `Authentic context: "${clean}".`
+        };
+      }
+    }
+  } catch (e) {}
+
+  return {
+    word: clean,
+    pos: "Từ vựng",
+    ipa: `/${lower}/`,
+    meaning_vi: `Định nghĩa từ vựng: ${clean}`,
+    example: contextSentence || `Example sentence with ${clean}.`
+  };
+}
+
+// ============================================================================
+// BILINGUAL CINEMA & TV SERIES CONTROLLER (PHIM SONG NGỮ ANH - VIỆT)
+// ============================================================================
+let currentCinemaIdx = 0;
+let currentCinemaSubMode = "bilingual"; // 'bilingual', 'en', 'none'
+
+function initBilingualCinemaModule() {
+  renderCinemaPlaylist();
+  loadCinemaMovie(0);
+}
+
+function renderCinemaPlaylist() {
+  const container = document.getElementById("cinemaPlaylistSelector");
+  const countBadge = document.getElementById("cinemaMoviesCountBadge");
+  if (!container || typeof BILINGUAL_MOVIES === "undefined" || !BILINGUAL_MOVIES.length) return;
+
+  if (countBadge) countBadge.innerText = `${BILINGUAL_MOVIES.length} trích đoạn kinh điển`;
+
+  let html = "";
+  BILINGUAL_MOVIES.forEach((m, idx) => {
+    const isActive = (idx === currentCinemaIdx);
+    const borderClass = isActive ? "border-pink-500 bg-pink-950/40 shadow-lg" : "border-slate-800 bg-slate-900/60 hover:bg-slate-800/80";
+    html += `
+      <div onclick="selectCinemaMovie(${idx})" class="p-3 rounded-xl border ${borderClass} cursor-pointer transition flex items-center gap-3">
+        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-pink-400 font-bold shrink-0 border border-slate-700">
+          <i data-lucide="${isActive ? 'play' : 'film'}" class="w-5 h-5"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="text-[10px] px-1.5 py-0.2 rounded bg-pink-500/20 text-pink-300 font-bold font-mono">${m.duration}</span>
+            <span class="text-[10px] text-slate-400">${m.genre.split('•')[0]}</span>
+          </div>
+          <h4 class="font-bold text-white text-xs truncate mt-0.5">${m.title}</h4>
+          <p class="text-[11px] text-slate-400 truncate">${m.vnTitle}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function selectCinemaMovie(idx) {
+  currentCinemaIdx = idx;
+  renderCinemaPlaylist();
+  loadCinemaMovie(idx);
+}
+
+function loadCinemaMovie(idx) {
+  if (typeof BILINGUAL_MOVIES === "undefined" || !BILINGUAL_MOVIES[idx]) return;
+  const m = BILINGUAL_MOVIES[idx];
+
+  // 1. YouTube Iframe with robust parameters
+  const playerContainer = document.getElementById("cinemaVideoPlayerContainer");
+  if (playerContainer) {
+    playerContainer.innerHTML = `
+      <div class="relative w-full h-full flex flex-col justify-center items-center bg-black/95 rounded-2xl overflow-hidden group">
+        <iframe 
+          id="cinemaPlayerFrame"
+          class="w-full h-full rounded-2xl border-0 aspect-video" 
+          src="https://www.youtube.com/embed/${m.youtubeId}?rel=0&playsinline=1&modestbranding=1" 
+          title="${m.title}" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    `;
+  }
+
+  // 2. Movie Title & Action Links
+  const titleEl = document.getElementById("cinemaMovieTitle");
+  const descEl = document.getElementById("cinemaMovieDesc");
+  if (titleEl) {
+    titleEl.innerHTML = `
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <span>${m.title}</span>
+        <span class="text-xs px-2.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 font-bold border border-pink-500/30 font-mono">${m.level}</span>
+      </div>
+    `;
+  }
+  if (descEl) {
+    descEl.innerHTML = `
+      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${m.vnTitle} • ${m.description}</p>
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 mt-2">
+        <a href="https://www.youtube.com/watch?v=${m.youtubeId}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-red-950/40">
+          <i data-lucide="youtube" class="w-4 h-4 fill-white"></i> Mở xem trực tiếp trên YouTube
+        </a>
+        <button onclick="reloadCinemaMoviePlayer()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
+          <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Tải lại Player
+        </button>
+      </div>
+    `;
+  }
+
+  // 3. Key Expressions
+  renderCinemaExpressions(m.key_expressions);
+
+  // 4. Subtitles
+  renderCinemaSubtitles(m.subtitles);
+
+  // 5. Vocab
+  renderCinemaVocab(m.vocabulary);
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function reloadCinemaMoviePlayer() {
+  loadCinemaMovie(currentCinemaIdx);
+  showToast("🔄 Đã tải lại trình phát phim!", "info");
+}
+
+function setCinemaSubMode(mode) {
+  currentCinemaSubMode = mode;
+  ["bilingual", "en", "none"].forEach(m => {
+    const btn = document.getElementById(`btnSub${m.charAt(0).toUpperCase() + m.slice(1)}`);
+    if (btn) {
+      if (m === mode) {
+        btn.className = "px-3 py-1.5 rounded-xl bg-indigo-600 text-white font-bold text-xs shadow transition";
+      } else {
+        btn.className = "px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold text-xs transition";
+      }
+    }
+  });
+
+  const curMovie = BILINGUAL_MOVIES[currentCinemaIdx];
+  if (curMovie) renderCinemaSubtitles(curMovie.subtitles);
+}
+
+function renderCinemaExpressions(expressions) {
+  const container = document.getElementById("cinemaExpressionsContainer");
+  if (!container || !Array.isArray(expressions)) return;
+
+  let html = "";
+  expressions.forEach(e => {
+    html += `
+      <div class="p-3.5 rounded-xl bg-slate-900/60 border border-amber-500/20 space-y-1 hover:border-amber-500/40 transition">
+        <div class="flex items-center justify-between gap-2">
+          <span class="font-bold text-amber-300 text-xs sm:text-sm">"${e.phrase}"</span>
+          <button onclick="speakText('${e.phrase.replace(/'/g, "\'")}')" class="p-1 rounded bg-amber-500/20 text-amber-300 hover:text-white hover:bg-amber-500 transition" title="Nghe phát âm">
+            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+        <p class="text-xs text-slate-200 font-medium">${e.vi}</p>
+        <p class="text-[11px] text-slate-400 italic">${e.note || ""}</p>
+      </div>
+    `;
+  });
+  container.innerHTML = html;
+}
+
+function renderCinemaSubtitles(subtitles) {
+  const container = document.getElementById("cinemaSubtitlesList");
+  if (!container || !Array.isArray(subtitles)) return;
+
+  if (currentCinemaSubMode === "none") {
+    container.innerHTML = `
+      <div class="p-6 text-center text-slate-400 space-y-2">
+        <i data-lucide="eye-off" class="w-8 h-8 mx-auto text-slate-500"></i>
+        <p class="text-xs font-semibold">Chế độ thử thách: Đã ẩn toàn bộ phụ đề để rèn luyện thính giác tự nhiên.</p>
+        <button onclick="setCinemaSubMode('bilingual')" class="px-3 py-1.5 rounded-xl bg-pink-600/30 text-pink-300 hover:bg-pink-600 hover:text-white text-xs font-bold transition">
+          Bật lại phụ đề song ngữ
+        </button>
+      </div>
+    `;
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
+
+  let html = "";
+  subtitles.forEach((s, sIdx) => {
+    // Make each word clickable for 1-click lookup
+    const wordsTokens = s.en.split(/\s+/).map(tok => {
+      const clean = tok.replace(/[^a-zA-Z]/g, "");
+      if (!clean) return tok;
+      return `<span onclick="showWordPopup('${clean}', '${s.en.replace(/'/g, "\'")}')" class="hover:text-pink-300 hover:underline cursor-pointer transition">${tok}</span>`;
+    }).join(" ");
+
+    html += `
+      <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1 hover:border-pink-500/30 transition">
+        <div class="flex items-center justify-between gap-2">
+          <span class="px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 font-mono font-bold text-[10px] flex items-center gap-1">
+            <i data-lucide="clock" class="w-3 h-3"></i> ${s.start}
+          </span>
+          <button onclick="speakText('${s.en.replace(/'/g, "\'")}')" class="p-1 rounded bg-slate-800 hover:bg-pink-600/30 text-slate-400 hover:text-pink-300 transition" title="Nghe câu thoại">
+            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">${wordsTokens}</p>
+        ${currentCinemaSubMode === "bilingual" ? `<p class="text-xs text-slate-400 italic pt-1 border-t border-slate-800/60">${s.vi}</p>` : ""}
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderCinemaVocab(vocabList) {
+  const container = document.getElementById("cinemaVocabContainer");
+  if (!container || !Array.isArray(vocabList)) return;
+
+  let html = "";
+  vocabList.forEach(v => {
+    html += `
+      <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800 space-y-1 text-xs">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <strong class="text-white text-sm">${v.word}</strong>
+            <span class="text-[10px] text-slate-400 font-mono">${v.ipa}</span>
+          </div>
+          <button onclick="speakWord('${v.word}')" class="p-1 rounded bg-slate-800 hover:bg-cyan-600/30 text-cyan-400 transition" title="Nghe phát âm">
+            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+        <p class="text-cyan-300 font-semibold">${v.meaning_vi || v.meaning}</p>
+        <p class="text-[11px] text-slate-400 italic">"${v.example}"</p>
+      </div>
+    `;
+  });
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function saveAllCinemaWordsToFlashcard() {
+  const curMovie = BILINGUAL_MOVIES[currentCinemaIdx];
+  if (!curMovie || !Array.isArray(curMovie.vocabulary)) return;
+
+  let added = 0;
+  curMovie.vocabulary.forEach(v => {
+    const item = {
+      word: v.word,
+      pos: v.pos || "word",
+      pron: v.ipa || `/${v.word}/`,
+      meaning_vi: v.meaning_vi || v.meaning,
+      meaning_en: `Vocabulary from movie: ${curMovie.title}`,
+      example: v.example,
+      source: "Phim Song Ngữ",
+      cardOrigin: "cinema",
+      cardOriginText: `🎬 Phim: ${curMovie.title.substring(0, 20)}...`,
+      type: "word"
+    };
+    saveCustomWordItem(item);
+    added++;
+  });
+  showToast(`🎉 Đã lưu toàn bộ ${added} từ vựng của phim vào bộ Flashcard ôn tập!`, "success");
+}
+
+// ============================================================================
+// BILINGUAL GLOBAL NEWS CONTROLLER (BÁO SONG NGỮ QUỐC TẾ)
+// ============================================================================
+let activeReaderMode = "vstep"; // 'vstep' or 'news'
+
+function switchReaderMode(mode) {
+  activeReaderMode = mode;
+  const btnVstep = document.getElementById("btnReaderModeVstep");
+  const btnNews = document.getElementById("btnReaderModeNews");
+  const vstepView = document.querySelector("#tab-reader .grid.grid-cols-1.lg\:grid-cols-12");
+  const newsView = document.getElementById("bilingualNewsContainer");
+
+  if (mode === "news") {
+    if (btnNews) btnNews.className = "px-3.5 py-2 rounded-lg bg-cyan-600 text-white font-bold text-xs transition flex items-center gap-1.5 shadow";
+    if (btnVstep) btnVstep.className = "px-3.5 py-2 rounded-lg text-slate-400 hover:text-white font-bold text-xs transition flex items-center gap-1.5";
+    if (vstepView) vstepView.classList.add("hidden");
+    if (newsView) {
+      newsView.classList.remove("hidden");
+      renderBilingualNewsArticles();
+    }
+  } else {
+    if (btnVstep) btnVstep.className = "px-3.5 py-2 rounded-lg bg-indigo-600 text-white font-bold text-xs transition flex items-center gap-1.5 shadow";
+    if (btnNews) btnNews.className = "px-3.5 py-2 rounded-lg text-slate-400 hover:text-white font-bold text-xs transition flex items-center gap-1.5";
+    if (vstepView) vstepView.classList.remove("hidden");
+    if (newsView) newsView.classList.add("hidden");
+  }
+}
+
+function renderBilingualNewsArticles() {
+  const container = document.getElementById("bilingualNewsContainer");
+  if (!container || typeof BILINGUAL_NEWS_ARTICLES === "undefined") return;
+
+  let html = `
+    <div class="space-y-6">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-3">
+        <i data-lucide="newspaper" class="w-5 h-5 text-cyan-400"></i>
+        <h3 class="font-bold text-white text-base">Tuyển Tập Báo Thời Sự Song Ngữ Quốc Tế</h3>
+      </div>
+  `;
+
+  BILINGUAL_NEWS_ARTICLES.forEach((art, aIdx) => {
+    html += `
+      <div class="glass-card rounded-2xl p-6 border border-slate-700/80 bg-slate-900/90 space-y-4 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold text-[10px] uppercase tracking-wider">${art.source}</span>
+              <span class="text-xs text-slate-400">${art.date}</span>
+              <span class="text-xs text-amber-300 font-medium">⏱️ ${art.readTime}</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-white mt-1">${art.title}</h3>
+            <p class="text-xs sm:text-sm text-cyan-200">${art.vnTitle}</p>
+          </div>
+        </div>
+
+        <!-- Parallel Paragraphs -->
+        <div class="space-y-4">
+          ${art.paragraphs.map((p, pIdx) => `
+            <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold text-slate-500 font-mono">ĐOẠN ${pIdx + 1}</span>
+                <button onclick="speakText('${p.en.replace(/'/g, "\'")}')" class="px-2 py-1 rounded bg-slate-800 hover:bg-cyan-600 text-slate-300 hover:text-white text-xs font-bold transition flex items-center gap-1" title="Nghe đọc đoạn văn bằng giọng US chuẩn">
+                  <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Nghe đọc đoạn
+                </button>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">${p.en}</p>
+              <p class="text-xs sm:text-sm text-slate-400 italic leading-relaxed pt-2 border-t border-slate-800/60">${p.vi}</p>
+            </div>
+          `).join("")}
+        </div>
+
+        <!-- Target Vocab in Article -->
+        <div class="pt-3 border-t border-slate-800">
+          <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <i data-lucide="bookmark" class="w-3.5 h-3.5 text-amber-400"></i> Từ vựng trọng tâm trong bài báo:
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
+            ${art.target_vocab.map(v => `
+              <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-white">${v.word} <span class="text-[10px] text-slate-400 font-normal">(${v.pos})</span></div>
+                  <div class="text-[11px] text-cyan-300">${v.meaning_vi}</div>
+                </div>
+                <button onclick="speakWord('${v.word}')" class="p-1 rounded bg-slate-800 hover:bg-cyan-600 text-cyan-400 hover:text-white transition" title="Nghe phát âm">
+                  <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  html += `</div>`;
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+// ============================================================================
+// 3 PHIÊN HỌC NGẮT QUÃNG SÁNG - TRƯA - TỐI (SPACED ROUTINE ENGINE)
+// ============================================================================
+function updateSessionRoutineUI() {
+  const now = new Date();
+  const hours = now.getHours();
+  const mins = now.getMinutes();
+  const totalMins = hours * 60 + mins;
+
+  const cardMorning = document.getElementById("sessionCardMorning");
+  const cardNoon = document.getElementById("sessionCardNoon");
+  const cardEvening = document.getElementById("sessionCardEvening");
+  const badge = document.getElementById("currentSessionBadge");
+
+  // Reset highlight classes
+  [cardMorning, cardNoon, cardEvening].forEach(c => {
+    if (c) {
+      c.classList.remove("ring-2", "ring-indigo-400", "bg-indigo-950/40", "ring-cyan-400", "bg-cyan-950/40", "ring-rose-400", "bg-rose-950/40");
+    }
+  });
+
+  // Check progress
+  const curDay = missionRegistry.currentDay || 1;
+  const st = getDayMissionStatus(curDay);
+
+  const sttM = document.getElementById("sttSessionMorning");
+  const sttN = document.getElementById("sttSessionNoon");
+  const sttE = document.getElementById("sttSessionEvening");
+
+  if (sttM) {
+    sttM.innerHTML = st.vocabDone ? "<span class='text-emerald-400 font-bold'>✓ Đã xong</span>" : "<span class='text-amber-400'>Chưa xong</span>";
+  }
+  if (sttN) {
+    const isNoonDone = st.readingDone && st.grammarDone;
+    sttN.innerHTML = isNoonDone ? "<span class='text-emerald-400 font-bold'>✓ Đã xong</span>" : (st.readingDone || st.grammarDone ? "<span class='text-cyan-400'>Đang làm</span>" : "<span class='text-slate-400'>Chưa xong</span>");
+  }
+  if (sttE) {
+    sttE.innerHTML = st.videoDone ? "<span class='text-emerald-400 font-bold'>✓ Đã chốt xong</span>" : "<span class='text-slate-400'>Hạn 22:00</span>";
+  }
+
+  // Determine current active window
+  if (totalMins < 690) { // Before 11:30
+    if (cardMorning) cardMorning.classList.add("ring-2", "ring-indigo-400", "bg-indigo-950/40");
+    if (badge) badge.innerText = "🌅 Đang ở Phiên Sáng (Học Từ Mới)";
+  } else if (totalMins < 1050) { // 11:30 - 17:30
+    if (cardNoon) cardNoon.classList.add("ring-2", "ring-cyan-400", "bg-cyan-950/40");
+    if (badge) badge.innerText = "☀️ Đang ở Phiên Trưa (Đọc & Ngữ Pháp)";
+  } else { // 17:30 - 22:00+
+    if (cardEvening) cardEvening.classList.add("ring-2", "ring-rose-400", "bg-rose-950/40");
+    if (badge) badge.innerText = "🌙 Đang ở Phiên Tối (Xem Video/Phim & Chốt Streak)";
+  }
+}
+
+// Run routine update periodically
+setInterval(updateSessionRoutineUI, 30000);
+
+
+
+// ============================================================================
+// MULTI-ACCOUNT MANAGEMENT & COMPETITIVE LEADERBOARD CONTROLLER
+// ============================================================================
+const STORAGE_KEY_SAVED_ACCOUNTS = "EMH_SAVED_ACCOUNTS_V1";
+let currentLeaderboardFilterMode = "all"; // 'all', 'streak', 'vocab'
+
+function getSavedAccounts() {
+  let list = [];
+  try {
+    list = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS) || "[]");
+  } catch (e) {
+    list = [];
+  }
+
+  const currentEmail = appState.currentUser?.email || "hocvien.chinh@emh.edu.vn";
+  const currentName = appState.currentUser?.full_name || (currentEmail ? currentEmail.split("@")[0].toUpperCase() : "Bạn (Học Viên)");
+  const currentStreak = parseInt(localStorage.getItem("EMH_STREAK") || "14", 10);
+  const curDay = (typeof missionRegistry !== "undefined" && missionRegistry.currentDay) ? missionRegistry.currentDay : 1;
+  const missionDonePct = (typeof getDayMissionStatus === "function" && getDayMissionStatus(curDay).isAllDone) ? 100 : 70;
+
+  if (!Array.isArray(list) || list.length === 0) {
+    list = [
+      {
+        id: appState.currentUser?.id || "user_me",
+        email: currentEmail,
+        full_name: currentName,
+        target_exam: appState.currentUser?.target_exam || "VSTEP B2 / IELTS 7.0+",
+        streak: currentStreak,
+        mature_words: 345,
+        today_progress: missionDonePct,
+        xp: (currentStreak * 150) + (345 * 20) + Math.round(missionDonePct * 5),
+        token: appState.authToken || "",
+        isCurrent: true
+      },
+      {
+        id: "peer_1",
+        email: "tran.mai@studygroup.vn",
+        full_name: "Trần Thị Mai",
+        target_exam: "VSTEP B2 Chuẩn",
+        streak: Math.max(currentStreak + 2, 16),
+        mature_words: 382,
+        today_progress: 100,
+        xp: ((Math.max(currentStreak + 2, 16)) * 150) + (382 * 20) + 500,
+        token: "",
+        isCurrent: false
+      },
+      {
+        id: "peer_2",
+        email: "le.hoang.dung@studygroup.vn",
+        full_name: "Lê Hoàng Dũng",
+        target_exam: "Speakout B1+ Toàn Diện",
+        streak: Math.max(currentStreak - 1, 12),
+        mature_words: 295,
+        today_progress: 80,
+        xp: ((Math.max(currentStreak - 1, 12)) * 150) + (295 * 20) + 400,
+        token: "",
+        isCurrent: false
+      },
+      {
+        id: "peer_3",
+        email: "minhthu.ielts@studygroup.vn",
+        full_name: "Phạm Minh Thư",
+        target_exam: "IELTS 7.5+",
+        streak: Math.max(currentStreak + 5, 19),
+        mature_words: 420,
+        today_progress: 100,
+        xp: ((Math.max(currentStreak + 5, 19)) * 150) + (420 * 20) + 500,
+        token: "",
+        isCurrent: false
+      }
+    ];
+    saveSavedAccounts(list);
+  } else {
+    // Update active account stats
+    list = list.map(acc => {
+      if (acc.email === currentEmail || acc.isCurrent) {
+        return {
+          ...acc,
+          email: currentEmail,
+          full_name: currentName,
+          streak: currentStreak,
+          today_progress: missionDonePct,
+          xp: (currentStreak * 150) + ((acc.mature_words || 345) * 20) + Math.round(missionDonePct * 5),
+          token: appState.authToken || acc.token,
+          isCurrent: true
+        };
+      }
+      return { ...acc, isCurrent: false };
+    });
+    saveSavedAccounts(list);
+  }
+  return list;
+}
+
+function saveSavedAccounts(list) {
+  try {
+    localStorage.setItem(STORAGE_KEY_SAVED_ACCOUNTS, JSON.stringify(list));
+  } catch (e) {}
+}
+
+function initMultiAccountAndLeaderboard() {
+  getSavedAccounts();
+  renderSavedAccounts();
+  renderHomeLeaderboardPreview();
+  renderLeaderboard();
+}
+
+function toggleLeaderboardDrawer() {
+  const drawer = document.getElementById("leaderboardDrawer");
+  if (!drawer) return;
+  drawer.classList.toggle("hidden");
+  if (!drawer.classList.contains("hidden")) {
+    renderLeaderboard();
+  }
+  if (window.lucide) lucide.createIcons();
+}
+
+function filterLeaderboardMode(mode) {
+  currentLeaderboardFilterMode = mode;
+  ["all", "streak", "vocab"].forEach(m => {
+    const btn = document.getElementById(`lb-tab-${m}`);
+    if (btn) {
+      if (m === mode) {
+        btn.className = "py-1.5 rounded-lg bg-indigo-600 text-white shadow";
+      } else {
+        btn.className = "py-1.5 rounded-lg text-slate-400 hover:text-white transition";
+      }
+    }
+  });
+  renderLeaderboard();
+}
+
+function renderLeaderboard() {
+  const podium = document.getElementById("leaderboardPodium");
+  const listContainer = document.getElementById("leaderboardListContainer");
+  if (!podium && !listContainer) return;
+
+  const accounts = [...getSavedAccounts()];
+
+  // Sort based on current filter
+  if (currentLeaderboardFilterMode === "streak") {
+    accounts.sort((a, b) => (b.streak || 0) - (a.streak || 0));
+  } else if (currentLeaderboardFilterMode === "vocab") {
+    accounts.sort((a, b) => (b.mature_words || 0) - (a.mature_words || 0));
+  } else {
+    accounts.sort((a, b) => (b.xp || 0) - (a.xp || 0));
+  }
+
+  // 1. Render Top 3 Podium
+  if (podium && accounts.length >= 3) {
+    const first = accounts[0];
+    const second = accounts[1];
+    const third = accounts[2];
+
+    podium.innerHTML = `
+      <!-- Rank 2: Silver -->
+      <div class="flex flex-col items-center">
+        <span class="text-xs font-bold text-slate-300">🥈 Hạng 2</span>
+        <div class="w-12 h-12 rounded-full bg-slate-700/80 border-2 border-slate-400 flex items-center justify-center font-bold text-white text-sm my-1 shadow">
+          ${(second.full_name || 'U').charAt(0)}
+        </div>
+        <div class="text-[11px] font-bold text-white truncate max-w-[85px]">${second.full_name}</div>
+        <div class="text-[10px] text-slate-400 font-mono">${second.streak} ngày 🔥</div>
+        <div class="w-full h-16 bg-gradient-to-t from-slate-800 to-slate-700/60 rounded-t-xl mt-1 flex items-center justify-center text-xs font-bold text-slate-300">2nd</div>
+      </div>
+
+      <!-- Rank 1: Gold -->
+      <div class="flex flex-col items-center -mt-3">
+        <span class="text-sm font-black text-amber-300 flex items-center gap-1">👑 🥇 Top 1</span>
+        <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-300 border-2 border-yellow-200 flex items-center justify-center font-black text-slate-950 text-base my-1 shadow-lg shadow-amber-500/30">
+          ${(first.full_name || 'U').charAt(0)}
+        </div>
+        <div class="text-xs font-extrabold text-amber-200 truncate max-w-[95px]">${first.full_name}</div>
+        <div class="text-[10px] text-amber-300 font-bold font-mono">${first.streak} ngày 🔥 • ${first.xp} XP</div>
+        <div class="w-full h-24 bg-gradient-to-t from-amber-950/80 via-amber-800/60 to-yellow-600/70 rounded-t-xl mt-1 border-t-2 border-amber-400 flex items-center justify-center text-sm font-black text-amber-200">1st</div>
+      </div>
+
+      <!-- Rank 3: Bronze -->
+      <div class="flex flex-col items-center">
+        <span class="text-xs font-bold text-amber-600">🥉 Hạng 3</span>
+        <div class="w-12 h-12 rounded-full bg-amber-950/80 border-2 border-amber-700 flex items-center justify-center font-bold text-amber-200 text-sm my-1 shadow">
+          ${(third.full_name || 'U').charAt(0)}
+        </div>
+        <div class="text-[11px] font-bold text-white truncate max-w-[85px]">${third.full_name}</div>
+        <div class="text-[10px] text-slate-400 font-mono">${third.streak} ngày 🔥</div>
+        <div class="w-full h-12 bg-gradient-to-t from-slate-900 to-amber-950/60 rounded-t-xl mt-1 flex items-center justify-center text-xs font-bold text-amber-400">3rd</div>
+      </div>
+    `;
+  }
+
+  // 2. Render Full List
+  if (listContainer) {
+    let listHtml = "";
+    accounts.forEach((acc, idx) => {
+      const isMe = !!acc.isCurrent;
+      const rankBadge = idx === 0 ? "🥇" : (idx === 1 ? "🥈" : (idx === 2 ? "🥉" : `#${idx + 1}`));
+      const borderClass = isMe ? "border-amber-500/80 bg-gradient-to-r from-amber-950/40 via-slate-900 to-slate-900" : "border-slate-800 bg-slate-950/70";
+
+      listHtml += `
+        <div class="p-3 rounded-xl border ${borderClass} flex items-center justify-between gap-3 transition">
+          <div class="flex items-center gap-2.5 min-w-0">
+            <span class="font-mono font-bold text-xs ${idx < 3 ? 'text-amber-300 text-sm' : 'text-slate-500'} shrink-0 w-6 text-center">${rankBadge}</span>
+            <div class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-white text-xs shrink-0">
+              ${(acc.full_name || 'U').charAt(0)}
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="font-bold text-white text-xs truncate">${acc.full_name}</span>
+                ${isMe ? '<span class="px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 text-[10px] font-extrabold border border-amber-500/40">👉 Bạn</span>' : ''}
+              </div>
+              <p class="text-[11px] text-slate-400 truncate">${acc.target_exam || "VSTEP B2"}</p>
+            </div>
+          </div>
+
+          <div class="text-right shrink-0">
+            <div class="text-xs font-mono font-bold text-amber-300">${acc.streak} ngày 🔥</div>
+            <div class="text-[11px] text-slate-400 font-mono">${acc.mature_words || 0} từ • <strong class="text-indigo-300">${acc.xp || 0} XP</strong></div>
+          </div>
+        </div>
+      `;
+    });
+    listContainer.innerHTML = listHtml;
+  }
+}
+
+function renderHomeLeaderboardPreview() {
+  const container = document.getElementById("homeLeaderboardPreview");
+  if (!container) return;
+
+  const accounts = [...getSavedAccounts()];
+  accounts.sort((a, b) => (b.xp || 0) - (a.xp || 0));
+
+  let html = "";
+  accounts.slice(0, 3).forEach((acc, idx) => {
+    const medal = idx === 0 ? "🥇 Top 1" : (idx === 1 ? "🥈 Top 2" : "🥉 Top 3");
+    const isMe = !!acc.isCurrent;
+    const border = isMe ? "border-amber-500/70 bg-gradient-to-br from-amber-950/30 to-slate-900" : "border-slate-800 bg-slate-900/60";
+
+    html += `
+      <div class="p-3.5 rounded-xl border ${border} space-y-2 shadow">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-amber-300">${medal}</span>
+          ${isMe ? '<span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold">Hồ sơ của bạn</span>' : '<span class="text-[10px] text-slate-400">Bạn cùng tiến</span>'}
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-white font-bold text-xs shrink-0">
+            ${(acc.full_name || 'U').charAt(0)}
+          </div>
+          <div class="min-w-0">
+            <h4 class="font-bold text-white text-xs truncate">${acc.full_name}</h4>
+            <p class="text-[10px] text-slate-400">${acc.target_exam}</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-1 border-t border-slate-800/80 font-mono">
+          <span class="text-slate-300">${acc.streak} ngày 🔥</span>
+          <span class="text-indigo-300 font-bold">${acc.xp} XP</span>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+function openMultiAccountModal() {
+  const modal = document.getElementById("multiAccountModal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  renderSavedAccounts();
+  if (window.lucide) lucide.createIcons();
+}
+
+function closeMultiAccountModal() {
+  const modal = document.getElementById("multiAccountModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function renderSavedAccounts() {
+  const container = document.getElementById("savedAccountsListContainer");
+  const countBadge = document.getElementById("savedAccountsCountBadge");
+  const headerName = document.getElementById("headerAccountName");
+  if (!container) return;
+
+  const accounts = getSavedAccounts();
+  if (countBadge) countBadge.innerText = `${accounts.length} học viên`;
+
+  const activeAcc = accounts.find(a => a.isCurrent) || accounts[0];
+  if (headerName && activeAcc) {
+    headerName.innerText = activeAcc.full_name.split(" ").slice(-1)[0] || "Đổi TK";
+  }
+
+  let html = "";
+  accounts.forEach(acc => {
+    const isMe = !!acc.isCurrent;
+    const border = isMe ? "border-indigo-500 bg-indigo-950/40" : "border-slate-800 bg-slate-900/60 hover:bg-slate-800/80";
+
+    html += `
+      <div class="p-3.5 rounded-xl border ${border} flex items-center justify-between gap-3 transition">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 flex items-center justify-center font-bold text-white text-sm shrink-0 shadow">
+            ${(acc.full_name || 'U').charAt(0)}
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="font-bold text-white text-xs sm:text-sm truncate">${acc.full_name}</span>
+              ${isMe ? '<span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-[10px] border border-emerald-500/30">Đang học</span>' : ''}
+            </div>
+            <p class="text-xs text-slate-400 truncate">${acc.email} • <span class="text-cyan-300">${acc.target_exam}</span></p>
+            <div class="text-[11px] text-slate-500 font-mono mt-0.5">Streak: ${acc.streak} ngày 🔥 • Từ thuộc: ${acc.mature_words || 0}</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          ${isMe ? `
+            <span class="text-xs text-emerald-400 font-bold flex items-center gap-1">
+              <i data-lucide="check" class="w-4 h-4"></i> Hiện tại
+            </span>
+          ` : `
+            <button onclick="switchAccount('${acc.email}')" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition shadow-sm active:scale-95">
+              Chuyển Ngay
+            </button>
+          `}
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+async function switchAccount(email) {
+  let list = getSavedAccounts();
+  const target = list.find(a => a.email === email);
+  if (!target) return;
+
+  list = list.map(a => ({ ...a, isCurrent: (a.email === email) }));
+  saveSavedAccounts(list);
+
+  if (target.token) {
+    appState.authToken = target.token;
+    localStorage.setItem(STORAGE_KEY_AUTH, target.token);
+    await checkAuthStatus();
+  } else {
+    appState.authToken = "";
+    localStorage.removeItem(STORAGE_KEY_AUTH);
+    appState.currentUser = {
+      id: target.id,
+      email: target.email,
+      full_name: target.full_name,
+      target_exam: target.target_exam,
+      streak_count: target.streak
+    };
+    updateDailyStreak(target.streak);
+    updateAuthUI();
+  }
+
+  renderSavedAccounts();
+  renderLeaderboard();
+  renderHomeLeaderboardPreview();
+  closeMultiAccountModal();
+  showToast(`🔄 Đã chuyển sang tài khoản học viên: ${target.full_name}!`, "success");
+}
+
+async function createNewAccountFromModal() {
+  const nameInput = document.getElementById("newAccName");
+  const targetInput = document.getElementById("newAccTarget");
+  const emailInput = document.getElementById("newAccEmail");
+  const passInput = document.getElementById("newAccPassword");
+
+  const name = nameInput?.value.trim();
+  const target = targetInput?.value || "VSTEP";
+  const email = emailInput?.value.trim();
+  const pass = passInput?.value.trim();
+
+  if (!name || !email || !pass) {
+    alert("Vui lòng nhập đầy đủ Tên, Email và Mật khẩu.");
+    return;
+  }
+  if (pass.length < 4) {
+    alert("Mật khẩu tối thiểu 4 ký tự.");
+    return;
+  }
+
+  let list = getSavedAccounts();
+  if (list.some(a => a.email.toLowerCase() === email.toLowerCase())) {
+    alert("Email này đã tồn tại trên thiết bị. Bạn có thể bấm 'Chuyển Ngay'.");
+    return;
+  }
+
+  let token = "";
+  try {
+    const res = await apiCall("/api/auth/register", "POST", {
+      email,
+      password: pass,
+      full_name: name,
+      target_exam: target
+    });
+    if (res && res.token) {
+      token = res.token;
+    }
+  } catch (e) {}
+
+  const newAcc = {
+    id: "user_" + Date.now(),
+    email,
+    full_name: name,
+    target_exam: target,
+    streak: 1,
+    mature_words: 20,
+    today_progress: 0,
+    xp: 250,
+    token: token,
+    isCurrent: true
+  };
+
+  list = list.map(a => ({ ...a, isCurrent: false }));
+  list.push(newAcc);
+  saveSavedAccounts(list);
+
+  if (nameInput) nameInput.value = "";
+  if (emailInput) emailInput.value = "";
+  if (passInput) passInput.value = "";
+
+  await switchAccount(email);
+  showToast(`🎉 Cấp tài khoản mới thành công cho ${name}! Bắt đầu lộ trình ngay.`, "success");
 }

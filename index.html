@@ -963,7 +963,7 @@
           <div>
             <h2 class="text-xl font-bold text-white flex items-center gap-2">
               <i data-lucide="newspaper" class="w-5 h-5 text-cyan-400"></i>
-              <span>Kho 100 Bài Đọc Luyện Thi (Đục Lỗ & Đọc Hiểu - 3 Tháng / 90 Ngày)</span>
+              <span>Kho 150 Bài Đọc Luyện Thi Chuẩn Đa Dạng (VSTEP, IELTS, TOEIC Part 7 & Cloze)</span>
             </h2>
             <p class="text-xs text-slate-400 mt-1">100 bài đọc chuẩn 7 câu (4 câu đục lỗ + 3 câu đọc hiểu), phân bố 3 bài/ngày suốt 90 ngày. Chạm vào bất kỳ từ nào để tra cứu song ngữ US và nạp vào ngày học!</p>
           </div>
@@ -976,7 +976,7 @@
             <i data-lucide="calendar" class="w-3.5 h-3.5 text-indigo-400"></i> Lộ trình 3 Tháng:
           </span>
           <button onclick="filterReadingByMonth('all')" id="monthBtn_all" class="month-filter-btn active px-3 py-1 rounded-xl font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap">
-            🌟 Tất cả 100 bài
+            🌟 Tất cả 150 bài đọc
           </button>
           <button onclick="filterReadingByMonth(1)" id="monthBtn_1" class="month-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
             🗓️ Tháng 1 (Ngày 1 - 30)
@@ -1011,7 +1011,16 @@
         </div>
 
           <button onclick="filterReadingByExam('all')" id="examBtn_all" class="exam-filter-btn active px-3.5 py-1.5 rounded-xl font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap">
-            🌟 Tất cả bài đọc (34)
+            🌟 Tất cả (150 bài)
+          </button>
+          <button onclick="filterReadingByExam('VSTEP')" id="examBtn_vstep" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-emerald-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-emerald-500/30">
+            🇻🇳 VSTEP B1-B2-C1
+          </button>
+          <button onclick="filterReadingByExam('IELTS')" id="examBtn_IELTS" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-cyan-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-cyan-500/30">
+            🎓 IELTS Academic
+          </button>
+          <button onclick="filterReadingByExam('TOEIC')" id="examBtn_toeic" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-amber-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-amber-500/30">
+            💼 TOEIC Part 7
           </button>
           <button onclick="filterReadingByExam('CLOZE')" id="examBtn_CLOZE" class="exam-filter-btn px-3 py-1.5 rounded-xl font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap">
             🎯 Đục Lỗ (Cloze Test) (3)
@@ -1408,7 +1417,31 @@
                 </h3>
                 <span id="cinemaMoviesCountBadge" class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold">8 trích đoạn</span>
               </div>
-              <div id="cinemaPlaylistSelector" class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
+              <!-- Genre Filters for 200 Movies -->
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs" id="cinemaGenreFilterBar">
+              <button onclick="filterCinemaByGenre('all')" id="btnCinemaGenre_all" class="cinema-genre-btn active px-2.5 py-1 rounded-lg font-bold bg-pink-600 text-white shadow whitespace-nowrap text-[11px]">Tất cả (200)</button>
+              <button onclick="filterCinemaByGenre('sitcom')" id="btnCinemaGenre_sitcom" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Sitcom (40)</button>
+              <button onclick="filterCinemaByGenre('drama')" id="btnCinemaGenre_drama" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Tâm lý (35)</button>
+              <button onclick="filterCinemaByGenre('scifi')" id="btnCinemaGenre_scifi" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Viễn tưởng (35)</button>
+              <button onclick="filterCinemaByGenre('business')" id="btnCinemaGenre_business" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Kinh doanh (30)</button>
+              <button onclick="filterCinemaByGenre('animation')" id="btnCinemaGenre_animation" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Hoạt hình (30)</button>
+              <button onclick="filterCinemaByGenre('crime')" id="btnCinemaGenre_crime" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Trinh thám (15)</button>
+              <button onclick="filterCinemaByGenre('romance')" id="btnCinemaGenre_romance" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Lãng mạn (15)</button>
+            </div>
+
+            <!-- Search box in Movie playlist -->
+            <div class="relative">
+              <input 
+                type="text" 
+                id="cinemaMovieSearchInput" 
+                oninput="searchCinemaPlaylist(this.value)" 
+                placeholder="Tìm phim, series (Friends, Forrest Gump...)" 
+                class="w-full pl-8 pr-3 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-pink-500"
+              />
+              <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2"></i>
+            </div>
+
+            <div id="cinemaPlaylistSelector" class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
                 <!-- Rendered by JS -->
               </div>
             </div>
@@ -1445,7 +1478,7 @@
                 <i data-lucide="layers" class="w-5 h-5 text-amber-400"></i>
                 <h3 class="font-bold text-white text-base">📚 Kho Từ Vựng Toàn Bộ Các Bộ Phim Song Ngữ</h3>
                 <span id="cinemaTotalVocabBadge" class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs border border-amber-500/30">
-                  40+ Từ Vựng
+                  600+ Từ Vựng (200 Phim)
                 </span>
               </div>
               <p class="text-xs text-slate-300 mt-1">Tổng hợp toàn bộ từ vựng, thành ngữ giao tiếp từ tất cả các trích đoạn phim kinh điển. Học từ vựng theo ngữ cảnh thực tế và lưu vào Flashcard Spaced Repetition!</p>
@@ -2322,19 +2355,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=43.0"></script>
-  <script src="./listening_data.js?v=43.0"></script>
-  <script src="./vietnam_today_data.js?v=43.0"></script>
-  <script src="./international_news_videos.js?v=43.0"></script>
-  <script src="./bilingual_cinema_data.js?v=43.0"></script>
-  <script src="./bilingual_news_data.js?v=43.0"></script>
-  <script src="./reading_lexicon.js?v=43.0"></script>
-  <script src="./app.js?v=43.0"></script>
+  <script src="./data.js?v=44.0"></script>
+  <script src="./listening_data.js?v=44.0"></script>
+  <script src="./vietnam_today_data.js?v=44.0"></script>
+  <script src="./international_news_videos.js?v=44.0"></script>
+  <script src="./bilingual_cinema_data.js?v=44.0"></script>
+  <script src="./bilingual_news_data.js?v=44.0"></script>
+  <script src="./reading_lexicon.js?v=44.0"></script>
+  <script src="./app.js?v=44.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=43.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=44.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

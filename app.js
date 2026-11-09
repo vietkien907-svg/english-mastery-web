@@ -2365,7 +2365,7 @@ function filterReadingByExam(category) {
     btn.classList.remove("active", "bg-indigo-600", "text-white", "shadow");
     btn.classList.add("bg-slate-800", "text-slate-300");
   });
-  const activeBtn = document.getElementById(`examBtn_${category}`);
+  const activeBtn = document.getElementById(`examBtn_${category}`) || document.getElementById(`examBtn_${category.toLowerCase()}`);
   if (activeBtn) {
     activeBtn.classList.remove("bg-slate-800", "text-slate-300");
     activeBtn.classList.add("active", "bg-indigo-600", "text-white", "shadow");
@@ -2428,9 +2428,15 @@ function applyReadingFilters() {
 
   // 3. Filter by Exam / Category
   if (examCat === "CLOZE") {
-    list = list.filter(r => (r.category || "").toUpperCase() === "CLOZE" || (r.title || "").includes("Đục Lỗ") || r.type === "cloze" || r.type === "cloze_and_comprehension");
+    list = list.filter(r => (r.category || "").toUpperCase() === "CLOZE" || (r.title || "").includes("Đục Lỗ") || r.type === "cloze");
+  } else if (examCat === "VSTEP") {
+    list = list.filter(r => (r.exam_type === "VSTEP") || (r.category || "").includes("VSTEP") || (r.title || "").includes("VSTEP"));
+  } else if (examCat === "IELTS") {
+    list = list.filter(r => (r.exam_type === "IELTS") || (r.category || "").includes("IELTS") || (r.title || "").includes("IELTS"));
+  } else if (examCat === "TOEIC") {
+    list = list.filter(r => (r.exam_type === "TOEIC") || (r.category || "").includes("TOEIC") || (r.title || "").includes("TOEIC"));
   } else if (examCat !== "all") {
-    list = list.filter(r => (r.category || "").toLowerCase().includes(examCat.toLowerCase()) || (r.title || "").toLowerCase().includes(examCat.toLowerCase()));
+    list = list.filter(r => (r.category || "").toLowerCase().includes(examCat.toLowerCase()) || (r.title || "").toLowerCase().includes(examCat.toLowerCase()) || (r.exam_type || "").toLowerCase().includes(examCat.toLowerCase()));
   }
 
   currentFilteredReadings = list;
@@ -5905,6 +5911,23 @@ async function translateWordClient(rawWord, contextSentence = "") {
     }
   }
 
+  // 2.5 Readings Target Words in APP_DATA
+  if (window.APP_DATA && window.APP_DATA.readings) {
+    for (const r of window.APP_DATA.readings) {
+      for (const w of r.target_words || []) {
+        if (w.word && w.word.toLowerCase() === lower) {
+          return {
+            word: w.word,
+            pos: w.pos || "Từ vựng",
+            ipa: w.ipa || `/${lower}/`,
+            meaning_vi: w.meaning_vi || w.meaning || "",
+            example: w.example || contextSentence || `Example with "${w.word}".`
+          };
+        }
+      }
+    }
+  }
+
   // 3. Vietnam Today, International News & Cinema Vocab
   if (typeof INTERNATIONAL_NEWS_VIDEOS !== "undefined") {
     for (const vid of INTERNATIONAL_NEWS_VIDEOS) {
@@ -6005,8 +6028,47 @@ async function translateWordClient(rawWord, contextSentence = "") {
 let currentCinemaIdx = 0;
 let currentCinemaSubMode = "bilingual"; // 'bilingual', 'en', 'none'
 let currentCinemaView = "player"; // 'player' or 'vocab'
+let currentCinemaGenreFilter = "all";
+let currentCinemaSearchQuery = "";
 let currentCinemaVocabMovieFilter = "all";
 let currentCinemaVocabSearchQuery = "";
+
+function filterCinemaByGenre(genreKey) {
+  currentCinemaGenreFilter = genreKey || "all";
+  const btns = document.querySelectorAll(".cinema-genre-btn");
+  btns.forEach(b => {
+    b.className = "cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px] transition";
+  });
+  const activeBtn = document.getElementById(`btnCinemaGenre_${genreKey}`);
+  if (activeBtn) {
+    activeBtn.className = "cinema-genre-btn active px-2.5 py-1 rounded-lg font-bold bg-pink-600 text-white shadow whitespace-nowrap text-[11px] transition";
+  }
+  renderCinemaPlaylist();
+}
+
+function searchCinemaPlaylist(query) {
+  currentCinemaSearchQuery = (query || "").trim().toLowerCase();
+  renderCinemaPlaylist();
+}
+
+function getFilteredCinemaMovies() {
+  if (typeof BILINGUAL_MOVIES === "undefined" || !Array.isArray(BILINGUAL_MOVIES)) return [];
+  return BILINGUAL_MOVIES.filter(m => {
+    // Filter by genre
+    if (currentCinemaGenreFilter !== "all" && m.genreKey !== currentCinemaGenreFilter) {
+      return false;
+    }
+    // Filter by search query
+    if (currentCinemaSearchQuery) {
+      const matchTitle = (m.title || "").toLowerCase().includes(currentCinemaSearchQuery);
+      const matchVnTitle = (m.vnTitle || "").toLowerCase().includes(currentCinemaSearchQuery);
+      const matchSeries = (m.series || "").toLowerCase().includes(currentCinemaSearchQuery);
+      const matchGenre = (m.genre || "").toLowerCase().includes(currentCinemaSearchQuery);
+      if (!matchTitle && !matchVnTitle && !matchSeries && !matchGenre) return false;
+    }
+    return true;
+  });
+}
 
 function switchCinemaView(view) {
   currentCinemaView = view;
@@ -6062,23 +6124,41 @@ function renderCinemaPlaylist() {
   const countBadge = document.getElementById("cinemaMoviesCountBadge");
   if (!container || typeof BILINGUAL_MOVIES === "undefined" || !BILINGUAL_MOVIES.length) return;
 
-  if (countBadge) countBadge.innerText = `${BILINGUAL_MOVIES.length} trích đoạn kinh điển`;
+  const filteredMovies = getFilteredCinemaMovies();
+  if (countBadge) countBadge.innerText = `${filteredMovies.length}/${BILINGUAL_MOVIES.length} phim`;
+
+  if (filteredMovies.length === 0) {
+    container.innerHTML = `
+      <div class="p-6 text-center text-slate-400 space-y-2">
+        <i data-lucide="film" class="w-8 h-8 mx-auto text-slate-500"></i>
+        <p class="text-xs font-semibold">Không tìm thấy phim phù hợp với từ khóa.</p>
+        <button onclick="filterCinemaByGenre('all'); document.getElementById('cinemaMovieSearchInput').value='';" class="px-3 py-1.5 rounded-xl bg-pink-600 text-white text-xs font-bold">
+          Xem tất cả 200 phim
+        </button>
+      </div>
+    `;
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
 
   let html = "";
-  BILINGUAL_MOVIES.forEach((m, idx) => {
-    const isActive = (idx === currentCinemaIdx);
+  filteredMovies.forEach(m => {
+    // Find absolute index in BILINGUAL_MOVIES
+    const absIdx = BILINGUAL_MOVIES.findIndex(x => x.id === m.id);
+    const isActive = (absIdx === currentCinemaIdx);
     const borderClass = isActive ? "border-pink-500 bg-pink-950/40 shadow-lg shadow-pink-950/40 ring-1 ring-pink-500/50" : "border-slate-800 bg-slate-900/60 hover:bg-slate-800/80";
     const genreText = (m.genre || "Phim Hay").split("•")[0].trim();
 
     html += `
-      <div onclick="selectCinemaMovie(${idx})" class="p-3 rounded-xl border ${borderClass} cursor-pointer transition flex items-center gap-3 group">
+      <div onclick="selectCinemaMovie(${absIdx})" class="p-3 rounded-xl border ${borderClass} cursor-pointer transition flex items-center gap-3 group">
         <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-pink-400 font-bold shrink-0 border border-slate-700 group-hover:scale-105 transition">
           <i data-lucide="${isActive ? 'play' : 'film'}" class="w-5 h-5 ${isActive ? 'text-pink-400 fill-pink-400/30' : 'text-slate-400'}"></i>
         </div>
         <div class="min-w-0 flex-1">
           <div class="flex items-center gap-1.5 flex-wrap">
             <span class="text-[10px] px-1.5 py-0.2 rounded bg-pink-500/20 text-pink-300 font-bold font-mono">${m.duration || "03:30"}</span>
-            <span class="text-[10px] text-slate-400 truncate">${genreText}</span>
+            <span class="text-[10px] text-pink-300/80 font-bold truncate">${m.level || 'B1-B2'}</span>
+            <span class="text-[10px] text-slate-400 truncate">• ${genreText}</span>
           </div>
           <h4 class="font-bold text-white text-xs truncate mt-0.5 group-hover:text-pink-300 transition">${m.title}</h4>
           <p class="text-[11px] text-slate-400 truncate">${m.vnTitle || ""}</p>

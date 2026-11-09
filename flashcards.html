@@ -1428,7 +1428,7 @@
               <!-- Genre Filters for 200 Movies -->
             <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs" id="cinemaGenreFilterBar">
               <button onclick="filterCinemaByGenre('all')" id="btnCinemaGenre_all" class="cinema-genre-btn active px-2.5 py-1 rounded-lg font-bold bg-pink-600 text-white shadow whitespace-nowrap text-[11px]">Tất cả (200)</button>
-              <button onclick="filterCinemaByGenre('crime')" id="btnCinemaGenre_crime" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-bold bg-slate-800 text-rose-300 hover:text-white whitespace-nowrap text-[11px] border border-rose-500/40">🚔 Đuổi bắt tội phạm VN (60)</button>
+              <button onclick="filterCinemaByGenre('crime')" id="btnCinemaGenre_crime" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-bold bg-slate-800 text-rose-300 hover:text-white whitespace-nowrap text-[11px] border border-rose-500/40">🕵️ Trinh thám & Tội phạm (60)</button>
               <button onclick="filterCinemaByGenre('sitcom')" id="btnCinemaGenre_sitcom" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Sitcom (35)</button>
               <button onclick="filterCinemaByGenre('drama')" id="btnCinemaGenre_drama" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Tâm lý (35)</button>
               <button onclick="filterCinemaByGenre('scifi')" id="btnCinemaGenre_scifi" class="cinema-genre-btn px-2.5 py-1 rounded-lg font-medium bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap text-[11px]">Viễn tưởng (35)</button>
@@ -2538,19 +2538,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=47.0"></script>
-  <script src="./listening_data.js?v=47.0"></script>
-  <script src="./vietnam_today_data.js?v=47.0"></script>
-  <script src="./international_news_videos.js?v=47.0"></script>
-  <script src="./bilingual_cinema_data.js?v=47.0"></script>
-  <script src="./bilingual_news_data.js?v=47.0"></script>
-  <script src="./reading_lexicon.js?v=47.0"></script>
-  <script src="./app.js?v=47.0"></script>
+  <script src="./data.js?v=48.0"></script>
+  <script src="./listening_data.js?v=48.0"></script>
+  <script src="./vietnam_today_data.js?v=48.0"></script>
+  <script src="./international_news_videos.js?v=48.0"></script>
+  <script src="./bilingual_cinema_data.js?v=48.0"></script>
+  <script src="./bilingual_news_data.js?v=48.0"></script>
+  <script src="./reading_lexicon.js?v=48.0"></script>
+  <script src="./app.js?v=48.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=47.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=48.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

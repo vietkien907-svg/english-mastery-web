@@ -16,49 +16,10 @@ function removeVietnameseDiacritics(str) {
     .trim();
 }
 
-function getVideoSourceSearchUrl(item, preferVietnamese = true) {
+function getVideoSourceSearchUrl(item, preferVietnamese = false) {
   if (!item) return "https://www.youtube.com";
 
-  // Case 1: Vietnam Police Pursuits & Action
-  if (item.genreKey === "crime" || (item.genre && item.genre.includes("Đuổi Bắt"))) {
-    const cleanVnTitle = (item.vnTitle || "")
-      .replace(/^(Cảnh Sát Giao Thông|CSCĐ|Cảnh Sát Cơ Động|Cảnh Sát Biển|Cục An Ninh Mạng A05|Cảnh Sát Môi Trường C05|Chiến Dịch Lóng Luông|Tổ Công Tác \d+|Công An [^:]+):\s*/i, "")
-      .replace(/[():]/g, " ")
-      .trim();
-
-    let topicPrefix = "công an rượt đuổi bắt tội phạm";
-    const series = (item.series || "").toLowerCase();
-    const vn = (item.vnTitle || "").toLowerCase();
-
-    if (series.includes("highway") || series.includes("traffic") || vn.includes("csgt") || vn.includes("cao tốc")) {
-      topicPrefix = "CSGT rượt đuổi cao tốc";
-    } else if (series.includes("narcotics") || vn.includes("ma túy") || vn.includes("lóng luông")) {
-      topicPrefix = "chuyên án ma túy Lóng Luông";
-    } else if (series.includes("swat") || series.includes("mobile") || vn.includes("cscđ") || vn.includes("con tin")) {
-      topicPrefix = "CSCĐ vây bắt tội phạm";
-    } else if (series.includes("coast guard") || series.includes("maritime") || vn.includes("cảnh sát biển") || vn.includes("buôn lậu")) {
-      topicPrefix = "cảnh sát biển bắt buôn lậu";
-    } else if (series.includes("cyber") || vn.includes("an ninh mạng") || vn.includes("a05") || vn.includes("công nghệ cao")) {
-      topicPrefix = "an ninh mạng A05 triệt phá";
-    } else if (series.includes("wildlife") || series.includes("environmental") || vn.includes("môi trường") || vn.includes("c05")) {
-      topicPrefix = "cảnh sát môi trường C05 bắt";
-    }
-
-    const query = `${topicPrefix} ${cleanVnTitle}`.replace(/\s+/g, " ").trim();
-    return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
-  }
-
-  // Case 2: Western TV Series & Sitcoms (Friends, Breaking Bad, The Office, Big Bang Theory, etc.)
-  if (item.series) {
-    let cleanTitle = (item.title || "").replace(/[()]/g, "").trim();
-    if (cleanTitle.toLowerCase().startsWith(item.series.toLowerCase())) {
-      cleanTitle = cleanTitle.substring(item.series.length).replace(/^[:\s-]+/, "").trim();
-    }
-    const query = `${item.series} ${cleanTitle} scene clip`.replace(/\s+/g, " ").trim();
-    return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
-  }
-
-  // Case 3: News Videos (BBC News, CNN 10, Bloomberg, Reuters, TED-Ed, Vietnam Today)
+  // Case 1: News Videos (BBC News, CNN 10, Bloomberg, Reuters, TED-Ed, Vietnam Today)
   if (item.source) {
     const cleanTitle = (item.title || "")
       .replace(/^(BBC News|CNN 10|Bloomberg|Reuters|TED-Ed|National Geographic|Vox|CNBC|Vietnam Today):\s*/i, "")
@@ -67,7 +28,22 @@ function getVideoSourceSearchUrl(item, preferVietnamese = true) {
     return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
   }
 
-  return `https://www.youtube.com/results?search_query=${encodeURIComponent((item.title || "").trim())}`;
+  // Case 2: Cinema Movies & Series (Sherlock, Breaking Bad, Friends, Forrest Gump, Inception, etc.)
+  const seriesName = item.series || "";
+  let title = item.title || "";
+
+  // Strip episode code duplicates like "Sherlock S01E01: " if title has it
+  let cleanTitle = title.replace(/[()]/g, "").trim();
+  if (seriesName && cleanTitle.toLowerCase().startsWith(seriesName.toLowerCase())) {
+    cleanTitle = cleanTitle.substring(seriesName.length).replace(/^[:\s-]+/, "").trim();
+  }
+
+  // Extract base franchise name (e.g. "Sherlock" from "Sherlock S01E01", "Breaking Bad" from "Breaking Bad S04E06")
+  let baseSeries = seriesName.replace(/\s*S\d+E\d+.*$/i, "").trim();
+  if (!baseSeries) baseSeries = seriesName;
+
+  const query = `${baseSeries} ${cleanTitle} scene clip`.replace(/\s+/g, " ").trim();
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
 }
 
 let appState = {
@@ -6391,28 +6367,15 @@ let currentCinemaVocabSearchQuery = "";
 function getCinemaSubTopic(m) {
   if (!m) return "all";
   if (m.genreKey === "crime") {
-    const s = (m.series || "").toLowerCase();
-    const t = (m.title || "").toLowerCase();
-    const vn = (m.vnTitle || "").toLowerCase();
-    if (s.includes("highway") || s.includes("traffic") || vn.includes("csgt") || vn.includes("cao tốc") || vn.includes("rượt đuổi") || vn.includes("tốc độ") || vn.includes("quốc lộ")) {
-      return "highway";
+    const s = ((m.series || "") + " " + (m.title || "")).toLowerCase();
+    if (s.includes("sherlock")) return "sherlock";
+    if (s.includes("breaking bad")) return "breakingbad";
+    if (s.includes("better call saul") || s.includes("saul")) return "bettercallsaul";
+    if (s.includes("mindhunter")) return "mindhunter";
+    if (s.includes("knives out") || s.includes("glass onion") || s.includes("se7en") || s.includes("silence of the lambs") || s.includes("shutter island") || s.includes("zodiac") || s.includes("gone girl") || s.includes("memento")) {
+      return "classics";
     }
-    if (s.includes("narcotics") || s.includes("c04") || s.includes("border") || s.includes("k9") || vn.includes("lóng luông") || vn.includes("ma túy") || vn.includes("tây bắc") || vn.includes("sơn la")) {
-      return "narcotics";
-    }
-    if (s.includes("swat") || s.includes("mobile") || s.includes("tactical") || s.includes("undercover") || s.includes("con tin") || vn.includes("cscđ") || vn.includes("cơ động") || vn.includes("giải cứu") || vn.includes("đột kích")) {
-      return "swat";
-    }
-    if (s.includes("coast guard") || s.includes("maritime") || s.includes("fleet") || s.includes("csb") || vn.includes("cảnh sát biển") || vn.includes("biển") || vn.includes("vịnh") || vn.includes("hàng hải")) {
-      return "coastguard";
-    }
-    if (s.includes("cyber") || s.includes("a05") || s.includes("digital") || s.includes("crypto") || s.includes("dark web") || s.includes("atm") || vn.includes("an ninh mạng") || vn.includes("công nghệ cao") || vn.includes("cờ bạc")) {
-      return "cyber";
-    }
-    if (s.includes("environmental") || s.includes("wildlife") || s.includes("c05") || s.includes("forest") || vn.includes("môi trường") || vn.includes("động vật hoang dã") || vn.includes("ngà voi") || vn.includes("tê tê")) {
-      return "wildlife";
-    }
-    return "highway";
+    return "series";
   }
   if (m.genreKey === "sitcom") {
     const s = (m.series || "").toLowerCase();
@@ -6449,18 +6412,32 @@ function getCinemaSubTopic(m) {
 
 function getCinemaTopicLabel(m) {
   if (!m) return "";
-  if (m.genreKey === "crime") {
-    const sub = getCinemaSubTopic(m);
-    const map = {
-      "highway": "🛣️ CSGT & Cao Tốc",
-      "narcotics": "⛰️ Ma Túy Lóng Luông",
-      "swat": "🛡️ CSCĐ Đột Kích",
-      "coastguard": "⚓ Cảnh Sát Biển",
-      "cyber": "💻 A05 An Ninh Mạng",
-      "wildlife": "🐅 C05 Môi Trường"
-    };
-    return map[sub] || "🚔 Đuổi Bắt VN";
-  }
+  const s = ((m.series || "") + " " + (m.title || "")).toLowerCase();
+  if (s.includes("sherlock")) return "🔍 Sherlock Holmes";
+  if (s.includes("breaking bad")) return "🧪 Breaking Bad";
+  if (s.includes("better call saul")) return "⚖️ Better Call Saul";
+  if (s.includes("mindhunter")) return "🧠 Mindhunter";
+  if (s.includes("knives out") || s.includes("glass onion")) return "🗡️ Knives Out";
+  if (s.includes("se7en")) return "📦 Se7en";
+  if (s.includes("silence of the lambs")) return "🦋 Silence of the Lambs";
+  if (s.includes("shutter island")) return "🏝️ Shutter Island";
+  if (s.includes("zodiac")) return "✍️ Zodiac";
+  if (s.includes("prison break")) return "🗝️ Prison Break";
+  if (s.includes("true detective")) return "🕶️ True Detective";
+  if (s.includes("peaky blinders")) return "🥃 Peaky Blinders";
+  if (s.includes("the godfather")) return "🎩 The Godfather";
+  if (s.includes("the departed")) return "🔫 The Departed";
+  if (s.includes("heat")) return "☕ Heat";
+  if (s.includes("friends")) return "☕ Friends";
+  if (s.includes("the big bang theory")) return "⚛️ Big Bang Theory";
+  if (s.includes("himym")) return "☂️ HIMYM";
+  if (s.includes("the office")) return "🏢 The Office";
+  if (s.includes("brooklyn")) return "👮 Brooklyn Nine-Nine";
+  if (s.includes("modern family")) return "🏡 Modern Family";
+  if (s.includes("forrest gump")) return "🍫 Forrest Gump";
+  if (s.includes("interstellar")) return "🚀 Interstellar";
+  if (s.includes("inception")) return "🌀 Inception";
+  if (s.includes("the matrix")) return "🕶️ The Matrix";
   return m.series || m.genre || "Phim";
 }
 
@@ -6471,13 +6448,13 @@ function renderCinemaSubTopicFilters() {
   let subTopics = [];
   if (currentCinemaGenreFilter === "crime") {
     subTopics = [
-      { id: "all", label: "🌟 Tất cả 6 cụm chuyên án (60)" },
-      { id: "highway", label: "🛣️ CSGT & Cao Tốc (12)" },
-      { id: "narcotics", label: "⛰️ Ma Túy Lóng Luông (12)" },
-      { id: "swat", label: "🛡️ CSCĐ Đột Kích & Con Tin (10)" },
-      { id: "coastguard", label: "⚓ Cảnh Sát Biển (10)" },
-      { id: "cyber", label: "💻 A05 An Ninh Mạng (8)" },
-      { id: "wildlife", label: "🐅 C05 Môi Trường (8)" }
+      { id: "all", label: "🌟 Tất cả (60)" },
+      { id: "sherlock", label: "🔍 Sherlock (10 tập)" },
+      { id: "breakingbad", label: "🧪 Breaking Bad (10 tập)" },
+      { id: "bettercallsaul", label: "⚖️ Better Call Saul (6 tập)" },
+      { id: "mindhunter", label: "🧠 Mindhunter (5 tập)" },
+      { id: "classics", label: "🎬 Siêu Phẩm Điện Ảnh (Se7en, Knives Out, Silence of the Lambs... 9 phim)" },
+      { id: "series", label: "🚔 Series Hình Sự (Prison Break, True Detective, Peaky Blinders... 20 tập)" }
     ];
   } else if (currentCinemaGenreFilter === "sitcom") {
     subTopics = [

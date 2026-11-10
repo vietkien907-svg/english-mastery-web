@@ -657,30 +657,52 @@
 
     <!-- ================= TAB: FLASHCARD ================= -->
     <section id="tab-flashcard" class="hidden space-y-4">
-      <!-- LOCKED DAILY MISSION BANNER (Hiện khi học theo Deadline hôm nay - CỐ ĐỊNH, KHÔNG CHO CHỌN) -->
-      <div id="dailyMissionLockedBanner" class="glass-card rounded-2xl p-4 border border-indigo-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-gradient-to-r from-indigo-950/70 via-slate-900/90 to-slate-900 shadow-lg">
+      <!-- DYNAMIC DAILY MISSION BANNER (Cập nhật linh hoạt theo Ngày Đang Học & Cơ Chế Lặp Lại) -->
+      <div id="dailyMissionLockedBanner" class="glass-card rounded-2xl p-4 border border-indigo-500/40 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-gradient-to-r from-indigo-950/80 via-slate-900/90 to-slate-900 shadow-xl">
         <div class="flex items-center gap-3">
-          <div class="p-2.5 rounded-xl bg-indigo-500/20 text-indigo-400 shrink-0">
-            <i data-lucide="lock" class="w-5 h-5"></i>
+          <div class="p-2.5 rounded-xl bg-indigo-500/20 text-indigo-400 shrink-0 border border-indigo-500/30">
+            <i data-lucide="calendar-check" class="w-5 h-5 text-indigo-400"></i>
           </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span id="currentUnitTitle" class="font-bold text-base md:text-lg text-white">Unit 1: Me & Mine</span>
-              <span id="currentDayBadge" class="text-xs px-2.5 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 font-bold">Ngày 1</span>
-              <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold uppercase">Deadline hôm nay</span>
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="currentUnitTitle" class="font-bold text-base md:text-lg text-white">Unit 1: Me & Mine (Sở hữu & Đồ vật)</span>
+              <span id="currentDayBadge" class="text-xs px-2.5 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/30">Ngày 1</span>
+              <span id="dailyMissionDeadlineBadge" class="text-[10px] px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase border border-emerald-500/30 flex items-center gap-1">
+                <i data-lucide="target" class="w-3 h-3 text-emerald-400"></i>
+                <span id="dailyMissionDeadlineBadgeText">DEADLINE HÔM NAY</span>
+              </span>
             </div>
-            <p id="unitProgressInfo" class="text-xs text-slate-300 mt-0.5 font-medium">Tiến độ nhiệm vụ: 0 / 20 từ đã học</p>
+            <div id="unitProgressInfo" class="text-xs text-slate-300 font-medium flex items-center gap-2 flex-wrap">
+              <span>Tiến độ Ngày 1: <strong class="text-amber-300 font-bold">0 / 20 từ</strong> đã học</span>
+            </div>
           </div>
         </div>
 
-        <div class="flex items-center gap-2">
-          <button onclick="openAddWordModal()" class="px-3.5 py-2 rounded-xl bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white text-xs font-bold border border-emerald-500/40 transition flex items-center gap-1.5 shadow active:scale-95" title="Tra cứu từ điển và thêm từ mới vào ngày này">
+        <!-- Controller: Quick Day Switcher & Actions -->
+        <div class="flex items-center gap-2 flex-wrap self-end md:self-center">
+          <!-- Quick Day Navigation for Flashcards -->
+          <div class="flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-700/80 shadow-inner">
+            <button type="button" onclick="changeMissionDay(-1)" class="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition active:scale-95" title="Lùi lại 1 ngày học">
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            </button>
+            <div class="flex items-center gap-1 px-1">
+              <span class="text-[11px] text-slate-400 font-medium hidden sm:inline">Ngày:</span>
+              <select id="flashcardMissionDaySelect" onchange="jumpToMissionDay(this.value)" class="bg-slate-800 border border-indigo-500/40 text-xs font-bold text-amber-300 rounded-lg px-2 py-1 outline-none focus:ring-1 focus:ring-indigo-400 cursor-pointer">
+                <!-- Populated dynamically with all 90 days -->
+              </select>
+            </div>
+            <button type="button" onclick="changeMissionDay(1)" class="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition active:scale-95" title="Chuyển sang ngày học tiếp theo">
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <button onclick="openAddWordModal()" class="px-3 py-2 rounded-xl bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white text-xs font-bold border border-emerald-500/40 transition flex items-center gap-1.5 shadow active:scale-95" title="Tra cứu từ điển và thêm từ mới vào ngày này">
             <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
-            <span>+ Thêm & Tra Từ</span>
+            <span>+ Tra & Thêm Từ</span>
           </button>
-          <button onclick="switchTab('review')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-indigo-300 text-xs font-bold border border-slate-700 transition flex items-center gap-1.5 shadow" title="Sang phòng Ôn tập để tự do chọn Unit">
+          <button onclick="switchTab('review')" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-indigo-300 text-xs font-bold border border-slate-700 transition flex items-center gap-1.5 shadow" title="Sang phòng Ôn tập để tự do chọn Unit">
             <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
-            <span>Sang Ôn Tập (Tự chọn Unit)</span>
+            <span class="hidden sm:inline">Ôn Tập Tự Do</span>
           </button>
         </div>
       </div>
@@ -2488,19 +2510,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=51.0"></script>
-  <script src="./listening_data.js?v=51.0"></script>
-  <script src="./vietnam_today_data.js?v=51.0"></script>
-  <script src="./educational_channels_data.js?v=51.0"></script>
-  <script src="./international_news_videos.js?v=51.0"></script>
-  <script src="./bilingual_news_data.js?v=51.0"></script>
-  <script src="./reading_lexicon.js?v=51.0"></script>
-  <script src="./app.js?v=51.0"></script>
+  <script src="./data.js?v=52.0"></script>
+  <script src="./listening_data.js?v=52.0"></script>
+  <script src="./vietnam_today_data.js?v=52.0"></script>
+  <script src="./educational_channels_data.js?v=52.0"></script>
+  <script src="./international_news_videos.js?v=52.0"></script>
+  <script src="./bilingual_news_data.js?v=52.0"></script>
+  <script src="./reading_lexicon.js?v=52.0"></script>
+  <script src="./app.js?v=52.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=51.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=52.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

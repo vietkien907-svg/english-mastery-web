@@ -453,17 +453,9 @@ function switchTab(tabId) {
   } else if (tabId === "review") {
     generateDailyQuiz();
   } else if (tabId === "flashcard") {
-    if (typeof updateFlashcardSessionToolbar === "function") updateFlashcardSessionToolbar();
     const curDay = missionRegistry.currentDay || 1;
-    const info = getDailyAssignedVocab(curDay);
-    const titleEl = document.getElementById("currentUnitTitle");
-    if (titleEl && (!appState.studyMode || appState.studyMode === "daily_locked")) {
-      titleEl.innerText = info.unitTitle;
-    }
-    const dayBadge = document.getElementById("currentDayBadge");
-    if (dayBadge && (!appState.studyMode || appState.studyMode === "daily_locked")) {
-      dayBadge.innerText = `Ngày ${curDay}`;
-    }
+    if (typeof updateFlashcardBanner === "function") updateFlashcardBanner(curDay);
+    if (typeof updateFlashcardSessionToolbar === "function") updateFlashcardSessionToolbar();
     renderFlashcard();
   }
 
@@ -996,6 +988,67 @@ function initDailyMissionEngine() {
   appState.currentDayIndex = info.dayIndex;
 }
 
+
+function updateFlashcardBanner(dayNum) {
+  const curDay = dayNum || missionRegistry.currentDay || 1;
+  const info = getDailyAssignedVocab(curDay);
+  const curStatus = getDayMissionStatus(curDay);
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = info.unitTitle;
+
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = `Ngày ${curDay}`;
+
+  // Sync day selects on both Today tab and Flashcard banner
+  const sel1 = document.getElementById("missionDaySelect");
+  const sel2 = document.getElementById("flashcardMissionDaySelect");
+  const total = getTotalMissionDays();
+
+  [sel1, sel2].forEach(sel => {
+    if (!sel) return;
+    if (sel.options.length !== total) {
+      let optHtml = "";
+      for (let i = 1; i <= total; i++) {
+        const st = getDayMissionStatus(i);
+        const icon = st.vocabDone ? "✓ " : (st.vocabCount > 0 ? "⏳ " : "");
+        optHtml += `<option value="${i}">${icon}Ngày ${i} ${st.vocabDone ? '(Đã xong 20/20)' : (st.vocabCount > 0 ? '(' + st.vocabCount + '/20 từ)' : '')}</option>`;
+      }
+      sel.innerHTML = optHtml;
+    }
+    sel.value = String(curDay);
+  });
+
+  // Dynamic Deadline Badge
+  const dlBadge = document.getElementById("dailyMissionDeadlineBadge");
+  const dlText = document.getElementById("dailyMissionDeadlineBadgeText");
+
+  // Determine highest completed day
+  let maxCompletedDay = 0;
+  for (let i = 1; i <= total; i++) {
+    if (getDayMissionStatus(i).vocabDone) maxCompletedDay = i;
+  }
+  const expectedToday = Math.min(total, maxCompletedDay + 1);
+
+  if (dlBadge && dlText) {
+    if (curStatus.vocabDone) {
+      dlBadge.className = "text-[10px] px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase border border-emerald-500/40 flex items-center gap-1";
+      dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="check-circle" class="w-3 h-3 text-emerald-400"></i> ĐÃ HOÀN THÀNH 20/20 (ÔN TẬP LẶP LẠI)</span>`;
+    } else if (curDay > expectedToday) {
+      dlBadge.className = "text-[10px] px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold uppercase border border-cyan-500/40 flex items-center gap-1";
+      dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3 text-amber-300"></i> ĐANG HỌC VƯỢT NGÀY ${curDay}</span>`;
+    } else if (curDay < expectedToday) {
+      dlBadge.className = "text-[10px] px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold uppercase border border-indigo-500/40 flex items-center gap-1";
+      dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="refresh-cw" class="w-3 h-3 text-indigo-400"></i> ÔN TẬP LẶP LẠI (NGÀY ${curDay})</span>`;
+    } else {
+      dlBadge.className = "text-[10px] px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase border border-emerald-500/40 flex items-center gap-1 animate-pulse";
+      dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="target" class="w-3 h-3 text-emerald-400"></i> DEADLINE HÔM NAY</span>`;
+    }
+  }
+
+  if (window.lucide) lucide.createIcons();
+}
+
 function jumpToMissionDay(dayNum) {
   const total = getTotalMissionDays();
   const d = Math.max(1, Math.min(total, parseInt(dayNum) || 1));
@@ -1018,9 +1071,13 @@ function jumpToMissionDay(dayNum) {
   const dayBadge = document.getElementById("currentDayBadge");
   if (dayBadge) dayBadge.innerText = `Ngày ${d}`;
 
+  updateFlashcardBanner(d);
   renderFlashcard();
   updateDailyMissionUI();
   updateDailyGoalChecklist();
+  if (typeof updateFlashcardSessionToolbar === "function") {
+    updateFlashcardSessionToolbar();
+  }
   if (typeof tickDeadlineCountdown === "function") {
     tickDeadlineCountdown();
   }
@@ -1056,78 +1113,62 @@ function startTodayVocabMission() {
   if (!appState.dayVocabStudied[curDay]) appState.dayVocabStudied[curDay] = new Set();
   appState.dayVocabStudied[curDay].add(0);
 
-  const totalWords = Math.min(20, (info.words || []).length);
-  const curStatus = getDayMissionStatus(curDay);
-
   const lockedBanner = document.getElementById("dailyMissionLockedBanner");
-  if (lockedBanner) {
-    lockedBanner.classList.remove("hidden");
-    lockedBanner.innerHTML = `
-      <div class="flex items-center justify-between gap-3 flex-wrap">
-        <div class="flex items-center gap-2">
-          <i data-lucide="layers" class="w-4 h-4 text-indigo-400"></i>
-          <span class="font-bold text-indigo-300">Nhiệm Vụ 20 Từ Vựng Ngày ${curDay}</span>
-          <span id="bannerVocabCount" class="text-amber-300 text-xs font-semibold">(${curStatus.vocabDone ? '✓ Đã hoàn thành 20/20' : `Đã học: 1/${totalWords}`})</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <button onclick="advanceToNextDay()" class="px-2.5 py-1 rounded-lg bg-indigo-600/40 hover:bg-indigo-600 text-indigo-200 hover:text-white text-xs font-semibold border border-indigo-500/40 transition flex items-center gap-1">
-            Học vượt ngày kế <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
-          </button>
-          <button onclick="switchTab('today')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition">
-            Về Dashboard
-          </button>
-        </div>
-      </div>
-    `;
-  }
+  if (lockedBanner) lockedBanner.classList.remove("hidden");
   const freeArea = document.getElementById("freeReviewSelectorArea");
   if (freeArea) freeArea.classList.add("hidden");
 
-  const titleEl = document.getElementById("currentUnitTitle");
-  if (titleEl) titleEl.innerText = `${info.unitTitle}`;
-  const dayBadge = document.getElementById("currentDayBadge");
-  if (dayBadge) dayBadge.innerText = `Ngày ${curDay}`;
+  updateFlashcardBanner(curDay);
 
   switchTab("flashcard");
   renderFlashcard();
   updateDailyMissionUI();
+  updateDailyGoalChecklist();
 }
 
 function onVocabCardViewed() {
-  if (appState.studyMode === "daily_locked" || !appState.studyMode || appState.studyMode === "roadmap") {
-    const curDay = missionRegistry.currentDay;
-    const words = getCurrentDayWords();
-    const totalWords = Math.min(20, words.length);
-    if (!appState.dayVocabStudied) appState.dayVocabStudied = {};
-    if (!appState.dayVocabStudied[curDay]) {
-      const saved = missionRegistry.history[String(curDay)]?.studiedIndices || [];
-      appState.dayVocabStudied[curDay] = new Set(saved);
-    }
-    appState.dayVocabStudied[curDay].add(appState.currentCardIndex);
+  const curDay = missionRegistry.currentDay || 1;
+  const words = getCurrentDayWords();
+  if (!words || words.length === 0) return;
 
-    const studiedCount = appState.dayVocabStudied[curDay].size;
-    const bannerCount = document.getElementById("bannerVocabCount");
-    const curStatus = getDayMissionStatus(curDay);
-    const indicesArr = Array.from(appState.dayVocabStudied[curDay]);
+  const curWord = words[appState.currentCardIndex];
+  if (!curWord) return;
 
-    if (studiedCount >= totalWords || curStatus.vocabDone) {
-      setDayMissionStatus(curDay, {
-        vocabDone: true,
-        vocabCount: Math.max(studiedCount, totalWords),
-        studiedIndices: indicesArr
-      });
-      if (bannerCount) bannerCount.innerText = `(✓ Đã hoàn thành ${totalWords}/${totalWords})`;
-      if (!curStatus.vocabDone) {
-        showToast(`🎉 Xuất sắc! Bạn đã học đủ ${totalWords} từ vựng của Ngày ${curDay}! Đã tự động đánh dấu hoàn thành!`, "success");
-      }
-    } else {
-      setDayMissionStatus(curDay, {
-        vocabCount: studiedCount,
-        studiedIndices: indicesArr
-      });
-      if (bannerCount) bannerCount.innerText = `(Đã học: ${studiedCount}/${totalWords})`;
-    }
+  if (!appState.dayVocabStudied) appState.dayVocabStudied = {};
+  if (!appState.dayVocabStudied[curDay]) {
+    const saved = missionRegistry.history[String(curDay)]?.studiedIndices || [];
+    appState.dayVocabStudied[curDay] = new Set(saved);
   }
+
+  // Nếu là từ của ngày đang học
+  const isCoreWord = (curWord.cardOrigin === "today" || !curWord.cardOrigin || curWord.sourceDay === curDay);
+  if (isCoreWord) {
+    appState.dayVocabStudied[curDay].add((curWord.word || "").toLowerCase());
+  }
+
+  const studiedCount = appState.dayVocabStudied[curDay].size;
+  const curStatus = getDayMissionStatus(curDay);
+  const totalCore = 20;
+
+  if (studiedCount >= totalCore || curStatus.vocabDone) {
+    setDayMissionStatus(curDay, {
+      vocabDone: true,
+      vocabCount: Math.max(studiedCount, totalCore),
+      studiedIndices: Array.from(appState.dayVocabStudied[curDay])
+    });
+    if (!curStatus.vocabDone) {
+      showToast(`🎉 Xuất sắc! Bạn đã học đủ 20 từ vựng mục tiêu của Ngày ${curDay}! Đã ghi nhận hoàn thành Deadline!`, "success");
+    }
+  } else {
+    setDayMissionStatus(curDay, {
+      vocabCount: studiedCount,
+      studiedIndices: Array.from(appState.dayVocabStudied[curDay])
+    });
+  }
+
+  updateDailyMissionUI();
+  updateDailyGoalChecklist();
+  if (typeof updateFlashcardBanner === "function") updateFlashcardBanner(curDay);
 }
 
 function startGradualReview() {
@@ -2264,12 +2305,21 @@ function renderFlashcard() {
     } else if (curWord.cardOrigin === "custom") {
       typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-sm flex items-center gap-1";
       typeTag.innerHTML = `<span>📘</span><span>${curWord.cardOriginText || 'Sổ tay từ vựng'}</span>`;
+    } else if (curWord.cardOrigin === "consecutive_yesterday") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-500/25 text-indigo-300 border-2 border-indigo-500/60 shadow-lg shadow-indigo-950/40 flex items-center gap-1.5 animate-pulse";
+      typeTag.innerHTML = `<span>🔁</span><span>${curWord.cardOriginText || 'Lặp lại liên tiếp hôm qua'}</span>`;
+    } else if (curWord.cardOrigin === "spaced_interval") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-cyan-500/25 text-cyan-300 border-2 border-cyan-500/60 shadow-lg shadow-cyan-950/40 flex items-center gap-1.5";
+      typeTag.innerHTML = `<span>⏳</span><span>${curWord.cardOriginText || 'Lặp lại ngắt quãng SRS'}</span>`;
     } else if (curWord.cardOrigin === "past_day") {
       typeTag.className = "text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/25 text-amber-300 border-2 border-amber-500/60 shadow-lg shadow-amber-950/40 flex items-center gap-1.5 animate-pulse";
       typeTag.innerHTML = `<span>🔄</span><span>${curWord.cardOriginText || 'Lặp lại từ ngày trước'}</span>`;
     } else if (curWord.cardOrigin === "srs") {
       typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm flex items-center gap-1";
       typeTag.innerHTML = `<span>🧠</span><span>${curWord.cardOriginText || 'Cần củng cố'}</span>`;
+    } else if (curWord.cardOrigin === "today") {
+      typeTag.className = "text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-500/25 text-indigo-300 border-2 border-indigo-500/60 shadow-sm flex items-center gap-1.5";
+      typeTag.innerHTML = `<span>📘</span><span>Từ mới Ngày ${missionRegistry.currentDay || 1} (Mục tiêu Deadline)</span>`;
     } else {
       typeTag.className = "text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30";
       typeTag.innerText = curWord.type || "Vocabulary";
@@ -2357,16 +2407,28 @@ function renderFlashcard() {
 
   const progressInfo = document.getElementById("unitProgressInfo");
   if (progressInfo) {
-    if (appState.studyMode === "daily_locked") {
-      const curStatus = getDayMissionStatus(missionRegistry.currentDay);
-      if (curStatus.vocabDone) {
-        progressInfo.innerHTML = `<span class="text-emerald-400 font-bold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Đã hoàn thành 20/20 từ Ngày ${missionRegistry.currentDay}!</span>`;
-      } else {
-        progressInfo.innerText = `Tiến độ nhiệm vụ: ${curStatus.vocabCount} / 20 từ đã học`;
-      }
+    const curDay = missionRegistry.currentDay || 1;
+    const curStatus = getDayMissionStatus(curDay);
+    const cfg = appState.interleavedConfig || (typeof getInterleavedConfig === "function" ? getInterleavedConfig() : { enabled: false });
+    const isInterleaved = !!(cfg.enabled && words.length > 20);
+    const todayWordsCount = words.filter(w => w.cardOrigin === "today" || !w.cardOrigin).length;
+    const reviewWordsCount = words.length - todayWordsCount;
+
+    if (curStatus.vocabDone) {
+      progressInfo.innerHTML = `
+        <span class="text-emerald-400 font-bold flex items-center gap-1">
+          <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>✓ Đã hoàn thành 20/20 từ Ngày ${curDay}!</span>
+        </span>
+        ${isInterleaved ? `<span class="text-amber-300 font-semibold">• Đang ôn lặp lại ngắt quãng (Thẻ ${appState.currentCardIndex + 1} / ${words.length})</span>` : `<span class="text-slate-400">• Thẻ ${appState.currentCardIndex + 1} / ${words.length}</span>`}
+      `;
     } else {
-      progressInfo.innerText = `Chế độ ôn tập: Thẻ ${appState.currentCardIndex + 1} / ${words.length}`;
+      progressInfo.innerHTML = `
+        <span class="text-slate-200 font-medium">Tiến độ Ngày ${curDay}: <strong class="text-amber-300 font-bold">${curStatus.vocabCount || 0} / 20 từ</strong> mục tiêu</span>
+        ${isInterleaved ? `<span class="text-cyan-300 font-semibold">• Đang chèn lặp lại (+${reviewWordsCount} từ ôn tập) • Thẻ ${appState.currentCardIndex + 1}/${words.length}</span>` : `<span class="text-slate-400 font-normal">• Thẻ ${appState.currentCardIndex + 1}/${words.length}</span>`}
+      `;
     }
+    if (window.lucide) lucide.createIcons();
   }
 }
 

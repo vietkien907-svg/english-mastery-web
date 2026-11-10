@@ -440,13 +440,20 @@ function switchTab(tabId) {
     }
   });
 
+  if (tabId !== "listening") {
+    if (typeof stopAllListeningAudio === "function") stopAllListeningAudio();
+  }
+
   if (tabId === "profile") {
     loadProfileAnalytics();
+  } else if (tabId === "listening") {
+    if (typeof initListeningModule === "function") initListeningModule();
   } else if (tabId === "video") {
     if (typeof renderVietnamTodaySelector === "function") renderVietnamTodaySelector();
   } else if (tabId === "review") {
     generateDailyQuiz();
   } else if (tabId === "flashcard") {
+    if (typeof updateFlashcardSessionToolbar === "function") updateFlashcardSessionToolbar();
     const curDay = missionRegistry.currentDay || 1;
     const info = getDailyAssignedVocab(curDay);
     const titleEl = document.getElementById("currentUnitTitle");
@@ -1810,6 +1817,248 @@ function updateDayProgressBadge() {
   }
 }
 
+
+// ============================================================================
+// DYNAMIC 3-SESSION FLASHCARD ROUTINE & SPACED REPETITION (SRS) ENGINE
+// ============================================================================
+const STORAGE_KEY_SRS_MAP_V3 = "EMH_SRS_MAP_V3";
+const STORAGE_KEY_SESSION_STREAKS_V3 = "EMH_SESSION_STREAKS_V3";
+
+appState.flashcardSession = "auto"; // "auto", "morning", "noon", "evening", "all"
+appState.inSessionRetries = []; // Queue for immediate re-learning within current session
+
+function getCurrentDaySession() {
+  const now = new Date();
+  const hour = now.getHours();
+  if (hour < 12) return "morning";
+  if (hour < 18) return "noon";
+  return "evening";
+}
+
+function getActiveFlashcardSession() {
+  if (appState.flashcardSession && appState.flashcardSession !== "auto") {
+    return appState.flashcardSession;
+  }
+  return getCurrentDaySession();
+}
+
+function getWordSRSState(wordStr) {
+  if (!wordStr) return { level: 1, reps: 0, nextReviewSession: "morning", history: [] };
+  try {
+    const map = JSON.parse(localStorage.getItem(STORAGE_KEY_SRS_MAP_V3) || "{}");
+    return map[wordStr.toLowerCase()] || { level: 1, reps: 0, nextReviewSession: "morning", history: [] };
+  } catch (e) {
+    return { level: 1, reps: 0, nextReviewSession: "morning", history: [] };
+  }
+}
+
+function saveWordSRSState(wordStr, srsData) {
+  if (!wordStr) return;
+  try {
+    const map = JSON.parse(localStorage.getItem(STORAGE_KEY_SRS_MAP_V3) || "{}");
+    const prev = map[wordStr.toLowerCase()] || {};
+    map[wordStr.toLowerCase()] = {
+      ...prev,
+      ...srsData,
+      updatedAt: Date.now()
+    };
+    localStorage.setItem(STORAGE_KEY_SRS_MAP_V3, JSON.stringify(map));
+  } catch (e) {
+    console.warn("Could not save word SRS state", e);
+  }
+}
+
+function getSessionStreaksData() {
+  const todayStr = new Date().toISOString().split("T")[0];
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_SESSION_STREAKS_V3);
+    if (raw) {
+      const data = JSON.parse(raw);
+      if (data.date === todayStr) {
+        return data;
+      }
+      return {
+        date: todayStr,
+        morningDone: false,
+        noonDone: false,
+        eveningDone: false,
+        tripleStreakDays: data.tripleStreakDays || 0,
+        dayStreakSafe: false
+      };
+    }
+  } catch (e) {}
+  return {
+    date: todayStr,
+    morningDone: false,
+    noonDone: false,
+    eveningDone: false,
+    tripleStreakDays: 0,
+    dayStreakSafe: false
+  };
+}
+
+function recordSessionDone(sessionKey) {
+  const data = getSessionStreaksData();
+  let changed = false;
+  if (sessionKey === "morning" && !data.morningDone) {
+    data.morningDone = true;
+    data.dayStreakSafe = true;
+    changed = true;
+  } else if (sessionKey === "noon" && !data.noonDone) {
+    data.noonDone = true;
+    data.dayStreakSafe = true;
+    changed = true;
+  } else if (sessionKey === "evening" && !data.eveningDone) {
+    data.eveningDone = true;
+    data.dayStreakSafe = true;
+    changed = true;
+  }
+
+  if (data.morningDone && data.noonDone && data.eveningDone && !data.tripleAwardedToday) {
+    data.tripleAwardedToday = true;
+    data.tripleStreakDays = (data.tripleStreakDays || 0) + 1;
+    changed = true;
+    if (typeof showToast === "function") {
+      showToast(`👑 CHÚC MỪNG: Bạn đã hoàn thành trọn vẹn cả 3 phiên Sáng - Trưa - Tối! Chuỗi 3 phiên đạt ${data.tripleStreakDays} ngày!`, "success");
+    }
+  }
+
+  if (changed) {
+    localStorage.setItem(STORAGE_KEY_SESSION_STREAKS_V3, JSON.stringify(data));
+    updateFlashcardSessionToolbar();
+    updateSessionRoutineUI();
+  }
+}
+
+function setFlashcardSessionFilter(sessionKey) {
+  appState.flashcardSession = sessionKey;
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+  appState.inSessionRetries = [];
+
+  updateFlashcardSessionToolbar();
+  renderFlashcard();
+
+  const labels = {
+    morning: "🌅 Phiên Sáng (Từ Mới • Hạn 12:00)",
+    noon: "☀️ Phiên Trưa (Ôn Ngắt Quãng • Hạn 18:00)",
+    evening: "🌙 Phiên Tối (Củng Cố Toàn Diện • Hạn 22:00)",
+    all: "🌟 Toàn Bộ Thẻ Học Ngày"
+  };
+  showToast(`Đã chuyển sang ${labels[sessionKey] || sessionKey}`, "info");
+}
+
+function updateFlashcardSessionToolbar() {
+  const active = getActiveFlashcardSession();
+  const streaks = getSessionStreaksData();
+
+  const pills = {
+    morning: document.getElementById("btnSessionMorning"),
+    noon: document.getElementById("btnSessionNoon"),
+    evening: document.getElementById("btnSessionEvening"),
+    all: document.getElementById("btnSessionAll")
+  };
+
+  Object.entries(pills).forEach(([k, btn]) => {
+    if (!btn) return;
+    const isCur = k === active || (appState.flashcardSession === "auto" && k === getCurrentDaySession());
+    if (isCur) {
+      btn.className = "session-filter-pill py-2.5 px-2 rounded-xl text-xs font-bold border transition flex flex-col items-center justify-center gap-1 bg-gradient-to-r from-indigo-600 to-indigo-700 border-indigo-400 text-white shadow-lg shadow-indigo-950/50 ring-2 ring-indigo-400/50 scale-[1.02]";
+    } else {
+      btn.className = "session-filter-pill py-2.5 px-2 rounded-xl text-xs font-bold border transition flex flex-col items-center justify-center gap-1 bg-slate-800/80 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 active:scale-95";
+    }
+  });
+
+  const ind = document.getElementById("flashcardCurrentSessionIndicator");
+  if (ind) {
+    const textMap = {
+      morning: "🌅 Phiên Sáng",
+      noon: "☀️ Phiên Trưa",
+      evening: "🌙 Phiên Tối",
+      all: "🌟 Toàn Bộ Thẻ"
+    };
+    ind.innerText = textMap[active] || "Phiên Học";
+  }
+
+  const countEl = document.getElementById("flashcardSessionWordCount");
+  const words = getCurrentDayWords();
+  if (countEl) {
+    countEl.innerText = `${words.length} từ`;
+  }
+
+  const streakBadge = document.getElementById("flashcardSessionStreakBadge");
+  if (streakBadge) {
+    const doneCount = (streaks.morningDone ? 1 : 0) + (streaks.noonDone ? 1 : 0) + (streaks.eveningDone ? 1 : 0);
+    if (doneCount === 3) {
+      streakBadge.innerHTML = `👑 Hoàn hảo 3/3 (${streaks.tripleStreakDays || 1}d)`;
+      streakBadge.className = "text-xs font-bold text-amber-300 bg-amber-500/20 px-2.5 py-1 rounded-lg border border-amber-500/40 flex items-center gap-1 animate-pulse";
+    } else {
+      streakBadge.innerHTML = `⭐ ${doneCount}/3 phiên hôm nay`;
+      streakBadge.className = "text-xs font-bold text-emerald-300 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20 flex items-center gap-1";
+    }
+  }
+
+  tickFlashcardSessionCountdown();
+}
+
+function tickFlashcardSessionCountdown() {
+  const cdEl = document.getElementById("flashcardSessionCountdown");
+  if (!cdEl) return;
+
+  const now = new Date();
+  const curHour = now.getHours();
+  const curMin = now.getMinutes();
+  const active = getActiveFlashcardSession();
+  const pad = n => String(n).padStart(2, "0");
+
+  let targetHour = 12;
+  let label = "Hạn Sáng 12:00";
+
+  if (active === "morning" || (active === "all" && curHour < 12)) {
+    targetHour = 12;
+    label = "Hạn Sáng 12:00";
+  } else if (active === "noon" || (active === "all" && curHour < 18)) {
+    targetHour = 18;
+    label = "Hạn Trưa 18:00";
+  } else {
+    targetHour = 22;
+    label = "Hạn Tối 22:00";
+  }
+
+  const targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), targetHour, 0, 0);
+  const diffMs = targetDate.getTime() - now.getTime();
+
+  if (diffMs > 0) {
+    const totalSecs = Math.floor(diffMs / 1000);
+    const h = Math.floor(totalSecs / 3600);
+    const m = Math.floor((totalSecs % 3600) / 60);
+    cdEl.innerText = `⏳ ${label} (Còn ${pad(h)}h ${pad(m)}m)`;
+    cdEl.className = "text-xs font-mono font-bold text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20 flex items-center gap-1";
+  } else {
+    if (active === "evening" || curHour >= 22) {
+      const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+      const diffMid = midnight.getTime() - now.getTime();
+      if (diffMid > 0) {
+        const totalSecs = Math.floor(diffMid / 1000);
+        const h = Math.floor(totalSecs / 3600);
+        const m = Math.floor((totalSecs % 3600) / 60);
+        cdEl.innerText = `🛡️ Giữ Chuỗi Ngày: Còn ${pad(h)}h ${pad(m)}m (Trước 23:59)`;
+        cdEl.className = "text-xs font-mono font-bold text-emerald-300 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20 flex items-center gap-1";
+      } else {
+        cdEl.innerText = `✓ Chuỗi ngày an toàn`;
+      }
+    } else {
+      cdEl.innerText = `⏰ Đã qua ${label} (Vẫn ghi nhận điểm 100%)`;
+      cdEl.className = "text-xs font-mono font-bold text-slate-400 bg-slate-800 px-2.5 py-1 rounded-lg border border-slate-700 flex items-center gap-1";
+    }
+  }
+}
+
+function toggleSRSExplanationModal() {
+  const m = document.getElementById("srsExplanationModal");
+  if (m) m.classList.toggle("hidden");
+}
+
 function getCurrentDayWords() {
   if (appState.studyMode === "custom") {
     return appState.customNotebook || [];
@@ -1834,12 +2083,43 @@ function getCurrentDayWords() {
   if (appState.studyMode === "daily_locked" || !appState.studyMode || appState.studyMode === "roadmap") {
     const curDay = missionRegistry.currentDay || 1;
     const dayVocabInfo = getDailyAssignedVocab(curDay);
-    const baseWords = dayVocabInfo.words || [];
+    let baseWords = dayVocabInfo.words || [];
 
     if (appState.interleavedConfig && appState.interleavedConfig.enabled && baseWords.length > 0) {
-      return getInterleavedDeckForDay(curDay, baseWords);
+      baseWords = getInterleavedDeckForDay(curDay, baseWords);
     }
-    return baseWords;
+
+    const session = getActiveFlashcardSession();
+    if (!session || session === "all") {
+      return baseWords;
+    }
+
+    const half = Math.ceil(baseWords.length / 2);
+    let sessionWords = [];
+    if (session === "morning") {
+      // Phiên Sáng: Nửa đầu danh sách từ (10 từ mới)
+      sessionWords = baseWords.slice(0, half);
+    } else if (session === "noon") {
+      // Phiên Trưa: Nửa sau danh sách từ + từ buổi sáng có đánh giá Quên/Khó (Level <= 2)
+      const secondHalf = baseWords.slice(half);
+      const needReview = baseWords.slice(0, half).filter(w => {
+        const s = getWordSRSState(w.word);
+        return s.level <= 2;
+      });
+      sessionWords = [...secondHalf, ...needReview];
+    } else if (session === "evening") {
+      // Phiên Tối: Toàn bộ từ ngày để củng cố chuyên sâu
+      sessionWords = baseWords;
+    } else {
+      sessionWords = baseWords;
+    }
+
+    // Nếu có từ vừa chọn [1] Quên trong phiên, chèn thêm vào cuối để ôn lại ngay
+    if (appState.inSessionRetries && appState.inSessionRetries.length > 0) {
+      sessionWords = [...sessionWords, ...appState.inSessionRetries];
+    }
+
+    return sessionWords.length > 0 ? sessionWords : baseWords;
   }
 
   // Chế độ ôn tập tự do theo Unit lựa chọn từ dropdown
@@ -2007,6 +2287,43 @@ function renderFlashcard() {
     backLevel.innerText = `Level ${curWord.level || "B1"}`;
   }
 
+  // Cập nhật huy hiệu cấp độ Leitner SRS & thời gian lặp lại kế tiếp
+  const srs = getWordSRSState(curWord.word);
+  const srsLevelTag = document.getElementById("cardSrsLevelTag");
+  if (srsLevelTag) {
+    const lvl = srs.level || 1;
+    const levelColors = {
+      1: "bg-red-500/20 text-red-300 border-red-500/30",
+      2: "bg-amber-500/20 text-amber-300 border-amber-500/30",
+      3: "bg-sky-500/20 text-sky-300 border-sky-500/30",
+      4: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
+      5: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30"
+    };
+    const levelLabels = {
+      1: "🔴 Cấp 1 (Chưa nhớ / Mới học)",
+      2: "🟡 Cấp 2 (Tạm nhớ / Khó)",
+      3: "🔵 Cấp 3 (Nhớ cơ bản)",
+      4: "🟣 Cấp 4 (Ghi nhớ sâu)",
+      5: "🟢 Cấp 5 (Thuần thục vĩnh viễn)"
+    };
+    srsLevelTag.className = `text-[11px] font-bold px-2.5 py-0.5 rounded-full border flex items-center gap-1 ${levelColors[lvl] || levelColors[1]}`;
+    srsLevelTag.innerHTML = `<span>🧠</span> <span>${levelLabels[lvl] || levelLabels[1]}</span>`;
+  }
+
+  const srsNextReview = document.getElementById("cardSrsNextReview");
+  if (srsNextReview) {
+    const nextMap = {
+      "immediate": "Lặp lại: Ngay sau 3 thẻ nữa",
+      "morning": "Lặp lại: Phiên Sáng ngày mai",
+      "noon": "Lặp lại: Phiên Trưa (18:00)",
+      "evening": "Lặp lại: Phiên Tối (22:00)",
+      "tomorrow": "Lặp lại: Ngày mai (+1 ngày)",
+      "3_days": "Lặp lại: Sau 3 ngày",
+      "7_days": "Lặp lại: Sau 7 ngày"
+    };
+    srsNextReview.innerText = nextMap[srs.nextReviewSession] || (srs.level >= 4 ? "Lặp lại: Sau 3 - 5 ngày" : "Lặp lại: Phiên tiếp theo");
+  }
+
   const viElem = document.getElementById("cardMeaningVi");
   const enElem = document.getElementById("cardMeaningEn");
   const defElem = document.getElementById("cardDefinition");
@@ -2081,14 +2398,53 @@ async function rateSRS(score) {
   const curWord = words[appState.currentCardIndex];
   if (!curWord) return;
 
-  // Nếu chọn [1] Quên -> Tự động lưu vào danh sách từ quên để ưu tiên ôn tập tích lũy
+  const activeSession = getActiveFlashcardSession();
+  const srs = getWordSRSState(curWord.word);
+  srs.reps = (srs.reps || 0) + 1;
+  srs.history = srs.history || [];
+  srs.history.push(score);
+
   if (score === 1) {
+    // [1] QUÊN: Reset Level 1, đưa vào danh sách từ quên, và chèn lại vào hàng đợi trong phiên sau 3 thẻ
+    srs.level = 1;
+    srs.nextReviewSession = "immediate";
     saveForgottenWord(curWord);
-  } else if (score >= 4) {
-    // Nếu chọn Nhớ hoặc Rất dễ -> Cho tốt nghiệp khỏi danh sách Quên / Bỏ qua
+    
+    // Immediate in-session retry: thêm vào hàng đợi ôn lại ngay
+    appState.inSessionRetries = appState.inSessionRetries || [];
+    const retryWord = { ...curWord, cardOrigin: "forgotten", cardOriginText: "Lặp lại do vừa chọn Quên" };
+    appState.inSessionRetries.push(retryWord);
+
+    showToast(`🔁 [1] Quên: Từ "${curWord.word}" đã được xếp vào lặp lại sau ít phút!`, "warning");
+  } else if (score === 2) {
+    // [2] KHÓ: Đặt Level 2, nhắc lại phiên kế tiếp
+    srs.level = 2;
+    const nextSess = activeSession === "morning" ? "noon" : (activeSession === "noon" ? "evening" : "tomorrow");
+    srs.nextReviewSession = nextSess;
+    saveForgottenWord(curWord);
+    showToast(`⏳ [2] Khó: Sẽ nhắc lại từ "${curWord.word}" ở phiên tiếp theo!`, "info");
+  } else if (score === 3) {
+    // [3] TRUNG BÌNH: Đặt Level 3, nhắc lại ngày mai
+    srs.level = Math.max(3, srs.level || 1);
+    srs.nextReviewSession = "tomorrow";
+  } else if (score === 4) {
+    // [4] NHỚ: Tăng level + 1, nhắc lại sau 3 ngày
+    srs.level = Math.min(5, (srs.level || 2) + 1);
+    srs.nextReviewSession = "3_days";
+    removeForgottenWord(curWord.word);
+    removeSkippedWord(curWord.word);
+  } else if (score === 5) {
+    // [5] RẤT DỄ: Level 5, nhắc lại sau 7 ngày
+    srs.level = 5;
+    srs.nextReviewSession = "7_days";
     removeForgottenWord(curWord.word);
     removeSkippedWord(curWord.word);
   }
+
+  saveWordSRSState(curWord.word, srs);
+
+  // Ghi nhận hoàn thành phiên tương ứng
+  recordSessionDone(activeSession);
 
   // 1. TỰ ĐỘNG CHUYỂN THẺ NGAY LẬP TỨC (0ms latency, không cần bấm thêm nút nào)
   nextCard();
@@ -6039,13 +6395,58 @@ function selectListeningOption(qId, optKey) {
   }
 }
 
+function playListeningWithSpeechSynthesis(part, icon) {
+  if (!("speechSynthesis" in window) || !part || !part.transcript) {
+    showToast("Không tìm thấy audio và trình duyệt không hỗ trợ đọc!", "warning");
+    return;
+  }
+  if (isSyntheticSpeechPlaying) {
+    window.speechSynthesis.cancel();
+    isSyntheticSpeechPlaying = false;
+    if (icon) {
+      icon.setAttribute("data-lucide", "play");
+      if (typeof lucide !== "undefined") lucide.createIcons();
+    }
+    showToast("Đã tạm dừng bài nghe", "info");
+  } else {
+    window.speechSynthesis.cancel();
+    const fullText = part.transcript.map(t => `${t.speaker}: ${t.en}`).join(". ");
+    syntheticSpeechUtterance = new SpeechSynthesisUtterance(fullText);
+    syntheticSpeechUtterance.lang = "en-US";
+    syntheticSpeechUtterance.rate = 0.9;
+    syntheticSpeechUtterance.onend = () => {
+      isSyntheticSpeechPlaying = false;
+      if (icon) {
+        icon.setAttribute("data-lucide", "play");
+        if (typeof lucide !== "undefined") lucide.createIcons();
+      }
+    };
+    syntheticSpeechUtterance.onerror = () => {
+      isSyntheticSpeechPlaying = false;
+      if (icon) {
+        icon.setAttribute("data-lucide", "play");
+        if (typeof lucide !== "undefined") lucide.createIcons();
+      }
+    };
+    window.speechSynthesis.speak(syntheticSpeechUtterance);
+    isSyntheticSpeechPlaying = true;
+    if (icon) {
+      icon.setAttribute("data-lucide", "pause");
+      if (typeof lucide !== "undefined") lucide.createIcons();
+    }
+    showToast("🎙️ Đang phát bài nghe qua giọng đọc AI trợ giảng...", "info");
+  }
+}
+
 function toggleListeningPlay() {
-  const test = LISTENING_TESTS[currentListeningTestIdx] || LISTENING_TESTS[0];
+  const test = (typeof LISTENING_TESTS !== "undefined" && LISTENING_TESTS[currentListeningTestIdx]) || null;
+  if (!test || !test.parts) return;
   const part = test.parts[currentListeningPartIdx];
+  if (!part) return;
   const icon = document.getElementById("listeningPlayIcon");
 
   // A. If part has real MP3 audio file
-  if (part.audioSrc && listeningAudioEl) {
+  if (part.audioSrc && listeningAudioEl && !listeningAudioEl.error) {
     if (listeningAudioEl.paused) {
       listeningAudioEl.play().then(() => {
         if (icon) {
@@ -6053,8 +6454,8 @@ function toggleListeningPlay() {
           if (typeof lucide !== "undefined") lucide.createIcons();
         }
       }).catch(e => {
-        console.warn("Audio play prevented:", e);
-        showToast("Bấm lại nút Play để phát audio!", "warning");
+        console.warn("Audio play prevented or missing, falling back to Web Speech:", e);
+        playListeningWithSpeechSynthesis(part, icon);
       });
     } else {
       listeningAudioEl.pause();
@@ -6066,8 +6467,12 @@ function toggleListeningPlay() {
     return;
   }
 
-  // B. Fallback to Web Speech API narration if no MP3
-  if ("speechSynthesis" in window && part.transcript) {
+  // B. Fallback to Web Speech API narration if no MP3 or file failed
+  playListeningWithSpeechSynthesis(part, icon);
+}
+
+function _legacy_fallback_unused() {
+  if ("speechSynthesis" in window && false) {
     if (isSyntheticSpeechPlaying) {
       window.speechSynthesis.cancel();
       isSyntheticSpeechPlaying = false;
@@ -8246,23 +8651,26 @@ function updateSessionRoutineUI() {
     }
   });
 
-  // Check progress
+  // Check progress & streaks
   const curDay = missionRegistry.currentDay || 1;
   const st = getDayMissionStatus(curDay);
+  const streaks = typeof getSessionStreaksData === "function" ? getSessionStreaksData() : {};
 
   const sttM = document.getElementById("sttSessionMorning");
   const sttN = document.getElementById("sttSessionNoon");
   const sttE = document.getElementById("sttSessionEvening");
 
   if (sttM) {
-    sttM.innerHTML = st.vocabDone ? "<span class='text-emerald-400 font-bold'>✓ Đã xong</span>" : "<span class='text-amber-400'>Chưa xong</span>";
+    const isMCompleted = streaks.morningDone || st.vocabDone;
+    sttM.innerHTML = isMCompleted ? "<span class='text-emerald-400 font-bold'>✓ Đã xong (Hạn 12:00)</span>" : "<span class='text-amber-400'>Hạn 12:00 • 10 từ mới</span>";
   }
   if (sttN) {
-    const isNoonDone = st.readingDone && st.grammarDone;
-    sttN.innerHTML = isNoonDone ? "<span class='text-emerald-400 font-bold'>✓ Đã xong</span>" : (st.readingDone || st.grammarDone ? "<span class='text-cyan-400'>Đang làm</span>" : "<span class='text-slate-400'>Chưa xong</span>");
+    const isNCompleted = streaks.noonDone || (st.readingDone && st.grammarDone);
+    sttN.innerHTML = isNCompleted ? "<span class='text-emerald-400 font-bold'>✓ Đã xong (Hạn 18:00)</span>" : "<span class='text-cyan-300'>Hạn 18:00 • Ôn ngắt quãng</span>";
   }
   if (sttE) {
-    sttE.innerHTML = st.videoDone ? "<span class='text-emerald-400 font-bold'>✓ Đã chốt xong</span>" : "<span class='text-slate-400'>Hạn 22:00</span>";
+    const isECompleted = streaks.eveningDone || st.videoDone;
+    sttE.innerHTML = isECompleted ? "<span class='text-emerald-400 font-bold'>✓ Đã chốt xong (Hạn 22:00)</span>" : "<span class='text-rose-300'>Hạn 22:00 • Chốt Streak</span>";
   }
 
   // Determine current active window

@@ -12,7 +12,7 @@ const LISTENING_TESTS = [
         partNumber: 1,
         title: "Part 1: Phỏng Vấn Andrea (U16 Ice Hockey)",
         instruction: "Questions 1-5. Choose the correct letter, A, B or C. (2.5 points)\nYou will hear an interview with a 15-year-old girl called Andrea, who plays ice hockey for her National Under-16s Team.",
-        audioSrc: "/audio/part1_andrea_ice_hockey.mp3",
+        audioSrc: "./audio/part1_andrea_ice_hockey.mp3",
         questions: [
           {
             id: 1,
@@ -90,7 +90,7 @@ const LISTENING_TESTS = [
         partNumber: 2,
         title: "Part 2: Phỏng Vấn John Benton (25km Race)",
         instruction: "Questions 6-10. Choose the correct letter, A, B or C. (2.5 points)\nYou will hear an interview with a student called John Benton, who’s just completed a 25-kilometre running race.",
-        audioSrc: "/audio/part2_john_benton_race.mp3",
+        audioSrc: "./audio/part2_john_benton_race.mp3",
         questions: [
           {
             id: 6,
@@ -171,7 +171,7 @@ const LISTENING_TESTS = [
         title: "Part 3: Australian Wild Zoo & Map Labeling (Q11-20)",
         instruction: "Questions 11-15: Choose the correct letter A, B or C. Questions 16-20: Label the map below. Write the correct letter, A-H, next to questions 16-20. (5.0 points)",
         audioSrc: "",
-        mapImage: "/map_test1_zoo.png",
+        mapImage: "./map_test1_zoo.png",
         questions: [
           {
             id: 11,
@@ -481,7 +481,7 @@ const LISTENING_TESTS = [
         title: "Part 3: National Security Heritage Museum & Floor Plan",
         instruction: "Questions 11-15: Choose the correct letter A, B or C. Questions 16-20: Label the map below. (5.0 points)",
         audioSrc: "",
-        mapImage: "/map_test1_zoo.png",
+        mapImage: "./map_test1_zoo.png",
         questions: [
           {
             id: 11,
@@ -641,7 +641,7 @@ const LISTENING_TESTS = [
       "partNumber": 1,
       "title": "Part 1: 8 Câu Hỏi Tình Huống Ngắn (Short Conversations)",
       "instruction": "Directions: In this part, you will hear eight short conversations. For questions 1-8, choose the best answer A, B, C or D.",
-      "audioSrc": "/audio/vstep_part1_conversations.mp3",
+      "audioSrc": "./audio/vstep_part1_conversations.mp3",
       "questions": [
         {
           "id": 1,
@@ -791,7 +791,7 @@ const LISTENING_TESTS = [
       "partNumber": 2,
       "title": "Part 2: Hội Thoại Học Thuật Sinh Viên (Academic Discussion)",
       "instruction": "Directions: You will hear a conversation between two university students discussing an environmental project. Choose A, B, C or D.",
-      "audioSrc": "/audio/vstep_part2_discussion.mp3",
+      "audioSrc": "./audio/vstep_part2_discussion.mp3",
       "questions": [
         {
           "id": 6,
@@ -877,7 +877,7 @@ const LISTENING_TESTS = [
       "partNumber": 1,
       "title": "Part 1: Phỏng Vấn Chuyên Gia Du Lịch Mạo Hiểm (Adventure Travel)",
       "instruction": "Questions 1-5. You will hear an interview with a wilderness tour guide named Marcus. Choose the correct letter A, B or C.",
-      "audioSrc": "/audio/cambridge_part1_marcus.mp3",
+      "audioSrc": "./audio/cambridge_part1_marcus.mp3",
       "questions": [
         {
           "id": 1,

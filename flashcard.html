@@ -685,6 +685,79 @@
         </div>
       </div>
 
+
+      <!-- DYNAMIC 3-SESSION FLASHCARD ROUTINE & DEADLINE BAR -->
+      <div id="flashcardSessionToolbar" class="glass-card rounded-2xl p-3.5 sm:p-4 border border-indigo-500/40 bg-gradient-to-r from-slate-900 via-indigo-950/40 to-slate-900 shadow-xl space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2.5 border-b border-slate-800/80">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-300 flex items-center gap-1.5">
+              <i data-lucide="sun-medium" class="w-4 h-4 text-amber-400"></i>
+              <span>Phiên Học Trong Ngày:</span>
+            </span>
+            <span id="flashcardCurrentSessionIndicator" class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold border border-cyan-500/30 flex items-center gap-1">
+              🌅 Đang Phiên Sáng
+            </span>
+            <span id="flashcardSessionWordCount" class="text-xs text-slate-300 font-medium">10 từ</span>
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <span id="flashcardSessionCountdown" class="text-xs font-mono font-bold text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20 flex items-center gap-1">
+              ⏳ Hạn Sáng 12:00
+            </span>
+            <span id="flashcardSessionStreakBadge" class="text-xs font-bold text-emerald-300 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20 flex items-center gap-1" title="Tiến độ 3 phiên hôm nay">
+              ⭐ 0/3 phiên
+            </span>
+          </div>
+        </div>
+
+        <!-- 4 Session Switching Pills -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <button type="button" id="btnSessionMorning" onclick="setFlashcardSessionFilter('morning')" class="session-filter-pill py-2.5 px-2 rounded-xl text-xs font-bold border transition flex flex-col items-center justify-center gap-1 bg-indigo-600/30 border-indigo-500 text-white shadow-md active:scale-95">
+            <div class="flex items-center gap-1 text-[11px]">
+              <span>🌅</span> <span>Phiên Sáng</span>
+            </div>
+            <span class="text-[10px] text-indigo-200 font-normal">Học từ mới • Hạn 12:00</span>
+            <span id="pillBadgeMorning" class="text-[9px] px-2 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 font-semibold">10 từ</span>
+          </button>
+
+          <button type="button" id="btnSessionNoon" onclick="setFlashcardSessionFilter('noon')" class="session-filter-pill py-2.5 px-2 rounded-xl text-xs font-bold border transition flex flex-col items-center justify-center gap-1 bg-slate-800/80 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 active:scale-95">
+            <div class="flex items-center gap-1 text-[11px]">
+              <span>☀️</span> <span>Phiên Trưa</span>
+            </div>
+            <span class="text-[10px] text-slate-400 font-normal">Ôn ngắt quãng • Hạn 18:00</span>
+            <span id="pillBadgeNoon" class="text-[9px] px-2 py-0.5 rounded-full bg-slate-700 text-slate-300 font-semibold">10 từ</span>
+          </button>
+
+          <button type="button" id="btnSessionEvening" onclick="setFlashcardSessionFilter('evening')" class="session-filter-pill py-2.5 px-2 rounded-xl text-xs font-bold border transition flex flex-col items-center justify-center gap-1 bg-slate-800/80 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 active:scale-95">
+            <div class="flex items-center gap-1 text-[11px]">
+              <span>🌙</span> <span>Phiên Tối</span>
+            </div>
+            <span class="text-[10px] text-slate-400 font-normal">Củng cố & Chốt • Hạn 22:00</span>
+            <span id="pillBadgeEvening" class="text-[9px] px-2 py-0.5 rounded-full bg-slate-700 text-slate-300 font-semibold">20 từ</span>
+          </button>
+
+          <button type="button" id="btnSessionAll" onclick="setFlashcardSessionFilter('all')" class="session-filter-pill py-2.5 px-2 rounded-xl text-xs font-bold border transition flex flex-col items-center justify-center gap-1 bg-slate-800/80 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 active:scale-95">
+            <div class="flex items-center gap-1 text-[11px]">
+              <span>🌟</span> <span>Tất Cả Thẻ</span>
+            </div>
+            <span class="text-[10px] text-slate-400 font-normal">Toàn bộ ngày • Tự do</span>
+            <span id="pillBadgeAll" class="text-[9px] px-2 py-0.5 rounded-full bg-slate-700 text-slate-300 font-semibold">20 từ</span>
+          </button>
+        </div>
+
+        <!-- SRS Explanation Tip Collapsible -->
+        <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1">
+          <span class="flex items-center gap-1 text-slate-300">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Bảo vệ chuỗi: Học ≥1 phiên trước 23:59 giữ Day Streak 🔥</span>
+          </span>
+          <button type="button" onclick="toggleSRSExplanationModal()" class="text-indigo-400 hover:text-indigo-300 underline font-semibold flex items-center gap-1">
+            <i data-lucide="info" class="w-3 h-3"></i> Cơ chế lặp lại SRS & Deadlines
+          </button>
+        </div>
+      </div>
+
+
       <!-- FREE REVIEW SELECTOR AREA: Ẩn trong chế độ học deadline, chỉ mở khi người dùng ôn tập tự do -->
       <div id="freeReviewSelectorArea" class="hidden glass-card rounded-2xl p-4 flex flex-col gap-3">
         <!-- Quick Mode Switcher & Shuffle Controls (Clusters of 4 Units) -->
@@ -815,34 +888,44 @@
               </div>
             </div>
 
-            <div class="text-[10px] text-amber-300/90 text-center font-medium pt-2 pb-1 border-t border-slate-800">
-              ⚡ Bấm chọn độ nhớ (hoặc bấm phím 1 - 5 trên bàn phím) để tự động chuyển từ tiếp theo:
+            <!-- LEITNER SRS STATUS BAR -->
+            <div class="flex items-center justify-between border-t border-slate-800 pt-2 pb-1 px-1">
+              <span id="cardSrsLevelTag" class="text-[11px] font-bold text-indigo-300 bg-indigo-500/20 px-2.5 py-0.5 rounded-full border border-indigo-500/30 flex items-center gap-1">
+                🧠 Cấp 1 (Chưa nhớ)
+              </span>
+              <span id="cardSrsNextReview" class="text-[10px] text-amber-300/90 font-mono">
+                Lặp lại: Trong phiên này
+              </span>
+            </div>
+
+            <div class="text-[10px] text-amber-300/90 text-center font-medium pt-1 pb-1">
+              ⚡ Bấm chọn độ nhớ (hoặc bấm phím 1 - 5) để tự chuyển từ:
             </div>
             <div class="grid grid-cols-5 gap-1 sm:gap-1.5">
-              <button onclick="event.stopPropagation(); rateSRS(1)" class="py-2 px-1 text-center rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 text-xs font-semibold transition flex flex-col items-center justify-center group active:scale-95" title="Phím tắt: 1">
+              <button onclick="event.stopPropagation(); rateSRS(1)" class="py-2 px-1 text-center rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 text-xs font-semibold transition flex flex-col items-center justify-center group active:scale-95" title="Phím tắt: 1 - Lặp lại ngay sau 3 thẻ">
                 <span class="text-[9px] px-1 py-0.2 rounded bg-red-500/20 text-red-300 font-mono font-bold mb-0.5 group-hover:bg-red-500 group-hover:text-white transition">[1]</span>
                 <div class="font-bold">Quên</div>
-                <div class="text-[9px] text-red-400/70">1 ngày</div>
+                <div class="text-[9px] text-red-400/80">Lặp lại ngay</div>
               </button>
-              <button onclick="event.stopPropagation(); rateSRS(2)" class="py-2 px-1 text-center rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/20 text-xs font-semibold transition flex flex-col items-center justify-center group active:scale-95" title="Phím tắt: 2">
+              <button onclick="event.stopPropagation(); rateSRS(2)" class="py-2 px-1 text-center rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/20 text-xs font-semibold transition flex flex-col items-center justify-center group active:scale-95" title="Phím tắt: 2 - Lặp lại ở phiên tiếp theo">
                 <span class="text-[9px] px-1 py-0.2 rounded bg-amber-500/20 text-amber-300 font-mono font-bold mb-0.5 group-hover:bg-amber-500 group-hover:text-white transition">[2]</span>
                 <div class="font-bold">Khó</div>
-                <div class="text-[9px] text-amber-400/70">2 ngày</div>
+                <div class="text-[9px] text-amber-400/80">Phiên tiếp</div>
               </button>
-              <button onclick="event.stopPropagation(); rateSRS(3)" class="py-2 px-1 text-center rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/20 text-xs font-semibold transition flex flex-col items-center justify-center group active:scale-95" title="Phím tắt: 3">
+              <button onclick="event.stopPropagation(); rateSRS(3)" class="py-2 px-1 text-center rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/20 text-xs font-semibold transition flex flex-col items-center justify-center group active:scale-95" title="Phím tắt: 3 - Giữ cấp độ, ôn ngày mai">
                 <span class="text-[9px] px-1 py-0.2 rounded bg-sky-500/20 text-sky-300 font-mono font-bold mb-0.5 group-hover:bg-sky-500 group-hover:text-white transition">[3]</span>
                 <div class="font-bold">T.Bình</div>
-                <div class="text-[9px] text-sky-400/70">3 ngày</div>
+                <div class="text-[9px] text-sky-400/80">1 - 2 ngày</div>
               </button>
-              <button onclick="event.stopPropagation(); rateSRS(4)" class="py-2 px-1 text-center rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/20 text-xs font-semibold transition flex flex-col items-center justify-center group active:scale-95" title="Phím tắt: 4">
+              <button onclick="event.stopPropagation(); rateSRS(4)" class="py-2 px-1 text-center rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/20 text-xs font-semibold transition flex flex-col items-center justify-center group active:scale-95" title="Phím tắt: 4 - Tăng cấp độ, giãn cách 3 ngày">
                 <span class="text-[9px] px-1 py-0.2 rounded bg-blue-500/20 text-blue-300 font-mono font-bold mb-0.5 group-hover:bg-blue-500 group-hover:text-white transition">[4]</span>
                 <div class="font-bold">Nhớ</div>
-                <div class="text-[9px] text-blue-400/70">5 ngày</div>
+                <div class="text-[9px] text-blue-400/80">3 - 5 ngày</div>
               </button>
-              <button onclick="event.stopPropagation(); rateSRS(5)" class="py-2 px-1 text-center rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 text-xs font-semibold transition flex flex-col items-center justify-center group active:scale-95" title="Phím tắt: 5">
+              <button onclick="event.stopPropagation(); rateSRS(5)" class="py-2 px-1 text-center rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 text-xs font-semibold transition flex flex-col items-center justify-center group active:scale-95" title="Phím tắt: 5 - Bậc thầy, giãn cách 7-14 ngày">
                 <span class="text-[9px] px-1 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-mono font-bold mb-0.5 group-hover:bg-emerald-500 group-hover:text-white transition">[5]</span>
                 <div class="font-bold">Rất dễ</div>
-                <div class="text-[9px] text-emerald-400/70">7+ ngày</div>
+                <div class="text-[9px] text-emerald-400/80">7 - 14 ngày</div>
               </button>
             </div>
           </div>
@@ -1227,7 +1310,163 @@
     <!-- ============================================================================ -->
     <!-- TAB: LISTENING PRACTICE (FORM CHUẨN ĐỀ THI HP3 & CAMBRIDGE B1/B2) -->
     <!-- ============================================================================ -->
-        <!-- ============================================================================ -->
+<section id="tab-listening" class="hidden space-y-6">
+      <!-- Header Banner -->
+      <div class="glass-card rounded-2xl p-6 border border-cyan-500/40 relative overflow-hidden bg-gradient-to-br from-cyan-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs uppercase tracking-wider border border-cyan-500/30 flex items-center gap-1.5">
+                <i data-lucide="headphones" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <span>Luyện Nghe Chuẩn Đề Thi Đa Nguồn</span>
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs">
+                HP3 An Ninh • VSTEP B1-B2 • Cambridge
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs border border-emerald-500/30 flex items-center gap-1">
+                <i data-lucide="check-circle" class="w-3 h-3"></i> Deadline: 2 Bài Nghe / Ngày
+              </span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">🎧 Luyện Nghe Trắc Nghiệm Chuẩn Đề & Lời Thoại Song Ngữ</h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">Trình phát audio có tính năng tua ±5s, chỉnh tốc độ 0.75x - 1.25x, chấm điểm tức thì, giải thích chi tiết và phân tích bẫy đề thi.</p>
+          </div>
+          <div class="shrink-0 flex items-center gap-2">
+            <span id="listeningDailyStatusBadge" class="px-3 py-1.5 rounded-xl bg-cyan-600/30 border border-cyan-500/40 text-cyan-300 font-bold text-xs flex items-center gap-1">
+              ⏳ Hôm nay: 0/2 bài nghe
+            </span>
+          </div>
+        </div>
+
+        <!-- Test Selection (HP3 / VSTEP / Cambridge) -->
+        <div class="space-y-1.5 border-b border-slate-800 pb-3">
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i data-lucide="folder-check" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>Chọn Đề Thi (Nhiều Nguồn Chuẩn Đề):</span>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap" id="listeningTestSelector">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Part Selection Tabs -->
+        <div class="space-y-1.5">
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-indigo-400"></i>
+            <span>Chọn Phần Thi (Parts):</span>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap" id="listeningPartTabs">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Audio Player Control Card -->
+      <div class="glass-card rounded-2xl p-5 border border-slate-700/80 bg-slate-900/90 shadow-xl space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/30">
+              <i data-lucide="volume-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-[11px] text-cyan-400 font-mono font-bold uppercase tracking-wider">Trình Phát Audio Đề Thi</div>
+              <h3 id="listeningTrackTitle" class="text-sm sm:text-base font-bold text-white">Part 1: Interview with Andrea</h3>
+            </div>
+          </div>
+
+          <!-- Speed Controls -->
+          <div class="flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700">
+            <span class="text-[10px] text-slate-400 px-1 font-bold">Tốc độ:</span>
+            <button onclick="setListeningSpeed(0.75)" data-rate="0.75" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">0.75x</button>
+            <button onclick="setListeningSpeed(1.0)" data-rate="1.0" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold bg-cyan-600 text-white transition shadow">1.0x</button>
+            <button onclick="setListeningSpeed(1.25)" data-rate="1.25" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">1.25x</button>
+          </div>
+        </div>
+
+        <!-- HTML5 Hidden Audio Element -->
+        <audio id="listeningAudio" class="hidden"></audio>
+
+        <!-- Player Seek & Action Bar -->
+        <div class="space-y-2">
+          <input type="range" id="listeningSeekRange" min="0" max="100" value="0" step="0.1" oninput="onListeningSeek(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span id="listeningTimeCurrent">00:00</span>
+            <span id="listeningTimeTotal">00:00</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 pt-1">
+          <button onclick="seekListening(-5)" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1 border border-slate-700 transition" title="Lùi lại 5 giây">
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> -5s
+          </button>
+
+          <button onclick="toggleListeningPlay()" id="btnListeningPlay" class="w-14 h-14 rounded-2xl bg-gradient-to-r from-cyan-600 via-teal-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white flex items-center justify-center shadow-lg shadow-cyan-600/40 transition active:scale-95" title="Phát / Tạm dừng">
+            <i data-lucide="play" class="w-7 h-7" id="listeningPlayIcon"></i>
+          </button>
+
+          <button onclick="seekListening(5)" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1 border border-slate-700 transition" title="Tua tới 5 giây">
+            +5s <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+
+        <!-- Instruction Notice -->
+        <div class="p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-xs text-cyan-200 flex items-start gap-2">
+          <i data-lucide="info" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+          <span id="listeningInstructionText">You will hear each part TWICE. Choose the correct letter A, B, C or D.</span>
+        </div>
+      </div>
+
+      <!-- Score Banner (Hidden initially) -->
+      <div id="listeningScoreBanner" class="hidden glass-card rounded-2xl p-6 border-2 border-amber-500/60 bg-gradient-to-r from-amber-950/60 via-slate-900 to-indigo-950/60 text-center space-y-2 shadow-2xl">
+        <div id="listeningScoreText"></div>
+      </div>
+
+      <!-- Questions List -->
+      <div class="space-y-4">
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <i data-lucide="help-circle" class="w-5 h-5 text-cyan-400"></i>
+          <span>Danh Sách Câu Hỏi Trắc Nghiệm</span>
+        </h3>
+        <div id="listeningQuestionsContainer" class="space-y-4">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Submit & Reset Actions Bar -->
+      <div class="glass-card p-4 rounded-2xl border border-slate-700 flex items-center justify-between gap-3 flex-wrap bg-slate-900/90">
+        <button onclick="submitListeningTest()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-950/40 transition flex items-center gap-2 active:scale-95">
+          <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+          <span>Nộp Bài & Chấm Điểm</span>
+        </button>
+
+        <div class="flex items-center gap-2">
+          <button onclick="toggleListeningTranscript()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold border border-slate-700 transition flex items-center gap-1.5">
+            <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
+            <span>Xem Lời Thoại (Transcript)</span>
+          </button>
+          <button onclick="resetListeningTest()" class="px-4 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-xs sm:text-sm font-bold border border-slate-700 transition flex items-center gap-1.5">
+            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            <span>Làm Lại</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Transcript & Answer Evidence Box -->
+      <div id="listeningTranscriptCard" class="hidden glass-card rounded-2xl p-6 border border-indigo-500/30 bg-slate-900/95 space-y-4 shadow-xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h4 class="font-bold text-white text-base flex items-center gap-2">
+            <i data-lucide="file-text" class="w-5 h-5 text-indigo-400"></i>
+            <span>Lời Thoại Bài Nghe Song Ngữ Anh - Việt (Transcript)</span>
+          </h4>
+          <button onclick="toggleListeningTranscript()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+        <div id="listeningTranscriptBody" class="space-y-3 max-h-[500px] overflow-y-auto pr-2">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================================ -->
     <section id="tab-video" class="hidden space-y-6">
       <!-- Header Banner -->
       <div class="glass-card rounded-2xl p-6 border border-rose-500/40 relative overflow-hidden bg-gradient-to-br from-rose-950/70 via-slate-900/90 to-slate-950 shadow-2xl space-y-3">
@@ -2249,19 +2488,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=50.0"></script>
-  <script src="./listening_data.js?v=50.0"></script>
-  <script src="./vietnam_today_data.js?v=50.0"></script>
-  <script src="./educational_channels_data.js?v=50.0"></script>
-  <script src="./international_news_videos.js?v=50.0"></script>
-  <script src="./bilingual_news_data.js?v=50.0"></script>
-  <script src="./reading_lexicon.js?v=50.0"></script>
-  <script src="./app.js?v=50.0"></script>
+  <script src="./data.js?v=51.0"></script>
+  <script src="./listening_data.js?v=51.0"></script>
+  <script src="./vietnam_today_data.js?v=51.0"></script>
+  <script src="./educational_channels_data.js?v=51.0"></script>
+  <script src="./international_news_videos.js?v=51.0"></script>
+  <script src="./bilingual_news_data.js?v=51.0"></script>
+  <script src="./reading_lexicon.js?v=51.0"></script>
+  <script src="./app.js?v=51.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=50.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=51.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>
@@ -2427,6 +2666,64 @@
         <button onclick="retakeCurrentReadingTest()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-semibold text-xs border border-slate-700 transition flex items-center justify-center gap-1 active:scale-95" title="Làm lại đề thi">
           <i data-lucide="rotate-cw" class="w-4 h-4"></i>
           <span>Làm Lại</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SRS EXPLANATION MODAL -->
+  <div id="srsExplanationModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+    <div class="glass-card w-full max-w-lg rounded-2xl p-6 border border-indigo-500/40 bg-slate-900/95 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-lg font-black text-white flex items-center gap-2">
+          <i data-lucide="brain" class="w-5 h-5 text-indigo-400"></i>
+          <span>Cơ Chế Lặp Lại SRS & Phân Phiên Sáng - Trưa - Tối</span>
+        </h3>
+        <button onclick="toggleSRSExplanationModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <div class="p-3 rounded-xl bg-indigo-950/40 border border-indigo-500/30 space-y-1.5">
+          <h4 class="font-bold text-amber-300 flex items-center gap-1.5">
+            <span>🌅 1. Phân chia 3 Phiên Học & Deadlines Rõ Ràng</span>
+          </h4>
+          <ul class="list-disc pl-4 space-y-1 text-slate-300 text-xs">
+            <li><strong>Phiên Sáng (Hạn 12:00):</strong> Nạp 10 từ mới đầu tiên khi đầu óc minh mẫn nhất.</li>
+            <li><strong>Phiên Trưa (Hạn 18:00):</strong> Ôn tập ngắt quãng Đợt 1 các từ vừa học sáng và từ cấp độ 2 cần củng cố.</li>
+            <li><strong>Phiên Tối (Hạn 22:00):</strong> Củng cố toàn diện 20 từ, phản xạ nhanh và chốt mục tiêu ngày.</li>
+          </ul>
+        </div>
+
+        <div class="p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/30 space-y-1.5">
+          <h4 class="font-bold text-cyan-300 flex items-center gap-1.5">
+            <span>🔁 2. Cơ chế Lặp lại Leitner (5 Cấp Độ Ghi Nhớ)</span>
+          </h4>
+          <ul class="list-disc pl-4 space-y-1 text-slate-300 text-xs">
+            <li><strong class="text-red-400">[1] Quên:</strong> Reset về Cấp 1, tự động chèn vào sau 3 thẻ tiếp theo trong phiên để nhớ lại ngay!</li>
+            <li><strong class="text-amber-400">[2] Khó:</strong> Cấp 2, lên lịch nhắc lại ở phiên kế tiếp (Sáng → Trưa, Trưa → Tối).</li>
+            <li><strong class="text-sky-400">[3] T.Bình:</strong> Cấp 3, giãn cách ôn sau 1 - 2 ngày.</li>
+            <li><strong class="text-blue-400">[4] Nhớ:</strong> Cấp 4, giãn cách ôn sau 3 - 5 ngày.</li>
+            <li><strong class="text-emerald-400">[5] Rất dễ:</strong> Cấp 5 (Thành thạo), giãn cách 7 - 14 ngày.</li>
+          </ul>
+        </div>
+
+        <div class="p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/30 space-y-1.5">
+          <h4 class="font-bold text-emerald-300 flex items-center gap-1.5">
+            <span>🛡️ 3. Quy Tắc Giữ Chuỗi (Streak) Công Bằng & Linh Hoạt</span>
+          </h4>
+          <ul class="list-disc pl-4 space-y-1 text-slate-300 text-xs">
+            <li><strong>Chuỗi Ngày An Toàn (Day Streak 🔥):</strong> Deadline ngày là <strong class="text-amber-300 font-mono">23:59</strong>. Chỉ cần bạn hoàn thành ít nhất 1 phiên học trước nửa đêm, chuỗi ngày liên tiếp của bạn sẽ được BẢO TOÀN 100%!</li>
+            <li><strong>Chuỗi Vàng 3 Phiên Hoàn Hảo (Triple Master 👑):</strong> Hoàn thành cả 3 phiên Sáng (trước 12h), Trưa (trước 18h), Tối (trước 22h) để đạt danh hiệu Triple Streak danh giá!</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-2 text-center">
+        <button onclick="toggleSRSExplanationModal()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-sm shadow-lg transition">
+          Đã hiểu, Bắt đầu học ngay!
         </button>
       </div>
     </div>

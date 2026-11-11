@@ -2039,6 +2039,32 @@ function updateFlashcardSessionToolbar() {
     }
   }
 
+  // Update Session Partner Guidance (Nhắc luyện nghe buổi trưa & bài đọc buổi tối)
+  const guidanceBox = document.getElementById("sessionPartnerGuidance");
+  const guidanceText = document.getElementById("sessionPartnerGuidanceText");
+  const guidanceBtn = document.getElementById("sessionPartnerGuidanceBtn");
+
+  if (guidanceBox && guidanceText && guidanceBtn) {
+    if (active === "noon") {
+      guidanceBox.classList.remove("hidden");
+      guidanceBox.className = "p-2.5 rounded-xl border border-cyan-500/40 bg-cyan-950/40 text-xs flex items-center justify-between gap-2 flex-wrap text-cyan-200 mt-2";
+      guidanceText.innerHTML = `<span class="flex items-center gap-1.5"><i data-lucide="headphones" class="w-4 h-4 text-cyan-400"></i> <span><strong>Buổi Trưa:</strong> Sau khi ôn Flashcard, hãy luyện 1-2 bài nghe chuẩn đề HP3/VSTEP!</span></span>`;
+      guidanceBtn.className = "px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow transition active:scale-95 flex items-center gap-1";
+      guidanceBtn.innerHTML = `<span>Sang Luyện Nghe</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>`;
+      guidanceBtn.onclick = () => switchTab("listening");
+    } else if (active === "evening") {
+      guidanceBox.classList.remove("hidden");
+      guidanceBox.className = "p-2.5 rounded-xl border border-emerald-500/40 bg-emerald-950/40 text-xs flex items-center justify-between gap-2 flex-wrap text-emerald-200 mt-2";
+      guidanceText.innerHTML = `<span class="flex items-center gap-1.5"><i data-lucide="book-open" class="w-4 h-4 text-emerald-400"></i> <span><strong>Buổi Tối:</strong> Hãy làm 1 bài đọc hiểu VSTEP/IELTS chuẩn để chốt chuỗi Streak!</span></span>`;
+      guidanceBtn.className = "px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow transition active:scale-95 flex items-center gap-1";
+      guidanceBtn.innerHTML = `<span>Làm Bài Đọc</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>`;
+      guidanceBtn.onclick = () => switchTab("reader");
+    } else {
+      guidanceBox.classList.add("hidden");
+    }
+    if (window.lucide) lucide.createIcons();
+  }
+
   tickFlashcardSessionCountdown();
 }
 
@@ -2467,36 +2493,42 @@ async function rateSRS(score) {
   srs.history.push(score);
 
   if (score === 1) {
-    // [1] QUÊN: Reset Level 1, đưa vào danh sách từ quên, và chèn lại vào hàng đợi trong phiên sau 3 thẻ
+    // [1] QUÊN (Cường độ cao): Reset Level 1, lặp lại ngay sau chỉ 2 thẻ (Active Recall Loop)
     srs.level = 1;
     srs.nextReviewSession = "immediate";
     saveForgottenWord(curWord);
     
-    // Immediate in-session retry: thêm vào hàng đợi ôn lại ngay
+    // Immediate active recall loop: chèn lặp lại nhanh sau 2 thẻ
     appState.inSessionRetries = appState.inSessionRetries || [];
-    const retryWord = { ...curWord, cardOrigin: "forgotten", cardOriginText: "Lặp lại do vừa chọn Quên" };
-    appState.inSessionRetries.push(retryWord);
+    const retryWord = { ...curWord, cardOrigin: "forgotten", cardOriginText: "⚡ Lặp lại ngay sau 2 thẻ (Quên)" };
+    appState.inSessionRetries.splice(Math.min(2, appState.inSessionRetries.length), 0, retryWord);
 
-    showToast(`🔁 [1] Quên: Từ "${curWord.word}" đã được xếp vào lặp lại sau ít phút!`, "warning");
+    showToast(`🔁 [1] Quên (Cường độ cao): Từ "${curWord.word}" sẽ lặp lại ngay sau 2 thẻ nữa!`, "warning");
   } else if (score === 2) {
-    // [2] KHÓ: Đặt Level 2, nhắc lại phiên kế tiếp
+    // [2] KHÓ: Đặt Level 2, lặp lại sau 4 thẻ & nhắc lại ở phiên tiếp theo
     srs.level = 2;
     const nextSess = activeSession === "morning" ? "noon" : (activeSession === "noon" ? "evening" : "tomorrow");
     srs.nextReviewSession = nextSess;
     saveForgottenWord(curWord);
-    showToast(`⏳ [2] Khó: Sẽ nhắc lại từ "${curWord.word}" ở phiên tiếp theo!`, "info");
+
+    // Chèn lặp lại sau 4 thẻ trong phiên
+    appState.inSessionRetries = appState.inSessionRetries || [];
+    const retryWord = { ...curWord, cardOrigin: "srs", cardOriginText: "⏳ Cần củng cố (Khó)" };
+    appState.inSessionRetries.splice(Math.min(4, appState.inSessionRetries.length), 0, retryWord);
+
+    showToast(`⏳ [2] Khó: Lặp lại sau 4 thẻ & xếp lịch phiên tiếp theo (${nextSess === "noon" ? "Trưa" : "Tối"})!`, "info");
   } else if (score === 3) {
-    // [3] TRUNG BÌNH: Đặt Level 3, nhắc lại ngày mai
+    // [3] TRUNG BÌNH: Đặt Level 3, rút ngắn chu kỳ nhắc lại: Ngày mai
     srs.level = Math.max(3, srs.level || 1);
     srs.nextReviewSession = "tomorrow";
   } else if (score === 4) {
-    // [4] NHỚ: Tăng level + 1, nhắc lại sau 3 ngày
+    // [4] NHỚ: Tăng level + 1, rút ngắn chu kỳ nhắc lại: sau 2 - 3 ngày
     srs.level = Math.min(5, (srs.level || 2) + 1);
     srs.nextReviewSession = "3_days";
     removeForgottenWord(curWord.word);
     removeSkippedWord(curWord.word);
   } else if (score === 5) {
-    // [5] RẤT DỄ: Level 5, nhắc lại sau 7 ngày
+    // [5] RẤT DỄ: Level 5, nhắc lại sau 5 - 7 ngày
     srs.level = 5;
     srs.nextReviewSession = "7_days";
     removeForgottenWord(curWord.word);
@@ -5261,7 +5293,7 @@ const defaultInterleavedConfig = {
   includePastDays: true,
   includeSRS: true,
   includeReadingCustom: true,
-  insertCount: 6,
+  insertCount: 20, // Cường độ cao: +20 từ ôn tập ngắt quãng/ngày
   insertMode: "interleave" // "interleave" or "random_mix"
 };
 
@@ -5273,6 +5305,9 @@ function getInterleavedConfig() {
       // Migrate old config if enabled was previously unset or explicitly false by old default
       if (parsed.hasUserToggled === undefined) {
         parsed.enabled = true;
+      }
+      if (!parsed.insertCount || parseInt(parsed.insertCount) < 15) {
+        parsed.insertCount = 20; // Auto-upgrade to high-intensity repetition
       }
       return { ...defaultInterleavedConfig, ...parsed };
     }
@@ -8695,6 +8730,29 @@ function renderBilingualNewsArticles() {
 // ============================================================================
 // 3 PHIÊN HỌC NGẮT QUÃNG SÁNG - TRƯA - TỐI (SPACED ROUTINE ENGINE)
 // ============================================================================
+
+function startSessionWorkflow(action) {
+  if (action === "morning") {
+    if (typeof setFlashcardSessionFilter === "function") setFlashcardSessionFilter("morning");
+    switchTab("flashcard");
+    showToast("🌅 Bắt đầu Phiên Sáng: Nạp 20 từ vựng mới mục tiêu với cường độ cao!", "info");
+  } else if (action === "noon_flashcard") {
+    if (typeof setFlashcardSessionFilter === "function") setFlashcardSessionFilter("noon");
+    switchTab("flashcard");
+    showToast("☀️ Bắt đầu Ôn Flashcard Buổi Trưa: Lặp lại ngắt quãng đợt 1 các từ cần củng cố!", "info");
+  } else if (action === "noon_listening") {
+    switchTab("listening");
+    showToast("🎧 Bắt đầu Luyện Nghe Buổi Trưa: Làm bài nghe chuẩn đề thi!", "info");
+  } else if (action === "evening_reader") {
+    switchTab("reader");
+    showToast("📖 Bắt đầu Buổi Tối: Luyện bài đọc hiểu song ngữ chuẩn VSTEP/IELTS!", "info");
+  } else if (action === "evening_flashcard") {
+    if (typeof setFlashcardSessionFilter === "function") setFlashcardSessionFilter("evening");
+    switchTab("flashcard");
+    showToast("🌙 Bắt đầu Buổi Tối: Củng cố toàn diện Flashcard & Chốt chuỗi Streak!", "info");
+  }
+}
+
 function updateSessionRoutineUI() {
   const now = new Date();
   const hours = now.getHours();
@@ -8724,27 +8782,27 @@ function updateSessionRoutineUI() {
 
   if (sttM) {
     const isMCompleted = streaks.morningDone || st.vocabDone;
-    sttM.innerHTML = isMCompleted ? "<span class='text-emerald-400 font-bold'>✓ Đã xong (Hạn 12:00)</span>" : "<span class='text-amber-400'>Hạn 12:00 • 10 từ mới</span>";
+    sttM.innerHTML = isMCompleted ? "<span class='text-emerald-400 font-bold'>✓ Đã xong (Hạn 12:00)</span>" : "<span class='text-amber-400'>Hạn 12:00 • 20 từ mới</span>";
   }
   if (sttN) {
-    const isNCompleted = streaks.noonDone || (st.readingDone && st.grammarDone);
-    sttN.innerHTML = isNCompleted ? "<span class='text-emerald-400 font-bold'>✓ Đã xong (Hạn 18:00)</span>" : "<span class='text-cyan-300'>Hạn 18:00 • Ôn ngắt quãng</span>";
+    const isNCompleted = streaks.noonDone || (st.listeningDone && (st.vocabCount >= 10 || st.vocabDone));
+    sttN.innerHTML = isNCompleted ? "<span class='text-emerald-400 font-bold'>✓ Đã xong (Hạn 18:00)</span>" : "<span class='text-cyan-300'>Hạn 18:00 • Ôn Thẻ & Nghe</span>";
   }
   if (sttE) {
-    const isECompleted = streaks.eveningDone || st.videoDone;
-    sttE.innerHTML = isECompleted ? "<span class='text-emerald-400 font-bold'>✓ Đã chốt xong (Hạn 22:00)</span>" : "<span class='text-rose-300'>Hạn 22:00 • Chốt Streak</span>";
+    const isECompleted = streaks.eveningDone || (st.readingDone && st.vocabDone);
+    sttE.innerHTML = isECompleted ? "<span class='text-emerald-400 font-bold'>✓ Đã chốt xong (Hạn 22:00)</span>" : "<span class='text-rose-300'>Hạn 22:00 • Đọc & Chốt Thẻ</span>";
   }
 
   // Determine current active window
-  if (totalMins < 690) { // Before 11:30
+  if (totalMins < 720) { // Before 12:00
     if (cardMorning) cardMorning.classList.add("ring-2", "ring-indigo-400", "bg-indigo-950/40");
-    if (badge) badge.innerText = "🌅 Đang ở Phiên Sáng (Học Từ Mới)";
-  } else if (totalMins < 1050) { // 11:30 - 17:30
+    if (badge) badge.innerText = "🌅 Đang ở Phiên Sáng (Học Flashcard Từ Mới Cường Độ Cao)";
+  } else if (totalMins < 1080) { // 12:00 - 18:00
     if (cardNoon) cardNoon.classList.add("ring-2", "ring-cyan-400", "bg-cyan-950/40");
-    if (badge) badge.innerText = "☀️ Đang ở Phiên Trưa (Đọc & Ngữ Pháp)";
-  } else { // 17:30 - 22:00+
+    if (badge) badge.innerText = "☀️ Đang ở Phiên Trưa (Ôn Lại Flashcard & Luyện Nghe)";
+  } else { // 18:00 - 24:00
     if (cardEvening) cardEvening.classList.add("ring-2", "ring-rose-400", "bg-rose-950/40");
-    if (badge) badge.innerText = "🌙 Đang ở Phiên Tối (Xem Video/Phim & Chốt Streak)";
+    if (badge) badge.innerText = "🌙 Đang ở Phiên Tối (Làm Bài Đọc & Củng Cố Flashcard)";
   }
 }
 

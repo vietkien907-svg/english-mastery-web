@@ -427,49 +427,70 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <!-- Phiên 1: Sáng -->
-            <div id="sessionCardMorning" class="p-4 rounded-xl border border-slate-800 bg-slate-900/80 space-y-2 transition-all duration-300">
+            <!-- Phiên 1: Sáng (Học Flashcard Từ Mới Cường Độ Cao) -->
+            <div id="sessionCardMorning" class="p-4 rounded-xl border border-slate-800 bg-slate-900/80 space-y-2.5 transition-all duration-300">
               <div class="flex items-center justify-between">
                 <span class="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 font-bold text-[11px] flex items-center gap-1">
-                  🌅 06:00 - 11:30
+                  🌅 Sáng (Hạn 12:00)
                 </span>
                 <span id="sttSessionMorning" class="text-xs text-slate-400 font-semibold">Chưa xong</span>
               </div>
-              <h4 class="font-bold text-white text-sm">Buổi Sáng: Nạp 20 Từ Vựng Mới</h4>
-              <p class="text-xs text-slate-400">Tiếp thu từ mới theo Unit hôm nay khi tinh thần minh mẫn nhất.</p>
-              <button onclick="switchTab('flashcard')" class="w-full py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold transition">
-                Vào Học Từ Vựng →
+              <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
+                <span>🎴</span> <span>Học Flashcard Từ Mới</span>
+              </h4>
+              <p class="text-xs text-slate-400 leading-relaxed">Nạp 20 từ vựng mục tiêu hôm nay với cường độ cao khi trí não tỉnh táo nhất.</p>
+              <button onclick="startSessionWorkflow('morning')" class="w-full py-2 rounded-lg bg-indigo-600/40 hover:bg-indigo-600 text-indigo-200 hover:text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow active:scale-95">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                <span>Vào Học Flashcard Sáng →</span>
               </button>
             </div>
 
-            <!-- Phiên 2: Trưa -->
-            <div id="sessionCardNoon" class="p-4 rounded-xl border border-slate-800 bg-slate-900/80 space-y-2 transition-all duration-300">
+            <!-- Phiên 2: Trưa (Ôn Lại Flashcard & Luyện Nghe) -->
+            <div id="sessionCardNoon" class="p-4 rounded-xl border border-slate-800 bg-slate-900/80 space-y-2.5 transition-all duration-300">
               <div class="flex items-center justify-between">
                 <span class="px-2 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 font-bold text-[11px] flex items-center gap-1">
-                  ☀️ 11:30 - 17:30
+                  ☀️ Trưa (Hạn 18:00)
                 </span>
                 <span id="sttSessionNoon" class="text-xs text-slate-400 font-semibold">Chưa xong</span>
               </div>
-              <h4 class="font-bold text-white text-sm">Buổi Trưa: Đọc Hiểu & Ngữ Pháp</h4>
-              <p class="text-xs text-slate-400">1 bài đọc VSTEP chuẩn dài hoặc bài tập ngữ pháp Cô Trang Anh.</p>
-              <button onclick="switchTab('reader')" class="w-full py-1.5 rounded-lg bg-cyan-600/30 hover:bg-cyan-600 text-cyan-300 hover:text-white text-xs font-bold transition">
-                Luyện Bài Đọc Chuẩn →
-              </button>
+              <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
+                <span>🔁</span> <span>Ôn Flashcard & Luyện Nghe</span>
+              </h4>
+              <p class="text-xs text-slate-400 leading-relaxed">Ôn lặp lại ngắt quãng Flashcard đợt 1 + Luyện 1-2 bài nghe chuẩn đề HP3/VSTEP.</p>
+              <div class="grid grid-cols-2 gap-1.5 pt-0.5">
+                <button onclick="startSessionWorkflow('noon_flashcard')" class="py-2 rounded-lg bg-indigo-600/30 hover:bg-indigo-600 text-indigo-200 hover:text-white text-xs font-bold transition flex items-center justify-center gap-1 active:scale-95">
+                  <i data-lucide="repeat" class="w-3.5 h-3.5"></i>
+                  <span>Ôn Thẻ Trưa</span>
+                </button>
+                <button onclick="startSessionWorkflow('noon_listening')" class="py-2 rounded-lg bg-cyan-600/30 hover:bg-cyan-600 text-cyan-200 hover:text-white text-xs font-bold transition flex items-center justify-center gap-1 active:scale-95">
+                  <i data-lucide="headphones" class="w-3.5 h-3.5"></i>
+                  <span>Luyện Nghe</span>
+                </button>
+              </div>
             </div>
 
-            <!-- Phiên 3: Tối -->
-            <div id="sessionCardEvening" class="p-4 rounded-xl border border-slate-800 bg-slate-900/80 space-y-2 transition-all duration-300">
+            <!-- Phiên 3: Tối (Làm Bài Đọc & Củng Cố Flashcard) -->
+            <div id="sessionCardEvening" class="p-4 rounded-xl border border-slate-800 bg-slate-900/80 space-y-2.5 transition-all duration-300">
               <div class="flex items-center justify-between">
                 <span class="px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 font-bold text-[11px] flex items-center gap-1">
-                  🌙 17:30 - 22:00
+                  🌙 Tối (Hạn 22:00)
                 </span>
                 <span id="sttSessionEvening" class="text-xs text-slate-400 font-semibold">Chưa xong</span>
               </div>
-              <h4 class="font-bold text-white text-sm">Buổi Tối: Xem Video / Phim & Chốt Streak</h4>
-              <p class="text-xs text-slate-400">Xem video Vietnam Today phát sóng mới trước 22:00.</p>
-              <button onclick="switchTab('video')" class="w-full py-1.5 rounded-lg bg-rose-600/30 hover:bg-rose-600 text-rose-300 hover:text-white text-xs font-bold transition">
-                Xem Video & Chốt Đích →
-              </button>
+              <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
+                <span>📖</span> <span>Làm Bài Đọc & Củng Cố Thẻ</span>
+              </h4>
+              <p class="text-xs text-slate-400 leading-relaxed">Làm 1 bài đọc hiểu VSTEP/IELTS chuẩn + Ôn toàn diện Flashcard và chốt chuỗi Streak.</p>
+              <div class="grid grid-cols-2 gap-1.5 pt-0.5">
+                <button onclick="startSessionWorkflow('evening_reader')" class="py-2 rounded-lg bg-emerald-600/30 hover:bg-emerald-600 text-emerald-200 hover:text-white text-xs font-bold transition flex items-center justify-center gap-1 active:scale-95">
+                  <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                  <span>Làm Bài Đọc</span>
+                </button>
+                <button onclick="startSessionWorkflow('evening_flashcard')" class="py-2 rounded-lg bg-rose-600/30 hover:bg-rose-600 text-rose-200 hover:text-white text-xs font-bold transition flex items-center justify-center gap-1 active:scale-95">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                  <span>Chốt Thẻ Tối</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -738,33 +759,39 @@
             <div class="flex items-center gap-1 text-[11px]">
               <span>🌅</span> <span>Phiên Sáng</span>
             </div>
-            <span class="text-[10px] text-indigo-200 font-normal">Học từ mới • Hạn 12:00</span>
-            <span id="pillBadgeMorning" class="text-[9px] px-2 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 font-semibold">10 từ</span>
+            <span class="text-[10px] text-indigo-200 font-normal">Học Từ Mới • Hạn 12:00</span>
+            <span id="pillBadgeMorning" class="text-[9px] px-2 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 font-semibold">20 từ mới</span>
           </button>
 
           <button type="button" id="btnSessionNoon" onclick="setFlashcardSessionFilter('noon')" class="session-filter-pill py-2.5 px-2 rounded-xl text-xs font-bold border transition flex flex-col items-center justify-center gap-1 bg-slate-800/80 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 active:scale-95">
             <div class="flex items-center gap-1 text-[11px]">
               <span>☀️</span> <span>Phiên Trưa</span>
             </div>
-            <span class="text-[10px] text-slate-400 font-normal">Ôn ngắt quãng • Hạn 18:00</span>
-            <span id="pillBadgeNoon" class="text-[9px] px-2 py-0.5 rounded-full bg-slate-700 text-slate-300 font-semibold">10 từ</span>
+            <span class="text-[10px] text-slate-400 font-normal">Ôn Thẻ & Nghe • Hạn 18:00</span>
+            <span id="pillBadgeNoon" class="text-[9px] px-2 py-0.5 rounded-full bg-slate-700 text-slate-300 font-semibold">Ôn + Nghe</span>
           </button>
 
           <button type="button" id="btnSessionEvening" onclick="setFlashcardSessionFilter('evening')" class="session-filter-pill py-2.5 px-2 rounded-xl text-xs font-bold border transition flex flex-col items-center justify-center gap-1 bg-slate-800/80 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 active:scale-95">
             <div class="flex items-center gap-1 text-[11px]">
               <span>🌙</span> <span>Phiên Tối</span>
             </div>
-            <span class="text-[10px] text-slate-400 font-normal">Củng cố & Chốt • Hạn 22:00</span>
-            <span id="pillBadgeEvening" class="text-[9px] px-2 py-0.5 rounded-full bg-slate-700 text-slate-300 font-semibold">20 từ</span>
+            <span class="text-[10px] text-slate-400 font-normal">Bài Đọc & Chốt Thẻ • Hạn 22:00</span>
+            <span id="pillBadgeEvening" class="text-[9px] px-2 py-0.5 rounded-full bg-slate-700 text-slate-300 font-semibold">Đọc + Thẻ</span>
           </button>
 
           <button type="button" id="btnSessionAll" onclick="setFlashcardSessionFilter('all')" class="session-filter-pill py-2.5 px-2 rounded-xl text-xs font-bold border transition flex flex-col items-center justify-center gap-1 bg-slate-800/80 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 active:scale-95">
             <div class="flex items-center gap-1 text-[11px]">
-              <span>🌟</span> <span>Tất Cả Thẻ</span>
+              <span>🌟</span> <span>Toàn Bộ Thẻ</span>
             </div>
-            <span class="text-[10px] text-slate-400 font-normal">Toàn bộ ngày • Tự do</span>
-            <span id="pillBadgeAll" class="text-[9px] px-2 py-0.5 rounded-full bg-slate-700 text-slate-300 font-semibold">20 từ</span>
+            <span class="text-[10px] text-slate-400 font-normal">Cường Độ Cao • Lặp Lại Dày</span>
+            <span id="pillBadgeAll" class="text-[9px] px-2 py-0.5 rounded-full bg-slate-700 text-slate-300 font-semibold">40-50 thẻ</span>
           </button>
+        </div>
+
+        <!-- Session Partner Guidance Quick Banner -->
+        <div id="sessionPartnerGuidance" class="hidden p-2.5 rounded-xl border text-xs flex items-center justify-between gap-2 flex-wrap">
+          <div id="sessionPartnerGuidanceText" class="flex items-center gap-2"></div>
+          <button id="sessionPartnerGuidanceBtn" class="px-3 py-1 rounded-lg text-xs font-bold transition"></button>
         </div>
 
         <!-- SRS Explanation Tip Collapsible -->
@@ -1933,11 +1960,11 @@
         <div>
           <label class="block text-slate-400 font-semibold mb-1">2. Số lượng từ chèn vào mỗi ngày:</label>
           <select id="cfgInsertCount" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 outline-none focus:border-indigo-500">
-            <option value="5">Chèn ngẫu nhiên +5 từ</option>
-            <option value="10">Chèn ngẫu nhiên +10 từ (Khuyên dùng)</option>
-            <option value="15">Chèn ngẫu nhiên +15 từ</option>
-            <option value="20">Chèn ngẫu nhiên +20 từ</option>
-            <option value="all">Toàn bộ kho từ (Trộn tối đa)</option>
+            <option value="15">🔥 Cường độ Vừa (+15 từ ôn • Tổng 35 thẻ)</option>
+            <option value="20" selected>⚡ Cường độ Cao (+20 từ ôn • Tổng 40 thẻ - Khuyên dùng)</option>
+            <option value="25">🚀 Cường độ Cực Đại (+25 từ ôn • Tổng 45 thẻ)</option>
+            <option value="30">🏆 Siêu Tốc Hardcore (+30 từ ôn • Tổng 50 thẻ)</option>
+            <option value="all">🌟 Toàn bộ kho từ đã học (Tối đa)</option>
           </select>
         </div>
 
@@ -2510,19 +2537,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=52.0"></script>
-  <script src="./listening_data.js?v=52.0"></script>
-  <script src="./vietnam_today_data.js?v=52.0"></script>
-  <script src="./educational_channels_data.js?v=52.0"></script>
-  <script src="./international_news_videos.js?v=52.0"></script>
-  <script src="./bilingual_news_data.js?v=52.0"></script>
-  <script src="./reading_lexicon.js?v=52.0"></script>
-  <script src="./app.js?v=52.0"></script>
+  <script src="./data.js?v=53.0"></script>
+  <script src="./listening_data.js?v=53.0"></script>
+  <script src="./vietnam_today_data.js?v=53.0"></script>
+  <script src="./educational_channels_data.js?v=53.0"></script>
+  <script src="./international_news_videos.js?v=53.0"></script>
+  <script src="./bilingual_news_data.js?v=53.0"></script>
+  <script src="./reading_lexicon.js?v=53.0"></script>
+  <script src="./app.js?v=53.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=52.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=53.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

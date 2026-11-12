@@ -3454,46 +3454,32 @@ function renderReadingPassageContentOnly(passage) {
     const paraBody = document.createElement("div");
     paraBody.className = "leading-loose select-text";
 
-    const segments = paraText.split(/(\[\d+\](?:\s*_{2,})?)/g);
-    segments.forEach(segment => {
-      const clozeMatch = segment.match(/^\[(\d+)\](?:\s*_{2,})?$/);
-      if (clozeMatch) {
-        const slotNum = parseInt(clozeMatch[1]);
-        const clozeBtn = document.createElement("button");
-        clozeBtn.id = `cloze-slot-${slotNum}`;
-        clozeBtn.className = "cloze-slot-pill mx-1 px-3 py-1 rounded-lg bg-indigo-600/30 text-indigo-300 font-bold border border-indigo-500/50 hover:bg-indigo-600/50 shadow-sm inline-flex items-center gap-1 transition cursor-pointer text-sm align-middle";
-        clozeBtn.innerHTML = `<span>[${slotNum}]</span> <span class="cloze-text underline decoration-indigo-400 italic font-mono">______</span>`;
-        clozeBtn.onclick = () => jumpToReadingQuestion(slotNum - 1);
-        paraBody.appendChild(clozeBtn);
-      } else {
-        const tokens = segment.split(/(\b[A-Za-z'-]+\b)/);
-        tokens.forEach(token => {
-          if (/^[A-Za-z'-]+$/.test(token)) {
-            const cleanLower = token.toLowerCase();
-            const isTarget = targetWords.some(tw => tw === cleanLower || tw.split(/\s+/).includes(cleanLower));
+    const tokens = paraText.split(/(\b[A-Za-z'-]+\b)/);
+    tokens.forEach(token => {
+      if (/^[A-Za-z'-]+$/.test(token)) {
+        const cleanLower = token.toLowerCase();
+        const isTarget = targetWords.some(tw => tw === cleanLower || tw.split(/\s+/).includes(cleanLower));
 
-            const span = document.createElement("span");
-            span.textContent = token;
+        const span = document.createElement("span");
+        span.textContent = token;
 
-            if (isTarget) {
-              span.className = "target-word-pill font-bold text-amber-300 bg-amber-500/20 px-1 py-0.5 rounded border border-amber-500/30 cursor-pointer hover:bg-amber-500/40 transition shadow-sm inline-block";
-              span.title = `Từ trọng tâm: ${token}`;
-            } else {
-              span.className = "clickable-word cursor-pointer hover:text-amber-300 hover:underline decoration-amber-400 decoration-dotted transition inline-block";
-              span.title = `Chạm để tra từ: ${token}`;
-            }
+        if (isTarget) {
+          span.className = "target-word-pill font-bold text-amber-300 bg-amber-500/20 px-1 py-0.5 rounded border border-amber-500/30 cursor-pointer hover:bg-amber-500/40 transition shadow-sm inline-block";
+          span.title = `Từ trọng tâm: ${token}`;
+        } else {
+          span.className = "clickable-word cursor-pointer hover:text-amber-300 hover:underline decoration-amber-400 decoration-dotted transition inline-block";
+          span.title = `Chạm để tra từ: ${token}`;
+        }
 
-            span.addEventListener("click", () => {
-              const sentences = paraText.split(/(?<=[.?!])\s+/);
-              const foundSent = sentences.find(s => s.toLowerCase().includes(cleanLower)) || paraText;
-              showWordPopup(token, foundSent);
-            });
-
-            paraBody.appendChild(span);
-          } else {
-            paraBody.appendChild(document.createTextNode(token));
-          }
+        span.addEventListener("click", () => {
+          const sentences = paraText.split(/(?<=[.?!])\s+/);
+          const foundSent = sentences.find(s => s.toLowerCase().includes(cleanLower)) || paraText;
+          showWordPopup(token, foundSent);
         });
+
+        paraBody.appendChild(span);
+      } else {
+        paraBody.appendChild(document.createTextNode(token));
       }
     });
 
@@ -3534,13 +3520,14 @@ function renderReadingQuestionsWorkspace() {
     const selectedAns = readingExamState.userAnswers[idx];
     const isAnswered = (selectedAns !== undefined);
 
+    const isVocabQ = (q.q || "").includes("closest in meaning to");
     const qTypeTag = q.qType === "tfng"
       ? `<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[10px] border border-amber-500/30">⚖️ True / False / Not Given</span>`
       : (q.qType === "fill"
-        ? `<span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-[10px] border border-emerald-500/30">✍️ Summary Completion (Điền từ)</span>`
-        : ((idx < 4 && passage.type === "cloze_and_comprehension")
-          ? `<span class="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-[10px] border border-indigo-500/30">🕳️ Cloze [${idx + 1}]</span>`
-          : `<span class="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-[10px] border border-cyan-500/30">📖 Multiple Choice</span>`));
+        ? `<span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-[10px] border border-emerald-500/30">✍️ Summary Completion</span>`
+        : (isVocabQ
+          ? `<span class="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-[10px] border border-indigo-500/30">🏷️ Vocabulary in Context (VSTEP / IELTS)</span>`
+          : `<span class="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-[10px] border border-cyan-500/30">📖 Reading Comprehension</span>`));
 
     const evidenceParaIdx = findEvidenceParagraphIndex(passage, q);
 

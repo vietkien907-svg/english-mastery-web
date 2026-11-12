@@ -4995,14 +4995,68 @@ async function exportPersonalData() {
 }
 
 // ================= SPEECH & TOUCH =================
+// Pre-warm Web Speech API voices
+if (typeof window !== "undefined" && "speechSynthesis" in window) {
+  try {
+    window.speechSynthesis.getVoices();
+    if (window.speechSynthesis.onvoiceschanged !== undefined) {
+      window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+    }
+  } catch (e) {}
+}
+
 function speakCurrentWord() {
   const words = getCurrentDayWords();
   if (words && words[appState.currentCardIndex]) {
-    speakText(words[appState.currentCardIndex].word);
+    const curWord = words[appState.currentCardIndex];
+    // Đọc trọn vẹn từ/cụm từ/thành ngữ không bị cắt xén
+    speakText(curWord.word);
   }
 }
 
-// BỘ PHÁT ÂM TIẾNG ANH CHUẨN US ĐA TẦNG (TỪ ĐIỂN QUỐC TẾ + WEB SPEECH API)
+// ĐỌC TOÀN BỘ NỘI DUNG THẺ (TỪ + TỪ LOẠI + ĐỊNH NGHĨA + CÂU VÍ DỤ)
+function speakFlashcardFull() {
+  const words = getCurrentDayWords();
+  if (!words || !words[appState.currentCardIndex]) return;
+  const curWord = words[appState.currentCardIndex];
+
+  const speechSegments = [];
+
+  // 1. Từ hoặc cụm từ trọng tâm
+  const cleanWord = (curWord.word || "").trim();
+  if (cleanWord) {
+    speechSegments.push(cleanWord);
+  }
+
+  // 2. Từ loại tiếng Anh
+  if (curWord.pos) {
+    const posObj = (typeof formatPosLabel === "function") ? formatPosLabel(curWord.pos) : null;
+    const posName = posObj ? posObj.en : curWord.pos;
+    if (posName) speechSegments.push(posName);
+  }
+
+  // 3. Định nghĩa tiếng Anh
+  const defEn = (curWord.meaning_en || curWord.definition || "").trim();
+  if (defEn) {
+    speechSegments.push(`Definition: ${defEn}`);
+  } else if (curWord.meaning_vi) {
+    speechSegments.push(`Meaning: ${curWord.meaning_vi}`);
+  }
+
+  // 4. Câu ví dụ ngữ cảnh
+  const ex = (curWord.example || "").trim().replace(/^["']|["']$/g, "");
+  if (ex) {
+    speechSegments.push(`Example: ${ex}`);
+  }
+
+  const fullText = speechSegments.join(". ");
+  if (typeof showToast === "function") {
+    showToast("🔊 Đang đọc toàn bộ thẻ: Từ + Định nghĩa + Ví dụ...", "info");
+  }
+  speakWithSynthesis(fullText);
+}
+
+// BỘ PHÁT ÂM TIẾNG ANH CHUẨN US ĐA TẦNG (FULL CARD & NATIVE SPEECH)
 function speakWord(text, audioUrl) {
   if (!text) return;
   speakText(text, audioUrl);
@@ -5010,44 +5064,55 @@ function speakWord(text, audioUrl) {
 
 function speakText(text, audioUrl) {
   if (!text) return;
-  const clean = text.trim().replace(/^[^a-zA-Z\s'-]+|[^a-zA-Z\s'-]+$/g, "");
+  // Làm sạch ký tự đặc biệt đầu/cuối nhưng giữ nguyên dấu cách, gạch nối, nháy đơn để đọc chuẩn cụm từ/collocations
+  const clean = text.trim().replace(/^[^a-zA-Z0-9\s'-,/]+|[^a-zA-Z0-9\s'-,/]+$/g, "");
   if (!clean) return;
 
   // 1. Nếu có audioUrl trực tiếp
   if (audioUrl) {
     try {
       const snd = new Audio(audioUrl);
-      snd.play().catch(() => playNativeDictAudio(clean));
+      snd.play().catch(() => speakWithSynthesis(clean));
       return;
     } catch (e) {}
   }
 
-  // 2. Phát âm bằng Audio Stream chuẩn US từ hệ thống Từ Điển
-  playNativeDictAudio(clean);
-}
-
-function playNativeDictAudio(word) {
-  const firstWord = word.trim().split(/\s+/)[0] || word;
-  const usAudioUrl = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(firstWord)}&type=2`;
-  const audio = new Audio(usAudioUrl);
-  audio.play().catch(() => {
-    // 3. Fallback mượt mà sang Web Speech Synthesis
-    speakWithSynthesis(word);
-  });
+  // 2. Phát âm bằng Web Speech Synthesis trọn vẹn cả cụm từ / câu
+  speakWithSynthesis(clean);
 }
 
 function speakWithSynthesis(text) {
-  if (!("speechSynthesis" in window)) return;
+  if (!("speechSynthesis" in window) || !text) return;
   try {
+    if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+      window.speechSynthesis.cancel();
+    }
     if (window.speechSynthesis.paused) {
       window.speechSynthesis.resume();
     }
-    const u = new SpeechSynthesisUtterance(text);
+
+    // Chuẩn hóa dấu gạch chéo '/' để đọc tự nhiên (vd: 'take off / leave' -> 'take off, or leave')
+    const speechText = text.replace(/\s*\/\s*/g, ", or ");
+
+    const u = new SpeechSynthesisUtterance(speechText);
     u.lang = "en-US";
     const voices = window.speechSynthesis.getVoices() || [];
-    const usVoice = voices.find(v => v.lang === "en-US" && (v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Samantha") || v.name.includes("US") || v.name.includes("David") || v.name.includes("Zira")));
+    const usVoice = voices.find(v => (v.lang === "en-US" || v.lang === "en_US") && (
+      v.name.includes("Natural") ||
+      v.name.includes("Google US") ||
+      v.name.includes("Samantha") ||
+      v.name.includes("Jenny") ||
+      v.name.includes("Guy") ||
+      v.name.includes("Aria") ||
+      v.name.includes("David") ||
+      v.name.includes("Zira")
+    )) || voices.find(v => v.lang.startsWith("en"));
+
     if (usVoice) u.voice = usVoice;
-    u.rate = 0.9;
+    u.rate = 0.92;
+    u.pitch = 1.0;
+    u.volume = 1.0;
+
     window.speechSynthesis.speak(u);
   } catch (e) {
     console.warn("Speech synthesis error:", e);
@@ -5061,9 +5126,13 @@ function setupTouchAndKeyboard() {
 
     if (appState.activeTab !== "flashcard") return;
 
-    // PHÍM BẤM CTRL (HOẶC PHÍM S): TỰ ĐỘNG PHÁT ÂM ĐỌC TỪ FLASHCARD
+    // PHÍM BẤM CTRL (HOẶC PHÍM S): TỰ ĐỘNG PHÁT ÂM ĐỌC TỪ FLASHCARD (SHIFT + S: ĐỌC CẢ THẺ)
     if (e.key === "Control" || e.code === "ControlLeft" || e.code === "ControlRight") {
-      speakCurrentWord();
+      if (e.shiftKey) {
+        speakFlashcardFull();
+      } else {
+        speakCurrentWord();
+      }
       return;
     }
 
@@ -5087,7 +5156,11 @@ function setupTouchAndKeyboard() {
     } else if (e.code === "KeyB") {
       skipCurrentCard(); // Phím B: Bỏ qua (đưa vào ôn tập tích lũy)
     } else if (e.code === "KeyS") {
-      speakCurrentWord();
+      if (e.shiftKey) {
+        speakFlashcardFull();
+      } else {
+        speakCurrentWord();
+      }
     }
   });
 }
@@ -6505,9 +6578,59 @@ function filterListeningSource(src) {
   renderListeningTestSelector();
 }
 
+function navigateListeningTest(delta) {
+  if (typeof LISTENING_TESTS === "undefined" || !LISTENING_TESTS.length) return;
+  const filtered = LISTENING_TESTS.map((t, i) => ({ t, i })).filter(item => 
+    currentListeningSourceFilter === "all" || (item.t.sourceType || "exam") === currentListeningSourceFilter
+  );
+  if (!filtered.length) return;
+
+  const curPos = filtered.findIndex(item => item.i === currentListeningTestIdx);
+  let nextPos = (curPos !== -1 ? curPos : 0) + delta;
+  if (nextPos < 0) nextPos = filtered.length - 1;
+  if (nextPos >= filtered.length) nextPos = 0;
+
+  switchListeningTest(filtered[nextPos].i);
+}
+
+function getListeningTypeBadge(sourceType) {
+  switch (sourceType) {
+    case "ielts": return { icon: "🎓", label: "IELTS", color: "text-cyan-300 border-cyan-500/40" };
+    case "aptis": return { icon: "🏛️", label: "APTIS", color: "text-emerald-300 border-emerald-500/40" };
+    case "active": return { icon: "🔥", label: "BBC Active", color: "text-amber-300 border-amber-500/40" };
+    case "passive": return { icon: "🎧", label: "Talk Show", color: "text-rose-300 border-rose-500/40" };
+    default: return { icon: "📝", label: "Exam", color: "text-indigo-300 border-indigo-500/40" };
+  }
+}
+
 function renderListeningTestSelector() {
+  if (typeof LISTENING_TESTS === "undefined" || !LISTENING_TESTS.length) return;
+
+  // 1. Cập nhật Dropdown Select nhanh nếu có
+  const dropdown = document.getElementById("listeningTestDropdown");
+  if (dropdown) {
+    let optHtml = "";
+    LISTENING_TESTS.forEach((t, idx) => {
+      const tType = t.sourceType || "exam";
+      if (currentListeningSourceFilter !== "all" && tType !== currentListeningSourceFilter) return;
+      const badge = getListeningTypeBadge(tType);
+      const isSel = idx === currentListeningTestIdx ? "selected" : "";
+      optHtml += `<option value="${idx}" ${isSel}>${badge.icon} Đề ${idx + 1} [${badge.label}]: ${t.title.replace(/^[^:]+:\s*/, "")}</option>`;
+    });
+    dropdown.innerHTML = optHtml;
+  }
+
+  // 2. Cập nhật Huy hiệu hiển thị bài nghe hiện tại
+  const badgeEl = document.getElementById("listeningCurrentTestBadge");
+  if (badgeEl && LISTENING_TESTS[currentListeningTestIdx]) {
+    const curT = LISTENING_TESTS[currentListeningTestIdx];
+    const b = getListeningTypeBadge(curT.sourceType || "exam");
+    badgeEl.innerHTML = `<span class="font-mono text-cyan-300">Đề ${currentListeningTestIdx + 1}/100</span> • <span class="font-bold">${b.icon} ${b.label}</span> • <span class="text-slate-300">${curT.title}</span>`;
+  }
+
+  // 3. Render dãy nút Pills chọn đề nhỏ gọn, cuộn mượt mà
   const container = document.getElementById("listeningTestSelector");
-  if (!container || typeof LISTENING_TESTS === "undefined" || !LISTENING_TESTS.length) return;
+  if (!container) return;
 
   let html = "";
   LISTENING_TESTS.forEach((t, idx) => {
@@ -6515,15 +6638,15 @@ function renderListeningTestSelector() {
     if (currentListeningSourceFilter !== "all" && tType !== currentListeningSourceFilter) return;
 
     const active = idx === currentListeningTestIdx;
-    const badgeIcon = tType === "active" ? "🔥" : (tType === "passive" ? "🎧" : "📝");
+    const badge = getListeningTypeBadge(tType);
     html += `
-      <button onclick="switchListeningTest(${idx})" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 border ${
+      <button onclick="switchListeningTest(${idx})" title="Đề ${idx + 1}: ${t.title}" class="px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1 border shrink-0 ${
         active
-          ? "bg-gradient-to-r from-cyan-600 to-indigo-600 text-white border-cyan-400 shadow-lg shadow-cyan-900/40"
-          : "glass-card text-slate-300 border-slate-700 hover:text-white hover:bg-slate-800"
+          ? "bg-gradient-to-r from-cyan-600 to-indigo-600 text-white border-cyan-400 shadow-md shadow-cyan-900/40 ring-1 ring-cyan-400"
+          : "bg-slate-900/80 hover:bg-slate-800 text-slate-300 border-slate-700/80 hover:text-white"
       }">
-        <span>${badgeIcon}</span>
-        <span>${t.title.split(":")[0]}</span>
+        <span>${badge.icon}</span>
+        <span>#${idx + 1}</span>
       </button>
     `;
   });

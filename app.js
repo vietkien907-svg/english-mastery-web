@@ -650,6 +650,70 @@ function saveMissionRegistry() {
   }
 }
 
+
+// ============================================================================
+// STRICT DEADLINE STREAK ENGINE (Duy trì chuỗi khi hoàn thành đủ 4/4 Deadline)
+// ============================================================================
+const STORAGE_KEY_DEADLINE_STREAK_V2 = "EMH_DEADLINE_STREAK_V2";
+
+function getDeadlineStreakData() {
+  const todayStr = new Date().toISOString().split("T")[0];
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_DEADLINE_STREAK_V2);
+    if (raw) {
+      const data = JSON.parse(raw);
+      return {
+        streakDays: parseInt(data.streakDays) || 0,
+        lastCompletedDate: data.lastCompletedDate || "",
+        completedToday: data.lastCompletedDate === todayStr
+      };
+    }
+  } catch (e) {}
+  return { streakDays: 0, lastCompletedDate: "", completedToday: false };
+}
+
+function syncDeadlineStreak() {
+  const curDay = missionRegistry.currentDay || 1;
+  const st = getDayMissionStatus(curDay);
+  const now = new Date();
+  const todayStr = now.toISOString().split("T")[0];
+  const yesterday = new Date(now);
+  yesterday.setDate(now.getDate() - 1);
+  const yesterdayStr = yesterday.toISOString().split("T")[0];
+
+  let data = getDeadlineStreakData();
+
+  if (st.isAllDone && data.lastCompletedDate !== todayStr) {
+    if (data.lastCompletedDate === yesterdayStr) {
+      data.streakDays = (data.streakDays || 0) + 1;
+    } else if (!data.lastCompletedDate) {
+      data.streakDays = 1;
+    } else {
+      // Missed a day previously -> restart streak at 1
+      data.streakDays = 1;
+    }
+    data.lastCompletedDate = todayStr;
+    data.completedToday = true;
+    localStorage.setItem(STORAGE_KEY_DEADLINE_STREAK_V2, JSON.stringify(data));
+    if (typeof showToast === "function") {
+      showToast(`🔥 CHUỖI STREAK ĐƯỢC DUY TRÌ: ${data.streakDays} NGÀY LIÊN TIẾP! (Đã xong 4/4 Deadline hôm nay)`, "success");
+    }
+  }
+
+  // Update UI Badge
+  const badge = document.getElementById("todayStreakBadge");
+  if (badge) {
+    if (data.completedToday || st.isAllDone) {
+      const count = Math.max(1, data.streakDays);
+      badge.className = "px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1";
+      badge.innerHTML = `🔥 Chuỗi Streak: ${count} ngày (Đã giữ chuỗi hôm nay ✓)`;
+    } else {
+      badge.className = "px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold flex items-center gap-1";
+      badge.innerHTML = `🔥 Chuỗi Streak: ${data.streakDays} ngày (Đủ 4/4 Deadline để giữ chuỗi)`;
+    }
+  }
+}
+
 function getDayMissionStatus(dayNum) {
   const dStr = String(dayNum);
   const data = missionRegistry.history[dStr] || {
@@ -682,7 +746,7 @@ function getDayMissionStatus(dayNum) {
     : (data.listeningDoneCount || (data.listeningDone ? 2 : 0));
   const isListening = !!data.listeningDone || (listeningCount >= 2);
 
-  // Video Vietnam Today / Phim: Hạn chót 22:00
+  // Video là mục giải trí / nghe thụ động tự do (không tính vào Deadline bắt buộc)
   const watchedVideos = getWatchedVietnamTodayVideos();
   const isVideo = !!data.videoDone || (data.completedVideos && data.completedVideos.length > 0) || watchedVideos.size > 0;
 
@@ -691,7 +755,6 @@ function getDayMissionStatus(dayNum) {
   if (isReading) count++;
   if (isGrammar) count++;
   if (isListening) count++;
-  if (isVideo) count++;
 
   return {
     vocabDone: isVocab,
@@ -1485,22 +1548,22 @@ function updateDailyMissionUI() {
     if (btnG) btnG.innerHTML = `<i data-lucide="edit-3" class="w-3.5 h-3.5"></i> <span>Làm bài tập Ngữ pháp Ngày ${curDay}</span>`;
   }
 
-  // 5. Ratio & Progress Bar
+  // 5. Ratio & Progress Bar (4 Required Deadlines: Vocab, Reading, Grammar, Listening)
   const doneCount = curStatus.completedCount;
   const ratioEl = document.getElementById("missionProgressRatio");
   if (ratioEl) {
-    if (doneCount === 3) {
-      ratioEl.innerText = "3 / 3 ✓";
+    if (doneCount >= 4) {
+      ratioEl.innerText = "4 / 4 ✓";
       ratioEl.className = "text-xl font-black text-emerald-400 flex items-center gap-1";
     } else {
-      ratioEl.innerText = `${doneCount} / 3`;
+      ratioEl.innerText = `${doneCount} / 4`;
       ratioEl.className = "text-xl font-black text-amber-400";
     }
   }
   const barEl = document.getElementById("missionProgressBar");
   if (barEl) {
-    barEl.style.width = `${(doneCount / 3) * 100}%`;
-    if (doneCount === 3) {
+    barEl.style.width = `${Math.min(100, (doneCount / 4) * 100)}%`;
+    if (doneCount >= 4) {
       barEl.className = "h-full bg-emerald-400 rounded-full transition-all duration-300 shadow-md shadow-emerald-500/50";
     } else if (doneCount > 0) {
       barEl.className = "h-full bg-gradient-to-r from-amber-500 via-cyan-400 to-emerald-400 rounded-full transition-all duration-300 shadow-sm";
@@ -2856,7 +2919,152 @@ async function checkGrammarQuiz(qIdx, optIdx) {
 // ================= KHO BÀI ĐỌC LUYỆN THI & CLICK-TO-LOOKUP =================
 let currentFilteredReadings = [];
 
+
+// ============================================================================
+// MULTI-PART EXAM TESTS (VSTEP 4 PARTS & IELTS 3 PARTS) + DIVERSE QUESTION TYPES
+// ============================================================================
+let readingTestGroups = [];
+let activeReadingTestGroupIdx = 0;
+
+function buildReadingTestGroups() {
+  const readings = window.APP_DATA?.readings || [];
+  readingTestGroups = [];
+
+  const vstepList = readings.map((r, i) => ({ r, idx: i })).filter(x => (x.r.exam_type === "VSTEP") || (x.r.title || "").includes("VSTEP") || (x.r.category || "").includes("VSTEP") || (!x.r.exam_type && x.idx < 80));
+  const ieltsList = readings.map((r, i) => ({ r, idx: i })).filter(x => (x.r.exam_type === "IELTS") || (x.r.title || "").includes("IELTS") || (x.r.category || "").includes("IELTS"));
+
+  // Group VSTEP into 4-Part Full Tests (Part 1, Part 2, Part 3, Part 4)
+  for (let i = 0; i < vstepList.length; i += 4) {
+    const chunk = vstepList.slice(i, i + 4);
+    if (chunk.length >= 2) {
+      const testNum = Math.floor(i / 4) + 1;
+      readingTestGroups.push({
+        id: `vstep_full_${testNum}`,
+        label: `🇻🇳 VSTEP Full Test ${testNum} (${chunk.length} Parts • Ace of English)`,
+        examType: "VSTEP",
+        parts: chunk.map((item, pIdx) => ({
+          partNumber: pIdx + 1,
+          label: `Part ${pIdx + 1}`,
+          passageIdx: item.idx,
+          title: item.r.title
+        }))
+      });
+    }
+  }
+
+  // Group IELTS into 3-Part Full Tests (Passage 1, Passage 2, Passage 3)
+  for (let i = 0; i < ieltsList.length; i += 3) {
+    const chunk = ieltsList.slice(i, i + 3);
+    if (chunk.length >= 2) {
+      const testNum = Math.floor(i / 3) + 1;
+      readingTestGroups.push({
+        id: `ielts_full_${testNum}`,
+        label: `🎓 IELTS Academic Test ${testNum} (${chunk.length} Passages • The IELTS Dictionary)`,
+        examType: "IELTS",
+        parts: chunk.map((item, pIdx) => ({
+          partNumber: pIdx + 1,
+          label: `Passage ${pIdx + 1}`,
+          passageIdx: item.idx,
+          title: item.r.title
+        }))
+      });
+    }
+  }
+
+  const sel = document.getElementById("readingTestGroupSelect");
+  if (sel && readingTestGroups.length > 0) {
+    sel.innerHTML = readingTestGroups.map((g, gIdx) => `<option value="${gIdx}">${g.label}</option>`).join("");
+    renderReadingPartTabs(0);
+  }
+}
+
+function selectReadingTestGroup(groupIdx) {
+  activeReadingTestGroupIdx = parseInt(groupIdx) || 0;
+  renderReadingPartTabs(activeReadingTestGroupIdx);
+  const group = readingTestGroups[activeReadingTestGroupIdx];
+  if (group && group.parts.length > 0) {
+    renderReadingPassage(group.parts[0].passageIdx);
+  }
+}
+
+function renderReadingPartTabs(groupIdx) {
+  const bar = document.getElementById("readingPartTabsBar");
+  const group = readingTestGroups[groupIdx || 0];
+  if (!bar || !group) return;
+
+  bar.innerHTML = group.parts.map(p => {
+    const isActive = (appState.activeReadingIndex === p.passageIdx);
+    const qCount = window.APP_DATA?.readings?.[p.passageIdx]?.questions?.length || 7;
+    return `
+      <button type="button" onclick="renderReadingPassage(${p.passageIdx})" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 border ${
+        isActive
+          ? "bg-indigo-600 text-white border-indigo-400 shadow-md"
+          : "bg-slate-800 text-slate-300 border-slate-700 hover:text-white hover:bg-slate-700"
+      }">
+        <span>${p.label}</span>
+        <span class="text-[10px] opacity-80">(${qCount} câu)</span>
+      </button>
+    `;
+  }).join("");
+}
+
+function getDiversifiedReadingQuestions(passage) {
+  if (!passage) return [];
+  if (passage._diversifiedQuestions) return passage._diversifiedQuestions;
+
+  const baseQs = passage.questions || [];
+  if (baseQs.length === 0) return [];
+
+  // Clone and enrich with diverse question types (TFNG & Fill-in-the-Blank) based on real passage text
+  const enriched = baseQs.map((q, idx) => ({ ...q }));
+
+  // Extract sentences from passage to create an authentic TRUE / FALSE / NOT GIVEN question if not already present
+  const paras = Array.isArray(passage.paragraphs) ? passage.paragraphs : (passage.content ? [passage.content] : []);
+  const fullText = paras.join(" ");
+  const sentences = fullText.split(/(?<=[.!?])\s+/).filter(s => s.length > 35 && s.length < 180);
+
+  const hasTFNG = enriched.some(q => q.qType === "tfng");
+  if (!hasTFNG && sentences.length >= 2) {
+    const targetSent = sentences[Math.min(1, sentences.length - 1)].trim();
+    enriched.push({
+      qType: "tfng",
+      question: `TRUE / FALSE / NOT GIVEN: According to the passage, "${targetSent}"`,
+      options: ["TRUE", "FALSE", "NOT GIVEN"],
+      answer: 0,
+      evidence: targetSent,
+      explain: `Thông tin này khớp hoàn toàn với nội dung được nêu trực tiếp trong bài đọc: "${targetSent}"`
+    });
+  }
+
+  // Create an authentic Fill-in-the-Blank (Summary Completion) question from a key sentence
+  const hasFill = enriched.some(q => q.qType === "fill");
+  if (!hasFill && sentences.length >= 3) {
+    const s = sentences[Math.min(2, sentences.length - 1)].trim();
+    const words = s.replace(/[^A-Za-z\s]/g, "").split(/\s+/).filter(w => w.length >= 6);
+    if (words.length > 0) {
+      const targetWord = words[Math.floor(words.length / 2)];
+      const blanked = s.replace(new RegExp(`\\b${targetWord}\\b`), "________");
+      if (blanked !== s) {
+        enriched.push({
+          qType: "fill",
+          question: `SUMMARY COMPLETION (Điền 1 từ chính xác trong bài vào chỗ trống): "${blanked}"`,
+          answerText: targetWord.toLowerCase(),
+          options: [targetWord],
+          answer: 0,
+          evidence: s,
+          explain: `Từ cần điền chính xác dựa theo ngữ cảnh bài đọc là "${targetWord}" (trong câu: "${s}").`
+        });
+      }
+    }
+  }
+
+  passage._diversifiedQuestions = enriched;
+  passage.questions = enriched;
+  return enriched;
+}
+
 function setupReadingSelector() {
+  buildReadingTestGroups();
   filterReadingByExam("all");
 }
 
@@ -3157,6 +3365,18 @@ function renderReadingPassage(passageIdx) {
   const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
   if (!passage) return;
 
+  getDiversifiedReadingQuestions(passage);
+
+  // Sync Part tabs if this passage belongs to a group
+  readingTestGroups.forEach((g, gIdx) => {
+    if (g.parts.some(p => p.passageIdx === appState.activeReadingIndex)) {
+      activeReadingTestGroupIdx = gIdx;
+      const sel = document.getElementById("readingTestGroupSelect");
+      if (sel) sel.value = String(gIdx);
+    }
+  });
+  renderReadingPartTabs(activeReadingTestGroupIdx);
+
   const select = document.getElementById("readingSelect");
   if (select) select.value = String(appState.activeReadingIndex);
 
@@ -3314,45 +3534,71 @@ function renderReadingQuestionsWorkspace() {
     const selectedAns = readingExamState.userAnswers[idx];
     const isAnswered = (selectedAns !== undefined);
 
-    const qTypeTag = (idx < 4 && passage.type === "cloze_and_comprehension")
-      ? `<span class="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-[10px] border border-indigo-500/30">🕳️ Cloze [${idx + 1}]</span>`
-      : `<span class="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-[10px] border border-cyan-500/30">📖 Reading Question</span>`;
+    const qTypeTag = q.qType === "tfng"
+      ? `<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[10px] border border-amber-500/30">⚖️ True / False / Not Given</span>`
+      : (q.qType === "fill"
+        ? `<span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-[10px] border border-emerald-500/30">✍️ Summary Completion (Điền từ)</span>`
+        : ((idx < 4 && passage.type === "cloze_and_comprehension")
+          ? `<span class="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-[10px] border border-indigo-500/30">🕳️ Cloze [${idx + 1}]</span>`
+          : `<span class="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-[10px] border border-cyan-500/30">📖 Multiple Choice</span>`));
 
     const evidenceParaIdx = findEvidenceParagraphIndex(passage, q);
 
-    const optionsHtml = (q.options || []).map((opt, oIdx) => {
-      const isSelected = (selectedAns === oIdx);
-      let btnClass = "bg-slate-900/90 border-slate-800 text-slate-200 hover:bg-slate-800/90 hover:border-slate-700";
-      let badgeClass = "bg-slate-800 text-slate-300 group-hover:bg-slate-700 group-hover:text-white";
-      let textClass = "text-slate-200";
-
-      if (readingExamState.isSubmitted || (readingExamState.mode === "practice" && isAnswered)) {
-        if (oIdx === correctIdx) {
-          btnClass = "bg-emerald-950/40 border-emerald-500 text-emerald-200 ring-2 ring-emerald-500/40";
-          badgeClass = "bg-emerald-600 text-white font-bold";
-          textClass = "text-emerald-200 font-bold";
-        } else if (isSelected && oIdx !== correctIdx) {
-          btnClass = "bg-rose-950/40 border-rose-500 text-rose-200 ring-2 ring-rose-500/40";
-          badgeClass = "bg-rose-600 text-white font-bold";
-          textClass = "text-rose-200";
-        }
-      } else if (isSelected) {
-        btnClass = "bg-indigo-950/50 border-indigo-500 text-indigo-200 ring-2 ring-indigo-500/50";
-        badgeClass = "bg-indigo-600 text-white font-bold";
-        textClass = "text-white font-semibold";
-      }
-
-      const cleanOptText = opt.startsWith(String.fromCharCode(65 + oIdx)) ? opt.substring(2).replace(/^[:.\s]+/, "") : opt;
-
-      return `
-        <button onclick="selectReadingAnswer(${idx}, ${oIdx})" id="rq-${idx}-opt-${oIdx}" class="w-full text-left p-3 rounded-xl border transition-all duration-200 flex items-start gap-3 group active:scale-[0.99] ${btnClass}">
-          <span class="w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 transition ${badgeClass}">
-            ${String.fromCharCode(65 + oIdx)}
-          </span>
-          <span class="text-xs sm:text-sm leading-relaxed ${textClass}">${cleanOptText}</span>
-        </button>
+    let optionsHtml = "";
+    if (q.qType === "fill") {
+      const userTyped = typeof selectedAns === "string" ? selectedAns : "";
+      const isRight = userTyped.trim().toLowerCase() === (q.answerText || "").toLowerCase();
+      optionsHtml = `
+        <div class="flex items-center gap-2 pt-1">
+          <input type="text" id="rq-fill-input-${idx}" value="${userTyped}" placeholder="Nhập 1 từ trong bài đọc..."
+            class="flex-1 bg-slate-950 border ${isAnswered ? (isRight ? 'border-emerald-500 text-emerald-300' : 'border-rose-500 text-rose-300') : 'border-slate-700 text-white'} rounded-xl px-3 py-2 text-xs sm:text-sm outline-none focus:border-indigo-500"
+            onkeydown="if(event.key==='Enter') submitReadingFillAnswer(${idx})">
+          <button type="button" onclick="submitReadingFillAnswer(${idx})" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition shrink-0">
+            Kiểm tra
+          </button>
+        </div>
+        ${(readingExamState.isSubmitted || (readingExamState.mode === "practice" && isAnswered))
+          ? `<div class="text-xs font-bold ${isRight ? 'text-emerald-400' : 'text-amber-300'} pt-1">
+              ${isRight ? '✓ Chính xác!' : `✗ Đáp án đúng: <span class="underline text-emerald-300">${q.answerText}</span>`}
+            </div>`
+          : ''}
       `;
-    }).join("");
+    } else {
+      optionsHtml = (q.options || []).map((opt, oIdx) => {
+        const isSelected = (selectedAns === oIdx);
+        let btnClass = "bg-slate-900/90 border-slate-800 text-slate-200 hover:bg-slate-800/90 hover:border-slate-700";
+        let badgeClass = "bg-slate-800 text-slate-300 group-hover:bg-slate-700 group-hover:text-white";
+        let textClass = "text-slate-200";
+
+        if (readingExamState.isSubmitted || (readingExamState.mode === "practice" && isAnswered)) {
+          if (oIdx === correctIdx) {
+            btnClass = "bg-emerald-950/40 border-emerald-500 text-emerald-200 ring-2 ring-emerald-500/40";
+            badgeClass = "bg-emerald-600 text-white font-bold";
+            textClass = "text-emerald-200 font-bold";
+          } else if (isSelected && oIdx !== correctIdx) {
+            btnClass = "bg-rose-950/40 border-rose-500 text-rose-200 ring-2 ring-rose-500/40";
+            badgeClass = "bg-rose-600 text-white font-bold";
+            textClass = "text-rose-200";
+          }
+        } else if (isSelected) {
+          btnClass = "bg-indigo-950/50 border-indigo-500 text-indigo-200 ring-2 ring-indigo-500/50";
+          badgeClass = "bg-indigo-600 text-white font-bold";
+          textClass = "text-white font-semibold";
+        }
+
+        const cleanOptText = (q.qType === "tfng") ? opt : (opt.startsWith(String.fromCharCode(65 + oIdx)) ? opt.substring(2).replace(/^[:.\s]+/, "") : opt);
+        const badgeLabel = (q.qType === "tfng") ? (oIdx === 0 ? "T" : (oIdx === 1 ? "F" : "NG")) : String.fromCharCode(65 + oIdx);
+
+        return `
+          <button onclick="selectReadingAnswer(${idx}, ${oIdx})" id="rq-${idx}-opt-${oIdx}" class="w-full text-left p-3 rounded-xl border transition-all duration-200 flex items-start gap-3 group active:scale-[0.99] ${btnClass}">
+            <span class="w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 transition ${badgeClass}">
+              ${badgeLabel}
+            </span>
+            <span class="text-xs sm:text-sm leading-relaxed ${textClass}">${cleanOptText}</span>
+          </button>
+        `;
+      }).join("");
+    }
 
     const showExplain = readingExamState.isSubmitted || (readingExamState.mode === "practice" && isAnswered);
 
@@ -3424,6 +3670,27 @@ function renderReadingQuestionsWorkspace() {
   }).join("");
 
   if (window.lucide) lucide.createIcons();
+}
+
+
+function submitReadingFillAnswer(qIdx) {
+  if (readingExamState.isSubmitted) return;
+  const inp = document.getElementById(`rq-fill-input-${qIdx}`);
+  if (!inp) return;
+  const val = inp.value.trim();
+  if (!val) {
+    showToast("Hãy nhập từ cần điền trước khi kiểm tra!", "warning");
+    return;
+  }
+  readingExamState.userAnswers[qIdx] = val;
+  renderReadingQuestionsWorkspace();
+  updateReadingPaletteUI();
+
+  const passage = window.APP_DATA?.readings?.[appState.activeReadingIndex];
+  const totalQ = passage?.questions?.length || 8;
+  if (Object.keys(readingExamState.userAnswers).length >= totalQ && readingExamState.mode === "practice") {
+    completeReadingMission();
+  }
 }
 
 function selectReadingAnswer(qIdx, oIdx) {
@@ -3582,10 +3849,16 @@ function submitReadingTest(isAuto = false) {
   let correctCount = 0;
 
   questions.forEach((q, idx) => {
-    const correctVal = q.answer;
-    const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
     const userAns = readingExamState.userAnswers[idx];
-    if (userAns === correctIdx) correctCount++;
+    if (q.qType === "fill") {
+      if (typeof userAns === "string" && userAns.trim().toLowerCase() === (q.answerText || "").toLowerCase()) {
+        correctCount++;
+      }
+    } else {
+      const correctVal = q.answer;
+      const correctIdx = (typeof correctVal === "string") ? ({"A":0,"B":1,"C":2,"D":3}[correctVal.trim().toUpperCase()] ?? 0) : (correctVal || 0);
+      if (userAns === correctIdx) correctCount++;
+    }
   });
 
   const percent = total > 0 ? Math.round((correctCount / total) * 100) : 0;
@@ -4888,6 +5161,18 @@ function tickDeadlineCountdown() {
     sentNotificationsToday.clear();
   }
 
+  // Update Full Calendar Date Display (Hiện cả ngày hôm nay để theo dõi)
+  const fullDateEl = document.getElementById("fullTodayDateDisplay");
+  if (fullDateEl) {
+    const daysVi = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
+    const dName = daysVi[now.getDay()];
+    const dd = String(now.getDate()).padStart(2, "0");
+    const mm = String(now.getMonth() + 1).padStart(2, "0");
+    const yyyy = now.getFullYear();
+    fullDateEl.innerText = `📅 Hôm nay: ${dName}, ${dd}/${mm}/${yyyy} (00:00 - 23:59)`;
+  }
+  if (typeof syncDeadlineStreak === "function") syncDeadlineStreak();
+
   const [targetH, targetM] = (deadlineSettings.deadlineTime || "21:30").split(":").map(Number);
   const deadlineDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), targetH, targetM, 0);
   const midnightDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
@@ -5037,21 +5322,23 @@ function updateDailyGoalChecklist() {
       ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">2 Bài nghe chuẩn form (ĐÃ XONG 2/2 ✓)</span>`
       : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>2 Bài nghe chuẩn form (${curStatus.listeningDoneCount || 0}/2)</span>`;
   }
-  if (vItem) {
-    vItem.innerHTML = curStatus.videoDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">Video / Phim Song Ngữ (ĐÃ XONG 22:00 ✓)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i> <span>1 Video / Phim Song Ngữ (Hạn chót 22:00)</span>`;
+  // Update Mission 4 (Listening Card) in overview grid
+  const lStatus = document.getElementById("taskStatusBadgeListening");
+  const lBtn = document.getElementById("btnStartListeningText");
+  const lBanner = document.getElementById("taskCardListeningBanner");
+  if (lStatus) {
+    lStatus.innerText = curStatus.listeningDone ? "✓ Đã xong (2/2)" : `Tiến độ: ${curStatus.listeningDoneCount || 0}/2`;
+    lStatus.className = curStatus.listeningDone
+      ? "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/40"
+      : "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-cyan-300 font-semibold";
   }
-
-  // Update Mission 4 (Video card) in overview grid
-  const vStatus = document.getElementById("taskStatusVideo");
-  const vBtn = document.getElementById("btnStartVideoText");
-  if (vStatus) {
-    vStatus.innerText = curStatus.videoDone ? "✓ Đã xem" : "Chưa xem";
-    vStatus.className = curStatus.videoDone ? "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold" : "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold";
+  if (lBanner) {
+    lBanner.innerHTML = curStatus.listeningDone
+      ? `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">2/2 Bài</span></div>`
+      : "";
   }
-  if (vBtn && curStatus.videoDone) {
-    vBtn.innerText = "Xem lại & Ôn từ vựng";
+  if (lBtn) {
+    lBtn.innerText = curStatus.listeningDone ? "✓ Đã Xong (Nghe thêm)" : "Vào Luyện Nghe Ngay";
   }
 
   // Update Mission 3 (Grammar card) in overview grid
@@ -6194,20 +6481,48 @@ function initListeningModule() {
   loadListeningPart(0);
 }
 
+let currentListeningSourceFilter = "all";
+
+function filterListeningSource(src) {
+  currentListeningSourceFilter = src || "all";
+  document.querySelectorAll(".listen-src-btn").forEach(btn => {
+    btn.classList.remove("active", "bg-cyan-600", "text-white", "shadow");
+    btn.classList.add("bg-slate-800");
+  });
+  const activeBtn = document.getElementById(`listenSrcBtn_${src}`);
+  if (activeBtn) {
+    activeBtn.classList.remove("bg-slate-800");
+    activeBtn.classList.add("active", "bg-cyan-600", "text-white", "shadow");
+  }
+
+  if (typeof LISTENING_TESTS !== "undefined" && LISTENING_TESTS.length) {
+    const matchingIdx = LISTENING_TESTS.findIndex(t => src === "all" || (t.sourceType || "exam") === src);
+    if (matchingIdx !== -1) {
+      switchListeningTest(matchingIdx);
+      return;
+    }
+  }
+  renderListeningTestSelector();
+}
+
 function renderListeningTestSelector() {
   const container = document.getElementById("listeningTestSelector");
   if (!container || typeof LISTENING_TESTS === "undefined" || !LISTENING_TESTS.length) return;
 
   let html = "";
   LISTENING_TESTS.forEach((t, idx) => {
+    const tType = t.sourceType || "exam";
+    if (currentListeningSourceFilter !== "all" && tType !== currentListeningSourceFilter) return;
+
     const active = idx === currentListeningTestIdx;
+    const badgeIcon = tType === "active" ? "🔥" : (tType === "passive" ? "🎧" : "📝");
     html += `
-      <button onclick="switchListeningTest(${idx})" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 border ${
+      <button onclick="switchListeningTest(${idx})" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 border ${
         active
           ? "bg-gradient-to-r from-cyan-600 to-indigo-600 text-white border-cyan-400 shadow-lg shadow-cyan-900/40"
           : "glass-card text-slate-300 border-slate-700 hover:text-white hover:bg-slate-800"
       }">
-        <i data-lucide="file-check" class="w-4 h-4 text-cyan-400"></i>
+        <span>${badgeIcon}</span>
         <span>${t.title.split(":")[0]}</span>
       </button>
     `;
@@ -6333,9 +6648,19 @@ function loadListeningPart(idx) {
     if (typeof lucide !== "undefined") lucide.createIcons();
   }
 
-  // 2. Render instruction
+  // 2. Render instruction & optional external YouTube source button
   const instrEl = document.getElementById("listeningInstructionText");
   if (instrEl) instrEl.innerText = part.instruction;
+
+  const extLink = document.getElementById("listeningSourceExternalLink");
+  if (extLink) {
+    if (part.sourceUrl) {
+      extLink.href = part.sourceUrl;
+      extLink.classList.remove("hidden");
+    } else {
+      extLink.classList.add("hidden");
+    }
+  }
 
   // 3. Render questions
   renderListeningQuestions(part);

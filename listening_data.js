@@ -940,4 +940,387 @@ const LISTENING_TESTS = [
     }
   ]
 }
+,
+
+  {
+    "id": "bbc_active_listening_5",
+    "sourceType": "active",
+    "title": "ACTIVE LISTENING: BBC Learning English (6 Minute English & Real English)",
+    "subtitle": "Nguồn: @bbclearningenglish • Luyện nghe chủ động, phân tích từ vựng học thuật & đời sống",
+    "parts": [
+      {
+        "partNumber": 1,
+        "title": "Part 1: BBC 6 Minute English — The Psychology of Productivity & Focus",
+        "instruction": "Active Listening: Listen carefully to the BBC Learning English discussion between Sam and Neil. Answer questions 1-5.",
+        "audioSrc": "",
+        "sourceUrl": "https://www.youtube.com/@bbclearningenglish",
+        "questions": [
+          {
+            "id": 1,
+            "question": "1. According to Sam, what is the biggest myth about multitasking?",
+            "options": [
+              "A. It saves up to 40% of working time",
+              "B. The brain actually switches rapidly between tasks rather than doing them simultaneously",
+              "C. Only young people can multitask effectively"
+            ],
+            "answer": 1,
+            "evidence": "Sam explains that human brains don't truly multitask; instead, they perform rapid 'task-switching', which drains mental energy.",
+            "explain": "Trong bài BBC 6 Minute English, Sam giải thích rằng não người không thực sự làm nhiều việc cùng lúc mà chuyển đổi qua lại nhanh chóng (task-switching), gây hao tổn năng lượng."
+          },
+          {
+            "id": 2,
+            "question": "2. What does the idiom 'burn the midnight oil' mean in the BBC segment?",
+            "options": [
+              "A. To waste electricity at night",
+              "B. To work or study late into the night",
+              "C. To feel completely exhausted in the morning"
+            ],
+            "answer": 1,
+            "evidence": "Neil defines 'burn the midnight oil' as working or studying late into the night.",
+            "explain": "Thành ngữ 'burn the midnight oil' có nghĩa là thức khuya làm việc hoặc học bài."
+          },
+          {
+            "id": 3,
+            "question": "3. How long does it take to regain deep focus after a brief phone notification?",
+            "options": [
+              "A. About 2 minutes",
+              "B. Around 23 minutes",
+              "C. Nearly 1 hour"
+            ],
+            "answer": 1,
+            "evidence": "Research cited in the programme shows it takes an average of 23 minutes to return to deep focus after an interruption.",
+            "explain": "Nghiên cứu được nhắc tới trong bài chỉ ra mất trung bình 23 phút để lấy lại sự tập trung sâu sau một lần bị ngắt quãng."
+          },
+          {
+            "id": 4,
+            "question": "4. What technique does Neil recommend for Active Listening & Studying?",
+            "options": [
+              "A. Studying 4 hours straight without breaks",
+              "B. Using 25-minute focused blocks followed by 5-minute breaks",
+              "C. Listening to loud music while memorizing words"
+            ],
+            "answer": 1,
+            "evidence": "Neil recommends the Pomodoro method: 25 minutes of intense focus followed by a 5-minute rest.",
+            "explain": "Neil khuyên dùng phương pháp Pomodoro: 25 phút tập trung cao độ và 5 phút nghỉ ngơi."
+          },
+          {
+            "id": 5,
+            "question": "5. What is the key takeaway for English learners at the end of the episode?",
+            "options": [
+              "A. Active listening requires taking notes and shadowing key phrases",
+              "B. You only need to study grammar rules once a month",
+              "C. Reading silently is better than listening"
+            ],
+            "answer": 0,
+            "evidence": "Sam concludes that active listening — pausing, shadowing, and noting useful expressions — accelerates fluency.",
+            "explain": "Sam kết luận rằng nghe chủ động (tạm dừng, nhại lại câu và ghi chú cụm từ) giúp tăng tốc độ trôi chảy."
+          }
+        ],
+        "transcript": [
+          {
+            "speaker": "Sam",
+            "en": "Hello and welcome to 6 Minute English from BBC Learning English. I'm Sam.",
+            "vi": "Xin chào và chào mừng đến với chương trình 6 Minute English của BBC Learning English. Tôi là Sam."
+          },
+          {
+            "speaker": "Neil",
+            "en": "And I'm Neil. Today we're talking about why so many of us feel busy all day, yet struggle to finish important tasks — and we'll look at expressions for work and exams.",
+            "vi": "Còn tôi là Neil. Hôm nay chúng ta nói về lý do nhiều người bận rộn cả ngày nhưng vẫn khó hoàn thành việc quan trọng — và tìm hiểu các cụm từ cho công việc và thi cử."
+          },
+          {
+            "speaker": "Sam",
+            "en": "Many people pride themselves on multitasking, or even burning the midnight oil — which means working or studying late into the night. But psychologists say our brains don't truly multitask.",
+            "vi": "Nhiều người tự hào về việc làm đa nhiệm, hoặc thức khuya làm việc (burn the midnight oil). Nhưng các nhà tâm lý học nói rằng não chúng ta không thực sự làm đa nhiệm."
+          },
+          {
+            "speaker": "Neil",
+            "en": "That's right! What we're actually doing is rapid task-switching. Every time a phone notification interrupts you, research shows it takes around 23 minutes to regain deep focus.",
+            "vi": "Đúng vậy! Điều chúng ta thực sự làm là chuyển đổi tác vụ liên tục. Mỗi lần có thông báo điện thoại, nghiên cứu cho thấy phải mất khoảng 23 phút để lấy lại sự tập trung sâu."
+          },
+          {
+            "speaker": "Sam",
+            "en": "So instead of scattered attention, try working in 25-minute focused sprints with 5-minute breaks. And when practising Active Listening, pause the audio, shadow the speaker, and note down real-life phrases!",
+            "vi": "Vì vậy thay vì phân tán sự chú ý, hãy thử làm việc theo chặng tập trung 25 phút và nghỉ 5 phút. Và khi luyện Nghe Chủ Động, hãy tạm dừng audio, nhại lại lời người nói và ghi chú các cụm từ thực tế!"
+          }
+        ]
+      },
+      {
+        "partNumber": 2,
+        "title": "Part 2: BBC News Review — Artificial Intelligence & Future Jobs",
+        "instruction": "Active Listening: Listen to the BBC News Review report on AI and employment. Choose the best answer A, B or C.",
+        "audioSrc": "",
+        "sourceUrl": "https://www.youtube.com/@bbclearningenglish",
+        "questions": [
+          {
+            "id": 6,
+            "question": "6. What headline phrase means 'to change the rules or situation completely'?",
+            "options": [
+              "A. A game changer",
+              "B. A close call",
+              "C. A silver lining"
+            ],
+            "answer": 0,
+            "evidence": "The presenter highlights 'a game changer' as a key news phrase meaning something that completely transforms a situation.",
+            "explain": "'A game changer' nghĩa là nhân tố làm thay đổi hoàn toàn cục diện."
+          },
+          {
+            "id": 7,
+            "question": "7. Which skill is predicted to become MOST valuable alongside AI tools?",
+            "options": [
+              "A. Manual data entry",
+              "B. Critical thinking and human communication",
+              "C. Memorizing phone numbers"
+            ],
+            "answer": 1,
+            "evidence": "The BBC report emphasizes critical thinking, empathy, and persuasive communication.",
+            "explain": "Báo cáo của BBC nhấn mạnh tư duy phản biện, sự thấu cảm và giao tiếp thuyết phục."
+          },
+          {
+            "id": 8,
+            "question": "8. What does 'upskill' mean in the BBC workplace context?",
+            "options": [
+              "A. To quit a job suddenly",
+              "B. To learn new, more advanced skills for work",
+              "C. To reduce working hours"
+            ],
+            "answer": 1,
+            "evidence": "To 'upskill' means teaching or learning additional, higher-level job skills.",
+            "explain": "'Upskill' nghĩa là học thêm kỹ năng mới, nâng cao trình độ nghề nghiệp."
+          },
+          {
+            "id": 9,
+            "question": "9. How are universities adapting exams according to the report?",
+            "options": [
+              "A. Banning all computers permanently",
+              "B. Adding more oral interviews and real-world problem solving",
+              "C. Canceling English exams"
+            ],
+            "answer": 1,
+            "evidence": "Universities are shifting toward oral assessments and practical case studies.",
+            "explain": "Các trường đại học đang chuyển dần sang kiểm tra vấn đáp và giải quyết tình huống thực tế."
+          },
+          {
+            "id": 10,
+            "question": "10. What is the tone of the BBC presenter regarding AI?",
+            "options": [
+              "A. Cautiously optimistic if workers keep learning",
+              "B. Completely terrified",
+              "C. Indifferent"
+            ],
+            "answer": 0,
+            "evidence": "The presenter remains cautiously optimistic, stressing lifelong learning.",
+            "explain": "Người dẫn chương trình giữ thái độ lạc quan thận trọng nếu người lao động liên tục học hỏi."
+          }
+        ],
+        "transcript": [
+          {
+            "speaker": "Georgina",
+            "en": "Welcome to BBC News Review, where we help you understand the language of real news stories.",
+            "vi": "Chào mừng đến với BBC News Review, nơi chúng tôi giúp bạn hiểu ngôn ngữ của các bản tin thời sự thực tế."
+          },
+          {
+            "speaker": "Rob",
+            "en": "This week, headlines call generative AI a 'game changer' — something that completely transforms how industries operate.",
+            "vi": "Tuần này, các trang nhất gọi AI tạo sinh là một 'game changer' — nhân tố thay đổi hoàn toàn cách các ngành vận hành."
+          },
+          {
+            "speaker": "Georgina",
+            "en": "True, but experts say workers don't need to panic if they 'upskill' — meaning they learn new, advanced capabilities. Skills like critical thinking, teamwork, and clear communication remain uniquely human.",
+            "vi": "Đúng vậy, nhưng chuyên gia nói người lao động không cần hoảng loạn nếu họ biết 'upskill' — tức là học các kỹ năng mới nâng cao. Tư duy phản biện, làm việc nhóm và giao tiếp rõ ràng vẫn là thế mạnh riêng của con người."
+          },
+          {
+            "speaker": "Rob",
+            "en": "Even universities are shifting toward oral interviews and practical problem-solving exams. So keep practising your English actively every single day!",
+            "vi": "Ngay cả các trường đại học cũng đang chuyển sang thi vấn đáp và giải quyết vấn đề thực tế. Vì vậy hãy luyện tiếng Anh chủ động mỗi ngày nhé!"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passive_listening_interviews_6",
+    "sourceType": "passive",
+    "title": "PASSIVE LISTENING: Native Interviews & Talk Shows (Cosmopolitan / Celebrity English)",
+    "subtitle": "Nguồn: YouTube Interviews (Jennie Blind Date, Talk Shows) • Tắm ngôn ngữ tự nhiên & phản xạ đời sống",
+    "parts": [
+      {
+        "partNumber": 1,
+        "title": "Part 1: Celebrity Interview Style — Dating, Daily Routine & Real Spoken English",
+        "instruction": "Passive Listening: Relax and immerse yourself in natural conversational speed, linking sounds, and casual expressions. Answer questions 1-5 to check your natural comprehension.",
+        "audioSrc": "",
+        "sourceUrl": "https://www.youtube.com/results?search_query=jennie+interview+in+english+cosmopolitan",
+        "questions": [
+          {
+            "id": 1,
+            "question": "1. What does the guest say about 'double texting'?",
+            "options": [
+              "A. She sends ten texts in a row every hour",
+              "B. She prefers not to double text unless it is urgent or a close friend",
+              "C. She never uses text messages at all"
+            ],
+            "answer": 1,
+            "evidence": "In the interview, the guest laughs and explains she would rather wait for a reply than double text someone she just met.",
+            "explain": "Trong buổi phỏng vấn, khách mời chia sẻ cô ấy thích chờ tin nhắn hồi âm hơn là nhắn tin dồn dập (double text) với người mới quen."
+          },
+          {
+            "id": 2,
+            "question": "2. In casual spoken English, what does 'red flag' refer to?",
+            "options": [
+              "A. A traffic signal",
+              "B. A warning sign of bad behavior or incompatibility",
+              "C. A favorite fashion color"
+            ],
+            "answer": 1,
+            "evidence": "The host asks about dating 'red flags', meaning warning signs in a person's attitude or habits.",
+            "explain": "'Red flag' trong giao tiếp tự nhiên là dấu hiệu cảnh báo tính cách hoặc thói quen không tốt."
+          },
+          {
+            "id": 3,
+            "question": "3. What helps the guest stay grounded despite a busy global schedule?",
+            "options": [
+              "A. Checking social media 24/7",
+              "B. Spending quiet mornings with tea, stretching, and walking her dogs",
+              "C. Skipping meals before concerts"
+            ],
+            "answer": 1,
+            "evidence": "She shares that quiet mornings, stretching, and taking her dogs for a walk help her reset.",
+            "explain": "Cô ấy chia sẻ những buổi sáng yên tĩnh, giãn cơ và dắt chó đi dạo giúp cô ấy cân bằng lại."
+          },
+          {
+            "id": 4,
+            "question": "4. What does the casual phrase 'I'm totally down for that' mean?",
+            "options": [
+              "A. I feel very sad about that",
+              "B. I'm completely ready / enthusiastic to do that",
+              "C. I strongly refuse to do that"
+            ],
+            "answer": 1,
+            "evidence": "'I'm down for that' is a very common native spoken expression meaning 'I agree / I'd love to do that'.",
+            "explain": "'I'm totally down for that' là cách nói tự nhiên của người bản xứ, nghĩa là 'Tôi hoàn toàn hào hứng / đồng ý với việc đó'."
+          },
+          {
+            "id": 5,
+            "question": "5. Why is watching English interviews great for Passive Listening?",
+            "options": [
+              "A. You absorb natural intonation, filler words, and relaxed rhythm effortlessly",
+              "B. Interviews only use ancient formal vocabulary",
+              "C. They have no emotional expression"
+            ],
+            "answer": 0,
+            "evidence": "Passive listening to interviews trains your ear to recognize natural rhythm, contractions, and real spoken fillers.",
+            "explain": "Nghe thụ động qua các buổi phỏng vấn giúp tai quen với ngữ điệu tự nhiên, từ nối âm và nhịp điệu nói thực tế."
+          }
+        ],
+        "transcript": [
+          {
+            "speaker": "Host (Willa)",
+            "en": "Welcome to Blind Date! Today we're chatting about life, music, and everyday habits. First question: would you ever double text someone?",
+            "vi": "Chào mừng đến với Blind Date! Hôm nay chúng ta trò chuyện về cuộc sống, âm nhạc và thói quen hằng ngày. Câu hỏi đầu tiên: bạn có bao giờ nhắn tin hai lần liên tiếp cho ai đó không?"
+          },
+          {
+            "speaker": "Guest",
+            "en": "Honestly, probably not! If it's a close friend and I'm excited, sure. But if I just met someone, I'd rather chill and wait for their reply. Double texting feels like a bit too much pressure.",
+            "vi": "Thật lòng thì chắc là không đâu! Nếu là bạn thân và tôi đang hào hứng thì có. Nhưng nếu mới quen ai đó, tôi thà thư giãn chờ họ trả lời. Nhắn dồn dập tạo cảm giác hơi áp lực."
+          },
+          {
+            "speaker": "Host (Willa)",
+            "en": "Totally fair! What's your biggest green flag and red flag when meeting new people?",
+            "vi": "Hoàn toàn hợp lý! Đâu là điểm cộng (green flag) và dấu hiệu cảnh báo (red flag) lớn nhất khi bạn gặp người mới?"
+          },
+          {
+            "speaker": "Guest",
+            "en": "A huge green flag is someone who listens genuinely and has a good sense of humor. And for my own routine, when work gets crazy, I'm totally down for quiet mornings — just stretching, tea, and walking my dogs.",
+            "vi": "Điểm cộng lớn là người biết lắng nghe chân thành và có khiếu hài hước. Còn về thói quen của tôi, khi công việc bận rộn, tôi rất thích những buổi sáng yên tĩnh — chỉ giãn cơ, uống trà và dắt cún đi dạo."
+          }
+        ]
+      },
+      {
+        "partNumber": 2,
+        "title": "Part 2: Native Talk Show & Everyday Slang (Natural Speed)",
+        "instruction": "Passive Listening: Let the dialogue play naturally while focusing on overall meaning and relaxed native expressions.",
+        "audioSrc": "",
+        "sourceUrl": "https://www.youtube.com/results?search_query=english+talk+show+interview+with+subtitles",
+        "questions": [
+          {
+            "id": 6,
+            "question": "6. What does 'play it by ear' mean in the conversation?",
+            "options": [
+              "A. To decide how to deal with a situation as it develops rather than planning ahead",
+              "B. To listen to loud music with headphones",
+              "C. To practice playing the violin"
+            ],
+            "answer": 0,
+            "evidence": "Mark says they won't book strict tours; instead, they'll 'play it by ear' depending on the weather.",
+            "explain": "'Play it by ear' nghĩa là tùy cơ ứng biến, không lên kế hoạch cứng nhắc trước."
+          },
+          {
+            "id": 7,
+            "question": "7. Why did Elena feel relieved after moving to a smaller neighborhood?",
+            "options": [
+              "A. Everything is walkable and people greet each other warmly",
+              "B. Rent doubled immediately",
+              "C. There are no cafes nearby"
+            ],
+            "answer": 0,
+            "evidence": "Elena loves that she can walk everywhere and chat with friendly neighbors.",
+            "explain": "Elena thích vì mọi thứ đều đi bộ được và hàng xóm thân thiện."
+          },
+          {
+            "id": 8,
+            "question": "8. What does 'call it a day' mean?",
+            "options": [
+              "A. To stop working for the rest of the day",
+              "B. To wake up at 5 AM",
+              "C. To phone someone every morning"
+            ],
+            "answer": 0,
+            "evidence": "After filming for six hours, the crew decided to 'call it a day'.",
+            "explain": "'Call it a day' nghĩa là kết thúc công việc trong ngày để nghỉ ngơi."
+          },
+          {
+            "id": 9,
+            "question": "9. How does Mark describe his favorite podcast habit?",
+            "options": [
+              "A. Listening passively while commuting or cooking dinner",
+              "B. Translating every single syllable with a dictionary",
+              "C. Only listening for 10 seconds a week"
+            ],
+            "answer": 0,
+            "evidence": "Mark listens to native podcasts while on the train or cooking.",
+            "explain": "Mark nghe podcast thụ động khi đi tàu hoặc nấu ăn tối."
+          },
+          {
+            "id": 10,
+            "question": "10. What happens when you combine Active and Passive Listening?",
+            "options": [
+              "A. Active builds precision and vocabulary; Passive builds natural speed and comfort",
+              "B. They cancel each other out",
+              "C. You forget your native language"
+            ],
+            "answer": 0,
+            "evidence": "Combining active study with passive immersion develops both accuracy and effortless comprehension.",
+            "explain": "Kết hợp Nghe Chủ Động (tăng độ chính xác & từ vựng) với Nghe Thụ Động (tăng phản xạ tốc độ & sự tự nhiên) mang lại hiệu quả tối ưu."
+          }
+        ],
+        "transcript": [
+          {
+            "speaker": "Mark",
+            "en": "So Elena, do you have strict plans for the weekend trip, or are we just going to play it by ear?",
+            "vi": "Vậy Elena, cậu có kế hoạch cứng nhắc nào cho chuyến đi cuối tuần không, hay chúng ta cứ tùy cơ ứng biến (play it by ear)?"
+          },
+          {
+            "speaker": "Elena",
+            "en": "Definitely play it by ear! Honestly, ever since I moved to a quieter neighborhood where everything is walkable, I love just taking things slow. After six hours of filming yesterday, we just decided to call it a day and grab dinner.",
+            "vi": "Chắc chắn là tùy cơ ứng biến rồi! Thật lòng từ khi chuyển đến khu phố yên tĩnh nơi mọi thứ đều đi bộ được, tớ thích sống chậm lại. Sau sáu tiếng quay hình hôm qua, cả nhóm quyết định nghỉ tay (call it a day) và đi ăn tối."
+          },
+          {
+            "speaker": "Mark",
+            "en": "That's the best vibe. Also, while I'm cooking or commuting, I keep English talk shows playing in the background — passive listening really trains your ear without feeling like homework!",
+            "vi": "Không khí đó tuyệt nhất đấy. Ngoài ra lúc nấu ăn hay đi lại, tớ hay mở các talk show tiếng Anh chạy nền — nghe thụ động thực sự rèn tai rất tốt mà không có cảm giác nặng nề như làm bài tập!"
+          }
+        ]
+      }
+    ]
+  }
+
 ];

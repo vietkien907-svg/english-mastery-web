@@ -494,19 +494,41 @@ function showToast(message, type = "info") {
   }, 2300);
 }
 
-// ================= 4-UNIT CLUSTER DEFINITIONS =================
-const SHUFFLE_4_UNIT_BLOCKS = [
-  { from: 1, to: 4, id: "shuffle_1_4", label: "Unit 1 – 4" },
-  { from: 5, to: 8, id: "shuffle_5_8", label: "Unit 5 – 8" },
-  { from: 4, to: 8, id: "shuffle_4_8", label: "Unit 4 – 8" },
-  { from: 9, to: 12, id: "shuffle_9_12", label: "Unit 9 – 12" },
-  { from: 13, to: 16, id: "shuffle_13_16", label: "Unit 13 – 16" },
-  { from: 17, to: 20, id: "shuffle_17_20", label: "Unit 17 – 20" },
-  { from: 21, to: 24, id: "shuffle_21_24", label: "Unit 21 – 24" },
-  { from: 25, to: 28, id: "shuffle_25_28", label: "Unit 25 – 28" },
-  { from: 29, to: 32, id: "shuffle_29_32", label: "Unit 29 – 32" },
-  { from: 33, to: 35, id: "shuffle_33_35", label: "Unit 33 – 35" }
+// ================= WEEKLY REVIEW ENGINE (LẶP TỪ THEO TUẦN - ĐẦY ĐỦ 7 NGÀY QUA) =================
+const WEEKLY_REVIEW_BLOCKS = [
+  { week: 1, fromDay: 1, toDay: 7, id: "week_1", label: "Tuần 1 (Ngày 1 – 7)" },
+  { week: 2, fromDay: 8, toDay: 14, id: "week_2", label: "Tuần 2 (Ngày 8 – 14)" },
+  { week: 3, fromDay: 15, toDay: 21, id: "week_3", label: "Tuần 3 (Ngày 15 – 21)" },
+  { week: 4, fromDay: 22, toDay: 28, id: "week_4", label: "Tuần 4 (Ngày 22 – 28)" },
+  { week: 5, fromDay: 29, toDay: 35, id: "week_5", label: "Tuần 5 (Ngày 29 – 35)" },
+  { week: 6, fromDay: 36, toDay: 42, id: "week_6", label: "Tuần 6 (Ngày 36 – 42)" },
+  { week: 7, fromDay: 43, toDay: 49, id: "week_7", label: "Tuần 7 (Ngày 43 – 49)" },
+  { week: 8, fromDay: 50, toDay: 56, id: "week_8", label: "Tuần 8 (Ngày 50 – 56)" },
+  { week: 9, fromDay: 57, toDay: 63, id: "week_9", label: "Tuần 9 (Ngày 57 – 63)" },
+  { week: 10, fromDay: 64, toDay: 70, id: "week_10", label: "Tuần 10 (Ngày 64 – 70)" },
+  { week: 11, fromDay: 71, toDay: 77, id: "week_11", label: "Tuần 11 (Ngày 71 – 77)" },
+  { week: 12, fromDay: 78, toDay: 84, id: "week_12", label: "Tuần 12 (Ngày 78 – 84)" },
+  { week: 13, fromDay: 85, toDay: 90, id: "week_13", label: "Tuần 13 (Ngày 85 – 90)" }
 ];
+
+// Lấy trọn vẹn 100% từ vựng của đủ 7 ngày qua trong tuần mà không thiếu một từ nào
+function getWordsForWeek(weekNum) {
+  const w = WEEKLY_REVIEW_BLOCKS.find(b => b.week === weekNum) || WEEKLY_REVIEW_BLOCKS[0];
+  const words = [];
+  for (let d = w.fromDay; d <= w.toDay; d++) {
+    const dayData = getDailyAssignedVocab(d);
+    if (dayData && Array.isArray(dayData.words)) {
+      dayData.words.forEach(item => {
+        words.push({
+          ...item,
+          sourceDay: d,
+          sourceDayLabel: `Ngày ${d}`
+        });
+      });
+    }
+  }
+  return words;
+}
 
 function renderShufflePills() {
   const container = document.getElementById("modePillsWrapper");
@@ -518,10 +540,10 @@ function renderShufflePills() {
     </button>
   `;
 
-  SHUFFLE_4_UNIT_BLOCKS.forEach(b => {
+  WEEKLY_REVIEW_BLOCKS.forEach(b => {
     html += `
       <button id="modeBtn_${b.id}" onclick="switchStudyMode('${b.id}')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800 transition flex items-center gap-1 shrink-0">
-        <i data-lucide="shuffle" class="w-3.5 h-3.5 text-indigo-400"></i> ${b.label}
+        <i data-lucide="calendar" class="w-3.5 h-3.5 text-cyan-400"></i> ${b.label}
       </button>
     `;
   });
@@ -537,12 +559,12 @@ function setupQuizScopeSelector() {
   let html = `
     <option value="today">⚡ Cần ôn hôm nay (SRS)</option>
     <option value="current_unit">📚 Theo Unit đang chọn</option>
-    <optgroup label="🔀 Đề ôn xáo trộn cụm 4 Unit">
+    <optgroup label="📅 Ôn tập lặp từ theo Tuần (Đầy đủ 7 ngày qua)">
   `;
 
-  SHUFFLE_4_UNIT_BLOCKS.forEach(b => {
-    const count = getWordsForUnitRange(b.from, b.to).length;
-    html += `<option value="${b.id}">🔀 Đề ôn xáo trộn: ${b.label} (${count} từ)</option>`;
+  WEEKLY_REVIEW_BLOCKS.forEach(b => {
+    const count = getWordsForWeek(b.week).length;
+    html += `<option value="${b.id}">📅 Đề ôn ${b.label} (Đầy đủ ${count} từ)</option>`;
   });
   html += `</optgroup>`;
 
@@ -812,17 +834,17 @@ function getDayMissionStatus(dayNum) {
   }
   const dStr = String(dayNum);
   const data = (missionRegistry && missionRegistry.history) ? (missionRegistry.history[dStr] || {}) : {};
-  const isVocab = !!data.vocabDone || (data.vocabCount >= 20);
+  const isVocab = !!data.vocabDone || (data.vocabCount >= 20) || (data.vocabCount >= 10);
   const readingCount = (data.completedReadings && Array.isArray(data.completedReadings))
     ? data.completedReadings.length
     : (data.readingDoneCount || (data.readingDone ? 1 : 0));
   const isReading = !!data.readingDone || (readingCount >= 1);
 
-  // Ngữ pháp: 2 chuyên đề mỗi ngày
+  // Ngữ pháp: 1 chuyên đề trở lên hoàn thành
   const grammarCount = (data.completedGrammarTopics && Array.isArray(data.completedGrammarTopics))
     ? data.completedGrammarTopics.length
-    : (data.grammarDoneCount || (data.grammarDone ? 2 : 0));
-  const isGrammar = !!data.grammarDone || (grammarCount >= 2);
+    : (data.grammarDoneCount || (data.grammarDone ? 1 : 0));
+  const isGrammar = !!data.grammarDone || (grammarCount >= 1);
 
   // Luyện Nghe Đề Thi: Mục tiêu 1 bài dài chuẩn form đủ chuẩn mỗi ngày (IELTS, APTIS, VSTEP)
   const listeningCount = (data.completedListeningTests && Array.isArray(data.completedListeningTests))
@@ -840,10 +862,10 @@ function getDayMissionStatus(dayNum) {
   if (isGrammar) count++;
   if (isListening) count++;
 
-  // Backward compatibility: Hỗ trợ cả chuẩn cũ 3/3 (từ vựng + ngữ pháp + đọc) lẫn chuẩn mới 4/4 (+ nghe)
-  const isLegacyDone = (isVocab && isReading && isGrammar);
-  const isModernDone = (isVocab && isReading && isGrammar && isListening);
-  const isAllDone = isModernDone || isLegacyDone || (count >= 3 && isVocab);
+  // Backward compatibility: Bất kỳ ngày nào đạt từ 3 nhiệm vụ trở lên hoặc đủ điều kiện đều đánh dấu hoàn thành 100%
+  const isLegacyDone = (count >= 3);
+  const isModernDone = (count >= 4);
+  const isAllDone = isModernDone || isLegacyDone || (count >= 3) || (isVocab && (isReading || isGrammar));
 
   return {
     vocabDone: isVocab,
@@ -1230,9 +1252,11 @@ function populateMissionDaySelectOptions(sel, selectedDay) {
     let statusText = "";
     let icon = "";
 
-    if (st.isAllDone) {
+    const isDayCompleted = (st.isAllDone || st.completedCount >= 3);
+
+    if (isDayCompleted) {
       icon = "✓ ";
-      statusText = (st.completedCount === 4) ? "(Đã xong 4/4 ✓)" : "(Đã hoàn thành ✓)";
+      statusText = (st.completedCount >= 4) ? "(Đã xong 4/4 ✓)" : "(Đã xong 3/3 ✓)";
     } else if (st.completedCount > 0) {
       icon = "⏳ ";
       statusText = `(${st.completedCount}/4)`;
@@ -1242,13 +1266,13 @@ function populateMissionDaySelectOptions(sel, selectedDay) {
     }
 
     if (i === officialToday) {
-      const todayTag = st.isAllDone ? "[★ HÔM NAY - ĐÃ XONG 4/4 ✓]" : "[★ HÔM NAY - DEADLINE CẦN LÀM]";
+      const todayTag = isDayCompleted ? "[★ HÔM NAY - ĐÃ XONG 4/4 ✓]" : "[★ HÔM NAY - DEADLINE CẦN LÀM]";
       optHtml += `<option value="${i}" ${isSel} class="font-bold text-amber-300 bg-slate-900">🎯 Ngày ${i} ${todayTag} (${cal.formattedShort}): ${statusText}</option>`;
     } else if (i < officialToday) {
-      const pastTag = st.isAllDone ? "[Ngày cũ - Đã xong]" : "[Ngày cũ - Cần bù]";
+      const pastTag = isDayCompleted ? "[Ngày cũ - Đã xong]" : "[Ngày cũ - Cần bù]";
       optHtml += `<option value="${i}" ${isSel} class="text-slate-300 bg-slate-950">${icon}Ngày ${i} (${cal.formattedShort}) ${pastTag}: ${statusText}</option>`;
     } else {
-      const futureTag = st.isAllDone ? "[Đã học vượt 4/4 ✓]" : "[Học vượt]";
+      const futureTag = isDayCompleted ? "[Đã học vượt 4/4 ✓]" : "[Học vượt]";
       optHtml += `<option value="${i}" ${isSel} class="text-cyan-300 bg-slate-950">🚀 Ngày ${i} (${cal.formattedShort}) ${futureTag}: ${statusText}</option>`;
     }
   }
@@ -1592,6 +1616,7 @@ function completeGrammarMission() {
 }
 
 function updateDailyMissionUI() {
+  if (typeof updateDailyIdiomsUI === 'function') updateDailyIdiomsUI();
   const totalDays = getTotalMissionDays();
   const officialToday = getOfficialTodayDay();
   const curDay = missionRegistry.currentDay || officialToday;
@@ -2032,10 +2057,11 @@ function renderReviewShufflePills() {
   if (!container) return;
 
   let html = "";
-  SHUFFLE_4_UNIT_BLOCKS.forEach(b => {
+  WEEKLY_REVIEW_BLOCKS.forEach(b => {
+    const count = getWordsForWeek(b.week).length;
     html += `
-      <button onclick="startReviewCluster('${b.id}', ${b.from}, ${b.to})" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 transition flex items-center gap-1 shrink-0 border border-slate-700">
-        <i data-lucide="shuffle" class="w-3.5 h-3.5 text-indigo-400"></i> ${b.label}
+      <button onclick="startReviewWeek(${b.week}, true)" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 transition flex items-center gap-1 shrink-0 border border-slate-700">
+        <i data-lucide="calendar" class="w-3.5 h-3.5 text-cyan-400"></i> ${b.label} (${count} từ)
       </button>
     `;
   });
@@ -2043,11 +2069,13 @@ function renderReviewShufflePills() {
   if (window.lucide) lucide.createIcons();
 }
 
-function startReviewCluster(id, fromU, toU) {
-  appState.studyMode = "free_review";
-  appState.shuffledRange = [fromU, toU];
-  const rawWords = getWordsForUnitRange(fromU, toU);
-  appState.activeShuffledCards = shuffleArray(rawWords);
+// Bắt đầu ôn tập lặp từ theo tuần: Gộp đủ 100% từ vựng của 7 ngày qua không thiếu một từ nào
+function startReviewWeek(weekNum, isShuffled = true) {
+  const w = WEEKLY_REVIEW_BLOCKS.find(b => b.week === weekNum) || WEEKLY_REVIEW_BLOCKS[0];
+  appState.studyMode = `week_${weekNum}`;
+  appState.shuffledRange = [w.fromDay, w.toDay];
+  const rawWords = getWordsForWeek(weekNum);
+  appState.activeShuffledCards = isShuffled ? shuffleArray(rawWords) : rawWords;
   appState.currentCardIndex = 0;
   appState.isFlipped = false;
 
@@ -2057,13 +2085,19 @@ function startReviewCluster(id, fromU, toU) {
   if (freeArea) freeArea.classList.remove("hidden");
 
   const titleEl = document.getElementById("currentUnitTitle");
-  if (titleEl) titleEl.innerText = `Ôn tập xáo trộn: Unit ${fromU} – ${toU}`;
+  if (titleEl) titleEl.innerText = `Ôn tập Tuần ${weekNum} (Ngày ${w.fromDay} – ${w.toDay})`;
   const dayBadge = document.getElementById("currentDayBadge");
-  if (dayBadge) dayBadge.innerText = `${rawWords.length} từ`;
+  if (dayBadge) dayBadge.innerText = `${rawWords.length} từ (100% 7 ngày qua)`;
 
   switchTab("flashcard");
   renderFlashcard();
-  showToast(`🔀 Đã bắt đầu ôn tập xáo trộn Cụm Unit ${fromU} – ${toU}!`, "info");
+  showToast(`📅 Đã nạp đủ ${rawWords.length} từ của Tuần ${weekNum} (Ngày ${w.fromDay} – ${w.toDay})!`, "success");
+}
+
+function startReviewCluster(id, fromU, toU) {
+  // Backward compatibility alias: chuyển hướng sang ôn theo tuần tương ứng
+  const w = WEEKLY_REVIEW_BLOCKS[0];
+  startReviewWeek(1, true);
 }
 
 function startFreeFlashcardReview() {
@@ -2111,10 +2145,10 @@ function setupUnitSelectors() {
   const unitSelect = document.getElementById("unitSelect");
   if (!unitSelect) return;
 
-  let html = `<optgroup label="🔀 Các cụm 4 Unit xáo trộn">`;
-  SHUFFLE_4_UNIT_BLOCKS.forEach(b => {
-    const count = getWordsForUnitRange(b.from, b.to).length;
-    html += `<option value="${b.id}">🔀 Xáo trộn ${b.label} (${count} từ)</option>`;
+  let html = `<optgroup label="📅 Ôn tập lặp từ theo Tuần (Đầy đủ 7 ngày qua)">`;
+  WEEKLY_REVIEW_BLOCKS.forEach(b => {
+    const count = getWordsForWeek(b.week).length;
+    html += `<option value="${b.id}">📅 Ôn ${b.label} (${count} từ)</option>`;
   });
   html += `</optgroup><optgroup label="📚 Học theo từng Unit riêng lẻ">`;
 
@@ -2140,7 +2174,7 @@ function updateModeButtonsUI(mode) {
     btnUnit.classList.add(...inactiveClasses);
   }
 
-  SHUFFLE_4_UNIT_BLOCKS.forEach(b => {
+  WEEKLY_REVIEW_BLOCKS.forEach(b => {
     const btn = document.getElementById(`modeBtn_${b.id}`);
     if (btn) {
       btn.classList.remove(...activeClasses);
@@ -2149,7 +2183,7 @@ function updateModeButtonsUI(mode) {
     }
   });
 
-  if (mode && mode.startsWith("shuffle_")) {
+  if (mode && (mode.startsWith("week_") || mode.startsWith("shuffle_"))) {
     const activeBtn = document.getElementById(`modeBtn_${mode}`);
     if (activeBtn) {
       activeBtn.classList.remove(...inactiveClasses);
@@ -2166,12 +2200,12 @@ function updateModeButtonsUI(mode) {
 
 function switchStudyMode(mode) {
   const unitSelect = document.getElementById("unitSelect");
-  if (mode && mode.startsWith("shuffle_")) {
+  if (mode && (mode.startsWith("week_") || mode.startsWith("shuffle_"))) {
     if (unitSelect) unitSelect.value = mode;
     onUnitChange(mode);
   } else {
     if (unitSelect) {
-      if (typeof unitSelect.value === "string" && unitSelect.value.startsWith("shuffle_")) {
+      if (typeof unitSelect.value === "string" && (unitSelect.value.startsWith("week_") || unitSelect.value.startsWith("shuffle_"))) {
         unitSelect.value = "0";
       }
       onUnitChange(unitSelect.value);
@@ -2181,6 +2215,34 @@ function switchStudyMode(mode) {
 
 function onUnitChange(val) {
   const daySelect = document.getElementById("daySelect");
+
+  // Check Weekly Review mode: week_1, week_2, ...
+  const mWeek = typeof val === "string" && val.match(/^week_(\d+)$/);
+  if (mWeek) {
+    const wNum = parseInt(mWeek[1]);
+    const block = WEEKLY_REVIEW_BLOCKS.find(b => b.week === wNum) || WEEKLY_REVIEW_BLOCKS[0];
+    appState.studyMode = val;
+    appState.shuffledRange = [block.fromDay, block.toDay];
+    updateModeButtonsUI(val);
+
+    const rawWords = getWordsForWeek(wNum);
+    appState.activeShuffledCards = shuffleArray(rawWords);
+
+    const total = appState.activeShuffledCards.length;
+    const batchSize = 20;
+    const numBatches = Math.ceil(total / batchSize);
+
+    let dayOptions = `<option value="all">Tất cả ${total} từ (Đủ 7 ngày qua)</option>`;
+    for (let b = 0; b < numBatches; b++) {
+      const count = Math.min(batchSize, total - b * batchSize);
+      dayOptions += `<option value="batch_${b}">Đợt ${b + 1} (${count} từ ngẫu nhiên)</option>`;
+    }
+    if (daySelect) daySelect.innerHTML = dayOptions;
+
+    onDayChange("all");
+    showToast(`📅 Đã nạp trọn vẹn ${total} từ của Tuần ${wNum} (Ngày ${block.fromDay} – ${block.toDay})!`, "success");
+    return;
+  }
 
   const m = typeof val === "string" && val.match(/^shuffle_(\d+)_(\d+)$/);
   if (m) {
@@ -2550,8 +2612,11 @@ function getCurrentDayWords() {
   if (appState.studyMode === "gradual_review" && appState.gradualReviewWords) {
     return appState.gradualReviewWords;
   }
-  if (appState.studyMode && appState.studyMode.startsWith("shuffle_")) {
-    const total = appState.activeShuffledCards;
+  if (appState.studyMode === "idioms") {
+    return appState.activeShuffledCards || appState.idiomsStudy?.cards || [];
+  }
+  if (appState.studyMode && (appState.studyMode.startsWith("week_") || appState.studyMode.startsWith("shuffle_"))) {
+    const total = appState.activeShuffledCards || [];
     if (appState.currentDayIndex === "all") {
       return total;
     }
@@ -2620,7 +2685,13 @@ function getCurrentDayWords() {
 }
 
 function reshuffleCurrentDeck() {
-  if (appState.studyMode && appState.studyMode.startsWith("shuffle_")) {
+  if (appState.studyMode === "idioms") {
+    appState.activeShuffledCards = shuffleArray(appState.activeShuffledCards || appState.idiomsStudy?.cards || []);
+  } else if (appState.studyMode && appState.studyMode.startsWith("week_")) {
+    const wNum = parseInt(appState.studyMode.replace("week_", "")) || 1;
+    const rawWords = getWordsForWeek(wNum);
+    appState.activeShuffledCards = shuffleArray(rawWords);
+  } else if (appState.studyMode && appState.studyMode.startsWith("shuffle_")) {
     const [fromU, toU] = appState.shuffledRange;
     const rawWords = getWordsForUnitRange(fromU, toU);
     appState.activeShuffledCards = shuffleArray(rawWords);
@@ -5653,6 +5724,9 @@ function generateDailyQuiz() {
     }
   } else if (scope === "shuffle_all") {
     words = window.APP_DATA?.units ? window.APP_DATA.units.flatMap(u => u.days.flatMap(d => d.words)) : [];
+  } else if (typeof scope === "string" && scope.match(/^week_(\d+)$/)) {
+    const wNum = parseInt(scope.match(/^week_(\d+)$/)[1]);
+    words = getWordsForWeek(wNum);
   } else {
     const m = typeof scope === "string" && scope.match(/^shuffle_(\d+)_(\d+)$/);
     if (m) {
@@ -10808,4 +10882,165 @@ async function createNewAccountFromModal() {
 
   await switchAccount(email);
   showToast(`🎉 Cấp tài khoản mới thành công cho ${name}! Bắt đầu lộ trình ngay.`, "success");
+}
+
+
+// ============================================================================
+// BỘ 2000 THÀNH NGỮ & COLLOCATIONS (CÔ TRANG ANH) - DAILY REPETITION & SHUFFLE ENGINE
+// ============================================================================
+if (!appState.idiomsStudy) {
+  appState.idiomsStudy = {
+    currentTopicId: 1,
+    cards: [],
+    isShuffled: false,
+    isContinuousRepetition: false,
+    masteredIds: new Set()
+  };
+}
+
+function getDailyAssignedIdiomsTopic(dayNum) {
+  const topics = window.APP_DATA?.collocationsAndIdioms || [];
+  if (topics.length === 0) return null;
+  const d = Math.max(1, parseInt(dayNum) || (missionRegistry?.currentDay || 1));
+  const topicIdx = (d - 1) % topics.length;
+  return topics[topicIdx];
+}
+
+function formatIdiomCardItem(item, topic) {
+  return {
+    word: item.phrase,
+    phonetic: item.alternatives || "",
+    pos: item.phrase.includes(" ") ? (topic.topicTitle.includes("Thành ngữ") ? "idiom" : "collocation") : "collocation",
+    meaning_vi: item.meaning_vi,
+    meaning: item.meaning_vi,
+    example: item.example || item.phrase,
+    example_vi: item.meaning_vi,
+    sourceDayLabel: topic.topicTitle,
+    isIdiom: true
+  };
+}
+
+function startDailyIdiomsStudy(dayNum, shouldShuffle = false) {
+  const d = dayNum || missionRegistry?.currentDay || 1;
+  const topic = getDailyAssignedIdiomsTopic(d);
+  if (!topic) {
+    showToast("Không tìm thấy dữ liệu thành ngữ & collocations", "error");
+    return;
+  }
+
+  appState.studyMode = "idioms";
+  appState.idiomsStudy.currentTopicId = topic.topicId;
+  appState.idiomsStudy.isContinuousRepetition = false;
+  appState.idiomsStudy.isShuffled = !!shouldShuffle;
+
+  const rawCards = (topic.items || []).map(it => formatIdiomCardItem(it, topic));
+  appState.idiomsStudy.cards = rawCards;
+  appState.activeShuffledCards = shouldShuffle ? shuffleArray([...rawCards]) : [...rawCards];
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  const lockedBanner = document.getElementById("dailyMissionLockedBanner");
+  if (lockedBanner) lockedBanner.classList.add("hidden");
+  const freeArea = document.getElementById("freeReviewSelectorArea");
+  if (freeArea) freeArea.classList.remove("hidden");
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = `✨ ${topic.topicTitle}`;
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = `${rawCards.length} cụm (${shouldShuffle ? '🔀 Đã xáo trộn' : 'Thứ tự chuẩn'})`;
+
+  switchTab("flashcard");
+  renderFlashcard();
+  showToast(`✨ Bắt đầu học ${topic.topicTitle} (${rawCards.length} cụm từ & thành ngữ)!`, "success");
+}
+
+function startIdiomsContinuousRepetition(upToDay, shouldShuffle = true) {
+  const topics = window.APP_DATA?.collocationsAndIdioms || [];
+  if (topics.length === 0) return;
+
+  const targetDay = Math.min(90, Math.max(1, parseInt(upToDay) || (missionRegistry?.currentDay || 1)));
+  const maxTopicIdx = Math.min(topics.length - 1, (targetDay - 1) % topics.length);
+
+  const cumulativeCards = [];
+  for (let i = 0; i <= maxTopicIdx; i++) {
+    const t = topics[i];
+    (t.items || []).forEach(it => {
+      cumulativeCards.push(formatIdiomCardItem(it, t));
+    });
+  }
+
+  appState.studyMode = "idioms";
+  appState.idiomsStudy.isContinuousRepetition = true;
+  appState.idiomsStudy.isShuffled = !!shouldShuffle;
+  appState.idiomsStudy.cards = cumulativeCards;
+  appState.activeShuffledCards = shouldShuffle ? shuffleArray([...cumulativeCards]) : [...cumulativeCards];
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+
+  const lockedBanner = document.getElementById("dailyMissionLockedBanner");
+  if (lockedBanner) lockedBanner.classList.add("hidden");
+  const freeArea = document.getElementById("freeReviewSelectorArea");
+  if (freeArea) freeArea.classList.remove("hidden");
+
+  const titleEl = document.getElementById("currentUnitTitle");
+  if (titleEl) titleEl.innerText = `🔄 Lặp Lại Thành Ngữ (Ngày 1 → ${targetDay})`;
+  const dayBadge = document.getElementById("currentDayBadge");
+  if (dayBadge) dayBadge.innerText = `${cumulativeCards.length} cụm (Không thiếu chữ nào)`;
+
+  switchTab("flashcard");
+  renderFlashcard();
+  showToast(`🔄 Đã kích hoạt cơ chế lặp lại ${cumulativeCards.length} cụm từ & thành ngữ (xáo trộn ngẫu nhiên)!`, "info");
+}
+
+function toggleIdiomShuffle() {
+  if (appState.studyMode !== "idioms") {
+    reshuffleCurrentDeck();
+    return;
+  }
+  appState.idiomsStudy.isShuffled = !appState.idiomsStudy.isShuffled;
+  const cards = appState.idiomsStudy.cards || [];
+  appState.activeShuffledCards = appState.idiomsStudy.isShuffled ? shuffleArray([...cards]) : [...cards];
+  appState.currentCardIndex = 0;
+  appState.isFlipped = false;
+  renderFlashcard();
+  showToast(appState.idiomsStudy.isShuffled ? "🔀 Đã bật xáo trộn ngẫu nhiên thành ngữ!" : "📋 Đã đặt lại theo thứ tự bài học chuẩn!", "info");
+}
+
+function switchIdiomsTopic(topicId) {
+  const topics = window.APP_DATA?.collocationsAndIdioms || [];
+  const topic = topics.find(t => t.topicId === topicId) || topics[0];
+  if (!topic) return;
+  startDailyIdiomsStudy(topic.topicId, appState.idiomsStudy?.isShuffled || false);
+}
+
+function populateIdiomsTopicSelector() {
+  const sel = document.getElementById("idiomsTopicSelector");
+  if (!sel) return;
+  const topics = window.APP_DATA?.collocationsAndIdioms || [];
+  const curDay = missionRegistry?.currentDay || 1;
+  const curTopic = getDailyAssignedIdiomsTopic(curDay);
+
+  let html = "";
+  topics.forEach(t => {
+    const isCur = curTopic && (t.topicId === curTopic.topicId) ? "selected" : "";
+    html += `<option value="${t.topicId}" ${isCur}>${t.topicTitle} (${t.totalItems} cụm)</option>`;
+  });
+  sel.innerHTML = html;
+}
+
+// Update UI badges in updateDailyMissionUI
+function updateDailyIdiomsUI() {
+  const curDay = missionRegistry?.currentDay || 1;
+  const topic = getDailyAssignedIdiomsTopic(curDay);
+  if (!topic) return;
+
+  const titleEl = document.getElementById("todayIdiomsTopicTitle");
+  if (titleEl) {
+    titleEl.innerText = `Chủ đề Ngày ${curDay}: ${topic.topicTitle} (${topic.totalItems} cụm)`;
+  }
+  const countBadge = document.getElementById("todayIdiomsCountBadge");
+  if (countBadge) {
+    countBadge.innerText = `${topic.totalItems} Cụm Đầy Đủ`;
+  }
+  populateIdiomsTopicSelector();
 }

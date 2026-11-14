@@ -396,6 +396,64 @@
 
 
 
+        
+        <!-- ================= BỘ 2000 THÀNH NGỮ & COLLOCATIONS (CÔ TRANG ANH) - CHỦ ĐỀ HÔM NAY ================= -->
+        <div id="taskCardIdioms" class="glass-card rounded-2xl p-5 border-2 border-amber-500/50 bg-gradient-to-r from-amber-950/70 via-slate-900/90 to-slate-950 space-y-4 shadow-2xl relative overflow-hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-amber-600/40 shrink-0">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Kho 2000 Thành Ngữ & Collocations (Cô Trang Anh)</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">Mỗi ngày 1 chủ đề</span>
+                  <span id="todayIdiomsCountBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-amber-300 font-bold border border-slate-700">111 Cụm Đầy Đủ</span>
+                </div>
+                <h3 id="todayIdiomsTopicTitle" class="text-base sm:text-lg font-black text-white mt-0.5">Chủ đề Hôm nay: Cụm từ cố định thông dụng (111 cụm)</h3>
+                <p class="text-xs text-slate-300 mt-0.5">Học trọn bộ thành ngữ & collocations chuẩn sách Cô Trang Anh, phát âm bản ngữ, đầy đủ 100% nghĩa tiếng Việt và cơ chế lặp lại liên tục.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-xs text-slate-400 hidden sm:inline">Đổi chủ đề:</span>
+              <select id="idiomsTopicSelector" onchange="switchIdiomsTopic(parseInt(this.value))" class="bg-slate-800 border border-amber-500/40 text-amber-200 text-xs rounded-xl px-2.5 py-1.5 outline-none font-semibold max-w-[220px]">
+                <!-- Populated dynamically with 29 topics -->
+              </select>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 text-xs pt-1">
+            <div class="text-slate-300 flex items-center gap-2 flex-wrap">
+              <span class="flex items-center gap-1 text-emerald-400 font-bold">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Không thiếu chữ nào
+              </span>
+              <span class="text-slate-500">•</span>
+              <span class="flex items-center gap-1 text-cyan-300">
+                <i data-lucide="shuffle" class="w-3.5 h-3.5"></i> Xáo trộn ngẫu nhiên tăng phản xạ
+              </span>
+              <span class="text-slate-500">•</span>
+              <span class="flex items-center gap-1 text-amber-300">
+                <i data-lucide="repeat" class="w-3.5 h-3.5"></i> Lặp lại mỗi ngày
+              </span>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <button onclick="startDailyIdiomsStudy(undefined, false)" class="px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold text-xs shadow-lg shadow-amber-600/30 transition flex items-center gap-1.5 active:scale-95">
+                <i data-lucide="book-open" class="w-4 h-4"></i>
+                <span>Học Chủ Đề Hôm Nay</span>
+              </button>
+              <button onclick="startDailyIdiomsStudy(undefined, true)" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/40 font-bold text-xs transition flex items-center gap-1.5 active:scale-95" title="Xáo trộn ngẫu nhiên thứ tự thẻ thành ngữ">
+                <i data-lucide="shuffle" class="w-4 h-4 text-amber-400"></i>
+                <span>🔀 Xáo Trộn Ngẫu Nhiên</span>
+              </button>
+              <button onclick="startIdiomsContinuousRepetition()" class="px-3.5 py-2.5 rounded-xl bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/40 font-bold text-xs transition flex items-center gap-1.5 active:scale-95" title="Ôn tập lặp lại toàn bộ các chủ đề đã học">
+                <i data-lucide="repeat" class="w-4 h-4 text-indigo-400"></i>
+                <span>🔄 Lặp Lại Toàn Bộ Đã Học</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
         <!-- ================= BẢN TIN VIETNAM TODAY (VTV4) CẬP NHẬT HẰNG NGÀY HIGHLIGHT ================= -->
         <div class="glass-card rounded-2xl p-5 border-2 border-rose-500/50 bg-gradient-to-r from-rose-950/70 via-red-950/50 to-slate-950 space-y-4 shadow-2xl relative overflow-hidden">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -821,6 +879,10 @@
             <!-- Dynamically populated with 4-unit clusters by renderShufflePills() -->
           </div>
 
+          <button onclick="startDailyIdiomsStudy(undefined, true)" class="px-3 py-1.5 rounded-xl bg-amber-600/20 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/40 text-xs font-bold flex items-center gap-1.5 transition shrink-0 shadow-sm" title="Vào học Thành ngữ & Collocations hôm nay (Xáo trộn ngẫu nhiên)">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>✨ Thành Ngữ (Xáo Trộn)</span>
+          </button>
           <button onclick="reshuffleCurrentDeck()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-indigo-600/30 text-indigo-300 border border-slate-700 hover:border-indigo-500/50 text-xs font-semibold flex items-center gap-1.5 transition shrink-0" title="Đảo ngẫu nhiên lại toàn bộ thẻ hiện tại">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
             <span>Đảo thẻ</span>
@@ -2753,19 +2815,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=62.0"></script>
-  <script src="./listening_data.js?v=62.0"></script>
-  <script src="./vietnam_today_data.js?v=62.0"></script>
-  <script src="./educational_channels_data.js?v=62.0"></script>
-  <script src="./international_news_videos.js?v=62.0"></script>
-  <script src="./bilingual_news_data.js?v=62.0"></script>
-  <script src="./reading_lexicon.js?v=62.0"></script>
-  <script src="./app.js?v=62.0"></script>
+  <script src="./data.js?v=63.0"></script>
+  <script src="./listening_data.js?v=63.0"></script>
+  <script src="./vietnam_today_data.js?v=63.0"></script>
+  <script src="./educational_channels_data.js?v=63.0"></script>
+  <script src="./international_news_videos.js?v=63.0"></script>
+  <script src="./bilingual_news_data.js?v=63.0"></script>
+  <script src="./reading_lexicon.js?v=63.0"></script>
+  <script src="./app.js?v=63.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=62.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=63.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

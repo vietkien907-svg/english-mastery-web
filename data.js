@@ -73788,3 +73788,8090 @@ window.APP_DATA = {
   ],
   "totalVocabCount": 2129
 };
+
+
+// ============================================================================
+// UNIT 37: BẢNG TỪ & CẤU TRÚC MỞ RỘNG (TUẦN 1 - 27 TÀI LIỆU LUYỆN THI)
+// ============================================================================
+if (typeof window !== "undefined" && window.APP_DATA && Array.isArray(window.APP_DATA.units)) {
+  const unit37 = {
+  "unitNumber": 37,
+  "unitTitle": "Unit 37: Bảng Từ & Cấu Trúc Chọn Lọc (Tuần 1 - 27)",
+  "description": "Kho từ vựng và cấu trúc mở rộng không trùng lặp từ 27 tuần tài liệu luyện thi",
+  "totalWords": 139,
+  "days": [
+    {
+      "dayNumber": 1,
+      "dayTitle": "📘 Phần 1: 20 từ & cấu trúc chọn lọc",
+      "totalWords": 20,
+      "words": [
+        {
+          "word": "To begin with",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đầu tiên (được s ử dụng đ ể đưa ra lý do quan",
+          "example": "Example: To begin with",
+          "example_vi": "đầu tiên (được s ử dụng đ ể đưa ra lý do quan",
+          "source": "Tuần 1 - Ngày 3/4/2024"
+        },
+        {
+          "word": "In the middle of sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ở giữa cái gì đó",
+          "example": "Example: In the middle of sth",
+          "example_vi": "ở giữa cái gì đó",
+          "source": "Tuần 1 - Ngày 5/4/2024"
+        },
+        {
+          "word": "On the corner of sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ở góc của cái gì đó",
+          "example": "Example: On the corner of sth",
+          "example_vi": "ở góc của cái gì đó",
+          "source": "Tuần 1 - Ngày 5/4/2024"
+        },
+        {
+          "word": "Play a role/part in sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đóng một vai trò/một phần trong cái gì đó",
+          "example": "Example: Play a role/part in sth",
+          "example_vi": "đóng một vai trò/một phần trong cái gì đó",
+          "source": "Tuần 1 - Ngày 5/4/2024"
+        },
+        {
+          "word": "Cope with",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đối phó, đương đầu với",
+          "example": "Example: Cope with",
+          "example_vi": "đối phó, đương đầu với",
+          "source": "Tuần 1 - Ngày 5/4/2024"
+        },
+        {
+          "word": "In response to sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đáp lại điều gì đó",
+          "example": "Example: In response to sth",
+          "example_vi": "đáp lại điều gì đó",
+          "source": "Tuần 1 - Ngày 5/4/2024"
+        },
+        {
+          "word": "In particular",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đặc biệt, cụ thể là",
+          "example": "Example: In particular",
+          "example_vi": "đặc biệt, cụ thể là",
+          "source": "Tuần 1 - Ngày 5/4/2024"
+        },
+        {
+          "word": "Struggle to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đấu tranh/chật vật để làm gì đó",
+          "example": "Example: Struggle to do sth",
+          "example_vi": "đấu tranh/chật vật để làm gì đó",
+          "source": "Tuần 1 - Ngày 5/4/2024"
+        },
+        {
+          "word": "Lock down",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đóng cửa",
+          "example": "Example: Lock down",
+          "example_vi": "đóng cửa",
+          "source": "Tuần 2 - Ngày 8/4/2024"
+        },
+        {
+          "word": "Push oneself to the limit",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ép bản thân đến giới hạn nào đó",
+          "example": "Example: Push oneself to the limit",
+          "example_vi": "ép bản thân đến giới hạn nào đó",
+          "source": "Tuần 2 - Ngày 8/4/2024"
+        },
+        {
+          "word": "Make up for",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đền bù, bù đắp lại",
+          "example": "Example: Make up for",
+          "example_vi": "đền bù, bù đắp lại",
+          "source": "Tuần 2 - Ngày 8/4/2024"
+        },
+        {
+          "word": "Wake sb up",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đánh thức ai dậy",
+          "example": "Example: Wake sb up",
+          "example_vi": "đánh thức ai dậy",
+          "source": "Tuần 2 - Ngày 8/4/2024"
+        },
+        {
+          "word": "Agree to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đồng ý làm việc gì đó",
+          "example": "Example: Agree to do sth",
+          "example_vi": "đồng ý làm việc gì đó",
+          "source": "Tuần 2 - Ngày 8/4/2024"
+        },
+        {
+          "word": "Be added to sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được thêm vào cái gì",
+          "example": "Example: Be added to sth",
+          "example_vi": "được thêm vào cái gì",
+          "source": "Tuần 2 - Ngày 8/4/2024"
+        },
+        {
+          "word": "Make decisions",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đưa ra quyết định",
+          "example": "Example: Make decisions",
+          "example_vi": "đưa ra quyết định",
+          "source": "Tuần 2 - Ngày 10/4/2024"
+        },
+        {
+          "word": "Go out with sb",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi chơi với ai",
+          "example": "Example: Go out with sb",
+          "example_vi": "đi chơi với ai",
+          "source": "Tuần 2 - Ngày 10/4/2024"
+        },
+        {
+          "word": "Put down",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đặt xuống",
+          "example": "Example: Put down",
+          "example_vi": "đặt xuống",
+          "source": "Tuần 2 - Ngày 10/4/2024"
+        },
+        {
+          "word": "Hang out with sb",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi chơi/la cà với ai",
+          "example": "Example: Hang out with sb",
+          "example_vi": "đi chơi/la cà với ai",
+          "source": "Tuần 2 - Ngày 10/4/2024"
+        },
+        {
+          "word": "Deal with",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đối phó, giải quyết",
+          "example": "Example: Deal with",
+          "example_vi": "đối phó, giải quyết",
+          "source": "Tuần 2 - Ngày 12/4/2024"
+        },
+        {
+          "word": "Settle down",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ổn định, định cư",
+          "example": "Example: Settle down",
+          "example_vi": "ổn định, định cư",
+          "source": "Tuần 3 - Ngày 15/4/2024"
+        }
+      ]
+    },
+    {
+      "dayNumber": 2,
+      "dayTitle": "📘 Phần 2: 20 từ & cấu trúc chọn lọc",
+      "totalWords": 20,
+      "words": [
+        {
+          "word": "In the company of sb",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ở cùng với ai đó",
+          "example": "Example: In the company of sb",
+          "example_vi": "ở cùng với ai đó",
+          "source": "Tuần 3 - Ngày 15/4/2024"
+        },
+        {
+          "word": "Agree with sb",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đồng ý, đồng tình với ai đó",
+          "example": "Example: Agree with sb",
+          "example_vi": "đồng ý, đồng tình với ai đó",
+          "source": "Tuần 3 - Ngày 17/4/2024"
+        },
+        {
+          "word": "Be on business",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi công tác",
+          "example": "Example: Be on business",
+          "example_vi": "đi công tác",
+          "source": "Tuần 3 - Ngày 17/4/2024"
+        },
+        {
+          "word": "Be selfish about sth/doing sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ích kỷ về điều gì/làm điều gì",
+          "example": "Example: Be selfish about sth/doing sth",
+          "example_vi": "ích kỷ về điều gì/làm điều gì",
+          "source": "Tuần 3 - Ngày 17/4/2024"
+        },
+        {
+          "word": "Put out",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đổ rác, dập lửa",
+          "example": "Example: Put out",
+          "example_vi": "đổ rác, dập lửa",
+          "source": "Tuần 3 - Ngày 17/4/2024"
+        },
+        {
+          "word": "A high priority = very important",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ưu tiên hàng đầu",
+          "example": "Example: A high priority = very important",
+          "example_vi": "ưu tiên hàng đầu",
+          "source": "Tuần 3 - Ngày 19/4/2024"
+        },
+        {
+          "word": "Make a proposal = suggest sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đưa ra đề xuất",
+          "example": "Example: Make a proposal = suggest sth",
+          "example_vi": "đưa ra đề xuất",
+          "source": "Tuần 3 - Ngày 19/4/2024"
+        },
+        {
+          "word": "Make an appointment",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đặt một cuộc hẹn",
+          "example": "Example: Make an appointment",
+          "example_vi": "đặt một cuộc hẹn",
+          "source": "Tuần 3 - Ngày 19/4/2024"
+        },
+        {
+          "word": "Take temperature",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đo nhiệt độ",
+          "example": "Example: Take temperature",
+          "example_vi": "đo nhiệt độ",
+          "source": "Tuần 3 - Ngày 19/4/2024"
+        },
+        {
+          "word": "Gain recognition for sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đạt được sự công nhận cho điều gì",
+          "example": "Example: Gain recognition for sth",
+          "example_vi": "đạt được sự công nhận cho điều gì",
+          "source": "Tuần 3 - Ngày 19/4/2024"
+        },
+        {
+          "word": "Offer to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đề nghị làm gì",
+          "example": "Example: Offer to do sth",
+          "example_vi": "đề nghị làm gì",
+          "source": "Tuần 4 - Ngày 22/4/2024"
+        },
+        {
+          "word": "In search of",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đang tìm kiếm …",
+          "example": "Example: In search of",
+          "example_vi": "đang tìm kiếm …",
+          "source": "Tuần 4 - Ngày 26/4/2024"
+        },
+        {
+          "word": "Dress up",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ăn diện, ăn mặc đẹp",
+          "example": "Example: Dress up",
+          "example_vi": "ăn diện, ăn mặc đẹp",
+          "source": "Tuần 4 - Ngày 26/4/2024"
+        },
+        {
+          "word": "Be made into a film",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được dựng thành phim",
+          "example": "Example: Be made into a film",
+          "example_vi": "được dựng thành phim",
+          "source": "Tuần 5 - Ngày 29/4/2024"
+        },
+        {
+          "word": "Identify with sb",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đồng nhất với ai; đồng cảm với ai",
+          "example": "Example: Identify with sb",
+          "example_vi": "đồng nhất với ai; đồng cảm với ai",
+          "source": "Tuần 5 - Ngày 29/4/2024"
+        },
+        {
+          "word": "Be based on sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được dựa trên cái gì",
+          "example": "Example: Be based on sth",
+          "example_vi": "được dựa trên cái gì",
+          "source": "Tuần 5 - Ngày 1/5/2024"
+        },
+        {
+          "word": "Refer to sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đề cập tới điều gì",
+          "example": "Example: Refer to sth",
+          "example_vi": "đề cập tới điều gì",
+          "source": "Tuần 6 - Ngày 8/5/2024"
+        },
+        {
+          "word": "Play an important role in sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đóng vai trò quan trọng trong cái gì",
+          "example": "Example: Play an important role in sth",
+          "example_vi": "đóng vai trò quan trọng trong cái gì",
+          "source": "Tuần 6 - Ngày 8/5/2024"
+        },
+        {
+          "word": "Put sb/sth in danger",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "Đặt ai/cái gì vào nguy hiểm",
+          "example": "Example: Put sb/sth in danger",
+          "example_vi": "Đặt ai/cái gì vào nguy hiểm",
+          "source": "Tuần 7 - Ngày 13/5/2024"
+        },
+        {
+          "word": "Come down",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi xuống, rơi xuống",
+          "example": "Example: Come down",
+          "example_vi": "đi xuống, rơi xuống",
+          "source": "Tuần 7 - Ngày 13/5/2024"
+        }
+      ]
+    },
+    {
+      "dayNumber": 3,
+      "dayTitle": "📘 Phần 3: 20 từ & cấu trúc chọn lọc",
+      "totalWords": 20,
+      "words": [
+        {
+          "word": "Be listed as sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được liệt kê là cái gì",
+          "example": "Example: Be listed as sth",
+          "example_vi": "được liệt kê là cái gì",
+          "source": "Tuần 7 - Ngày 15/5/2024"
+        },
+        {
+          "word": "Contribute to sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đóng góp cho cái gì",
+          "example": "Example: Contribute to sth",
+          "example_vi": "đóng góp cho cái gì",
+          "source": "Tuần 7 - Ngày 15/5/2024"
+        },
+        {
+          "word": "Meet needs",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đáp ứng nhu cầu",
+          "example": "Example: Meet needs",
+          "example_vi": "đáp ứng nhu cầu",
+          "source": "Tuần 7 - Ngày 15/5/2024"
+        },
+        {
+          "word": "Be classified as sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được phân loại như thứ gì",
+          "example": "Example: Be classified as sth",
+          "example_vi": "được phân loại như thứ gì",
+          "source": "Tuần 7 - Ngày 15/5/2024"
+        },
+        {
+          "word": "Hold up",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đình trệ",
+          "example": "Example: Hold up",
+          "example_vi": "đình trệ",
+          "source": "Tuần 7 - Ngày 17/5/2024"
+        },
+        {
+          "word": "Propose doing sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đề xuất làm gì đó",
+          "example": "Example: Propose doing sth",
+          "example_vi": "đề xuất làm gì đó",
+          "source": "Tuần 8 - Ngày 20/5/2024"
+        },
+        {
+          "word": "Present a challenge to sb/sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đặt ra một thách thức cho ai/ cái gì",
+          "example": "Example: Present a challenge to sb/sth",
+          "example_vi": "đặt ra một thách thức cho ai/ cái gì",
+          "source": "Tuần 8 - Ngày 20/5/2024"
+        },
+        {
+          "word": "Face time in prison",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đối mặt với thời gian ngồi tù",
+          "example": "Example: Face time in prison",
+          "example_vi": "đối mặt với thời gian ngồi tù",
+          "source": "Tuần 8 - Ngày 20/5/2024"
+        },
+        {
+          "word": "Type up sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đánh máy cái gì đó",
+          "example": "Example: Type up sth",
+          "example_vi": "đánh máy cái gì đó",
+          "source": "Tuần 8 - Ngày 24/5/2024"
+        },
+        {
+          "word": "Propose to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đề xuất làm việc gì đó",
+          "example": "Example: Propose to do sth",
+          "example_vi": "đề xuất làm việc gì đó",
+          "source": "Tuần 8 - Ngày 24/5/2024"
+        },
+        {
+          "word": "Enroll on sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đăng ký cái gì",
+          "example": "Example: Enroll on sth",
+          "example_vi": "đăng ký cái gì",
+          "source": "Tuần 8 - Ngày 24/5/2024"
+        },
+        {
+          "word": "Be in the middle of",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ở giữa",
+          "example": "Example: Be in the middle of",
+          "example_vi": "ở giữa",
+          "source": "Tuần 9 - Ngày 29/5/2024"
+        },
+        {
+          "word": "Log in",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đăng nhập",
+          "example": "Example: Log in",
+          "example_vi": "đăng nhập",
+          "source": "Tuần 9 - Ngày 29/5/2024"
+        },
+        {
+          "word": "Play the role of sb",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đóng vai là ai đó (trong một bọ phim, vở kịch,..)",
+          "example": "Example: Play the role of sb",
+          "example_vi": "đóng vai là ai đó (trong một bọ phim, vở kịch,..)",
+          "source": "Tuần 9 - Ngày 29/5/2024"
+        },
+        {
+          "word": "Afford to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đủ khả năng (về tài chính) để làm gì",
+          "example": "Example: Afford to do sth",
+          "example_vi": "đủ khả năng (về tài chính) để làm gì",
+          "source": "Tuần 9 - Ngày 31/5/2024"
+        },
+        {
+          "word": "Make a decision",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đưa ra quyết định",
+          "example": "Example: Make a decision",
+          "example_vi": "đưa ra quyết định",
+          "source": "Tuần 10 - Ngày 5/6/2024"
+        },
+        {
+          "word": "Get into university",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đậu vào đại học",
+          "example": "Example: Get into university",
+          "example_vi": "đậu vào đại học",
+          "source": "Tuần 10 - Ngày 5/6/2024"
+        },
+        {
+          "word": "Make an appointment to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đặt lịch hẹn để làm gì",
+          "example": "Example: Make an appointment to do sth",
+          "example_vi": "đặt lịch hẹn để làm gì",
+          "source": "Tuần 10 - Ngày 5/6/2024"
+        },
+        {
+          "word": "At least",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ít nhất",
+          "example": "Example: At least",
+          "example_vi": "ít nhất",
+          "source": "Tuần 10 - Ngày 5/6/2024"
+        },
+        {
+          "word": "Take on",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đảm nhận, thuê mướn",
+          "example": "Example: Take on",
+          "example_vi": "đảm nhận, thuê mướn",
+          "source": "Tuần 10 - Ngày 7/6/2024"
+        }
+      ]
+    },
+    {
+      "dayNumber": 4,
+      "dayTitle": "📘 Phần 4: 20 từ & cấu trúc chọn lọc",
+      "totalWords": 20,
+      "words": [
+        {
+          "word": "Meet the production targets",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đáp ứng các mục tiêu sản xuất",
+          "example": "Example: Meet the production targets",
+          "example_vi": "đáp ứng các mục tiêu sản xuất",
+          "source": "Tuần 10 - Ngày 7/6/2024"
+        },
+        {
+          "word": "Check attendance",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "điểm danh",
+          "example": "Example: Check attendance",
+          "example_vi": "điểm danh",
+          "source": "Tuần 10 - Ngày 7/6/2024"
+        },
+        {
+          "word": "Live up to",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đáp ứng",
+          "example": "Example: Live up to",
+          "example_vi": "đáp ứng",
+          "source": "Tuần 11 - Ngày 10/6/2024"
+        },
+        {
+          "word": "Be passionate about sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đam mê thứ gì đó",
+          "example": "Example: Be passionate about sth",
+          "example_vi": "đam mê thứ gì đó",
+          "source": "Tuần 11 - Ngày 10/6/2024"
+        },
+        {
+          "word": "Invest in sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đầu tư vào cái gì",
+          "example": "Example: Invest in sth",
+          "example_vi": "đầu tư vào cái gì",
+          "source": "Tuần 11 - Ngày 12/6/2024"
+        },
+        {
+          "word": "Agree on sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đồng ý về điều gì",
+          "example": "Example: Agree on sth",
+          "example_vi": "đồng ý về điều gì",
+          "source": "Tuần 11 - Ngày 12/6/2024"
+        },
+        {
+          "word": "Take charge",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đảm nhận",
+          "example": "Example: Take charge",
+          "example_vi": "đảm nhận",
+          "source": "Tuần 11 - Ngày 14/6/2024"
+        },
+        {
+          "word": "Put a lot of effort into sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đặt rất nhiều nỗ lực vào việc gì",
+          "example": "Example: Put a lot of effort into sth",
+          "example_vi": "đặt rất nhiều nỗ lực vào việc gì",
+          "source": "Tuần 11 - Ngày 14/6/2024"
+        },
+        {
+          "word": "Be shortlisted for sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được lọt vào danh sách gì",
+          "example": "Example: Be shortlisted for sth",
+          "example_vi": "được lọt vào danh sách gì",
+          "source": "Tuần 11 - Ngày 14/6/2024"
+        },
+        {
+          "word": "Put forward",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đưa ra, đề xuất",
+          "example": "Example: Put forward",
+          "example_vi": "đưa ra, đề xuất",
+          "source": "Tuần 11 - Ngày 14/6/2024"
+        },
+        {
+          "word": "Struggle with sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đấu tranh với cái gì",
+          "example": "Example: Struggle with sth",
+          "example_vi": "đấu tranh với cái gì",
+          "source": "Tuần 11 - Ngày 14/6/2024"
+        },
+        {
+          "word": "Be worth doing sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đáng làm việc gì",
+          "example": "Example: Be worth doing sth",
+          "example_vi": "đáng làm việc gì",
+          "source": "Tuần 11 - Ngày 14/6/2024"
+        },
+        {
+          "word": "To date",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đến nay",
+          "example": "Example: To date",
+          "example_vi": "đến nay",
+          "source": "Tuần 11 - Ngày 14/6/2024"
+        },
+        {
+          "word": "Fill out",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "điền",
+          "example": "Example: Fill out",
+          "example_vi": "điền",
+          "source": "Tuần 12 - Ngày 17/6/2024"
+        },
+        {
+          "word": "Hang out",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi ra ngoài, đi chơi",
+          "example": "Example: Hang out",
+          "example_vi": "đi ra ngoài, đi chơi",
+          "source": "Tuần 12 - Ngày 17/6/2024"
+        },
+        {
+          "word": "Contribute to sth/doing sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đóng góp, góp phần",
+          "example": "Example: Contribute to sth/doing sth",
+          "example_vi": "đóng góp, góp phần",
+          "source": "Tuần 12 - Ngày 17/6/2024"
+        },
+        {
+          "word": "Be used for doing sth = be used to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được sử dụng để làm gì",
+          "example": "Example: Be used for doing sth = be used to do sth",
+          "example_vi": "được sử dụng để làm gì",
+          "source": "Tuần 12 - Ngày 21/6/2024"
+        },
+        {
+          "word": "Be on vacation",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đang trong kỳ nghỉ",
+          "example": "Example: Be on vacation",
+          "example_vi": "đang trong kỳ nghỉ",
+          "source": "Tuần 13 - Ngày 24/6/2024"
+        },
+        {
+          "word": "Hang around",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi loanh quanh, đi chơi xung quanh, la cà",
+          "example": "Example: Hang around",
+          "example_vi": "đi loanh quanh, đi chơi xung quanh, la cà",
+          "source": "Tuần 13 - Ngày 24/6/2024"
+        },
+        {
+          "word": "Be credited with sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được ghi nhận với cái gì",
+          "example": "Example: Be credited with sth",
+          "example_vi": "được ghi nhận với cái gì",
+          "source": "Tuần 13 - Ngày 24/6/2024"
+        }
+      ]
+    },
+    {
+      "dayNumber": 5,
+      "dayTitle": "📘 Phần 5: 20 từ & cấu trúc chọn lọc",
+      "totalWords": 20,
+      "words": [
+        {
+          "word": "In favor of sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ủng hộ cái gì",
+          "example": "Example: In favor of sth",
+          "example_vi": "ủng hộ cái gì",
+          "source": "Tuần 13 - Ngày 26/6/2024"
+        },
+        {
+          "word": "Force sb to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ép buộc ai đó làm việc gì",
+          "example": "Example: Force sb to do sth",
+          "example_vi": "ép buộc ai đó làm việc gì",
+          "source": "Tuần 13 - Ngày 26/6/2024"
+        },
+        {
+          "word": "Raise the question of sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đặt câu hỏi về điều gì",
+          "example": "Example: Raise the question of sth",
+          "example_vi": "đặt câu hỏi về điều gì",
+          "source": "Tuần 13 - Ngày 26/6/2024"
+        },
+        {
+          "word": "Here to stay",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được chấp nhận, được sử dụng",
+          "example": "Example: Here to stay",
+          "example_vi": "được chấp nhận, được sử dụng",
+          "source": "Tuần 13 - Ngày 26/6/2024"
+        },
+        {
+          "word": "Put a notice",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đưa ra thông báo",
+          "example": "Example: Put a notice",
+          "example_vi": "đưa ra thông báo",
+          "source": "Tuần 14 - Ngày 1/7/2024"
+        },
+        {
+          "word": "Leave comments on sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "để lại bình luận về điều gì",
+          "example": "Example: Leave comments on sth",
+          "example_vi": "để lại bình luận về điều gì",
+          "source": "Tuần 14 - Ngày 1/7/2024"
+        },
+        {
+          "word": "Fill in",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "điền vào",
+          "example": "Example: Fill in",
+          "example_vi": "điền vào",
+          "source": "Tuần 14 - Ngày 3/7/2024"
+        },
+        {
+          "word": "Go on a demonstration/a march",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi biểu tình/diễu hành",
+          "example": "Example: Go on a demonstration/a march",
+          "example_vi": "đi biểu tình/diễu hành",
+          "source": "Tuần 15 - Ngày 8/7/2024"
+        },
+        {
+          "word": "Pay sb/sth a visit = pay a vist to sb/sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đến thăm ai/cái gì",
+          "example": "Example: Pay sb/sth a visit = pay a vist to sb/sth",
+          "example_vi": "đến thăm ai/cái gì",
+          "source": "Tuần 15 - Ngày 8/7/2024"
+        },
+        {
+          "word": "Threaten to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đe dọa làm điều gì",
+          "example": "Example: Threaten to do sth",
+          "example_vi": "đe dọa làm điều gì",
+          "source": "Tuần 15 - Ngày 10/7/2024"
+        },
+        {
+          "word": "Under control",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được kiểm soát",
+          "example": "Example: Under control",
+          "example_vi": "được kiểm soát",
+          "source": "Tuần 15 - Ngày 10/7/2024"
+        },
+        {
+          "word": "Be under the impression",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ấn tượng sai lầm",
+          "example": "Example: Be under the impression",
+          "example_vi": "ấn tượng sai lầm",
+          "source": "Tuần 15 - Ngày 10/7/2024"
+        },
+        {
+          "word": "Get around",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi xung quanh, đi lại",
+          "example": "Example: Get around",
+          "example_vi": "đi xung quanh, đi lại",
+          "source": "Tuần 15 - Ngày 12/7/2024"
+        },
+        {
+          "word": "Settle in",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "định cư tại",
+          "example": "Example: Settle in",
+          "example_vi": "định cư tại",
+          "source": "Tuần 15 - Ngày 12/7/2024"
+        },
+        {
+          "word": "On the outskirts of sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ở ngoại ô của",
+          "example": "Example: On the outskirts of sth",
+          "example_vi": "ở ngoại ô của",
+          "source": "Tuần 17 - Ngày 22/7/2024"
+        },
+        {
+          "word": "Be crowded with sb/sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đông đúc, đầy ai/cái gì",
+          "example": "Example: Be crowded with sb/sth",
+          "example_vi": "đông đúc, đầy ai/cái gì",
+          "source": "Tuần 17 - Ngày 22/7/2024"
+        },
+        {
+          "word": "Be allowed to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được phép làm gì",
+          "example": "Example: Be allowed to do sth",
+          "example_vi": "được phép làm gì",
+          "source": "Tuần 17 - Ngày 26/7/2024"
+        },
+        {
+          "word": "Be encouraged to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được khích lệ làm gì",
+          "example": "Example: Be encouraged to do sth",
+          "example_vi": "được khích lệ làm gì",
+          "source": "Tuần 17 - Ngày 26/7/2024"
+        },
+        {
+          "word": "For or against",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ủng hộ hay phản đối",
+          "example": "Example: For or against",
+          "example_vi": "ủng hộ hay phản đối",
+          "source": "Tuần 18"
+        },
+        {
+          "word": "Be fitted with sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được trang bị cái gì",
+          "example": "Example: Be fitted with sth",
+          "example_vi": "được trang bị cái gì",
+          "source": "Tuần 19 - Ngày 5/8/2024"
+        }
+      ]
+    },
+    {
+      "dayNumber": 6,
+      "dayTitle": "📘 Phần 6: 20 từ & cấu trúc chọn lọc",
+      "totalWords": 20,
+      "words": [
+        {
+          "word": "Be special about sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đặc biệt về cái gì",
+          "example": "Example: Be special about sth",
+          "example_vi": "đặc biệt về cái gì",
+          "source": "Tuần 19 - Ngày 7/8/2024"
+        },
+        {
+          "word": "On vacation",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đang trong kỳ nghỉ; đi nghỉ",
+          "example": "Example: On vacation",
+          "example_vi": "đang trong kỳ nghỉ; đi nghỉ",
+          "source": "Tuần 19 - Ngày 9/8/2024"
+        },
+        {
+          "word": "Take a walk",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi dạo",
+          "example": "Example: Take a walk",
+          "example_vi": "đi dạo",
+          "source": "Tuần 19 - Ngày 9/8/2024"
+        },
+        {
+          "word": "Book a flight",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đặt một chuyến bay",
+          "example": "Example: Book a flight",
+          "example_vi": "đặt một chuyến bay",
+          "source": "Tuần 20 - Ngày 13/8/2024"
+        },
+        {
+          "word": "Be full of sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đầy thứ gì đó",
+          "example": "Example: Be full of sth",
+          "example_vi": "đầy thứ gì đó",
+          "source": "Tuần 20 - Ngày 13/8/2024"
+        },
+        {
+          "word": "Knock down",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đánh gục",
+          "example": "Example: Knock down",
+          "example_vi": "đánh gục",
+          "source": "Tuần 21 - Ngày 19/8/2024"
+        },
+        {
+          "word": "Put up",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đề xuất, đưa ra, dựng lên",
+          "example": "Example: Put up",
+          "example_vi": "đề xuất, đưa ra, dựng lên",
+          "source": "Tuần 21 - Ngày 19/8/2024"
+        },
+        {
+          "word": "Pass through",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi qua",
+          "example": "Example: Pass through",
+          "example_vi": "đi qua",
+          "source": "Tuần 21 - Ngày 19/8/2024"
+        },
+        {
+          "word": "Operate",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ˈɑːpəreɪt/ v vận hành",
+          "example": "Example: Operate",
+          "example_vi": "ˈɑːpəreɪt/ v vận hành",
+          "source": "Tuần 21 - Ngày 21/8/2024"
+        },
+        {
+          "word": "Be supposed to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đáng lẽ phải làm gì",
+          "example": "Example: Be supposed to do sth",
+          "example_vi": "đáng lẽ phải làm gì",
+          "source": "Tuần 21 - Ngày 21/8/2024"
+        },
+        {
+          "word": "Out and about",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi đi lại lại",
+          "example": "Example: Out and about",
+          "example_vi": "đi đi lại lại",
+          "source": "Tuần 21 - Ngày 21/8/2024"
+        },
+        {
+          "word": "Look/watch out for sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "để ý/coi chừng cái gì",
+          "example": "Example: Look/watch out for sth",
+          "example_vi": "để ý/coi chừng cái gì",
+          "source": "Tuần 21 - Ngày 21/8/2024"
+        },
+        {
+          "word": "Reach a goal",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đạt được một mục tiêu",
+          "example": "Example: Reach a goal",
+          "example_vi": "đạt được một mục tiêu",
+          "source": "Tuần 21 - Ngày 23/8/2024"
+        },
+        {
+          "word": "Sign up",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đăng ký",
+          "example": "Example: Sign up",
+          "example_vi": "đăng ký",
+          "source": "Tuần 22 - Ngày 26/8/2024"
+        },
+        {
+          "word": "Be connected with",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được kết nối, liên kết với",
+          "example": "Example: Be connected with",
+          "example_vi": "được kết nối, liên kết với",
+          "source": "Tuần 22 - Ngày 28/8/2024"
+        },
+        {
+          "word": "Be named after sb/sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được đặt theo tên của ai/cái gì",
+          "example": "Example: Be named after sb/sth",
+          "example_vi": "được đặt theo tên của ai/cái gì",
+          "source": "Tuần 23 - Ngày 6/9/2024"
+        },
+        {
+          "word": "Be equipped with sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được trang bị thứ gì",
+          "example": "Example: Be equipped with sth",
+          "example_vi": "được trang bị thứ gì",
+          "source": "Tuần 23 - Ngày 6/9/2024"
+        },
+        {
+          "word": "Make a suggestion",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đưa ra đề xuất",
+          "example": "Example: Make a suggestion",
+          "example_vi": "đưa ra đề xuất",
+          "source": "Tuần 23 - Ngày 6/9/2024"
+        },
+        {
+          "word": "Offer/give sb a hand",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đề nghị/giúp ai một tay",
+          "example": "Example: Offer/give sb a hand",
+          "example_vi": "đề nghị/giúp ai một tay",
+          "source": "Tuần 23 - Ngày 6/9/2024"
+        },
+        {
+          "word": "Give feedback on sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đưa ra phản hồi về cái gì",
+          "example": "Example: Give feedback on sth",
+          "example_vi": "đưa ra phản hồi về cái gì",
+          "source": "Tuần 24 - Ngày 9/9/2024"
+        }
+      ]
+    },
+    {
+      "dayNumber": 7,
+      "dayTitle": "📘 Phần 7: 19 từ & cấu trúc chọn lọc",
+      "totalWords": 19,
+      "words": [
+        {
+          "word": "Pros and cons",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ưu và nhược điểm",
+          "example": "Example: Pros and cons",
+          "example_vi": "ưu và nhược điểm",
+          "source": "Tuần 24 - Ngày 11/9/2024"
+        },
+        {
+          "word": "Bring sth up",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đề cập đến điều gì",
+          "example": "Example: Bring sth up",
+          "example_vi": "đề cập đến điều gì",
+          "source": "Tuần 26 - Ngày 23/9/2024"
+        },
+        {
+          "word": "At the age of",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ở độ tuổi",
+          "example": "Example: At the age of",
+          "example_vi": "ở độ tuổi",
+          "source": "Tuần 26 - Ngày 25/9/2024"
+        },
+        {
+          "word": "Be translated into sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được dịch sang thứ tiếng gì",
+          "example": "Example: Be translated into sth",
+          "example_vi": "được dịch sang thứ tiếng gì",
+          "source": "Tuần 26 - Ngày 25/9/2024"
+        },
+        {
+          "word": "Attend school/college",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi học",
+          "example": "Example: Attend school/college",
+          "example_vi": "đi học",
+          "source": "Tuần 26 - Ngày 25/9/2024"
+        },
+        {
+          "word": "Be admired for sth/doing sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được ngưỡng mộ vì điều gì/làm điều gì",
+          "example": "Example: Be admired for sth/doing sth",
+          "example_vi": "được ngưỡng mộ vì điều gì/làm điều gì",
+          "source": "Tuần 26 - Ngày 25/9/2024"
+        },
+        {
+          "word": "Give/put sb up for adoption",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đưa ai đó cho người khác nuôi",
+          "example": "Example: Give/put sb up for adoption",
+          "example_vi": "đưa ai đó cho người khác nuôi",
+          "source": "Tuần 26 - Ngày 25/9/2024"
+        },
+        {
+          "word": "Be adopted by sb",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được ai đó nhận nuôi",
+          "example": "Example: Be adopted by sb",
+          "example_vi": "được ai đó nhận nuôi",
+          "source": "Tuần 26 - Ngày 25/9/2024"
+        },
+        {
+          "word": "Be diagnosed with sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được chẩn đoán mắc bệnh gì đó",
+          "example": "Example: Be diagnosed with sth",
+          "example_vi": "được chẩn đoán mắc bệnh gì đó",
+          "source": "Tuần 26 - Ngày 25/9/2024"
+        },
+        {
+          "word": "The end of the world",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "điều tồi tệ nhất trên đời",
+          "example": "Example: The end of the world",
+          "example_vi": "điều tồi tệ nhất trên đời",
+          "source": "Tuần 26 - Ngày 27/9/2024"
+        },
+        {
+          "word": "Be in support of sth/sb",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "ủng hộ ai/cái gì",
+          "example": "Example: Be in support of sth/sb",
+          "example_vi": "ủng hộ ai/cái gì",
+          "source": "Tuần 26 - Ngày 27/9/2024"
+        },
+        {
+          "word": "Be remembered as sb/sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được nhớ đến như là ai/thứ gì",
+          "example": "Example: Be remembered as sb/sth",
+          "example_vi": "được nhớ đến như là ai/thứ gì",
+          "source": "Tuần 26 - Ngày 27/9/2024"
+        },
+        {
+          "word": "Deal with sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đối phó với cái gì",
+          "example": "Example: Deal with sth",
+          "example_vi": "đối phó với cái gì",
+          "source": "Tuần 27 - Ngày 2/10/2024"
+        },
+        {
+          "word": "Sign up for sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đăng ký cái gì",
+          "example": "Example: Sign up for sth",
+          "example_vi": "đăng ký cái gì",
+          "source": "Tuần 27 - Ngày 2/10/2024"
+        },
+        {
+          "word": "Make a choice",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đưa ra lựa chọn",
+          "example": "Example: Make a choice",
+          "example_vi": "đưa ra lựa chọn",
+          "source": "Tuần 27 - Ngày 2/10/2024"
+        },
+        {
+          "word": "Set goals to do sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đặt mục tiêu để làm cái gì",
+          "example": "Example: Set goals to do sth",
+          "example_vi": "đặt mục tiêu để làm cái gì",
+          "source": "Tuần 27 - Ngày 2/10/2024"
+        },
+        {
+          "word": "Count towards sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "được bao gồm để tính vào cái gì",
+          "example": "Example: Count towards sth",
+          "example_vi": "được bao gồm để tính vào cái gì",
+          "source": "Tuần 27 - Ngày 2/10/2024"
+        },
+        {
+          "word": "Appreciate doing sth",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đánh giá cao việc làm gì",
+          "example": "Example: Appreciate doing sth",
+          "example_vi": "đánh giá cao việc làm gì",
+          "source": "Tuần 27 - Ngày 4/10/2024"
+        },
+        {
+          "word": "Eat out",
+          "phonetic": "",
+          "pos": "phrase",
+          "meaning": "đi ăn ngoài",
+          "example": "Example: Eat out",
+          "example_vi": "đi ăn ngoài",
+          "source": "Tuần 27 - Ngày 4/10/2024"
+        }
+      ]
+    }
+  ]
+};
+  // Ensure not duplicated if reloaded
+  if (!window.APP_DATA.units.some(u => u.unitNumber === 37)) {
+    window.APP_DATA.units.push(unit37);
+    window.APP_DATA.totalVocabCount = (window.APP_DATA.totalVocabCount || 2129) + unit37.totalWords;
+  }
+}
+
+// ============================================================================
+// 2000 COLLOCATIONS & IDIOMS (CÔ TRANG ANH) - 29 CHỦ ĐỀ CHUẨN XÁO TRỘN & LẶP LẠI
+// ============================================================================
+if (typeof window !== "undefined" && window.APP_DATA) {
+  window.APP_DATA.collocationsAndIdioms = [
+  {
+    "topicId": 1,
+    "topicTitle": "PART 1: Cụm từ cố định thông dụng",
+    "totalItems": 111,
+    "items": [
+      {
+        "phrase": "Let one's hair down",
+        "meaning_vi": "thư giãn, xa hơi"
+      },
+      {
+        "phrase": "Drop-dead gorgeous",
+        "meaning_vi": "thể chất, cơ thể tuyệt đẹp"
+      },
+      {
+        "phrase": "The length and breadth of st",
+        "meaning_vi": "ngang đọc khắp cái gì :"
+      },
+      {
+        "phrase": "Make headlines",
+        "meaning_vi": "trở thành tin tức quan trọng: được lan truyền rộng rãi"
+      },
+      {
+        "phrase": "Take measures to do st",
+        "meaning_vi": "thực hiện các biện pháp để làm gì - :"
+      },
+      {
+        "phrase": "itis the height of stupidity... = It is no use...",
+        "meaning_vi": "thật vô nghĩa khi... 7"
+      },
+      {
+        "phrase": "Pave the way for",
+        "meaning_vi": "chuẩn bi cho, mở đường cho 5"
+      },
+      {
+        "phrase": "Speak highly of st",
+        "meaning_vi": "đề cao điều gì,nóitốtvề ` —"
+      },
+      {
+        "phrase": "Tight with money",
+        "meaning_vi": "thắt chặt tiền bạc, tiết kiệm"
+      },
+      {
+        "phrase": "in a good mood in a bad mood",
+        "meaning_vi": "trong một tâm trạng tốt, vui về tâm trạng tồi tệ"
+      },
+      {
+        "phrase": "On the whole = In general",
+        "meaning_vi": "nhìn chung, nói chung"
+      },
+      {
+        "phrase": "Peace of mind",
+        "meaning_vi": "yên tâm, thanh than"
+      },
+      {
+        "phrase": "Give sb a lift/ride",
+        "meaning_vi": "cho ai đó đi nhờ"
+      },
+      {
+        "phrase": "Make no difference",
+        "meaning_vi": "không tạo ra sự khác biệt, không ảnh hưởng tới"
+      },
+      {
+        "phrase": "On purpose",
+        "meaning_vi": "cố ý, có chủ định"
+      },
+      {
+        "phrase": "By accident = by chance = by mistake = by coincide",
+        "meaning_vi": "tình cờ, ngẫu nhiên ”"
+      },
+      {
+        "phrase": "By means of",
+        "meaning_vi": "bằng cách"
+      },
+      {
+        "phrase": "With a view to V-ing",
+        "meaning_vi": "để làm gì, với ý định làm gi"
+      },
+      {
+        "phrase": "In view of",
+        "meaning_vi": "theo quan điểm của, xét về"
+      },
+      {
+        "phrase": "Breathe/say a word",
+        "meaning_vi": "nói/tiết lộ cho ai đó biết về điều gì đó"
+      },
+      {
+        "phrase": "Get straight to the point",
+        "meaning_vi": "đi thang vào vấn đề"
+      },
+      {
+        "phrase": "Be there for sb",
+        "meaning_vi": "ở bên cạnh ai ;"
+      },
+      {
+        "phrase": "Take it for granted",
+        "meaning_vi": "cho nó là đúng, cho là hiển nhiên"
+      },
+      {
+        "phrase": "Do the household chores Do homework Do assignment",
+        "meaning_vi": "làm việc nhà làm bài tập về nhà làm công việc được giao"
+      },
+      {
+        "phrase": "On one’s own = by one’s self",
+        "meaning_vi": "tự thân một mình"
+      },
+      {
+        "phrase": "Make up one’s mind on st= make a decision on st",
+        "meaning_vi": "quyết định về cái gì"
+      },
+      {
+        "phrase": "Give a thought about",
+        "meaning_vi": "suy nghĩ về"
+      },
+      {
+        "phrase": "Pay attention to",
+        "meaning_vi": "chú ý tới"
+      },
+      {
+        "phrase": "Prepare a plan for",
+        "meaning_vi": "chuẩn bị cho"
+      },
+      {
+        "phrase": "Sit for",
+        "meaning_vi": "thi hại -"
+      },
+      {
+        "phrase": "A good run for one’s money",
+        "meaning_vi": "có một quãng thời gian dài hạnh phúc và vui vẻ (vì tiền bạc tiêu ra mang lại giá trị tốt đẹp)"
+      },
+      {
+        "phrase": "Keep/catch up with sb/st",
+        "meaning_vi": "bắt kịp, theo kịp với ai /cái gì"
+      },
+      {
+        "phrase": "Have/stand a chance to do st",
+        "meaning_vi": "có cơ hội làm gì"
+      },
+      {
+        "phrase": "Hold good",
+        "meaning_vi": "còn hiệu lực"
+      },
+      {
+        "phrase": "Cause the damage ;",
+        "meaning_vi": "gây thiệt hại ;"
+      },
+      {
+        "phrase": "For a while/moment",
+        "meaning_vi": "một chút, một lát"
+      },
+      {
+        "phrase": "See eye to eye",
+        "meaning_vi": "đồng ý, đồng tình"
+      },
+      {
+        "phrase": "Pay sb a visit = visit sb",
+        "meaning_vi": "thăm ai đó"
+      },
+      {
+        "phrase": "Put a stop to st = put an end to st",
+        "meaning_vi": "chấm dứt cái gì"
+      },
+      {
+        "phrase": "To be out of habit",
+        "meaning_vi": "mất thói quen, không còn là thói quen"
+      },
+      {
+        "phrase": "Pick one’s brain",
+        "meaning_vi": "hoi, xin ý kiến ai về điều gì"
+      },
+      {
+        "phrase": "Probe into",
+        "meaning_vi": "do xét, thăm dò"
+      },
+      {
+        "phrase": "To the verge of",
+        "meaning_vi": "đến bên bờ vực của"
+      },
+      {
+        "phrase": "Lay claim to st",
+        "meaning_vi": "tuyên bố là có quyền sở hữu thứ gì (thường là tiền, tài sản)"
+      },
+      {
+        "phrase": "Pour scorn on sb",
+        "meaning_vi": "dé biu/chê bai ai đó"
+      },
+      {
+        "phrase": "A second helping",
+        "meaning_vi": "phần ăn thứ hai"
+      },
+      {
+        "phrase": "Break new ground",
+        "meaning_vi": "khám phá ra, làm ra điều chưa từng được làm trước đó"
+      },
+      {
+        "phrase": "Make a fool (out) of sb/yourself",
+        "meaning_vi": "khiến ai đó trông như kể ngốc"
+      },
+      {
+        "phrase": "Be rushed off one’s feet",
+        "meaning_vi": "bận rộn"
+      },
+      {
+        "phrase": "Be/come under fire",
+        "meaning_vi": "bị chỉ trích mạnh mẽ vì đã làm gì"
+      },
+      {
+        "phrase": "Be ata loss",
+        "meaning_vi": "bối rối, lang túng"
+      },
+      {
+        "phrase": "Take to flight",
+        "meaning_vi": "chạy đi"
+      },
+      {
+        "phrase": "Do an impression of sb",
+        "meaning_vi": "bắt chước ai, nhại điệu bộ của ai"
+      },
+      {
+        "phrase": "Have a (good) head for st",
+        "meaning_vi": "có khả năng làm điều gì đó thật tốt"
+      },
+      {
+        "phrase": "Reduce sb to tears = make sb cry",
+        "meaning_vi": "làm ai khóc"
+      },
+      {
+        "phrase": "Takeafancyto :",
+        "meaning_vi": "bắt đầu thích cái gì"
+      },
+      {
+        "phrase": "Keep an eye on",
+        "meaning_vi": "để ý, quan tâm, chăm sóc đến cái gì"
+      },
+      {
+        "phrase": "Get a kick out of",
+        "meaning_vi": "thích cái gì, cảm thấy cái gì thú vị (= to like, be interested in...)"
+      },
+      {
+        "phrase": "Kick up a fuss about",
+        "meaning_vi": "giận dữ, phàn nàn về cái gì"
+      },
+      {
+        "phrase": "Come what may",
+        "meaning_vi": "di khó khăn đến mấy/dù có rắc rối gì đi nữa"
+      },
+      {
+        "phrase": "By the by = by the way",
+        "meaning_vi": "tiện thể, nhân tiện"
+      },
+      {
+        "phrase": "What is more",
+        "meaning_vi": "thêm nữa là (thêm một điều gì đó có tính quan trọng hơn)"
+      },
+      {
+        "phrase": "Be that as it may",
+        "meaning_vi": "cho đù như thế"
+      },
+      {
+        "phrase": "Put ali the blame on sb",
+        "meaning_vi": "đổ tất cả trách nhiệm cho ai"
+      },
+      {
+        "phrase": "Take out insurance on st = buy an imsurance policy for st ©",
+        "meaning_vi": "mua bảo hiểm cho cái gì"
+      },
+      {
+        "phrase": "Make a go of st",
+        "meaning_vi": "thành công trong việc gì"
+      },
+      {
+        "phrase": "Make effort to do st = iry/attempt to do st = in an attempt to do st",
+        "meaning_vi": "cố gắng làm gì"
+      },
+      {
+        "phrase": "Put effort into st",
+        "meaning_vi": "bỏ bao nhiêu nỗ lực vào cái gì"
+      },
+      {
+        "phrase": "Gut of reach Out of the condition Out of touch Out of the question",
+        "meaning_vi": "ngoài tầm với không vừa (về cơ thể) mất liên lạc với, không có tin tức về không thể được, điều không"
+      },
+      {
+        "phrase": "Out of stock Out of practice Out of work Out of date Out of order Out of fashion Out of season Out of control",
+        "meaning_vi": "thể hết hàng không thể thực thi thất nghiệp lạc hau, 16i thời hồng hóc lỗi mốt trái mùa ngoài tầm kiểm soát"
+      },
+      {
+        "phrase": "Rise to the occasion",
+        "meaning_vi": "tổ ra có kha năng đối phó với tình thế khó khăn bất ngờ"
+      },
+      {
+        "phrase": "Put sb off st",
+        "meaning_vi": "làm ai hết hứng thú với điều gì"
+      },
+      {
+        "phrase": "Cross one’s mind",
+        "meaning_vi": "chợt nảy ra trong trí óc"
+      },
+      {
+        "phrase": "Have full advantage ;",
+        "meaning_vi": "có đủ lợi thế"
+      },
+      {
+        "phrase": "Establish sb/st/yourself (in st) {as st)",
+        "meaning_vi": "giữ vững vị trí"
+      },
+      {
+        "phrase": "You can say that again",
+        "meaning_vi": "hoàn toàn đồng ý"
+      },
+      {
+        "phrase": "Word has it that",
+        "meaning_vi": "có tin tức rằng"
+      },
+      {
+        "phrase": "At the expense of st",
+        "meaning_vi": "trả giá bằng cái gì"
+      },
+      {
+        "phrase": "Tobe gripped with a fever",
+        "meaning_vi": "bị cơn sốt đeo bám"
+      },
+      {
+        "phrase": "Make full use of",
+        "meaning_vi": "tận dụng tối đa"
+      },
+      {
+        "phrase": "Make a fortune Make a guess Make an impression —",
+        "meaning_vi": "trở nên giàu có dự đoán gây ấn tượng"
+      },
+      {
+        "phrase": "The brink of collapse",
+        "meaning_vi": "bờ vực phá sản"
+      },
+      {
+        "phrase": "Come down with st",
+        "meaning_vi": "bị (một bệnh gì đó)"
+      },
+      {
+        "phrase": "Make up for st",
+        "meaning_vi": "đền bù, bù vào"
+      },
+      {
+        "phrase": "Get through to sb",
+        "meaning_vi": "làm cho ai hiểu được mình"
+      },
+      {
+        "phrase": "Face up to st",
+        "meaning_vi": "đú can dam để chấp nhận"
+      },
+      {
+        "phrase": "An authority on st",
+        "meaning_vi": "có chuyên môn về lĩnh vực gì"
+      },
+      {
+        "phrase": "Meet the demand for...:",
+        "meaning_vi": "đáp ứng nhu cầu cho..."
+      },
+      {
+        "phrase": "Pat yourself on the back = praise yourself ; ;",
+        "meaning_vi": "khen ngợi chính mình"
+      },
+      {
+        "phrase": "Take/have priority over st",
+        "meaning_vi": "wu tiên, đặt hang đầu"
+      },
+      {
+        "phrase": "shows a desire to do st = desire to",
+        "meaning_vi": "khao khát, mong muốn làm gì"
+      },
+      {
+        "phrase": "By virtue of + N/V-ing",
+        "meaning_vi": "bởi vì"
+      },
+      {
+        "phrase": "With regard to + N/V-ing",
+        "meaning_vi": "về mặt, về vấn đề, có liên quan tới"
+      },
+      {
+        "phrase": "In recognition of + N/V-ing",
+        "meaning_vi": "được công nhận về"
+      },
+      {
+        "phrase": "Put up with",
+        "meaning_vi": "chịu đựng"
+      },
+      {
+        "phrase": "Get on with = get along with= kKeep/be on good terms with = have a good relationship with .",
+        "meaning_vi": "thân thiện (với ai), ăn ý (với ai), hòa thuận với ai, có quan hệ tốt với ai"
+      },
+      {
+        "phrase": "Deal with",
+        "meaning_vi": "giải quyết cái gì"
+      },
+      {
+        "phrase": "Do the washing up Do the shopping . Do the cleaning Do the gaderning",
+        "meaning_vi": "rửa bat dia mua sắm don dep lâm vuen"
+      },
+      {
+        "phrase": "Attract attention",
+        "meaning_vi": "thu hút sw chú ý"
+      },
+      {
+        "phrase": "Focus (attention) on st = devote attention to st",
+        "meaning_vi": "tập trung sự chú ý vào"
+      },
+      {
+        "phrase": "Draw attention to",
+        "meaning_vi": "hướng sự thu hút tới"
+      },
+      {
+        "phrase": "Makeendsmeet",
+        "meaning_vi": "dap ứng nhu cầu/ đủ sống"
+      },
+      {
+        "phrase": "Commit st to memory = to learn st weli enough to remember it exactly",
+        "meaning_vi": "học kỹ để nhớ chính xác"
+      },
+      {
+        "phrase": "Have an influence on",
+        "meaning_vi": "có ảnh hướng đến..."
+      },
+      {
+        "phrase": "Under the influence of",
+        "meaning_vi": "chịu ảnh hưởng của, do ảnh hưởng của"
+      },
+      {
+        "phrase": "Come to nothing",
+        "meaning_vi": "không đi đến đâu"
+      },
+      {
+        "phrase": "A wide range of st",
+        "meaning_vi": "một loạt các..."
+      },
+      {
+        "phrase": "Tip the scale in one’s faver",
+        "meaning_vi": "thiên về, nghiêng về có lợi cho ai đó"
+      },
+      {
+        "phrase": "Stand in with",
+        "meaning_vi": "vào hùa với, cấu kết với"
+      },
+      {
+        "phrase": "Take sb for a ride",
+        "meaning_vi": "lừa đối ai a"
+      },
+      {
+        "phrase": "Bumper crop",
+        "meaning_vi": "vụ mùa bội thu"
+      }
+    ]
+  },
+  {
+    "topicId": 2,
+    "topicTitle": "PART 1: Thành ngữ thông dụng",
+    "totalItems": 222,
+    "items": [
+      {
+        "phrase": "The black sheep",
+        "meaning_vi": "nghịch tử, phá gia tri tử"
+      },
+      {
+        "phrase": "Blue in the face",
+        "meaning_vi": "mãi mãi, lâu đến vô vọng"
+      },
+      {
+        "phrase": "Red-letter day",
+        "meaning_vi": "ngày đáng nhớ vì có chuyện tốt lành, ngày vui"
+      },
+      {
+        "phrase": "White as a ghost/sheet",
+        "meaning_vi": "trắng bệch, nhợt nhạt"
+      },
+      {
+        "phrase": "With flying colors",
+        "meaning_vi": "xuất sắc, thành công"
+      },
+      {
+        "phrase": "Once in a blue moon",
+        "meaning_vi": "năm thì mười họa, hiếm khi"
+      },
+      {
+        "phrase": "Black and white",
+        "meaning_vi": "rõ rang"
+      },
+      {
+        "phrase": "Catch sb red-handed",
+        "meaning_vi": "bắt tại trận, bắt qua tang"
+      },
+      {
+        "phrase": "Have a yellow streak",
+        "meaning_vi": "có tính nhát gan"
+      },
+      {
+        "phrase": "Get/give the green light",
+        "meaning_vi": "bật đèn xanh"
+      },
+      {
+        "phrase": "Out of the blue",
+        "meaning_vi": "hoàn toàn bất ngờ"
+      },
+      {
+        "phrase": "Paint the town red",
+        "meaning_vi": "ăn mừng"
+      },
+      {
+        "phrase": "Red tape",
+        "meaning_vi": "nạn quan liêu"
+      },
+      {
+        "phrase": "In the pink = in good health",
+        "meaning_vi": "sức khỏe tốt"
+      },
+      {
+        "phrase": "Lend color to st",
+        "meaning_vi": "chứng minh cái gì"
+      },
+      {
+        "phrase": "Break a leg = good luck!",
+        "meaning_vi": "thường dùng để chúc may mắn"
+      },
+      {
+        "phrase": "Scratch one’s back =help sb out with the assumption that they will return the favor in the future",
+        "meaning_vi": "giúp đỡ người khác với hy vọng họ sẽ giúp lại mình"
+      },
+      {
+        "phrase": "Hit the nail on the head",
+        "meaning_vi": "nói chính xác, làm chính xác"
+      },
+      {
+        "phrase": "A splitting headache = asevere headache",
+        "meaning_vi": "đau đầu như búa bố"
+      },
+      {
+        "phrase": "Make one’s biood boii :",
+        "meaning_vi": "làm ai sôi máu, giận dữ"
+      },
+      {
+        "phrase": "Pay through the nose = to pay too much for st",
+        "meaning_vi": "trả giá quá đất"
+      },
+      {
+        "phrase": "By the skin of one’s teeth",
+        "meaning_vi": "sát sao, rất sát"
+      },
+      {
+        "phrase": "Pull one’s leg",
+        "meaning_vi": "chọc ai"
+      },
+      {
+        "phrase": "Fight tooth and claw/nail",
+        "meaning_vi": "đánh nhau dữ dội, cấu xé nhau"
+      },
+      {
+        "phrase": "Not bat an eye = not to show any shock or surprise",
+        "meaning_vi": "không tỏ ra ngạc nhiên hay sốc"
+      },
+      {
+        "phrase": "Cost an arm and a leg’",
+        "meaning_vi": "rất là đắt dé"
+      },
+      {
+        "phrase": "Go to one’s head",
+        "meaning_vi": "khiến ai kiêu ngạo"
+      },
+      {
+        "phrase": "Get/have cold feet",
+        "meaning_vi": "mất hết can dam, chùn bước"
+      },
+      {
+        "phrase": "Led sb by the nose = to control sb and make them do exactly what you want them to do",
+        "meaning_vi": "nắm đầu, dat mũi ai"
+      },
+      {
+        "phrase": "Off one’s head : .",
+        "meaning_vi": "điên, loạn trí"
+      },
+      {
+        "phrase": "Put one’s foot in it",
+        "meaning_vi": "gây nhầm lẫn, bối rối, phạm một sai lầm gây bối rối"
+      },
+      {
+        "phrase": "Stay/keep/be on one’s toe",
+        "meaning_vi": "cảnh giác, thận trọng"
+      },
+      {
+        "phrase": "Have in mind",
+        "meaning_vi": "đang suy tính, cân nhắc"
+      },
+      {
+        "phrase": "At heart =basically / fundamentally",
+        "meaning_vi": "thực chất, cơ bản"
+      },
+      {
+        "phrase": "Face the music",
+        "meaning_vi": "chịu trận"
+      },
+      {
+        "phrase": "Like the back of one’s hand",
+        "meaning_vi": "rõ như lòng ban tay"
+      },
+      {
+        "phrase": "The twinkling of an eye",
+        "meaning_vi": "trong nháy mắt"
+      },
+      {
+        "phrase": "On the tip of tongue",
+        "meaning_vi": "dùng khi muốn diễn tả ai đó không thể nhớ ra được điều gì _, mặc dù đã chắc chắn biết về nó"
+      },
+      {
+        "phrase": "Put one’s foot in one’s mouth",
+        "meaning_vi": "Nói một điều ngu ngốc làm xúc phạm đến người khác"
+      },
+      {
+        "phrase": "Stick one’s nose into one’s business",
+        "meaning_vi": "chúi mũi vào việc của người khác"
+      },
+      {
+        "phrase": "Feel st in one’s bones",
+        "meaning_vi": "cảm nhận rõ đệt"
+      },
+      {
+        "phrase": "Hit the nail on the head",
+        "meaning_vi": "nói đúng trọng tâm"
+      },
+      {
+        "phrase": "Areal pain in the neck",
+        "meaning_vi": "sốc, nghiêm trọng"
+      },
+      {
+        "phrase": "Face to face",
+        "meaning_vi": "trực tiếp"
+      },
+      {
+        "phrase": "See eye to eye with sb = totally agree",
+        "meaning_vi": "đồng tình"
+      },
+      {
+        "phrase": "Keep one’s head above the water",
+        "meaning_vi": "xoay sở"
+      },
+      {
+        "phrase": "Have egg on one’s face",
+        "meaning_vi": "xấu hổ"
+      },
+      {
+        "phrase": "Word of mouth",
+        "meaning_vi": "đồn đại, truyền miệng"
+      },
+      {
+        "phrase": "Heart to heart",
+        "meaning_vi": "chân thành"
+      },
+      {
+        "phrase": "Body and soul",
+        "meaning_vi": "hết lòng, hết đạ"
+      },
+      {
+        "phrase": "Flesh and blood",
+        "meaning_vi": "người có máu mủ ruột thịt"
+      },
+      {
+        "phrase": "Skin and bones",
+        "meaning_vi": "tiều tụy thảm thương, chỉ còn da bọc xương"
+      },
+      {
+        "phrase": "Lend an ear to sb/st",
+        "meaning_vi": "lắng nghe một cách chân thành"
+      },
+      {
+        "phrase": "Trip over one’s big feet",
+        "meaning_vi": "tự vấp ngã"
+      },
+      {
+        "phrase": "In one’s capable hands",
+        "meaning_vi": "trong quyền giải quyết"
+      },
+      {
+        "phrase": "Up to one’s eyes",
+        "meaning_vi": "rất bận"
+      },
+      {
+        "phrase": "Have a head for st",
+        "meaning_vi": "giổivềcáig  -"
+      },
+      {
+        "phrase": "A sweet tooth",
+        "meaning_vi": "người thích ăn đồ ăn ngọt"
+      },
+      {
+        "phrase": "Have st at one’s fingertips",
+        "meaning_vi": "nhận được thông tin/ kiến thức cần thiết một cách dễ dàng và nhanh chóng"
+      },
+      {
+        "phrase": "Take the mickey out of sb = make fun of sb",
+        "meaning_vi": "chế nhạo, châm chọc ai"
+      },
+      {
+        "phrase": "Get butterflies in one’s stomach",
+        "meaning_vi": "cảm thấy bồn chồn"
+      },
+      {
+        "phrase": "Have a bee in one’s bonnet",
+        "meaning_vi": "ám anh về điều gi"
+      },
+      {
+        "phrase": "When pigs fly = something will never happen",
+        "meaning_vi": "điều vô tưởng, không thế xảy ra"
+      },
+      {
+        "phrase": "Teacher's pets",
+        "meaning_vi": "học sinh cưng"
+      },
+      {
+        "phrase": "Let the cat out of the bag",
+        "meaning_vi": "tiết lộ bí mật"
+      },
+      {
+        "phrase": "Huddle into a pen",
+        "meaning_vi": "lại gần nhau, tim tum lại"
+      },
+      {
+        "phrase": "Kill two birds with one stone",
+        "meaning_vi": "một mũi tên trúng hai đích."
+      },
+      {
+        "phrase": "A big fish in a small pond",
+        "meaning_vi": "thằng chột làm vua sứ mù"
+      },
+      {
+        "phrase": "Rain cats and dogs",
+        "meaning_vi": "mưa to"
+      },
+      {
+        "phrase": "Like a fish out of water",
+        "meaning_vi": "như cá ra khỏi nước (bơ vơ, xa la, ngớ ngẩn)"
+      },
+      {
+        "phrase": "Like water off a duck’s back",
+        "meaning_vi": "nước đổ đầu vịt"
+      },
+      {
+        "phrase": "Don’t count your chickens before they hatch",
+        "meaning_vi": "đừng vội làm gì khi chưa chắc chắc"
+      },
+      {
+        "phrase": "Catch the worms",
+        "meaning_vi": "nắm bắt cơ hội"
+      },
+      {
+        "phrase": "Be in the doghouse",
+        "meaning_vi": "nếu bạn đang “in the doghouse’, | tức là ai đó dang khó chịu với ban | vì điều bạn đã làm"
+      },
+      {
+        "phrase": "Don’t look a gift horse in the rnouth",
+        "meaning_vi": "đừng đòi hỏi về giá trị khi nhận | được một món quà \\"
+      },
+      {
+        "phrase": "Cock-and-bull",
+        "meaning_vi": "bịa đặt, vẽ vời ra"
+      },
+      {
+        "phrase": "Change horse in midstream | i",
+        "meaning_vi": "thay ngựa giữa dong (ý nói thay, đổi giữa chừng}"
+      },
+      {
+        "phrase": "To be in deep water",
+        "meaning_vi": "rơi vào tình huống khó khan"
+      },
+      {
+        "phrase": "To be in hot water",
+        "meaning_vi": "gặp rắc rối ma"
+      },
+      {
+        "phrase": "Better safe than sorry",
+        "meaning_vi": "cẩn tắc vô áy náy 7"
+      },
+      {
+        "phrase": "Money is the good servant buta bad master a",
+        "meaning_vi": "khôn lấy của che thân, dailay  _ thân che của"
+      },
+      {
+        "phrase": "The grass are always green on the other side of the fence",
+        "meaning_vi": "đứng núi này trông núi nọ"
+      },
+      {
+        "phrase": "One bitten, twice shy",
+        "meaning_vi": "chim phải đạn sợ cành cong x"
+      },
+      {
+        "phrase": "In Rome do as the Romans do",
+        "meaning_vi": "nhập gia tùy tục —"
+      },
+      {
+        "phrase": "Honesty ts the best policy",
+        "meaning_vi": "thật tha la thượng sách ”"
+      },
+      {
+        "phrase": "A woman gives and forgives, a man gets and forgets",
+        "meaning_vi": "đàn bà cho và tha thứ, đàn ông nhận và quên"
+      },
+      {
+        "phrase": "No roses without a thorn",
+        "meaning_vi": "hồng nào mà chẳng có gai, việc nào mà chẳng có vài khó khăn!"
+      },
+      {
+        "phrase": "Save for the rainy day",
+        "meaning_vi": "làm khi lành để dành khi đau — -"
+      },
+      {
+        "phrase": "It’s an ill bird that fouls its own nest",
+        "meaning_vi": "vạch áo cho người xem lưng / tốt đẹp phô ra xấu xa đậy lại."
+      },
+      {
+        "phrase": "Don’t trouble trouble till trouble troubles you",
+        "meaning_vi": "tránh voi chẳng xấu mặt nào"
+      },
+      {
+        "phrase": "Still water run deep",
+        "meaning_vi": "tấm ngẩm tầm ngầm mà đấm chết voi"
+      },
+      {
+        "phrase": "Men make house, women make home",
+        "meaning_vi": "đàn ông xây nhà, đàn bà xây tổ ấm"
+      },
+      {
+        "phrase": "Penny wise pound foolish money",
+        "meaning_vi": "tham bát bỏ mam"
+      },
+      {
+        "phrase": "Make the mare go",
+        "meaning_vi": "có tiền mua tiên cũng được"
+      },
+      {
+        "phrase": "Like father, like son",
+        "meaning_vi": "con nhà tông không giống lông thì cũng giống cánh"
+      },
+      {
+        "phrase": "The die is cast",
+        "meaning_vi": "bút sa gà chết"
+      },
+      {
+        "phrase": "Two can play that game",
+        "meaning_vi": "ăn miếng trả miếng"
+      },
+      {
+        "phrase": "Practice makes perfect",
+        "meaning_vi": "có công mài sắt có ngày nên kim"
+      },
+      {
+        "phrase": "ignorance is bliss",
+        "meaning_vi": "không biết thì dựa cột mà nghe"
+      },
+      {
+        "phrase": "No pain, no gain",
+        "meaning_vi": "có làm thì mới có ăn"
+      },
+      {
+        "phrase": "Abad beginning makes a bad ending",
+        "meaning_vi": "đầu xuôi đuôi lọt"
+      },
+      {
+        "phrase": "A clean fast is better than a dirty breakfast",
+        "meaning_vi": "giấy rách phải giữ lấy là"
+      },
+      {
+        "phrase": "Beauty is but skin-deep",
+        "meaning_vi": "cái nết đánh chết cái đẹp"
+      },
+      {
+        "phrase": "Calamity is man’s true touchstone",
+        "meaning_vi": "lửa thử vàng, gian nan thử sức"
+      },
+      {
+        "phrase": "Diamond cut diamond",
+        "meaning_vi": "vỏ quýt dày có móng tay nhọn"
+      },
+      {
+        "phrase": "Diligence is the mother of success",
+        "meaning_vi": "có công mài sắt có ngày nên kim"
+      },
+      {
+        "phrase": "Don’t put off until tomorrow what you can do today",
+        "meaning_vi": "việc hôm nay chớ để ngày mai"
+      },
+      {
+        "phrase": "A hot potato = something that is difficult or dangerous to deal with",
+        "meaning_vi": "vấn đề nan giải"
+      },
+      {
+        "phrase": "A lost cause",
+        "meaning_vi": "hết hy vọng, không thay đổi được gi"
+      },
+      {
+        "phrase": "It never rains but it pours = good or bad things do not just happen a few at a time, but in large numbers aii at once",
+        "meaning_vi": "họa vô đơn chí"
+      },
+      {
+        "phrase": "A blind date",
+        "meaning_vi": "cuộc hẹn giữa hai người chưa hề quen biết"
+      },
+      {
+        "phrase": "Golden handshake",
+        "meaning_vi": "món tiền hậu hĩnh dành cho người sắp nghỉ việc"
+      },
+      {
+        "phrase": "One’scupoftean",
+        "meaning_vi": "thứ mà ai đó thích"
+      },
+      {
+        "phrase": "Odds and ends",
+        "meaning_vi": "linh tỉnh, vụn van"
+      },
+      {
+        "phrase": "Leaps and bounds",
+        "meaning_vi": "nhảy vọt, vượt trội - 1ï"
+      },
+      {
+        "phrase": "Between two stcols = on the horns of a dilemma= when someone finds it difficult te choose between two alternatives",
+        "meaning_vi": "tiến thoái lưỡng nan"
+      },
+      {
+        "phrase": "Onthehouse . 2...",
+        "meaning_vi": "không phải trả tiền"
+      },
+      {
+        "phrase": "Off the peg",
+        "meaning_vi": "hàng may sẵn"
+      },
+      {
+        "phrase": "Off the record",
+        "meaning_vi": "không chính thức, không được công bố"
+      },
+      {
+        "phrase": "Part and parcel",
+        "meaning_vi": "thiết yếu, quan trọng"
+      },
+      {
+        "phrase": "Ashadow ofa doubt",
+        "meaning_vi": "sự nghi ngờ"
+      },
+      {
+        "phrase": "Beyond the shadow ofa doubt",
+        "meaning_vi": "không hề nghỉ ngờ"
+      },
+      {
+        "phrase": "The last straw = a nail in one’s coffin",
+        "meaning_vi": "giọt nước tràn ly"
+      },
+      {
+        "phrase": "The apple of one’s eye",
+        "meaning_vi": "bảo bối của ai"
+      },
+      {
+        "phrase": "Good egg",
+        "meaning_vi": "người có nhân cách, đáng tin cậy"
+      },
+      {
+        "phrase": "Close shave = narrow escape",
+        "meaning_vi": "thoát chết trong gang tấc"
+      },
+      {
+        "phrase": "Wet blanket",
+        "meaning_vi": "người phá đám"
+      },
+      {
+        "phrase": "A kick in the pants",
+        "meaning_vi": "một bài học để ứng xứ tốt hơn"
+      },
+      {
+        "phrase": "An open-and-shut case",
+        "meaning_vi": "vấn đề dễ giải quyết"
+      },
+      {
+        "phrase": "A shot in the dark",
+        "meaning_vi": "một câu dé"
+      },
+      {
+        "phrase": "Abig cheese",
+        "meaning_vi": "nhân vật tai to mặt lớn, người có"
+      },
+      {
+        "phrase": "Ups and downs",
+        "meaning_vi": "sự thăng trầm"
+      },
+      {
+        "phrase": "Ins and outs",
+        "meaning_vi": "những chỉ tiết và điểm của việc gì đó"
+      },
+      {
+        "phrase": "The tip of the iceberg",
+        "meaning_vi": "phần nhìn thấy"
+      },
+      {
+        "phrase": "Compulsive liar",
+        "meaning_vi": "kẻ nói đối chuyên nghiệp."
+      },
+      {
+        "phrase": "To pour cold water on",
+        "meaning_vi": "dội nước lạnh vào"
+      },
+      {
+        "phrase": "To blow st out of the water",
+        "meaning_vi": "đánh bại, vượt"
+      },
+      {
+        "phrase": "To sell/go like hot cakes",
+        "meaning_vi": "đắt đó, đắt như tôm tươi"
+      },
+      {
+        "phrase": "To get in hot-water = be in trouble/ have difficulty",
+        "meaning_vi": "gặp khó khăn"
+      },
+      {
+        "phrase": "To hit the books = to study",
+        "meaning_vi": "học"
+      },
+      {
+        "phrase": "To hit the roof = to hit the ceiling = to suddenly become angry",
+        "meaning_vi": "giận dữ"
+      },
+      {
+        "phrase": "To hit it off",
+        "meaning_vi": "tâm đầu ý hợp"
+      },
+      {
+        "phrase": "To make good time",
+        "meaning_vi": "đi chuyển nhanh, đi nhanh"
+      },
+      {
+        "phrase": "To chip in",
+        "meaning_vi": "góp tiền"
+      },
+      {
+        "phrase": "To run an errand",
+        "meaning_vi": "làm việc vặt"
+      },
+      {
+        "phrase": "To fly off the handle",
+        "meaning_vi": "dé nổi giận, phat cau"
+      },
+      {
+        "phrase": "To cut it fine",
+        "meaning_vi": "dén sat gid"
+      },
+      {
+        "phrase": "To jump the traffic lights",
+        "meaning_vi": "vượt đèn đỏ"
+      },
+      {
+        "phrase": "To put on an act",
+        "meaning_vi": "giả bộ, làm bộ"
+      },
+      {
+        "phrase": "To come to light",
+        "meaning_vi": "được biết đến, được phát hiện, được đưa ra ánh sáng."
+      },
+      {
+        "phrase": "To pull one’s weight",
+        "meaning_vi": "nỗ lực, làm tròn trách nhiệm"
+      },
+      {
+        "phrase": "To make ends meet",
+        "meaning_vi": "xoay sở để kiếm sống"
+      },
+      {
+        "phrase": "To get the hold of the wrong end of the stick",
+        "meaning_vi": "hiểu nhầm ai đó"
+      },
+      {
+        "phrase": "To cut and dried",
+        "meaning_vi": "cuối cùng, không thé thay đổi, rõ ràng, dé hiểu"
+      },
+      {
+        "phrase": "To know by sight",
+        "meaning_vi": "nhận ra"
+      },
+      {
+        "phrase": "To take pains",
+        "meaning_vi": "làm việc cẩn thận và tận tâm"
+      },
+      {
+        "phrase": "To drop sb a line/note",
+        "meaning_vi": "viết thư cho ai"
+      },
+      {
+        "phrase": "To turn over a new leaf",
+        "meaning_vi": "bắt đầu thay đổi hành vi của mình"
+      },
+      {
+        "phrase": "To weigh up the pros and cons",
+        "meaning_vi": "cân nhắc điều hay lẽ thiệt"
+      },
+      {
+        "phrase": "To burn the midnight oil = to stay up working, especially studying late at night",
+        "meaning_vi": "thức khuya làm việc, học bài"
+      },
+      {
+        "phrase": "To put sb/st at one’s disposal",
+        "meaning_vi": "cho ai tùy ý sử dụng"
+      },
+      {
+        "phrase": "To bring down the house",
+        "meaning_vi": "làm cho cá khán phòng vỗ tay nhiệt liệt"
+      },
+      {
+        "phrase": "To beat about the bush",
+        "meaning_vi": "vòng vo tam quốc :"
+      },
+      {
+        "phrase": "To find fault with .",
+        "meaning_vi": "chí trích, kiếm chuyện, bắt lỗi"
+      },
+      {
+        "phrase": "To take it amiss = to understand as wrong or insulting, or misunderstand",
+        "meaning_vi": "! hiểu lầm TT"
+      },
+      {
+        "phrase": "To break the news",
+        "meaning_vi": "thông báo có"
+      },
+      {
+        "phrase": "To take st for granted",
+        "meaning_vi": "coi là hiển nhiên"
+      },
+      {
+        "phrase": "Tobreaktheice. ;",
+        "meaning_vi": "diễn tả làm một việc gi đó để giúp mọi người thư giãn và thoái mái, đặc biệt khi mới gặp"
+      },
+      {
+        "phrase": "To blow one’s own trumpet",
+        "meaning_vi": "khoe khoang, khoác lác :"
+      },
+      {
+        "phrase": "To miss the boat",
+        "meaning_vi": "lẽmấtcchội"
+      },
+      {
+        "phrase": "To put one’s card on the table",
+        "meaning_vi": "thẳng thắn"
+      },
+      {
+        "phrase": "To call ita day = stop working",
+        "meaning_vi": "nghĩ, giải lao"
+      },
+      {
+        "phrase": "To hear a pin drop",
+        "meaning_vi": "im lặng, tĩnh lặng 7"
+      },
+      {
+        "phrase": "To blow hot and cold",
+        "meaning_vi": "hay thay đối ý kiến, dao động"
+      },
+      {
+        "phrase": "To call the shots",
+        "meaning_vi": "chỉ huy, quyết định về những | việc cần làm ị"
+      },
+      {
+        "phrase": "To draws the line",
+        "meaning_vi": "đặt giới hạn cho việc øì; phân —] biệt giữa hai thứ tương tự nhau"
+      },
+      {
+        "phrase": "To foot the bill",
+        "meaning_vi": "thanh toántiền — — :"
+      },
+      {
+        "phrase": "To carry the can",
+        "meaning_vi": "chịu trách nhiệm, chịu sự chỉ trích l"
+      },
+      {
+        "phrase": "To throw the baby out with the bathwater",
+        "meaning_vi": "vứt bỏ những thứ đáng giá cùng lúc với rũ bỏ với thứ gì không còn cần"
+      },
+      {
+        "phrase": "To go with the flow",
+        "meaning_vi": "làm theo mọi người"
+      },
+      {
+        "phrase": "To keep his shirt on",
+        "meaning_vi": "bình tĩnh"
+      },
+      {
+        "phrase": "To let off steam",
+        "meaning_vi": "xả hơi"
+      },
+      {
+        "phrase": "At the drop of a hat = immediately, instantly",
+        "meaning_vi": "ngay lập tức"
+      },
+      {
+        "phrase": "Off and on/ on and off",
+        "meaning_vi": "không đều dan, thỉnh thoảng"
+      },
+      {
+        "phrase": "High and low = here and there = everywhere = far and wide",
+        "meaning_vi": "đó đây, khắp mọi nơi"
+      },
+      {
+        "phrase": "Spick and span",
+        "meaning_vi": "ngăn nắp gọn gàng"
+      },
+      {
+        "phrase": "On the spot = immediately",
+        "meaning_vi": "ngay lập tức"
+      },
+      {
+        "phrase": "At the eleventh hour",
+        "meaning_vi": "vào phút chót"
+      },
+      {
+        "phrase": "On the top of the world = walking on the air = over the moon= like a dog with two tails = happy",
+        "meaning_vi": "vui sướng, hạnh phúc"
+      },
+      {
+        "phrase": "In vain",
+        "meaning_vi": "vô ích"
+      },
+      {
+        "phrase": "A piece of cake",
+        "meaning_vi": "dễ như ăn cháo"
+      },
+      {
+        "phrase": "Down the drain",
+        "meaning_vi": "công cốc, đổ ra sông ra biển"
+      },
+      {
+        "phrase": "Under the weather = off color",
+        "meaning_vi": "không được khỏe"
+      },
+      {
+        "phrase": "The end of the world",
+        "meaning_vi": "đáng để bận tâm"
+      },
+      {
+        "phrase": "As fit as a fiddle",
+        "meaning_vi": "khỏe như vâm"
+      },
+      {
+        "phrase": "On probation",
+        "meaning_vi": "trong thời gian quan chế, tập sự (công việc)"
+      },
+      {
+        "phrase": "Home and dry = with flying colors",
+        "meaning_vi": "thành công"
+      },
+      {
+        "phrase": "Apples and oranges = chalk and cheese ;",
+        "meaning_vi": "rất khác nhau, khác một trời một vực"
+      },
+      {
+        "phrase": "As long as your arm",
+        "meaning_vi": "rất đài"
+      },
+      {
+        "phrase": "As high as a kite",
+        "meaning_vi": "quá phấn khích, thường là do bị"
+      },
+      {
+        "phrase": "In the same boat",
+        "meaning_vi": "ở trong cùng một hoàn cảnh"
+      },
+      {
+        "phrase": "Hot under the collar",
+        "meaning_vi": "điên tiết, cáu tiết"
+      },
+      {
+        "phrase": "As red as a beetroot",
+        "meaning_vi": "dé như củ cải đường/ngượng"
+      },
+      {
+        "phrase": "For good = permanently = forever",
+        "meaning_vi": "mãi mãi"
+      },
+      {
+        "phrase": "Now and then = once in a while = sometimes = every so often = occasionally",
+        "meaning_vi": "thỉnh thoảng Ị >"
+      },
+      {
+        "phrase": "Full of beans",
+        "meaning_vi": "hăng hái, sôi nổi, đầy năng lượng"
+      },
+      {
+        "phrase": "VAt@looseend=free",
+        "meaning_vi": "rânhrỗi :"
+      },
+      {
+        "phrase": "As cool as cucumber",
+        "meaning_vi": "bình tĩnh, không nao núng"
+      },
+      {
+        "phrase": "Peace and quiet",
+        "meaning_vi": "bình yên và tĩnh lặng"
+      },
+      {
+        "phrase": "Behind closed doors",
+        "meaning_vi": "kin, không công khai"
+      },
+      {
+        "phrase": "High and dry = in a difficult - situation, without help or money .",
+        "meaning_vi": "trong tinh huống khó khăn"
+      },
+      {
+        "phrase": "Prim and proper = always behaving in a careful and formal way, and easily shocked by anything that is rude",
+        "meaning_vi": "kỹ lưỡng (quá mirc), có chút bảo thủ"
+      },
+      {
+        "phrase": "Rough and ready = simple and prepared quickly but good — enough for a particular situation",
+        "meaning_vi": "đảm bao chất lượng . l"
+      },
+      {
+        "phrase": "Sick and tired",
+        "meaning_vi": "vô cùng mệt mỏi"
+      },
+      {
+        "phrase": "Safe and sound",
+        "meaning_vi": "bình an vô sự"
+      },
+      {
+        "phrase": "White-collar",
+        "meaning_vi": "công chức, lao động bằng trí óc"
+      },
+      {
+        "phrase": "Blue ~coliar",
+        "meaning_vi": "lao động tay chân ị"
+      },
+      {
+        "phrase": "Nowhere near",
+        "meaning_vi": "N a “ ^ AA | còn lâu, chắc là không"
+      },
+      {
+        "phrase": "Out of sorts",
+        "meaning_vi": "ốm, yếu, buồn chán"
+      },
+      {
+        "phrase": "On the mend",
+        "meaning_vi": "hồi phục"
+      },
+      {
+        "phrase": "Over the worst",
+        "meaning_vi": "vượt qua điều tồi tệ nhất"
+      },
+      {
+        "phrase": "On pins and needles = nervous",
+        "meaning_vi": "lo lắng"
+      }
+    ]
+  },
+  {
+    "topicId": 3,
+    "topicTitle": "Lesson 1: FAMILY",
+    "totalItems": 30,
+    "items": [
+      {
+        "phrase": "Immediate family = nuclear family",
+        "meaning_vi": "gia đình ruột thịt (bao gồm ba, mẹ & anh chị em ruột)"
+      },
+      {
+        "phrase": "Extended family",
+        "meaning_vi": "đại gia đình (bao gồm ông bà, cô chú bác, cậu, mợ... )"
+      },
+      {
+        "phrase": "Family tree",
+        "meaning_vi": "sơ đồ gia đình, để chỉ mối quan hệ giữa các thành viên trong gia đình(gia phả)"
+      },
+      {
+        "phrase": "Distant relative",
+        "meaning_vi": "họ hàng xa"
+      },
+      {
+        "phrase": "Loving family = close-knit family",
+        "meaning_vi": "gia đình êm ấm"
+      },
+      {
+        "phrase": "Dysfunctional family",
+        "meaning_vi": "gia đình không êm ấm"
+      },
+      {
+        "phrase": "Carefree childhood",
+        "meaning_vi": "tuổi thơ êm đềm"
+      },
+      {
+        "phrase": "Troubled childhood",
+        "meaning_vi": "tuổi thơ khó khăn"
+      },
+      {
+        "phrase": "Bitter divorce",
+        "meaning_vi": "ly thân (do có xích mích tình cảm)"
+      },
+      {
+        "phrase": "Messy divorce",
+        "meaning_vi": "ly thân và có tranh chấp tài sản"
+      },
+      {
+        "phrase": "Mutual divorce/ separation",
+        "meaning_vi": "ly hôn mà không xảy ra tranh chấp"
+      },
+      {
+        "phrase": "Broken home",
+        "meaning_vi": "gia đình tan vỡ"
+      },
+      {
+        "phrase": "Single mother",
+        "meaning_vi": "người mẹ có con nhưng chưa lập gia đình (mẹ đơn thân)"
+      },
+      {
+        "phrase": "Have/get an abortion",
+        "meaning_vi": "phá thai"
+      },
+      {
+        "phrase": "Family reunion",
+        "meaning_vi": "gia đình đoàn tụ"
+      },
+      {
+        "phrase": "Divorce settlement",
+        "meaning_vi": "giải quyết các vấn đề ly hôn “"
+      },
+      {
+        "phrase": "Custody of the children",
+        "meaning_vi": "quyền nuôi con"
+      },
+      {
+        "phrase": "Grant joint custody",
+        "meaning_vi": "vợ chồng cùng chia sẻ quyền nuôi con"
+      },
+      {
+        "phrase": "Sole custody",
+        "meaning_vi": "chỉ vợ hoặc chồng có quyền nuôi con"
+      },
+      {
+        "phrase": "Award sole custody",
+        "meaning_vi": "giao quyền nuôi con"
+      },
+      {
+        "phrase": "Pay child support",
+        "meaning_vi": "trợ cấp tiền nuôi con"
+      },
+      {
+        "phrase": "Be/keep on good terms",
+        "meaning_vi": "mối quan hệ hòa nhã, lịch thiệp, chan"
+      },
+      {
+        "phrase": "with sb : = keep on (well) with sb = get along with sb = have a good relationship with sb",
+        "meaning_vi": "hòa với ai"
+      },
+      {
+        "phrase": "Get pregnant",
+        "meaning_vi": "mang thai"
+      },
+      {
+        "phrase": "Give the baby up for adoption",
+        "meaning_vi": "đem con cho người ta nhận nuôi"
+      },
+      {
+        "phrase": "Due date = baby is due",
+        "meaning_vi": "ngày dự sinh x"
+      },
+      {
+        "phrase": "Have the baby = give birth",
+        "meaning_vi": "sinh con"
+      },
+      {
+        "phrase": "Adoptive parents",
+        "meaning_vi": "bố mẹ nuôi :"
+      },
+      {
+        "phrase": "3i A/the blue-eyed boy",
+        "meaning_vi": "đứa con cưng ¬ i"
+      },
+      {
+        "phrase": "Biue bicod",
+        "meaning_vi": "dong giống hoàng tộc"
+      }
+    ]
+  },
+  {
+    "topicId": 4,
+    "topicTitle": "Lesson 2: FAMILY LIFE",
+    "totalItems": 29,
+    "items": [
+      {
+        "phrase": "Join hands = work together",
+        "meaning_vi": "chung tay"
+      },
+      {
+        "phrase": "Give sb a hand = help sb Give a hand with doing st/st = help sb to de/do st",
+        "meaning_vi": "giúp ai giúp với việc gì"
+      },
+      {
+        "phrase": "Take/assume the responsibility for st/doing st = Te be in charge of st/doing st = Take charge of st/doing st = To be responsibie for si/doing st",
+        "meaning_vi": "chịu trách nhiệm với cái gì/làm gì"
+      },
+      {
+        "phrase": "Make sure",
+        "meaning_vi": "đảm bảo"
+      },
+      {
+        "phrase": "AI one TA",
+        "meaning_vi": "ĐỘ TA ca GR HA i"
+      },
+      {
+        "phrase": "Te be in one’s attempt to de si = make an effort to do st = try/attempt to do st",
+        "meaning_vi": "cố gắng làm gì"
+      },
+      {
+        "phrase": "Try/do one’s best to do st",
+        "meaning_vi": "cố gắng hết sức để làm gì"
+      },
+      {
+        "phrase": "Win a piace",
+        "meaning_vi": "vào được, giành được vị trí ở đâu"
+      },
+      {
+        "phrase": "To be under pressure",
+        "meaning_vi": "chịu áp lực"
+      },
+      {
+        "phrase": "Put pressure on sb/st",
+        "meaning_vi": "gây áp lực lên ai/cái gì"
+      },
+      {
+        "phrase": "Men build the house and women make it home",
+        "meaning_vi": "đàn ông xây nhà, đàn bà xây tổ ấm"
+      },
+      {
+        "phrase": "Lay the table",
+        "meaning_vi": "dọn bàn"
+      },
+      {
+        "phrase": "Divide/split household chores",
+        "meaning_vi": "phân công việc nhà"
+      },
+      {
+        "phrase": "Heavy lifting",
+        "meaning_vi": "việc nặng nhọc"
+      },
+      {
+        "phrase": "Do the laundry",
+        "meaning_vi": "giặt rũ"
+      },
+      {
+        "phrase": "Do the washing up",
+        "meaning_vi": "rửa bát 7"
+      },
+      {
+        "phrase": "Do the shopping",
+        "meaning_vi": "mua sắm"
+      },
+      {
+        "phrase": "Do the household chores",
+        "meaning_vi": "làm việc nhà"
+      },
+      {
+        "phrase": "Shop for groceries",
+        "meaning_vi": "mua thực phẩm"
+      },
+      {
+        "phrase": "Handle the chores",
+        "meaning_vi": "quán xuyến việc nhà"
+      },
+      {
+        "phrase": "Household finances",
+        "meaning_vi": "tài chính gia đình"
+      },
+      {
+        "phrase": "Homemaker",
+        "meaning_vi": "người nội trợ"
+      },
+      {
+        "phrase": "Breadwinner",
+        "meaning_vi": "trụ cột gia đình"
+      },
+      {
+        "phrase": "Set a good example for sb",
+        "meaning_vi": "tạo gương tốt cho ai"
+      },
+      {
+        "phrase": "Follow one’s example",
+        "meaning_vi": "noi gương ai"
+      },
+      {
+        "phrase": "Take turns in doing st",
+        "meaning_vi": "thay phiên nhau làm gì"
+      },
+      {
+        "phrase": "Household duties/chores",
+        "meaning_vi": "trách nhiệm gia đình"
+      },
+      {
+        "phrase": "Earn/make money",
+        "meaning_vi": "kiếm tiền"
+      },
+      {
+        "phrase": "East or West, home is best",
+        "meaning_vi": "ta về ta tắm ao ta (không đâu tốt bằng ở nhà)"
+      }
+    ]
+  },
+  {
+    "topicId": 5,
+    "topicTitle": "Lesson 3: RELATIONSHIP",
+    "totalItems": 34,
+    "items": [
+      {
+        "phrase": "Make friends with sb = strike up a friendship with sb",
+        "meaning_vi": "kết bạn với ai"
+      },
+      {
+        "phrase": "Casual acquaintances",
+        "meaning_vi": "người mà bạn không biết rõ lắm _—"
+      },
+      {
+        "phrase": "Love at first sight",
+        "meaning_vi": "yêu tử cái nhìn đầu tiên"
+      },
+      {
+        "phrase": "Fall in love with sb love sb = fall for sb Fall out of love with sb.",
+        "meaning_vi": "yêu ai không còn yêu ai nữa"
+      },
+      {
+        "phrase": "Have strong chemistry",
+        "meaning_vi": "có cẩm xúc manh liệt"
+      },
+      {
+        "phrase": "Significant other",
+        "meaning_vi": "người đặc biệt quan trong, người ÿâu, bạn đời"
+      },
+      {
+        "phrase": "Soulmate",
+        "meaning_vi": "bạn tâm giao; bạn chí cốt T77"
+      },
+      {
+        "phrase": "Match made in heaven",
+        "meaning_vi": "cặp trời sinh, đẹp đôi Oo"
+      },
+      {
+        "phrase": "Childhood sweetheart",
+        "meaning_vi": "tỉnh yên trẻ con"
+      },
+      {
+        "phrase": "High schooi/coilege sweetheart",
+        "meaning_vi": "những người yêu nhau thời. học: sinh/sinh viên"
+      },
+      {
+        "phrase": "Make a commitment",
+        "meaning_vi": "Ràng buộc, giao ước ."
+      },
+      {
+        "phrase": "Have an affair ,",
+        "meaning_vi": "ngoại tình"
+      },
+      {
+        "phrase": "Cheat on sb",
+        "meaning_vi": "lửa dối ai"
+      },
+      {
+        "phrase": "Have st in commen",
+        "meaning_vi": "có điểm gì chung"
+      },
+      {
+        "phrase": "‘Go back years :",
+        "meaning_vi": "biết một người nào đó trong một thời gian dài"
+      },
+      {
+        "phrase": "On-off relationship",
+        "meaning_vi": "bạn bình thường"
+      },
+      {
+        "phrase": "Hit on someone",
+        "meaning_vi": "tán tỉnh, nói hoặc làm điều gì đó để thể ¡ phương ."
+      },
+      {
+        "phrase": "Ask someone out",
+        "meaning_vi": "hẹn hò, mời ai đó di chơi 7"
+      },
+      {
+        "phrase": "Lead someone on",
+        "meaning_vi": "lam người ta hiểu lầm rằng ho cũng thích mình nhưng ko phải vậy"
+      },
+      {
+        "phrase": "Hit it off with someone",
+        "meaning_vi": "có cảm giác kết nhau ngay từ lúc gặp đầu"
+      },
+      {
+        "phrase": "Split up / break up",
+        "meaning_vi": "chia tay"
+      },
+      {
+        "phrase": "Drift apart",
+        "meaning_vi": "từ từ tách rời khỏi nhau"
+      },
+      {
+        "phrase": "Head over heels in love",
+        "meaning_vi": "yêu ai đó rất nhiều"
+      },
+      {
+        "phrase": "Make out with someone",
+        "meaning_vi": "hôn ai đó một cách nhiệt tình"
+      },
+      {
+        "phrase": "Have a crush on someone",
+        "meaning_vi": "thầm thích ai đó"
+      },
+      {
+        "phrase": "Have chemistry with someone",
+        "meaning_vi": "hợp với nhau"
+      },
+      {
+        "phrase": "Pop the question = ask for someone’s hand in marriage",
+        "meaning_vi": "cầu hôn"
+      },
+      {
+        "phrase": "Tie the knot = walk down the Aisle = get hitched = marry",
+        "meaning_vi": "kết hôn"
+      },
+      {
+        "phrase": "Whisper sweet nothings",
+        "meaning_vi": "nói những lời có cánh"
+      },
+      {
+        "phrase": "On the rocks",
+        "meaning_vi": "gặp trục trặc"
+      },
+      {
+        "phrase": "Kiss and makeup",
+        "meaning_vi": "gương vỡ lại lành"
+      },
+      {
+        "phrase": "Puppy love",
+        "meaning_vi": "tình yêu thời trẻ"
+      },
+      {
+        "phrase": "Have a heart of stone",
+        "meaning_vi": "độc ác"
+      },
+      {
+        "phrase": "Form/develop a friendship",
+        "meaning_vi": "xây dựng tình bạn"
+      }
+    ]
+  },
+  {
+    "topicId": 6,
+    "topicTitle": "Lesson 4: FRIENDSHIP",
+    "totalItems": 24,
+    "items": [
+      {
+        "phrase": "Close/imtimate friend = buddy Soul mate",
+        "meaning_vi": "bạn thân bạn tâm giao; bạn chí cốt"
+      },
+      {
+        "phrase": "or OB",
+        "meaning_vi": "Đrdeofffiendg S7 ñnhmbẩn CÔ TÔ Ụ L6 “"
+      },
+      {
+        "phrase": "i ai",
+        "meaning_vi": "ị Ị friendly /good terms with sb i 5 9 _ Heart-to-heari talk"
+      },
+      {
+        "phrase": "n chan nh -",
+        "meaning_vi": "ị id"
+      },
+      {
+        "phrase": "Spring to sh’s defence",
+        "meaning_vi": "nhanh chóng đến để bảo vệ ai đó"
+      },
+      {
+        "phrase": "Make a stranger of sb",
+        "meaning_vi": "đối dai với ai như người xa lạ"
+      },
+      {
+        "phrase": "Win sb’s trust Have (put, repose) trust in sb",
+        "meaning_vi": "giành được niềm tin của ai tin cậy ai, tín nhiệm ai"
+      },
+      {
+        "phrase": "Commit to sb's trust Leave in trust",
+        "meaning_vi": "giao phó cho ai trông nom, uỷ thác cho ai uỷ thác"
+      },
+      {
+        "phrase": "Abuse of trust/a breach of trust",
+        "meaning_vi": "sự lạm dụng lòng tin, sự bội tín -"
+      },
+      {
+        "phrase": "Make the relationship work = Work at a relationship",
+        "meaning_vi": "cố gắng duy trì mối quan hệ với ai"
+      },
+      {
+        "phrase": "Cheat on sb",
+        "meaning_vi": "lừa gạt ai"
+      },
+      {
+        "phrase": "To be reconciled with sb",
+        "meaning_vi": "hòa giải với ai"
+      },
+      {
+        "phrase": "Take the initiative in doing st",
+        "meaning_vi": "có sáng kiến, khởi xướng làm việc gi"
+      },
+      {
+        "phrase": "See eye to eye with sb",
+        "meaning_vi": "đồng ý với ai :"
+      },
+      {
+        "phrase": "Have a quarrel/row with sb = Fall out",
+        "meaning_vi": "cãi co với ai"
+      },
+      {
+        "phrase": "Make a fuss",
+        "meaning_vi": "làm 4mi"
+      },
+      {
+        "phrase": "Tune out",
+        "meaning_vi": "ngat, dimg"
+      },
+      {
+        "phrase": "Confess st to sb",
+        "meaning_vi": "thé lộ cái gì với ai"
+      },
+      {
+        "phrase": "Lovey-dovey ;",
+        "meaning_vi": "yêu thương, âu yếm, trìu mến, đa cảm, ủy mi"
+      },
+      {
+        "phrase": "Break the ice",
+        "meaning_vi": "bắt đầu cuộc nói chuyện với một người lạ nào đó"
+      },
+      {
+        "phrase": "Lend a sympathetic ear to sb = sympathize with sb",
+        "meaning_vi": "cảm thông với ai"
+      },
+      {
+        "phrase": "Blind date",
+        "meaning_vi": "cuộc gặp mặt lần đầu cho hai người chưa quen biết nhau từ trước"
+      },
+      {
+        "phrase": "Pick (seek) a quarrel with sb",
+        "meaning_vi": "gây chuyện cãi.nhau với ai"
+      },
+      {
+        "phrase": "Have no quarrel against (with) sb",
+        "meaning_vi": "không có gì đáng phàn nàn về ai"
+      }
+    ]
+  },
+  {
+    "topicId": 7,
+    "topicTitle": "Lesson 5: APPEARANCE",
+    "totalItems": 37,
+    "items": [
+      {
+        "phrase": "Absolutely gorgeous = extremely beautiful",
+        "meaning_vi": "cực kỳ xinh đẹp"
+      },
+      {
+        "phrase": "Pale blue eyes",
+        "meaning_vi": "đôi mắt màu xanh nhạt"
+      },
+      {
+        "phrase": "Radiant complexion =skin that appears healthy and full of energy",
+        "meaning_vi": "một làn da khỏe, rạng rỡ"
+      },
+      {
+        "phrase": "Hourglass figure",
+        "meaning_vi": "thân hình đồng hồ cát"
+      },
+      {
+        "phrase": "Slender waist= a thin waist",
+        "meaning_vi": "eo thon"
+      },
+      {
+        "phrase": "Deep-set eyes oo",
+        "meaning_vi": "đôi mắt sâu"
+      },
+      {
+        "phrase": "| Bear a striking resemibiance to sb = look extremely similar to sb",
+        "meaning_vi": "cực kỳ giống với ai đó"
+      },
+      {
+        "phrase": "Hideously ugly",
+        "meaning_vi": "xấu xí °"
+      },
+      {
+        "phrase": "Bushy eyebrows",
+        "meaning_vi": "lông may ram"
+      },
+      {
+        "phrase": "Thick mustache",
+        "meaning_vi": "ria mép day"
+      },
+      {
+        "phrase": "Shaggy beard Facial hair",
+        "meaning_vi": "rau ram TC râu quai nón"
+      },
+      {
+        "phrase": "Curly hair Coarse hair Thick hair jet-back hair Fair hair | Shoulder-length hair Unkempt hair",
+        "meaning_vi": "tóc xoăn tóc thô cứng tóc dày tóc đen huyền, đen nhánh tóc vàng hoe ` tóc ngang vai tóc bù xù"
+      },
+      {
+        "phrase": "Athletic build",
+        "meaning_vi": "thân hình săn chắc ”"
+      },
+      {
+        "phrase": "Trim one’s beard= cut one’s beard a little shorter",
+        "meaning_vi": "cắt, tỉa râu"
+      },
+      {
+        "phrase": "Round face Square face Oval face Thin face",
+        "meaning_vi": "mặt tròn mặt vuông chữ điền mặt trái xoan mặt xương xẩu"
+      },
+      {
+        "phrase": "Chubby cheek",
+        "meaning_vi": "má phinh phính ;"
+      },
+      {
+        "phrase": "Have a striking appearance",
+        "meaning_vi": "có ngoại hình nổi bật"
+      },
+      {
+        "phrase": "Straight nose Upturned nose",
+        "meaning_vi": "mũi thẳng mũi cao"
+      },
+      {
+        "phrase": "Broad shoulder",
+        "meaning_vi": "bờ vai rộng"
+      },
+      {
+        "phrase": "Muscular arms",
+        "meaning_vi": "cánh tay cơ bắp"
+      },
+      {
+        "phrase": "Portly gentleman",
+        "meaning_vi": "một quý ông quý phái"
+      },
+      {
+        "phrase": "As flat as a pancake",
+        "meaning_vi": "gầy đét như cá mắm"
+      },
+      {
+        "phrase": "As white as a sheet/ghost",
+        "meaning_vi": "trắng bệch, nhợt nhạt (cứ như sợ hãi điều gì)"
+      },
+      {
+        "phrase": "Black anh blue ,",
+        "meaning_vi": "bị bầm tím"
+      },
+      {
+        "phrase": "Knee-high to a grasshopper",
+        "meaning_vi": "rất bé bỏng và còn nhỏ"
+      },
+      {
+        "phrase": "Long in the tooth to do st",
+        "meaning_vi": "quá già để làm một việc gì đó"
+      },
+      {
+        "phrase": "Mutton dressed as lamb",
+        "meaning_vi": "chỉ một người đã trung tuổi nhưng cố “cưa sừng làm nghề"
+      },
+      {
+        "phrase": "No spring chicken",
+        "meaning_vi": "người hơi già, vừa qua tuổi thanh niên"
+      },
+      {
+        "phrase": "Over the hill",
+        "meaning_vi": "người cao tuổi, không còn giỏi/ minh mẫn như trước nữa"
+      },
+      {
+        "phrase": "(Live to a) ripe old age”",
+        "meaning_vi": "sống đến khi đầu bạc răng long."
+      },
+      {
+        "phrase": "As different as chalk and/from cheese",
+        "meaning_vi": "hoàn toàn khác nhau"
+      },
+      {
+        "phrase": "Fit as a fiddle",
+        "meaning_vi": "khỏe như vâm"
+      },
+      {
+        "phrase": "As peas ina pod",
+        "meaning_vi": "giống nhau như hai giọt nước"
+      },
+      {
+        "phrase": "Fit like a glove",
+        "meaning_vi": "vừa khít"
+      },
+      {
+        "phrase": "As red as a beetroot",
+        "meaning_vi": "đồ như gấc"
+      },
+      {
+        "phrase": "As fresh as a daisy",
+        "meaning_vi": "tươi như hoa"
+      },
+      {
+        "phrase": "As old as the hills",
+        "meaning_vi": "rất cũ, cổ xưa"
+      }
+    ]
+  },
+  {
+    "topicId": 8,
+    "topicTitle": "Lesson 6: CHARACTER AND BEHAVIOUR",
+    "totalItems": 51,
+    "items": [
+      {
+        "phrase": "Play a joke/trick Play a prank",
+        "meaning_vi": "châm chọc đùa quá chớn"
+      },
+      {
+        "phrase": "Make/ tell / crack a joke Take a joke",
+        "meaning_vi": "nói đùa bị trêu chọc"
+      },
+      {
+        "phrase": "Swallow one’s pride =(stop being arrogant} Take pride in st",
+        "meaning_vi": "nén tự ái để công nhận là mình mắc: lỗi hay thua kém người khác tự hào về điều gì"
+      },
+      {
+        "phrase": "Throw /have a tantrum = get (fly) into a temper",
+        "meaning_vi": "nổi cơn tam bành, làm ầm lên — —ˆ"
+      },
+      {
+        "phrase": "LOSe one’s itemper/patience/head Hot-headed = het-tempered Keep one's temper",
+        "meaning_vi": "mat kiêu nhẫn, mất bình tĩnh nóng tính giữ bình tĩnh"
+      },
+      {
+        "phrase": "Come to terms with",
+        "meaning_vi": "giải hoà với ai; chịu chấp nhận cái gi"
+      },
+      {
+        "phrase": "Boundless energy",
+        "meaning_vi": "giàu nang lượng a"
+      },
+      {
+        "phrase": "Have confidence in somebody Gain somebody's confidence Give one's confidence to somebody Misplace one's confidence Worm oneself into one's confidence Boost one’s confidence",
+        "meaning_vi": "tin ở ai SỐ được ai tin cậy, được ai tín nhiệm tin cậy ai tin cậy người không tốt, tin người không đáng tin luồn lỗi tìm cách lấy lòng tincủaai nâng cao/cũng cố niềm tin của ai"
+      },
+      {
+        "phrase": "Bubbly personality",
+        "meaning_vi": "tính cách sôi nổi"
+      },
+      {
+        "phrase": "As cool as a cucumber",
+        "meaning_vi": "bình tnh, không hề nao núng"
+      },
+      {
+        "phrase": "Have a tendency to do st",
+        "meaning_vi": "có xu hướng làm gì"
+      },
+      {
+        "phrase": "Make a snap decision",
+        "meaning_vi": "quyết định vội vàng :"
+      },
+      {
+        "phrase": "Keep one’s word Give one's word",
+        "meaning_vi": "giữ lời hứa a hứa"
+      },
+      {
+        "phrase": "Big words Aman of few words In other words In so many words By word of mouth Spoken word Wild and whirling word Beyond words Leave word that Word came that Have words with sb Put words in your mouth",
+        "meaning_vi": "những lời huénh hoang khoác lac, những lời loè bịp một người ít nói nói cách khác nói đúng như vậy, nói toạc ra bằng lời nói; truyền miệng lời nói lời lẽ thiếu cân nhắc, lời nói tếu không noi được, không thể tả xiết báo tin rằng, báo rằng người ta báo tin rằng cãi nhau với ai nói sai sự thật, nói trái lại những gì bạn nói"
+      },
+      {
+        "phrase": "Keep a secret",
+        "meaning_vi": "giữ bí mật"
+      },
+      {
+        "phrase": "Bear a grudge against sb",
+        "meaning_vi": "có han thù ác cảm với ai; oán giận ai"
+      },
+      {
+        "phrase": "Make a foo] (out) of",
+        "meaning_vi": "hành xử một cách ngốc nghếch, không suy nghĩ"
+      },
+      {
+        "phrase": "Brutally honest = To be honest = honestly speaking",
+        "meaning_vi": "thành thật mà nói"
+      },
+      {
+        "phrase": "Hurt one’s feeling",
+        "meaning_vi": "làm tổn thương ai"
+      },
+      {
+        "phrase": "Stubborn streak",
+        "meaning_vi": "người ương bướng, ngang ngạnh"
+      },
+      {
+        "phrase": "Sharp wit/ Sharp-witted",
+        "meaning_vi": "thông minh, lanh lợi, nhanh trí; tỉnh táo"
+      },
+      {
+        "phrase": "Downright rude",
+        "meaning_vi": "hỗn láo"
+      },
+      {
+        "phrase": "Pent-up anger",
+        "meaning_vi": "cơn giận bị đồn nén"
+      },
+      {
+        "phrase": "Open hostility ,",
+        "meaning_vi": "khai chiến, tuyên chiến, gây hấn"
+      },
+      {
+        "phrase": "Look one’s age Act one’s age",
+        "meaning_vi": "trông đúng như tuổi thật của mình cư xử đúng với lứa tuổi"
+      },
+      {
+        "phrase": "Burst with energy",
+        "meaning_vi": "sự gang sức ."
+      },
+      {
+        "phrase": "Blank expession",
+        "meaning_vi": "vẻ mặt trống rỗng, thẫn thờ"
+      },
+      {
+        "phrase": "Cool reception To be cool toward someone Give someone a cool reception",
+        "meaning_vi": "lãng đạm, thờ ơ lãnh đạm với ai tiếp đãi ai nhạt nhéo"
+      },
+      {
+        "phrase": "Sense of humour",
+        "meaning_vi": "tính hài hước"
+      },
+      {
+        "phrase": "Sense of responsibility -",
+        "meaning_vi": "ý thức trách nhiệm"
+      },
+      {
+        "phrase": "Selfish streak Mean ireak",
+        "meaning_vi": "đôi khi ích kỉ SỐ sống nội tâm"
+      },
+      {
+        "phrase": "Vivid imagination —",
+        "meaning_vi": "_ trí tưởng tượng phong phú mm"
+      },
+      {
+        "phrase": "Keep one’s temper Lose one’s temper :",
+        "meaning_vi": "giữ bình tĩnh 7 mat binh tinh"
+      },
+      {
+        "phrase": "Be in good/bad mood",
+        "meaning_vi": "tâm trạng tốt/tồi tệ ma"
+      },
+      {
+        "phrase": "Set high standards for sb",
+        "meaning_vi": "đặt ra tiêu chuẩn cao cho ai \""
+      },
+      {
+        "phrase": "Fiercely loyal -",
+        "meaning_vi": "cực kì trung thành ma"
+      },
+      {
+        "phrase": "Put others first —_.",
+        "meaning_vi": "đặt lợi ích của người khác lên trên"
+      },
+      {
+        "phrase": "‘Painfully shy: 0",
+        "meaning_vi": "cực kì nhút nhát"
+      },
+      {
+        "phrase": "‘ Supermely confident",
+        "meaning_vi": "cực kì tự tin TC"
+      },
+      {
+        "phrase": "Come out of my shell",
+        "meaning_vi": "bớt nhút nhát hơn mm"
+      },
+      {
+        "phrase": "Low/high self-esteem Have a superiority complex",
+        "meaning_vi": "tự tn/tự ti nghĩ mình hơn người"
+      },
+      {
+        "phrase": "Have a thicker skin",
+        "meaning_vi": "vô cảm"
+      },
+      {
+        "phrase": "Have a yellow streak",
+        "meaning_vi": "có tính nhát gan a"
+      },
+      {
+        "phrase": "Like alamp",
+        "meaning_vi": "hiền lành mm"
+      },
+      {
+        "phrase": "Speak one’s mind Bite one’s tongue",
+        "meaning_vi": "nói thẳng, nghĩ gì nói ấy giữ mồm giữ miệng"
+      },
+      {
+        "phrase": "Show true colors",
+        "meaning_vi": "thế hiện bản chất/bộ mặt thật, bộc 16 rõ bản chất"
+      },
+      {
+        "phrase": "As good as gold",
+        "meaning_vi": "có đạo đức rất tốt"
+      },
+      {
+        "phrase": "As stubborn as a mule",
+        "meaning_vi": "uơng bướng"
+      },
+      {
+        "phrase": "As hard as naiis",
+        "meaning_vi": "cứng rắn, tàn nhẫn '"
+      },
+      {
+        "phrase": "As pleased as punch",
+        "meaning_vi": "rất hài lòng"
+      },
+      {
+        "phrase": "As keen as mustard",
+        "meaning_vi": "hết sức hăng hái, nhiệt tình"
+      }
+    ]
+  },
+  {
+    "topicId": 9,
+    "topicTitle": "Lesson 7: FEELINGS AND EMOTIONS",
+    "totalItems": 51,
+    "items": [
+      {
+        "phrase": "Roller coaster of emotions",
+        "meaning_vi": "cảm xúc hỗn tạp, vui buồn lẫn lộn"
+      },
+      {
+        "phrase": "ridiculously excited",
+        "meaning_vi": "quá phấn khích"
+      },
+      {
+        "phrase": "Bitterly/visibly disappointed = deeply depressed. = as sick as a parrot",
+        "meaning_vi": "thất vọng tràn trề"
+      },
+      {
+        "phrase": "Blissfully happy = Over the moon = in seventh heaven = on cloud nine = walking on the air = Like a dog with two tails Beside oneself with joy",
+        "meaning_vi": "hạnh phúc, sung sướng mừng quýnh lần"
+      },
+      {
+        "phrase": "Worried sick Increasingly anxious",
+        "meaning_vi": "quá lo lắng ngày càng Ìo lắng"
+      },
+      {
+        "phrase": "In a black mood",
+        "meaning_vi": "trong tình trạng phẫn uất"
+      },
+      {
+        "phrase": "Seething with anger See red Hopping mad Drive sb mad Cheesed off Have a down/downer on sb = be angry with sb",
+        "meaning_vi": "rất giận dữ, chuẩn bị bộc phát cơn giận ra rất tức giận tức phát điên lên làm cho ai đó phát điên giận dữ tức giận ai"
+      },
+      {
+        "phrase": "Show one’s feelings",
+        "meaning_vi": "thể hiện / bộc lộ cảm xúc"
+      },
+      {
+        "phrase": "Bottle up one’s emotions",
+        "meaning_vi": "kìm nén cảm xúc, không bộc lộ ra ngoài"
+      },
+      {
+        "phrase": "Terribly sorry",
+        "meaning_vi": "thành thật xin lỗi"
+      },
+      {
+        "phrase": "Emotional wreck",
+        "meaning_vi": "suy sựp tỉnh thần"
+      },
+      {
+        "phrase": "Pleasantly surprised",
+        "meaning_vi": "rất ngạc nhiên"
+      },
+      {
+        "phrase": "Immensely grateful",
+        "meaning_vi": "vô cùng biết ơn"
+      },
+      {
+        "phrase": "overwhelmed with emotion",
+        "meaning_vi": "ngập tràn cảm xúc"
+      },
+      {
+        "phrase": "Desperately sad = great",
+        "meaning_vi": "cảm thấy buồn"
+      },
+      {
+        "phrase": "sadnes fee] blue- Beside oneself with grief",
+        "meaning_vi": "quá đau buồn"
+      },
+      {
+        "phrase": "Let sb down = disappoint sb",
+        "meaning_vi": "làm cho ai đó thất vọng"
+      },
+      {
+        "phrase": "Nasty shock",
+        "meaning_vi": "cực kì sốc"
+      },
+      {
+        "phrase": "Green with envy",
+        "meaning_vi": "ghen tị"
+      },
+      {
+        "phrase": "Rub someone up the wrong way",
+        "meaning_vi": "chọc tức ai"
+      },
+      {
+        "phrase": "A bit of jealousy",
+        "meaning_vi": "một chút đố kị"
+      },
+      {
+        "phrase": "Not on speaking terms with sb",
+        "meaning_vi": "bất hòa đến mức không nói chuyện. với nhau"
+      },
+      {
+        "phrase": "Thrilled to bits ;",
+        "meaning_vi": "rất hài lòng ,"
+      },
+      {
+        "phrase": "Be ambivalent about. -",
+        "meaning_vi": "nửa yêu nửa ghét hoặc vừa thích vừa không thích; dan do giữa hai lựa chọn"
+      },
+      {
+        "phrase": "Be afraid /scared of your own shadow",
+        "meaning_vi": "nhát như cay, sợ bóng sợ gió"
+      },
+      {
+        "phrase": "Drive someone up the wall",
+        "meaning_vi": "đồn (ai đó) vào thế bf, lam cho ai đó tức giận"
+      },
+      {
+        "phrase": "Bite someone’s head off",
+        "meaning_vi": "nổi giận vô cớ"
+      },
+      {
+        "phrase": "Be grief-stricken",
+        "meaning_vi": "wu phiền, ảo não"
+      },
+      {
+        "phrase": "Be at the end of one’s rope",
+        "meaning_vi": "hết sức chịu đựng, hết cả kiên nhẫn"
+      },
+      {
+        "phrase": "At the hands of",
+        "meaning_vi": "dưới tay ai"
+      },
+      {
+        "phrase": "Pose a threat to",
+        "meaning_vi": "đe dọa"
+      },
+      {
+        "phrase": "Sign of relief",
+        "meaning_vi": "thở phào nhẹ nhõm"
+      },
+      {
+        "phrase": "Shiver down one’spine",
+        "meaning_vi": "lạnh sống lưng, sin gai ốc ,"
+      },
+      {
+        "phrase": "Feel it in one’s bones",
+        "meaning_vi": "linh tinh, linh cam"
+      },
+      {
+        "phrase": "A state of euphoria",
+        "meaning_vi": "phấn chấn, phấn khởi ;"
+      },
+      {
+        "phrase": "Live in a fool’s paradise",
+        "meaning_vi": "sống trong ảo tưởng hạnh phúc '"
+      },
+      {
+        "phrase": "Sense of purpose",
+        "meaning_vi": "có mục đích"
+      },
+      {
+        "phrase": "Sense of achievement",
+        "meaning_vi": "có thành tích"
+      },
+      {
+        "phrase": "Heart leapt",
+        "meaning_vi": "sợ hết hồn, sợ chết khiếp"
+      },
+      {
+        "phrase": "Dream come true",
+        "meaning_vi": "giấc mơ thành hiện thực"
+      },
+      {
+        "phrase": "Go into rapture",
+        "meaning_vi": "dé mê, sung sướng"
+      },
+      {
+        "phrase": "Jump for joy",
+        "meaning_vi": "nhảy cẵng lên"
+      },
+      {
+        "phrase": "To be dead keen on sb",
+        "meaning_vi": "say đắm ai"
+      },
+      {
+        "phrase": "Live up to one’s expectation",
+        "meaning_vi": "dap ứng mong mỏi, ki vọng của ai"
+      },
+      {
+        "phrase": "Pure luck",
+        "meaning_vi": "do may mắn"
+      },
+      {
+        "phrase": "Cautiously optimistic",
+        "meaning_vi": "tự tin về tỉnh huống và / hoặc kết quả của nó trong khi vẫn sẵn sàng cho những khó khăn hoặc thất bại"
+      },
+      {
+        "phrase": "Take great delight in st",
+        "meaning_vi": "thích cái gì"
+      },
+      {
+        "phrase": "Profound admiration",
+        "meaning_vi": "cảm phục, khâm phục"
+      },
+      {
+        "phrase": "Take/find great pleasure in (doing) sth = get/gain pleasure from sth ,",
+        "meaning_vi": "thích làm gì"
+      },
+      {
+        "phrase": "Down in the dumps",
+        "meaning_vi": "buồn (chán); chán nan; thất vọng"
+      },
+      {
+        "phrase": "Be flying high",
+        "meaning_vi": "hứng khởi và vui về tột cùng"
+      }
+    ]
+  },
+  {
+    "topicId": 10,
+    "topicTitle": "Lesson 8: HEALTH AND ILLNESS",
+    "totalItems": 50,
+    "items": [
+      {
+        "phrase": "Junk food",
+        "meaning_vi": "đồ ăn vặt, đồ ăn nhanh"
+      },
+      {
+        "phrase": "Go on a diet",
+        "meaning_vi": "ăn kiêng"
+      },
+      {
+        "phrase": "Processed foods",
+        "meaning_vi": "thức ăn đã chế biến sẵn"
+      },
+      {
+        "phrase": "Food additives",
+        "meaning_vi": "chất phụ gia thực phẩm"
+      },
+      {
+        "phrase": "Balanced diet",
+        "meaning_vi": "ăn theo chế độ định đưỡng hợp lý -"
+      },
+      {
+        "phrase": "Nourishing meals",
+        "meaning_vi": "những bữa ăn đầy đủ chất dinh dưỡng"
+      },
+      {
+        "phrase": "Organic food",
+        "meaning_vi": "thực phẩm hữu cơ nhiều đạm từ thịt cá"
+      },
+      {
+        "phrase": "Fresh produce",
+        "meaning_vi": "những sân phẩm tươi sạch như rau, củ, quả"
+      },
+      {
+        "phrase": "Quick snack",
+        "meaning_vi": "bữa ăn dặm"
+      },
+      {
+        "phrase": "Eat in moderation",
+        "meaning_vi": "ăn điều độ \""
+      },
+      {
+        "phrase": "Watch portion sizes",
+        "meaning_vi": "theo dõi kỹ khẩu phần ăn"
+      },
+      {
+        "phrase": "To be in the mood fora home-cooked meal",
+        "meaning_vi": "muon ăn cơm nhà"
+      },
+      {
+        "phrase": "Have allergy to st = to be allergic to st",
+        "meaning_vi": "di ứng với cái gì"
+      },
+      {
+        "phrase": "Make a hearty stew",
+        "meaning_vi": "hầm canh"
+      },
+      {
+        "phrase": "Healthy appetite",
+        "meaning_vi": "khả năng ăn tốt"
+      },
+      {
+        "phrase": "A second helping",
+        "meaning_vi": "phần/xuất thứ hai"
+      },
+      {
+        "phrase": "Traditional cuisine International cuisine",
+        "meaning_vi": "các món ăn truyền thống ma món ăn quốc tế"
+      },
+      {
+        "phrase": "Food poisoning",
+        "meaning_vi": "ngộ độc thực phẩm"
+      },
+      {
+        "phrase": "Car sick",
+        "meaning_vi": "Say xe"
+      },
+      {
+        "phrase": "Light meal",
+        "meaning_vi": "bữa ăn nhẹ"
+      },
+      {
+        "phrase": "Drink like a fish",
+        "meaning_vi": "uống say bí tỉ"
+      },
+      {
+        "phrase": "Reduce pressure",
+        "meaning_vi": "giảm áp lực"
+      },
+      {
+        "phrase": "Build up one’s strength",
+        "meaning_vi": "làm cho khỏe mạnh, rắn chắc"
+      },
+      {
+        "phrase": "Gentle exercise",
+        "meaning_vi": "bai tập nhẹ nhàng"
+      },
+      {
+        "phrase": "Do sport",
+        "meaning_vi": "chơi thể thao"
+      },
+      {
+        "phrase": "Build up resistance to st",
+        "meaning_vi": "có sức đề kháng cho cái gì"
+      },
+      {
+        "phrase": "Make a full recovery",
+        "meaning_vi": "bình phục hoàn toàn"
+      },
+      {
+        "phrase": "Have an operation Operate on sb",
+        "meaning_vi": "phẫu thuật phẫu thuật cho ai"
+      },
+      {
+        "phrase": "Take effect",
+        "meaning_vi": "có tác dụng"
+      },
+      {
+        "phrase": "Side effects",
+        "meaning_vi": "tác dụng phụ"
+      },
+      {
+        "phrase": "Adverse reactions",
+        "meaning_vi": "ảnh hưởng tiêu cực"
+      },
+      {
+        "phrase": "As right as rain = as fit asa fiddle",
+        "meaning_vi": "khỏe mạnh ;"
+      },
+      {
+        "phrase": "Shake off a cold = get rid ofa cold",
+        "meaning_vi": "khỏi cảm lạnh"
+      },
+      {
+        "phrase": "Be under the weather = Feel off color = be in poor health",
+        "meaning_vi": "không được khỏe"
+      },
+      {
+        "phrase": "Eat like a bird Eat like a horse",
+        "meaning_vi": "ăn rất ít ăn rất nhiều"
+      },
+      {
+        "phrase": "Fall into a coma Come out of a coma",
+        "meaning_vi": "bị hôn mê tỉnh sau hôn mê"
+      },
+      {
+        "phrase": "A heart attack",
+        "meaning_vi": "nhồi máu cơ tim"
+      },
+      {
+        "phrase": "Untimely/premature dealth Premature birth",
+        "meaning_vi": "sự chết non, sự chết yếu sự đẻ non"
+      },
+      {
+        "phrase": "Do sb good = keep sb fit = make sb healthy",
+        "meaning_vi": "làm cho ai đó khỏe mạnh"
+      },
+      {
+        "phrase": "Keep sb occupied = make sb busy",
+        "meaning_vi": "làm cho ai đó bận rộn"
+      },
+      {
+        "phrase": "Catch/have a cold",
+        "meaning_vi": "bị cảm lạnh"
+      },
+      {
+        "phrase": "Suffer from",
+        "meaning_vi": "khổ sở, vật vã"
+      },
+      {
+        "phrase": "Be diagnosed with st",
+        "meaning_vi": "được chuẩn đoán bị bệnh gì"
+      },
+      {
+        "phrase": "Serious illness",
+        "meaning_vi": "ốm nặng"
+      },
+      {
+        "phrase": "A splitting headache",
+        "meaning_vi": "đầu đau như búa bố"
+      },
+      {
+        "phrase": "Gain weight Lose weight .",
+        "meaning_vi": "tăng cân giảm cân"
+      },
+      {
+        "phrase": "Life expectancy",
+        "meaning_vi": "tuổi thọ"
+      },
+      {
+        "phrase": "Have a sweet tooth",
+        "meaning_vi": "người rất thích ăn đồ ngọt"
+      },
+      {
+        "phrase": "Back on one’s feet = recover from",
+        "meaning_vi": "trở lại như trước, khỏe trở lại, phục hồi trở lại"
+      },
+      {
+        "phrase": "Sleep like a log",
+        "meaning_vi": "ngủ say như chết"
+      }
+    ]
+  },
+  {
+    "topicId": 11,
+    "topicTitle": "Lesson 9: MOVIES AND BOOKS",
+    "totalItems": 29,
+    "items": [
+      {
+        "phrase": "Be engrossed in",
+        "meaning_vi": "mai mê, chìm đắm trong"
+      },
+      {
+        "phrase": "Be a big reader",
+        "meaning_vi": "người đọc nhiều sách 7"
+      },
+      {
+        "phrase": "Be based on st",
+        "meaning_vi": "được dựa trên..."
+      },
+      {
+        "phrase": "A box office hit",
+        "meaning_vi": "một bộ phim chiến thắng tại phòng vé (thu về nhiều lợi nhuận)"
+      },
+      {
+        "phrase": "Be heavy-going",
+        "meaning_vi": "đọc thấy khó hiểu"
+      },
+      {
+        "phrase": "A blockbuster",
+        "meaning_vi": "phim bom tấn"
+      },
+      {
+        "phrase": "c ai",
+        "meaning_vi": "đó khen ngợi ị"
+      },
+      {
+        "phrase": "8 — 9",
+        "meaning_vi": "Get a good/bad review ¡ nhận được lời phê bình tốL/ xấu - : | (khi một bệ phim) được ra mắt Go on general release eee ¡ Khán gia"
+      },
+      {
+        "phrase": "Read something from cover to cover",
+        "meaning_vi": "đọc một cái gì đó từ đầu đến cuối"
+      },
+      {
+        "phrase": "Bookworm",
+        "meaning_vi": "mọt sách"
+      },
+      {
+        "phrase": "New release book/best- selling book",
+        "meaning_vi": "sách mới phát hành /sách bán chạy nhất"
+      },
+      {
+        "phrase": "Criginal /handwritten manuscript",
+        "meaning_vi": "bản thảo gốc/ viết tay"
+      },
+      {
+        "phrase": "Out of print",
+        "meaning_vi": "ngừng xuất bản"
+      },
+      {
+        "phrase": "Tabloid newspapers",
+        "meaning_vi": "báo lá cải"
+      },
+      {
+        "phrase": "Dismal failure",
+        "meaning_vi": "thất bại thảm hại"
+      },
+      {
+        "phrase": "Nominate for an award",
+        "meaning_vi": "đề cử cho một giải thưởng"
+      },
+      {
+        "phrase": "Movie star",
+        "meaning_vi": "ngôi sao điện ảnh"
+      },
+      {
+        "phrase": "Bear the suspense Keep sh in suspense",
+        "meaning_vi": "chờ đợi để ai trong tình trạng chờ đợi"
+      },
+      {
+        "phrase": "Awaken one’s interest",
+        "meaning_vi": "gợi sự thích thú của ai"
+      },
+      {
+        "phrase": "Cast a film",
+        "meaning_vi": "phân/thử vai(diễn)"
+      },
+      {
+        "phrase": "Make a film",
+        "meaning_vi": "làm phim"
+      },
+      {
+        "phrase": "Shoot a film :",
+        "meaning_vi": "quay phim, bấm máy"
+      },
+      {
+        "phrase": "Full house",
+        "meaning_vi": "trật kín"
+      },
+      {
+        "phrase": "Flick through",
+        "meaning_vi": "đọc lướt qua"
+      },
+      {
+        "phrase": "Think highly of",
+        "meaning_vi": "nói tốt, ca ngợi, coi trọng"
+      },
+      {
+        "phrase": "Make a lasting impression on sb",
+        "meaning_vi": "để lại ấn tượng sâu sắc trong lòng ai"
+      },
+      {
+        "phrase": "On the air In the air ;",
+        "meaning_vi": "(rađiô) dang phát thanh hao huyền, vién vông, loan (tin) di"
+      },
+      {
+        "phrase": "Movie trailer",
+        "meaning_vi": "đoạn giới thiệu phim"
+      },
+      {
+        "phrase": "Hit the books Hit the sack",
+        "meaning_vi": "học tập chăm chỉ đi ngủ"
+      }
+    ]
+  },
+  {
+    "topicId": 12,
+    "topicTitle": "Lesson 10: MUSIC",
+    "totalItems": 34,
+    "items": [
+      {
+        "phrase": "Sheet music",
+        "meaning_vi": "ban nhạc in từng tờ rời chứ không đóng thành quyển"
+      },
+      {
+        "phrase": "A sizeable following = a let of fans",
+        "meaning_vi": "nhiều người hâm mộ"
+      },
+      {
+        "phrase": "Be music to one’s ears",
+        "meaning_vi": "khiến ai rất hài lòng"
+      },
+      {
+        "phrase": "Debut album",
+        "meaning_vi": "album dau tay"
+      },
+      {
+        "phrase": "Amassive hit",
+        "meaning_vi": "bài hít"
+      },
+      {
+        "phrase": "nh rs",
+        "meaning_vi": "Ị lộ"
+      },
+      {
+        "phrase": "Contemporary music = modern music",
+        "meaning_vi": "nhạc đương đại"
+      },
+      {
+        "phrase": "Orchestral /instrumental music :",
+        "meaning_vi": "âm nhạc soạn cho nhạc khí"
+      },
+      {
+        "phrase": "Compilation album",
+        "meaning_vi": "tuyển tập các bài hát 7"
+      },
+      {
+        "phrase": "Taste in music",
+        "meaning_vi": "thé loai wa thich"
+      },
+      {
+        "phrase": "National anthem",
+        "meaning_vi": "quốc ca"
+      },
+      {
+        "phrase": "Super star",
+        "meaning_vi": "siêu sao"
+      },
+      {
+        "phrase": "Blask out",
+        "meaning_vi": "tất đèn /ánh sáng sân khấu"
+      },
+      {
+        "phrase": "Live performance Live music",
+        "meaning_vi": "biểu dién trực tiếp — nhạc sống"
+      },
+      {
+        "phrase": "Capture a wider audience",
+        "meaning_vi": "thu hút nhiều khán giả"
+      },
+      {
+        "phrase": "Conduct the orchestra",
+        "meaning_vi": "điều khiến dan hợp xướng 5"
+      },
+      {
+        "phrase": "Blow one’s own trumpet = show off",
+        "meaning_vi": "khoe khoang"
+      },
+      {
+        "phrase": "Sound like a broken record",
+        "meaning_vi": "nói đi nói lại, lai nhải"
+      },
+      {
+        "phrase": "Blow the whistle on sb/st",
+        "meaning_vi": "tố cáo một hành động bất hợp pháp hoặc sai trái với tổ chức để ngăn chặn hành vi ấy lại"
+      },
+      {
+        "phrase": "Call the tune",
+        "meaning_vi": "nắm/đưa ra quyền kiểm soát hoặc quyền quyết định quan trọng cho một vấn đề nào đó"
+      },
+      {
+        "phrase": "Face the music",
+        "meaning_vi": "đối mặt với thực tế, dũng cảm chống chọi với tất cả những khó khăn"
+      },
+      {
+        "phrase": "Elevator music = piped music, weather music, lift music",
+        "meaning_vi": "âm thanh/nghe thật nhạt nhéo, chán ngắt"
+      },
+      {
+        "phrase": "For a song",
+        "meaning_vi": "bán hạ giá thứ gì hoặc mua thứ đó với cái giá rất rẻ"
+      },
+      {
+        "phrase": "Change your tune/Sing a different tune",
+        "meaning_vi": "đổi giọng điệu hay đổi thái độ, suy nghĩ, tình cảm"
+      },
+      {
+        "phrase": "Do a concert/recital",
+        "meaning_vi": "diễn ca nhạc/độc tấu"
+      },
+      {
+        "phrase": "Go on/embark on a (world) tour",
+        "meaning_vi": "đi lưu điễn"
+      },
+      {
+        "phrase": "Land/get/sign a record deal",
+        "meaning_vi": "đạt được/có được/ký một hợp đồng thu âm"
+      },
+      {
+        "phrase": "Ring a beli =(something that} sound familiar",
+        "meaning_vi": "nghe rất quen"
+      },
+      {
+        "phrase": "Set a poem to music",
+        "meaning_vi": "phổ nhạc một bài thơ"
+      },
+      {
+        "phrase": "Take up a musical instrument",
+        "meaning_vi": "học nhạc cụ"
+      },
+      {
+        "phrase": "Sing along to",
+        "meaning_vi": "hát chung, hát theo"
+      },
+      {
+        "phrase": "A music festival",
+        "meaning_vi": "lễ hội âm nhạc"
+      },
+      {
+        "phrase": "In tune Out of tune",
+        "meaning_vi": "đúng tông lệch tông"
+      },
+      {
+        "phrase": "Jam session",
+        "meaning_vi": "biểu diễn ngẫu hứng"
+      }
+    ]
+  },
+  {
+    "topicId": 13,
+    "topicTitle": "Lesson 11: SPORTS",
+    "totalItems": 41,
+    "items": [
+      {
+        "phrase": "Make a comeback",
+        "meaning_vi": "giành lại thế trận"
+      },
+      {
+        "phrase": "Have the lead Take the lead",
+        "meaning_vi": "dẫn đầu lật ngược thế cờ/tỉ số dé dẫn đầu"
+      },
+      {
+        "phrase": "Enter a competition",
+        "meaning_vi": "tham gia vào cuộc thi ;"
+      },
+      {
+        "phrase": "Defeat sb by... to...",
+        "meaning_vi": "đánh bại ai với tỉ số..."
+      },
+      {
+        "phrase": "Achieve a personal best",
+        "meaning_vi": "đạt thành tích cá nhân tốt nhất"
+      },
+      {
+        "phrase": "First place",
+        "meaning_vi": "vị trí dẫn đầu"
+      },
+      {
+        "phrase": "Break the world record",
+        "meaning_vi": "phá ky lục thế giới"
+      },
+      {
+        "phrase": "Set/achieve a new world record",
+        "meaning_vi": "thiết lập kỉ lục thế giới mới"
+      },
+      {
+        "phrase": "Hold a record",
+        "meaning_vi": "giữ một kỷ lục"
+      },
+      {
+        "phrase": "Withdraw from the competition",
+        "meaning_vi": "rút khỏi cuộc thi"
+      },
+      {
+        "phrase": "Feel a sense of enjoyment",
+        "meaning_vi": "cảm thấy hứng thú, phấn khích"
+      },
+      {
+        "phrase": "An athletics track",
+        "meaning_vi": "đường chạy"
+      },
+      {
+        "phrase": "An away game :",
+        "meaning_vi": "trận đấu bóng đá trên sân khách"
+      },
+      {
+        "phrase": "Keep body in a good shape",
+        "meaning_vi": "giữ cho thân hình đẹp"
+      },
+      {
+        "phrase": "Home team",
+        "meaning_vi": "đội chú nhà"
+      },
+      {
+        "phrase": "Visiting team",
+        "meaning_vi": "đội khách"
+      },
+      {
+        "phrase": "Home game",
+        "meaning_vi": "trận đấu bóng đá trên sân nhà"
+      },
+      {
+        "phrase": "Keep fit Be out of condition",
+        "meaning_vi": "thon gọn, khỏe mạnh thân hình không thon gọn"
+      },
+      {
+        "phrase": "A personal best",
+        "meaning_vi": "thành tích cá nhân tốt nhất"
+      },
+      {
+        "phrase": "Take up exercise",
+        "meaning_vi": "bắt đầu tập thể dục"
+      },
+      {
+        "phrase": "On the home stretch",
+        "meaning_vi": "sắp tới đích, sắp hoàn thành"
+      },
+      {
+        "phrase": "The ball is in your court",
+        "meaning_vi": "quyết định tùy vào bạn thôi"
+      },
+      {
+        "phrase": "Par for the course",
+        "meaning_vi": "bình thường, như mong đợi, không có gì bất ngờ cả"
+      },
+      {
+        "phrase": "Out of someone’s league",
+        "meaning_vi": "khác/vượt xa ai đó"
+      },
+      {
+        "phrase": "‘Drop the ball",
+        "meaning_vi": "mắc sai lầm do bất cẩn"
+      },
+      {
+        "phrase": "Hit a home run / Knock it out",
+        "meaning_vi": "làm được một việc tuyệt vời, làm"
+      },
+      {
+        "phrase": "ofthe park —",
+        "meaning_vi": "một cú ngoạn mục"
+      },
+      {
+        "phrase": "Call the shots",
+        "meaning_vi": "chỉ huy, điều khiển, làm tướng"
+      },
+      {
+        "phrase": "Hit below the beit",
+        "meaning_vi": "chơi gian lận, chơi xấu"
+      },
+      {
+        "phrase": "Get a second win ,",
+        "meaning_vi": "lấy lại được sức lực dé tiếp tục làm gi"
+      },
+      {
+        "phrase": "Get a head start",
+        "meaning_vi": "bat dau thuan lot l"
+      },
+      {
+        "phrase": "Across the board",
+        "meaning_vi": "toàn diện, trân mọi lĩnh wes"
+      },
+      {
+        "phrase": "Down to the wire ‘",
+        "meaning_vi": "đến phút cuối cùng"
+      },
+      {
+        "phrase": "Be skating on thin ice",
+        "meaning_vi": "làm mộtviệc mạo hiểm  ””””"
+      },
+      {
+        "phrase": "lay a",
+        "meaning_vi": "ˆ \" XIN i mm. ¡ lầm một công việc gì...) ị ¡ 36"
+      },
+      {
+        "phrase": "37 Horse for courses oT",
+        "meaning_vi": "đúng người, đúng việc : ma . 3B"
+      },
+      {
+        "phrase": "Major fouls.",
+        "meaning_vi": "ˆ” TIÃI nặng (thé thao) \" :"
+      },
+      {
+        "phrase": "The Most Outstanding Athlete title",
+        "meaning_vi": "danh hiệu vận động viên xuất sắc nhất"
+      },
+      {
+        "phrase": "Runner-up",
+        "meaning_vi": "Á quân a"
+      },
+      {
+        "phrase": "Gain a Victory over sis",
+        "meaning_vi": "giành chiến thắng trước ai 5"
+      },
+      {
+        "phrase": "Elimination games",
+        "meaning_vi": "vòng loại a"
+      }
+    ]
+  },
+  {
+    "topicId": 14,
+    "topicTitle": "Lesson 12: INVENTIONS",
+    "totalItems": 30,
+    "items": [
+      {
+        "phrase": "Start up the computer",
+        "meaning_vi": "bật máy tính"
+      },
+      {
+        "phrase": "Shut down the compuier",
+        "meaning_vi": "tat máy tính"
+      },
+      {
+        "phrase": "Access to the internet",
+        "meaning_vi": "truy cập mạng"
+      },
+      {
+        "phrase": "Check e-mail",
+        "meaning_vi": "kiém tra mail oO"
+      },
+      {
+        "phrase": "Log into account",
+        "meaning_vi": "đăng nhập tài khoản"
+      },
+      {
+        "phrase": "Home page",
+        "meaning_vi": "trang chú"
+      },
+      {
+        "phrase": "Scheduied maintenance",
+        "meaning_vi": "bao tri dinh ky"
+      },
+      {
+        "phrase": "A search engine :",
+        "meaning_vi": "các chương trình tim kiếm dữ liệu, thông tin cho một từ khóa"
+      },
+      {
+        "phrase": "Surf/browse the web",
+        "meaning_vi": "lướt web"
+      },
+      {
+        "phrase": "Social media",
+        "meaning_vi": "mạng xã hội"
+      },
+      {
+        "phrase": "Burna CD",
+        "meaning_vi": "ghi đĩa an"
+      },
+      {
+        "phrase": "The computer freezes / iocks up",
+        "meaning_vi": "máy đơ/ngừng hoạt động"
+      },
+      {
+        "phrase": "Restart/reboot the compuier",
+        "meaning_vi": "khởi động lại máy ¬"
+      },
+      {
+        "phrase": "Back up",
+        "meaning_vi": "khôi phục °"
+      },
+      {
+        "phrase": "Computer crashes",
+        "meaning_vi": "máy tinh hỏng"
+      },
+      {
+        "phrase": "Install a program",
+        "meaning_vi": "cài đặt một chương trình"
+      },
+      {
+        "phrase": "Central processing unit (CPU)",
+        "meaning_vi": "bộ xử lý trung tâm của máy tính"
+      },
+      {
+        "phrase": "Visual display unit (VDU}",
+        "meaning_vi": "màn hình"
+      },
+      {
+        "phrase": "Plug in .",
+        "meaning_vi": "cắm điện"
+      },
+      {
+        "phrase": "Come up with",
+        "meaning_vi": "nảy ra ý tưởng, tìm ra"
+      },
+      {
+        "phrase": "in jeopardy = at risk = in danger",
+        "meaning_vi": "gặp nguy hiểm"
+      },
+      {
+        "phrase": "For better or worse",
+        "meaning_vi": "dù thế nao đi nữa"
+      },
+      {
+        "phrase": "To be bound te do st",
+        "meaning_vi": "chắc chắn làm gì"
+      },
+      {
+        "phrase": "Have a great/huge influence on sb/st",
+        "meaning_vi": "có anh hướng lớn tới ai /cái gi"
+      },
+      {
+        "phrase": "Contribute to doing st Make a contribution to st",
+        "meaning_vi": "góp phần làm gì"
+      },
+      {
+        "phrase": "Tend to do st Have a tendency to do st Have a tendency of st",
+        "meaning_vi": "có xu hướng làm gì"
+      },
+      {
+        "phrase": "Better one’s lives",
+        "meaning_vi": "cải thiện cuộc sống"
+      },
+      {
+        "phrase": "Solar charger",
+        "meaning_vi": "pin sạc năng lượng mặt trời"
+      },
+      {
+        "phrase": "Set foot on the moon",
+        "meaning_vi": "đặt chân lên mặt trăng"
+      },
+      {
+        "phrase": "Technical failure",
+        "meaning_vi": "lỗi kĩ thuật"
+      }
+    ]
+  },
+  {
+    "topicId": 15,
+    "topicTitle": "Lesson 13: EDUCATION",
+    "totalItems": 52,
+    "items": [
+      {
+        "phrase": "Academic year = school year",
+        "meaning_vi": "năm học"
+      },
+      {
+        "phrase": "State school",
+        "meaning_vi": "trường công lập"
+      },
+      {
+        "phrase": "Independent/public/private school",
+        "meaning_vi": "trường dan lập ="
+      },
+      {
+        "phrase": "Higher education = tertiary education Further education",
+        "meaning_vi": "giáo dục đại học TC học lên (thường cho bậc trên đại học)"
+      },
+      {
+        "phrase": "Fighting back tears",
+        "meaning_vi": "gạt nước mắt"
+      },
+      {
+        "phrase": "identity card",
+        "meaning_vi": "chứng minh thư"
+      },
+      {
+        "phrase": "Reference letter = letter of recommendation",
+        "meaning_vi": "thư giới thiệu"
+      },
+      {
+        "phrase": "School certificate",
+        "meaning_vi": "học bạ \"ma"
+      },
+      {
+        "phrase": "Birth certificate",
+        "meaning_vi": "giấy khai sinh"
+      },
+      {
+        "phrase": "School diploma",
+        "meaning_vi": "bằng tốt nghiệp phổ thông"
+      },
+      {
+        "phrase": "Entrance exam/examination",
+        "meaning_vi": "kì thi đại học ị"
+      },
+      {
+        "phrase": "Final exam/examination",
+        "meaning_vi": "kì thi tốt nghiệp"
+      },
+      {
+        "phrase": "National exam/examination",
+        "meaning_vi": "ki thi THPT quốc gia"
+      },
+      {
+        "phrase": "Mock exam/examination",
+        "meaning_vi": "kì thi thử"
+      },
+      {
+        "phrase": "Teacher's pet",
+        "meaning_vi": "học sinh cưng"
+      },
+      {
+        "phrase": "Get / be awarded a scholarship",
+        "meaning_vi": "nhận được học bổng"
+      },
+      {
+        "phrase": "Do a course = enrol on / take a course",
+        "meaning_vi": "tham gia vào khóa học"
+      },
+      {
+        "phrase": "Take notes = write down",
+        "meaning_vi": "ghi chép tóm tắt lại"
+      },
+      {
+        "phrase": "Giving the lecture",
+        "meaning_vi": "giảng bài"
+      },
+      {
+        "phrase": "Give/make presentations",
+        "meaning_vi": "thuyết trình, trình bày"
+      },
+      {
+        "phrase": "Do research",
+        "meaning_vi": "nghiên cứu"
+      },
+      {
+        "phrase": "Write an essay/an assignment/a report/a paper",
+        "meaning_vi": "viết tiểu luận/bài tập /báo cáo/bài"
+      },
+      {
+        "phrase": "Hand in one’s work",
+        "meaning_vi": "nộp bài"
+      },
+      {
+        "phrase": "Grade the assignment",
+        "meaning_vi": "chấm điểm"
+      },
+      {
+        "phrase": "Give sb feedback",
+        "meaning_vi": "nhận xét bài làm"
+      },
+      {
+        "phrase": "Take/do/sit an exam",
+        "meaning_vi": "tham gia vào kì thi"
+      },
+      {
+        "phrase": "Pass/fail the test",
+        "meaning_vi": "thi đỗ/trượt"
+      },
+      {
+        "phrase": "Withdraw from/drop the course Drop out of school",
+        "meaning_vi": "bỏ dở khóa học bồ học"
+      },
+      {
+        "phrase": "Choose a major/concentration",
+        "meaning_vi": "học chuyên sâu vào"
+      },
+      {
+        "phrase": "Graduate from college",
+        "meaning_vi": "tốt nghiệp đại học"
+      },
+      {
+        "phrase": "Get a degree / diploma = obtain /be awarded a diploma",
+        "meaning_vi": "nhận bằng"
+      },
+      {
+        "phrase": "Have a degree in st",
+        "meaning_vi": "có bằng cấp về lĩnh vực gì"
+      },
+      {
+        "phrase": "Bachelor’s degree Master’s degree Ph.D (Doctor of Philosophy)",
+        "meaning_vi": "bằng cử nhân bằng thạc sĩ bằng tiến sĩ"
+      },
+      {
+        "phrase": "Make an outline",
+        "meaning_vi": "làm đề cương/dàn bài"
+      },
+      {
+        "phrase": "Draw conclusions Come to conclusions Jump to conclusions Draw consequences Draw trouble upon oneself Draw a lesson from failure Draw distinctions Draw the winner Draw inspiration from...",
+        "meaning_vi": "rút ra những kết luận đi đến kết luận kết luận vội vàng kéo theo những hậu quả chuốc lấy điều khó chịu vào thân rút ra một bài học từ thất bại vạch ra (nêu ra) những điểm khác biệt rút thăm trúng tìm thấy nguồn cảm hứng ở..."
+      },
+      {
+        "phrase": "Briefly summarize",
+        "meaning_vi": "tóm tắt ngắn gọn"
+      },
+      {
+        "phrase": "Have a discussion about st = discuss st",
+        "meaning_vi": "thảo luận cái gì"
+      },
+      {
+        "phrase": "Go into detail",
+        "meaning_vi": "đi vào chỉ tiết"
+      },
+      {
+        "phrase": "Carry out/conduct a study/survey",
+        "meaning_vi": "tiến hành nghiên cứu/khảo sát"
+      },
+      {
+        "phrase": "Make (out) one’s case Put the case that Put the case for sb State one's case",
+        "meaning_vi": "chứng tổ là mình đúng, lập luận có sức thuyết phục cứ cho rằng là, giả dụ bênh vực ai, bào chữa cho ai trình bày lý lã của mình"
+      },
+      {
+        "phrase": "Have a good case It is not the case",
+        "meaning_vi": "có chứng cớ là mình đúng không phải như thế, không đúng như thế"
+      },
+      {
+        "phrase": "Have aiesson",
+        "meaning_vi": "học bài"
+      },
+      {
+        "phrase": "See the point of st/doing st",
+        "meaning_vi": "hiểu quan điểm, mục đích, ý nghĩa, tầm quan trọng hay lý do của mot việc gì"
+      },
+      {
+        "phrase": "Make sense of = understand",
+        "meaning_vi": "hiểu"
+      },
+      {
+        "phrase": "Do a degree / diploma = study for / take a degree",
+        "meaning_vi": "học lấy bằng..."
+      },
+      {
+        "phrase": "Be in two minds about st",
+        "meaning_vi": "phân vân/lưỡng lự về điều gì"
+      },
+      {
+        "phrase": "Pull one’s socks up",
+        "meaning_vi": "cố gắng, nỗ lực nhiều hơn"
+      },
+      {
+        "phrase": "Stick one’s neck out",
+        "meaning_vi": "đánh liều để đòi một cái gì"
+      },
+      {
+        "phrase": "Make sacrifices",
+        "meaning_vi": "hi sinh"
+      },
+      {
+        "phrase": "Gap year",
+        "meaning_vi": "là 12 tháng mà bạn quyết định “nghỉ giữa hiệp” trong một qua"
+      },
+      {
+        "phrase": "Tuition fees",
+        "meaning_vi": "học phí"
+      },
+      {
+        "phrase": "Reach/Achieve the goal of",
+        "meaning_vi": "đạt được mục tiêu"
+      }
+    ]
+  },
+  {
+    "topicId": 16,
+    "topicTitle": "Lesson 14: WORK AND BUSINESS",
+    "totalItems": 50,
+    "items": [
+      {
+        "phrase": "Covering letter",
+        "meaning_vi": "thư giải thích gửi kèm theo"
+      },
+      {
+        "phrase": "On business",
+        "meaning_vi": "đi công tác"
+      },
+      {
+        "phrase": "A dead-end job",
+        "meaning_vi": "công việc không có cơ hội thăng tiến :"
+      },
+      {
+        "phrase": "An entry-level job",
+        "meaning_vi": "công việc không đòi hỏi kinh nghiệm, thường dành cho người mới vào nghề"
+      },
+      {
+        "phrase": "A high-powered job",
+        "meaning_vi": "một công việc nắm giữ vị trí quan trọng"
+      },
+      {
+        "phrase": "A lucrative job",
+        "meaning_vi": "công việc kiếm được nhiều tiền"
+      },
+      {
+        "phrase": "Get a promotion",
+        "meaning_vi": "được thăng tiến"
+      },
+      {
+        "phrase": "Geta raise",
+        "meaning_vi": "được tăng lương"
+      },
+      {
+        "phrase": "Be fired/dismissed",
+        "meaning_vi": "bị phạt/sa thải"
+      },
+      {
+        "phrase": "Have a heavy workload",
+        "meaning_vi": "có nhiều việc"
+      },
+      {
+        "phrase": "Work overtime",
+        "meaning_vi": "làm thâm giờ"
+      },
+      {
+        "phrase": "Set to work Make short work of Work a scheme Work oneself into a lather Work oneself into a rage",
+        "meaning_vi": "bắt tay vào việc làm xong nhanh; đánh bại nhanh thi hành một kế hoạch rất buồn nổi giận “4"
+      },
+      {
+        "phrase": "Generous benefit",
+        "meaning_vi": "phụ cấp, hỗ trợ, chế độ đãi ngộ"
+      },
+      {
+        "phrase": "Job seeker",
+        "meaning_vi": "người tìm việc"
+      },
+      {
+        "phrase": "A menial job",
+        "meaning_vi": "công việc lao động chân tay"
+      },
+      {
+        "phrase": "Earn a living",
+        "meaning_vi": "kiếm sống"
+      },
+      {
+        "phrase": "Go into business Do business with sb It's none of your business",
+        "meaning_vi": "đi vào hoạt động kinh doanh buôn bán với ai đó không phải là chuyện của mày!"
+      },
+      {
+        "phrase": "Set up a company = establisha company",
+        "meaning_vi": "thành lập công ty"
+      },
+      {
+        "phrase": "Do market research = investigate the market",
+        "meaning_vi": "tìm hiểu thị tường"
+      },
+      {
+        "phrase": "Go/sell like a hot cakes",
+        "meaning_vi": "bán đắt như tôm tươi"
+      },
+      {
+        "phrase": "Rui a company run a business",
+        "meaning_vi": "điều hành công ty điều hành doanh nghiệp"
+      },
+      {
+        "phrase": "Operate at a loss —",
+        "meaning_vi": "đầu tư nhiều vốn a"
+      },
+      {
+        "phrase": "Break even",
+        "meaning_vi": "hòa vốn"
+      },
+      {
+        "phrase": "Tough competition",
+        "meaning_vi": "sự cạnh tranh gay gắt TỐ"
+      },
+      {
+        "phrase": "Gain market share *",
+        "meaning_vi": "đạt được thị phần ,"
+      },
+      {
+        "phrase": "Go bankrupt = go broke",
+        "meaning_vi": "bi vỡ nợ, phá sản mm"
+      },
+      {
+        "phrase": "Hire /take on staff/employees",
+        "meaning_vi": "thuê nhân công Ỷ ;"
+      },
+      {
+        "phrase": "Make a deal with = make an agreement with",
+        "meaning_vi": "thoã thuận với; ky kết một hợp"
+      },
+      {
+        "phrase": "Black market Common market Flea market internalmarket Labor market Markei piace Market price Market research Stock market",
+        "meaning_vi": "chợ đồ cũ thương trường giá thị rường nghiên cứu thị trường thị trường chứng khoán"
+      },
+      {
+        "phrase": "Launch a new product",
+        "meaning_vi": "tung ra sản phẩm mới"
+      },
+      {
+        "phrase": "Take one’s business elsewhere",
+        "meaning_vi": "đổi nơi khác làm ăn/mua của người khác -"
+      },
+      {
+        "phrase": "Arival company",
+        "meaning_vi": "một công ty đối thủ"
+      },
+      {
+        "phrase": "Business is booming",
+        "meaning_vi": "câu dùng để chỉ khoảng thời doanh nghiệp nào đó"
+      },
+      {
+        "phrase": "Minimum wage",
+        "meaning_vi": "mirc lương tối thiểu"
+      },
+      {
+        "phrase": "A good team player",
+        "meaning_vi": "một đồng nghiệp tốt ˆ 7"
+      },
+      {
+        "phrase": "Embark on a career",
+        "meaning_vi": "bắt đầu sự nghiệp 7"
+      },
+      {
+        "phrase": "Pursue a career",
+        "meaning_vi": "theo đuổi sự nghiệp"
+      },
+      {
+        "phrase": "Career prospect",
+        "meaning_vi": "cơ hội nghề nghiệp"
+      },
+      {
+        "phrase": "Switch one’s career",
+        "meaning_vi": "thay đổi công việc mm"
+      },
+      {
+        "phrase": "At the height/peak of one’s career",
+        "meaning_vi": "ở đỉnh cao sự nghiệp"
+      },
+      {
+        "phrase": "Make a profit",
+        "meaning_vi": "tạo lợi nhuận"
+      },
+      {
+        "phrase": "Make ends meet",
+        "meaning_vi": "đủ sống"
+      },
+      {
+        "phrase": "Be over head and ears in debts",
+        "meaning_vi": "nợ nần chồng chất"
+      },
+      {
+        "phrase": "Be up to one's ears",
+        "meaning_vi": "ngập đầu trong công việc"
+      },
+      {
+        "phrase": "Leave nothing to chance",
+        "meaning_vi": "không có bất cứ sai sót gì"
+      },
+      {
+        "phrase": "By the book",
+        "meaning_vi": "theo nguyên tắc"
+      },
+      {
+        "phrase": "Call ita day",
+        "meaning_vi": "dừng lai công việc trong ngày"
+      },
+      {
+        "phrase": "Diamond in the rough",
+        "meaning_vi": "người có nhiều tiềm năng nhưng hiện tại vẫn còn nhiều thiếu sót"
+      },
+      {
+        "phrase": "Blue collar White collar",
+        "meaning_vi": "lao động chân tay nhân viên văn phòng"
+      },
+      {
+        "phrase": "Golden handshake",
+        "meaning_vi": "khoản tiền trả cho người nhân viên thôi việc"
+      }
+    ]
+  },
+  {
+    "topicId": 17,
+    "topicTitle": "Lesson 15: FINANCE",
+    "totalItems": 47,
+    "items": [
+      {
+        "phrase": "Finance a charity",
+        "meaning_vi": "tài trợ cho một tổ chức từ thiện"
+      },
+      {
+        "phrase": "Finance house",
+        "meaning_vi": "cơ sở tài chính"
+      },
+      {
+        "phrase": "ha R",
+        "meaning_vi": "Ấn HÁT ch: HẦU"
+      },
+      {
+        "phrase": "i4 , Be flat broke = strap for cash",
+        "meaning_vi": "i4 , Be flat broke = strap for cash"
+      },
+      {
+        "phrase": "Make a budget",
+        "meaning_vi": "Make a budget"
+      },
+      {
+        "phrase": "Emergency fund",
+        "meaning_vi": "quỹ khẩn cấp, quỹ dw phòng"
+      },
+      {
+        "phrase": "Living expenses `",
+        "meaning_vi": "chỉ phí sinh hoạt"
+      },
+      {
+        "phrase": "Set/put aside money",
+        "meaning_vi": "Set/put aside money"
+      },
+      {
+        "phrase": "Take outa loạn",
+        "meaning_vi": "vay tiền"
+      },
+      {
+        "phrase": "Local currency - Foreign currency",
+        "meaning_vi": "nội tệ cóc ngoại tệ"
+      },
+      {
+        "phrase": "Counterfeit money",
+        "meaning_vi": "tiền giả"
+      },
+      {
+        "phrase": "Raise money",
+        "meaning_vi": "quyên tiền"
+      },
+      {
+        "phrase": "Donate money",
+        "meaning_vi": "ủng hộ tiền"
+      },
+      {
+        "phrase": "Supplement one’s income",
+        "meaning_vi": "tăng thêm thu nhập"
+      },
+      {
+        "phrase": "Get into debt Be deep (deeply) in debt = be drowning in debt Clear one’s debts = pay off",
+        "meaning_vi": "nợ nần nợ ngập đầu trả nợ"
+      },
+      {
+        "phrase": "A good bargain Abad bargain",
+        "meaning_vi": "mon hoi món hớ"
+      },
+      {
+        "phrase": "Buy at a bargain",
+        "meaning_vi": "mua được giá hoi"
+      },
+      {
+        "phrase": "Make a payment",
+        "meaning_vi": "thanh toán"
+      },
+      {
+        "phrase": "Credit limit",
+        "meaning_vi": "hạn mức tín dụng"
+      },
+      {
+        "phrase": "Borrow heavily",
+        "meaning_vi": "vay nặng lãi"
+      },
+      {
+        "phrase": "Outstanding debts",
+        "meaning_vi": "những món nợ chưa trả"
+      },
+      {
+        "phrase": "Drive a hard bargain",
+        "meaning_vi": "mặc cá, cò kè, bớt một thêm hai mãi"
+      },
+      {
+        "phrase": "Be out of pocket",
+        "meaning_vi": "có thể trả được"
+      },
+      {
+        "phrase": "A ridiculous price High price Low price Reasonable price",
+        "meaning_vi": "giá quá rẻ giá cao giá thấp giá hợp lí"
+      },
+      {
+        "phrase": "Have a good deal",
+        "meaning_vi": "mua hàng với giá hời"
+      },
+      {
+        "phrase": "Make a bargain with sb",
+        "meaning_vi": "mặc cả với ai"
+      },
+      {
+        "phrase": "Seriously rich = Be sitting on a small fortune / goldmine",
+        "meaning_vi": "cực kì giàu có sắp giàu to"
+      },
+      {
+        "phrase": "Dole money",
+        "meaning_vi": "tiền trợ cấp thất nghiệp"
+      },
+      {
+        "phrase": "Steady income ;",
+        "meaning_vi": "thu nhập 6n định"
+      },
+      {
+        "phrase": "Bread and butter",
+        "meaning_vi": "cơm áo gạo tiền"
+      },
+      {
+        "phrase": "Money doesn’t grow on tree",
+        "meaning_vi": "tiền đâu phải lá mít (tiền không phải tự nhiên mà có, nên không được phung phí, cần phải cân nhắc khi dùng)"
+      },
+      {
+        "phrase": "Have more money than sense",
+        "meaning_vi": "lãng phí tiền bạc"
+      },
+      {
+        "phrase": "Short of cash",
+        "meaning_vi": "kẹt tiền"
+      },
+      {
+        "phrase": "Tighten one’s belt",
+        "meaning_vi": "tiết kiệm"
+      },
+      {
+        "phrase": "Born with a silver spoon in one’s mouth .",
+        "meaning_vi": "sinh ra trong một gia đình giàu có"
+      },
+      {
+        "phrase": "Bet one’s bottom dollar",
+        "meaning_vi": "rất chắc chắn về điều gì"
+      },
+      {
+        "phrase": "As poor as a church mouse",
+        "meaning_vi": "nghèo xác xơ"
+      },
+      {
+        "phrase": "make a quick/fast buck",
+        "meaning_vi": "kiếm được tiền nhanh và đôi khi không chính đáng"
+      },
+      {
+        "phrase": "Look like a million doilars",
+        "meaning_vi": "trông lộng lẫy, hấp dẫn"
+      },
+      {
+        "phrase": "Break the bank",
+        "meaning_vi": "tốn rất nhiều tiền TT"
+      },
+      {
+        "phrase": "Cost an arm and a leg",
+        "meaning_vi": "rất đất"
+      },
+      {
+        "phrase": "Pay through the nose",
+        "meaning_vi": "trả một giá quá đất"
+      },
+      {
+        "phrase": "Splash out on st",
+        "meaning_vi": "phải trả rất nhiều tiền cho một, sự kiện quan trọng"
+      },
+      {
+        "phrase": "Not have a bean to rub together",
+        "meaning_vi": "không một xu đính túi”."
+      },
+      {
+        "phrase": "Scrimp and save",
+        "meaning_vi": "sống tan tiện"
+      },
+      {
+        "phrase": "Ten a penny",
+        "meaning_vi": "rất phổ biến"
+      },
+      {
+        "phrase": "installment pian",
+        "meaning_vi": "trả góp TC ị"
+      }
+    ]
+  },
+  {
+    "topicId": 18,
+    "topicTitle": "Lesson 16: TRAVEL",
+    "totalItems": 59,
+    "items": [
+      {
+        "phrase": "Business trip",
+        "meaning_vi": "chuyến đi công tác"
+      },
+      {
+        "phrase": "Travel agency",
+        "meaning_vi": "đại lý lữ hành, công ty du lich"
+      },
+      {
+        "phrase": "Book a flight Book a hotel room = make a hotel reservation",
+        "meaning_vi": "đặt vé máy bay đặt phòng khách sạn"
+      },
+      {
+        "phrase": "Unspoilt of a place",
+        "meaning_vi": "địa điểm hoang sơ"
+      },
+      {
+        "phrase": "Make travel arrangements",
+        "meaning_vi": "lên lịch cho chuyến di"
+      },
+      {
+        "phrase": "‘A one-way ticket — A round trip",
+        "meaning_vi": "vé một chiều vé hai chiều"
+      },
+      {
+        "phrase": "Boarding pass",
+        "meaning_vi": "thê lên máy bay (lấy sau khi check-in}"
+      },
+      {
+        "phrase": "An aisie seat",
+        "meaning_vi": "ghế sát lối di"
+      },
+      {
+        "phrase": "A bumpy flight A smooth flight",
+        "meaning_vi": "chuyến bay trắc trở chuyến bay êm a"
+      },
+      {
+        "phrase": "Connecting flight ; Long-haul flight Red-eye flight",
+        "meaning_vi": "chuyến bay chuyển tiếp chuyến bay dài chuyến bay đêm muộn"
+      },
+      {
+        "phrase": "Catch some rays/ soak up some sun = to sunbathe/ try to geta suntan",
+        "meaning_vi": "tắm nắng"
+      },
+      {
+        "phrase": "Head for (a place}",
+        "meaning_vi": "thẳng tiến đến...."
+      },
+      {
+        "phrase": "Carry-oen bag Check-in baggage",
+        "meaning_vi": "hành lý xách tay hành lý ký gửi"
+      },
+      {
+        "phrase": "A seedy hotel",
+        "meaning_vi": "khách sạn nằm ở nơi không an toàn có nhiều tệ nạn hoặc không thoải mái"
+      },
+      {
+        "phrase": "The red-light district",
+        "meaning_vi": "phế đèn đỏ"
+      },
+      {
+        "phrase": "A dingy room",
+        "meaning_vi": "phòng tối và bẩn"
+      },
+      {
+        "phrase": "Go on vacation",
+        "meaning_vi": "đi nghỉ, đi chơi ở dau đó"
+      },
+      {
+        "phrase": "Screan in panic",
+        "meaning_vi": "kêu la sợ hãi"
+      },
+      {
+        "phrase": "Package holiday",
+        "meaning_vi": "du lịch trọn gói"
+      },
+      {
+        "phrase": "Fly economy",
+        "meaning_vi": "đi máy bay véigiaré"
+      },
+      {
+        "phrase": "Peak season",
+        "meaning_vi": "mùa cao điểm"
+      },
+      {
+        "phrase": "Tourist attractions",
+        "meaning_vi": "địa điểm du lịch"
+      },
+      {
+        "phrase": "Enjoy a self-planned tour",
+        "meaning_vi": "đi chơi tự túc"
+      },
+      {
+        "phrase": "Be bumped to a later flight",
+        "meaning_vi": "chuyển xuống chuyến bay sau"
+      },
+      {
+        "phrase": "Customs officer",
+        "meaning_vi": "nhân viên hải quan"
+      },
+      {
+        "phrase": "Domestic flight International flight",
+        "meaning_vi": "bay nội địa bay quốc tế"
+      },
+      {
+        "phrase": "Emergency exit",
+        "meaning_vi": "cửa thoát hiểm"
+      },
+      {
+        "phrase": "Excess baggage",
+        "meaning_vi": "hành lý quá cân"
+      },
+      {
+        "phrase": "First-class Business-class , Economy-class",
+        "meaning_vi": "hạng nhất hạng thương gia hạng phổ thông ."
+      },
+      {
+        "phrase": "Jet lag",
+        "meaning_vi": "bị mệt mỏi khi bay lệch múi giờ"
+      },
+      {
+        "phrase": "Life vest/jacket",
+        "meaning_vi": "áo phao"
+      },
+      {
+        "phrase": "Motion sickness",
+        "meaning_vi": "say máy bay"
+      },
+      {
+        "phrase": "Oxygen mask",
+        "meaning_vi": "mặt nạ dưỡng khí"
+      },
+      {
+        "phrase": "Laze around on the sandy beach",
+        "meaning_vi": "nghỉ ngơi, thư giãn bên bãi biển"
+      },
+      {
+        "phrase": "Tourist trap",
+        "meaning_vi": "khu du lịch đắt đó"
+      },
+      {
+        "phrase": "Holiday brochure",
+        "meaning_vi": "cuốn sách nhỏ về những kỳ nghỉ"
+      },
+      {
+        "phrase": "Holiday resort Holiday destination",
+        "meaning_vi": "khu nghỉ dưỡng địa điểm du lịch"
+      },
+      {
+        "phrase": "Local delicacy",
+        "meaning_vi": "đặc sản địa phương"
+      },
+      {
+        "phrase": "Off the beaten track/ path",
+        "meaning_vi": "không nổi tiếng lắm, không được biết đến bởi nhiều người"
+      },
+      {
+        "phrase": "Promote tourism image",
+        "meaning_vi": "quảng bá hình ảnh du lịch"
+      },
+      {
+        "phrase": "Scheduled trading session Flea market",
+        "meaning_vi": "chợ phiên chợ trời"
+      },
+      {
+        "phrase": "Enjoy bustling trade",
+        "meaning_vi": "tận hướng sự mua sắm nhộn nhịp"
+      },
+      {
+        "phrase": "Take a sunset/sunrise cruise",
+        "meaning_vi": "chuyến đi ngắm mặt trời lặn /mọc"
+      },
+      {
+        "phrase": "Dispel the heat of summer",
+        "meaning_vi": "xua tan cái nóng của mùa hè"
+      },
+      {
+        "phrase": "Hit the road",
+        "meaning_vi": "lên đường, khởi hành"
+      },
+      {
+        "phrase": "Off track",
+        "meaning_vi": "lạc đường"
+      },
+      {
+        "phrase": "Watch one’s back",
+        "meaning_vi": "cẩn thận, cảnh giác với những"
+      },
+      {
+        "phrase": "Get amove on -",
+        "meaning_vi": "nhanh lên"
+      },
+      {
+        "phrase": "A full plate .",
+        "meaning_vi": "lich trình day đặc, không có thời. gian rảnh"
+      },
+      {
+        "phrase": "It worse comes to worst",
+        "meaning_vi": "phương án cuối cùng ¬"
+      },
+      {
+        "phrase": "Hit the town / a night on the town/ going out on the town",
+        "meaning_vi": "di xả hơi, di quay"
+      },
+      {
+        "phrase": "Thumb sb a lift 7 Give sb a lift/ride",
+        "meaning_vi": "để ai lái xe cho cho ai đó đi nhờ"
+      },
+      {
+        "phrase": "Live like a king",
+        "meaning_vi": "sống thoải mái ="
+      },
+      {
+        "phrase": "Pedal to the metal .",
+        "meaning_vi": "tăng tốc"
+      },
+      {
+        "phrase": "Apitstep’ .",
+        "meaning_vi": "trạm đừng xe giữa đường để đổ xăng, ăn uống, đi toilet...."
+      },
+      {
+        "phrase": "Any port in a storm",
+        "meaning_vi": "méo mó có hơn không."
+      },
+      {
+        "phrase": "At the wheel",
+        "meaning_vi": "lái xe, điều khiển xe ."
+      },
+      {
+        "phrase": "Make one’s way",
+        "meaning_vi": "đi về một nơi nào đó, nỗ lực để có. cuộc sống tốt"
+      },
+      {
+        "phrase": "In the same boat :",
+        "meaning_vi": "cùng chung hoàn cảnh, vấn đề"
+      }
+    ]
+  },
+  {
+    "topicId": 19,
+    "topicTitle": "Lesson 17: WEATHER",
+    "totalItems": 49,
+    "items": [
+      {
+        "phrase": "Weather forecast",
+        "meaning_vi": "dự báo thời tiết"
+      },
+      {
+        "phrase": "Shine brightly",
+        "meaning_vi": "nắng chói chang"
+      },
+      {
+        "phrase": "Clear sky",
+        "meaning_vi": "bầu trời trong xanh không một gợn mây"
+      },
+      {
+        "phrase": "Bask in the sunshine = soak up the sunshine",
+        "meaning_vi": "tắm nắng"
+      },
+      {
+        "phrase": "Oppressively hot = scorching ‘hot = swelteringly hot <--7",
+        "meaning_vi": "nắng gắt, nang như đổ lửa"
+      },
+      {
+        "phrase": "‘Partiv cloudy co Scattered clouds Heavy ciouds",
+        "meaning_vi": "xanh và mây mây rải rác mây day"
+      },
+      {
+        "phrase": "Lighi rain Heavy rain Torrential rain Continuous rain/constant rain Intermittent rain /scattered showers",
+        "meaning_vi": "mưa rào nhẹ mưa to mua dam mura rai rac"
+      },
+      {
+        "phrase": "Light/slight wind High/strong wind Fierce wind/gale-force wind ‘Blast of wind/a gust of wind",
+        "meaning_vi": "gió nhẹ gió to gió dữ dội gió mạnh và đột ngột"
+      },
+      {
+        "phrase": "Gloomy /dismal weather",
+        "meaning_vi": "tiết trời am đạm"
+      },
+      {
+        "phrase": "Muggy /sultry weather",
+        "meaning_vi": "tiết trời nóng ấm"
+      },
+      {
+        "phrase": "Mild / calm weather",
+        "meaning_vi": "thời tiết đẹp :"
+      },
+      {
+        "phrase": "Harsh/severe/wild weather",
+        "meaning_vi": "thời tiết khắc nghiệt"
+      },
+      {
+        "phrase": "Come down in terrent = Rain cats and dogs = bucket down = pour down",
+        "meaning_vi": "mua xối xa, mưa như trút nước"
+      },
+      {
+        "phrase": "Be a breeze",
+        "meaning_vi": "rất dễ dàng"
+      },
+      {
+        "phrase": "Under the weather",
+        "meaning_vi": "không được khóe"
+      },
+      {
+        "phrase": "As right as rain",
+        "meaning_vi": "cảm thấy rất khỏe khoắn"
+      },
+      {
+        "phrase": "Be snowed under",
+        "meaning_vi": "ngập trong công việc"
+      },
+      {
+        "phrase": "Break the ice",
+        "meaning_vi": "phá vỡ sự ngại ngần, im lặng trong giao tiếp"
+      },
+      {
+        "phrase": "Calm before the storm",
+        "meaning_vi": "sự yên lặng"
+      },
+      {
+        "phrase": "Chase rainbows",
+        "meaning_vi": "theo đuổi ảo mộng, viển vông"
+      },
+      {
+        "phrase": "Come rain or shine ;",
+        "meaning_vi": "cho dù chuyện gì xảy ra"
+      },
+      {
+        "phrase": "Every cloud has a silver lining",
+        "meaning_vi": "trong cái rủi có cái may"
+      },
+      {
+        "phrase": "Fair-weather friend",
+        "meaning_vi": "bạn cơ hội (người bạn chỉ xuất hiện khi bạn ở điều kiện thuận lợi, còn khó khăn thì không thấy đâu)"
+      },
+      {
+        "phrase": "Get wind of",
+        "meaning_vi": "nghe lỏm được, nghe phong phanh được"
+      },
+      {
+        "phrase": "Have your head in the clouds",
+        "meaning_vi": "để đầu óc ở trên mây, không thực tế"
+      },
+      {
+        "phrase": "It never rains but it pours",
+        "meaning_vi": "họa vô đơn chí :"
+      },
+      {
+        "phrase": "On cloud nine",
+        "meaning_vi": "rất sung sướng ."
+      },
+      {
+        "phrase": "Put on ice",
+        "meaning_vi": "trì hoãn một việc gì đó"
+      },
+      {
+        "phrase": "Ray of hope",
+        "meaning_vi": "tia hi vọng"
+      },
+      {
+        "phrase": "Save for a rainy day",
+        "meaning_vi": "dành dum phòng khi túng thiếu"
+      },
+      {
+        "phrase": "Steal someone thunder",
+        "meaning_vi": "đánh cắp công lao của ai đó, giành hết sự chú ý của mọi người cho người nào đó"
+      },
+      {
+        "phrase": "Storm in a teacup",
+        "meaning_vi": "việc bé xé ra to"
+      },
+      {
+        "phrase": "Storm is brewing",
+        "meaning_vi": "sắp có chuyện rồi"
+      },
+      {
+        "phrase": "Take a rain check",
+        "meaning_vi": "quyết định nhưng chưa làm được ngay, khất lần sau"
+      },
+      {
+        "phrase": "Throw caution to the wind",
+        "meaning_vi": "liều lĩnh, không quan tâm tới lời cảnh báo."
+      },
+      {
+        "phrase": "Face like thunder",
+        "meaning_vi": "tức nổ đom đóm"
+      },
+      {
+        "phrase": "Make hay while the sun shines",
+        "meaning_vi": "khi có cơ hội hãy nắm bắt lấy"
+      },
+      {
+        "phrase": "Rain on one’s parade",
+        "meaning_vi": "phá hing kế hoạch của một ai đó"
+      },
+      {
+        "phrase": "Ina fog",
+        "meaning_vi": "mất phương hướng"
+      },
+      {
+        "phrase": "A stormy relationship",
+        "meaning_vi": "mối quan hệ bất hòa/sóng gió"
+      },
+      {
+        "phrase": "Be under a cloud",
+        "meaning_vi": "không được tin tưởng bởi vì người ta nghĩ bạn đã làm việc gi sai trái"
+      },
+      {
+        "phrase": "Weather the storm",
+        "meaning_vi": "xử lý thành công một vấn đề khó khăn"
+      },
+      {
+        "phrase": "Asnowbaill's chance",
+        "meaning_vi": "rất ít cơ hội"
+      },
+      {
+        "phrase": "Biow hot and cold",
+        "meaning_vi": "hay thay đối ý kiến"
+      },
+      {
+        "phrase": "Brass-monkey weather",
+        "meaning_vi": "thời tiết rất lạnh"
+      },
+      {
+        "phrase": "Fall of hot air",
+        "meaning_vi": "nói suông a"
+      },
+      {
+        "phrase": "See which way the wind blows",
+        "meaning_vi": "phân tích tình hình trước khi làm điều gi"
+      },
+      {
+        "phrase": "Keep one’s weather eye open",
+        "meaning_vi": "cảnh giác cao độ ị"
+      },
+      {
+        "phrase": "Make heavy weather of doing st",
+        "meaning_vi": "câu giờ, trì hoãn khi làm việc gì"
+      }
+    ]
+  },
+  {
+    "topicId": 20,
+    "topicTitle": "Lesson 18: CITY AND COUNTRYSIDE",
+    "totalItems": 55,
+    "items": [
+      {
+        "phrase": "Towering skyscrapers/high- rise buildings .",
+        "meaning_vi": "những tòa nha chọc trời"
+      },
+      {
+        "phrase": "A coastal city",
+        "meaning_vi": "một thành phố ven biển"
+      },
+      {
+        "phrase": "Apartment complex",
+        "meaning_vi": "tòa nhà chung cư hỗn hợp — —"
+      },
+      {
+        "phrase": "Industrial zone",
+        "meaning_vi": "khu công nghiệp"
+      },
+      {
+        "phrase": "A cozy little house",
+        "meaning_vi": "một căn nhà ấm cúng a"
+      },
+      {
+        "phrase": "The outskirt of the city",
+        "meaning_vi": "khu vực ngoại ô thành phố — —"
+      },
+      {
+        "phrase": "Hectic pace",
+        "meaning_vi": "nhịp sống bận rộn a"
+      },
+      {
+        "phrase": "Bustling streets",
+        "meaning_vi": "những con phế tap lập"
+      },
+      {
+        "phrase": "Bumper-to-bumper traffic",
+        "meaning_vi": "tắc nghẽn kéo dai, xe cộ nối đuôi nhau sin sft"
+      },
+      {
+        "phrase": "Traffic jams",
+        "meaning_vi": "Ach tắc giao thông"
+      },
+      {
+        "phrase": "Narrow cobblestone streets",
+        "meaning_vi": "những con phế nhô trải bằng đá."
+      },
+      {
+        "phrase": "Quaint shops",
+        "meaning_vi": "cách cổ"
+      },
+      {
+        "phrase": "Gourmet restaurants",
+        "meaning_vi": "nhà hàng sang trọng dành cho dân sành"
+      },
+      {
+        "phrase": "Local cuisine",
+        "meaning_vi": "những món ăn đặc trưng vùng miền"
+      },
+      {
+        "phrase": "Open-air market",
+        "meaning_vi": "chợ ngoài trời"
+      },
+      {
+        "phrase": "The main square",
+        "meaning_vi": "quảng trường"
+      },
+      {
+        "phrase": "Street vendors",
+        "meaning_vi": "những người bán hàng rong"
+      },
+      {
+        "phrase": "Trendy cafés Pavement cafe",
+        "meaning_vi": "quán cà phê có phong cách theo xu hướng thời đại quán cafe via hè, là đường"
+      },
+      {
+        "phrase": "Street crime",
+        "meaning_vi": "trộm vặt đường phố"
+      },
+      {
+        "phrase": "The inner-city area",
+        "meaning_vi": "khu ổ chuột"
+      },
+      {
+        "phrase": "Pulsating nightlife",
+        "meaning_vi": "cuộc sống về đêm nhộn nhịp với câu lạc bộ và quán bar"
+      },
+      {
+        "phrase": "Shopping malls",
+        "meaning_vi": "trung tâm thương mại mua sắm"
+      },
+      {
+        "phrase": "Fashionable boutiques",
+        "meaning_vi": "những cửa hàng thời trang hiện"
+      },
+      {
+        "phrase": "Entertainment area",
+        "meaning_vi": "khu vực giải trí"
+      },
+      {
+        "phrase": "Parking lot Taxi rank",
+        "meaning_vi": "bãi đỗ xe bãi đỗ taxi"
+      },
+      {
+        "phrase": "Volume of traffic",
+        "meaning_vi": "lưu lượng tham gia giao thông"
+      },
+      {
+        "phrase": "Cost of living",
+        "meaning_vi": "chi phí sống"
+      },
+      {
+        "phrase": "Winding footpath",
+        "meaning_vi": "những con đường mòn nhiều hướng ré do người ta đi nhiều nên thành đường"
+      },
+      {
+        "phrase": "Varied landscapes",
+        "meaning_vi": "những phong cảnh đa dạng"
+      },
+      {
+        "phrase": "Dense forests",
+        "meaning_vi": "những rừng cây rậm rạp -"
+      },
+      {
+        "phrase": "Vast meadows",
+        "meaning_vi": "những đồng cỏ rộng lớn"
+      },
+      {
+        "phrase": "Gentle, rolling hills",
+        "meaning_vi": "những quả đồi thoai thoải"
+      },
+      {
+        "phrase": "The rocky landscape",
+        "meaning_vi": "phong cảnh núi đá"
+      },
+      {
+        "phrase": "Towering cliffs",
+        "meaning_vi": "những vách núi đá hùng vĩ"
+      },
+      {
+        "phrase": "Magnificent waterfalls ;",
+        "meaning_vi": "những thác nước tuyệt đẹp"
+      },
+      {
+        "phrase": "A hiking trail",
+        "meaning_vi": "những con đường dành cho dân leo núi"
+      },
+      {
+        "phrase": "The steepest face of the mountain",
+        "meaning_vi": "nơi đốc đứng nhất của ngọn núi"
+      },
+      {
+        "phrase": "The foot of the mountain",
+        "meaning_vi": "chân núi"
+      },
+      {
+        "phrase": "Aclear, bubbling mountain stream",
+        "meaning_vi": "những con suối nhỏ trong vắt men theo triền núi"
+      },
+      {
+        "phrase": "A spectacular panoramic view",
+        "meaning_vi": "phong cảnh toàn diện từ mọi hướng của khu vực xung quanh"
+      },
+      {
+        "phrase": "The jagged, snow-covered peaks",
+        "meaning_vi": "những ngọn núi mấp mô bị bao phú bởi tuyết"
+      },
+      {
+        "phrase": "A distant mountain range",
+        "meaning_vi": "những ngọn núi của các dãy núi đằng xa"
+      },
+      {
+        "phrase": "The lush green countryside",
+        "meaning_vi": "vùng đồng bằng xanh bát ngát màu mỡ"
+      },
+      {
+        "phrase": "The slow-moving, shallow river",
+        "meaning_vi": "những dòng sông không sâu lững lờ trôi"
+      },
+      {
+        "phrase": "Sun-drenched, sandy beaches",
+        "meaning_vi": "những bãi biển đầy cát trắng và nắng"
+      },
+      {
+        "phrase": "A picturesque fishing village",
+        "meaning_vi": "làng chai thơ mộng như tranh"
+      },
+      {
+        "phrase": "Secluded beaches",
+        "meaning_vi": "những bãi biển còn hoang sơ"
+      },
+      {
+        "phrase": "Take a boat trip",
+        "meaning_vi": "đi chơi thuyền"
+      },
+      {
+        "phrase": "Paddy field",
+        "meaning_vi": "đồng ruộng"
+      },
+      {
+        "phrase": "It’s well worth the trip",
+        "meaning_vi": "một chuyến di đáng di TC"
+      },
+      {
+        "phrase": "The grass are always green on the other side of the fence",
+        "meaning_vi": "đứng núi này trông núi nọ"
+      },
+      {
+        "phrase": "Still waters run deep Life in the fastiane",
+        "meaning_vi": "tấm ngấm tầm ngầm mà đấm chất voi phong trần"
+      },
+      {
+        "phrase": "As free as a bird ae : Asbigaslife: © - As black as pitch As busy as a beaver / As busy as a bee As clean as a whistle AS easy as pie Ashappyasaciam As hungry as a bear As hard as nails As innocent as a lamb As old as the hilis As plain as day",
+        "meaning_vi": "wdetwtai SS tối đen như mực vui như Tết ị đói meo rắn như đanh i hiền như but xưa như trái đất, già cỗi rõ như ban ngày ị"
+      },
+      {
+        "phrase": "Make a mountain out ofa ;",
+        "meaning_vi": "chuyện bá xé ra to"
+      },
+      {
+        "phrase": "Not see the forest for the trees | 1",
+        "meaning_vi": "biết một mà không biết mười/để | chú ý quá nhiều đến chỉ tiết và | không hiểu tình hình chung"
+      }
+    ]
+  },
+  {
+    "topicId": 21,
+    "topicTitle": "Lesson 19: CRIME AND LAW",
+    "totalItems": 52,
+    "items": [
+      {
+        "phrase": "Break the law = Commit a crime = commit an offence",
+        "meaning_vi": "phạm luật, vi phạm pháp luật, phạm pháp"
+      },
+      {
+        "phrase": "Money laundering",
+        "meaning_vi": "rửa tiền"
+      },
+      {
+        "phrase": "Do community service",
+        "meaning_vi": "lao động công ích"
+      },
+      {
+        "phrase": "Barbaric/horrible/vicious crimes",
+        "meaning_vi": "những vụ phạm tội dã man/tan bạo"
+      },
+      {
+        "phrase": "Attempted murder Attempted kidnapping Attempted break-in",
+        "meaning_vi": "vụ ám sát không thành công vụ bắt cóc không thành công công -"
+      },
+      {
+        "phrase": "Escape punishment",
+        "meaning_vi": "chạy tội ~ ,"
+      },
+      {
+        "phrase": "Report the crime",
+        "meaning_vi": "trình báo vu án"
+      },
+      {
+        "phrase": "Investigate the crime",
+        "meaning_vi": "điều travuán —"
+      },
+      {
+        "phrase": "Crime scene Gather forensic evidence",
+        "meaning_vi": "hiện trường vụ án thu thập chứng cứ pháp ÿy „"
+      },
+      {
+        "phrase": "Go/be on the run Turn oneself in",
+        "meaning_vi": "lan trốn tự thú"
+      },
+      {
+        "phrase": "A first-hand account",
+        "meaning_vi": "câu chuyện được kể bởi người chứng kiến sự việc"
+      },
+      {
+        "phrase": "Plead for leniency",
+        "meaning_vi": "xin giảm nhẹ tội"
+      },
+      {
+        "phrase": "Arrest suspects",
+        "meaning_vi": "bắt những ké tình nghi"
+      },
+      {
+        "phrase": "Prove one’s innocence by providing a solid alibi",
+        "meaning_vi": "cũng cấp bằng chứng ngoại phạm để chứng tỏ mình vô can"
+      },
+      {
+        "phrase": "Chance of rehabitation = chance of making a fresh start",
+        "meaning_vi": "cơ hội làm lại cuộc đời :"
+      },
+      {
+        "phrase": "Crime rate",
+        "meaning_vi": "tỉ lệ phạm pháp"
+      },
+      {
+        "phrase": "Crime wave",
+        "meaning_vi": "lan sóng tội phạm"
+      },
+      {
+        "phrase": "A first-time offender",
+        "meaning_vi": "phạm tội lần đầu"
+      },
+      {
+        "phrase": "Has a criminal record",
+        "meaning_vi": "có tiền án"
+      },
+      {
+        "phrase": "A serial killer",
+        "meaning_vi": "kế giết người hàng loạt"
+      },
+      {
+        "phrase": "Organized crime",
+        "meaning_vi": "tội phạm có tổ chức"
+      },
+      {
+        "phrase": "A cold-blooded killer/murderer",
+        "meaning_vi": "kế giết người máu lạnh"
+      },
+      {
+        "phrase": "Sentence sb to death/the lifetime imprisonment",
+        "meaning_vi": "kết án tử hình/tù chung thân ai"
+      },
+      {
+        "phrase": "Domestic violence",
+        "meaning_vi": "bạo lực gia đình"
+      },
+      {
+        "phrase": "Drug trafficking",
+        "meaning_vi": "hoạt động buôn ma túy"
+      },
+      {
+        "phrase": "Identity theft",
+        "meaning_vi": "hành vi trộm cắp danh tính"
+      },
+      {
+        "phrase": "Sexual harassment",
+        "meaning_vi": "quấy rối tình dục"
+      },
+      {
+        "phrase": "Petty crime",
+        "meaning_vi": "trộm vặt"
+      },
+      {
+        "phrase": "Armed robbery",
+        "meaning_vi": "cướp có vũ lực"
+      },
+      {
+        "phrase": "Pass laws",
+        "meaning_vi": "ban hành luật"
+      },
+      {
+        "phrase": "Uphold and enforce the law",
+        "meaning_vi": "duy trì và thực thi pháp luật"
+      },
+      {
+        "phrase": "Charge with a crime",
+        "meaning_vi": "bị buộc tội"
+      },
+      {
+        "phrase": "Stand trial",
+        "meaning_vi": "hầu tòa"
+      },
+      {
+        "phrase": "Reach a verdict",
+        "meaning_vi": "tuyên án, phán quyết"
+      },
+      {
+        "phrase": "Irrefutable/overwhelming/concrete evidence",
+        "meaning_vi": "chứng cứ xác thực"
+      },
+      {
+        "phrase": "A unanimous jury",
+        "meaning_vi": "bồi thẩm đoàn đồng thuận"
+      },
+      {
+        "phrase": "Be on parole Break one's parole",
+        "meaning_vi": "được tha vì đã hứa, ra tù sớm nuốt lời hứa danh dự"
+      },
+      {
+        "phrase": "A hung jury",
+        "meaning_vi": "ban bồi thẩm không đi tới được một lời tuyên án"
+      },
+      {
+        "phrase": "Be in jail = serve a prison sentence = custodial sentence put someone in jail = imprison",
+        "meaning_vi": "tong vào tù"
+      },
+      {
+        "phrase": "Commit to the flames",
+        "meaning_vi": "đốt cháy, cho mồi lửa"
+      },
+      {
+        "phrase": "A harsh sentence Alight sentence",
+        "meaning_vi": "bản án nặng bản án nhẹ"
+      },
+      {
+        "phrase": "Life imprisonment",
+        "meaning_vi": "tù chung thân"
+      },
+      {
+        "phrase": "Death penalty = capital punishment = execution",
+        "meaning_vi": "tử hình"
+      },
+      {
+        "phrase": "Appeal the verdict",
+        "meaning_vi": "kháng cáo"
+      },
+      {
+        "phrase": "Enter (bring in) a lawsuit against sb",
+        "meaning_vi": "đệ đơn kiện ai"
+      },
+      {
+        "phrase": "Uphold or overturn the original",
+        "meaning_vi": "giữ nguyên hoặc lật ngược"
+      },
+      {
+        "phrase": "verdict",
+        "meaning_vi": "phán quyết ban đầu"
+      },
+      {
+        "phrase": "a convicted criminal",
+        "meaning_vi": "một tên tội phạm bị kết án"
+      },
+      {
+        "phrase": "Serve time",
+        "meaning_vi": "dành thời gian trong tù"
+      },
+      {
+        "phrase": "Release from. prison",
+        "meaning_vi": "ra tù"
+      },
+      {
+        "phrase": "Threat to society",
+        "meaning_vi": "de doa tới xã hội"
+      },
+      {
+        "phrase": "A prolonged legai battle",
+        "meaning_vi": "mot vụ kiện tụng, tranh chấp kéo đài"
+      }
+    ]
+  },
+  {
+    "topicId": 22,
+    "topicTitle": "Lesson 20: GLOBAL PROBLEMS",
+    "totalItems": 49,
+    "items": [
+      {
+        "phrase": "Fossil fuels",
+        "meaning_vi": "nhiên liệu hóa thạch"
+      },
+      {
+        "phrase": "Greenhouse gases",
+        "meaning_vi": "khí nhà kính"
+      },
+      {
+        "phrase": "Deplete the ozone layer",
+        "meaning_vi": "chọc thủng/suy giảm tầng ô-zôn"
+      },
+      {
+        "phrase": "Global warming",
+        "meaning_vi": "sự nóng lên toàn cầu -"
+      },
+      {
+        "phrase": "Climate change",
+        "meaning_vi": "biến đối khí hậu"
+      },
+      {
+        "phrase": "Do damage to st",
+        "meaning_vi": "phá hoại, tàn phá cái gì"
+      },
+      {
+        "phrase": "Rising sea levels",
+        "meaning_vi": "nước biển đâng cao"
+      },
+      {
+        "phrase": "Clean energy",
+        "meaning_vi": "nguồn nhiên liệu sạch"
+      },
+      {
+        "phrase": "Extreme poverty",
+        "meaning_vi": "tình trạng cực nghèo"
+      },
+      {
+        "phrase": "On the margins of society",
+        "meaning_vi": "sống bên lề xã hội"
+      },
+      {
+        "phrase": "Live below the poverty line",
+        "meaning_vi": "dưới mức danh giới nghèo"
+      },
+      {
+        "phrase": "Alleviate poverty ;",
+        "meaning_vi": "giảm bớt tình trạng nghèo đói"
+      },
+      {
+        "phrase": "Human trafficking",
+        "meaning_vi": "mua bán người"
+      },
+      {
+        "phrase": "Sexual exploitation",
+        "meaning_vi": "xâm hại tình dục"
+      },
+      {
+        "phrase": "Suffer the consequences Minimise the consequences - Address the consequences of st",
+        "meaning_vi": "gánh chịu hậu quá giảm thiểu thiệt hại giải quyết hậu quả của cái gì"
+      },
+      {
+        "phrase": "Exhaust fumes",
+        "meaning_vi": "khí thải"
+      },
+      {
+        "phrase": "Environmentally friendly",
+        "meaning_vi": "thân thiện với môi trường"
+      },
+      {
+        "phrase": "Green politics",
+        "meaning_vi": "hệ thống các tư tưởng chính trị nhằm tạo một xã hội thân thiện với môi trường"
+      },
+      {
+        "phrase": "Disturb/upset the ecological balance",
+        "meaning_vi": "làm ảnh hưởng sự cân bằng sinh thái"
+      },
+      {
+        "phrase": "Cash crop",
+        "meaning_vi": "cây thương phẩm"
+      },
+      {
+        "phrase": "Crop failure/losses Bumper crop",
+        "meaning_vi": "mất mùa vụ mùa bội thu"
+      },
+      {
+        "phrase": "Death toll",
+        "meaning_vi": "số người chết"
+      },
+      {
+        "phrase": "On the brink of war",
+        "meaning_vi": "nguy cơ xảy ra chiến tranh"
+      },
+      {
+        "phrase": "Have a significant impact/effect/influence on",
+        "meaning_vi": "tác động đáng kể đến"
+      },
+      {
+        "phrase": "Increase the risk of st = lead to an increased risk of st = lead to an increase in the risk of st",
+        "meaning_vi": "dẫn đến sự gia tăng nguy cơ về"
+      },
+      {
+        "phrase": "Extreme weather Servere and frequent droughts Intense storms",
+        "meaning_vi": "thời tiết cực đoan xa hạn hán nghiêm trọng và thường xuyên bão mạnh"
+      },
+      {
+        "phrase": "Become extinct",
+        "meaning_vi": "tuyệt chủng"
+      },
+      {
+        "phrase": "Be under threat = be at stake/risk = in danger",
+        "meaning_vi": "có nguy cơ tuyệt chúng ma"
+      },
+      {
+        "phrase": "Endangered species . :",
+        "meaning_vi": "các loài động vật, thực vật có ñguy cơ tuyệt ching"
+      },
+      {
+        "phrase": "Solar panei ;",
+        "meaning_vi": "tấm năng lượng mặt trời"
+      },
+      {
+        "phrase": "‘Flash floods",
+        "meaning_vi": "la quét ma"
+      },
+      {
+        "phrase": "Get back to nature",
+        "meaning_vi": "sống gan gũi với thiên nhiên"
+      },
+      {
+        "phrase": "Soil erosion",
+        "meaning_vi": "xói mòn đất"
+      },
+      {
+        "phrase": "Man-made disaster Natural disaster",
+        "meaning_vi": "các thám họa do con người gây các thảm họa tự nhiên (động đất, 10 lụt, bão,...)"
+      },
+      {
+        "phrase": "Natural resources",
+        "meaning_vi": "tài nguyên thiên nhiên"
+      },
+      {
+        "phrase": "Oil spill",
+        "meaning_vi": "sự tràn đầu trên biển"
+      },
+      {
+        "phrase": "Make a contribution to st",
+        "meaning_vi": "góp phần vào cái gì"
+      },
+      {
+        "phrase": "Harm the environment/wildiife/marine life So",
+        "meaning_vi": "gây hại cho môi trường/đời sống tự nhiên/đời sống dưới nước"
+      },
+      {
+        "phrase": "Expose to major health risks",
+        "meaning_vi": "đối mặt với các nguy cơ lớn về sức khỏe"
+      },
+      {
+        "phrase": "Cause tremendous pressure on the livelihood of sb",
+        "meaning_vi": "gây ra áp lực lớn về đời sống của ai đó"
+      },
+      {
+        "phrase": "Threaten the lives and health of sb",
+        "meaning_vi": "đe dọa tới tính mạng và sức khỏe của ai đó"
+      },
+      {
+        "phrase": "Conduct an environmental cleanup",
+        "meaning_vi": "tiến hành dọn sạch môi trường"
+      },
+      {
+        "phrase": "Put emphasis on individuals’",
+        "meaning_vi": "chú trọng vào nỗ lực của cá"
+      },
+      {
+        "phrase": "attempt",
+        "meaning_vi": "nhân"
+      },
+      {
+        "phrase": "The most pressing problem",
+        "meaning_vi": "vấn đề cấp bách (nhức nhối) nhất"
+      },
+      {
+        "phrase": "(Be) at an alarming rate",
+        "meaning_vi": "ở mức báo động"
+      },
+      {
+        "phrase": "Raise one’s awareness",
+        "meaning_vi": "nâng cao ý thức"
+      },
+      {
+        "phrase": "Play an important role/part in",
+        "meaning_vi": "đóng vai trò quan trọng"
+      },
+      {
+        "phrase": "In floods of tears",
+        "meaning_vi": "khóc như mưa, nước mắt giàn giụa"
+      }
+    ]
+  },
+  {
+    "topicId": 23,
+    "topicTitle": "Lesson 21: TIME",
+    "totalItems": 37,
+    "items": [
+      {
+        "phrase": "Spend time Waste time",
+        "meaning_vi": "Spend time Waste time"
+      },
+      {
+        "phrase": "i gian",
+        "meaning_vi": "ị L5 1. - : không chợp mắt được, ị ;"
+      },
+      {
+        "phrase": "lich day",
+        "meaning_vi": "đặc ị Pog Pee nacenbeneebanien OU 1} an TA x a"
+      },
+      {
+        "phrase": "nao",
+        "meaning_vi": "đó đúng thoi hạn (được ¡ ' giao)"
+      },
+      {
+        "phrase": "Rush hour",
+        "meaning_vi": "giờ cao điểm"
+      },
+      {
+        "phrase": "Solid hours",
+        "meaning_vi": "Solid hours"
+      },
+      {
+        "phrase": "khuya -",
+        "meaning_vi": "ị ; -"
+      },
+      {
+        "phrase": "P 5",
+        "meaning_vi": "Š tị i ‘ , trước :"
+      },
+      {
+        "phrase": "For the time being",
+        "meaning_vi": "For the time being"
+      },
+      {
+        "phrase": "For a moment/while",
+        "meaning_vi": "For a moment/while"
+      },
+      {
+        "phrase": "in broad daylight -",
+        "meaning_vi": "giữa ban ngày, lộ liễu"
+      },
+      {
+        "phrase": "Against the clock",
+        "meaning_vi": "chạy đua với thời gian a"
+      },
+      {
+        "phrase": "The time is ripe :",
+        "meaning_vi": "thời gian/ thời cơ đã chín mudi"
+      },
+      {
+        "phrase": "Time and tide waits fornoman —",
+        "meaning_vi": "thời gian không chờ đợi ai"
+      },
+      {
+        "phrase": "Time flies like an arrow",
+        "meaning_vi": "thời gian thấm thoắt như. thoi đưa"
+      },
+      {
+        "phrase": "Better safe than sorry",
+        "meaning_vi": "cẩn tắc vô áy náy 7"
+      },
+      {
+        "phrase": "For good = forever",
+        "meaning_vi": "mãi mãi"
+      },
+      {
+        "phrase": "Day in, day out",
+        "meaning_vi": "hết ngày này sang ngày khác"
+      },
+      {
+        "phrase": "In arow",
+        "meaning_vi": "liên tiếp"
+      },
+      {
+        "phrase": "Behind time Behind the times",
+        "meaning_vi": "muộn lạc hậu, lỗi thời"
+      },
+      {
+        "phrase": "On time In time (for) In no time In any time At that time At all times",
+        "meaning_vi": "đúng giờ kịp giờ rất nhanh bất cứ khi nào vào lúc đó luôn luôn"
+      },
+      {
+        "phrase": "For a long time At short notice =In a short time",
+        "meaning_vi": "khoảng thời gian dài trong thời gian rất ngắn"
+      },
+      {
+        "phrase": "Time after time",
+        "meaning_vi": "lần này đến lần khác"
+      },
+      {
+        "phrase": "Pressed for time",
+        "meaning_vi": "không có nhiều thời gian, vội"
+      },
+      {
+        "phrase": "Make good time",
+        "meaning_vi": "làm điều gì đó nhanh hơn bạn nghĩ"
+      },
+      {
+        "phrase": "In the nick of time",
+        "meaning_vi": "sát giờ"
+      },
+      {
+        "phrase": "Once in a while = from time to time",
+        "meaning_vi": "thi thoảng"
+      },
+      {
+        "phrase": "Once upon a time = long time ago",
+        "meaning_vi": "ngày xửa ngày xưa"
+      },
+      {
+        "phrase": "At the meantime",
+        "meaning_vi": "đồng thời ,cùng lúc"
+      },
+      {
+        "phrase": "Take time",
+        "meaning_vi": "cứ từ từ"
+      },
+      {
+        "phrase": "Out of time",
+        "meaning_vi": "không đúng lúc; không đúng nhịp"
+      },
+      {
+        "phrase": "An early bird A night owl",
+        "meaning_vi": "một người quen dạy sớm một người thích thức khuya"
+      },
+      {
+        "phrase": "Call it a day",
+        "meaning_vi": "nghỉ ngơi"
+      },
+      {
+        "phrase": "Beat the clock",
+        "meaning_vi": "hoàn thành việc gi trước"
+      },
+      {
+        "phrase": "Lose track of time",
+        "meaning_vi": "quên mất thời gian"
+      },
+      {
+        "phrase": "As plain as day",
+        "meaning_vi": "rất rõ rang, dé thấy, dễ hiểu"
+      },
+      {
+        "phrase": "Step by step",
+        "meaning_vi": "từng bước một :"
+      }
+    ]
+  },
+  {
+    "topicId": 24,
+    "topicTitle": "Lesson 22: QUANTITIES",
+    "totalItems": 54,
+    "items": [
+      {
+        "phrase": "Arange of mountain",
+        "meaning_vi": "một dãy núi"
+      },
+      {
+        "phrase": "Aset of tool",
+        "meaning_vi": "một bộ dụng cụ"
+      },
+      {
+        "phrase": "A series of events",
+        "meaning_vi": "một chuỗi các sự kiện"
+      },
+      {
+        "phrase": "A piece of news",
+        "meaning_vi": "một bản tin"
+      },
+      {
+        "phrase": "A piece of advice",
+        "meaning_vi": "một lời khuyên"
+      },
+      {
+        "phrase": "A piece of gold jewelry",
+        "meaning_vi": "một món nữ trang bằng vàng"
+      },
+      {
+        "phrase": "A bottle of milk/water/wine",
+        "meaning_vi": "một chai sữa/nước/rượu"
+      },
+      {
+        "phrase": "A fleet of ship",
+        "meaning_vi": "một đoàn tàu"
+      },
+      {
+        "phrase": "A drop of rain",
+        "meaning_vi": "một hạt mưa"
+      },
+      {
+        "phrase": "A gust of wind",
+        "meaning_vi": "một trận gió"
+      },
+      {
+        "phrase": "A cloud of smoke .",
+        "meaning_vi": "một làn khói"
+      },
+      {
+        "phrase": "A blade of grass",
+        "meaning_vi": "một nhánh cỏ"
+      },
+      {
+        "phrase": "A spell of hot weather",
+        "meaning_vi": "một đợt nóng"
+      },
+      {
+        "phrase": "Arumble of thunder",
+        "meaning_vi": "một tiếng sấm/ một tràng sấm"
+      },
+      {
+        "phrase": "A flash of lightning",
+        "meaning_vi": "một tia chớp"
+      },
+      {
+        "phrase": "A grain of sand",
+        "meaning_vi": "một hạt cát"
+      },
+      {
+        "phrase": "A stroke of luck",
+        "meaning_vi": "một vận may"
+      },
+      {
+        "phrase": "An article/ item of clothing",
+        "meaning_vi": "một món đồ (áo quần)"
+      },
+      {
+        "phrase": "A loaf of bread",
+        "meaning_vi": "một ố bánh mì"
+      },
+      {
+        "phrase": "Aslice of bread",
+        "meaning_vi": "một lát bánh mì"
+      },
+      {
+        "phrase": "A bar of chocolate",
+        "meaning_vi": "một thanh sô- cô- la"
+      },
+      {
+        "phrase": "A tube of toothpaste",
+        "meaning_vi": "một ống kem đánh răng"
+      },
+      {
+        "phrase": "A fall of rain",
+        "meaning_vi": "một trận mưa"
+      },
+      {
+        "phrase": "A pencil of rays",
+        "meaning_vi": "một chùm tia sáng"
+      },
+      {
+        "phrase": "A herd of cattle",
+        "meaning_vi": "một đàn gia súc"
+      },
+      {
+        "phrase": "A pride of lions",
+        "meaning_vi": "một bầy sư tử"
+      },
+      {
+        "phrase": "A troop of monkey",
+        "meaning_vi": "một bầy khỉ"
+      },
+      {
+        "phrase": "A flock of sheep/a flock of goats",
+        "meaning_vi": "một bầy ctru/dé"
+      },
+      {
+        "phrase": "An army of soldiers",
+        "meaning_vi": "một toán lính"
+      },
+      {
+        "phrase": "A band of robbers ;",
+        "meaning_vi": "một băng cướp"
+      },
+      {
+        "phrase": "A body of men A bevy of giris",
+        "meaning_vi": "một nhóm đàn ông một nhóm con gái"
+      },
+      {
+        "phrase": "A choir of singers Acrew of sailers",
+        "meaning_vi": "một đội hợp xướng một đội thủy thú"
+      },
+      {
+        "phrase": "A pack of thieves",
+        "meaning_vi": "một băng trộm"
+      },
+      {
+        "phrase": "A patrol of policemen",
+        "meaning_vi": "một toán cảnh sát"
+      },
+      {
+        "phrase": "Abreod of chickens",
+        "meaning_vi": "một bầy gà"
+      },
+      {
+        "phrase": "A flock of birds",
+        "meaning_vi": "một dan chim"
+      },
+      {
+        "phrase": "Ahive of bees",
+        "meaning_vi": "một đàn ong"
+      },
+      {
+        "phrase": "Alitter of puppies",
+        "meaning_vi": "rnột lứa chó con"
+      },
+      {
+        "phrase": "A nest of mice",
+        "meaning_vi": "một ổ chuột"
+      },
+      {
+        "phrase": "A pack of wolves",
+        "meaning_vi": "một bầy sói"
+      },
+      {
+        "phrase": "A plague /swarm of insecis",
+        "meaning_vi": "một đám côn trùng"
+      },
+      {
+        "phrase": "Aschooi of fish",
+        "meaning_vi": "một đàn cá"
+      },
+      {
+        "phrase": "A bunch of banana A comb of banana",
+        "meaning_vi": "một buồng chuối"
+      },
+      {
+        "phrase": "Abunch of flowers",
+        "meaning_vi": "một bó hoa"
+      },
+      {
+        "phrase": "A flight of stairs oO A suite of rooms",
+        "meaning_vi": "một dãy bậc thang một dãy phòng"
+      },
+      {
+        "phrase": "Amass of hair",
+        "meaning_vi": "một mớ tóc"
+      },
+      {
+        "phrase": "A brood/ clutch of chicks",
+        "meaning_vi": "một ổ/ lứa gà con"
+      },
+      {
+        "phrase": "A wide range/variety of =a great ‘many = a large number of = many + N(dém duoc - 36 nhiéu)",
+        "meaning_vi": "nhiều..."
+      },
+      {
+        "phrase": "A great deal of = a large amount of = much + N{khéng dém duoc}",
+        "meaning_vi": "nhiều..."
+      },
+      {
+        "phrase": "Plenty of = a lot of + N(khéng dém dwoc va danh tiv sé nhiéuj",
+        "meaning_vi": "nhiều... jï"
+      },
+      {
+        "phrase": "Aperiod / moment of calm",
+        "meaning_vi": "một thời kì yên ổn / một giây iat (khoảnh khắc) êm a"
+      },
+      {
+        "phrase": "Awad of dollars",
+        "meaning_vi": "một tập tiền đô"
+      },
+      {
+        "phrase": "Asum of money",
+        "meaning_vi": "một khoản /món tiền"
+      },
+      {
+        "phrase": "A string of pearls",
+        "meaning_vi": "một chuỗi hạt ngọc"
+      }
+    ]
+  },
+  {
+    "topicId": 25,
+    "topicTitle": "Lesson 23: STARTING AND FISNISHING",
+    "totalItems": 52,
+    "items": [
+      {
+        "phrase": "Get started = get underway",
+        "meaning_vi": "bắt đầu"
+      },
+      {
+        "phrase": "Get off to a good start",
+        "meaning_vi": "khởi đầu thuận lợi, xuôi chèo mát mái"
+      },
+      {
+        "phrase": "An encouraging/promising start",
+        "meaning_vi": "khởi đầu đầy triển vọng/hứa hẹn"
+      },
+      {
+        "phrase": "An shaky /unsteady start",
+        "meaning_vi": "khởi đầu bap bênh"
+      },
+      {
+        "phrase": "A disappointing start",
+        "meaning_vi": "khởi đầu đáng thất vọng"
+      },
+      {
+        "phrase": "A disastrous start :",
+        "meaning_vi": "ị khởi đầu tai hại TC"
+      },
+      {
+        "phrase": "A humbie/modest beginning",
+        "meaning_vi": "xuất phát điểm thấp"
+      },
+      {
+        "phrase": "Put the finishing touches on",
+        "meaning_vi": "hoàn thiện"
+      },
+      {
+        "phrase": "Come to an end/draw tc a close",
+        "meaning_vi": "kết thúc"
+      },
+      {
+        "phrase": "The beginning of the end",
+        "meaning_vi": "khởi đầu cho sự kết thúc —"
+      },
+      {
+        "phrase": "An abrupt/sudden end",
+        "meaning_vi": "đường đột"
+      },
+      {
+        "phrase": "No end in sight",
+        "meaning_vi": "không có hồi kết 5"
+      },
+      {
+        "phrase": "Be near one's end",
+        "meaning_vi": "chẳng còn sống được bao lâu nữa, gần kề miệng lỗ"
+      },
+      {
+        "phrase": "Gain one’s ends",
+        "meaning_vi": "đạt được mục đích của mình"
+      },
+      {
+        "phrase": "A dead end",
+        "meaning_vi": "ngõ cụt, tình thế không lối thoát"
+      },
+      {
+        "phrase": "Reach the end of the read",
+        "meaning_vi": "cùng đường, không còn sức chịu đựng"
+      },
+      {
+        "phrase": "At the end of the day",
+        "meaning_vi": "sau khi suy nghĩ chín chắn, sau khi cân nhắc kỹ lưỡng"
+      },
+      {
+        "phrase": "Be at the receiving end of sth",
+        "meaning_vi": "phải hứng chịu cái gì"
+      },
+      {
+        "phrase": "Keep one’s end up",
+        "meaning_vi": "kiên trì theo đuổi mục đích đến cùng, giữ vững lập trường"
+      },
+      {
+        "phrase": "Make an end of = Put an end to",
+        "meaning_vi": "chấm đứt"
+      },
+      {
+        "phrase": "Make both ends meet",
+        "meaning_vi": "kiếm vừa đủ sống chứ không dư da"
+      },
+      {
+        "phrase": "No end of :",
+        "meaning_vi": "rất nhiều ;"
+      },
+      {
+        "phrase": "On end",
+        "meaning_vi": "liền, liên tục"
+      },
+      {
+        "phrase": "Make one's hair stand on end",
+        "meaning_vi": "làm cho ai hoảng sợ, làm cho ai dựng tóc gáy, làm cho ai nổi da gà"
+      },
+      {
+        "phrase": "Burn the candle at both ends",
+        "meaning_vi": "kiệt quệ vì đã quá phí sức"
+      },
+      {
+        "phrase": "The end of the world",
+        "meaning_vi": "điều tồi tệ nhất trên đời"
+      },
+      {
+        "phrase": "Get hold of the wrong end of the stick",
+        "meaning_vi": "hiểu lầm hoàn toàn, hiểu sai bét"
+      },
+      {
+        "phrase": "Make an early start ©",
+        "meaning_vi": "đi sớm"
+      },
+      {
+        "phrase": "Get the start of sb",
+        "meaning_vi": "lợi thế hơn ai"
+      },
+      {
+        "phrase": "Start out of one's sleep",
+        "meaning_vi": "giật mình thức dậy"
+      },
+      {
+        "phrase": "Start quarrel",
+        "meaning_vi": "gây chuyện cãi nhau"
+      },
+      {
+        "phrase": "Start a problem",
+        "meaning_vi": "nêu ra một vấn đề"
+      },
+      {
+        "phrase": "By fits and starts",
+        "meaning_vi": "không đều, thất thường, từng đợt một"
+      },
+      {
+        "phrase": "Achange is as good as a rest",
+        "meaning_vi": "thay đổi còn hơn là không"
+      },
+      {
+        "phrase": "Start/get/set the ball rolling",
+        "meaning_vi": "bắt đầu điều gì đó, và đặc biệt là đối với những thứ lớn lao"
+      },
+      {
+        "phrase": "Turn over a new leaf",
+        "meaning_vi": "cải tà quy chính, làm lại cuộc đời, bước sang khởi đầu mới, quyết tâm làm những điều tốt hơn"
+      },
+      {
+        "phrase": "Achange of heart",
+        "meaning_vi": "thay đổi suy nghĩ về việc gì"
+      },
+      {
+        "phrase": "Hit the road = take to the road",
+        "meaning_vi": "bắt đầu rời một nơi nào đó để lên đường tới nơi khác"
+      },
+      {
+        "phrase": "Dive in/ Jump in feet first",
+        "meaning_vi": "bắt đầu hoặc thực hiện một cái gì đó một cách nhanh chóng, nhiệt tình, và không có sự lo lắng"
+      },
+      {
+        "phrase": "Get the show on the road",
+        "meaning_vi": "bat đầu kịp thời hoặc bắt đầu một điều gì đó"
+      },
+      {
+        "phrase": "Like a breath.of fresh air",
+        "meaning_vi": "ai đó hoặc cái gì có những ý tưởng hoặc hành vi mới"
+      },
+      {
+        "phrase": "Out with the old, in with the new",
+        "meaning_vi": "đổi cái cũ lấy cái mới"
+      },
+      {
+        "phrase": "New biood",
+        "meaning_vi": "luồng sinh khí mới"
+      },
+      {
+        "phrase": "Shake things up (a shake up}",
+        "meaning_vi": "khuấy động mọi thứ lên"
+      },
+      {
+        "phrase": "Give st a new lease of life",
+        "meaning_vi": "đổi mới cái gì để nó kéo dài lâu hơn"
+      },
+      {
+        "phrase": "Breathe new life into",
+        "meaning_vi": "mang lại nguồn năng lượng mới cho cái gì đó"
+      },
+      {
+        "phrase": "Go back to square one/go back to the drawing board",
+        "meaning_vi": "có nghĩa là làm iai việc gì đó từ đầu"
+      },
+      {
+        "phrase": "Start with a clean sheei/slate",
+        "meaning_vi": "có cơ hội lara lại từ đầu (có ; lễ vi bạn đã phạm một sai lâm nghiêm trọng) ¡"
+      },
+      {
+        "phrase": "Make a fresh start / make a clean break :",
+        "meaning_vi": "bắt đầu lại việc gì đó | Ị"
+      },
+      {
+        "phrase": "Loose change / spare change",
+        "meaning_vi": "đồng xu lễ ¬"
+      },
+      {
+        "phrase": "Small change",
+        "meaning_vi": "tiền mệnh giá nhỏ"
+      },
+      {
+        "phrase": "From the word go = from the start of st",
+        "meaning_vi": "ngay từ đầu"
+      }
+    ]
+  },
+  {
+    "topicId": 26,
+    "topicTitle": "Lesson 24: SUCCESS AND FAILURE",
+    "totalItems": 33,
+    "items": [
+      {
+        "phrase": "An impressive accomplishment",
+        "meaning_vi": "thành tựu/thành tích ấn tượng"
+      },
+      {
+        "phrase": "Phenomenal success",
+        "meaning_vi": "thành công ngoạn mục"
+      },
+      {
+        "phrase": "A highly effective way",
+        "meaning_vi": "một cách có hiệu quả cao"
+      },
+      {
+        "phrase": "A dramatic improvement",
+        "meaning_vi": "cải thiện đáng kể"
+      },
+      {
+        "phrase": "An unprecedented success",
+        "meaning_vi": "một thành công chưa từng có"
+      },
+      {
+        "phrase": "Crowning achievement Remarkable achievement",
+        "meaning_vi": "thành tựu quan trọng nhất thành tựu đáng kể"
+      },
+      {
+        "phrase": "Modest success",
+        "meaning_vi": "thành công hạn chế/nhất định"
+      },
+      {
+        "phrase": "Room for improvement",
+        "meaning_vi": "còn có khả năng cải tiến"
+      },
+      {
+        "phrase": "Make good progress",
+        "meaning_vi": "tiến bộ"
+      },
+      {
+        "phrase": "Make a breakthrough",
+        "meaning_vi": "đột phá"
+      },
+      {
+        "phrase": "Bring out the best",
+        "meaning_vi": "mang những điều tốt nhất đến ;"
+      },
+      {
+        "phrase": "Win the respect of sb",
+        "meaning_vi": "giành duoc sự tôn trọng/cảm tình của ai"
+      },
+      {
+        "phrase": "Fail miserably",
+        "meaning_vi": "thất bại thám hại"
+      },
+      {
+        "phrase": "Dash one’s hopes",
+        "meaning_vi": "làm cho ai đó từ bỏ hi vọng"
+      },
+      {
+        "phrase": "Lose one’s nerve",
+        "meaning_vi": "mất tự tin"
+      },
+      {
+        "phrase": "Completely fail",
+        "meaning_vi": "thất bại hoàn toàn"
+      },
+      {
+        "phrase": "Mediocre performance",
+        "meaning_vi": "màn thể hiện không có gì đặc biệt"
+      },
+      {
+        "phrase": "Without fail",
+        "meaning_vi": "chắc chắn, nhất định"
+      },
+      {
+        "phrase": "Arecipe for disaster",
+        "meaning_vi": "rủi ro"
+      },
+      {
+        "phrase": "Way off the mark",
+        "meaning_vi": "không đúng, thiếu chính xác"
+      },
+      {
+        "phrase": "Doomed to failure",
+        "meaning_vi": "tất phải thất bại"
+      },
+      {
+        "phrase": "If all else fails = If worse comes to worst",
+        "meaning_vi": "nếu mọi cách không được/ tình huống xấu nhất"
+      },
+      {
+        "phrase": "As a last resort",
+        "meaning_vi": "giải pháp cuối cùng"
+      },
+      {
+        "phrase": "Dress for success",
+        "meaning_vi": "mặc đẹp để thành công"
+      },
+      {
+        "phrase": "Key to success",
+        "meaning_vi": "chìa khóa thành công"
+      },
+      {
+        "phrase": "(Be a) howling success",
+        "meaning_vi": "một cái gì đó trong hiện tại hoặc quá khứ đã rất thành công"
+      },
+      {
+        "phrase": "Hit a home run",
+        "meaning_vi": "hoàn thành xuất sắc"
+      },
+      {
+        "phrase": "Rags to riches",
+        "meaning_vi": "chỉ những người tay trắng lam nên sự nghiéo lớn"
+      },
+      {
+        "phrase": "Bear fruit",
+        "meaning_vi": "trồng cây đến ngày hái quả ˆ"
+      },
+      {
+        "phrase": "34.,.Ng.pain no gain -",
+        "meaning_vi": "ị có công mài sắt có ngày nên"
+      },
+      {
+        "phrase": "n '",
+        "meaning_vi": "ị 33"
+      },
+      {
+        "phrase": "Meet the need of/demand for st",
+        "meaning_vi": "đáp ứng nhu cầu về"
+      },
+      {
+        "phrase": "Stimulate /proimoie the development of st",
+        "meaning_vi": "thúc đẩy/kích thích sự phát; triển ị"
+      }
+    ]
+  },
+  {
+    "topicId": 27,
+    "topicTitle": "Lesson 25: CAUSE AND EFFECT ;",
+    "totalItems": 43,
+    "items": [
+      {
+        "phrase": "Cause damage",
+        "meaning_vi": "gây thiệt hại"
+      },
+      {
+        "phrase": "Cause a problem",
+        "meaning_vi": "gây ra một vấn đề"
+      },
+      {
+        "phrase": "Cause confusion",
+        "meaning_vi": "gây nhầm lẫn"
+      },
+      {
+        "phrase": "Cause an uproar",
+        "meaning_vi": "gây náo động, gây ồn ào"
+      },
+      {
+        "phrase": "Cause death",
+        "meaning_vi": "gây chết người"
+      },
+      {
+        "phrase": "Cause for concern/alarm ,",
+        "meaning_vi": "gây lo ngại"
+      },
+      {
+        "phrase": "No cause for alarm",
+        "meaning_vi": "không có gì phải lo/sợ"
+      },
+      {
+        "phrase": "Fight for the just cause",
+        "meaning_vi": "chiến đấu cho chính nghĩa"
+      },
+      {
+        "phrase": "Main/primary cause",
+        "meaning_vi": "nguyên nhân chính"
+      },
+      {
+        "phrase": "Hidden/underlying causes",
+        "meaning_vi": "nguyên nhân tiềm ẩn"
+      },
+      {
+        "phrase": "Root cause",
+        "meaning_vi": "nguyên nhân sâu xa"
+      },
+      {
+        "phrase": "Show cause",
+        "meaning_vi": "trình bày lý do"
+      },
+      {
+        "phrase": "Be for/in a good cause",
+        "meaning_vi": "làm từ thiện, không vì lợi ích lợi nhuận, lí do chính đáng"
+      },
+      {
+        "phrase": "Make common cause with",
+        "meaning_vi": "theo phe ai, về bè với ai"
+      },
+      {
+        "phrase": "With/without good cause",
+        "meaning_vi": "có/không có lý do chính đáng"
+      },
+      {
+        "phrase": "Final cause",
+        "meaning_vi": "mục đích, cứu cánh"
+      },
+      {
+        "phrase": "Revolutionary cause",
+        "meaning_vi": "sự nghiệp cách mạng"
+      },
+      {
+        "phrase": "A significant impact/a profound impact",
+        "meaning_vi": "tác động sâu sắc"
+      },
+      {
+        "phrase": "Have a strong/great effect/influence on",
+        "meaning_vi": "có ảnh hưởng lớn"
+      },
+      {
+        "phrase": "Under the influence",
+        "meaning_vi": "chịu ảnh hưởng của, do ảnh hướng của"
+      },
+      {
+        "phrase": "Exercise one's influence on sb",
+        "meaning_vi": "gay ảnh hướng đối với ai, phát huy ảnh hưởng đối với ai"
+      },
+      {
+        "phrase": "A person of influence",
+        "meaning_vi": "người có thế lực, người có tầm ảnh hưởng"
+      },
+      {
+        "phrase": "Powerful effect",
+        "meaning_vi": "hiệu ứng/ảnh hưởng mạnh"
+      },
+      {
+        "phrase": "Minimal /negligible effect",
+        "meaning_vi": "mẽ hiệu quả ít / không đáng ké"
+      },
+      {
+        "phrase": "Beneficial effect Adverse effect",
+        "meaning_vi": "ảnh hướng có lợi ảnh hướng xấu"
+      },
+      {
+        "phrase": "Main effect Side effect",
+        "meaning_vi": "tác dụng chính tác dụng phụ"
+      },
+      {
+        "phrase": "Have /produce results",
+        "meaning_vi": "có kết quả"
+      },
+      {
+        "phrase": "Shori-term/long-term effects",
+        "meaning_vi": "ảnh hưởng tạm thời/lâu đài"
+      },
+      {
+        "phrase": "Ill effects",
+        "meaning_vi": "tác dụng có hại m\""
+      },
+      {
+        "phrase": "For effect = in order to impress people ;",
+        "meaning_vi": "gâyấntượng S—~™S"
+      },
+      {
+        "phrase": "Bring/ put st into effect = cause st te come into use Come into effect",
+        "meaning_vi": "thật có hiệu lực thi hành"
+      },
+      {
+        "phrase": "Come into use Go out of use",
+        "meaning_vi": "bắt đầu được sử dụng — — ngừng sử dụng"
+      },
+      {
+        "phrase": "it stands te reason that",
+        "meaning_vi": "hiển nhiên..."
+      },
+      {
+        "phrase": "In consequence (of st}",
+        "meaning_vi": "hậu quả của cái gì"
+      },
+      {
+        "phrase": "Of no consequence",
+        "meaning_vi": "không quan trọng"
+      },
+      {
+        "phrase": "The final result",
+        "meaning_vi": "kết quả cuối cùng"
+      },
+      {
+        "phrase": "Inevitable result",
+        "meaning_vi": "kết quả tất yếu"
+      },
+      {
+        "phrase": "The desired result",
+        "meaning_vi": "kết quả như mong đợi"
+      },
+      {
+        "phrase": "The logical outcome",
+        "meaning_vi": "kết quả hợp lý"
+      },
+      {
+        "phrase": "To this effect",
+        "meaning_vi": "vì mục đích đó"
+      },
+      {
+        "phrase": "As a result of As a result",
+        "meaning_vi": "bởi vì do đó, do vậy"
+      },
+      {
+        "phrase": "Get a result from",
+        "meaning_vi": "có kết quả từ"
+      },
+      {
+        "phrase": "Suffer/face/take the consequences of",
+        "meaning_vi": "gánh chịu hậu quả của"
+      }
+    ]
+  },
+  {
+    "topicId": 28,
+    "topicTitle": "Lesson 26: AGREEING AND DISAGREEING `",
+    "totalItems": 40,
+    "items": [
+      {
+        "phrase": "1 couldn't agree with you more = I totally/completely/ absolutely agree with you = I agree with you entirely = you can say that again!",
+        "meaning_vi": "Tôi hoàn toàn đồng ý với bạn"
+      },
+      {
+        "phrase": "I agree with you up to a point, but...",
+        "meaning_vi": "mình đồng ý với bạn một phần, nhưng..."
+      },
+      {
+        "phrase": "I agree with you in principle, but...",
+        "meaning_vi": "về nguyên tắc/theo lý thì minh đồng ý với bạn, nhưng..."
+      },
+      {
+        "phrase": "Be worlds apart = very different",
+        "meaning_vi": "rất khác nhau"
+      },
+      {
+        "phrase": "Reach a compromise",
+        "meaning_vi": "đạt được sự thỏa hiệp ."
+      },
+      {
+        "phrase": "A heated argument",
+        "meaning_vi": "một cuộc tranh luận gay gắt"
+      },
+      {
+        "phrase": "I'm afraid I disagree",
+        "meaning_vi": "(mình e là) mình không tán thành..."
+      },
+      {
+        "phrase": "I couldn't agree with you less",
+        "meaning_vi": "mình không thể nhất trí với bạn"
+      },
+      {
+        "phrase": "I see your point, but",
+        "meaning_vi": "mình hiểu ý bạn, nhưng"
+      },
+      {
+        "phrase": "A minor/slight disagreement A major/serious disagreement",
+        "meaning_vi": "bất đồng nhỏ bất đồng lớn"
+      },
+      {
+        "phrase": "Settle a disagreement/dispute = resolve a disagreement :",
+        "meaning_vi": "đàn xếp một mối bất hoà"
+      },
+      {
+        "phrase": "A long-running dispute",
+        "meaning_vi": "tranh chấp kéo dài"
+      },
+      {
+        "phrase": "Beyond/past/without dispute",
+        "meaning_vi": "không cần bàn cãi gì nữa ."
+      },
+      {
+        "phrase": "Be in dispute",
+        "meaning_vi": "đang được ban cãi"
+      },
+      {
+        "phrase": "Hold a dispute on",
+        "meaning_vi": "tranh luận về (vấn đề gì)"
+      },
+      {
+        "phrase": "Dispute every inch of ground",
+        "meaning_vi": "tranh chấp từng tấc đất"
+      },
+      {
+        "phrase": "Strong argument ; Weak argument Sound argument",
+        "meaning_vi": "lý lẽ đanh thép lý lẽ không vững lý luận có cơ sở:"
+      },
+      {
+        "phrase": "Be in agreement with sb Be in disagreement with sb =fall",
+        "meaning_vi": "đồng ý với ai không đồng ý kiến với ai"
+      },
+      {
+        "phrase": "Come to an agreement = reach an agreement 7",
+        "meaning_vi": "đi đến sự thoả thuận; đi đến. ký kết một hiệp định"
+      },
+      {
+        "phrase": "Enter into an agreement with sb",
+        "meaning_vi": "ký kết một hợp đồng với ai"
+      },
+      {
+        "phrase": "Make an agreement with sb",
+        "meaning_vi": "thoả thuận với; ký kết một. hợp đồng với ai"
+      },
+      {
+        "phrase": "Agree to disagree :",
+        "meaning_vi": "thương lượng, nhân nhượng"
+      },
+      {
+        "phrase": "Debate a matter in one’s mind",
+        "meaning_vi": "suy nghĩ/cân nhắc một vấn đề trong đầu"
+      },
+      {
+        "phrase": "Beat around the bush ;",
+        "meaning_vi": "nói vòng vo"
+      },
+      {
+        "phrase": "Cut to the chase",
+        "meaning_vi": "đi thẳng vào vấn đề"
+      },
+      {
+        "phrase": "Close a deal = come to terms",
+        "meaning_vi": "đạt được thỏa thuận xa"
+      },
+      {
+        "phrase": "Cut a deai",
+        "meaning_vi": "chốt hợp đồng"
+      },
+      {
+        "phrase": "Be at odds = disagree",
+        "meaning_vi": "không đồng ý, không khớp với"
+      },
+      {
+        "phrase": "A bone of contention",
+        "meaning_vi": "vấn đề tranh chấp; chuyện. bất ngờ"
+      },
+      {
+        "phrase": "Agree to differ",
+        "meaning_vi": "đành là bất đồng ý kiến với. nhau, không tìm cách thuyết phục nhau nữa"
+      },
+      {
+        "phrase": "At each other's throats",
+        "meaning_vi": "tranh cãi gay gắt"
+      },
+      {
+        "phrase": "Argue the toss",
+        "meaning_vi": "phản bác, phản đối"
+      },
+      {
+        "phrase": "Be on a collision course",
+        "meaning_vi": "gây ra xung đột, mâu thuẫn"
+      },
+      {
+        "phrase": "Cress swords = have an argument with sb",
+        "meaning_vi": "tranh cãi với ai"
+      },
+      {
+        "phrase": "Do batile",
+        "meaning_vi": "tranh cãi gay gat"
+      },
+      {
+        "phrase": "Fight like cat and dog",
+        "meaning_vi": "cãi nhau như chó với mèo"
+      },
+      {
+        "phrase": "Have a bone to pick with sb",
+        "meaning_vi": "có chuyện bực mình để nói"
+      },
+      {
+        "phrase": "Make a case for sth",
+        "meaning_vi": "tranh luận cái gì tốt nhất để làm"
+      },
+      {
+        "phrase": "Make/set the fur fly",
+        "meaning_vi": "gây ra một vụ bất hòa"
+      },
+      {
+        "phrase": "Put/set the cat among the pigeons",
+        "meaning_vi": "nói, làm gì khiến sự việc thêm rắc rối, người khác thêm lo lắng"
+      }
+    ]
+  },
+  {
+    "topicId": 29,
+    "topicTitle": "Lesson 27: EVERYDAY VERBS",
+    "totalItems": 194,
+    "items": [
+      {
+        "phrase": "Without a break",
+        "meaning_vi": "không ngừng"
+      },
+      {
+        "phrase": "Make a break with sb",
+        "meaning_vi": "cắt đứt quan hệ với ai"
+      },
+      {
+        "phrase": "Get the breaks",
+        "meaning_vi": "gặp cơ hội thuận lợi, gặp may"
+      },
+      {
+        "phrase": "Break a record",
+        "meaning_vi": "phá ky lục"
+      },
+      {
+        "phrase": "Break the law",
+        "meaning_vi": "phạm luật"
+      },
+      {
+        "phrase": "Break one's promise (word) = break faith with sb",
+        "meaning_vi": "bội ước, không giữ lời hứa với ai"
+      },
+      {
+        "phrase": "Break the peace",
+        "meaning_vi": "làm rối trật tự chung"
+      },
+      {
+        "phrase": "Break one's mind to...",
+        "meaning_vi": "truyền đạt ý kiến của mình cho"
+      },
+      {
+        "phrase": "Break news",
+        "meaning_vi": "báo tin"
+      },
+      {
+        "phrase": "Break one's will",
+        "meaning_vi": "làm nhụt ý chí của ai"
+      },
+      {
+        "phrase": "Break one's heart",
+        "meaning_vi": "làm ai đau lòng"
+      },
+      {
+        "phrase": "Break a way",
+        "meaning_vi": "mở đường"
+      },
+      {
+        "phrase": "Break into tears",
+        "meaning_vi": "khóc oà lần"
+      },
+      {
+        "phrase": "Break from one's bonds",
+        "meaning_vi": "thoát khỏi sự ràng buộc của ai"
+      },
+      {
+        "phrase": "Break with sb",
+        "meaning_vi": "cắt đứt quan hệ với ai"
+      },
+      {
+        "phrase": "Break through obstacles",
+        "meaning_vi": "vượt qua mọi trở ngại"
+      },
+      {
+        "phrase": "Break the ice",
+        "meaning_vi": "bắt đầu làm quen với nhau; pha bỏ cái không khí ngượng ngập dè dặt ban đầu"
+      },
+      {
+        "phrase": "Break a habit = stop doing a habit",
+        "meaning_vi": "từ bỏ thói quen"
+      },
+      {
+        "phrase": "Come what may",
+        "meaning_vi": "dù có xảy ra việc gì, dù có thế nào, dù sự thể thế nào"
+      },
+      {
+        "phrase": "Comes true",
+        "meaning_vi": "trở thành sự thật"
+      },
+      {
+        "phrase": "Come into power",
+        "meaning_vi": "nắm chính quyền"
+      },
+      {
+        "phrase": "Come into fashion",
+        "meaning_vi": "thành mốt"
+      },
+      {
+        "phrase": "Come clean",
+        "meaning_vi": "thú nhận, nói hết"
+      },
+      {
+        "phrase": "Come natural to sb",
+        "meaning_vi": "không có gì khó khăn đối với ai"
+      },
+      {
+        "phrase": "Come short",
+        "meaning_vi": "không đạt được, thất bại"
+      },
+      {
+        "phrase": "Come to light",
+        "meaning_vi": "bại lộ, tiết lộ, cho thấy"
+      },
+      {
+        "phrase": "Come into force/effect = begin to have an effect",
+        "meaning_vi": "bắt đầu có hiệu lực"
+      },
+      {
+        "phrase": "Come to an end = be at an end",
+        "meaning_vi": "hoàn thành, kết thúc"
+      },
+      {
+        "phrase": "Come to terms with = learn to accept sb or st Come under attack/scrutiny 7 Come ciose :",
+        "meaning_vi": "học cách chấp nhận ai /cái gi bị tấn công/đò xét tiếp cận"
+      },
+      {
+        "phrase": "Come under fire",
+        "meaning_vi": "bị lên án, bị chỉ trích"
+      },
+      {
+        "phrase": "Catchacoid/theflu =",
+        "meaning_vi": "bị cảm lạnh /mắc cúm"
+      },
+      {
+        "phrase": "Catch fire = be on fire",
+        "meaning_vi": "bị cháy"
+      },
+      {
+        "phrase": "Catch sight of / catch a glimpse of",
+        "meaning_vi": "vô tình bắt gặp"
+      },
+      {
+        "phrase": "Catch one’s eye = make eye contact with sb",
+        "meaning_vi": "hấp dẫn, thu hút"
+      },
+      {
+        "phrase": "Catch the bus/train/subway",
+        "meaning_vi": "bắt xe buýt, tàu"
+      },
+      {
+        "phrase": "Catch one’s meaning",
+        "meaning_vi": "hiểu được ý ai muốn nói gì"
+      },
+      {
+        "phrase": "Catch a tune",
+        "meaning_vi": "thuộc và hát lại được ngay một điệu hát"
+      },
+      {
+        "phrase": "Be caught in the act Catch sb red-handed",
+        "meaning_vi": "bị bắt quả tang , bat qua tang"
+      },
+      {
+        "phrase": "Catch one’s breath",
+        "meaning_vi": "nin hoi, nin the"
+      },
+      {
+        "phrase": "Catch the public",
+        "meaning_vi": "lôi cuốn được công chúng"
+      },
+      {
+        "phrase": "Catch at an opportunity",
+        "meaning_vi": "chộp lấy cơ hội"
+      },
+      {
+        "phrase": "Catch one’s attention",
+        "meaning_vi": "gây chú ý"
+      },
+      {
+        "phrase": "Do/try one’s best",
+        "meaning_vi": "cố gắng hết sức mình"
+      },
+      {
+        "phrase": "Do damage (to)",
+        "meaning_vi": "gây hại đến"
+      },
+      {
+        "phrase": "Do an experiment",
+        "meaning_vi": "làm thí nghiệm"
+      },
+      {
+        "phrase": "Do exercises",
+        "meaning_vi": "làm bài tập, tập thể dục"
+      },
+      {
+        "phrase": "Do harm",
+        "meaning_vi": "có hại, gây hại"
+      },
+      {
+        "phrase": "Do sb a favor = do sb a good turn = give/lend sb a hand =help sb",
+        "meaning_vi": "giúp ai"
+      },
+      {
+        "phrase": "Do your hair",
+        "meaning_vi": "thay đối kiếu tóc, làm tóc"
+      },
+      {
+        "phrase": "Do homework/housework",
+        "meaning_vi": "làm bài tập về nhà/việc nhà"
+      },
+      {
+        "phrase": "Do the ironing / shopping / washing, etc.",
+        "meaning_vi": "ủi đồ, đi mua sắm, giặt giũ ."
+      },
+      {
+        "phrase": "Do research",
+        "meaning_vi": "nghiên cứu"
+      },
+      {
+        "phrase": "Do a / the crossword",
+        "meaning_vi": "giải ô chữ"
+      },
+      {
+        "phrase": "Do one's duty",
+        "meaning_vi": "làm, thực hiện nhiệm vụ"
+      },
+      {
+        "phrase": "Do sb good ;",
+        "meaning_vi": "làm lợi cho ai; làm điều tốt cho ai"
+      },
+      {
+        "phrase": "Do sb credit",
+        "meaning_vi": "làm ai nối tiếng ;"
+      },
+      {
+        "phrase": "Do one's room",
+        "meaning_vi": "thu don buồng"
+      },
+      {
+        "phrase": "Do the polite",
+        "meaning_vi": "lam ra về lễ phép"
+      },
+      {
+        "phrase": "Do sb out of st",
+        "meaning_vi": "lừa ai lấy cái gì"
+      },
+      {
+        "phrase": "Do an assignment",
+        "meaning_vi": "làm một nhiệm vụ được giao"
+      },
+      {
+        "phrase": "Do business",
+        "meaning_vi": "kinh doanh"
+      },
+      {
+        "phrase": "Do a course",
+        "meaning_vi": "theo một khóa học"
+      },
+      {
+        "phrase": "Do wrong",
+        "meaning_vi": "làm sai"
+      },
+      {
+        "phrase": "Do wonders/miracles",
+        "meaning_vi": "mang lại kết quả kì diệu"
+      },
+      {
+        "phrase": "Have/bear/keep in mind",
+        "meaning_vi": "hãy nhớ, ghi nhớ"
+      },
+      {
+        "phrase": "Have a great (good) mind to",
+        "meaning_vi": "mong muốn, có ý muốn"
+      },
+      {
+        "phrase": "Have hair a mind to do st",
+        "meaning_vi": "miễn cưỡng làm việc gì, làm gì đó mà không toàn tâm"
+      },
+      {
+        "phrase": "Have st on one’s mind",
+        "meaning_vi": "có cái gi đó bận tâm, có cái gi đó lẩn khuất trong tâm"
+      },
+      {
+        "phrase": "Have a try / go",
+        "meaning_vi": "thử"
+      },
+      {
+        "phrase": "Have a problem / problems {with}",
+        "meaning_vi": "gặp vấn đề, gặp khó khăn  ˆ"
+      },
+      {
+        "phrase": "Have difficulty (in) doing st/st",
+        "meaning_vi": "gặp khó khăn trong việc gì/làm gi"
+      },
+      {
+        "phrase": "Have a look",
+        "meaning_vi": "ngẫm nhn"
+      },
+      {
+        "phrase": "Have fun / a good time = have a blast |. . “Have afecling...00 000.",
+        "meaning_vi": "vui vẻ SỐ"
+      },
+      {
+        "phrase": "Have a relationship with sb",
+        "meaning_vi": "có mối quan hệ với ai"
+      },
+      {
+        "phrase": "Have a word with sb = speak te sb",
+        "meaning_vi": "nói chuyện với ai \""
+      },
+      {
+        "phrase": "Have sb do st = get sb to do st Have/get st done (by sb}",
+        "meaning_vi": "nhờ ai đó làm gì ˆ có cái gì được làm bởi ai"
+      },
+      {
+        "phrase": "Have breakfast OO",
+        "meaning_vi": "ăn sáng"
+      },
+      {
+        "phrase": "Give sb a present",
+        "meaning_vi": "tang qua ai"
+      },
+      {
+        "phrase": "Give sb one’s assurance st",
+        "meaning_vi": "dam bảo với ai điều gì ma"
+      },
+      {
+        "phrase": "Givea cry _—",
+        "meaning_vi": "kêu lên ma"
+      },
+      {
+        "phrase": "Give permission",
+        "meaning_vi": "cho phép"
+      },
+      {
+        "phrase": "Give birth to",
+        "meaning_vi": "sinh ra"
+      },
+      {
+        "phrase": "Give someone much trouble",
+        "meaning_vi": "gây lo lắng cho ai, gây phiền hà cho ai"
+      },
+      {
+        "phrase": "Give a concert",
+        "meaning_vi": "tổ chức một buổi hoà nhạc"
+      },
+      {
+        "phrase": "Give ground",
+        "meaning_vi": "nhượng bộ, lùi bước"
+      },
+      {
+        "phrase": "Give and take",
+        "meaning_vi": "sự có đi có lại"
+      },
+      {
+        "phrase": "Give sb a lift/ride",
+        "meaning_vi": "cho ai đó đi nhờ"
+      },
+      {
+        "phrase": "Give/lend sb a help",
+        "meaning_vi": "giúp ai đó"
+      },
+      {
+        "phrase": "Make bread",
+        "meaning_vi": "làm bánh ‘"
+      },
+      {
+        "phrase": "Make verses",
+        "meaning_vi": "lam tho"
+      },
+      {
+        "phrase": "Make the bed",
+        "meaning_vi": "don giường"
+      },
+      {
+        "phrase": "Make tea",
+        "meaning_vi": "pha tra"
+      },
+      {
+        "phrase": "Make money",
+        "meaning_vi": "kiém tién"
+      },
+      {
+        "phrase": "Make a profit",
+        "meaning_vi": "kiếm lãi"
+      },
+      {
+        "phrase": "Make a noise",
+        "meaning_vi": "làm ồn"
+      },
+      {
+        "phrase": "Make a fuss",
+        "meaning_vi": "làm ami"
+      },
+      {
+        "phrase": "Make a mess —",
+        "meaning_vi": "làm lộn xôn ;"
+      },
+      {
+        "phrase": "Make use of",
+        "meaning_vi": "tan dụng"
+      },
+      {
+        "phrase": "Make room for",
+        "meaning_vi": "don chỗ, nhường chỗ cho"
+      },
+      {
+        "phrase": "Make one's bow",
+        "meaning_vi": "cúi đầu chào"
+      },
+      {
+        "phrase": "Make as if",
+        "meaning_vi": "làm như thể, hành động như thể"
+      },
+      {
+        "phrase": "Make believe",
+        "meaning_vi": "gia vờ"
+      },
+      {
+        "phrase": "Make ends meet",
+        "meaning_vi": "du sống"
+      },
+      {
+        "phrase": "Make a fire",
+        "meaning_vi": "nhóm lứa ."
+      },
+      {
+        "phrase": "Make free with",
+        "meaning_vi": "tiếp đãi tự nhién không khách sáo"
+      },
+      {
+        "phrase": "Make friends with",
+        "meaning_vi": "kếtbanvới"
+      },
+      {
+        "phrase": "Make fun of",
+        "meaning_vi": "đùa cot, chế nhạo, giéu"
+      },
+      {
+        "phrase": "Make oneself at home",
+        "meaning_vi": "tự nhiên như ở nhà, không khách sao"
+      },
+      {
+        "phrase": "Make mountaiiis of molehiils",
+        "meaning_vi": "chuyén bé xé ra to"
+      },
+      {
+        "phrase": "Make a will",
+        "meaning_vi": "làm di chúc"
+      },
+      {
+        "phrase": "Make up one's: mind",
+        "meaning_vi": "quyết định"
+      },
+      {
+        "phrase": "Make progress",
+        "meaning_vi": "tiến bộ"
+      },
+      {
+        "phrase": "Make an effort to do st = try/attempt to do st",
+        "meaning_vi": "cố gắng làm gì"
+      },
+      {
+        "phrase": "Make arrangements for",
+        "meaning_vi": "sắp đặt, dàn xếp ,"
+      },
+      {
+        "phrase": "Make a change/changes",
+        "meaning_vi": "đổi mới"
+      },
+      {
+        "phrase": "Make a choice",
+        "meaning_vi": "chọn lựa"
+      },
+      {
+        "phrase": "Make a comment / comments (on)",
+        "meaning_vi": "bình luận, chú giải"
+      },
+      {
+        "phrase": "Make a contribution to ;",
+        "meaning_vi": "góp phần vào"
+      },
+      {
+        "phrase": "Make a decision",
+        "meaning_vi": "quyết định a"
+      },
+      {
+        "phrase": "Make {something} out to be",
+        "meaning_vi": "khẳng định"
+      },
+      {
+        "phrase": "Make a phone cali",
+        "meaning_vi": "gọi điện thoại 1a"
+      },
+      {
+        "phrase": "Make noise",
+        "meaning_vi": "làm ồn ¬a"
+      },
+      {
+        "phrase": "Make a promise",
+        "meaning_vi": "hứa ma"
+      },
+      {
+        "phrase": "Make an inquiry /inquiries",
+        "meaning_vi": "đòi hỏi, yêu cầu, hồi để biết"
+      },
+      {
+        "phrase": "Make a speech",
+        "meaning_vi": "đọcdiễnvăn 7"
+      },
+      {
+        "phrase": "Make a plan/plans",
+        "meaning_vi": "lên kế hoạch"
+      },
+      {
+        "phrase": "Make a demand/demands (on)",
+        "meaning_vi": "đòi hôi 7"
+      },
+      {
+        "phrase": "‘Make an exception",
+        "meaning_vi": "tạo ngoại lệ, cho phép một ngoại lệ"
+      },
+      {
+        "phrase": "Make a wish",
+        "meaning_vi": "ước"
+      },
+      {
+        "phrase": "Make a bargain for St/with Sb",
+        "meaning_vi": "mặc cả vs ai về cái gì"
+      },
+      {
+        "phrase": "Make amends to sb for st",
+        "meaning_vi": "bồi thường về cái gì"
+      },
+      {
+        "phrase": "Make a complaint",
+        "meaning_vi": "phàn nàn, khiếu kiện, khiếu nại"
+      },
+      {
+        "phrase": "Make an appointment",
+        "meaning_vi": "thu xếp một cuộc hẹn ˆ"
+      },
+      {
+        "phrase": "Make an announcement",
+        "meaning_vi": "thông báo"
+      },
+      {
+        "phrase": "Make 2 comparison",
+        "meaning_vi": "so sánh"
+      },
+      {
+        "phrase": "Make a difference",
+        "meaning_vi": "tạo sự khác biệt"
+      },
+      {
+        "phrase": "Make an excuse",
+        "meaning_vi": "viện cớ"
+      },
+      {
+        "phrase": "Make a law",
+        "meaning_vi": "thông qua đạo luật"
+      },
+      {
+        "phrase": "Make preparation for",
+        "meaning_vi": "chuẩn bị cho"
+      },
+      {
+        "phrase": "Make a start",
+        "meaning_vi": "khởi hành :"
+      },
+      {
+        "phrase": "Make a suggestion",
+        "meaning_vi": "đề nghị"
+      },
+      {
+        "phrase": "Make adjustments",
+        "meaning_vi": "điều chỉnh"
+      },
+      {
+        "phrase": "Make alterations",
+        "meaning_vi": "thay đối"
+      },
+      {
+        "phrase": "Make modifications = make tweaks",
+        "meaning_vi": "sửa đổi"
+      },
+      {
+        "phrase": "Make small talk",
+        "meaning_vi": "cuộc nói chuyện ngắn"
+      },
+      {
+        "phrase": "Put the blame on sb",
+        "meaning_vi": "đố tội lên đầu ai"
+      },
+      {
+        "phrase": "Put sb up",
+        "meaning_vi": "cho ai đó ở nhờ"
+      },
+      {
+        "phrase": "Put up with",
+        "meaning_vi": "chịu đựng"
+      },
+      {
+        "phrase": "Put a tax on st",
+        "meaning_vi": "đánh thuế vào cái gì"
+      },
+      {
+        "phrase": "Put st into practice",
+        "meaning_vi": "áp dụng cái gì vào thực tiễn"
+      },
+      {
+        "phrase": "Put sb in one’s guard",
+        "meaning_vi": "làm cho ai phải cảnh giác đề phòng"
+      },
+      {
+        "phrase": "Put sb at one’s ease",
+        "meaning_vi": "làm cho ai thoải mái"
+      },
+      {
+        "phrase": "Put to shame Put to the blush",
+        "meaning_vi": "làm xấu hố làm thẹn đỏ mặt"
+      },
+      {
+        "phrase": "Put a stop to",
+        "meaning_vi": "làm ngừng lại, ngừng, ngừng lại; chấm dứt"
+      },
+      {
+        "phrase": "Put much value on",
+        "meaning_vi": "đánh giá cao (cái gì)"
+      },
+      {
+        "phrase": "Put pressure onsb",
+        "meaning_vi": "gây áp lực cho ai"
+      },
+      {
+        "phrase": "Take a bus",
+        "meaning_vi": "đi xe buýt"
+      },
+      {
+        "phrase": "Take a seat",
+        "meaning_vi": "ngồi vào chỗ"
+      },
+      {
+        "phrase": "Take notes = jot down",
+        "meaning_vi": "ghi chép"
+      },
+      {
+        "phrase": "Take notice of",
+        "meaning_vi": "chú ý"
+      },
+      {
+        "phrase": "Take a photograph of sb",
+        "meaning_vi": "chụp ảnh ai"
+      },
+      {
+        "phrase": "Take/have a bath",
+        "meaning_vi": "đi tam"
+      },
+      {
+        "phrase": "Take the opportunity",
+        "meaning_vi": "lợi dụng cơ hội, nắm lấy cơ hội"
+      },
+      {
+        "phrase": "Take/assume responsibility for = take charge of",
+        "meaning_vi": "chịu trách nhiệm cho cái gì"
+      },
+      {
+        "phrase": "Take a degree at the university",
+        "meaning_vi": "tốt nghiệp đại học"
+      },
+      {
+        "phrase": "‘Take turns",
+        "meaning_vi": "lần lượt, thay phiên"
+      },
+      {
+        "phrase": "Take one’s place",
+        "meaning_vi": "thế chỗ ai 7:"
+      },
+      {
+        "phrase": "Take a test/quiz/exam",
+        "meaning_vi": "có bài kiểm tra /bài thi ị"
+      },
+      {
+        "phrase": "Take it easy",
+        "meaning_vi": "đơn giản hóa di/bé qua, di/fnghingot \""
+      },
+      {
+        "phrase": "Take the lead in doing st",
+        "meaning_vi": "đi đầu trong việc gì"
+      },
+      {
+        "phrase": "Take something for granted — - Take action ne Take advantage st 7",
+        "meaning_vi": "cơi cái gì là đương nhiên | hành động  ””” lợi dụng tận dụng  ¿"
+      },
+      {
+        "phrase": "Take effect “Takeinterestin. 000.",
+        "meaning_vi": "có hiệu lực"
+      },
+      {
+        "phrase": "Take offence",
+        "meaning_vi": "thất vọng, phật ý ma"
+      },
+      {
+        "phrase": "Take a pity on sb",
+        "meaning_vi": "thông cảm cho ai —"
+      },
+      {
+        "phrase": "Take a view /attitude",
+        "meaning_vi": "có quan điểm /thái độ -"
+      },
+      {
+        "phrase": "Take si as a corapliment Take st as an insult",
+        "meaning_vi": "xem cái gì như lời khen"
+      },
+      {
+        "phrase": "Take st into account/consideration",
+        "meaning_vi": "xem xét, cân nhắc a"
+      },
+      {
+        "phrase": "Take steps :",
+        "meaning_vi": "thực hiện các bước ="
+      },
+      {
+        "phrase": "Take care of = look after",
+        "meaning_vi": "chăm sóc"
+      },
+      {
+        "phrase": "Take colour with sb ,",
+        "meaning_vi": "đứng hẳn về phe ai _ Ỉ"
+      },
+      {
+        "phrase": "Take drastic measures",
+        "meaning_vi": "dùng những biện pháp quyết | liệt"
+      },
+      {
+        "phrase": "Take exception to st",
+        "meaning_vi": "phản đối việc gì, chống việc | ai"
+      },
+      {
+        "phrase": "Take kindiy to one’s duties",
+        "meaning_vi": "bắt tay làm nhiệm vụ một cách dễ dàng"
+      },
+      {
+        "phrase": "Take land on lease",
+        "meaning_vi": "thuê, mướn một miếng đất"
+      },
+      {
+        "phrase": "Take hold of one's ideas",
+        "meaning_vi": "hiểu được tư. tưởng của mình"
+      },
+      {
+        "phrase": "Pay a visit to sb/st = visit sb/st",
+        "meaning_vi": "đến thăm ai/cái gì"
+      },
+      {
+        "phrase": "Pay one's last respects to sb",
+        "meaning_vi": "đến chào/tiễn biệt ai ( người chất)"
+      },
+      {
+        "phrase": "Pay someone a compliment = compliment sb",
+        "meaning_vi": "ngỏ lời khen ngợi, ca tụng ai"
+      },
+      {
+        "phrase": "Pay attention to st :",
+        "meaning_vi": "chú ý tới điều gì"
+      },
+      {
+        "phrase": "Pay the deposit of money",
+        "meaning_vi": "đặt cọc"
+      },
+      {
+        "phrase": "Pay tribute to",
+        "meaning_vi": "bày tỏ lòng kính trọng"
+      },
+      {
+        "phrase": "Pay one’s way",
+        "meaning_vi": "tự túc bằng tiền mình kiếm được, không mang công mắc nợ"
+      },
+      {
+        "phrase": "Pay through the nose (for st)",
+        "meaning_vi": "trả một giá quá đắt"
+      },
+      {
+        "phrase": "Pay a/ the price (for st)",
+        "meaning_vi": "trả giá (cho điều gì)"
+      }
+    ]
+  }
+];
+}

@@ -268,6 +268,7 @@
             <button onclick="changeMissionDay(1)" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 font-semibold flex items-center gap-1 border border-slate-700 transition" title="Tiến tới 1 ngày">
               Ngày kế <i data-lucide="chevron-right" class="w-4 h-4"></i>
             </button>
+            <div id="returnTodayBtnContainer_today" class="flex items-center"></div>
           </div>
 
           <div class="flex items-center gap-2">
@@ -719,6 +720,7 @@
             <button type="button" onclick="changeMissionDay(1)" class="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition active:scale-95" title="Chuyển sang ngày học tiếp theo">
               <i data-lucide="chevron-right" class="w-4 h-4"></i>
             </button>
+            <div id="returnTodayBtnContainer_flashcard" class="flex items-center"></div>
           </div>
 
           <button onclick="openAddWordModal()" class="px-3 py-2 rounded-xl bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white text-xs font-bold border border-emerald-500/40 transition flex items-center gap-1.5 shadow active:scale-95" title="Tra cứu từ điển và thêm từ mới vào ngày này">
@@ -2628,19 +2630,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=57.0"></script>
-  <script src="./listening_data.js?v=57.0"></script>
-  <script src="./vietnam_today_data.js?v=57.0"></script>
-  <script src="./educational_channels_data.js?v=57.0"></script>
-  <script src="./international_news_videos.js?v=57.0"></script>
-  <script src="./bilingual_news_data.js?v=57.0"></script>
-  <script src="./reading_lexicon.js?v=57.0"></script>
-  <script src="./app.js?v=57.0"></script>
+  <script src="./data.js?v=58.0"></script>
+  <script src="./listening_data.js?v=58.0"></script>
+  <script src="./vietnam_today_data.js?v=58.0"></script>
+  <script src="./educational_channels_data.js?v=58.0"></script>
+  <script src="./international_news_videos.js?v=58.0"></script>
+  <script src="./bilingual_news_data.js?v=58.0"></script>
+  <script src="./reading_lexicon.js?v=58.0"></script>
+  <script src="./app.js?v=58.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=57.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=58.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

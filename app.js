@@ -1052,61 +1052,175 @@ function initDailyMissionEngine() {
 }
 
 
+// ============================================================================
+// HỆ THỐNG XÁC ĐỊNH NGÀY HỌC HÔM NAY & LỊCH TRÌNH CỤ THỂ TỪNG NGÀY
+// ============================================================================
+
+// 1. Xác định ngày học chính thức của HÔM NAY (Official Target Day for Today)
+function getOfficialTodayDay() {
+  const total = getTotalMissionDays() || 90;
+  const now = new Date();
+  const todayStr = now.toISOString().split("T")[0];
+
+  // Tìm ngày hoàn thành cao nhất
+  let maxCompleted = 0;
+  for (let d = 1; d <= total; d++) {
+    const st = getDayMissionStatus(d);
+    if (st.isAllDone) maxCompleted = d;
+  }
+
+  const streak = (typeof getDeadlineStreakData === "function") ? getDeadlineStreakData() : { completedToday: false, lastCompletedDate: "" };
+
+  // Nếu hôm nay đã tick hoàn thành ngày cao nhất:
+  if (streak.lastCompletedDate === todayStr && maxCompleted >= 1) {
+    return maxCompleted;
+  }
+
+  // Nếu chưa xong ngày hôm nay: ngày mục tiêu chính là maxCompleted + 1
+  return Math.min(total, Math.max(1, maxCompleted + 1));
+}
+
+// 2. Tính ngày dương lịch cụ thể cho bất kỳ Day nào (từ Ngày 1 đến Ngày 90)
+function getCalendarDateForDay(dayNum) {
+  const officialToday = getOfficialTodayDay();
+  const now = new Date();
+  const todayZero = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  const d = parseInt(dayNum) || 1;
+  const diffDays = d - officialToday;
+  const targetDate = new Date(todayZero.getTime() + diffDays * 86400000);
+
+  const daysVi = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
+  const dName = daysVi[targetDate.getDay()];
+  const dd = String(targetDate.getDate()).padStart(2, "0");
+  const mm = String(targetDate.getMonth() + 1).padStart(2, "0");
+  const yyyy = targetDate.getFullYear();
+
+  return {
+    dateObj: targetDate,
+    formattedShort: `${dd}/${mm}/${yyyy}`,
+    formattedFull: `${dName}, ${dd}/${mm}/${yyyy}`,
+    isToday: (diffDays === 0),
+    isPast: (diffDays < 0),
+    isFuture: (diffDays > 0)
+  };
+}
+
+// 3. Render danh sách Option cho Dropdown Chọn Ngày kèm ngày cụ thể & deadline rõ ràng
+function populateMissionDaySelectOptions(sel, selectedDay) {
+  if (!sel) return;
+  const total = getTotalMissionDays() || 90;
+  const officialToday = getOfficialTodayDay();
+  const selDay = parseInt(selectedDay) || officialToday;
+
+  let optHtml = "";
+  for (let i = 1; i <= total; i++) {
+    const cal = getCalendarDateForDay(i);
+    const st = getDayMissionStatus(i);
+    const isSel = (i === selDay) ? "selected" : "";
+
+    // 4 nhiệm vụ: Từ vựng, Bài đọc, Ngữ pháp, Bài nghe
+    let statusText = "";
+    let icon = "";
+
+    if (st.isAllDone) {
+      icon = "✓ ";
+      statusText = "(Đã xong 4/4 ✓)";
+    } else if (st.completedCount > 0) {
+      icon = "⏳ ";
+      statusText = `(${st.completedCount}/4)`;
+    } else {
+      icon = "";
+      statusText = "(0/4)";
+    }
+
+    if (i === officialToday) {
+      const todayTag = st.isAllDone ? "[★ HÔM NAY - ĐÃ XONG 4/4 ✓]" : "[★ HÔM NAY - DEADLINE CẦN LÀM]";
+      optHtml += `<option value="${i}" ${isSel} class="font-bold text-amber-300 bg-slate-900">🎯 Ngày ${i} ${todayTag} (${cal.formattedShort}): ${statusText}</option>`;
+    } else if (i < officialToday) {
+      const pastTag = st.isAllDone ? "[Ngày cũ - Đã xong]" : "[Ngày cũ - Cần bù]";
+      optHtml += `<option value="${i}" ${isSel} class="text-slate-300 bg-slate-950">${icon}Ngày ${i} (${cal.formattedShort}) ${pastTag}: ${statusText}</option>`;
+    } else {
+      const futureTag = st.isAllDone ? "[Đã học vượt 4/4 ✓]" : "[Học vượt]";
+      optHtml += `<option value="${i}" ${isSel} class="text-cyan-300 bg-slate-950">🚀 Ngày ${i} (${cal.formattedShort}) ${futureTag}: ${statusText}</option>`;
+    }
+  }
+  sel.innerHTML = optHtml;
+  sel.value = String(selDay);
+}
+
 function updateFlashcardBanner(dayNum) {
-  const curDay = dayNum || missionRegistry.currentDay || 1;
-  const info = getDailyAssignedVocab(curDay);
+  const officialToday = getOfficialTodayDay();
+  const curDay = dayNum || missionRegistry.currentDay || officialToday;
+  const dayCal = getCalendarDateForDay(curDay);
+  const officialCal = getCalendarDateForDay(officialToday);
   const curStatus = getDayMissionStatus(curDay);
+  const info = getDailyAssignedVocab(curDay);
 
   const titleEl = document.getElementById("currentUnitTitle");
   if (titleEl) titleEl.innerText = info.unitTitle;
 
   const dayBadge = document.getElementById("currentDayBadge");
-  if (dayBadge) dayBadge.innerText = `Ngày ${curDay}`;
+  if (dayBadge) {
+    if (curDay === officialToday) {
+      dayBadge.className = "text-xs px-2.5 py-0.5 rounded-md bg-emerald-500/30 text-emerald-300 font-extrabold border border-emerald-400/60 ring-1 ring-emerald-400";
+      dayBadge.innerHTML = `🎯 Ngày ${curDay} [HÔM NAY]`;
+    } else if (curDay < officialToday) {
+      dayBadge.className = "text-xs px-2.5 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/40";
+      dayBadge.innerHTML = `📁 Ngày ${curDay} (${dayCal.formattedShort} - Ôn lại)`;
+    } else {
+      dayBadge.className = "text-xs px-2.5 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/40";
+      dayBadge.innerHTML = `🚀 Ngày ${curDay} (${dayCal.formattedShort} - Học vượt)`;
+    }
+  }
 
   // Sync day selects on both Today tab and Flashcard banner
   const sel1 = document.getElementById("missionDaySelect");
   const sel2 = document.getElementById("flashcardMissionDaySelect");
-  const total = getTotalMissionDays();
-
   [sel1, sel2].forEach(sel => {
-    if (!sel) return;
-    if (sel.options.length !== total) {
-      let optHtml = "";
-      for (let i = 1; i <= total; i++) {
-        const st = getDayMissionStatus(i);
-        const icon = st.vocabDone ? "✓ " : (st.vocabCount > 0 ? "⏳ " : "");
-        optHtml += `<option value="${i}">${icon}Ngày ${i} ${st.vocabDone ? '(Đã xong 20/20)' : (st.vocabCount > 0 ? '(' + st.vocabCount + '/20 từ)' : '')}</option>`;
-      }
-      sel.innerHTML = optHtml;
-    }
-    sel.value = String(curDay);
+    if (sel) populateMissionDaySelectOptions(sel, curDay);
   });
 
-  // Dynamic Deadline Badge
+  // Dynamic Deadline Badge on Flashcard banner
   const dlBadge = document.getElementById("dailyMissionDeadlineBadge");
   const dlText = document.getElementById("dailyMissionDeadlineBadgeText");
-
-  // Determine highest completed day
-  let maxCompletedDay = 0;
-  for (let i = 1; i <= total; i++) {
-    if (getDayMissionStatus(i).vocabDone) maxCompletedDay = i;
-  }
-  const expectedToday = Math.min(total, maxCompletedDay + 1);
-
   if (dlBadge && dlText) {
-    if (curStatus.vocabDone) {
-      dlBadge.className = "text-[10px] px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase border border-emerald-500/40 flex items-center gap-1";
-      dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="check-circle" class="w-3 h-3 text-emerald-400"></i> ĐÃ HOÀN THÀNH 20/20 (ÔN TẬP LẶP LẠI)</span>`;
-    } else if (curDay > expectedToday) {
-      dlBadge.className = "text-[10px] px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold uppercase border border-cyan-500/40 flex items-center gap-1";
-      dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3 text-amber-300"></i> ĐANG HỌC VƯỢT NGÀY ${curDay}</span>`;
-    } else if (curDay < expectedToday) {
-      dlBadge.className = "text-[10px] px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold uppercase border border-indigo-500/40 flex items-center gap-1";
-      dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="refresh-cw" class="w-3 h-3 text-indigo-400"></i> ÔN TẬP LẶP LẠI (NGÀY ${curDay})</span>`;
+    if (curDay === officialToday) {
+      if (curStatus.isAllDone) {
+        dlBadge.className = "text-[11px] px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase border border-emerald-500/40 flex items-center gap-1";
+        dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> ĐÃ XONG 4/4 DEADLINE HÔM NAY (${officialCal.formattedShort})</span>`;
+      } else {
+        dlBadge.className = "text-[11px] px-2.5 py-0.5 rounded bg-emerald-500/30 text-emerald-300 font-extrabold uppercase border border-emerald-400 flex items-center gap-1 animate-pulse ring-1 ring-emerald-400/50";
+        dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="target" class="w-3.5 h-3.5 text-amber-300"></i> ĐÚNG DEADLINE HÔM NAY (${officialCal.formattedShort}) • CẦN LÀM ĐỂ GIỮ CHUỖI</span>`;
+      }
+    } else if (curDay < officialToday) {
+      dlBadge.className = "text-[11px] px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold uppercase border border-indigo-500/40 flex items-center gap-1";
+      dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-indigo-400"></i> ĐANG ÔN LẠI NGÀY CŨ (${dayCal.formattedShort}) • KHÔNG PHẢI DEADLINE HÔM NAY (Hôm nay: Ngày ${officialToday})</span>`;
     } else {
-      dlBadge.className = "text-[10px] px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase border border-emerald-500/40 flex items-center gap-1 animate-pulse";
-      dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="target" class="w-3 h-3 text-emerald-400"></i> DEADLINE HÔM NAY</span>`;
+      dlBadge.className = "text-[11px] px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold uppercase border border-cyan-500/40 flex items-center gap-1";
+      dlText.innerHTML = `<span class="flex items-center gap-1"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-300"></i> ĐANG HỌC VƯỢT TIẾN ĐỘ (${dayCal.formattedShort}) • HÔM NAY CHÍNH THỨC LÀ NGÀY ${officialToday}</span>`;
     }
+  }
+
+  // Update Return-to-Today button containers
+  const retFc = document.getElementById("returnTodayBtnContainer_flashcard");
+  if (retFc) {
+    retFc.innerHTML = (curDay !== officialToday)
+      ? `<button type="button" onclick="jumpToMissionDay(${officialToday})" class="px-2.5 py-1 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-[11px] font-bold transition flex items-center gap-1.5 shadow-md shadow-emerald-900/40 animate-pulse border border-emerald-400" title="Trở về đúng ngày deadline hôm nay"><i data-lucide="target" class="w-3.5 h-3.5 text-amber-300"></i><span>Về Ngày ${officialToday} Hôm Nay</span></button>`
+      : `<span class="px-2 py-0.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i><span>Đang ở Ngày Hôm Nay</span></span>`;
+  }
+  const retToday = document.getElementById("returnTodayBtnContainer_today");
+  if (retToday) {
+    retToday.innerHTML = (curDay !== officialToday)
+      ? `<button type="button" onclick="jumpToMissionDay(${officialToday})" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-emerald-900/40 animate-pulse border border-emerald-400" title="Trở về đúng ngày deadline hôm nay"><i data-lucide="target" class="w-3.5 h-3.5 text-amber-300"></i><span>Về Ngày ${officialToday} Hôm Nay</span></button>`
+      : `<span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i><span>Đang ở Ngày Hôm Nay</span></span>`;
+  }
+
+  const progressInfo = document.getElementById("unitProgressInfo");
+  if (progressInfo) {
+    progressInfo.innerHTML = `
+      <span class="text-slate-300 font-medium">Lịch học: <strong class="text-white">${dayCal.formattedFull}</strong> • Tiến độ: <strong class="text-amber-300 font-bold">${curStatus.vocabCount || 0} / 20 từ</strong> (${curStatus.vocabDone ? '✓ Đã xong' : 'Chưa xong'})</span>
+    `;
   }
 
   if (window.lucide) lucide.createIcons();
@@ -1144,7 +1258,16 @@ function jumpToMissionDay(dayNum) {
   if (typeof tickDeadlineCountdown === "function") {
     tickDeadlineCountdown();
   }
-  showToast(`🚀 Lộ trình: Đang ở Ngày ${d} / ${total} • ${info.unitTitle}`, "info");
+
+  const officialToday = getOfficialTodayDay();
+  const dayCal = getCalendarDateForDay(d);
+  if (d === officialToday) {
+    showToast(`🎯 Đang làm đúng Deadline Hôm Nay: Ngày ${d} (${dayCal.formattedShort})`, "success");
+  } else if (d < officialToday) {
+    showToast(`📁 Đang xem lại Ngày Cũ: Ngày ${d} (${dayCal.formattedShort}) • Deadline hôm nay là Ngày ${officialToday}`, "info");
+  } else {
+    showToast(`🚀 Đang Học Vượt: Ngày ${d} (${dayCal.formattedShort}) • Lịch hôm nay là Ngày ${officialToday}`, "info");
+  }
 }
 
 function changeMissionDay(delta) {
@@ -1329,91 +1452,147 @@ function completeGrammarMission() {
 
 function updateDailyMissionUI() {
   const totalDays = getTotalMissionDays();
-  const curDay = missionRegistry.currentDay;
+  const officialToday = getOfficialTodayDay();
+  const curDay = missionRegistry.currentDay || officialToday;
   const curStatus = getDayMissionStatus(curDay);
+  const dayCal = getCalendarDateForDay(curDay);
+  const officialCal = getCalendarDateForDay(officialToday);
 
   const badge = document.getElementById("dailyMissionBadge");
-  if (badge) badge.innerText = `Ngày ${curDay} / ${totalDays}`;
+  if (badge) badge.innerText = `Ngày ${curDay} / ${totalDays} (${dayCal.formattedShort})`;
 
-  // Populate or sync day select dropdown
+  // Populate & sync day select dropdowns
   const daySel = document.getElementById("missionDaySelect");
-  if (daySel) {
-    if (daySel.options.length !== totalDays) {
-      let optHtml = "";
-      for (let i = 1; i <= totalDays; i++) {
-        const st = getDayMissionStatus(i);
-        const icon = st.isAllDone ? "✓ " : (st.completedCount > 0 ? "⏳ " : "");
-        optHtml += `<option value="${i}">${icon}Ngày ${i} ${st.isAllDone ? '(Đã xong 3/3)' : (st.completedCount > 0 ? '(' + st.completedCount + '/3)' : '')}</option>`;
-      }
-      daySel.innerHTML = optHtml;
-    }
-    daySel.value = String(curDay);
+  if (daySel) populateMissionDaySelectOptions(daySel, curDay);
+  const fcSel = document.getElementById("flashcardMissionDaySelect");
+  if (fcSel) populateMissionDaySelectOptions(fcSel, curDay);
+
+  // Return-to-Today Buttons
+  const retFc = document.getElementById("returnTodayBtnContainer_flashcard");
+  if (retFc) {
+    retFc.innerHTML = (curDay !== officialToday)
+      ? `<button type="button" onclick="jumpToMissionDay(${officialToday})" class="px-2.5 py-1 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-[11px] font-bold transition flex items-center gap-1.5 shadow-md shadow-emerald-900/40 animate-pulse border border-emerald-400" title="Trở về đúng ngày deadline hôm nay"><i data-lucide="target" class="w-3.5 h-3.5 text-amber-300"></i><span>Về Ngày ${officialToday} Hôm Nay</span></button>`
+      : `<span class="px-2 py-0.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i><span>Đang ở Ngày Hôm Nay</span></span>`;
+  }
+  const retToday = document.getElementById("returnTodayBtnContainer_today");
+  if (retToday) {
+    retToday.innerHTML = (curDay !== officialToday)
+      ? `<button type="button" onclick="jumpToMissionDay(${officialToday})" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-emerald-900/40 animate-pulse border border-emerald-400" title="Trở về đúng ngày deadline hôm nay"><i data-lucide="target" class="w-3.5 h-3.5 text-amber-300"></i><span>Về Ngày ${officialToday} Hôm Nay</span></button>`
+      : `<span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i><span>Đang ở Ngày Hôm Nay</span></span>`;
   }
 
   // 1. Notice Area at Top of Missions
   const noticeArea = document.getElementById("todayStatusNoticeArea");
   if (noticeArea) {
-    if (curStatus.isAllDone) {
+    if (curDay === officialToday) {
+      if (curStatus.isAllDone) {
+        noticeArea.innerHTML = `
+          <div class="p-4 rounded-xl bg-gradient-to-r from-emerald-950/80 via-emerald-900/60 to-slate-900 border-2 border-emerald-500/80 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg shadow-emerald-950/50">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/25 text-emerald-300 flex items-center justify-center shrink-0 border border-emerald-500/50">
+                <i data-lucide="check-check" class="w-6 h-6 text-emerald-400"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/30 text-emerald-300 font-extrabold text-[11px] border border-emerald-400/50 flex items-center gap-1">
+                    <i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-400"></i> HOÀN THÀNH 100% DEADLINE HÔM NAY
+                  </span>
+                  <span class="text-xs text-emerald-400 font-semibold">${officialCal.formattedFull}</span>
+                </div>
+                <h3 class="font-black text-white text-base sm:text-lg mt-0.5">
+                  🎉 Tuyệt vời! Bạn đã hoàn thành toàn bộ 4/4 nhiệm vụ Ngày ${curDay} hôm nay!
+                </h3>
+                <p class="text-xs text-slate-300 mt-0.5">
+                  Toàn bộ tiến độ Từ vựng, Bài đọc, Ngữ pháp và Bài nghe đã hoàn tất. Chuỗi Streak 🔥 được bảo toàn an toàn! Bạn có thể bấm <strong class="text-cyan-300 font-bold">🚀 Học Vượt</strong> sang Ngày ${curDay + 1} để làm trước lộ trình.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="advanceToNextDay()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-cyan-600/40 transition">
+                <i data-lucide="zap" class="w-4 h-4 fill-amber-300 text-amber-300"></i> Học Vượt Ngày ${curDay + 1}
+              </button>
+            </div>
+          </div>
+        `;
+      } else {
+        noticeArea.innerHTML = `
+          <div class="p-3.5 rounded-xl bg-gradient-to-r from-amber-950/60 via-slate-900 to-slate-900 border-2 border-amber-500/70 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 rounded-full bg-amber-400 animate-ping shrink-0"></span>
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-0.5 rounded-full bg-amber-500/30 text-amber-300 font-extrabold text-[11px] border border-amber-400/50 flex items-center gap-1">
+                    <i data-lucide="target" class="w-3.5 h-3.5 text-amber-300"></i> ĐÚNG DEADLINE HÔM NAY: NGÀY ${officialToday}
+                  </span>
+                  <span class="text-xs text-slate-300 font-medium">📅 ${officialCal.formattedFull}</span>
+                </div>
+                <p class="text-xs text-slate-200 mt-1 font-semibold">
+                  Tiến độ: <strong class="text-amber-300 font-bold">${curStatus.completedCount} / 4 nhiệm vụ</strong> (${Math.round((curStatus.completedCount / 4) * 100)}%) • Cần làm đủ 4/4 trước 23:59:59 đêm nay để duy trì chuỗi Streak!
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-medium flex-wrap">
+              <span class="${curStatus.vocabDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">${curStatus.vocabDone ? '✓ 20 Từ vựng' : '○ 20 Từ vựng'}</span>
+              <span class="text-slate-600">•</span>
+              <span class="${curStatus.readingDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">${curStatus.readingDone ? '✓ Đọc hiểu' : '○ Đọc hiểu'}</span>
+              <span class="text-slate-600">•</span>
+              <span class="${curStatus.grammarDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">${curStatus.grammarDone ? '✓ Ngữ pháp' : '○ Ngữ pháp'}</span>
+              <span class="text-slate-600">•</span>
+              <span class="${curStatus.listeningDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">${curStatus.listeningDone ? '✓ Luyện nghe' : '○ Luyện nghe'}</span>
+            </div>
+          </div>
+        `;
+      }
+    } else if (curDay < officialToday) {
       noticeArea.innerHTML = `
-        <div class="p-4 rounded-xl bg-gradient-to-r from-emerald-950/80 via-emerald-900/60 to-slate-900 border-2 border-emerald-500/80 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg shadow-emerald-950/50">
+        <div class="p-3.5 rounded-xl bg-gradient-to-r from-indigo-950/70 via-slate-900 to-slate-900 border-2 border-indigo-500/60 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
           <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-xl bg-emerald-500/25 text-emerald-300 flex items-center justify-center shrink-0 border border-emerald-500/50">
-              <i data-lucide="check-check" class="w-6 h-6 text-emerald-400"></i>
+            <div class="w-9 h-9 rounded-xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center shrink-0 border border-indigo-500/40">
+              <i data-lucide="history" class="w-5 h-5 text-indigo-400"></i>
             </div>
             <div>
-              <div class="flex items-center gap-2">
-                <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/30 text-emerald-300 font-extrabold text-[11px] border border-emerald-400/50 flex items-center gap-1">
-                  <i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-400"></i> HOÀN THÀNH 100%
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2.5 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 font-extrabold text-[11px] border border-indigo-400/50 flex items-center gap-1">
+                  <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-indigo-300"></i> ĐANG XEM LẠI NGÀY CŨ: NGÀY ${curDay} (${dayCal.formattedShort})
                 </span>
-                <span class="text-xs text-emerald-400 font-semibold">Lộ trình Ngày ${curDay} / ${totalDays}</span>
+                <span class="text-xs text-amber-300 font-bold">⚠️ KHÔNG PHẢI DEADLINE HÔM NAY</span>
               </div>
-              <h3 class="font-black text-white text-base sm:text-lg mt-0.5">
-                🎉 Tuyệt vời! Bạn đã hoàn thành toàn bộ 3 nhiệm vụ hôm nay!
-              </h3>
-              <p class="text-xs text-slate-300 mt-0.5">
-                Toàn bộ tiến độ Từ vựng, Bài đọc và Ngữ pháp đã được lưu trữ vĩnh viễn. Bạn có thể bấm <strong class="text-amber-300 font-bold">🚀 Học Vượt</strong> sang Ngày ${curDay + 1} hoặc <strong class="text-cyan-300 font-bold">🔄 Ôn Tập Dần Dần</strong>!
+              <p class="text-xs text-slate-300 mt-1">
+                Bạn đang ôn tập lại bài của Ngày ${curDay}. Ngày hôm nay chính thức theo lộ trình là <strong class="text-emerald-400 font-bold">Ngày ${officialToday} (${officialCal.formattedFull})</strong>.
               </p>
             </div>
           </div>
           <div class="flex items-center gap-2 shrink-0">
-            <button onclick="advanceToNextDay()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-indigo-600/40 transition">
-              <i data-lucide="zap" class="w-4 h-4 fill-amber-300 text-amber-300"></i> Học Vượt Ngày ${curDay + 1}
+            <button onclick="jumpToMissionDay(${officialToday})" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-950/50 transition animate-pulse border border-emerald-400">
+              <i data-lucide="target" class="w-4 h-4 text-amber-300"></i> Quay Về Ngày ${officialToday} Hôm Nay
             </button>
-          </div>
-        </div>
-      `;
-    } else if (curStatus.completedCount > 0) {
-      noticeArea.innerHTML = `
-        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-amber-500/40 text-white flex flex-col sm:flex-row items-center justify-between gap-2.5 shadow-md">
-          <div class="flex items-center gap-2.5">
-            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
-            <span class="text-xs font-bold text-amber-300">
-              Tiến độ Ngày ${curDay} hôm nay: Đã xong ${curStatus.completedCount} / 3 nhiệm vụ (${Math.round((curStatus.completedCount / 3) * 100)}%)
-            </span>
-          </div>
-          <div class="flex items-center gap-2 text-xs font-medium">
-            <span class="${curStatus.vocabDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">
-              ${curStatus.vocabDone ? '✓ Từ vựng (Đã xong)' : '○ Từ vựng'}
-            </span>
-            <span class="text-slate-600">•</span>
-            <span class="${curStatus.readingDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">
-              ${curStatus.readingDone ? '✓ Bài đọc (Đã xong)' : '○ Bài đọc'}
-            </span>
-            <span class="text-slate-600">•</span>
-            <span class="${curStatus.grammarDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">
-              ${curStatus.grammarDone ? '✓ Ngữ pháp (Đã xong)' : '○ Ngữ pháp'}
-            </span>
           </div>
         </div>
       `;
     } else {
       noticeArea.innerHTML = `
-        <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300 flex items-center justify-between text-xs">
-          <div class="flex items-center gap-2">
-            <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i>
-            <span>Nhiệm vụ Ngày ${curDay}: Hãy hoàn thành <strong>20 Từ vựng</strong>, <strong>1 Bài đọc</strong> và <strong>1 Bài ngữ pháp</strong> để tự động tick hoàn thành!</span>
+        <div class="p-3.5 rounded-xl bg-gradient-to-r from-cyan-950/70 via-slate-900 to-slate-900 border-2 border-cyan-500/60 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center shrink-0 border border-cyan-500/40">
+              <i data-lucide="zap" class="w-5 h-5 text-amber-300"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/30 text-cyan-200 font-extrabold text-[11px] border border-cyan-400/50 flex items-center gap-1">
+                  <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-300"></i> ĐANG HỌC VƯỢT TIẾN ĐỘ: NGÀY ${curDay} (${dayCal.formattedShort})
+                </span>
+                <span class="text-xs text-cyan-300 font-semibold">Lịch hôm nay: Ngày ${officialToday}</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1">
+                Bạn đang học vượt trước lộ trình. Mọi bài làm và kết quả đều được lưu trữ vĩnh viễn 100%!
+              </p>
+            </div>
           </div>
-          <span class="text-[11px] text-amber-400 font-semibold">0 / 3 Hoàn thành</span>
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="jumpToMissionDay(${officialToday})" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition">
+              <i data-lucide="target" class="w-4 h-4 text-cyan-400"></i> Xem Lại Ngày ${officialToday} Hôm Nay
+            </button>
+          </div>
         </div>
       `;
     }
@@ -1483,7 +1662,7 @@ function updateDailyMissionUI() {
             </span>
             <div class="min-w-0">
               <p class="font-bold text-slate-200 truncate ${isDone ? 'text-emerald-200 line-through decoration-emerald-500/60' : ''}">${r.title}</p>
-              <p class="text-[10px] text-slate-400">7 câu (4 Đục lỗ + 3 Đọc hiểu) • Level ${r.level || 'B1'}</p>
+              <p class="text-[10px] text-slate-400">7 câu đọc hiểu học thuật chuẩn VSTEP / IELTS • Level ${r.level || 'B1'}</p>
             </div>
           </div>
           <button onclick="event.stopPropagation(); startTodayReadingMission(${r.index})" class="px-2.5 py-1 rounded-md ${isDone ? 'bg-slate-700/70 hover:bg-slate-700 text-emerald-300' : 'bg-cyan-600 hover:bg-cyan-500 text-white'} text-[11px] font-bold shrink-0 transition">
@@ -1507,7 +1686,7 @@ function updateDailyMissionUI() {
   } else {
     if (cardR) cardR.className = "p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-cyan-500/40 shadow-sm";
     if (bannerR) bannerR.innerHTML = "";
-    if (descR) descR.innerHTML = `Mỗi ngày hoàn thành 3 bài đọc chỉ định (mỗi bài gồm 4 câu đục lỗ + 3 câu đọc hiểu). Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn trả lời xong cả 3 bài!`;
+    if (descR) descR.innerHTML = `Mỗi ngày hoàn thành 3 bài đọc chỉ định chuẩn Ace of English VSTEP & The IELTS Dictionary (7 câu/bài). Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn trả lời xong cả 3 bài!`;
     if (badgeR) {
       badgeR.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-amber-300 font-semibold border border-amber-500/20";
       badgeR.innerText = `Tiến độ: ${doneReadingsCount}/3 bài`;
@@ -1596,48 +1775,82 @@ function renderRoadmapGrid() {
   const grid = document.getElementById("roadmapGridContainer");
   if (!grid) return;
 
-  const total = getTotalMissionDays();
-  const curDay = missionRegistry.currentDay;
+  const total = getTotalMissionDays() || 90;
+  const officialToday = getOfficialTodayDay();
+  const curDay = missionRegistry.currentDay || officialToday;
 
   let html = "";
   for (let i = 1; i <= total; i++) {
     const st = getDayMissionStatus(i);
+    const cal = getCalendarDateForDay(i);
     const isCur = (i === curDay);
+    const isToday = (i === officialToday);
     const info = getDailyAssignedVocab(i);
 
     let borderClass = "border-slate-800 bg-slate-900/60 text-slate-400";
-    let badgeText = "Chưa học";
-    let badgeBg = "bg-slate-800 text-slate-500";
+    let badgeText = "Chưa học (0/4)";
+    let badgeBg = "bg-slate-800 text-slate-400";
 
-    if (st.isAllDone) {
-      borderClass = isCur 
-        ? "border-emerald-400 ring-2 ring-emerald-400/70 bg-emerald-950/40 text-emerald-200" 
-        : "border-emerald-500/60 bg-emerald-950/30 text-emerald-300 glow-card-emerald";
-      badgeText = isCur ? "✓ Hôm nay (Xong 3/3)" : "✓ Xong (3/3)";
-      badgeBg = "bg-emerald-500/25 text-emerald-300 font-bold border border-emerald-500/40";
-    } else if (st.completedCount > 0) {
-      borderClass = isCur
-        ? "border-amber-400 ring-2 ring-amber-400/70 bg-amber-950/40 text-amber-200"
-        : "border-amber-500/60 bg-amber-950/30 text-amber-300 glow-card-amber";
-      badgeText = isCur ? `Hôm nay (${st.completedCount}/3)` : `Đang làm (${st.completedCount}/3)`;
-      badgeBg = "bg-amber-500/25 text-amber-300 font-bold border border-amber-500/40";
-    } else if (isCur) {
-      borderClass = "border-cyan-400 ring-2 ring-cyan-400/50 bg-cyan-950/30 text-white";
-      badgeText = "Hôm nay (Chưa làm)";
-      badgeBg = "bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/30";
+    if (isToday) {
+      if (st.isAllDone) {
+        borderClass = "border-emerald-400 ring-2 ring-emerald-400/80 bg-emerald-950/40 text-emerald-200";
+        badgeText = "🎯 HÔM NAY (XONG 4/4 ✓)";
+        badgeBg = "bg-emerald-500/30 text-emerald-300 font-extrabold border border-emerald-400";
+      } else {
+        borderClass = "border-amber-400 ring-2 ring-amber-400/90 bg-amber-950/40 text-amber-200 animate-pulse";
+        badgeText = `🎯 HÔM NAY (${st.completedCount}/4 DEADLINE)`;
+        badgeBg = "bg-amber-500/30 text-amber-300 font-extrabold border border-amber-400";
+      }
+    } else if (i < officialToday) {
+      if (st.isAllDone) {
+        borderClass = isCur
+          ? "border-indigo-400 ring-2 ring-indigo-400/70 bg-indigo-950/40 text-indigo-200"
+          : "border-emerald-500/50 bg-emerald-950/20 text-emerald-300";
+        badgeText = isCur ? "✓ Đang xem lại (4/4)" : "✓ Đã xong (4/4)";
+        badgeBg = "bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30";
+      } else {
+        borderClass = isCur
+          ? "border-amber-400 ring-2 ring-amber-400/70 bg-amber-950/40 text-amber-200"
+          : "border-slate-800 bg-slate-900/40 text-slate-400";
+        badgeText = `Ngày cũ (${st.completedCount}/4)`;
+        badgeBg = "bg-slate-800 text-amber-400/90 font-medium";
+      }
+    } else {
+      // i > officialToday (Học vượt)
+      if (st.isAllDone) {
+        borderClass = isCur
+          ? "border-cyan-400 ring-2 ring-cyan-400/70 bg-cyan-950/40 text-cyan-200"
+          : "border-cyan-500/50 bg-cyan-950/20 text-cyan-300";
+        badgeText = "🚀 Đã học vượt (4/4 ✓)";
+        badgeBg = "bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/30";
+      } else if (st.completedCount > 0) {
+        borderClass = isCur
+          ? "border-cyan-400 ring-2 ring-cyan-400/70 bg-cyan-950/40 text-cyan-200"
+          : "border-cyan-500/30 bg-slate-900/60 text-slate-300";
+        badgeText = `Học vượt (${st.completedCount}/4)`;
+        badgeBg = "bg-cyan-500/20 text-cyan-300 font-medium";
+      } else {
+        borderClass = isCur
+          ? "border-cyan-400 ring-2 ring-cyan-400/50 bg-cyan-950/30 text-white"
+          : "border-slate-800 bg-slate-900/40 text-slate-400";
+        badgeText = "Học vượt (0/4)";
+        badgeBg = "bg-slate-800 text-slate-500 font-normal";
+      }
     }
 
     html += `
       <div onclick="jumpToMissionDay(${i}); closeRoadmapModal();" class="p-3 rounded-xl border ${borderClass} hover:border-cyan-400 cursor-pointer transition flex flex-col justify-between space-y-1.5 shadow-sm">
         <div class="flex items-center justify-between">
-          <span class="font-bold text-xs ${isCur ? 'text-cyan-300 font-extrabold' : 'text-slate-200'}">Ngày ${i}</span>
-          <span class="text-[9px] px-1.5 py-0.5 rounded-full ${badgeBg} font-semibold">${badgeText}</span>
+          <span class="font-bold text-xs ${isToday ? 'text-amber-300 font-black' : (isCur ? 'text-cyan-300 font-extrabold' : 'text-slate-200')}">Ngày ${i}</span>
+          <span class="text-[9px] text-slate-400 font-mono">${cal.formattedShort}</span>
         </div>
+        <span class="text-[9px] px-1.5 py-0.5 rounded-full ${badgeBg} font-semibold w-fit">${badgeText}</span>
         <p class="text-[10px] text-slate-400 line-clamp-1">${info.unitTitle}</p>
         <div class="text-[9px] text-slate-500 flex items-center justify-between pt-1 border-t border-slate-800/60">
           <span class="${st.vocabDone ? 'text-emerald-400 font-bold' : ''}">${st.vocabDone ? '✓ Từ' : '○ Từ'}</span>
           <span class="${st.readingDone ? 'text-emerald-400 font-bold' : ''}">${st.readingDone ? '✓ Đọc' : '○ Đọc'}</span>
           <span class="${st.grammarDone ? 'text-emerald-400 font-bold' : ''}">${st.grammarDone ? '✓ Ngữ pháp' : '○ Ngữ pháp'}</span>
+          <span class="${st.listeningDone ? 'text-emerald-400 font-bold' : ''}">${st.listeningDone ? '✓ Nghe' : '○ Nghe'}</span>
         </div>
       </div>
     `;
@@ -5221,91 +5434,69 @@ function tickDeadlineCountdown() {
     sentNotificationsToday.clear();
   }
 
-  // Update Full Calendar Date Display (Hiện cả ngày hôm nay để theo dõi)
+  const officialToday = getOfficialTodayDay();
+  const curDay = missionRegistry.currentDay || officialToday;
+  const officialCal = getCalendarDateForDay(officialToday);
+  const dayCal = getCalendarDateForDay(curDay);
+  const curMissionStatus = getDayMissionStatus(curDay);
+  const officialStatus = getDayMissionStatus(officialToday);
+
+  // Update Full Calendar Date Display
   const fullDateEl = document.getElementById("fullTodayDateDisplay");
   if (fullDateEl) {
-    const daysVi = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
-    const dName = daysVi[now.getDay()];
-    const dd = String(now.getDate()).padStart(2, "0");
-    const mm = String(now.getMonth() + 1).padStart(2, "0");
-    const yyyy = now.getFullYear();
-    fullDateEl.innerText = `📅 Hôm nay: ${dName}, ${dd}/${mm}/${yyyy} (00:00 - 23:59)`;
+    fullDateEl.innerHTML = `📅 <strong>Hôm nay:</strong> ${officialCal.formattedFull} • <span class="text-amber-300 font-bold">Lộ trình: Ngày ${officialToday}</span>`;
   }
   if (typeof syncDeadlineStreak === "function") syncDeadlineStreak();
 
   const [targetH, targetM] = (deadlineSettings.deadlineTime || "21:30").split(":").map(Number);
-  const deadlineDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), targetH, targetM, 0);
   const midnightDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
 
   const countdownEl = document.getElementById("deadlineCountdownDisplay");
   const subtextEl = document.getElementById("deadlineStatusSubtext");
   if (!countdownEl && !subtextEl) return;
 
-  const curDay = missionRegistry.currentDay || 1;
-  const curMissionStatus = getDayMissionStatus(curDay);
-
-  // Tìm ngày hoàn thành cao nhất để xác định chế độ học vượt
-  let maxCompletedDay = 0;
-  for (let d = 1; d <= (TOTAL_ROADMAP_DAYS || 90); d++) {
-    const st = getDayMissionStatus(d);
-    if (st.isAllDone) maxCompletedDay = d;
-  }
-
   const pad = (n) => String(n).padStart(2, "0");
 
-  // TRƯỜNG HỢP 1: Ngày hiện tại đã làm xong toàn bộ 3 nhiệm vụ
-  if (curMissionStatus.isAllDone) {
+  // TRƯỜNG HỢP 1: ĐANG XEM NGÀY CŨ (curDay < officialToday)
+  if (curDay < officialToday) {
     if (countdownEl) {
-      countdownEl.innerText = "✓ ĐÃ HOÀN THÀNH HÔM NAY!";
-      countdownEl.className = "text-xl sm:text-2xl font-black text-emerald-400 font-mono tracking-tight";
+      countdownEl.innerText = `🔄 ÔN TẬP NGÀY CŨ: NGÀY ${curDay}`;
+      countdownEl.className = "text-xl sm:text-2xl font-black text-indigo-300 font-mono tracking-tight";
     }
     if (subtextEl) {
-      subtextEl.innerText = `🎉 Xuất sắc! Toàn bộ 3 nhiệm vụ Ngày ${curDay} đã xong. Chuỗi Streak 🔥 được bảo vệ an toàn! Bấm Học Vượt để làm tiếp.`;
+      subtextEl.innerHTML = `⚠️ <strong>Không phải deadline hôm nay:</strong> Bạn đang xem Ngày ${curDay} (${dayCal.formattedShort}). Deadline hôm nay của bạn là <strong>Ngày ${officialToday}</strong> (${officialCal.formattedShort}).`;
     }
+    updateDailyGoalChecklist();
     return;
   }
 
-  // TRƯỜNG HỢP 2: Người dùng đang Học Vượt (curDay > ngày đã hoàn thành)
-  if (curDay > 1 && maxCompletedDay >= 1 && curDay > maxCompletedDay) {
+  // TRƯỜNG HỢP 2: ĐANG HỌC VƯỢT TIẾN ĐỘ (curDay > officialToday)
+  if (curDay > officialToday) {
     if (countdownEl) {
       countdownEl.innerHTML = `🚀 ĐANG HỌC VƯỢT NGÀY ${curDay}`;
       countdownEl.className = "text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 font-mono tracking-tight";
     }
     if (subtextEl) {
-      subtextEl.innerHTML = `✓ <strong>Tiến độ được ghi nhận 100%:</strong> Bạn đang học vượt lộ trình. Toàn bộ từ vựng, bài đọc và ngữ pháp Ngày ${curDay} đều được lưu vĩnh viễn (không tính quá hạn)!`;
+      subtextEl.innerHTML = `⚡ <strong>Học vượt trước tiến độ (${dayCal.formattedShort}):</strong> Kết quả được lưu 100%. Lịch hôm nay là <strong>Ngày ${officialToday}</strong> (${officialCal.formattedShort}).`;
     }
+    updateDailyGoalChecklist();
     return;
   }
 
-  // TRƯỜNG HỢP 3: Chưa đến giờ deadline (đếm ngược bình thường)
-  const diffMs = deadlineDate.getTime() - now.getTime();
-  if (diffMs > 0) {
-    const totalSecs = Math.floor(diffMs / 1000);
-    const hours = Math.floor(totalSecs / 3600);
-    const mins = Math.floor((totalSecs % 3600) / 60);
-    const secs = totalSecs % 60;
-    
+  // TRƯỜNG HỢP 3: ĐANG XEM ĐÚNG NGÀY HÔM NAY (curDay === officialToday)
+  if (officialStatus.isAllDone) {
     if (countdownEl) {
-      countdownEl.innerText = `⏳ Còn ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`;
-      countdownEl.className = "text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200 font-mono tracking-tight";
+      countdownEl.innerText = `✓ ĐÃ XONG 4/4 DEADLINE HÔM NAY (NGÀY ${officialToday})!`;
+      countdownEl.className = "text-xl sm:text-2xl font-black text-emerald-400 font-mono tracking-tight";
     }
     if (subtextEl) {
-      subtextEl.innerText = `Hạn chót ${deadlineSettings.deadlineTime} hôm nay. Hoàn thành để bảo toàn Streak!`;
+      subtextEl.innerText = `🎉 Xuất sắc! Toàn bộ 4 nhiệm vụ Ngày ${officialToday} hôm nay đã hoàn thành. Chuỗi Streak 🔥 được bảo toàn an toàn!`;
     }
-
-    // Thông báo nhắc nhở trước 60 phút
-    if (deadlineSettings.remindDeadline && totalSecs <= 3600 && totalSecs > 3540 && !sentNotificationsToday.has("deadline_60m")) {
-      sentNotificationsToday.add("deadline_60m");
-      sendMobileNotification(
-        "🚨 CẢNH BÁO: Còn 60 phút đến Deadline học tập!",
-        `Chỉ còn 1 giờ nữa là đến hạn chót ${deadlineSettings.deadlineTime}. Hãy mở app để hoàn thành từ vựng và bảo vệ chuỗi Streak của bạn!`
-      );
-    }
+    updateDailyGoalChecklist();
     return;
   }
 
-  // TRƯỜNG HỢP 4: Học ban đêm (quá 21:30 nhưng chưa đến 24:00 đêm)
-  // Tuyệt đối không báo quá hạn, hiển thị đếm ngược đến 24:00 và cam kết bảo vệ streak
+  // Đang xem đúng ngày hôm nay và CHƯA XONG: Đếm ngược đến 23:59:59 đêm nay
   const diffMidnightMs = midnightDate.getTime() - now.getTime();
   if (diffMidnightMs > 0) {
     const totalSecs = Math.floor(diffMidnightMs / 1000);
@@ -5314,39 +5505,12 @@ function tickDeadlineCountdown() {
     const secs = totalSecs % 60;
 
     if (countdownEl) {
-      countdownEl.innerText = `⏳ Còn ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s đến 24:00`;
-      countdownEl.className = "text-xl sm:text-2xl font-black text-amber-300 font-mono tracking-tight";
+      countdownEl.innerText = `⏳ Còn ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s (Deadline Ngày ${officialToday})`;
+      countdownEl.className = "text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200 font-mono tracking-tight animate-pulse";
     }
     if (subtextEl) {
-      subtextEl.innerText = `✓ Cố định hoàn thành hôm nay: Hệ thống ghi nhận 100% dữ liệu bài tập và bảo vệ Streak đến 23:59 đêm nay!`;
+      subtextEl.innerHTML = `🔥 Hạn chót 23:59:59 đêm nay (${officialCal.formattedShort}). Cần hoàn thành đủ 4/4 nhiệm vụ Ngày ${officialToday} để giữ chuỗi Streak!`;
     }
-    return;
-  }
-
-  // Fallback
-  if (countdownEl) {
-    countdownEl.innerText = `✓ Hệ thống tự động ghi nhận`;
-    countdownEl.className = "text-xl sm:text-2xl font-black text-emerald-400 font-mono tracking-tight";
-  }
-
-  // Morning reminder check (08:00 AM)
-  const currentHour = now.getHours();
-  const currentMin = now.getMinutes();
-  if (deadlineSettings.remindMorning && currentHour === 8 && currentMin < 5 && !sentNotificationsToday.has("morning")) {
-    sentNotificationsToday.add("morning");
-    sendMobileNotification(
-      "☀️ Chào buổi sáng! Mục tiêu tiếng Anh hôm nay",
-      "Hôm nay có 20 từ vựng và 1 bài đọc đang chờ bạn. Bắt đầu ngay để có ngày học hiệu quả!"
-    );
-  }
-
-  // Evening reminder check (19:30 PM)
-  if (deadlineSettings.remindEvening && currentHour === 19 && currentMin >= 30 && currentMin < 35 && !sentNotificationsToday.has("evening")) {
-    sentNotificationsToday.add("evening");
-    sendMobileNotification(
-      "📚 Nhắc nhở buổi tối: Luyện tập Flashcard & Ngữ pháp",
-      `Bạn còn thời gian trước hạn chót ${deadlineSettings.deadlineTime}. Hãy dành 15 phút ôn tập ngắt quãng nhé!`
-    );
   }
 
   updateDailyGoalChecklist();

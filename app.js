@@ -644,7 +644,7 @@ function countCompletedCurriculumDays() {
   const total = (typeof getTotalMissionDays === "function") ? getTotalMissionDays() : 90;
   for (let d = 1; d <= total; d++) {
     const st = getDayMissionStatus(d);
-    if (st.isAllDone || st.completedCount >= 3 || (st.vocabDone && st.completedCount >= 2)) {
+    if (st.isAllDone || st.completedCount >= 2 || (st.vocabDone || st.readingDone || st.listeningDone || st.grammarDone)) {
       count++;
     }
   }
@@ -660,7 +660,7 @@ function getMaxCompletedCurriculumDay() {
   const total = (typeof getTotalMissionDays === "function") ? getTotalMissionDays() : 90;
   for (let d = 1; d <= total; d++) {
     const st = getDayMissionStatus(d);
-    if (st.isAllDone || st.completedCount >= 3 || (st.vocabDone && st.completedCount >= 2)) {
+    if (st.isAllDone || st.completedCount >= 2 || (st.vocabDone || st.readingDone || st.listeningDone || st.grammarDone)) {
       if (d > maxD) maxD = d;
     }
   }
@@ -708,8 +708,8 @@ function getDeadlineStreakData() {
     effectiveStreak = Math.max(1, curriculumBase);
   }
 
-  const lastCompletedDate = rawData?.lastCompletedDate || localStorage.getItem("EMH_LAST_DATE") || "";
-  const isMaintainedToday = isTodayStudyActive() || (lastCompletedDate === todayStr);
+  const lastCompletedDate = rawData?.lastCompletedDate || localStorage.getItem("EMH_LAST_COMPLETED_DATE") || "";
+  const isMaintainedToday = (lastCompletedDate === todayStr);
 
   return {
     streakDays: Math.max(1, effectiveStreak),
@@ -745,16 +745,20 @@ function renderAllStreakUI(streakCount, isMaintainedToday) {
       badge.innerHTML = `🔥 Chuỗi Streak: ${count} ngày (Đã giữ chuỗi hôm nay ✓)`;
     } else {
       badge.className = "px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold flex items-center gap-1";
-      badge.innerHTML = `🔥 Chuỗi Streak: ${count} ngày (Đủ 4/4 Deadline để giữ chuỗi)`;
+      badge.innerHTML = `🔥 Chuỗi Streak: ${count} ngày (Đủ deadline để giữ chuỗi)`;
     }
   }
 
   // 4. Đồng bộ vào LocalStorage
   localStorage.setItem("EMH_STREAK", String(count));
   localStorage.setItem("EMH_LAST_DATE", today);
+  if (isMaintainedToday) {
+    localStorage.setItem("EMH_LAST_COMPLETED_DATE", today);
+  }
+  const lastComp = isMaintainedToday ? today : (localStorage.getItem("EMH_LAST_COMPLETED_DATE") || "");
   localStorage.setItem(STORAGE_KEY_DEADLINE_STREAK_V2, JSON.stringify({
     streakDays: count,
-    lastCompletedDate: today,
+    lastCompletedDate: lastComp,
     completedToday: !!isMaintainedToday
   }));
 }
@@ -788,16 +792,17 @@ function syncDeadlineStreak(serverStreak, serverLastDate) {
   if (isCompletedFull && data.lastCompletedDate !== todayStr) {
     if (data.lastCompletedDate === yesterdayStr) {
       currentStreak += 1;
-    } else if (currentStreak <= curriculumBase) {
+    } else {
       currentStreak = Math.max(currentStreak, curriculumBase);
     }
     data.lastCompletedDate = todayStr;
+    localStorage.setItem("EMH_LAST_COMPLETED_DATE", todayStr);
     if (typeof showToast === "function") {
-      showToast(`🔥 CHUỖI STREAK ĐƯỢC DUY TRÌ: ${currentStreak} NGÀY LIÊN TIẾP! (Đã xong 4/4 Deadline hôm nay)`, "success");
+      showToast(`🔥 CHUỖI STREAK ĐƯỢC DUY TRÌ: ${currentStreak} NGÀY LIÊN TIẾP! (Đã xong deadline hôm nay)`, "success");
     }
   }
 
-  renderAllStreakUI(currentStreak, isStudyActive);
+  renderAllStreakUI(currentStreak, isCompletedFull || (data.lastCompletedDate === todayStr));
   return currentStreak;
 }
 
@@ -819,11 +824,11 @@ function getDayMissionStatus(dayNum) {
     : (data.grammarDoneCount || (data.grammarDone ? 2 : 0));
   const isGrammar = !!data.grammarDone || (grammarCount >= 2);
 
-  // Luyện Nghe Đề Thi: Mục tiêu 2 bài chuẩn form mỗi ngày (HP3, VSTEP, Cambridge, APTIS, IELTS)
+  // Luyện Nghe Đề Thi: Mục tiêu 1 bài dài chuẩn form đủ chuẩn mỗi ngày (IELTS, APTIS, VSTEP)
   const listeningCount = (data.completedListeningTests && Array.isArray(data.completedListeningTests))
     ? data.completedListeningTests.length
-    : (data.listeningDoneCount || (data.listeningDone ? 2 : 0));
-  const isListening = !!data.listeningDone || (listeningCount >= 2);
+    : (data.listeningDoneCount || (data.listeningDone ? 1 : 0));
+  const isListening = !!data.listeningDone || (listeningCount >= 1);
 
   // Video là mục giải trí / nghe thụ động tự do (không tính vào Deadline bắt buộc)
   const watchedVideos = (typeof getWatchedVietnamTodayVideos === "function") ? getWatchedVietnamTodayVideos() : new Set();
@@ -850,7 +855,7 @@ function getDayMissionStatus(dayNum) {
     grammarDoneCount: grammarCount,
     completedGrammarTopics: data.completedGrammarTopics || [],
     listeningDone: isListening,
-    listeningDoneCount: Math.min(2, listeningCount),
+    listeningDoneCount: Math.min(1, listeningCount),
     completedListeningTests: data.completedListeningTests || [],
     videoDone: isVideo,
     completedVideos: data.completedVideos || (isVideo ? Array.from(watchedVideos || []) : []),
@@ -1132,6 +1137,10 @@ function getDailyAssignedGrammar(dayNum) {
 
 function initDailyMissionEngine() {
   loadMissionRegistry();
+  const officialToday = getOfficialTodayDay();
+  if (!missionRegistry.currentDay || missionRegistry.currentDay < 1) {
+    missionRegistry.currentDay = officialToday;
+  }
   setupReviewSelectors();
   updateDailyMissionUI();
   // Khởi động mặc định vào chế độ khóa học theo Deadline hôm nay
@@ -1157,10 +1166,12 @@ function getOfficialTodayDay() {
   let maxCompleted = 0;
   for (let d = 1; d <= total; d++) {
     const st = getDayMissionStatus(d);
-    if (st.isAllDone) maxCompleted = d;
+    if (st.isAllDone || st.completedCount >= 2) {
+      if (d > maxCompleted) maxCompleted = d;
+    }
   }
 
-  const lastDate = localStorage.getItem("EMH_LAST_DATE") || "";
+  const lastDate = localStorage.getItem("EMH_LAST_COMPLETED_DATE") || localStorage.getItem("EMH_LAST_DATE") || "";
 
   // Nếu hôm nay đã tick hoàn thành ngày cao nhất:
   if (lastDate === todayStr && maxCompleted >= 1) {
@@ -5375,6 +5386,98 @@ function speakText(text, audioUrl) {
   speakWithSynthesis(clean);
 }
 
+// ============================================================================
+// IELTS MULTI-ACCENT VOICE ENGINE (ANH-ANH, ANH-ÚC, ANH-MỸ & ĐA GIỌNG THI IELTS)
+// ============================================================================
+const STORAGE_KEY_IELTS_VOICE_ACCENT = "EMH_IELTS_VOICE_ACCENT";
+
+function getIELTSSpeechAccent() {
+  return localStorage.getItem(STORAGE_KEY_IELTS_VOICE_ACCENT) || "auto_ielts";
+}
+
+function setIELTSSpeechAccent(accentKey) {
+  localStorage.setItem(STORAGE_KEY_IELTS_VOICE_ACCENT, accentKey);
+  const labels = {
+    auto_ielts: "🔄 Tự Động Đổi Giọng Thi IELTS (Đa Giọng Hội Thoại)",
+    british: "🇬🇧 Anh - Anh (British RP / BBC)",
+    australian: "🇦🇺 Anh - Úc (Australian / ABC)",
+    american: "🇺🇸 Anh - Mỹ (American Standard)"
+  };
+  const sel1 = document.getElementById("ieltsVoiceAccentSelect");
+  if (sel1) sel1.value = accentKey;
+  const sel2 = document.getElementById("flashcardVoiceAccentSelect");
+  if (sel2) sel2.value = accentKey;
+  if (typeof showToast === "function") {
+    showToast(`🎙️ Đã chuyển giọng đọc: ${labels[accentKey] || accentKey}`, "success");
+  }
+}
+
+function getAvailableVoices() {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) return [];
+  return window.speechSynthesis.getVoices() || [];
+}
+
+function findBestVoiceForAccent(accentKey, speakerGender = "any") {
+  const voices = getAvailableVoices();
+  if (!voices.length) return null;
+
+  const isFemale = speakerGender === "female";
+  const isMale = speakerGender === "male";
+
+  // 1. Anh - Anh (British RP / BBC)
+  if (accentKey === "british" || accentKey === "uk") {
+    const gb = voices.filter(v => (v.lang === "en-GB" || v.lang === "en_GB"));
+    if (gb.length > 0) {
+      if (isFemale) {
+        const f = gb.find(v => v.name.includes("Female") || v.name.includes("Hazel") || v.name.includes("Susan") || v.name.includes("Libby") || v.name.includes("Sonia") || v.name.includes("Victoria"));
+        if (f) return f;
+      }
+      if (isMale) {
+        const m = gb.find(v => v.name.includes("Male") || v.name.includes("George") || v.name.includes("Oliver") || v.name.includes("Ryan"));
+        if (m) return m;
+      }
+      return gb[0];
+    }
+  }
+
+  // 2. Anh - Úc (Australian / ABC)
+  if (accentKey === "australian" || accentKey === "au") {
+    const au = voices.filter(v => (v.lang === "en-AU" || v.lang === "en_AU"));
+    if (au.length > 0) {
+      if (isFemale) {
+        const f = au.find(v => v.name.includes("Female") || v.name.includes("Catherine") || v.name.includes("Natasha") || v.name.includes("Karen"));
+        if (f) return f;
+      }
+      if (isMale) {
+        const m = au.find(v => v.name.includes("Male") || v.name.includes("James") || v.name.includes("William"));
+        if (m) return m;
+      }
+      return au[0];
+    }
+  }
+
+  // 3. Anh - Mỹ (American)
+  if (accentKey === "american" || accentKey === "us") {
+    const us = voices.filter(v => (v.lang === "en-US" || v.lang === "en_US"));
+    if (us.length > 0) {
+      if (isFemale) {
+        const f = us.find(v => v.name.includes("Zira") || v.name.includes("Jenny") || v.name.includes("Aria") || v.name.includes("Samantha"));
+        if (f) return f;
+      }
+      if (isMale) {
+        const m = us.find(v => v.name.includes("David") || v.name.includes("Guy") || v.name.includes("Mark"));
+        if (m) return m;
+      }
+      return us[0];
+    }
+  }
+
+  // 4. Default Fallback
+  const gbFallback = voices.find(v => (v.lang === "en-GB" || v.lang === "en_GB"));
+  if (gbFallback) return gbFallback;
+  return voices.find(v => v.lang.startsWith("en")) || voices[0] || null;
+}
+
 function speakWithSynthesis(text) {
   if (!("speechSynthesis" in window) || !text) return;
   try {
@@ -5385,24 +5488,23 @@ function speakWithSynthesis(text) {
       window.speechSynthesis.resume();
     }
 
-    // Chuẩn hóa dấu gạch chéo '/' để đọc tự nhiên (vd: 'take off / leave' -> 'take off, or leave')
     const speechText = text.replace(/\s*\/\s*/g, ", or ");
-
     const u = new SpeechSynthesisUtterance(speechText);
-    u.lang = "en-US";
-    const voices = window.speechSynthesis.getVoices() || [];
-    const usVoice = voices.find(v => (v.lang === "en-US" || v.lang === "en_US") && (
-      v.name.includes("Natural") ||
-      v.name.includes("Google US") ||
-      v.name.includes("Samantha") ||
-      v.name.includes("Jenny") ||
-      v.name.includes("Guy") ||
-      v.name.includes("Aria") ||
-      v.name.includes("David") ||
-      v.name.includes("Zira")
-    )) || voices.find(v => v.lang.startsWith("en"));
 
-    if (usVoice) u.voice = usVoice;
+    const chosenAccent = getIELTSSpeechAccent();
+    let accentToUse = chosenAccent;
+    if (chosenAccent === "auto_ielts") {
+      accentToUse = (Math.random() < 0.6) ? "british" : "australian";
+    }
+
+    const voice = findBestVoiceForAccent(accentToUse);
+    if (voice) {
+      u.voice = voice;
+      u.lang = voice.lang;
+    } else {
+      u.lang = (accentToUse === "british") ? "en-GB" : (accentToUse === "australian" ? "en-AU" : "en-US");
+    }
+
     u.rate = 0.92;
     u.pitch = 1.0;
     u.volume = 1.0;
@@ -5637,22 +5739,22 @@ function updateDailyGoalChecklist() {
   }
   if (lItem) {
     lItem.innerHTML = curStatus.listeningDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">2 Bài nghe chuẩn form (ĐÃ XONG 2/2 ✓)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>2 Bài nghe chuẩn form (${curStatus.listeningDoneCount || 0}/2)</span>`;
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">1 Bài nghe chuẩn form (ĐÃ XONG 1/1 ✓)</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Bài nghe chuẩn form (${curStatus.listeningDoneCount || 0}/1)</span>`;
   }
   // Update Mission 4 (Listening Card) in overview grid
   const lStatus = document.getElementById("taskStatusBadgeListening");
   const lBtn = document.getElementById("btnStartListeningText");
   const lBanner = document.getElementById("taskCardListeningBanner");
   if (lStatus) {
-    lStatus.innerText = curStatus.listeningDone ? "✓ Đã xong (2/2)" : `Tiến độ: ${curStatus.listeningDoneCount || 0}/2`;
+    lStatus.innerText = curStatus.listeningDone ? "✓ Đã xong (1/1)" : `Tiến độ: ${curStatus.listeningDoneCount || 0}/1`;
     lStatus.className = curStatus.listeningDone
       ? "text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/40"
       : "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-cyan-300 font-semibold";
   }
   if (lBanner) {
     lBanner.innerHTML = curStatus.listeningDone
-      ? `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">2/2 Bài</span></div>`
+      ? `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">1/1 Bài</span></div>`
       : "";
   }
   if (lBtn) {
@@ -6948,20 +7050,35 @@ function renderListeningPartTabs() {
   if (!container || typeof LISTENING_TESTS === "undefined" || !LISTENING_TESTS.length) return;
 
   const test = LISTENING_TESTS[currentListeningTestIdx] || LISTENING_TESTS[0];
-  let html = "";
-  test.parts.forEach((p, idx) => {
-    const active = idx === currentListeningPartIdx;
+  const isFull = (currentListeningPartIdx === "full" || currentListeningPartIdx === -1);
+  let totalQ = 0;
+  (test.parts || []).forEach(p => totalQ += (p.questions || []).length);
+
+  let html = `
+    <button onclick="switchListeningPart('full')" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 shadow-md ${
+      isFull
+        ? "bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-slate-950 font-black shadow-amber-500/30 ring-2 ring-amber-400"
+        : "bg-slate-800 text-amber-300 hover:text-white hover:bg-slate-700 border border-amber-500/40"
+    }">
+      <i data-lucide="award" class="w-4 h-4"></i>
+      <span>🎯 Toàn Bộ Đề Thi (Full Form • ${totalQ} Câu Hỏi)</span>
+    </button>
+  `;
+
+  (test.parts || []).forEach((p, idx) => {
+    const active = (!isFull && idx === currentListeningPartIdx);
     html += `
-      <button onclick="switchListeningPart(${idx})" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 ${
+      <button onclick="switchListeningPart(${idx})" class="px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
         active
-          ? "bg-gradient-to-r from-cyan-600 to-indigo-600 text-white shadow-lg shadow-cyan-600/30"
-          : "bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700"
+          ? "bg-gradient-to-r from-cyan-600 to-indigo-600 text-white shadow-lg shadow-cyan-600/30 ring-1 ring-cyan-400"
+          : "bg-slate-800/80 text-slate-400 hover:text-white hover:bg-slate-700 border border-slate-700/60"
       }">
-        <i data-lucide="headphones" class="w-4 h-4"></i>
-        <span>Part ${p.partNumber}: ${p.title.split(":")[1]?.trim() || p.title}</span>
+        <i data-lucide="headphones" class="w-3.5 h-3.5"></i>
+        <span>Part ${p.partNumber}: ${(p.title.split(":")[1] || p.title).trim()}</span>
       </button>
     `;
   });
+
   container.innerHTML = html;
   if (typeof lucide !== "undefined") lucide.createIcons();
 }
@@ -6980,7 +7097,9 @@ function stopAllListeningAudio() {
     listeningAudioEl.pause();
     listeningAudioEl.currentTime = 0;
   }
-  if (window.speechSynthesis) {
+  if (typeof stopSyntheticSpeech === "function") {
+    stopSyntheticSpeech();
+  } else if (window.speechSynthesis) {
     window.speechSynthesis.cancel();
   }
   isSyntheticSpeechPlaying = false;
@@ -6994,21 +7113,35 @@ function stopAllListeningAudio() {
 function loadListeningPart(idx) {
   if (typeof LISTENING_TESTS === "undefined" || !LISTENING_TESTS.length) return;
   const test = LISTENING_TESTS[currentListeningTestIdx] || LISTENING_TESTS[0];
-  const part = test.parts[idx];
-  if (!part) return;
+  currentListeningPartIdx = idx;
+
+  const isFull = (idx === "full" || idx === -1);
+  const part = isFull ? null : test.parts[idx];
 
   // 1. Audio track setup
   if (listeningAudioEl) {
-    if (part.audioSrc) {
-      listeningAudioEl.src = part.audioSrc;
+    const audioSrc = isFull ? (test.parts[0]?.audioSrc || null) : part?.audioSrc;
+    if (audioSrc) {
+      listeningAudioEl.src = audioSrc;
       listeningAudioEl.load();
     } else {
       listeningAudioEl.removeAttribute("src");
     }
   }
 
+  let totalQ = 0;
+  if (isFull) {
+    (test.parts || []).forEach(p => totalQ += (p.questions || []).length);
+  } else {
+    totalQ = part?.questions?.length || 0;
+  }
+
   const trackTitle = document.getElementById("listeningTrackTitle");
-  if (trackTitle) trackTitle.innerText = `${part.title} (${part.questions.length} Câu hỏi)`;
+  if (trackTitle) {
+    trackTitle.innerText = isFull
+      ? `${test.title} (Toàn bộ đề thi - ${totalQ} Câu hỏi)`
+      : `${part.title} (${totalQ} Câu hỏi)`;
+  }
 
   const playIcon = document.getElementById("listeningPlayIcon");
   if (playIcon) {
@@ -7016,14 +7149,19 @@ function loadListeningPart(idx) {
     if (typeof lucide !== "undefined") lucide.createIcons();
   }
 
-  // 2. Render instruction & optional external YouTube source button
+  // 2. Render instruction
   const instrEl = document.getElementById("listeningInstructionText");
-  if (instrEl) instrEl.innerText = part.instruction;
+  if (instrEl) {
+    instrEl.innerText = isFull
+      ? `Bài thi chuẩn form đầy đủ gồm ${test.parts.length} phần thi. Bạn có thể nghe bằng giọng đọc bản xứ AI trợ giảng chuẩn IELTS (Anh-Anh, Anh-Úc, Anh-Mỹ) và hoàn thành trọn vẹn 1 đề để chốt Deadline hôm nay.`
+      : part.instruction;
+  }
 
   const extLink = document.getElementById("listeningSourceExternalLink");
   if (extLink) {
-    if (part.sourceUrl) {
-      extLink.href = part.sourceUrl;
+    const srcUrl = isFull ? (test.parts[0]?.sourceUrl || null) : part?.sourceUrl;
+    if (srcUrl) {
+      extLink.href = srcUrl;
       extLink.classList.remove("hidden");
     } else {
       extLink.classList.add("hidden");
@@ -7031,145 +7169,162 @@ function loadListeningPart(idx) {
   }
 
   // 3. Render questions
-  renderListeningQuestions(part);
+  renderListeningQuestions(isFull ? test : part);
 
   // 4. Render transcript
-  renderListeningTranscript(part);
+  renderListeningTranscript(isFull ? test : part);
 
   // 5. Hide results banner
   const scoreBanner = document.getElementById("listeningScoreBanner");
   if (scoreBanner) scoreBanner.classList.add("hidden");
 }
 
-function renderListeningQuestions(part) {
+function renderListeningQuestions(target) {
   const container = document.getElementById("listeningQuestionsContainer");
-  if (!container) return;
+  if (!container || !target) return;
+
+  const isFullTest = Array.isArray(target.parts);
+  const partsList = isFullTest ? target.parts : [target];
 
   let html = "";
 
-  // If part has a Map Image, render it first!
-  if (part.mapImage) {
-    html += `
-      <div class="glass-card p-4 sm:p-5 rounded-2xl border-2 border-cyan-500/40 bg-slate-900/90 text-center space-y-3 shadow-2xl">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
-          <span class="text-xs sm:text-sm font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
-            <i data-lucide="map" class="w-4 h-4 text-cyan-400"></i>
-            <span>Sơ Đồ Bản Đồ Đề Thi (Dùng Cho Câu 16 - 20)</span>
-          </span>
-          <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-mono font-bold">Map Labeling</span>
+  partsList.forEach((part, pIdx) => {
+    if (isFullTest) {
+      html += `
+        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/30 flex items-center justify-between shadow-md mt-4 first:mt-0">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-cyan-600/30 border border-cyan-500/50 text-cyan-300 font-mono text-xs font-bold flex items-center justify-center">${part.partNumber}</span>
+            <span class="font-bold text-white text-xs sm:text-sm">${part.title}</span>
+          </div>
+          <span class="text-[11px] text-cyan-400 font-mono font-bold">${part.questions ? part.questions.length : 0} câu hỏi</span>
         </div>
-        <div class="relative inline-block max-w-full overflow-hidden rounded-xl border border-slate-700 bg-black/40 p-1">
-          <img src="${part.mapImage}" alt="Map Layout" class="max-h-[380px] w-auto mx-auto rounded-lg shadow-md object-contain">
-        </div>
-        <p class="text-xs text-slate-300 italic">Đối chiếu vị trí cổng GATE ở phía Nam và các chữ cái A, B, C, D, E, F, G, H trên sơ đồ.</p>
-      </div>
-    `;
-  }
-
-  part.questions.forEach(q => {
-    const selectedOpt = userListeningAnswers[q.id];
-    let statusClass = "";
-
-    if (isListeningSubmitted) {
-      if (selectedOpt === q.correct) {
-        statusClass = "border-emerald-500/80 bg-emerald-950/20";
-      } else {
-        statusClass = "border-rose-500/80 bg-rose-950/20";
-      }
+      `;
     }
 
-    html += `
-      <div id="q_card_${q.id}" class="glass-card p-4 sm:p-5 rounded-2xl border border-slate-700/80 space-y-3 ${statusClass}">
-        <div class="flex items-start justify-between gap-2">
-          <div class="space-y-1">
-            <h4 class="font-bold text-white text-sm sm:text-base leading-snug">${q.text}</h4>
-            ${q.isMap ? '<span class="text-[10px] text-cyan-400 font-mono uppercase tracking-wider font-bold">Chọn chữ cái (A - H) trên bản đồ</span>' : ""}
+    // If part has a Map Image, render it!
+    if (part.mapImage) {
+      html += `
+        <div class="glass-card p-4 sm:p-5 rounded-2xl border-2 border-cyan-500/40 bg-slate-900/90 text-center space-y-3 shadow-2xl">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+            <span class="text-xs sm:text-sm font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="map" class="w-4 h-4 text-cyan-400"></i>
+              <span>Sơ Đồ Bản Đồ Đề Thi (Dùng Cho Câu 16 - 20)</span>
+            </span>
+            <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-mono font-bold">Map Labeling</span>
           </div>
+          <div class="relative inline-block max-w-full overflow-hidden rounded-xl border border-slate-700 bg-black/40 p-1">
+            <img src="${part.mapImage}" alt="Map Layout" class="max-h-[380px] w-auto mx-auto rounded-lg shadow-md object-contain">
+          </div>
+          <p class="text-xs text-slate-300 italic">Đối chiếu vị trí cổng GATE ở phía Nam và các chữ cái A, B, C, D, E, F, G, H trên sơ đồ.</p>
+        </div>
+      `;
+    }
+
+    (part.questions || []).forEach(q => {
+      const selectedOpt = userListeningAnswers[q.id];
+      let statusClass = "";
+
+      if (isListeningSubmitted) {
+        if (selectedOpt === q.correct) {
+          statusClass = "border-emerald-500/80 bg-emerald-950/20";
+        } else {
+          statusClass = "border-rose-500/80 bg-rose-950/20";
+        }
+      }
+
+      html += `
+        <div id="q_card_${q.id}" class="glass-card p-4 sm:p-5 rounded-2xl border border-slate-700/80 space-y-3 ${statusClass}">
+          <div class="flex items-start justify-between gap-2">
+            <div class="space-y-1">
+              <h4 class="font-bold text-white text-sm sm:text-base leading-snug">${q.text}</h4>
+              ${q.isMap ? '<span class="text-[10px] text-cyan-400 font-mono uppercase tracking-wider font-bold">Chọn chữ cái (A - H) trên bản đồ</span>' : ""}
+            </div>
+            ${
+              isListeningSubmitted
+                ? selectedOpt === q.correct
+                  ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs shrink-0 flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> Đúng</span>'
+                  : `<span class="px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold text-xs shrink-0 flex items-center gap-1"><i data-lucide="x" class="w-3.5 h-3.5"></i> Sai (Đáp án: ${q.correct})</span>`
+                : ""
+            }
+          </div>
+
           ${
-            isListeningSubmitted
-              ? selectedOpt === q.correct
-                ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs shrink-0 flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> Đúng</span>'
-                : `<span class="px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold text-xs shrink-0 flex items-center gap-1"><i data-lucide="x" class="w-3.5 h-3.5"></i> Sai (Đáp án: ${q.correct})</span>`
+            q.isMap
+              ? `
+            <!-- MAP LETTER PILLS SELECTOR -->
+            <div class="flex items-center gap-2 flex-wrap pt-1">
+              ${["A", "B", "C", "D", "E", "F", "G", "H"].map(letter => {
+                const isSelected = selectedOpt === letter;
+                let btnClass = "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border-slate-700";
+
+                if (isListeningSubmitted) {
+                  if (letter === q.correct) {
+                    btnClass = "bg-emerald-600 text-white font-black ring-2 ring-emerald-400 scale-105";
+                  } else if (isSelected) {
+                    btnClass = "bg-rose-600 text-white font-bold ring-2 ring-rose-400 line-through";
+                  } else {
+                    btnClass = "opacity-30 bg-slate-800 text-slate-500 border-slate-800";
+                  }
+                } else if (isSelected) {
+                  btnClass = "bg-cyan-600 text-white font-black ring-2 ring-cyan-400 scale-105 shadow-md shadow-cyan-900/50";
+                }
+
+                return `
+                  <button type="button" onclick="selectListeningOption(${q.id}, '${letter}')" class="w-10 h-10 rounded-xl font-mono text-sm font-bold border transition flex items-center justify-center ${btnClass}">
+                    ${letter}
+                  </button>
+                `;
+              }).join("")}
+              <span class="text-xs text-slate-400 ml-2 font-mono">Đã chọn: <strong class="text-amber-300 font-bold">${selectedOpt || "Chưa chọn"}</strong></span>
+            </div>
+          `
+              : `
+            <!-- STANDARD A, B, C OPTIONS -->
+            <div class="grid grid-cols-1 gap-2 pt-1">
+              ${(q.options || []).map(opt => {
+                const isSelected = selectedOpt === opt.key;
+                let optStyle = "bg-slate-800/80 hover:bg-slate-700 border-slate-700 text-slate-200";
+
+                if (isListeningSubmitted) {
+                  if (opt.key === q.correct) {
+                    optStyle = "bg-emerald-600/30 border-emerald-400 text-emerald-200 font-bold ring-1 ring-emerald-400";
+                  } else if (isSelected) {
+                    optStyle = "bg-rose-600/30 border-rose-400 text-rose-200 line-through ring-1 ring-rose-400";
+                  } else {
+                    optStyle = "opacity-40 bg-slate-800/40 border-slate-700 text-slate-400";
+                  }
+                } else if (isSelected) {
+                  optStyle = "bg-cyan-600/30 border-cyan-400 text-cyan-200 font-bold ring-2 ring-cyan-500/50";
+                }
+
+                return `
+                  <div onclick="selectListeningOption(${q.id}, '${opt.key}')" class="p-3 rounded-xl border cursor-pointer transition flex items-center gap-3 ${optStyle}">
+                    <span class="w-7 h-7 rounded-lg font-mono font-bold flex items-center justify-center shrink-0 ${
+                      isSelected ? "bg-cyan-500 text-black" : "bg-slate-700 text-slate-300"
+                    }">${opt.key}</span>
+                    <span class="text-xs sm:text-sm">${opt.text}</span>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          `
+          }
+
+          ${
+            isListeningSubmitted && q.explanation
+              ? `
+            <div class="mt-3 p-3 rounded-xl bg-amber-950/30 border border-amber-500/30 text-amber-200 text-xs leading-relaxed flex items-start gap-2">
+              <i data-lucide="lightbulb" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-amber-300 font-bold">Giải thích đáp án:</strong> ${q.explanation}
+              </div>
+            </div>
+          `
               : ""
           }
         </div>
-
-        ${
-          q.isMap
-            ? `
-          <!-- MAP LETTER PILLS SELECTOR -->
-          <div class="flex items-center gap-2 flex-wrap pt-1">
-            ${["A", "B", "C", "D", "E", "F", "G", "H"].map(letter => {
-              const isSelected = selectedOpt === letter;
-              let btnClass = "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border-slate-700";
-
-              if (isListeningSubmitted) {
-                if (letter === q.correct) {
-                  btnClass = "bg-emerald-600 text-white font-black ring-2 ring-emerald-400 scale-105";
-                } else if (isSelected) {
-                  btnClass = "bg-rose-600 text-white font-bold ring-2 ring-rose-400 line-through";
-                } else {
-                  btnClass = "opacity-30 bg-slate-800 text-slate-500 border-slate-800";
-                }
-              } else if (isSelected) {
-                btnClass = "bg-cyan-600 text-white font-black ring-2 ring-cyan-400 scale-105 shadow-md shadow-cyan-900/50";
-              }
-
-              return `
-                <button type="button" onclick="selectListeningOption(${q.id}, '${letter}')" class="w-10 h-10 rounded-xl font-mono text-sm font-bold border transition flex items-center justify-center ${btnClass}">
-                  ${letter}
-                </button>
-              `;
-            }).join("")}
-            <span class="text-xs text-slate-400 ml-2 font-mono">Đã chọn: <strong class="text-amber-300 font-bold">${selectedOpt || "Chưa chọn"}</strong></span>
-          </div>
-        `
-            : `
-          <!-- STANDARD A, B, C OPTIONS -->
-          <div class="grid grid-cols-1 gap-2 pt-1">
-            ${q.options.map(opt => {
-              const isSelected = selectedOpt === opt.key;
-              let optStyle = "bg-slate-800/80 hover:bg-slate-700 border-slate-700 text-slate-200";
-
-              if (isListeningSubmitted) {
-                if (opt.key === q.correct) {
-                  optStyle = "bg-emerald-600/30 border-emerald-400 text-emerald-200 font-bold ring-1 ring-emerald-400";
-                } else if (isSelected) {
-                  optStyle = "bg-rose-600/30 border-rose-400 text-rose-200 line-through ring-1 ring-rose-400";
-                } else {
-                  optStyle = "opacity-40 bg-slate-800/40 border-slate-700 text-slate-400";
-                }
-              } else if (isSelected) {
-                optStyle = "bg-cyan-600/30 border-cyan-400 text-cyan-200 font-bold ring-2 ring-cyan-500/50";
-              }
-
-              return `
-                <div onclick="selectListeningOption(${q.id}, '${opt.key}')" class="p-3 rounded-xl border cursor-pointer transition flex items-center gap-3 ${optStyle}">
-                  <span class="w-7 h-7 rounded-lg font-mono font-bold flex items-center justify-center shrink-0 ${
-                    isSelected ? "bg-cyan-500 text-black" : "bg-slate-700 text-slate-300"
-                  }">${opt.key}</span>
-                  <span class="text-xs sm:text-sm">${opt.text}</span>
-                </div>
-              `;
-            }).join("")}
-          </div>
-        `
-        }
-
-        ${
-          isListeningSubmitted && q.explanation
-            ? `
-          <div class="mt-3 p-3 rounded-xl bg-amber-950/30 border border-amber-500/30 text-amber-200 text-xs leading-relaxed flex items-start gap-2">
-            <i data-lucide="lightbulb" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
-            <div>
-              <strong class="text-amber-300 font-bold">Giải thích đáp án:</strong> ${q.explanation}
-            </div>
-          </div>
-        `
-            : ""
-        }
-      </div>
-    `;
+      `;
+    });
   });
 
   container.innerHTML = html;
@@ -7181,62 +7336,154 @@ function selectListeningOption(qId, optKey) {
   userListeningAnswers[qId] = optKey;
   if (typeof LISTENING_TESTS !== "undefined" && LISTENING_TESTS.length) {
     const test = LISTENING_TESTS[currentListeningTestIdx] || LISTENING_TESTS[0];
-    renderListeningQuestions(test.parts[currentListeningPartIdx]);
+    const isFull = (currentListeningPartIdx === "full" || currentListeningPartIdx === -1);
+    renderListeningQuestions(isFull ? test : test.parts[currentListeningPartIdx]);
   }
 }
 
-function playListeningWithSpeechSynthesis(part, icon) {
-  if (!("speechSynthesis" in window) || !part || !part.transcript) {
-    showToast("Không tìm thấy audio và trình duyệt không hỗ trợ đọc!", "warning");
+// IELTS Multi-Speaker Dialogue Speech Engine
+let currentSpeechTranscriptIndex = 0;
+let currentSpeechTranscriptLines = [];
+
+function stopSyntheticSpeech(icon) {
+  if (window.speechSynthesis) {
+    window.speechSynthesis.cancel();
+  }
+  isSyntheticSpeechPlaying = false;
+  currentSpeechTranscriptIndex = 0;
+  currentSpeechTranscriptLines = [];
+  const playIcon = icon || document.getElementById("listeningPlayIcon");
+  if (playIcon) {
+    playIcon.setAttribute("data-lucide", "play");
+    if (typeof lucide !== "undefined") lucide.createIcons();
+  }
+}
+
+function playListeningWithSpeechSynthesis(target, icon) {
+  if (!("speechSynthesis" in window) || !target) {
+    showToast("Trình duyệt không hỗ trợ Web Speech API!", "warning");
     return;
   }
+
   if (isSyntheticSpeechPlaying) {
-    window.speechSynthesis.cancel();
-    isSyntheticSpeechPlaying = false;
-    if (icon) {
-      icon.setAttribute("data-lucide", "play");
-      if (typeof lucide !== "undefined") lucide.createIcons();
-    }
+    stopSyntheticSpeech(icon);
     showToast("Đã tạm dừng bài nghe", "info");
-  } else {
-    window.speechSynthesis.cancel();
-    const fullText = part.transcript.map(t => `${t.speaker}: ${t.en}`).join(". ");
-    syntheticSpeechUtterance = new SpeechSynthesisUtterance(fullText);
-    syntheticSpeechUtterance.lang = "en-US";
-    syntheticSpeechUtterance.rate = 0.9;
-    syntheticSpeechUtterance.onend = () => {
-      isSyntheticSpeechPlaying = false;
-      if (icon) {
-        icon.setAttribute("data-lucide", "play");
-        if (typeof lucide !== "undefined") lucide.createIcons();
-      }
-    };
-    syntheticSpeechUtterance.onerror = () => {
-      isSyntheticSpeechPlaying = false;
-      if (icon) {
-        icon.setAttribute("data-lucide", "play");
-        if (typeof lucide !== "undefined") lucide.createIcons();
-      }
-    };
-    window.speechSynthesis.speak(syntheticSpeechUtterance);
-    isSyntheticSpeechPlaying = true;
-    if (icon) {
-      icon.setAttribute("data-lucide", "pause");
-      if (typeof lucide !== "undefined") lucide.createIcons();
-    }
-    showToast("🎙️ Đang phát bài nghe qua giọng đọc AI trợ giảng...", "info");
+    return;
   }
+
+  // Collect all transcript lines from single part or full test
+  let allLines = [];
+  if (Array.isArray(target.transcript)) {
+    allLines = target.transcript;
+  } else if (Array.isArray(target.parts)) {
+    target.parts.forEach(p => {
+      if (Array.isArray(p.transcript)) {
+        allLines.push(...p.transcript);
+      }
+    });
+  }
+
+  if (!allLines.length) {
+    showToast("Không tìm thấy nội dung bài nghe để phát!", "warning");
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+  isSyntheticSpeechPlaying = true;
+  currentSpeechTranscriptLines = allLines;
+  currentSpeechTranscriptIndex = 0;
+
+  if (icon) {
+    icon.setAttribute("data-lucide", "pause");
+    if (typeof lucide !== "undefined") lucide.createIcons();
+  }
+
+  const chosenAccent = getIELTSSpeechAccent();
+  const accentLabels = {
+    auto_ielts: "Đa Giọng Thi IELTS (Chuẩn đề thi thực tế)",
+    british: "Giọng Anh - Anh 🇬🇧",
+    australian: "Giọng Anh - Úc 🇦🇺",
+    american: "Giọng Anh - Mỹ 🇺🇸"
+  };
+  showToast(`🎙️ Đang phát bài nghe bằng: ${accentLabels[chosenAccent] || chosenAccent}...`, "info");
+
+  speakNextTranscriptLine(icon);
+}
+
+function speakNextTranscriptLine(icon) {
+  if (!isSyntheticSpeechPlaying) return;
+  if (currentSpeechTranscriptIndex >= currentSpeechTranscriptLines.length) {
+    stopSyntheticSpeech(icon);
+    showToast("🎉 Đã kết thúc phát audio bài nghe!", "success");
+    return;
+  }
+
+  const item = currentSpeechTranscriptLines[currentSpeechTranscriptIndex];
+  const text = item.en || item.text || "";
+  if (!text) {
+    currentSpeechTranscriptIndex++;
+    speakNextTranscriptLine(icon);
+    return;
+  }
+
+  const u = new SpeechSynthesisUtterance(text);
+  const chosenAccent = getIELTSSpeechAccent();
+
+  let accentToUse = chosenAccent;
+  let gender = "any";
+
+  const spkLower = (item.speaker || "").toLowerCase();
+  if (spkLower.includes("woman") || spkLower.includes("female") || spkLower.includes("georgina") || spkLower.includes("girl") || spkLower.includes("sarah") || spkLower.includes("emma") || spkLower.includes("andrea") || spkLower.includes("clerk")) {
+    gender = "female";
+  } else if (spkLower.includes("man") || spkLower.includes("male") || spkLower.includes("neil") || spkLower.includes("boy") || spkLower.includes("david") || spkLower.includes("john") || spkLower.includes("caller")) {
+    gender = "male";
+  }
+
+  if (chosenAccent === "auto_ielts") {
+    // In IELTS auto mode: Alternate between British and Australian for authentic dialogues!
+    accentToUse = (currentSpeechTranscriptIndex % 2 === 0) ? "british" : "australian";
+  }
+
+  const voice = findBestVoiceForAccent(accentToUse, gender);
+  if (voice) {
+    u.voice = voice;
+    u.lang = voice.lang;
+  } else {
+    u.lang = "en-GB";
+  }
+
+  u.rate = 0.92;
+  u.pitch = (gender === "female") ? 1.05 : 0.95;
+
+  u.onend = () => {
+    if (isSyntheticSpeechPlaying) {
+      currentSpeechTranscriptIndex++;
+      speakNextTranscriptLine(icon);
+    }
+  };
+
+  u.onerror = (e) => {
+    console.warn("Speech utterance error:", e);
+    if (isSyntheticSpeechPlaying) {
+      currentSpeechTranscriptIndex++;
+      speakNextTranscriptLine(icon);
+    }
+  };
+
+  window.speechSynthesis.speak(u);
 }
 
 function toggleListeningPlay() {
   const test = (typeof LISTENING_TESTS !== "undefined" && LISTENING_TESTS[currentListeningTestIdx]) || null;
   if (!test || !test.parts) return;
-  const part = test.parts[currentListeningPartIdx];
-  if (!part) return;
+  const isFull = (currentListeningPartIdx === "full" || currentListeningPartIdx === -1);
+  const target = isFull ? test : test.parts[currentListeningPartIdx];
+  if (!target) return;
   const icon = document.getElementById("listeningPlayIcon");
 
   // A. If part has real MP3 audio file
-  if (part.audioSrc && listeningAudioEl && !listeningAudioEl.error) {
+  const audioSrc = isFull ? test.parts[0]?.audioSrc : target.audioSrc;
+  if (audioSrc && listeningAudioEl && !listeningAudioEl.error) {
     if (listeningAudioEl.paused) {
       listeningAudioEl.play().then(() => {
         if (icon) {
@@ -7245,7 +7492,7 @@ function toggleListeningPlay() {
         }
       }).catch(e => {
         console.warn("Audio play prevented or missing, falling back to Web Speech:", e);
-        playListeningWithSpeechSynthesis(part, icon);
+        playListeningWithSpeechSynthesis(target, icon);
       });
     } else {
       listeningAudioEl.pause();
@@ -7257,92 +7504,85 @@ function toggleListeningPlay() {
     return;
   }
 
-  // B. Fallback to Web Speech API narration if no MP3 or file failed
-  playListeningWithSpeechSynthesis(part, icon);
+  // B. Fallback to IELTS Web Speech API narration
+  playListeningWithSpeechSynthesis(target, icon);
 }
 
-function _legacy_fallback_unused() {
-  if ("speechSynthesis" in window && false) {
-    if (isSyntheticSpeechPlaying) {
-      window.speechSynthesis.cancel();
-      isSyntheticSpeechPlaying = false;
-      if (icon) {
-        icon.setAttribute("data-lucide", "play");
-        if (typeof lucide !== "undefined") lucide.createIcons();
-      }
-      showToast("Đã tạm dừng bài đọc", "info");
-    } else {
-      window.speechSynthesis.cancel();
-      const fullText = part.transcript.map(t => `${t.speaker}: ${t.en}`).join(". ");
-      syntheticSpeechUtterance = new SpeechSynthesisUtterance(fullText);
-      syntheticSpeechUtterance.lang = "en-US";
-      syntheticSpeechUtterance.rate = 0.9;
+function renderListeningTranscript(target) {
+  const container = document.getElementById("listeningTranscriptBody");
+  if (!container || !target) return;
 
-      syntheticSpeechUtterance.onend = () => {
-        isSyntheticSpeechPlaying = false;
-        if (icon) {
-          icon.setAttribute("data-lucide", "play");
-          if (typeof lucide !== "undefined") lucide.createIcons();
-        }
-      };
+  const isFullTest = Array.isArray(target.parts);
+  const partsList = isFullTest ? target.parts : [target];
 
-      window.speechSynthesis.speak(syntheticSpeechUtterance);
-      isSyntheticSpeechPlaying = true;
-      if (icon) {
-        icon.setAttribute("data-lucide", "pause");
-        if (typeof lucide !== "undefined") lucide.createIcons();
-      }
-      showToast("Đang phát bài nói qua giọng đọc chuẩn tiếng Anh...", "info");
+  let html = "";
+  partsList.forEach((part, pIdx) => {
+    if (!part.transcript || !part.transcript.length) return;
+    if (isFullTest) {
+      html += `
+        <div class="p-2.5 rounded-lg bg-slate-800 text-cyan-300 font-bold text-xs uppercase tracking-wider mb-2 mt-4 first:mt-0 flex items-center gap-1.5">
+          <i data-lucide="layers" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span>Lời Thoại Part ${part.partNumber}: ${part.title}</span>
+        </div>
+      `;
     }
-  }
-}
 
-function seekListening(secs) {
-  if (listeningAudioEl && listeningAudioEl.duration) {
-    listeningAudioEl.currentTime = Math.max(0, Math.min(listeningAudioEl.duration, listeningAudioEl.currentTime + secs));
-  }
-}
-
-function onListeningSeek(percent) {
-  if (listeningAudioEl && listeningAudioEl.duration) {
-    listeningAudioEl.currentTime = (percent / 100) * listeningAudioEl.duration;
-  }
-}
-
-function setListeningSpeed(rate) {
-  if (listeningAudioEl) listeningAudioEl.playbackRate = parseFloat(rate);
-  const btns = document.querySelectorAll(".btn-listening-speed");
-  btns.forEach(b => {
-    b.classList.toggle("bg-cyan-600", b.dataset.rate === String(rate));
-    b.classList.toggle("text-white", b.dataset.rate === String(rate));
-    b.classList.toggle("bg-slate-800", b.dataset.rate !== String(rate));
+    part.transcript.forEach((line, lIdx) => {
+      html += `
+        <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-1 hover:border-slate-700 transition">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-cyan-400 font-mono">${line.speaker}:</span>
+            <span class="text-xs sm:text-sm text-slate-100 font-medium">${line.en}</span>
+          </div>
+          <p class="text-xs text-slate-400 italic pl-6 border-l-2 border-indigo-500/30">${line.vi}</p>
+        </div>
+      `;
+    });
   });
-  showToast(`Tốc độ nghe: ${rate}x`, "info");
+
+  container.innerHTML = html || "<p class='text-xs text-slate-400 italic'>Chưa có lời thoại chi tiết cho bài nghe này.</p>";
+  if (typeof lucide !== "undefined") lucide.createIcons();
 }
 
 function submitListeningTest() {
   if (typeof LISTENING_TESTS === "undefined" || !LISTENING_TESTS.length) return;
   const test = LISTENING_TESTS[currentListeningTestIdx] || LISTENING_TESTS[0];
-  const part = test.parts[currentListeningPartIdx];
-  if (!part) return;
+  const isFull = (currentListeningPartIdx === "full" || currentListeningPartIdx === -1);
 
-  const total = part.questions.length;
+  let allQuestions = [];
+  if (isFull) {
+    (test.parts || []).forEach(p => {
+      allQuestions.push(...(p.questions || []));
+    });
+  } else {
+    const part = test.parts[currentListeningPartIdx];
+    if (part) allQuestions = part.questions || [];
+  }
+
+  const total = allQuestions.length;
   const answered = Object.keys(userListeningAnswers).length;
   if (answered < total) {
-    if (!confirm(`Bạn mới trả lời ${answered}/${total} câu. Bạn có chắc chắn muốn nộp bài để chấm điểm ngay?`)) {
+    if (!confirm(`Bạn mới trả lời ${answered}/${total} câu hỏi. Bạn có chắc chắn muốn nộp bài để chấm điểm ngay?`)) {
       return;
     }
   }
 
   isListeningSubmitted = true;
   let correctCount = 0;
-  part.questions.forEach(q => {
+  allQuestions.forEach(q => {
     if (userListeningAnswers[q.id] === q.correct) {
       correctCount++;
     }
   });
 
   const pct = Math.round((correctCount / total) * 100);
+  let bandEstimate = "";
+  if (pct >= 90) bandEstimate = "IELTS Band 8.5+ • VSTEP C1";
+  else if (pct >= 80) bandEstimate = "IELTS Band 7.5 - 8.0 • VSTEP C1";
+  else if (pct >= 65) bandEstimate = "IELTS Band 6.5 - 7.0 • VSTEP B2";
+  else if (pct >= 50) bandEstimate = "IELTS Band 5.5 - 6.0 • VSTEP B2";
+  else bandEstimate = "IELTS Band 4.5 - 5.0 • Cần củng cố";
+
   const scoreBanner = document.getElementById("listeningScoreBanner");
   const scoreText = document.getElementById("listeningScoreText");
 
@@ -7350,55 +7590,57 @@ function submitListeningTest() {
     scoreBanner.classList.remove("hidden");
     scoreText.innerHTML = `
       <div class="text-2xl sm:text-3xl font-black text-amber-300">Kết quả: ${correctCount} / ${total} Câu Đúng (${pct}%)</div>
-      <p class="text-xs sm:text-sm text-slate-300 mt-1">
+      <div class="inline-block mt-1 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-bold font-mono">
+        🎯 Đánh giá năng lực: ${bandEstimate}
+      </div>
+      <p class="text-xs sm:text-sm text-slate-300 mt-2">
         ${
-          pct === 100
-            ? "🎉 Tuyệt đỉnh! Bạn trả lời chính xác 100% tất cả các câu hỏi của bài thi này!"
-            : pct >= 80
-            ? "👏 Rất tốt! Kỹ năng nghe hiểu chi tiết của bạn đạt mức xuất sắc!"
+          pct >= 80
+            ? "👏 Xuất sắc! Kỹ năng nghe hiểu chi tiết và bắt từ khóa của bạn đạt chuẩn thi quốc tế!"
             : pct >= 50
-            ? "👍 Khá tốt! Hãy xem Lời thoại (Transcript) bên dưới để xem lại các câu chưa đúng nhé."
-            : "💪 Cố lên! Hãy đọc kỹ Lời thoại & Bằng chứng bên dưới để rút kinh nghiệm cho lần nghe sau nhé."
+            ? "👍 Khá tốt! Hãy đọc kỹ Lời thoại song ngữ (Transcript) bên dưới để đối chiếu các câu bị bẫy nhé."
+            : "💪 Cố lên! Hãy bật xem Lời thoại & Giải thích bên dưới để nghe lại lần 2 nhé."
         }
       </p>
     `;
   }
 
-  renderListeningQuestions(part);
+  // Re-render questions with answer feedback
+  if (isFull) {
+    renderListeningQuestions(test);
+  } else {
+    renderListeningQuestions(test.parts[currentListeningPartIdx]);
+  }
+
   const transBox = document.getElementById("listeningTranscriptCard");
   if (transBox) transBox.classList.remove("hidden");
 
-  // Ghi nhận hoàn thành bài nghe chuẩn form vào Deadline hôm nay (Mục tiêu 2 bài/ngày)
+  // Ghi nhận hoàn thành 1 bài nghe chuẩn form vào Deadline hôm nay (Mục tiêu 1 bài/ngày)
   const curDay = missionRegistry.currentDay || 1;
   const curStatus = getDayMissionStatus(curDay);
-  const partKey = `${test.id}_p${part.partNumber}`;
+  const testKey = test.id;
 
   let doneList = [...(curStatus.completedListeningTests || [])];
-  if (!doneList.includes(partKey)) {
-    doneList.push(partKey);
+  if (!doneList.includes(testKey)) {
+    doneList.push(testKey);
   }
 
-  const isAllListeningDone = doneList.length >= 2;
   setDayMissionStatus(curDay, {
     completedListeningTests: doneList,
-    listeningDoneCount: Math.min(2, doneList.length),
-    listeningDone: isAllListeningDone
+    listeningDoneCount: 1,
+    listeningDone: true
   });
 
   const dailyBadge = document.getElementById("listeningDailyStatusBadge");
   if (dailyBadge) {
-    dailyBadge.innerText = isAllListeningDone ? "✓ Hôm nay: Đã xong 2/2 bài nghe!" : `⏳ Hôm nay: ${doneList.length}/2 bài nghe`;
-    dailyBadge.className = isAllListeningDone ? "px-3 py-1.5 rounded-xl bg-emerald-600/30 border border-emerald-500/50 text-emerald-300 font-bold text-xs flex items-center gap-1" : "px-3 py-1.5 rounded-xl bg-cyan-600/30 border border-cyan-500/40 text-cyan-300 font-bold text-xs flex items-center gap-1";
+    dailyBadge.innerText = "✓ Hôm nay: Đã xong 1/1 bài nghe chuẩn form!";
+    dailyBadge.className = "px-3 py-1.5 rounded-xl bg-emerald-600/30 border border-emerald-500/50 text-emerald-300 font-bold text-xs flex items-center gap-1";
   }
 
   updateDailyGoalChecklist();
   updateDailyMissionUI();
 
-  if (isAllListeningDone) {
-    showToast(`🎉 Xuất sắc! Bạn đã hoàn thành trọn vẹn mục tiêu 2 bài nghe chuẩn form hôm nay (${correctCount}/${total} câu đúng)!`, "success");
-  } else {
-    showToast(`✓ Đã nộp bài nghe: ${correctCount}/${total} câu đúng (${doneList.length}/2 bài hôm nay). Hãy làm thêm 1 bài nữa để hoàn thành deadline nhé!`, "info");
-  }
+  showToast(`🎉 Xuất sắc! Bạn đã hoàn thành trọn vẹn 1 bài nghe chuẩn form đủ dài hôm nay (${correctCount}/${total} câu đúng - ${bandEstimate})!`, "success");
 }
 
 function resetListeningTest() {

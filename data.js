@@ -54256,10 +54256,10 @@ window.APP_DATA = {
         {
           "q": "What is the primary topic of the passage?",
           "options": [
-            "A. Historical opposition to bilingualism in twentieth-century schooling.",
+            "A. Methods of diagnosing Alzheimer's disease in aging adults.",
             "B. The neurological and cognitive advantages of speaking two languages.",
-            "C. Methods of diagnosing Alzheimer's disease in aging adults.",
-            "D. A comparison between geometric sorting tasks and linguistic tests."
+            "C. A comparison between geometric sorting tasks and linguistic tests.",
+            "D. Historical opposition to bilingualism in twentieth-century schooling."
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Toàn bộ bài đọc tập trung phân tích các lợi ích nhận thức và thần kinh sâu sắc của việc biết hai ngôn ngữ (executive function, mental flexibility, cognitive reserve)."
@@ -54267,79 +54267,79 @@ window.APP_DATA = {
         {
           "q": "According to paragraph 1, what was a common belief about bilingual children in the twentieth century?",
           "options": [
-            "A. They acquired executive control faster than adults.",
-            "B. Their intellectual progression could be compromised.",
-            "C. They were naturally suited for scientific research.",
-            "D. They had smaller working memory capacities."
+            "A. Their intellectual progression could be compromised.",
+            "B. They had smaller working memory capacities.",
+            "C. They acquired executive control faster than adults.",
+            "D. They were naturally suited for scientific research."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn 1 nêu rõ: 'raising children bilingually could hinder their intellectual development' (việc nuôi dạy trẻ song ngữ có thể kìm hãm sự phát triển trí tuệ)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn 1 nêu rõ: 'raising children bilingually could hinder their intellectual development' (việc nuôi dạy trẻ song ngữ có thể kìm hãm sự phát triển trí tuệ)."
         },
         {
           "q": "The word 'suppress' in paragraph 2 is closest in meaning to:",
           "options": [
             "A. stimulate",
-            "B. restrain",
+            "B. express",
             "C. duplicate",
-            "D. express"
+            "D. restrain"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'Suppress' có nghĩa là ức chế, kiềm chế, đồng nghĩa với 'restrain'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'Suppress' có nghĩa là ức chế, kiềm chế, đồng nghĩa với 'restrain'."
         },
         {
           "q": "Why does speaking two languages provide a 'mental workout' for the brain?",
           "options": [
-            "A. The speaker must constantly memorize new phonetic alphabets.",
-            "B. Both language systems remain active, requiring constant inhibition of the unused language.",
-            "C. Bilingual individuals are required to speak at double the normal pace.",
-            "D. It forces the prefrontal cortex to cease all neurological activity."
+            "A. The speaker must constantly memorize new phonetic alphabets, without accounting for underlying structural variations in systemic conditions",
+            "B. Bilingual individuals are required to speak at double the normal pace, based on comprehensive longitudinal surveys of international participants",
+            "C. It forces the prefrontal cortex to cease all neurological activity, in direct coordination with institutional governance and quality benchmarks",
+            "D. Both language systems remain active, requiring constant inhibition of the unused language."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn 2 giải thích: 'both of their language systems are simultaneously active in the brain... This requires the speaker to suppress the unwanted language while selecting the appropriate words'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn 2 giải thích: 'both of their language systems are simultaneously active in the brain... This requires the speaker to suppress the unwanted language while selecting the appropriate words'."
         },
         {
           "q": "The phrase 'this outdated view' in paragraph 1 refers to the idea that:",
           "options": [
-            "A. Monolingualism is disadvantageous.",
-            "B. Executive function determines intelligence.",
-            "C. Learning two languages confuses children and harms development.",
-            "D. Neurological research should be rejected."
+            "A. Monolingualism is disadvantageous, through continuous predictive modeling and advanced quantitative assessments",
+            "B. Neurological research should be rejected, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Executive function determines intelligence, in direct coordination with institutional governance and quality benchmarks",
+            "D. Learning two languages confuses children and harms development."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Quan điểm lỗi thời được nhắc đến ở câu trước là: trẻ học song ngữ sẽ bị rối loạn và kìm hãm phát triển trí tuệ."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Quan điểm lỗi thời được nhắc đến ở câu trước là: trẻ học song ngữ sẽ bị rối loạn và kìm hãm phát triển trí tuệ."
         },
         {
           "q": "In paragraph 3, the author mentions shape-sorting experiments to demonstrate that bilinguals:",
           "options": [
-            "A. Excel primarily at geometric visual art.",
-            "B. Cannot adhere to traditional task instructions.",
-            "C. Adapt more swiftly when analytical rules change unexpectedly.",
-            "D. Make identical numbers of errors as monolinguals."
+            "A. Make identical numbers of errors as monolinguals.",
+            "B. Excel primarily at geometric visual art, supporting sustainable development while mitigating operational risks",
+            "C. Cannot adhere to traditional task instructions.",
+            "D. Adapt more swiftly when analytical rules change unexpectedly."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Đoạn 3 nêu: bilingual participants adapt substantially faster with significantly fewer errors khi quy tắc phân loại thay đổi đột ngột."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn 3 nêu: bilingual participants adapt substantially faster with significantly fewer errors khi quy tắc phân loại thay đổi đột ngột."
         },
         {
           "q": "According to paragraph 4, how does bilingualism influence the onset of Alzheimer's symptoms?",
           "options": [
-            "A. It completely cures all forms of physical brain deterioration.",
-            "B. It delays the manifestation of symptoms by approximately 4 to 5 years.",
-            "C. It speeds up the breakdown of neural pathways.",
+            "A. It delays the manifestation of symptoms by approximately 4 to 5 years.",
+            "B. It completely cures all forms of physical brain deterioration.",
+            "C. It speeds up the breakdown of neural pathways, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "D. It restricts patients to only one language during recovery."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn 4 chỉ rõ: 'bilingual individuals exhibit symptoms of Alzheimer's disease approximately four to five years later than comparable monolinguals'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn 4 chỉ rõ: 'bilingual individuals exhibit symptoms of Alzheimer's disease approximately four to five years later than comparable monolinguals'."
         },
         {
           "q": "Which of the following can be inferred from the passage?",
           "options": [
-            "A. Older adults should not attempt to learn a second language.",
-            "B. Cognitive benefits only apply to people who master three or more languages.",
-            "C. The neural challenges of managing two languages produce lasting biological protections.",
-            "D. Monolingual education is legally prohibited in modern schools."
+            "A. Cognitive benefits only apply to people who master three or more languages.",
+            "B. The neural challenges of managing two languages produce lasting biological protections.",
+            "C. Older adults should not attempt to learn a second language, through continuous predictive modeling and advanced quantitative assessments",
+            "D. Monolingual education is legally prohibited in modern schools, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thách thức liên tục quản lý hai ngôn ngữ tạo nên cơ chế bảo vệ nhận thức (cognitive reserve) lâu bền trong não bộ."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thách thức liên tục quản lý hai ngôn ngữ tạo nên cơ chế bảo vệ nhận thức (cognitive reserve) lâu bền trong não bộ."
         }
       ],
       "month": 1,
@@ -54400,21 +54400,21 @@ window.APP_DATA = {
         {
           "q": "What is the central focus of the passage?",
           "options": [
-            "A. Industrial cement production techniques and their economic value.",
-            "B. The chemical mechanisms and ecological consequences of ocean acidification.",
-            "C. The migration patterns of baleen whales and sea birds.",
-            "D. Technological methods for extracting carbonic acid from seawater."
+            "A. The chemical mechanisms and ecological consequences of ocean acidification.",
+            "B. The migration patterns of baleen whales and sea birds, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Technological methods for extracting carbonic acid from seawater.",
+            "D. Industrial cement production techniques and their economic value."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc phân tích nguyên nhân hóa học của axit hóa đại dương và những hiểm họa sinh thái đe dọa các sinh vật biển."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc phân tích nguyên nhân hóa học của axit hóa đại dương và những hiểm họa sinh thái đe dọa các sinh vật biển."
         },
         {
           "q": "According to paragraph 1, approximately what percentage of human-emitted carbon dioxide has been absorbed by oceans?",
           "options": [
-            "A. 10 percent",
+            "A. 50 percent",
             "B. 30 percent",
-            "C. 50 percent",
-            "D. 80 percent"
+            "C. 80 percent",
+            "D. 10 percent"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn 1 viết: 'absorbing roughly 30 percent of all anthropogenic carbon dioxide emissions'."
@@ -54423,8 +54423,8 @@ window.APP_DATA = {
           "q": "Why does a 0.1 decrease in ocean pH represent a 30 percent increase in acidity?",
           "options": [
             "A. The pH scale is logarithmic rather than linear.",
-            "B. Salt ions multiply the effects of hydrogen ions tenfold.",
-            "C. Water temperature fluctuations distort scientific sensors.",
+            "B. Water temperature fluctuations distort scientific sensors.",
+            "C. Salt ions multiply the effects of hydrogen ions tenfold.",
             "D. Marine plants consume acidic chemicals inconsistently."
           ],
           "answer": 0,
@@ -54434,56 +54434,56 @@ window.APP_DATA = {
           "q": "The word 'precipitously' in paragraph 2 is closest in meaning to:",
           "options": [
             "A. gradually",
-            "B. sharply",
-            "C. accidentally",
-            "D. uniformly"
+            "B. uniformly",
+            "C. sharply",
+            "D. accidentally"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'Precipitously' mang nghĩa đột ngột, mạnh mẽ, dốc đứng, đồng nghĩa với 'sharply' hoặc 'rapidly'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. 'Precipitously' mang nghĩa đột ngột, mạnh mẽ, dốc đứng, đồng nghĩa với 'sharply' hoặc 'rapidly'."
         },
         {
           "q": "How does ocean acidification directly harm calcifying organisms?",
           "options": [
-            "A. It raises oceanic water temperatures to boiling points.",
-            "B. It depletes carbonate ions needed to build and preserve shells.",
+            "A. It depletes carbonate ions needed to build and preserve shells.",
+            "B. It removes oxygen completely from coral reefs, through continuous predictive modeling and advanced quantitative assessments",
             "C. It prevents sunlight from penetrating surface seawater.",
-            "D. It removes oxygen completely from coral reefs."
+            "D. It raises oceanic water temperatures to boiling points."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Axit hóa làm cạn kiệt các ion cacbonat tự do, khiến sinh vật phải tiêu tốn quá nhiều năng lượng trao đổi chất để xây dựng và duy trì vỏ vôi."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Axit hóa làm cạn kiệt các ion cacbonat tự do, khiến sinh vật phải tiêu tốn quá nhiều năng lượng trao đổi chất để xây dựng và duy trì vỏ vôi."
         },
         {
           "q": "Why are pteropods considered exceptionally crucial in marine ecosystems?",
           "options": [
-            "A. They are the primary predators of large sharks and killer whales.",
-            "B. They form the foundational food source for many fish, seabirds, and whales.",
-            "C. They generate over 90 percent of the world's commercial cement.",
-            "D. Their shells neutralize all carbonic acid in polar regions."
+            "A. They generate over 90 percent of the world's commercial cement.",
+            "B. They are the primary predators of large sharks and killer whales.",
+            "C. Their shells neutralize all carbonic acid in polar regions.",
+            "D. They form the foundational food source for many fish, seabirds, and whales."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn 4 chỉ ra: 'these diminutive swimming snails form the bedrock of polar and subpolar marine food webs, serving as a primary dietary staple for salmon, herring, seabirds, and baleen whales'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn 4 chỉ ra: 'these diminutive swimming snails form the bedrock of polar and subpolar marine food webs, serving as a primary dietary staple for salmon, herring, seabirds, and baleen whales'."
         },
         {
           "q": "The term 'trophic cascades' in paragraph 4 refers to:",
           "options": [
-            "A. Sudden underwater volcanic eruptions.",
-            "B. Chain reactions of disruption throughout an entire food chain.",
+            "A. Seasonal migrations of marine phytoplankton, through continuous predictive modeling and advanced quantitative assessments",
+            "B. Sudden underwater volcanic eruptions, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "C. Rapid technological breakthroughs in fisheries.",
-            "D. Seasonal migrations of marine phytoplankton."
+            "D. Chain reactions of disruption throughout an entire food chain."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'Trophic cascades' là sự xáo trộn hoặc sụp đổ dây chuyền qua các bậc dinh dưỡng của chuỗi thức ăn sinh thái."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'Trophic cascades' là sự xáo trộn hoặc sụp đổ dây chuyền qua các bậc dinh dưỡng của chuỗi thức ăn sinh thái."
         },
         {
           "q": "Which conclusion is best supported by the passage?",
           "options": [
-            "A. Marine organisms will easily adapt to acidification without human intervention.",
-            "B. Ocean acidification is an isolated crisis affecting only tropical corals.",
-            "C. Unmitigated carbon emissions threaten foundational species that sustain global food systems.",
-            "D. Atmospheric carbon dioxide levels have peaked and begun to decline."
+            "A. Ocean acidification is an isolated crisis affecting only tropical corals, in direct coordination with institutional governance and quality benchmarks",
+            "B. Atmospheric carbon dioxide levels have peaked and begun to decline, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Marine organisms will easily adapt to acidification without human intervention.",
+            "D. Unmitigated carbon emissions threaten foundational species that sustain global food systems."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Nếu không cắt giảm khí thải carbon, sự tan rã của các loài sinh vật nền tảng như pteropod sẽ đe dọa an ninh lương thực của toàn nhân loại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Nếu không cắt giảm khí thải carbon, sự tan rã của các loài sinh vật nền tảng như pteropod sẽ đe dọa an ninh lương thực của toàn nhân loại."
         }
       ],
       "month": 1,
@@ -54544,90 +54544,90 @@ window.APP_DATA = {
         {
           "q": "What is the primary objective of the author in this passage?",
           "options": [
-            "A. To compare commercial EEG devices used in clinical sleep hospitals.",
-            "B. To explain the neurological stages of sleep and their roles in memory consolidation.",
-            "C. To argue that dreaming has no evolutionary or psychological value.",
+            "A. To argue that dreaming has no evolutionary or psychological value, based on comprehensive longitudinal surveys of international participants",
+            "B. To compare commercial EEG devices used in clinical sleep hospitals, in direct coordination with institutional governance and quality benchmarks",
+            "C. To explain the neurological stages of sleep and their roles in memory consolidation.",
             "D. To describe surgical procedures for treating severe chronic insomnia."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Tác giả giải thích các giai đoạn giấc ngủ (NREM, REM) và cơ chế thần kinh chuyển đổi trí nhớ tạm thời sang vỏ não dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Tác giả giải thích các giai đoạn giấc ngủ (NREM, REM) và cơ chế thần kinh chuyển đổi trí nhớ tạm thời sang vỏ não dài hạn."
         },
         {
           "q": "The word 'misconception' in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. proven hypothesis",
-            "B. erroneous belief",
-            "C. scientific consensus",
-            "D. psychological disorder"
+            "A. scientific consensus",
+            "B. psychological disorder",
+            "C. proven hypothesis",
+            "D. erroneous belief"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'Misconception' nghĩa là quan niệm sai lầm, nhận thức sai, đồng nghĩa với 'erroneous belief'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'Misconception' nghĩa là quan niệm sai lầm, nhận thức sai, đồng nghĩa với 'erroneous belief'."
         },
         {
           "q": "According to paragraph 2, why cannot the hippocampus serve as a permanent storage site for memories?",
           "options": [
-            "A. It completely ceases functioning during deep sleep.",
-            "B. It possesses limited capacity and is vulnerable to memory decay and interference.",
-            "C. It cannot communicate with the prefrontal cortex.",
-            "D. It generates excessive body heat during academic study."
+            "A. It possesses limited capacity and is vulnerable to memory decay and interference.",
+            "B. It completely ceases functioning during deep sleep, in direct coordination with institutional governance and quality benchmarks",
+            "C. It generates excessive body heat during academic study, supporting sustainable development while mitigating operational risks",
+            "D. It cannot communicate with the prefrontal cortex, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn 2 nêu: 'the hippocampus has finite storage capacity and is highly susceptible to retroactive interference'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn 2 nêu: 'the hippocampus has finite storage capacity and is highly susceptible to retroactive interference'."
         },
         {
           "q": "What phenomenon occurs during 'sleep spindles' in slow-wave sleep?",
           "options": [
             "A. The eyes move rapidly in all directions while muscles twitch violently.",
-            "B. The hippocampus replays daytime neural patterns at accelerated speeds to the neocortex.",
-            "C. The brain discards all memories acquired in the previous forty-eight hours.",
-            "D. Heart rate and blood pressure increase to daytime running levels."
+            "B. Heart rate and blood pressure increase to daytime running levels, through continuous predictive modeling and advanced quantitative assessments",
+            "C. The hippocampus replays daytime neural patterns at accelerated speeds to the neocortex.",
+            "D. The brain discards all memories acquired in the previous forty-eight hours."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn 3 chỉ ra: 'the hippocampus literally replays the neural firing patterns experienced during waking learning sessions, but at tenfold speeds'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn 3 chỉ ra: 'the hippocampus literally replays the neural firing patterns experienced during waking learning sessions, but at tenfold speeds'."
         },
         {
           "q": "According to paragraph 4, how does REM sleep differ from NREM sleep regarding memory?",
           "options": [
-            "A. REM sleep consolidates factual data, while NREM sleep promotes creative connections.",
-            "B. NREM sleep stores facts, whereas REM sleep integrates concepts into associative networks.",
-            "C. REM sleep damages existing memories to make room for new vocabulary.",
-            "D. NREM sleep occurs only when individuals are dreaming actively."
+            "A. NREM sleep occurs only when individuals are dreaming actively, supporting sustainable development while mitigating operational risks",
+            "B. REM sleep consolidates factual data, while NREM sleep promotes creative connections.",
+            "C. REM sleep damages existing memories to make room for new vocabulary, in direct coordination with institutional governance and quality benchmarks",
+            "D. NREM sleep stores facts, whereas REM sleep integrates concepts into associative networks."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn 4 nêu rõ: NREM củng cố dữ kiện và trí nhớ tường minh, trong khi REM giúp tích hợp liên tưởng và tạo ra hiểu biết sáng tạo."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn 4 nêu rõ: NREM củng cố dữ kiện và trí nhớ tường minh, trong khi REM giúp tích hợp liên tưởng và tạo ra hiểu biết sáng tạo."
         },
         {
           "q": "The word 'finite' in paragraph 2 is opposite in meaning to:",
           "options": [
             "A. limited",
-            "B. infinite",
+            "B. functional",
             "C. substantial",
-            "D. functional"
+            "D. infinite"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'Finite' có nghĩa là hữu hạn, có giới hạn; trái nghĩa với 'infinite' (vô hạn)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'Finite' có nghĩa là hữu hạn, có giới hạn; trái nghĩa với 'infinite' (vô hạn)."
         },
         {
           "q": "Which consequence of post-study sleep deprivation is emphasized at the end of the passage?",
           "options": [
-            "A. Permanent loss of physical vision.",
-            "B. Impairment of both memory retention and conceptual synthesis.",
-            "C. An inability to generate normal eye movements during daytime.",
-            "D. Sudden acceleration of slow-wave electrical signals."
+            "A. Sudden acceleration of slow-wave electrical signals.",
+            "B. An inability to generate normal eye movements during daytime.",
+            "C. Permanent loss of physical vision, without accounting for underlying structural variations in systemic conditions",
+            "D. Impairment of both memory retention and conceptual synthesis."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Câu kết đoạn 4 khẳng định: thiếu ngủ làm suy giảm nghiêm trọng cả khả năng ghi nhớ từ ngữ lẫn khả năng tổng hợp khái niệm."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Câu kết đoạn 4 khẳng định: thiếu ngủ làm suy giảm nghiêm trọng cả khả năng ghi nhớ từ ngữ lẫn khả năng tổng hợp khái niệm."
         },
         {
           "q": "It can be inferred from the text that a student preparing for a major English exam should:",
           "options": [
-            "A. Stay awake all night studying to maximize hippocampal storage.",
-            "B. Avoid sleeping immediately after memorizing difficult vocabulary.",
-            "C. Prioritize complete, unfragmented sleep to allow memory consolidation to occur.",
-            "D. Use stimulants to eliminate slow-wave NREM sleep cycles."
+            "A. Stay awake all night studying to maximize hippocampal storage, without accounting for underlying structural variations in systemic conditions",
+            "B. Prioritize complete, unfragmented sleep to allow memory consolidation to occur.",
+            "C. Use stimulants to eliminate slow-wave NREM sleep cycles, supporting sustainable development while mitigating operational risks",
+            "D. Avoid sleeping immediately after memorizing difficult vocabulary."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Người học cần ngủ đủ giấc trọn vẹn để não bộ hoàn tất quá trình củng cố và chuyển giao trí nhớ."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Người học cần ngủ đủ giấc trọn vẹn để não bộ hoàn tất quá trình củng cố và chuyển giao trí nhớ."
         }
       ],
       "month": 1,
@@ -54657,42 +54657,42 @@ window.APP_DATA = {
         {
           "q": "The word \"flush\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. generate",
-            "B. flush",
-            "C. conceal",
-            "D. borrow"
+            "A. conceal",
+            "B. borrow",
+            "C. flush",
+            "D. generate"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'flush'. Trong ngữ cảnh đoạn 2, từ 'flush' được dùng để diễn đạt: flush (rửa trôi, đào thải độc tố chuyển hóa ra khỏi não)."
         },
         {
           "q": "The word \"retain\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. retain",
-            "B. damage",
-            "C. drop",
-            "D. refuse"
+            "A. damage",
+            "B. drop",
+            "C. refuse",
+            "D. retain"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'retain'. Trong ngữ cảnh đoạn 3, từ 'retain' được dùng để diễn đạt: retain (ghi nhớ, khắc sâu kiến thức vào bộ nhớ)."
         },
         {
           "q": "The word \"uninterrupted\" in paragraph 4 is closest in meaning to:",
           "options": [
             "A. chaotic",
-            "B. uninterrupted",
-            "C. noisy",
-            "D. stressful"
+            "B. stressful",
+            "C. uninterrupted",
+            "D. noisy"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'uninterrupted'. Trong ngữ cảnh đoạn 4, từ 'uninterrupted' được dùng để diễn đạt: uninterrupted (liền mạch, không bị đứt đoạn)."
         },
         {
           "q": "The word \"energized\" in paragraph 4 is closest in meaning to:",
           "options": [
-            "A. exhausted",
+            "A. confused",
             "B. energized",
-            "C. confused",
+            "C. exhausted",
             "D. furious"
           ],
           "answer": 1,
@@ -54701,34 +54701,34 @@ window.APP_DATA = {
         {
           "q": "Quá trình thanh lọc não diễn ra mạnh mẽ nhất trong giai đoạn nào?",
           "options": [
-            "A. Khi vừa mới chợp mắt",
-            "B. Trong giấc ngủ sóng chậm sâu (slow-wave deep sleep)",
-            "C. Khi đang ăn sáng",
-            "D. Khi đang tập thể dục buổi sáng"
+            "A. Khi vừa mới chợp mắt (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Khi đang ăn sáng (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Khi đang tập thể dục buổi sáng (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Trong giấc ngủ sóng chậm sâu (slow-wave deep sleep)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 chỉ rõ: 'During deep slow-wave sleep... cerebrospinal fluid to wash through tissue'."
         },
         {
           "q": "Bộ phận nào đóng vai trò lưu trữ tạm thời ký ức trước khi chuyển vào vỏ não?",
           "options": [
-            "A. Neocortex",
-            "B. Hippocampus (vùng hải mã)",
-            "C. Tủy sống",
-            "D. Cơ hoành"
+            "A. Cơ hoành (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Tủy sống (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Hippocampus (vùng hải mã)",
+            "D. Neocortex"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 3 nêu: 'from the temporary storage of the hippocampus into the permanent neocortex'."
         },
         {
           "q": "Từ 'consolidation' trong đoạn 3 có nghĩa là gì?",
           "options": [
-            "A. sự củng cố, làm cho bền vững",
-            "B. sự suy tàn",
-            "C. sự quên lãng hoàn toàn",
-            "D. sự xáo trộn"
+            "A. sự quên lãng hoàn toàn",
+            "B. sự củng cố, làm cho bền vững",
+            "C. sự xáo trộn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. sự suy tàn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "consolidation = sự củng cố vững chắc (trong thần kinh học: củng cố ký ức)."
         }
       ],
@@ -54759,78 +54759,78 @@ window.APP_DATA = {
         {
           "q": "The word \"shorten\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. lengthen",
-            "B. shorten",
-            "C. ignore",
-            "D. prevent"
+            "A. ignore",
+            "B. lengthen",
+            "C. prevent",
+            "D. shorten"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'shorten'. Trong ngữ cảnh đoạn 2, từ 'shorten' được dùng để diễn đạt: shorten (rút ngắn cự ly di chuyển giao hàng)."
         },
         {
           "q": "The word \"slash\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. slash",
-            "B. multiply",
-            "C. welcome",
-            "D. ignore"
+            "A. multiply",
+            "B. ignore",
+            "C. slash",
+            "D. welcome"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'slash'. Trong ngữ cảnh đoạn 3, từ 'slash' được dùng để diễn đạt: slash (cắt giảm mạnh mẽ lượng khí thải)."
         },
         {
           "q": "The word \"curtail\" in paragraph 4 is closest in meaning to:",
           "options": [
-            "A. expand",
-            "B. curtail",
-            "C. invite",
-            "D. praise"
+            "A. praise",
+            "B. invite",
+            "C. curtail",
+            "D. expand"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'curtail'. Trong ngữ cảnh đoạn 4, từ 'curtail' được dùng để diễn đạt: curtail (cắt bớt, giảm bớt thời gian nổ máy chờ)."
         },
         {
           "q": "The word \"sustainable\" in paragraph 4 is closest in meaning to:",
           "options": [
-            "A. costly",
-            "B. sustainable",
-            "C. hazardous",
-            "D. fragile"
+            "A. hazardous",
+            "B. costly",
+            "C. fragile",
+            "D. sustainable"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'sustainable'. Trong ngữ cảnh đoạn 4, từ 'sustainable' được dùng để diễn đạt: sustainable (phát triển bền vững)."
         },
         {
           "q": "Mục đích chính của việc xây dựng kho hàng vi mô (micro-fulfillment hubs) là gì?",
           "options": [
-            "A. Trưng bày hàng hóa bán lẻ trực tiếp",
-            "B. Đặt gần khu dân cư để rút ngắn quãng đường giao hàng chặng cuối",
-            "C. Chứa hàng hải ngoại",
-            "D. Tuyển dụng tài xế"
+            "A. Đặt gần khu dân cư để rút ngắn quãng đường giao hàng chặng cuối",
+            "B. Tuyển dụng tài xế (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Chứa hàng hải ngoại (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Trưng bày hàng hóa bán lẻ trực tiếp (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Kho vi mô gần khu dân cư giúp rút ngắn quãng đường giao hàng đáng kể."
         },
         {
           "q": "Ưu điểm của xe đạp chở hàng chạy điện trong thành phố là gì?",
           "options": [
-            "A. Chở được khối lượng hàng chục tấn",
-            "B. Luồn lách êm ái trong ngõ hẹp và không thải khí độc",
-            "C. Bay qua các tòa nhà cao tầng",
-            "D. Chạy bằng xăng sinh học"
+            "A. Chạy bằng xăng sinh học (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Chở được khối lượng hàng chục tấn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Luồn lách êm ái trong ngõ hẹp và không thải khí độc",
+            "D. Bay qua các tòa nhà cao tầng (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 3 nêu: 'navigate narrow alleys quietly and slash urban carbon emissions'."
         },
         {
           "q": "Ý chính của toàn bộ bài viết là gì?",
           "options": [
-            "A. Chiến lược logistics xanh nhằm phát triển thương mại điện tử bền vững",
-            "B. Sự thất bại của các cửa hàng truyền thống",
-            "C. Nguy cơ tai nạn giao thông do xe tải giao hàng",
-            "D. Hướng dẫn lập trình thuật toán định tuyến"
+            "A. Nguy cơ tai nạn giao thông do xe tải giao hàng (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Sự thất bại của các cửa hàng truyền thống (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Hướng dẫn lập trình thuật toán định tuyến (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Chiến lược logistics xanh nhằm phát triển thương mại điện tử bền vững"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Bài đọc trình bày các giải pháp xanh hóa chuỗi cung ứng giao hàng đô thị."
         }
       ],
@@ -54862,9 +54862,9 @@ window.APP_DATA = {
           "q": "The word \"produce\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. produce",
-            "B. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. ignore"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'produce'. Trong ngữ cảnh đoạn 1, từ 'produce' được dùng để diễn đạt: 'produce' có nghĩa là sản xuất, phù hợp nhất với ngữ cảnh của câu."
@@ -54872,30 +54872,30 @@ window.APP_DATA = {
         {
           "q": "The word \"damage\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. damage",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. popular",
+            "C. famous",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'damage'. Trong ngữ cảnh đoạn 2, từ 'damage' được dùng để diễn đạt: 'damage' có nghĩa là làm hỏng, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"expand\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. expand",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. conceal",
+            "C. forget",
+            "D. expand"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'expand'. Trong ngữ cảnh đoạn 2, từ 'expand' được dùng để diễn đạt: 'expand' có nghĩa là mở rộng, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"thrive\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. fragile",
+            "B. toxic",
             "C. thrive",
             "D. chaotic"
           ],
@@ -54905,10 +54905,10 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
             "B. Tầm quan trọng và các phương pháp áp dụng lunar exploration and future moon bases trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của lunar exploration and future moon bases."
@@ -54916,23 +54916,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -54963,20 +54963,20 @@ window.APP_DATA = {
         {
           "q": "The word \"lower\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. lower",
-            "B. ignore",
+            "A. prevent",
+            "B. lower",
             "C. destroy",
-            "D. prevent"
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'lower'. Trong ngữ cảnh đoạn 1, từ 'lower' được dùng để diễn đạt: 'lower' có nghĩa là hạ thấp, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"mitigate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. wealthy",
             "B. mitigate",
-            "C. wealthy",
+            "C. famous",
             "D. popular"
           ],
           "answer": 1,
@@ -54985,56 +54985,56 @@ window.APP_DATA = {
         {
           "q": "The word \"interact\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. interact",
-            "C. damage",
+            "A. interact",
+            "B. damage",
+            "C. conceal",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'interact'. Trong ngữ cảnh đoạn 2, từ 'interact' được dùng để diễn đạt: 'interact' có nghĩa là tương tác, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"optimal\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. optimal",
-            "D. chaotic"
+            "A. chaotic",
+            "B. optimal",
+            "C. toxic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'optimal'. Trong ngữ cảnh đoạn 3, từ 'optimal' được dùng để diễn đạt: 'optimal' có nghĩa là tối ưu, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng urban greenery and psychological well-being trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng urban greenery and psychological well-being trong đời sống hiện đại",
+            "B. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của urban greenery and psychological well-being."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -55066,9 +55066,9 @@ window.APP_DATA = {
           "q": "The word \"collaborate\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. collaborate",
-            "B. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. ignore"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'collaborate'. Trong ngữ cảnh đoạn 1, từ 'collaborate' được dùng để diễn đạt: 'collaborate' có nghĩa là hợp tác, phù hợp nhất với ngữ cảnh của câu."
@@ -55076,65 +55076,65 @@ window.APP_DATA = {
         {
           "q": "The word \"isolation\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. isolation",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. popular",
+            "C. famous",
+            "D. isolation"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'isolation'. Trong ngữ cảnh đoạn 2, từ 'isolation' được dùng để diễn đạt: 'isolation' có nghĩa là sự cô đơn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"maintain\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. maintain",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. forget",
+            "C. conceal",
+            "D. maintain"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'maintain'. Trong ngữ cảnh đoạn 1, từ 'maintain' được dùng để diễn đạt: 'maintain' có nghĩa là duy trì, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"rewarding\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. rewarding",
+            "B. rewarding",
+            "C. fragile",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'rewarding'. Trong ngữ cảnh đoạn 3, từ 'rewarding' được dùng để diễn đạt: 'rewarding' có nghĩa là đầy ý nghĩa, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the rise of remote digital nomads trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng the rise of remote digital nomads trong đời sống hiện đại",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the rise of remote digital nomads."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -55167,20 +55167,20 @@ window.APP_DATA = {
         {
           "q": "The word \"store\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. store",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. destroy",
+            "B. prevent",
+            "C. store",
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'store'. Trong ngữ cảnh đoạn 1, từ 'store' được dùng để diễn đạt: 'store' có nghĩa là lưu trữ, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"discharge\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. wealthy",
             "B. discharge",
-            "C. wealthy",
+            "C. famous",
             "D. popular"
           ],
           "answer": 1,
@@ -55189,10 +55189,10 @@ window.APP_DATA = {
         {
           "q": "The word \"accelerate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. accelerate",
-            "C. damage",
-            "D. forget"
+            "C. conceal",
+            "D. damage"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'accelerate'. Trong ngữ cảnh đoạn 2, từ 'accelerate' được dùng để diễn đạt: 'accelerate' có nghĩa là đẩy nhanh, là hành động tích cực giúp vượt qua khó khăn."
@@ -55201,44 +55201,44 @@ window.APP_DATA = {
           "q": "The word \"resilient\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. resilient",
-            "D. chaotic"
+            "B. resilient",
+            "C. chaotic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'resilient'. Trong ngữ cảnh đoạn 3, từ 'resilient' được dùng để diễn đạt: 'resilient' có nghĩa là kiên cường, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng breakthroughs in solar energy storage trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Tầm quan trọng và các phương pháp áp dụng breakthroughs in solar energy storage trong đời sống hiện đại",
+            "D. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của breakthroughs in solar energy storage."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -55269,41 +55269,41 @@ window.APP_DATA = {
         {
           "q": "The word \"stimuli\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. stimuli",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. prevent",
+            "C. stimuli",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'stimuli'. Trong ngữ cảnh đoạn 1, từ 'stimuli' được dùng để diễn đạt: 'stimuli' có nghĩa là kích thích, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"fade\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. fade",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. popular",
+            "C. famous",
+            "D. fade"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'fade'. Trong ngữ cảnh đoạn 2, từ 'fade' được dùng để diễn đạt: 'fade' có nghĩa là mai một, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"forestall\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. forestall",
+            "A. forestall",
+            "B. forget",
             "C. damage",
-            "D. forget"
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'forestall'. Trong ngữ cảnh đoạn 2, từ 'forestall' được dùng để diễn đạt: 'forestall' có nghĩa là ngăn chặn trước, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"vibrant\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. fragile",
+            "B. toxic",
             "C. vibrant",
             "D. chaotic"
           ],
@@ -55313,21 +55313,21 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng neuroplasticity and the ageless mind trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Tầm quan trọng và các phương pháp áp dụng neuroplasticity and the ageless mind trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của neuroplasticity and the ageless mind."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -55335,12 +55335,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -55372,9 +55372,9 @@ window.APP_DATA = {
           "q": "The word \"converse\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. converse",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "B. prevent",
+            "C. ignore",
+            "D. destroy"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'converse'. Trong ngữ cảnh đoạn 1, từ 'converse' được dùng để diễn đạt: 'converse' có nghĩa là trò chuyện, phù hợp nhất với ngữ cảnh của câu."
@@ -55382,67 +55382,67 @@ window.APP_DATA = {
         {
           "q": "The word \"hesitate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. hesitate",
-            "C. wealthy",
+            "A. hesitate",
+            "B. wealthy",
+            "C. famous",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'hesitate'. Trong ngữ cảnh đoạn 2, từ 'hesitate' được dùng để diễn đạt: 'hesitate' có nghĩa là ngập ngừng, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"accelerate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. accelerate",
-            "C. damage",
-            "D. forget"
+            "A. accelerate",
+            "B. conceal",
+            "C. forget",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'accelerate'. Trong ngữ cảnh đoạn 2, từ 'accelerate' được dùng để diễn đạt: 'accelerate' có nghĩa là tăng tốc, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"fluent\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. fluent",
-            "D. chaotic"
+            "A. fragile",
+            "B. fluent",
+            "C. chaotic",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'fluent'. Trong ngữ cảnh đoạn 3, từ 'fluent' được dùng để diễn đạt: 'fluent' có nghĩa là lưu loát, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng language immersion and fluency acquisition trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Tầm quan trọng và các phương pháp áp dụng language immersion and fluency acquisition trong đời sống hiện đại",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của language immersion and fluency acquisition."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -55473,23 +55473,23 @@ window.APP_DATA = {
         {
           "q": "The word \"ingest\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. ingest",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. ingest",
+            "C. ignore",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'ingest'. Trong ngữ cảnh đoạn 1, từ 'ingest' được dùng để diễn đạt: 'ingest' có nghĩa là nuốt phải, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"accumulate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. accumulate",
-            "C. wealthy",
-            "D. popular"
+            "A. accumulate",
+            "B. popular",
+            "C. famous",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'accumulate'. Trong ngữ cảnh đoạn 2, từ 'accumulate' được dùng để diễn đạt: 'accumulate' có nghĩa là tích tụ, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
@@ -55506,21 +55506,21 @@ window.APP_DATA = {
         {
           "q": "The word \"hazardous\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. hazardous",
-            "D. chaotic"
+            "A. chaotic",
+            "B. toxic",
+            "C. fragile",
+            "D. hazardous"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'hazardous'. Trong ngữ cảnh đoạn 3, từ 'hazardous' được dùng để diễn đạt: 'hazardous' có nghĩa là nguy hại, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
             "B. Tầm quan trọng và các phương pháp áp dụng microplastics in the global food chain trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của microplastics in the global food chain."
@@ -55528,21 +55528,21 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -55575,43 +55575,43 @@ window.APP_DATA = {
         {
           "q": "The word \"consume\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. consume",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. consume",
+            "C. ignore",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'consume'. Trong ngữ cảnh đoạn 1, từ 'consume' được dùng để diễn đạt: 'consume' có nghĩa là tiêu thụ, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"protect\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. protect",
-            "C. wealthy",
-            "D. popular"
+            "A. protect",
+            "B. wealthy",
+            "C. popular",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'protect'. Trong ngữ cảnh đoạn 2, từ 'protect' được dùng để diễn đạt: 'protect' có nghĩa là bảo vệ, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"substitute\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. substitute",
-            "C. damage",
-            "D. forget"
+            "B. damage",
+            "C. forget",
+            "D. substitute"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'substitute'. Trong ngữ cảnh đoạn 2, từ 'substitute' được dùng để diễn đạt: 'substitute' có nghĩa là thay thế, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"longevity\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. chaotic",
             "B. fragile",
             "C. longevity",
-            "D. chaotic"
+            "D. toxic"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'longevity'. Trong ngữ cảnh đoạn 3, từ 'longevity' được dùng để diễn đạt: 'longevity' có nghĩa là tuổi thọ dài lâu, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -55619,34 +55619,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the mediterranean diet and cardiovascular health trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng the mediterranean diet and cardiovascular health trong đời sống hiện đại",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the mediterranean diet and cardiovascular health."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -55679,8 +55679,8 @@ window.APP_DATA = {
           "options": [
             "A. distraction",
             "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "C. prevent",
+            "D. destroy"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'distraction'. Trong ngữ cảnh đoạn 1, từ 'distraction' được dùng để diễn đạt: 'distraction' có nghĩa là sự xao nhãng, phù hợp nhất với ngữ cảnh của câu."
@@ -55688,43 +55688,43 @@ window.APP_DATA = {
         {
           "q": "The word \"concentrate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. concentrate",
-            "C. wealthy",
-            "D. popular"
+            "A. concentrate",
+            "B. popular",
+            "C. famous",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'concentrate'. Trong ngữ cảnh đoạn 2, từ 'concentrate' được dùng để diễn đạt: 'concentrate' có nghĩa là tập trung, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"procrastinate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. procrastinate",
-            "C. damage",
+            "A. damage",
+            "B. conceal",
+            "C. procrastinate",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'procrastinate'. Trong ngữ cảnh đoạn 2, từ 'procrastinate' được dùng để diễn đạt: 'procrastinate' có nghĩa là trì hoãn, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"productive\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. chaotic",
             "B. fragile",
-            "C. productive",
-            "D. chaotic"
+            "C. toxic",
+            "D. productive"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'productive'. Trong ngữ cảnh đoạn 3, từ 'productive' được dùng để diễn đạt: 'productive' có nghĩa là năng suất, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
             "B. Tầm quan trọng và các phương pháp áp dụng time management and the pomodoro technique trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của time management and the pomodoro technique."
@@ -55732,10 +55732,10 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -55743,12 +55743,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -55779,78 +55779,78 @@ window.APP_DATA = {
         {
           "q": "The word \"trap\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. trap",
-            "B. ignore",
+            "A. ignore",
+            "B. trap",
             "C. destroy",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'trap'. Trong ngữ cảnh đoạn 1, từ 'trap' được dùng để diễn đạt: 'trap' có nghĩa là bắt giữ rác, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"pollute\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. pollute",
-            "C. wealthy",
-            "D. popular"
+            "A. pollute",
+            "B. wealthy",
+            "C. popular",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'pollute'. Trong ngữ cảnh đoạn 2, từ 'pollute' được dùng để diễn đạt: 'pollute' có nghĩa là gây ô nhiễm, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"recycle\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. recycle",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. damage",
+            "C. recycle",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'recycle'. Trong ngữ cảnh đoạn 2, từ 'recycle' được dùng để diễn đạt: 'recycle' có nghĩa là tái chế, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"pristine\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. pristine",
-            "D. chaotic"
+            "A. pristine",
+            "B. chaotic",
+            "C. fragile",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'pristine'. Trong ngữ cảnh đoạn 3, từ 'pristine' được dùng để diễn đạt: 'pristine' có nghĩa là nguyên sơ trong lành, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng ocean conservation and coastal cleanup barriers trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng ocean conservation and coastal cleanup barriers trong đời sống hiện đại",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của ocean conservation and coastal cleanup barriers."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -55892,10 +55892,10 @@ window.APP_DATA = {
         {
           "q": "The word \"congested\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. popular",
             "B. congested",
-            "C. wealthy",
-            "D. popular"
+            "C. famous",
+            "D. wealthy"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'congested'. Trong ngữ cảnh đoạn 2, từ 'congested' được dùng để diễn đạt: 'congested' có nghĩa là tắc nghẽn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
@@ -55903,10 +55903,10 @@ window.APP_DATA = {
         {
           "q": "The word \"optimize\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. optimize",
-            "C. damage",
-            "D. forget"
+            "C. conceal",
+            "D. damage"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'optimize'. Trong ngữ cảnh đoạn 2, từ 'optimize' được dùng để diễn đạt: 'optimize' có nghĩa là tối ưu hóa, là hành động tích cực giúp vượt qua khó khăn."
@@ -55914,45 +55914,45 @@ window.APP_DATA = {
         {
           "q": "The word \"efficient\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. efficient",
-            "D. chaotic"
+            "A. fragile",
+            "B. toxic",
+            "C. chaotic",
+            "D. efficient"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'efficient'. Trong ngữ cảnh đoạn 3, từ 'efficient' được dùng để diễn đạt: 'efficient' có nghĩa là hiệu quả, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng smart traffic control in modern megacities trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Tầm quan trọng và các phương pháp áp dụng smart traffic control in modern megacities trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của smart traffic control in modern megacities."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -55983,21 +55983,21 @@ window.APP_DATA = {
         {
           "q": "The word \"anchor\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. anchor",
-            "B. ignore",
-            "C. destroy",
+            "A. ignore",
+            "B. destroy",
+            "C. anchor",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'anchor'. Trong ngữ cảnh đoạn 1, từ 'anchor' được dùng để diễn đạt: 'anchor' có nghĩa là neo đậu thói quen, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"automatic\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. wealthy",
             "B. automatic",
-            "C. wealthy",
-            "D. popular"
+            "C. popular",
+            "D. famous"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'automatic'. Trong ngữ cảnh đoạn 2, từ 'automatic' được dùng để diễn đạt: 'automatic' có nghĩa là tự động, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
@@ -56005,21 +56005,21 @@ window.APP_DATA = {
         {
           "q": "The word \"reinforce\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. reinforce",
-            "C. damage",
-            "D. forget"
+            "A. reinforce",
+            "B. damage",
+            "C. forget",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'reinforce'. Trong ngữ cảnh đoạn 2, từ 'reinforce' được dùng để diễn đạt: 'reinforce' có nghĩa là củng cố, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"sustainable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. fragile",
+            "B. chaotic",
             "C. sustainable",
-            "D. chaotic"
+            "D. toxic"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'sustainable'. Trong ngữ cảnh đoạn 3, từ 'sustainable' được dùng để diễn đạt: 'sustainable' có nghĩa là bền vững, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -56027,34 +56027,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the science of habit stacking trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Tầm quan trọng và các phương pháp áp dụng the science of habit stacking trong đời sống hiện đại",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the science of habit stacking."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -56085,20 +56085,20 @@ window.APP_DATA = {
         {
           "q": "The word \"recover\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. recover",
-            "B. ignore",
-            "C. destroy",
+            "A. ignore",
+            "B. destroy",
+            "C. recover",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'recover'. Trong ngữ cảnh đoạn 1, từ 'recover' được dùng để diễn đạt: 'recover' có nghĩa là thu hồi, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"deplete\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. wealthy",
             "B. deplete",
-            "C. wealthy",
+            "C. famous",
             "D. popular"
           ],
           "answer": 1,
@@ -56107,56 +56107,56 @@ window.APP_DATA = {
         {
           "q": "The word \"manufacture\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. manufacture",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. damage",
+            "C. conceal",
+            "D. manufacture"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'manufacture'. Trong ngữ cảnh đoạn 2, từ 'manufacture' được dùng để diễn đạt: 'manufacture' có nghĩa là sản xuất, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"eco-friendly\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. chaotic",
             "B. fragile",
-            "C. eco-friendly",
-            "D. chaotic"
+            "C. toxic",
+            "D. eco-friendly"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'eco-friendly'. Trong ngữ cảnh đoạn 3, từ 'eco-friendly' được dùng để diễn đạt: 'eco-friendly' có nghĩa là thân thiện môi trường, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng electric vehicles and battery recycling trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng electric vehicles and battery recycling trong đời sống hiện đại",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của electric vehicles and battery recycling."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -56188,8 +56188,8 @@ window.APP_DATA = {
           "q": "The word \"breathe\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. breathe",
-            "B. ignore",
-            "C. destroy",
+            "B. destroy",
+            "C. ignore",
             "D. prevent"
           ],
           "answer": 0,
@@ -56198,12 +56198,12 @@ window.APP_DATA = {
         {
           "q": "The word \"anxious\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. anxious",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. popular",
+            "C. famous",
+            "D. anxious"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'anxious'. Trong ngữ cảnh đoạn 2, từ 'anxious' được dùng để diễn đạt: 'anxious' có nghĩa là lo âu, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
@@ -56220,21 +56220,21 @@ window.APP_DATA = {
         {
           "q": "The word \"peaceful\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. peaceful",
-            "D. chaotic"
+            "A. chaotic",
+            "B. peaceful",
+            "C. fragile",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'peaceful'. Trong ngữ cảnh đoạn 3, từ 'peaceful' được dùng để diễn đạt: 'peaceful' có nghĩa là bình an, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
             "B. Tầm quan trọng và các phương pháp áp dụng mindfulness meditation for workplace stress trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của mindfulness meditation for workplace stress."
@@ -56242,23 +56242,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -56289,20 +56289,20 @@ window.APP_DATA = {
         {
           "q": "The word \"detect\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. detect",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. destroy",
+            "B. prevent",
+            "C. ignore",
+            "D. detect"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'detect'. Trong ngữ cảnh đoạn 1, từ 'detect' được dùng để diễn đạt: 'detect' có nghĩa là phát hiện, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"obscured\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. wealthy",
             "B. obscured",
-            "C. wealthy",
+            "C. famous",
             "D. popular"
           ],
           "answer": 1,
@@ -56311,10 +56311,10 @@ window.APP_DATA = {
         {
           "q": "The word \"unveil\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. unveil",
             "C. damage",
-            "D. forget"
+            "D. conceal"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'unveil'. Trong ngữ cảnh đoạn 2, từ 'unveil' được dùng để diễn đạt: 'unveil' có nghĩa là vén màn hé lộ, là hành động tích cực giúp vượt qua khó khăn."
@@ -56322,21 +56322,21 @@ window.APP_DATA = {
         {
           "q": "The word \"fascinating\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. fascinating",
-            "D. chaotic"
+            "A. fragile",
+            "B. toxic",
+            "C. chaotic",
+            "D. fascinating"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'fascinating'. Trong ngữ cảnh đoạn 3, từ 'fascinating' được dùng để diễn đạt: 'fascinating' có nghĩa là hấp dẫn lôi cuốn, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
             "B. Tầm quan trọng và các phương pháp áp dụng deep space observatories and distant galaxies trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của deep space observatories and distant galaxies."
@@ -56344,10 +56344,10 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -56355,12 +56355,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -56391,78 +56391,78 @@ window.APP_DATA = {
         {
           "q": "The word \"compound\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. compound",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. destroy",
+            "C. ignore",
+            "D. compound"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'compound'. Trong ngữ cảnh đoạn 1, từ 'compound' được dùng để diễn đạt: 'compound' có nghĩa là tích lũy cấp số nhân, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"irregular\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. irregular",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. popular",
+            "C. famous",
+            "D. irregular"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'irregular'. Trong ngữ cảnh đoạn 2, từ 'irregular' được dùng để diễn đạt: 'irregular' có nghĩa là không đều đặn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"discipline\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. discipline",
-            "C. damage",
-            "D. forget"
+            "A. discipline",
+            "B. conceal",
+            "C. forget",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'discipline'. Trong ngữ cảnh đoạn 2, từ 'discipline' được dùng để diễn đạt: 'discipline' có nghĩa là kỷ luật, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"remarkable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. remarkable",
+            "A. fragile",
+            "B. remarkable",
+            "C. toxic",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'remarkable'. Trong ngữ cảnh đoạn 3, từ 'remarkable' được dùng để diễn đạt: 'remarkable' có nghĩa là đáng kinh ngạc, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the power of consistency in personal growth trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng the power of consistency in personal growth trong đời sống hiện đại",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the power of consistency in personal growth."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -56493,78 +56493,78 @@ window.APP_DATA = {
         {
           "q": "The word \"capture\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. capture",
+            "A. prevent",
             "B. ignore",
             "C. destroy",
-            "D. prevent"
+            "D. capture"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'capture'. Trong ngữ cảnh đoạn 1, từ 'capture' được dùng để diễn đạt: 'capture' có nghĩa là thu nhận, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"turbulent\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. turbulent",
-            "C. wealthy",
+            "A. turbulent",
+            "B. wealthy",
+            "C. famous",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'turbulent'. Trong ngữ cảnh đoạn 2, từ 'turbulent' được dùng để diễn đạt: 'turbulent' có nghĩa là gió mạnh bất ổn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"supply\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. supply",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. forget",
+            "C. supply",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'supply'. Trong ngữ cảnh đoạn 2, từ 'supply' được dùng để diễn đạt: 'supply' có nghĩa là cung cấp, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"renewable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. renewable",
-            "D. chaotic"
+            "A. renewable",
+            "B. toxic",
+            "C. chaotic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'renewable'. Trong ngữ cảnh đoạn 3, từ 'renewable' được dùng để diễn đạt: 'renewable' có nghĩa là tái tạo, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng offshore wind farms and clean coastal power trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Tầm quan trọng và các phương pháp áp dụng offshore wind farms and clean coastal power trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của offshore wind farms and clean coastal power."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -56595,34 +56595,34 @@ window.APP_DATA = {
         {
           "q": "The word \"broadcast\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. broadcast",
-            "B. ignore",
+            "A. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. broadcast"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'broadcast'. Trong ngữ cảnh đoạn 1, từ 'broadcast' được dùng để diễn đạt: 'broadcast' có nghĩa là phát sóng, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"passive\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. passive",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. wealthy",
+            "C. famous",
+            "D. passive"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'passive'. Trong ngữ cảnh đoạn 2, từ 'passive' được dùng để diễn đạt: 'passive' có nghĩa là thụ động, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"engage\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. engage",
-            "C. damage",
-            "D. forget"
+            "B. damage",
+            "C. forget",
+            "D. engage"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'engage'. Trong ngữ cảnh đoạn 2, từ 'engage' được dùng để diễn đạt: 'engage' có nghĩa là thu hút cuốn hút, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
@@ -56639,34 +56639,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the global boom of educational podcasting trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Tầm quan trọng và các phương pháp áp dụng the global boom of educational podcasting trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the global boom of educational podcasting."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -56697,65 +56697,65 @@ window.APP_DATA = {
         {
           "q": "The word \"carve\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. carve",
+            "A. prevent",
             "B. ignore",
             "C. destroy",
-            "D. prevent"
+            "D. carve"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'carve'. Trong ngữ cảnh đoạn 1, từ 'carve' được dùng để diễn đạt: 'carve' có nghĩa là chạm khắc, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"inferior\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. inferior",
-            "C. wealthy",
-            "D. popular"
+            "A. inferior",
+            "B. wealthy",
+            "C. popular",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'inferior'. Trong ngữ cảnh đoạn 2, từ 'inferior' được dùng để diễn đạt: 'inferior' có nghĩa là kém chất lượng, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"preserve\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. preserve",
-            "C. damage",
+            "B. damage",
+            "C. preserve",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'preserve'. Trong ngữ cảnh đoạn 2, từ 'preserve' được dùng để diễn đạt: 'preserve' có nghĩa là bảo tồn, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"timeless\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. timeless",
-            "D. chaotic"
+            "A. timeless",
+            "B. chaotic",
+            "C. toxic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'timeless'. Trong ngữ cảnh đoạn 3, từ 'timeless' được dùng để diễn đạt: 'timeless' có nghĩa là vượt thời gian, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng preserving traditional artisanal woodworking trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Tầm quan trọng và các phương pháp áp dụng preserving traditional artisanal woodworking trong đời sống hiện đại",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của preserving traditional artisanal woodworking."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -56763,12 +56763,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -56799,54 +56799,54 @@ window.APP_DATA = {
         {
           "q": "The word \"strengthen\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. strengthen",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. destroy",
+            "C. strengthen",
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'strengthen'. Trong ngữ cảnh đoạn 1, từ 'strengthen' được dùng để diễn đạt: 'strengthen' có nghĩa là tăng cường sức mạnh, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"frail\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. frail",
-            "C. wealthy",
-            "D. popular"
+            "A. frail",
+            "B. popular",
+            "C. famous",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'frail'. Trong ngữ cảnh đoạn 2, từ 'frail' được dùng để diễn đạt: 'frail' có nghĩa là yếu ớt, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"prevent\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. prevent",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. damage",
+            "C. conceal",
+            "D. prevent"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'prevent'. Trong ngữ cảnh đoạn 2, từ 'prevent' được dùng để diễn đạt: 'prevent' có nghĩa là ngăn ngừa, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"independent\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. independent",
+            "A. fragile",
+            "B. independent",
+            "C. toxic",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'independent'. Trong ngữ cảnh đoạn 3, từ 'independent' được dùng để diễn đạt: 'independent' có nghĩa là tự chủ độc lập, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
             "B. Tầm quan trọng và các phương pháp áp dụng healthy aging and daily physical mobility trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của healthy aging and daily physical mobility."
@@ -56854,23 +56854,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -56901,65 +56901,65 @@ window.APP_DATA = {
         {
           "q": "The word \"interact\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. interact",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. destroy",
+            "C. interact",
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'interact'. Trong ngữ cảnh đoạn 1, từ 'interact' được dùng để diễn đạt: 'interact' có nghĩa là tương tác, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"isolated\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. isolated",
-            "C. wealthy",
-            "D. popular"
+            "A. isolated",
+            "B. wealthy",
+            "C. popular",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'isolated'. Trong ngữ cảnh đoạn 2, từ 'isolated' được dùng để diễn đạt: 'isolated' có nghĩa là cô lập, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"spark\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. spark",
-            "C. damage",
-            "D. forget"
+            "A. spark",
+            "B. forget",
+            "C. conceal",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'spark'. Trong ngữ cảnh đoạn 2, từ 'spark' được dùng để diễn đạt: 'spark' có nghĩa là thổi bùng sáng kiến, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"flexible\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. flexible",
-            "D. chaotic"
+            "A. flexible",
+            "B. toxic",
+            "C. chaotic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'flexible'. Trong ngữ cảnh đoạn 1, từ 'flexible' được dùng để diễn đạt: 'flexible' có nghĩa là linh hoạt, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng co-working communities and modern freelancers trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng co-working communities and modern freelancers trong đời sống hiện đại",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của co-working communities and modern freelancers."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -56967,12 +56967,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -57004,9 +57004,9 @@ window.APP_DATA = {
           "q": "The word \"extract\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. extract",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "B. destroy",
+            "C. prevent",
+            "D. ignore"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'extract'. Trong ngữ cảnh đoạn 1, từ 'extract' được dùng để diễn đạt: 'extract' có nghĩa là chiết xuất, phù hợp nhất với ngữ cảnh của câu."
@@ -57014,10 +57014,10 @@ window.APP_DATA = {
         {
           "q": "The word \"synthesize\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. popular",
             "B. synthesize",
-            "C. wealthy",
-            "D. popular"
+            "C. famous",
+            "D. wealthy"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'synthesize'. Trong ngữ cảnh đoạn 2, từ 'synthesize' được dùng để diễn đạt: 'synthesize' có nghĩa là tổng hợp hóa học, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
@@ -57025,10 +57025,10 @@ window.APP_DATA = {
         {
           "q": "The word \"conserve\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. damage",
             "B. conserve",
-            "C. damage",
-            "D. forget"
+            "C. forget",
+            "D. conceal"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'conserve'. Trong ngữ cảnh đoạn 2, từ 'conserve' được dùng để diễn đạt: 'conserve' có nghĩa là bảo tồn, là hành động tích cực giúp vượt qua khó khăn."
@@ -57036,8 +57036,8 @@ window.APP_DATA = {
         {
           "q": "The word \"invaluable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. fragile",
+            "B. toxic",
             "C. invaluable",
             "D. chaotic"
           ],
@@ -57047,34 +57047,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng rainforest biodiversity and natural medicines trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng rainforest biodiversity and natural medicines trong đời sống hiện đại",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của rainforest biodiversity and natural medicines."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -57105,21 +57105,21 @@ window.APP_DATA = {
         {
           "q": "The word \"enroll\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. enroll",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. destroy",
+            "B. enroll",
+            "C. prevent",
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'enroll'. Trong ngữ cảnh đoạn 1, từ 'enroll' được dùng để diễn đạt: 'enroll' có nghĩa là ghi danh, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"prohibitive\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. wealthy",
             "B. prohibitive",
-            "C. wealthy",
-            "D. popular"
+            "C. popular",
+            "D. famous"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'prohibitive'. Trong ngữ cảnh đoạn 2, từ 'prohibitive' được dùng để diễn đạt: 'prohibitive' có nghĩa là đắt đỏ ngăn trở, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
@@ -57127,10 +57127,10 @@ window.APP_DATA = {
         {
           "q": "The word \"democratize\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. democratize",
-            "C. damage",
-            "D. forget"
+            "C. conceal",
+            "D. damage"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'democratize'. Trong ngữ cảnh đoạn 2, từ 'democratize' được dùng để diễn đạt: 'democratize' có nghĩa là bình dân hóa, là hành động tích cực giúp vượt qua khó khăn."
@@ -57138,45 +57138,45 @@ window.APP_DATA = {
         {
           "q": "The word \"accessible\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. accessible",
-            "D. chaotic"
+            "A. accessible",
+            "B. chaotic",
+            "C. toxic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'accessible'. Trong ngữ cảnh đoạn 3, từ 'accessible' được dùng để diễn đạt: 'accessible' có nghĩa là dễ tiếp cận, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the evolution of digital higher education trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Tầm quan trọng và các phương pháp áp dụng the evolution of digital higher education trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the evolution of digital higher education."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -57208,9 +57208,9 @@ window.APP_DATA = {
           "q": "The word \"roast\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. roast",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "B. destroy",
+            "C. prevent",
+            "D. ignore"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'roast'. Trong ngữ cảnh đoạn 1, từ 'roast' được dùng để diễn đạt: 'roast' có nghĩa là rang hạt cà phê, phù hợp nhất với ngữ cảnh của câu."
@@ -57218,10 +57218,10 @@ window.APP_DATA = {
         {
           "q": "The word \"exploit\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. popular",
             "B. exploit",
-            "C. wealthy",
-            "D. popular"
+            "C. famous",
+            "D. wealthy"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'exploit'. Trong ngữ cảnh đoạn 2, từ 'exploit' được dùng để diễn đạt: 'exploit' có nghĩa là bóc lột, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
@@ -57229,43 +57229,43 @@ window.APP_DATA = {
         {
           "q": "The word \"guarantee\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. guarantee",
+            "A. guarantee",
+            "B. conceal",
             "C. damage",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'guarantee'. Trong ngữ cảnh đoạn 1, từ 'guarantee' được dùng để diễn đạt: 'guarantee' có nghĩa là đảm bảo, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"ethical\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. ethical",
+            "B. ethical",
+            "C. fragile",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'ethical'. Trong ngữ cảnh đoạn 3, từ 'ethical' được dùng để diễn đạt: 'ethical' có nghĩa là đạo đức công bằng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng specialty coffee and ethical direct trade trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Tầm quan trọng và các phương pháp áp dụng specialty coffee and ethical direct trade trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của specialty coffee and ethical direct trade."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -57273,12 +57273,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -57309,43 +57309,43 @@ window.APP_DATA = {
         {
           "q": "The word \"populate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. populate",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. populate",
+            "C. prevent",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'populate'. Trong ngữ cảnh đoạn 1, từ 'populate' được dùng để diễn đạt: 'populate' có nghĩa là sinh sống, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"disrupt\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. disrupt",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. popular",
+            "C. famous",
+            "D. disrupt"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'disrupt'. Trong ngữ cảnh đoạn 2, từ 'disrupt' được dùng để diễn đạt: 'disrupt' có nghĩa là làm xáo trộn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"synthesize\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. synthesize",
+            "B. forget",
             "C. damage",
-            "D. forget"
+            "D. synthesize"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'synthesize'. Trong ngữ cảnh đoạn 2, từ 'synthesize' được dùng để diễn đạt: 'synthesize' có nghĩa là tổng hợp, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"vital\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. chaotic",
+            "B. toxic",
             "C. vital",
-            "D. chaotic"
+            "D. fragile"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'vital'. Trong ngữ cảnh đoạn 1, từ 'vital' được dùng để diễn đạt: 'vital' có nghĩa là thiết yếu, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -57353,32 +57353,32 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the human microbiome and gut-brain health trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Tầm quan trọng và các phương pháp áp dụng the human microbiome and gut-brain health trong đời sống hiện đại",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the human microbiome and gut-brain health."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -57411,20 +57411,20 @@ window.APP_DATA = {
         {
           "q": "The word \"navigate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. navigate",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. navigate",
+            "C. prevent",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'navigate'. Trong ngữ cảnh đoạn 1, từ 'navigate' được dùng để diễn đạt: 'navigate' có nghĩa là điều hướng, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"hazardous\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. wealthy",
             "B. hazardous",
-            "C. wealthy",
+            "C. famous",
             "D. popular"
           ],
           "answer": 1,
@@ -57444,32 +57444,32 @@ window.APP_DATA = {
         {
           "q": "The word \"reliable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. reliable",
-            "D. chaotic"
+            "A. fragile",
+            "B. chaotic",
+            "C. toxic",
+            "D. reliable"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'reliable'. Trong ngữ cảnh đoạn 3, từ 'reliable' được dùng để diễn đạt: 'reliable' có nghĩa là đáng tin cậy, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng autonomous vehicles and road safety systems trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Tầm quan trọng và các phương pháp áp dụng autonomous vehicles and road safety systems trong đời sống hiện đại",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của autonomous vehicles and road safety systems."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -57477,10 +57477,10 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -57515,8 +57515,8 @@ window.APP_DATA = {
           "options": [
             "A. verify",
             "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "C. prevent",
+            "D. destroy"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'verify'. Trong ngữ cảnh đoạn 1, từ 'verify' được dùng để diễn đạt: 'verify' có nghĩa là xác minh, phù hợp nhất với ngữ cảnh của câu."
@@ -57524,67 +57524,67 @@ window.APP_DATA = {
         {
           "q": "The word \"vulnerable\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. vulnerable",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. wealthy",
+            "C. famous",
+            "D. vulnerable"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'vulnerable'. Trong ngữ cảnh đoạn 2, từ 'vulnerable' được dùng để diễn đạt: 'vulnerable' có nghĩa là dễ bị xâm nhập, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"encrypt\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. encrypt",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. forget",
+            "C. encrypt",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'encrypt'. Trong ngữ cảnh đoạn 2, từ 'encrypt' được dùng để diễn đạt: 'encrypt' có nghĩa là mã hóa, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"secure\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. secure",
-            "D. chaotic"
+            "A. secure",
+            "B. chaotic",
+            "C. fragile",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'secure'. Trong ngữ cảnh đoạn 3, từ 'secure' được dùng để diễn đạt: 'secure' có nghĩa là an toàn, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng cybersecurity awareness for everyday citizens trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng cybersecurity awareness for everyday citizens trong đời sống hiện đại",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của cybersecurity awareness for everyday citizens."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -57615,34 +57615,34 @@ window.APP_DATA = {
         {
           "q": "The word \"enrich\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. enrich",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. prevent",
+            "C. enrich",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'enrich'. Trong ngữ cảnh đoạn 1, từ 'enrich' được dùng để diễn đạt: 'enrich' có nghĩa là làm giàu dinh dưỡng, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"degrade\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. degrade",
-            "C. wealthy",
+            "A. wealthy",
+            "B. famous",
+            "C. degrade",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'degrade'. Trong ngữ cảnh đoạn 2, từ 'degrade' được dùng để diễn đạt: 'degrade' có nghĩa là suy thoái xói mòn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"cultivate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. cultivate",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. conceal",
+            "C. cultivate",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'cultivate'. Trong ngữ cảnh đoạn 2, từ 'cultivate' được dùng để diễn đạt: 'cultivate' có nghĩa là canh tác, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
@@ -57650,19 +57650,19 @@ window.APP_DATA = {
           "options": [
             "A. toxic",
             "B. fragile",
-            "C. fertile",
-            "D. chaotic"
+            "C. chaotic",
+            "D. fertile"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'fertile'. Trong ngữ cảnh đoạn 3, từ 'fertile' được dùng để diễn đạt: 'fertile' có nghĩa là màu mỡ, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
             "B. Tầm quan trọng và các phương pháp áp dụng regenerative agriculture and living soil trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của regenerative agriculture and living soil."
@@ -57670,10 +57670,10 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -57681,12 +57681,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -57717,43 +57717,43 @@ window.APP_DATA = {
         {
           "q": "The word \"dismantle\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. dismantle",
+            "A. destroy",
             "B. ignore",
-            "C. destroy",
+            "C. dismantle",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'dismantle'. Trong ngữ cảnh đoạn 1, từ 'dismantle' được dùng để diễn đạt: 'dismantle' có nghĩa là tháo gỡ, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"paralyze\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. paralyze",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. famous",
+            "C. popular",
+            "D. paralyze"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'paralyze'. Trong ngữ cảnh đoạn 2, từ 'paralyze' được dùng để diễn đạt: 'paralyze' có nghĩa là làm tê liệt, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"initiate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. initiate",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. damage",
+            "C. initiate",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'initiate'. Trong ngữ cảnh đoạn 2, từ 'initiate' được dùng để diễn đạt: 'initiate' có nghĩa là khởi động, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"manageable\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. chaotic",
             "B. fragile",
             "C. manageable",
-            "D. chaotic"
+            "D. toxic"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'manageable'. Trong ngữ cảnh đoạn 1, từ 'manageable' được dùng để diễn đạt: 'manageable' có nghĩa là dễ quản lý, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -57761,32 +57761,32 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng overcoming procrastination through micro-steps trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Tầm quan trọng và các phương pháp áp dụng overcoming procrastination through micro-steps trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của overcoming procrastination through micro-steps."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -57820,8 +57820,8 @@ window.APP_DATA = {
           "q": "The word \"discard\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. discard",
-            "B. ignore",
-            "C. destroy",
+            "B. destroy",
+            "C. ignore",
             "D. prevent"
           ],
           "answer": 0,
@@ -57830,65 +57830,65 @@ window.APP_DATA = {
         {
           "q": "The word \"synthetic\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. synthetic",
-            "C. wealthy",
+            "A. wealthy",
+            "B. famous",
+            "C. synthetic",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'synthetic'. Trong ngữ cảnh đoạn 2, từ 'synthetic' được dùng để diễn đạt: 'synthetic' có nghĩa là sợi tổng hợp, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"transform\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. transform",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. forget",
+            "C. conceal",
+            "D. transform"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'transform'. Trong ngữ cảnh đoạn 2, từ 'transform' được dùng để diễn đạt: 'transform' có nghĩa là chuyển hóa, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"trendy\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. trendy",
-            "D. chaotic"
+            "A. fragile",
+            "B. chaotic",
+            "C. toxic",
+            "D. trendy"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'trendy'. Trong ngữ cảnh đoạn 3, từ 'trendy' được dùng để diễn đạt: 'trendy' có nghĩa là hợp thời trang, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng fast fashion and the upcycling revolution trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Tầm quan trọng và các phương pháp áp dụng fast fashion and the upcycling revolution trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của fast fashion and the upcycling revolution."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -57921,78 +57921,78 @@ window.APP_DATA = {
         {
           "q": "The word \"intercept\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. intercept",
-            "B. ignore",
-            "C. destroy",
+            "A. destroy",
+            "B. intercept",
+            "C. ignore",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'intercept'. Trong ngữ cảnh đoạn 1, từ 'intercept' được dùng để diễn đạt: 'intercept' có nghĩa là chặn đứng, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"clog\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. clog",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. famous",
+            "C. clog",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'clog'. Trong ngữ cảnh đoạn 2, từ 'clog' được dùng để diễn đạt: 'clog' có nghĩa là làm nghẽn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"deploy\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. deploy",
-            "C. damage",
+            "A. deploy",
+            "B. damage",
+            "C. conceal",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'deploy'. Trong ngữ cảnh đoạn 2, từ 'deploy' được dùng để diễn đạt: 'deploy' có nghĩa là triển khai, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"clean\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. clean",
-            "D. chaotic"
+            "A. clean",
+            "B. chaotic",
+            "C. fragile",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'clean'. Trong ngữ cảnh đoạn 3, từ 'clean' được dùng để diễn đạt: 'clean' có nghĩa là sạch đẹp, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng automated river cleaning and ocean protection trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Tầm quan trọng và các phương pháp áp dụng automated river cleaning and ocean protection trong đời sống hiện đại",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của automated river cleaning and ocean protection."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -58024,8 +58024,8 @@ window.APP_DATA = {
           "q": "The word \"stimulate\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. stimulate",
-            "B. ignore",
-            "C. destroy",
+            "B. destroy",
+            "C. ignore",
             "D. prevent"
           ],
           "answer": 0,
@@ -58034,67 +58034,67 @@ window.APP_DATA = {
         {
           "q": "The word \"deteriorate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. deteriorate",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. popular",
+            "C. deteriorate",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'deteriorate'. Trong ngữ cảnh đoạn 2, từ 'deteriorate' được dùng để diễn đạt: 'deteriorate' có nghĩa là suy thoái, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"strengthen\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. strengthen",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. damage",
+            "C. conceal",
+            "D. strengthen"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'strengthen'. Trong ngữ cảnh đoạn 2, từ 'strengthen' được dùng để diễn đạt: 'strengthen' có nghĩa là củng cố làm mạnh, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"harmonious\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. harmonious",
-            "D. chaotic"
+            "A. fragile",
+            "B. toxic",
+            "C. chaotic",
+            "D. harmonious"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'harmonious'. Trong ngữ cảnh đoạn 3, từ 'harmonious' được dùng để diễn đạt: 'harmonious' có nghĩa là hài hòa, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng neurological benefits of music practice trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Tầm quan trọng và các phương pháp áp dụng neurological benefits of music practice trong đời sống hiện đại",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của neurological benefits of music practice."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -58125,23 +58125,23 @@ window.APP_DATA = {
         {
           "q": "The word \"nourish\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. nourish",
-            "B. ignore",
+            "A. ignore",
+            "B. nourish",
             "C. destroy",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'nourish'. Trong ngữ cảnh đoạn 1, từ 'nourish' được dùng để diễn đạt: 'nourish' có nghĩa là nuôi dưỡng, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"waste\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. waste",
-            "C. wealthy",
-            "D. popular"
+            "B. popular",
+            "C. waste",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'waste'. Trong ngữ cảnh đoạn 2, từ 'waste' được dùng để diễn đạt: 'waste' có nghĩa là lãng phí, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
@@ -58149,8 +58149,8 @@ window.APP_DATA = {
           "options": [
             "A. conceal",
             "B. harvest",
-            "C. damage",
-            "D. forget"
+            "C. forget",
+            "D. damage"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'harvest'. Trong ngữ cảnh đoạn 2, từ 'harvest' được dùng để diễn đạt: 'harvest' có nghĩa là thu hoạch, là hành động tích cực giúp vượt qua khó khăn."
@@ -58158,21 +58158,21 @@ window.APP_DATA = {
         {
           "q": "The word \"compact\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. compact",
             "B. fragile",
-            "C. compact",
-            "D. chaotic"
+            "C. chaotic",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'compact'. Trong ngữ cảnh đoạn 3, từ 'compact' được dùng để diễn đạt: 'compact' có nghĩa là gọn gàng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
             "B. Tầm quan trọng và các phương pháp áp dụng vertical agriculture in urban skyscrapers trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của vertical agriculture in urban skyscrapers."
@@ -58180,23 +58180,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -58227,32 +58227,32 @@ window.APP_DATA = {
         {
           "q": "The word \"print\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. print",
-            "B. ignore",
+            "A. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. print"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'print'. Trong ngữ cảnh đoạn 1, từ 'print' được dùng để diễn đạt: 'print' có nghĩa là in ấn, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"scarce\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. scarce",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. wealthy",
+            "C. scarce",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'scarce'. Trong ngữ cảnh đoạn 2, từ 'scarce' được dùng để diễn đạt: 'scarce' có nghĩa là khan hiếm, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"distribute\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. distribute",
             "C. damage",
-            "D. forget"
+            "D. conceal"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'distribute'. Trong ngữ cảnh đoạn 2, từ 'distribute' được dùng để diễn đạt: 'distribute' có nghĩa là phân phối truyền bá, là hành động tích cực giúp vượt qua khó khăn."
@@ -58261,20 +58261,20 @@ window.APP_DATA = {
           "q": "The word \"revolutionary\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. revolutionary",
-            "D. chaotic"
+            "B. chaotic",
+            "C. fragile",
+            "D. revolutionary"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'revolutionary'. Trong ngữ cảnh đoạn 3, từ 'revolutionary' được dùng để diễn đạt: 'revolutionary' có nghĩa là mang tính cách mạng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Tầm quan trọng và các phương pháp áp dụng gutenberg and the printing revolution trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của gutenberg and the printing revolution."
@@ -58282,23 +58282,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -58329,43 +58329,43 @@ window.APP_DATA = {
         {
           "q": "The word \"persuade\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. persuade",
+            "A. prevent",
             "B. ignore",
             "C. destroy",
-            "D. prevent"
+            "D. persuade"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'persuade'. Trong ngữ cảnh đoạn 1, từ 'persuade' được dùng để diễn đạt: 'persuade' có nghĩa là thuyết phục dụ dỗ, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"irrational\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. irrational",
-            "C. wealthy",
-            "D. popular"
+            "B. popular",
+            "C. irrational",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'irrational'. Trong ngữ cảnh đoạn 2, từ 'irrational' được dùng để diễn đạt: 'irrational' có nghĩa là phi lý trí, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"assess\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. assess",
+            "A. forget",
+            "B. conceal",
             "C. damage",
-            "D. forget"
+            "D. assess"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'assess'. Trong ngữ cảnh đoạn 2, từ 'assess' được dùng để diễn đạt: 'assess' có nghĩa là đánh giá kỹ, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"prudent\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. fragile",
+            "B. chaotic",
             "C. prudent",
-            "D. chaotic"
+            "D. toxic"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'prudent'. Trong ngữ cảnh đoạn 3, từ 'prudent' được dùng để diễn đạt: 'prudent' có nghĩa là khôn ngoan thận trọng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -58373,34 +58373,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng behavioral economics and financial impulses trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng behavioral economics and financial impulses trong đời sống hiện đại",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của behavioral economics and financial impulses."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -58431,65 +58431,65 @@ window.APP_DATA = {
         {
           "q": "The word \"diagnose\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. diagnose",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. destroy",
+            "C. prevent",
+            "D. diagnose"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'diagnose'. Trong ngữ cảnh đoạn 1, từ 'diagnose' được dùng để diễn đạt: 'diagnose' có nghĩa là chẩn đoán, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"isolated\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. isolated",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. wealthy",
+            "C. isolated",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'isolated'. Trong ngữ cảnh đoạn 2, từ 'isolated' được dùng để diễn đạt: 'isolated' có nghĩa là bị cô lập xa xôi, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"prescribe\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. prescribe",
-            "C. damage",
+            "A. damage",
+            "B. conceal",
+            "C. prescribe",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'prescribe'. Trong ngữ cảnh đoạn 2, từ 'prescribe' được dùng để diễn đạt: 'prescribe' có nghĩa là kê đơn điều trị, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"convenient\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. convenient",
-            "D. chaotic"
+            "A. chaotic",
+            "B. convenient",
+            "C. toxic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'convenient'. Trong ngữ cảnh đoạn 3, từ 'convenient' được dùng để diễn đạt: 'convenient' có nghĩa là tiện lợi, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng telemedicine in remote island communities trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Tầm quan trọng và các phương pháp áp dụng telemedicine in remote island communities trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của telemedicine in remote island communities."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -58497,10 +58497,10 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -58533,54 +58533,54 @@ window.APP_DATA = {
         {
           "q": "The word \"suspend\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. suspend",
+            "A. destroy",
             "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "C. prevent",
+            "D. suspend"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'suspend'. Trong ngữ cảnh đoạn 1, từ 'suspend' được dùng để diễn đạt: 'suspend' có nghĩa là treo lơ lửng, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"rigid\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. rigid",
-            "C. wealthy",
+            "B. wealthy",
+            "C. rigid",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'rigid'. Trong ngữ cảnh đoạn 2, từ 'rigid' được dùng để diễn đạt: 'rigid' có nghĩa là cứng đờ dễ gãy, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"withstand\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. withstand",
-            "C. damage",
-            "D. forget"
+            "B. damage",
+            "C. forget",
+            "D. withstand"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'withstand'. Trong ngữ cảnh đoạn 2, từ 'withstand' được dùng để diễn đạt: 'withstand' có nghĩa là chống chịu, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"sturdy\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. sturdy",
+            "A. fragile",
+            "B. sturdy",
+            "C. toxic",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'sturdy'. Trong ngữ cảnh đoạn 3, từ 'sturdy' được dùng để diễn đạt: 'sturdy' có nghĩa là vững chãi, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
             "B. Tầm quan trọng và các phương pháp áp dụng the engineering marvel of suspension bridges trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the engineering marvel of suspension bridges."
@@ -58588,21 +58588,21 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -58635,65 +58635,65 @@ window.APP_DATA = {
         {
           "q": "The word \"purify\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. purify",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. destroy",
+            "B. prevent",
+            "C. ignore",
+            "D. purify"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'purify'. Trong ngữ cảnh đoạn 1, từ 'purify' được dùng để diễn đạt: 'purify' có nghĩa là lọc sạch tinh khiết, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"saline\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. saline",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. famous",
+            "C. popular",
+            "D. saline"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'saline'. Trong ngữ cảnh đoạn 2, từ 'saline' được dùng để diễn đạt: 'saline' có nghĩa là mặn chứa muối, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"alleviate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. alleviate",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. conceal",
+            "C. alleviate",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'alleviate'. Trong ngữ cảnh đoạn 2, từ 'alleviate' được dùng để diễn đạt: 'alleviate' có nghĩa là làm vơi nhẹ cơn khát, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"drinkable\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. drinkable",
-            "D. chaotic"
+            "B. drinkable",
+            "C. chaotic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'drinkable'. Trong ngữ cảnh đoạn 3, từ 'drinkable' được dùng để diễn đạt: 'drinkable' có nghĩa là uống được, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng seawater desalination for arid regions trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Tầm quan trọng và các phương pháp áp dụng seawater desalination for arid regions trong đời sống hiện đại",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của seawater desalination for arid regions."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -58701,12 +58701,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -58737,34 +58737,34 @@ window.APP_DATA = {
         {
           "q": "The word \"interpret\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. interpret",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. destroy",
+            "B. interpret",
+            "C. prevent",
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'interpret'. Trong ngữ cảnh đoạn 1, từ 'interpret' được dùng để diễn đạt: 'interpret' có nghĩa là diễn giải ý, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"offend\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. offend",
-            "C. wealthy",
+            "A. wealthy",
+            "B. famous",
+            "C. offend",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'offend'. Trong ngữ cảnh đoạn 2, từ 'offend' được dùng để diễn đạt: 'offend' có nghĩa là gây xúc phạm phật lòng, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"adapt\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. adapt",
-            "C. damage",
-            "D. forget"
+            "A. adapt",
+            "B. damage",
+            "C. forget",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'adapt'. Trong ngữ cảnh đoạn 2, từ 'adapt' được dùng để diễn đạt: 'adapt' có nghĩa là thích nghi, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
@@ -58781,34 +58781,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the nuances of cross-cultural etiquette trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Tầm quan trọng và các phương pháp áp dụng the nuances of cross-cultural etiquette trong đời sống hiện đại",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the nuances of cross-cultural etiquette."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -58840,9 +58840,9 @@ window.APP_DATA = {
           "q": "The word \"burn\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. burn",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "B. destroy",
+            "C. prevent",
+            "D. ignore"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'burn'. Trong ngữ cảnh đoạn 1, từ 'burn' được dùng để diễn đạt: 'burn' có nghĩa là thiêu đốt, phù hợp nhất với ngữ cảnh của câu."
@@ -58850,21 +58850,21 @@ window.APP_DATA = {
         {
           "q": "The word \"choke\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. choke",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. famous",
+            "C. popular",
+            "D. choke"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'choke'. Trong ngữ cảnh đoạn 2, từ 'choke' được dùng để diễn đạt: 'choke' có nghĩa là làm ngột ngạt, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"regenerate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. regenerate",
-            "C. damage",
-            "D. forget"
+            "C. conceal",
+            "D. damage"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'regenerate'. Trong ngữ cảnh đoạn 2, từ 'regenerate' được dùng để diễn đạt: 'regenerate' có nghĩa là tái sinh, là hành động tích cực giúp vượt qua khó khăn."
@@ -58872,43 +58872,43 @@ window.APP_DATA = {
         {
           "q": "The word \"flourishing\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. flourishing",
-            "D. chaotic"
+            "A. chaotic",
+            "B. flourishing",
+            "C. toxic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'flourishing'. Trong ngữ cảnh đoạn 3, từ 'flourishing' được dùng để diễn đạt: 'flourishing' có nghĩa là xanh tươi tốt, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng wildfire ecology and forest rejuvenation trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng wildfire ecology and forest rejuvenation trong đời sống hiện đại",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của wildfire ecology and forest rejuvenation."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -58941,31 +58941,31 @@ window.APP_DATA = {
         {
           "q": "The word \"transfer\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. transfer",
-            "B. ignore",
+            "A. prevent",
+            "B. transfer",
             "C. destroy",
-            "D. prevent"
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'transfer'. Trong ngữ cảnh đoạn 1, từ 'transfer' được dùng để diễn đạt: 'transfer' có nghĩa là chuyển tiền, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"counterfeit\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. counterfeit",
-            "C. wealthy",
+            "A. wealthy",
+            "B. famous",
+            "C. counterfeit",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'counterfeit'. Trong ngữ cảnh đoạn 2, từ 'counterfeit' được dùng để diễn đạt: 'counterfeit' có nghĩa là tiền giả mạo, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"modernize\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. damage",
             "B. modernize",
-            "C. damage",
+            "C. conceal",
             "D. forget"
           ],
           "answer": 1,
@@ -58974,43 +58974,43 @@ window.APP_DATA = {
         {
           "q": "The word \"seamless\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. seamless",
+            "A. seamless",
+            "B. toxic",
+            "C. fragile",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'seamless'. Trong ngữ cảnh đoạn 3, từ 'seamless' được dùng để diễn đạt: 'seamless' có nghĩa là liền mạch mượt mà, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the transformation of physical currency to digital cash trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng the transformation of physical currency to digital cash trong đời sống hiện đại",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the transformation of physical currency to digital cash."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -59044,9 +59044,9 @@ window.APP_DATA = {
           "q": "The word \"protect\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. protect",
-            "B. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. ignore"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'protect'. Trong ngữ cảnh đoạn 1, từ 'protect' được dùng để diễn đạt: 'protect' có nghĩa là bảo vệ, phù hợp nhất với ngữ cảnh của câu."
@@ -59054,32 +59054,32 @@ window.APP_DATA = {
         {
           "q": "The word \"erode\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. erode",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. famous",
+            "C. popular",
+            "D. erode"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'erode'. Trong ngữ cảnh đoạn 2, từ 'erode' được dùng để diễn đạt: 'erode' có nghĩa là làm xói mòn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"regulate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. regulate",
+            "A. forget",
+            "B. conceal",
             "C. damage",
-            "D. forget"
+            "D. regulate"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'regulate'. Trong ngữ cảnh đoạn 2, từ 'regulate' được dùng để diễn đạt: 'regulate' có nghĩa là quy định kiểm soát, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"pristine\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. chaotic",
+            "B. toxic",
             "C. pristine",
-            "D. chaotic"
+            "D. fragile"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'pristine'. Trong ngữ cảnh đoạn 3, từ 'pristine' được dùng để diễn đạt: 'pristine' có nghĩa là nguyên vẹn, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -59087,34 +59087,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng responsible eco-tourism and heritage sites trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Tầm quan trọng và các phương pháp áp dụng responsible eco-tourism and heritage sites trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của responsible eco-tourism and heritage sites."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -59146,9 +59146,9 @@ window.APP_DATA = {
           "q": "The word \"communicate\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. communicate",
-            "B. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. ignore"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'communicate'. Trong ngữ cảnh đoạn 1, từ 'communicate' được dùng để diễn đạt: 'communicate' có nghĩa là giao tiếp, phù hợp nhất với ngữ cảnh của câu."
@@ -59156,67 +59156,67 @@ window.APP_DATA = {
         {
           "q": "The word \"deceive\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. deceive",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. wealthy",
+            "C. deceive",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'deceive'. Trong ngữ cảnh đoạn 2, từ 'deceive' được dùng để diễn đạt: 'deceive' có nghĩa là đánh lừa, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"coordinate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. coordinate",
+            "A. coordinate",
+            "B. conceal",
             "C. damage",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'coordinate'. Trong ngữ cảnh đoạn 2, từ 'coordinate' được dùng để diễn đạt: 'coordinate' có nghĩa là phối hợp nhóm, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"intelligent\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. intelligent",
             "B. fragile",
-            "C. intelligent",
+            "C. toxic",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'intelligent'. Trong ngữ cảnh đoạn 3, từ 'intelligent' được dùng để diễn đạt: 'intelligent' có nghĩa là thông minh, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng complex animal signals and dolphin whistles trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng complex animal signals and dolphin whistles trong đời sống hiện đại",
+            "B. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của complex animal signals and dolphin whistles."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -59247,32 +59247,32 @@ window.APP_DATA = {
         {
           "q": "The word \"borrow\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. borrow",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. prevent",
+            "C. borrow",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'borrow'. Trong ngữ cảnh đoạn 1, từ 'borrow' được dùng để diễn đạt: 'borrow' có nghĩa là mượn sách, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"outdated\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. outdated",
-            "C. wealthy",
-            "D. popular"
+            "B. popular",
+            "C. outdated",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'outdated'. Trong ngữ cảnh đoạn 2, từ 'outdated' được dùng để diễn đạt: 'outdated' có nghĩa là lỗi thời, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"empower\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. empower",
             "C. damage",
-            "D. forget"
+            "D. conceal"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'empower'. Trong ngữ cảnh đoạn 2, từ 'empower' được dùng để diễn đạt: 'empower' có nghĩa là trao quyền nâng cao năng lực, là hành động tích cực giúp vượt qua khó khăn."
@@ -59281,20 +59281,20 @@ window.APP_DATA = {
           "q": "The word \"welcoming\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. welcoming",
-            "D. chaotic"
+            "B. welcoming",
+            "C. chaotic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'welcoming'. Trong ngữ cảnh đoạn 3, từ 'welcoming' được dùng để diễn đạt: 'welcoming' có nghĩa là thân thiện chào đón, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
             "B. Tầm quan trọng và các phương pháp áp dụng community libraries as digital technology centers trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của community libraries as digital technology centers."
@@ -59302,23 +59302,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -59349,78 +59349,78 @@ window.APP_DATA = {
         {
           "q": "The word \"extract\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. extract",
+            "A. prevent",
             "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "C. extract",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'extract'. Trong ngữ cảnh đoạn 1, từ 'extract' được dùng để diễn đạt: 'extract' có nghĩa là khai thác nước nóng, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"fossil\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. fossil",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. wealthy",
+            "C. fossil",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'fossil'. Trong ngữ cảnh đoạn 2, từ 'fossil' được dùng để diễn đạt: 'fossil' có nghĩa là nhiên liệu hóa thạch, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"distribute\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. distribute",
-            "C. damage",
-            "D. forget"
+            "B. forget",
+            "C. distribute",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'distribute'. Trong ngữ cảnh đoạn 2, từ 'distribute' được dùng để diễn đạt: 'distribute' có nghĩa là phân phối, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"reliable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. reliable",
+            "A. reliable",
+            "B. toxic",
+            "C. fragile",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'reliable'. Trong ngữ cảnh đoạn 3, từ 'reliable' được dùng để diễn đạt: 'reliable' có nghĩa là đáng tin cậy ổn định, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng geothermal district heating in nordic cities trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Tầm quan trọng và các phương pháp áp dụng geothermal district heating in nordic cities trong đời sống hiện đại",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của geothermal district heating in nordic cities."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -59451,43 +59451,43 @@ window.APP_DATA = {
         {
           "q": "The word \"encode\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. encode",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. prevent",
+            "C. encode",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'encode'. Trong ngữ cảnh đoạn 1, từ 'encode' được dùng để diễn đạt: 'encode' có nghĩa là mã hóa, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"classical\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. classical",
-            "C. wealthy",
-            "D. popular"
+            "B. popular",
+            "C. classical",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'classical'. Trong ngữ cảnh đoạn 2, từ 'classical' được dùng để diễn đạt: 'classical' có nghĩa là cổ điển thông thường, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"exponentially\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. exponentially",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. forget",
+            "C. exponentially",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'exponentially'. Trong ngữ cảnh đoạn 2, từ 'exponentially' được dùng để diễn đạt: 'exponentially' có nghĩa là cấp số nhân, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"revolutionary\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. fragile",
+            "B. chaotic",
             "C. revolutionary",
-            "D. chaotic"
+            "D. toxic"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'revolutionary'. Trong ngữ cảnh đoạn 3, từ 'revolutionary' được dùng để diễn đạt: 'revolutionary' có nghĩa là cách mạng đột phá, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -59495,21 +59495,21 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the fundamentals of quantum superposition trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Tầm quan trọng và các phương pháp áp dụng the fundamentals of quantum superposition trong đời sống hiện đại",
+            "D. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the fundamentals of quantum superposition."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -59517,12 +59517,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -59553,54 +59553,54 @@ window.APP_DATA = {
         {
           "q": "The word \"secrete\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. secrete",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. secrete",
+            "C. ignore",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'secrete'. Trong ngữ cảnh đoạn 1, từ 'secrete' được dùng để diễn đạt: 'secrete' có nghĩa là tiết ra hormone, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"deplete\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. deplete",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. wealthy",
+            "C. deplete",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'deplete'. Trong ngữ cảnh đoạn 2, từ 'deplete' được dùng để diễn đạt: 'deplete' có nghĩa là làm cạn kiệt, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"cultivate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. cultivate",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. conceal",
+            "C. forget",
+            "D. cultivate"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'cultivate'. Trong ngữ cảnh đoạn 2, từ 'cultivate' được dùng để diễn đạt: 'cultivate' có nghĩa là nuôi dưỡng, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"uplifting\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. uplifting",
-            "D. chaotic"
+            "A. fragile",
+            "B. chaotic",
+            "C. toxic",
+            "D. uplifting"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'uplifting'. Trong ngữ cảnh đoạn 3, từ 'uplifting' được dùng để diễn đạt: 'uplifting' có nghĩa là nâng cao tinh thần, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
             "B. Tầm quan trọng và các phương pháp áp dụng the biochemical foundations of joy trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the biochemical foundations of joy."
@@ -59608,23 +59608,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -59656,9 +59656,9 @@ window.APP_DATA = {
           "q": "The word \"fertilize\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. fertilize",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "B. prevent",
+            "C. ignore",
+            "D. destroy"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'fertilize'. Trong ngữ cảnh đoạn 1, từ 'fertilize' được dùng để diễn đạt: 'fertilize' có nghĩa là làm màu mỡ bón phân, phù hợp nhất với ngữ cảnh của câu."
@@ -59666,67 +59666,67 @@ window.APP_DATA = {
         {
           "q": "The word \"sterile\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. sterile",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. famous",
+            "C. sterile",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'sterile'. Trong ngữ cảnh đoạn 2, từ 'sterile' được dùng để diễn đạt: 'sterile' có nghĩa là cằn cỗi vô sinh, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"harvest\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. harvest",
-            "C. damage",
+            "B. damage",
+            "C. harvest",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'harvest'. Trong ngữ cảnh đoạn 2, từ 'harvest' được dùng để diễn đạt: 'harvest' có nghĩa là thu hoạch, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"bountiful\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. bountiful",
-            "D. chaotic"
+            "A. chaotic",
+            "B. bountiful",
+            "C. fragile",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'bountiful'. Trong ngữ cảnh đoạn 3, từ 'bountiful' được dùng để diễn đạt: 'bountiful' có nghĩa là bội thu, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng volcanic ash soil and fertile vineyards trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Tầm quan trọng và các phương pháp áp dụng volcanic ash soil and fertile vineyards trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của volcanic ash soil and fertile vineyards."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -59757,34 +59757,34 @@ window.APP_DATA = {
         {
           "q": "The word \"acquire\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. acquire",
-            "B. ignore",
+            "A. ignore",
+            "B. acquire",
             "C. destroy",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'acquire'. Trong ngữ cảnh đoạn 1, từ 'acquire' được dùng để diễn đạt: 'acquire' có nghĩa là tiếp thu ngôn ngữ, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"confuse\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. confuse",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. famous",
+            "C. popular",
+            "D. confuse"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'confuse'. Trong ngữ cảnh đoạn 2, từ 'confuse' được dùng để diễn đạt: 'confuse' có nghĩa là làm bối rối, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"accelerate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. accelerate",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. forget",
+            "C. conceal",
+            "D. accelerate"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'accelerate'. Trong ngữ cảnh đoạn 2, từ 'accelerate' được dùng để diễn đạt: 'accelerate' có nghĩa là thúc đẩy, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
@@ -59792,30 +59792,30 @@ window.APP_DATA = {
           "options": [
             "A. toxic",
             "B. fragile",
-            "C. agile",
-            "D. chaotic"
+            "C. chaotic",
+            "D. agile"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'agile'. Trong ngữ cảnh đoạn 3, từ 'agile' được dùng để diễn đạt: 'agile' có nghĩa là nhanh nhạy linh hoạt, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng childhood bilingualism and cognitive flexibility trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Tầm quan trọng và các phương pháp áp dụng childhood bilingualism and cognitive flexibility trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của childhood bilingualism and cognitive flexibility."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -59823,12 +59823,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -59870,43 +59870,43 @@ window.APP_DATA = {
         {
           "q": "The word \"friction\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. friction",
-            "C. wealthy",
+            "A. wealthy",
+            "B. famous",
+            "C. friction",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'friction'. Trong ngữ cảnh đoạn 1, từ 'friction' được dùng để diễn đạt: 'friction' có nghĩa là ma sát cản trở, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"glide\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. glide",
-            "C. damage",
-            "D. forget"
+            "A. glide",
+            "B. forget",
+            "C. conceal",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'glide'. Trong ngữ cảnh đoạn 1, từ 'glide' được dùng để diễn đạt: 'glide' có nghĩa là lướt nhẹ, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"swift\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. swift",
-            "D. chaotic"
+            "A. fragile",
+            "B. swift",
+            "C. chaotic",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'swift'. Trong ngữ cảnh đoạn 3, từ 'swift' được dùng để diễn đạt: 'swift' có nghĩa là nhanh chóng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
             "B. Tầm quan trọng và các phương pháp áp dụng magnetic levitation high-speed trains trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của magnetic levitation high-speed trains."
@@ -59914,23 +59914,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -59972,54 +59972,54 @@ window.APP_DATA = {
         {
           "q": "The word \"collide\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. collide",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. famous",
+            "C. popular",
+            "D. collide"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'collide'. Trong ngữ cảnh đoạn 2, từ 'collide' được dùng để diễn đạt: 'collide' có nghĩa là va chạm, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"deflect\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. deflect",
-            "C. damage",
-            "D. forget"
+            "A. deflect",
+            "B. damage",
+            "C. forget",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'deflect'. Trong ngữ cảnh đoạn 2, từ 'deflect' được dùng để diễn đạt: 'deflect' có nghĩa là chệch hướng né tránh, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"hazardous\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. hazardous",
-            "D. chaotic"
+            "A. chaotic",
+            "B. toxic",
+            "C. fragile",
+            "D. hazardous"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'hazardous'. Trong ngữ cảnh đoạn 3, từ 'hazardous' được dùng để diễn đạt: 'hazardous' có nghĩa là nguy hiểm, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng orbital debris tracking and space safety trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Tầm quan trọng và các phương pháp áp dụng orbital debris tracking and space safety trong đời sống hiện đại",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của orbital debris tracking and space safety."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -60027,12 +60027,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -60063,23 +60063,23 @@ window.APP_DATA = {
         {
           "q": "The word \"distribute\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. distribute",
-            "B. ignore",
-            "C. destroy",
+            "A. ignore",
+            "B. destroy",
+            "C. distribute",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'distribute'. Trong ngữ cảnh đoạn 1, từ 'distribute' được dùng để diễn đạt: 'distribute' có nghĩa là phân phát, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"rot\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. rot",
-            "C. wealthy",
+            "A. wealthy",
+            "B. famous",
+            "C. rot",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'rot'. Trong ngữ cảnh đoạn 2, từ 'rot' được dùng để diễn đạt: 'rot' có nghĩa là thối rữa, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
@@ -60087,8 +60087,8 @@ window.APP_DATA = {
           "options": [
             "A. conceal",
             "B. rescue",
-            "C. damage",
-            "D. forget"
+            "C. forget",
+            "D. damage"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'rescue'. Trong ngữ cảnh đoạn 2, từ 'rescue' được dùng để diễn đạt: 'rescue' có nghĩa là giải cứu thực phẩm, là hành động tích cực giúp vượt qua khó khăn."
@@ -60096,10 +60096,10 @@ window.APP_DATA = {
         {
           "q": "The word \"charitable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. fragile",
+            "B. chaotic",
             "C. charitable",
-            "D. chaotic"
+            "D. toxic"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'charitable'. Trong ngữ cảnh đoạn 3, từ 'charitable' được dùng để diễn đạt: 'charitable' có nghĩa là từ thiện, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -60107,34 +60107,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng minimizing supermarket food surplus waste trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Tầm quan trọng và các phương pháp áp dụng minimizing supermarket food surplus waste trong đời sống hiện đại",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của minimizing supermarket food surplus waste."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -60165,54 +60165,54 @@ window.APP_DATA = {
         {
           "q": "The word \"inundate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. inundate",
+            "A. destroy",
             "B. ignore",
-            "C. destroy",
+            "C. inundate",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'inundate'. Trong ngữ cảnh đoạn 1, từ 'inundate' được dùng để diễn đạt: 'inundate' có nghĩa là làm ngập nước màu mỡ, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"parched\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. parched",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. famous",
+            "C. popular",
+            "D. parched"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'parched'. Trong ngữ cảnh đoạn 2, từ 'parched' được dùng để diễn đạt: 'parched' có nghĩa là khô cằn nứt nẻ, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"channel\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. channel",
+            "A. channel",
+            "B. conceal",
             "C. damage",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'channel'. Trong ngữ cảnh đoạn 2, từ 'channel' được dùng để diễn đạt: 'channel' có nghĩa là dẫn nước kênh đào, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"prosperous\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. chaotic",
             "B. fragile",
-            "C. prosperous",
-            "D. chaotic"
+            "C. toxic",
+            "D. prosperous"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'prosperous'. Trong ngữ cảnh đoạn 3, từ 'prosperous' được dùng để diễn đạt: 'prosperous' có nghĩa là thịnh vượng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Tầm quan trọng và các phương pháp áp dụng agricultural hydraulics of the ancient nile trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của agricultural hydraulics of the ancient nile."
@@ -60220,23 +60220,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -60267,78 +60267,78 @@ window.APP_DATA = {
         {
           "q": "The word \"substitute\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. substitute",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. destroy",
+            "C. prevent",
+            "D. substitute"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'substitute'. Trong ngữ cảnh đoạn 1, từ 'substitute' được dùng để diễn đạt: 'substitute' có nghĩa là thay thế, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"deplete\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. deplete",
-            "C. wealthy",
+            "B. wealthy",
+            "C. deplete",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'deplete'. Trong ngữ cảnh đoạn 2, từ 'deplete' được dùng để diễn đạt: 'deplete' có nghĩa là làm cạn kiệt, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"nourish\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. nourish",
+            "A. forget",
+            "B. conceal",
             "C. damage",
-            "D. forget"
+            "D. nourish"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'nourish'. Trong ngữ cảnh đoạn 2, từ 'nourish' được dùng để diễn đạt: 'nourish' có nghĩa là nuôi dưỡng cơ thể, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"sustainable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. sustainable",
             "B. fragile",
-            "C. sustainable",
-            "D. chaotic"
+            "C. chaotic",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'sustainable'. Trong ngữ cảnh đoạn 3, từ 'sustainable' được dùng để diễn đạt: 'sustainable' có nghĩa là bền vững, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng plant-centric nutrition and ecological footprints trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Tầm quan trọng và các phương pháp áp dụng plant-centric nutrition and ecological footprints trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của plant-centric nutrition and ecological footprints."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -60369,65 +60369,65 @@ window.APP_DATA = {
         {
           "q": "The word \"motivate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. motivate",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. destroy",
+            "C. ignore",
+            "D. motivate"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'motivate'. Trong ngữ cảnh đoạn 1, từ 'motivate' được dùng để diễn đạt: 'motivate' có nghĩa là tạo động lực, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"discourage\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. discourage",
-            "C. wealthy",
-            "D. popular"
+            "B. popular",
+            "C. discourage",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'discourage'. Trong ngữ cảnh đoạn 2, từ 'discourage' được dùng để diễn đạt: 'discourage' có nghĩa là làm nản lòng, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"flourish\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. flourish",
-            "C. damage",
-            "D. forget"
+            "B. forget",
+            "C. flourish",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'flourish'. Trong ngữ cảnh đoạn 2, từ 'flourish' được dùng để diễn đạt: 'flourish' có nghĩa là thăng hoa rực rỡ, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"fulfilling\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. fulfilling",
-            "D. chaotic"
+            "A. chaotic",
+            "B. toxic",
+            "C. fragile",
+            "D. fulfilling"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'fulfilling'. Trong ngữ cảnh đoạn 3, từ 'fulfilling' được dùng để diễn đạt: 'fulfilling' có nghĩa là thỏa nguyện, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng intrinsic motivation and creative autonomy trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Tầm quan trọng và các phương pháp áp dụng intrinsic motivation and creative autonomy trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của intrinsic motivation and creative autonomy."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -60435,12 +60435,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -60471,41 +60471,41 @@ window.APP_DATA = {
         {
           "q": "The word \"extrude\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. extrude",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. destroy",
+            "C. ignore",
+            "D. extrude"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'extrude'. Trong ngữ cảnh đoạn 1, từ 'extrude' được dùng để diễn đạt: 'extrude' có nghĩa là bơm ép vữa, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"collapsible\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. collapsible",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. wealthy",
+            "C. collapsible",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'collapsible'. Trong ngữ cảnh đoạn 2, từ 'collapsible' được dùng để diễn đạt: 'collapsible' có nghĩa là dễ sụp đổ, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"erect\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. erect",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. damage",
+            "C. erect",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'erect'. Trong ngữ cảnh đoạn 1, từ 'erect' được dùng để diễn đạt: 'erect' có nghĩa là dựng xây, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"durable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. fragile",
+            "B. toxic",
             "C. durable",
             "D. chaotic"
           ],
@@ -60515,34 +60515,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng 3d-printed concrete homes for disaster relief trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng 3d-printed concrete homes for disaster relief trong đời sống hiện đại",
+            "B. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của 3d-printed concrete homes for disaster relief."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -60573,78 +60573,78 @@ window.APP_DATA = {
         {
           "q": "The word \"propagate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. propagate",
-            "B. ignore",
+            "A. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. propagate"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'propagate'. Trong ngữ cảnh đoạn 1, từ 'propagate' được dùng để diễn đạt: 'propagate' có nghĩa là nhân giống san hô, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"wither\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. wither",
-            "C. wealthy",
-            "D. popular"
+            "B. popular",
+            "C. wither",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'wither'. Trong ngữ cảnh đoạn 2, từ 'wither' được dùng để diễn đạt: 'wither' có nghĩa là héo mòn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"repopulate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. repopulate",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. conceal",
+            "C. repopulate",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'repopulate'. Trong ngữ cảnh đoạn 2, từ 'repopulate' được dùng để diễn đạt: 'repopulate' có nghĩa là tái sinh quần thể, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"thriving\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. thriving",
-            "D. chaotic"
+            "A. chaotic",
+            "B. thriving",
+            "C. toxic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'thriving'. Trong ngữ cảnh đoạn 3, từ 'thriving' được dùng để diễn đạt: 'thriving' có nghĩa là phát triển rực rỡ, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng underwater coral nurseries and ocean stewardship trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng underwater coral nurseries and ocean stewardship trong đời sống hiện đại",
+            "B. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của underwater coral nurseries and ocean stewardship."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -60675,78 +60675,78 @@ window.APP_DATA = {
         {
           "q": "The word \"colonize\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. colonize",
+            "A. prevent",
             "B. ignore",
             "C. destroy",
-            "D. prevent"
+            "D. colonize"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'colonize'. Trong ngữ cảnh đoạn 1, từ 'colonize' được dùng để diễn đạt: 'colonize' có nghĩa là định cư sinh sống, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"perish\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. perish",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. wealthy",
+            "C. perish",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'perish'. Trong ngữ cảnh đoạn 2, từ 'perish' được dùng để diễn đạt: 'perish' có nghĩa là bỏ mạng diệt vong, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"adapt\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. adapt",
-            "C. damage",
+            "A. adapt",
+            "B. damage",
+            "C. conceal",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'adapt'. Trong ngữ cảnh đoạn 2, từ 'adapt' được dùng để diễn đạt: 'adapt' có nghĩa là thích nghi, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"resilient\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. resilient",
+            "B. resilient",
+            "C. fragile",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'resilient'. Trong ngữ cảnh đoạn 3, từ 'resilient' được dùng để diễn đạt: 'resilient' có nghĩa là kiên cường, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng extremophile biology in deep sea trenches trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Tầm quan trọng và các phương pháp áp dụng extremophile biology in deep sea trenches trong đời sống hiện đại",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của extremophile biology in deep sea trenches."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -60777,43 +60777,43 @@ window.APP_DATA = {
         {
           "q": "The word \"insure\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. insure",
-            "B. ignore",
+            "A. prevent",
+            "B. insure",
             "C. destroy",
-            "D. prevent"
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'insure'. Trong ngữ cảnh đoạn 1, từ 'insure' được dùng để diễn đạt: 'insure' có nghĩa là bảo hiểm rủi ro, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"precarious\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. precarious",
-            "C. wealthy",
-            "D. popular"
+            "A. popular",
+            "B. famous",
+            "C. precarious",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'precarious'. Trong ngữ cảnh đoạn 2, từ 'precarious' được dùng để diễn đạt: 'precarious' có nghĩa là bấp bênh thiếu ổn định, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"guarantee\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. guarantee",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. forget",
+            "C. conceal",
+            "D. guarantee"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'guarantee'. Trong ngữ cảnh đoạn 2, từ 'guarantee' được dùng để diễn đạt: 'guarantee' có nghĩa là bảo đảm, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"equitable\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
+            "B. chaotic",
             "C. equitable",
-            "D. chaotic"
+            "D. fragile"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'equitable'. Trong ngữ cảnh đoạn 3, từ 'equitable' được dùng để diễn đạt: 'equitable' có nghĩa là công bằng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -60821,21 +60821,21 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the gig economy and modern safety nets trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Tầm quan trọng và các phương pháp áp dụng the gig economy and modern safety nets trong đời sống hiện đại",
+            "D. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the gig economy and modern safety nets."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -60843,10 +60843,10 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -60879,31 +60879,31 @@ window.APP_DATA = {
         {
           "q": "The word \"navigate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. navigate",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. destroy",
+            "C. navigate",
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'navigate'. Trong ngữ cảnh đoạn 1, từ 'navigate' được dùng để diễn đạt: 'navigate' có nghĩa là định hướng hải trình, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"disorient\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. disorient",
-            "C. wealthy",
-            "D. popular"
+            "A. wealthy",
+            "B. popular",
+            "C. disorient",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'disorient'. Trong ngữ cảnh đoạn 2, từ 'disorient' được dùng để diễn đạt: 'disorient' có nghĩa là mất phương hướng, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"observe\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. damage",
             "B. observe",
-            "C. damage",
+            "C. conceal",
             "D. forget"
           ],
           "answer": 1,
@@ -60912,45 +60912,45 @@ window.APP_DATA = {
         {
           "q": "The word \"legendary\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. legendary",
+            "A. fragile",
+            "B. legendary",
+            "C. toxic",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'legendary'. Trong ngữ cảnh đoạn 3, từ 'legendary' được dùng để diễn đạt: 'legendary' có nghĩa là huyền thoại, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng ancient polynesian wayfinding by the stars trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Tầm quan trọng và các phương pháp áp dụng ancient polynesian wayfinding by the stars trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của ancient polynesian wayfinding by the stars."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -60981,65 +60981,65 @@ window.APP_DATA = {
         {
           "q": "The word \"impair\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. impair",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. destroy",
+            "B. prevent",
+            "C. impair",
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'impair'. Trong ngữ cảnh đoạn 1, từ 'impair' được dùng để diễn đạt: 'impair' có nghĩa là làm suy giảm, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"rejuvenate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. rejuvenate",
+            "A. rejuvenate",
+            "B. famous",
             "C. wealthy",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'rejuvenate'. Trong ngữ cảnh đoạn 2, từ 'rejuvenate' được dùng để diễn đạt: 'rejuvenate' có nghĩa là làm trẻ hóa phục hồi, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"trigger\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. trigger",
+            "A. trigger",
+            "B. forget",
             "C. damage",
-            "D. forget"
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'trigger'. Trong ngữ cảnh đoạn 2, từ 'trigger' được dùng để diễn đạt: 'trigger' có nghĩa là kích hoạt rủi ro, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"detrimental\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. detrimental",
-            "D. chaotic"
+            "A. detrimental",
+            "B. toxic",
+            "C. chaotic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'detrimental'. Trong ngữ cảnh đoạn 3, từ 'detrimental' được dùng để diễn đạt: 'detrimental' có nghĩa là có hại cho sức khỏe, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the hidden costs of chronic sleep deprivation trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Tầm quan trọng và các phương pháp áp dụng the hidden costs of chronic sleep deprivation trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the hidden costs of chronic sleep deprivation."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -61047,12 +61047,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -61083,78 +61083,78 @@ window.APP_DATA = {
         {
           "q": "The word \"program\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. program",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. destroy",
+            "C. program",
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'program'. Trong ngữ cảnh đoạn 1, từ 'program' được dùng để diễn đạt: 'program' có nghĩa là lập trình tự động, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"wasteful\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. wasteful",
+            "A. popular",
+            "B. famous",
             "C. wealthy",
-            "D. popular"
+            "D. wasteful"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'wasteful'. Trong ngữ cảnh đoạn 2, từ 'wasteful' được dùng để diễn đạt: 'wasteful' có nghĩa là lãng phí, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"regulate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. regulate",
-            "C. damage",
-            "D. forget"
+            "A. regulate",
+            "B. conceal",
+            "C. forget",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'regulate'. Trong ngữ cảnh đoạn 2, từ 'regulate' được dùng để diễn đạt: 'regulate' có nghĩa là điều tiết nhiệt độ, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"efficient\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. efficient",
+            "A. efficient",
+            "B. toxic",
+            "C. fragile",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'efficient'. Trong ngữ cảnh đoạn 3, từ 'efficient' được dùng để diễn đạt: 'efficient' có nghĩa là tiết kiệm hiệu quả, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng smart thermostats and low-energy homes trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng smart thermostats and low-energy homes trong đời sống hiện đại",
+            "B. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của smart thermostats and low-energy homes."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -61186,9 +61186,9 @@ window.APP_DATA = {
           "q": "The word \"mentor\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. mentor",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "B. prevent",
+            "C. ignore",
+            "D. destroy"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'mentor'. Trong ngữ cảnh đoạn 1, từ 'mentor' được dùng để diễn đạt: 'mentor' có nghĩa là dìu dắt chỉ dẫn, phù hợp nhất với ngữ cảnh của câu."
@@ -61196,21 +61196,21 @@ window.APP_DATA = {
         {
           "q": "The word \"stagnate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. stagnate",
+            "A. stagnate",
+            "B. famous",
             "C. wealthy",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'stagnate'. Trong ngữ cảnh đoạn 2, từ 'stagnate' được dùng để diễn đạt: 'stagnate' có nghĩa là trì trệ dậm chân, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"inspire\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. inspire",
             "C. damage",
-            "D. forget"
+            "D. conceal"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'inspire'. Trong ngữ cảnh đoạn 2, từ 'inspire' được dùng để diễn đạt: 'inspire' có nghĩa là truyền cảm hứng, là hành động tích cực giúp vượt qua khó khăn."
@@ -61219,9 +61219,9 @@ window.APP_DATA = {
           "q": "The word \"rewarding\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
+            "B. chaotic",
             "C. rewarding",
-            "D. chaotic"
+            "D. fragile"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'rewarding'. Trong ngữ cảnh đoạn 3, từ 'rewarding' được dùng để diễn đạt: 'rewarding' có nghĩa là đầy ý nghĩa, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -61229,10 +61229,10 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
             "B. Tầm quan trọng và các phương pháp áp dụng mentorship and navigating early career paths trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của mentorship and navigating early career paths."
@@ -61240,21 +61240,21 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -61288,9 +61288,9 @@ window.APP_DATA = {
           "q": "The word \"record\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. record",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "B. prevent",
+            "C. ignore",
+            "D. destroy"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'record'. Trong ngữ cảnh đoạn 1, từ 'record' được dùng để diễn đạt: 'record' có nghĩa là thu âm lưu giữ, phù hợp nhất với ngữ cảnh của câu."
@@ -61299,42 +61299,42 @@ window.APP_DATA = {
           "q": "The word \"vanish\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. vanish",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. vanish"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'vanish'. Trong ngữ cảnh đoạn 2, từ 'vanish' được dùng để diễn đạt: 'vanish' có nghĩa là biến mất vĩnh viễn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"archive\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. archive",
-            "C. damage",
-            "D. forget"
+            "B. damage",
+            "C. forget",
+            "D. archive"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'archive'. Trong ngữ cảnh đoạn 2, từ 'archive' được dùng để diễn đạt: 'archive' có nghĩa là lưu trữ số, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"invaluable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. invaluable",
             "B. fragile",
-            "C. invaluable",
+            "C. toxic",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'invaluable'. Trong ngữ cảnh đoạn 3, từ 'invaluable' được dùng để diễn đạt: 'invaluable' có nghĩa là vô giá, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
             "B. Tầm quan trọng và các phương pháp áp dụng digital audio archiving of indigenous languages trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của digital audio archiving of indigenous languages."
@@ -61342,23 +61342,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -61389,12 +61389,12 @@ window.APP_DATA = {
         {
           "q": "The word \"attract\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. attract",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. attract",
+            "C. prevent",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'attract'. Trong ngữ cảnh đoạn 1, từ 'attract' được dùng để diễn đạt: 'attract' có nghĩa là thu hút chim muông, phù hợp nhất với ngữ cảnh của câu."
         },
         {
@@ -61411,56 +61411,56 @@ window.APP_DATA = {
         {
           "q": "The word \"thrive\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. thrive",
-            "C. damage",
+            "A. damage",
+            "B. conceal",
+            "C. thrive",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'thrive'. Trong ngữ cảnh đoạn 2, từ 'thrive' được dùng để diễn đạt: 'thrive' có nghĩa là sinh sôi phát triển, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"harmonious\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. harmonious",
-            "D. chaotic"
+            "A. harmonious",
+            "B. toxic",
+            "C. chaotic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'harmonious'. Trong ngữ cảnh đoạn 3, từ 'harmonious' được dùng để diễn đạt: 'harmonious' có nghĩa là hài hòa, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng urban rewilding and restoring native birds trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Tầm quan trọng và các phương pháp áp dụng urban rewilding and restoring native birds trong đời sống hiện đại",
+            "D. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của urban rewilding and restoring native birds."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -61493,8 +61493,8 @@ window.APP_DATA = {
           "options": [
             "A. generate",
             "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "C. prevent",
+            "D. destroy"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'generate'. Trong ngữ cảnh đoạn 1, từ 'generate' được dùng để diễn đạt: 'generate' có nghĩa là tạo ra nhiên liệu, phù hợp nhất với ngữ cảnh của câu."
@@ -61503,64 +61503,64 @@ window.APP_DATA = {
           "q": "The word \"polluting\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. polluting",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. polluting"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'polluting'. Trong ngữ cảnh đoạn 2, từ 'polluting' được dùng để diễn đạt: 'polluting' có nghĩa là gây ô nhiễm, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"replace\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. replace",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. conceal",
+            "C. forget",
+            "D. replace"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'replace'. Trong ngữ cảnh đoạn 2, từ 'replace' được dùng để diễn đạt: 'replace' có nghĩa là thay thế than đá, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"viable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. viable",
-            "D. chaotic"
+            "A. fragile",
+            "B. toxic",
+            "C. chaotic",
+            "D. viable"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'viable'. Trong ngữ cảnh đoạn 3, từ 'viable' được dùng để diễn đạt: 'viable' có nghĩa là khả thi, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng clean hydrogen fuel for heavy industries trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Tầm quan trọng và các phương pháp áp dụng clean hydrogen fuel for heavy industries trong đời sống hiện đại",
+            "D. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của clean hydrogen fuel for heavy industries."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -61592,21 +61592,21 @@ window.APP_DATA = {
         {
           "q": "The word \"reframe\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. reframe",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. reframe",
+            "C. prevent",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'reframe'. Trong ngữ cảnh đoạn 1, từ 'reframe' được dùng để diễn đạt: 'reframe' có nghĩa là tái định hình nhận thức, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"overwhelm\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. popular",
             "B. overwhelm",
             "C. wealthy",
-            "D. popular"
+            "D. famous"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'overwhelm'. Trong ngữ cảnh đoạn 2, từ 'overwhelm' được dùng để diễn đạt: 'overwhelm' có nghĩa là làm choáng ngợp, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
@@ -61614,10 +61614,10 @@ window.APP_DATA = {
         {
           "q": "The word \"persevere\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. persevere",
-            "C. damage",
-            "D. forget"
+            "C. conceal",
+            "D. damage"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'persevere'. Trong ngữ cảnh đoạn 2, từ 'persevere' được dùng để diễn đạt: 'persevere' có nghĩa là kiên trì vượt qua, là hành động tích cực giúp vượt qua khó khăn."
@@ -61625,45 +61625,45 @@ window.APP_DATA = {
         {
           "q": "The word \"resilient\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. resilient",
             "B. fragile",
-            "C. resilient",
-            "D. chaotic"
+            "C. chaotic",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'resilient'. Trong ngữ cảnh đoạn 3, từ 'resilient' được dùng để diễn đạt: 'resilient' có nghĩa là kiên cường, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the psychology of emotional resilience trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Tầm quan trọng và các phương pháp áp dụng the psychology of emotional resilience trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the psychology of emotional resilience."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -61693,12 +61693,12 @@ window.APP_DATA = {
         {
           "q": "The word \"screen\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. screen",
+            "A. destroy",
             "B. ignore",
-            "C. destroy",
+            "C. screen",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'screen'. Trong ngữ cảnh đoạn 1, từ 'screen' được dùng để diễn đạt: 'screen' có nghĩa là trình chiếu, phù hợp nhất với ngữ cảnh của câu."
         },
         {
@@ -61706,8 +61706,8 @@ window.APP_DATA = {
           "options": [
             "A. famous",
             "B. primitive",
-            "C. wealthy",
-            "D. popular"
+            "C. popular",
+            "D. wealthy"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'primitive'. Trong ngữ cảnh đoạn 2, từ 'primitive' được dùng để diễn đạt: 'primitive' có nghĩa là sơ khai thô sơ, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
@@ -61715,56 +61715,56 @@ window.APP_DATA = {
         {
           "q": "The word \"evolve\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. evolve",
-            "C. damage",
-            "D. forget"
+            "A. evolve",
+            "B. damage",
+            "C. forget",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'evolve'. Trong ngữ cảnh đoạn 2, từ 'evolve' được dùng để diễn đạt: 'evolve' có nghĩa là tiến hóa phát triển, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"spectacular\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. spectacular",
-            "D. chaotic"
+            "B. chaotic",
+            "C. fragile",
+            "D. spectacular"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'spectacular'. Trong ngữ cảnh đoạn 3, từ 'spectacular' được dùng để diễn đạt: 'spectacular' có nghĩa là ngoạn mục hoành tráng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the century-long evolution of cinema trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng the century-long evolution of cinema trong đời sống hiện đại",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the century-long evolution of cinema."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -61794,21 +61794,21 @@ window.APP_DATA = {
         {
           "q": "The word \"plant\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. plant",
+            "A. destroy",
             "B. ignore",
-            "C. destroy",
+            "C. plant",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'plant'. Trong ngữ cảnh đoạn 1, từ 'plant' được dùng để diễn đạt: 'plant' có nghĩa là gieo trồng phủ xanh, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"erode\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
+            "A. popular",
             "B. erode",
             "C. wealthy",
-            "D. popular"
+            "D. famous"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'erode'. Trong ngữ cảnh đoạn 2, từ 'erode' được dùng để diễn đạt: 'erode' có nghĩa là xói mòn sa mạc hóa, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
@@ -61816,21 +61816,21 @@ window.APP_DATA = {
         {
           "q": "The word \"shield\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. shield",
-            "C. damage",
-            "D. forget"
+            "A. shield",
+            "B. forget",
+            "C. conceal",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'shield'. Trong ngữ cảnh đoạn 2, từ 'shield' được dùng để diễn đạt: 'shield' có nghĩa là che chắn bảo vệ, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"protective\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. chaotic",
             "B. fragile",
             "C. protective",
-            "D. chaotic"
+            "D. toxic"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'protective'. Trong ngữ cảnh đoạn 3, từ 'protective' được dùng để diễn đạt: 'protective' có nghĩa là mang tính bảo vệ, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -61838,10 +61838,10 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
             "B. Tầm quan trọng và các phương pháp áp dụng the great green wall halting the sahara desert trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the great green wall halting the sahara desert."
@@ -61849,10 +61849,10 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -61860,12 +61860,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -61895,23 +61895,23 @@ window.APP_DATA = {
         {
           "q": "The word \"curate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. curate",
-            "B. ignore",
-            "C. destroy",
+            "A. ignore",
+            "B. destroy",
+            "C. curate",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'curate'. Trong ngữ cảnh đoạn 1, từ 'curate' được dùng để diễn đạt: 'curate' có nghĩa là chọn lọc nội dung, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"obsess\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. obsess",
-            "C. wealthy",
-            "D. popular"
+            "A. obsess",
+            "B. famous",
+            "C. popular",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'obsess'. Trong ngữ cảnh đoạn 2, từ 'obsess' được dùng để diễn đạt: 'obsess' có nghĩa là ám ảnh so sánh, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
@@ -61928,43 +61928,43 @@ window.APP_DATA = {
         {
           "q": "The word \"healthy\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. healthy",
-            "D. chaotic"
+            "A. fragile",
+            "B. toxic",
+            "C. chaotic",
+            "D. healthy"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'healthy'. Trong ngữ cảnh đoạn 3, từ 'healthy' được dùng để diễn đạt: 'healthy' có nghĩa là lành mạnh, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng social media feeds and mental well-being trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng social media feeds and mental well-being trong đời sống hiện đại",
+            "B. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của social media feeds and mental well-being."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -61997,8 +61997,8 @@ window.APP_DATA = {
           "q": "The word \"analyze\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. analyze",
-            "B. ignore",
-            "C. destroy",
+            "B. destroy",
+            "C. ignore",
             "D. prevent"
           ],
           "answer": 0,
@@ -62007,54 +62007,54 @@ window.APP_DATA = {
         {
           "q": "The word \"unseen\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. unseen",
+            "A. unseen",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'unseen'. Trong ngữ cảnh đoạn 2, từ 'unseen' được dùng để diễn đạt: 'unseen' có nghĩa là vô hình, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"detect\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. detect",
+            "B. forget",
             "C. damage",
-            "D. forget"
+            "D. detect"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'detect'. Trong ngữ cảnh đoạn 1, từ 'detect' được dùng để diễn đạt: 'detect' có nghĩa là phát hiện dấu vết, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"groundbreaking\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. groundbreaking",
-            "D. chaotic"
+            "A. fragile",
+            "B. groundbreaking",
+            "C. chaotic",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'groundbreaking'. Trong ngữ cảnh đoạn 3, từ 'groundbreaking' được dùng để diễn đạt: 'groundbreaking' có nghĩa là đột phá mang tính lịch sử, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng exoplanet atmospheres and alien biosignatures trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Tầm quan trọng và các phương pháp áp dụng exoplanet atmospheres and alien biosignatures trong đời sống hiện đại",
+            "D. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của exoplanet atmospheres and alien biosignatures."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -62062,10 +62062,10 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -62097,78 +62097,78 @@ window.APP_DATA = {
         {
           "q": "The word \"integrate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. integrate",
-            "B. ignore",
-            "C. destroy",
+            "A. destroy",
+            "B. integrate",
+            "C. ignore",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'integrate'. Trong ngữ cảnh đoạn 1, từ 'integrate' được dùng để diễn đạt: 'integrate' có nghĩa là tích hợp thiên nhiên, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"claustrophobic\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. claustrophobic",
-            "C. wealthy",
-            "D. popular"
+            "A. claustrophobic",
+            "B. famous",
+            "C. popular",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'claustrophobic'. Trong ngữ cảnh đoạn 2, từ 'claustrophobic' được dùng để diễn đạt: 'claustrophobic' có nghĩa là ngột ngạt bức bách, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"enhance\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. enhance",
+            "A. enhance",
+            "B. conceal",
             "C. damage",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'enhance'. Trong ngữ cảnh đoạn 2, từ 'enhance' được dùng để diễn đạt: 'enhance' có nghĩa là nâng cao năng lượng, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"soothing\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. soothing",
-            "D. chaotic"
+            "B. chaotic",
+            "C. fragile",
+            "D. soothing"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'soothing'. Trong ngữ cảnh đoạn 3, từ 'soothing' được dùng để diễn đạt: 'soothing' có nghĩa là dịu êm thư thái, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng biophilic architecture and sunlight in buildings trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Tầm quan trọng và các phương pháp áp dụng biophilic architecture and sunlight in buildings trong đời sống hiện đại",
+            "D. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của biophilic architecture and sunlight in buildings."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -62198,43 +62198,43 @@ window.APP_DATA = {
         {
           "q": "The word \"hydrate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. hydrate",
-            "B. ignore",
+            "A. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. hydrate"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'hydrate'. Trong ngữ cảnh đoạn 1, từ 'hydrate' được dùng để diễn đạt: 'hydrate' có nghĩa là bù nước cơ thể, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"fatigue\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. fatigue",
+            "A. popular",
+            "B. famous",
             "C. wealthy",
-            "D. popular"
+            "D. fatigue"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'fatigue'. Trong ngữ cảnh đoạn 2, từ 'fatigue' được dùng để diễn đạt: 'fatigue' có nghĩa là mệt mỏi kiệt sức, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"replenish\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. replenish",
+            "A. replenish",
+            "B. forget",
             "C. damage",
-            "D. forget"
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'replenish'. Trong ngữ cảnh đoạn 2, từ 'replenish' được dùng để diễn đạt: 'replenish' có nghĩa là nạp lại khoáng chất, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"energetic\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. chaotic",
             "B. fragile",
             "C. energetic",
-            "D. chaotic"
+            "D. toxic"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'energetic'. Trong ngữ cảnh đoạn 3, từ 'energetic' được dùng để diễn đạt: 'energetic' có nghĩa là dồi dào năng lượng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -62242,34 +62242,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng hydration science and athletic endurance trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Tầm quan trọng và các phương pháp áp dụng hydration science and athletic endurance trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của hydration science and athletic endurance."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -62299,54 +62299,54 @@ window.APP_DATA = {
         {
           "q": "The word \"transport\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. transport",
+            "A. prevent",
             "B. ignore",
             "C. destroy",
-            "D. prevent"
+            "D. transport"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'transport'. Trong ngữ cảnh đoạn 1, từ 'transport' được dùng để diễn đạt: 'transport' có nghĩa là vận chuyển hàng hóa, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"perilous\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. perilous",
+            "A. perilous",
+            "B. famous",
             "C. wealthy",
             "D. popular"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'perilous'. Trong ngữ cảnh đoạn 2, từ 'perilous' được dùng để diễn đạt: 'perilous' có nghĩa là hiểm nguy trắc trở, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"exchange\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. exchange",
-            "C. damage",
-            "D. forget"
+            "B. forget",
+            "C. exchange",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'exchange'. Trong ngữ cảnh đoạn 2, từ 'exchange' được dùng để diễn đạt: 'exchange' có nghĩa là giao lưu trao đổi, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"prosperous\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. chaotic",
             "B. fragile",
-            "C. prosperous",
-            "D. chaotic"
+            "C. toxic",
+            "D. prosperous"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'prosperous'. Trong ngữ cảnh đoạn 3, từ 'prosperous' được dùng để diễn đạt: 'prosperous' có nghĩa là thịnh vượng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
             "B. Tầm quan trọng và các phương pháp áp dụng silk road caravans and cultural exchange trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của silk road caravans and cultural exchange."
@@ -62354,21 +62354,21 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -62400,78 +62400,78 @@ window.APP_DATA = {
         {
           "q": "The word \"monitor\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. monitor",
-            "B. ignore",
+            "A. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. monitor"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'monitor'. Trong ngữ cảnh đoạn 1, từ 'monitor' được dùng để diễn đạt: 'monitor' có nghĩa là giám sát nhịp tim, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"irregular\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. irregular",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. irregular"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'irregular'. Trong ngữ cảnh đoạn 2, từ 'irregular' được dùng để diễn đạt: 'irregular' có nghĩa là bất thường ngắt quãng, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"notify\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. notify",
-            "C. damage",
+            "B. damage",
+            "C. notify",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'notify'. Trong ngữ cảnh đoạn 2, từ 'notify' được dùng để diễn đạt: 'notify' có nghĩa là thông báo cảnh báo, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"life-saving\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. life-saving",
-            "D. chaotic"
+            "A. life-saving",
+            "B. chaotic",
+            "C. fragile",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'life-saving'. Trong ngữ cảnh đoạn 3, từ 'life-saving' được dùng để diễn đạt: 'life-saving' có nghĩa là cứu sống tính mạng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng wearable ecg sensors and heart protection trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng wearable ecg sensors and heart protection trong đời sống hiện đại",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của wearable ecg sensors and heart protection."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -62501,12 +62501,12 @@ window.APP_DATA = {
         {
           "q": "The word \"filter\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. filter",
+            "A. destroy",
             "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "C. prevent",
+            "D. filter"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'filter'. Trong ngữ cảnh đoạn 1, từ 'filter' được dùng để diễn đạt: 'filter' có nghĩa là chọn lọc thông tin, phù hợp nhất với ngữ cảnh của câu."
         },
         {
@@ -62523,21 +62523,21 @@ window.APP_DATA = {
         {
           "q": "The word \"scrutinize\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. scrutinize",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. conceal",
+            "C. forget",
+            "D. scrutinize"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'scrutinize'. Trong ngữ cảnh đoạn 2, từ 'scrutinize' được dùng để diễn đạt: 'scrutinize' có nghĩa là xem xét kỹ lưỡng, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"objective\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. chaotic",
+            "B. toxic",
             "C. objective",
-            "D. chaotic"
+            "D. fragile"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'objective'. Trong ngữ cảnh đoạn 3, từ 'objective' được dùng để diễn đạt: 'objective' có nghĩa là khách quan, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -62545,34 +62545,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng cognitive confirmation bias and objective truth trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng cognitive confirmation bias and objective truth trong đời sống hiện đại",
+            "B. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của cognitive confirmation bias and objective truth."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -62602,54 +62602,54 @@ window.APP_DATA = {
         {
           "q": "The word \"melt\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. melt",
+            "A. destroy",
             "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "C. prevent",
+            "D. melt"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'melt'. Trong ngữ cảnh đoạn 1, từ 'melt' được dùng để diễn đạt: 'melt' có nghĩa là tan chảy, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"drought\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. drought",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. drought"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'drought'. Trong ngữ cảnh đoạn 2, từ 'drought' được dùng để diễn đạt: 'drought' có nghĩa là hạn hán cạn dòng, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"stabilize\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. stabilize",
-            "C. damage",
+            "A. stabilize",
+            "B. damage",
+            "C. conceal",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'stabilize'. Trong ngữ cảnh đoạn 2, từ 'stabilize' được dùng để diễn đạt: 'stabilize' có nghĩa là ổn định dòng chảy, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"critical\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. critical",
             "B. fragile",
-            "C. critical",
+            "C. toxic",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'critical'. Trong ngữ cảnh đoạn 3, từ 'critical' được dùng để diễn đạt: 'critical' có nghĩa là nguy cấp trọng yếu, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
             "B. Tầm quan trọng và các phương pháp áp dụng glacial retreat and downstream river basins trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của glacial retreat and downstream river basins."
@@ -62657,21 +62657,21 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -62703,12 +62703,12 @@ window.APP_DATA = {
         {
           "q": "The word \"gather\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. gather",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. destroy",
+            "C. gather",
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'gather'. Trong ngữ cảnh đoạn 1, từ 'gather' được dùng để diễn đạt: 'gather' có nghĩa là tụ họp luận bàn, phù hợp nhất với ngữ cảnh của câu."
         },
         {
@@ -62725,10 +62725,10 @@ window.APP_DATA = {
         {
           "q": "The word \"debate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. damage",
             "B. debate",
-            "C. damage",
-            "D. forget"
+            "C. forget",
+            "D. conceal"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'debate'. Trong ngữ cảnh đoạn 1, từ 'debate' được dùng để diễn đạt: 'debate' có nghĩa là tranh luận học thuật, là hành động tích cực giúp vượt qua khó khăn."
@@ -62736,32 +62736,32 @@ window.APP_DATA = {
         {
           "q": "The word \"intellectual\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. intellectual",
-            "D. chaotic"
+            "A. intellectual",
+            "B. chaotic",
+            "C. toxic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'intellectual'. Trong ngữ cảnh đoạn 3, từ 'intellectual' được dùng để diễn đạt: 'intellectual' có nghĩa là thuộc về trí tuệ, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the coffeehouse as a cradle of the enlightenment trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Tầm quan trọng và các phương pháp áp dụng the coffeehouse as a cradle of the enlightenment trong đời sống hiện đại",
+            "D. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the coffeehouse as a cradle of the enlightenment."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -62769,12 +62769,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -62805,9 +62805,9 @@ window.APP_DATA = {
           "q": "The word \"survey\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. survey",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "B. destroy",
+            "C. prevent",
+            "D. ignore"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'survey'. Trong ngữ cảnh đoạn 1, từ 'survey' được dùng để diễn đạt: 'survey' có nghĩa là khảo sát từ trên cao, phù hợp nhất với ngữ cảnh của câu."
@@ -62817,8 +62817,8 @@ window.APP_DATA = {
           "options": [
             "A. famous",
             "B. wasted",
-            "C. wealthy",
-            "D. popular"
+            "C. popular",
+            "D. wealthy"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'wasted'. Trong ngữ cảnh đoạn 2, từ 'wasted' được dùng để diễn đạt: 'wasted' có nghĩa là lãng phí thuốc trừ sâu, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
@@ -62826,10 +62826,10 @@ window.APP_DATA = {
         {
           "q": "The word \"target\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. target",
-            "C. damage",
-            "D. forget"
+            "C. conceal",
+            "D. damage"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'target'. Trong ngữ cảnh đoạn 1, từ 'target' được dùng để diễn đạt: 'target' có nghĩa là nhắm đích chính xác, là hành động tích cực giúp vượt qua khó khăn."
@@ -62838,44 +62838,44 @@ window.APP_DATA = {
           "q": "The word \"precise\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. precise",
+            "B. precise",
+            "C. fragile",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'precise'. Trong ngữ cảnh đoạn 3, từ 'precise' được dùng để diễn đạt: 'precise' có nghĩa là chuẩn xác, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng agricultural drones and precision spraying trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Tầm quan trọng và các phương pháp áp dụng agricultural drones and precision spraying trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của agricultural drones and precision spraying."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -62905,43 +62905,43 @@ window.APP_DATA = {
         {
           "q": "The word \"deconstruct\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. deconstruct",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. destroy",
+            "B. deconstruct",
+            "C. prevent",
+            "D. ignore"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'deconstruct'. Trong ngữ cảnh đoạn 1, từ 'deconstruct' được dùng để diễn đạt: 'deconstruct' có nghĩa là bóc tách bản chất, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"conventional\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. conventional",
+            "A. conventional",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'conventional'. Trong ngữ cảnh đoạn 2, từ 'conventional' được dùng để diễn đạt: 'conventional' có nghĩa là lối mòn thông thường, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"innovate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. innovate",
+            "A. innovate",
+            "B. forget",
             "C. damage",
-            "D. forget"
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'innovate'. Trong ngữ cảnh đoạn 2, từ 'innovate' được dùng để diễn đạt: 'innovate' có nghĩa là đổi mới sáng tạo, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"transformative\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. chaotic",
+            "B. toxic",
             "C. transformative",
-            "D. chaotic"
+            "D. fragile"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'transformative'. Trong ngữ cảnh đoạn 3, từ 'transformative' được dùng để diễn đạt: 'transformative' có nghĩa là mang tính cách mạng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -62949,10 +62949,10 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
             "B. Tầm quan trọng và các phương pháp áp dụng first-principles thinking in engineering trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của first-principles thinking in engineering."
@@ -62960,23 +62960,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -63007,9 +63007,9 @@ window.APP_DATA = {
           "q": "The word \"connect\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. connect",
-            "B. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. ignore"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'connect'. Trong ngữ cảnh đoạn 1, từ 'connect' được dùng để diễn đạt: 'connect' có nghĩa là kết nối các đô thị, phù hợp nhất với ngữ cảnh của câu."
@@ -63017,67 +63017,67 @@ window.APP_DATA = {
         {
           "q": "The word \"polluting\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. polluting",
-            "C. wealthy",
-            "D. popular"
+            "A. polluting",
+            "B. famous",
+            "C. popular",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'polluting'. Trong ngữ cảnh đoạn 1, từ 'polluting' được dùng để diễn đạt: 'polluting' có nghĩa là gây ô nhiễm môi trường, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"streamline\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. streamline",
+            "B. forget",
             "C. damage",
-            "D. forget"
+            "D. streamline"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'streamline'. Trong ngữ cảnh đoạn 2, từ 'streamline' được dùng để diễn đạt: 'streamline' có nghĩa là tinh giản tối ưu, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"convenient\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. convenient",
+            "A. fragile",
+            "B. convenient",
+            "C. toxic",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'convenient'. Trong ngữ cảnh đoạn 3, từ 'convenient' được dùng để diễn đạt: 'convenient' có nghĩa là thuận tiện nhanh chóng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng high-speed rail networks across continents trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng high-speed rail networks across continents trong đời sống hiện đại",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của high-speed rail networks across continents."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -63108,9 +63108,9 @@ window.APP_DATA = {
           "q": "The word \"cultivate\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. cultivate",
-            "B. ignore",
+            "B. prevent",
             "C. destroy",
-            "D. prevent"
+            "D. ignore"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'cultivate'. Trong ngữ cảnh đoạn 1, từ 'cultivate' được dùng để diễn đạt: 'cultivate' có nghĩa là canh tác gieo trồng, phù hợp nhất với ngữ cảnh của câu."
@@ -63118,12 +63118,12 @@ window.APP_DATA = {
         {
           "q": "The word \"parched\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. parched",
+            "A. parched",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'parched'. Trong ngữ cảnh đoạn 2, từ 'parched' được dùng để diễn đạt: 'parched' có nghĩa là khô cằn sỏi đá, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
@@ -63141,20 +63141,20 @@ window.APP_DATA = {
           "q": "The word \"nutritious\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. nutritious",
-            "D. chaotic"
+            "B. nutritious",
+            "C. chaotic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'nutritious'. Trong ngữ cảnh đoạn 3, từ 'nutritious' được dùng để diễn đạt: 'nutritious' có nghĩa là giàu dinh dưỡng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Tầm quan trọng và các phương pháp áp dụng drought-resilient sorghum for food security trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Lịch sử hình thành của các khái niệm cổ điển (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của drought-resilient sorghum for food security."
@@ -63162,10 +63162,10 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -63173,12 +63173,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -63208,34 +63208,34 @@ window.APP_DATA = {
         {
           "q": "The word \"distinguish\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. distinguish",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. distinguish",
+            "C. prevent",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'distinguish'. Trong ngữ cảnh đoạn 1, từ 'distinguish' được dùng để diễn đạt: 'distinguish' có nghĩa là phân biệt rõ ràng, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"distressed\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. distressed",
-            "C. wealthy",
-            "D. popular"
+            "A. distressed",
+            "B. famous",
+            "C. popular",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'distressed'. Trong ngữ cảnh đoạn 2, từ 'distressed' được dùng để diễn đạt: 'distressed' có nghĩa là đau khổ bất an, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"maintain\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. maintain",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. conceal",
+            "C. forget",
+            "D. maintain"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'maintain'. Trong ngữ cảnh đoạn 2, từ 'maintain' được dùng để diễn đạt: 'maintain' có nghĩa là gìn giữ nội tâm, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
@@ -63252,10 +63252,10 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
             "B. Tầm quan trọng và các phương pháp áp dụng stoic wisdom for modern daily tranquility trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của stoic wisdom for modern daily tranquility."
@@ -63263,23 +63263,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -63309,78 +63309,78 @@ window.APP_DATA = {
         {
           "q": "The word \"align\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. align",
+            "A. prevent",
             "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "C. align",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'align'. Trong ngữ cảnh đoạn 1, từ 'align' được dùng để diễn đạt: 'align' có nghĩa là căn chỉnh tư thế, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"strained\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. strained",
+            "A. strained",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'strained'. Trong ngữ cảnh đoạn 2, từ 'strained' được dùng để diễn đạt: 'strained' có nghĩa là bị căng cơ nhức mỏi, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"alleviate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. alleviate",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. conceal",
+            "C. alleviate",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'alleviate'. Trong ngữ cảnh đoạn 2, từ 'alleviate' được dùng để diễn đạt: 'alleviate' có nghĩa là làm dịu cơn đau, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"ergonomic\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. ergonomic",
-            "D. chaotic"
+            "A. ergonomic",
+            "B. chaotic",
+            "C. toxic",
+            "D. fragile"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'ergonomic'. Trong ngữ cảnh đoạn 3, từ 'ergonomic' được dùng để diễn đạt: 'ergonomic' có nghĩa là chuẩn công thái học, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng workplace ergonomics and musculoskeletal health trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng workplace ergonomics and musculoskeletal health trong đời sống hiện đại",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của workplace ergonomics and musculoskeletal health."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -63410,12 +63410,12 @@ window.APP_DATA = {
         {
           "q": "The word \"traverse\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. traverse",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. prevent",
+            "C. traverse",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'traverse'. Trong ngữ cảnh đoạn 1, từ 'traverse' được dùng để diễn đạt: 'traverse' có nghĩa là băng qua an toàn, phù hợp nhất với ngữ cảnh của câu."
         },
         {
@@ -63432,56 +63432,56 @@ window.APP_DATA = {
         {
           "q": "The word \"connect\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. connect",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. damage",
+            "C. connect",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'connect'. Trong ngữ cảnh đoạn 2, từ 'connect' được dùng để diễn đạt: 'connect' có nghĩa là kết nối sinh cảnh, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"harmonious\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. harmonious",
+            "A. harmonious",
+            "B. toxic",
+            "C. fragile",
             "D. chaotic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'harmonious'. Trong ngữ cảnh đoạn 3, từ 'harmonious' được dùng để diễn đạt: 'harmonious' có nghĩa là hòa hợp tự nhiên, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng forest corridors protecting migrating predators trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. Tầm quan trọng và các phương pháp áp dụng forest corridors protecting migrating predators trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của forest corridors protecting migrating predators."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. punishments (hình phạt) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -63511,32 +63511,32 @@ window.APP_DATA = {
         {
           "q": "The word \"audit\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. audit",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. prevent",
+            "C. audit",
+            "D. destroy"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'audit'. Trong ngữ cảnh đoạn 1, từ 'audit' được dùng để diễn đạt: 'audit' có nghĩa là kiểm toán thuật toán, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"biased\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. biased",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. biased"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'biased'. Trong ngữ cảnh đoạn 2, từ 'biased' được dùng để diễn đạt: 'biased' có nghĩa là thiên vị phân biệt, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"guarantee\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. guarantee",
-            "C. damage",
-            "D. forget"
+            "C. conceal",
+            "D. damage"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'guarantee'. Trong ngữ cảnh đoạn 2, từ 'guarantee' được dùng để diễn đạt: 'guarantee' có nghĩa là đảm bảo tính minh bạch, là hành động tích cực giúp vượt qua khó khăn."
@@ -63544,10 +63544,10 @@ window.APP_DATA = {
         {
           "q": "The word \"equitable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. fragile",
+            "B. chaotic",
             "C. equitable",
-            "D. chaotic"
+            "D. toxic"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'equitable'. Trong ngữ cảnh đoạn 3, từ 'equitable' được dùng để diễn đạt: 'equitable' có nghĩa là công bằng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -63555,34 +63555,34 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng ethical algorithms and algorithmic fairness trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Tầm quan trọng và các phương pháp áp dụng ethical algorithms and algorithmic fairness trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của ethical algorithms and algorithmic fairness."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Tránh né hoàn toàn mọi thử thách (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -63613,9 +63613,9 @@ window.APP_DATA = {
           "q": "The word \"ignite\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. ignite",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "B. prevent",
+            "C. ignore",
+            "D. destroy"
           ],
           "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'ignite'. Trong ngữ cảnh đoạn 1, từ 'ignite' được dùng để diễn đạt: 'ignite' có nghĩa là thắp sáng ký ức, phù hợp nhất với ngữ cảnh của câu."
@@ -63634,12 +63634,12 @@ window.APP_DATA = {
         {
           "q": "The word \"evoke\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. evoke",
-            "C. damage",
+            "A. evoke",
+            "B. damage",
+            "C. conceal",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'evoke'. Trong ngữ cảnh đoạn 2, từ 'evoke' được dùng để diễn đạt: 'evoke' có nghĩa là gợi lại cảm xúc, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
@@ -63647,43 +63647,43 @@ window.APP_DATA = {
           "options": [
             "A. toxic",
             "B. fragile",
-            "C. profound",
-            "D. chaotic"
+            "C. chaotic",
+            "D. profound"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'profound'. Trong ngữ cảnh đoạn 3, từ 'profound' được dùng để diễn đạt: 'profound' có nghĩa là sâu sắc thiêng liêng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng music awakening memories in dementia patients trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng music awakening memories in dementia patients trong đời sống hiện đại",
+            "B. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của music awakening memories in dementia patients."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "B. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -63713,54 +63713,54 @@ window.APP_DATA = {
         {
           "q": "The word \"disassemble\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. disassemble",
-            "B. ignore",
-            "C. destroy",
+            "A. destroy",
+            "B. disassemble",
+            "C. ignore",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'disassemble'. Trong ngữ cảnh đoạn 1, từ 'disassemble' được dùng để diễn đạt: 'disassemble' có nghĩa là tháo lắp dễ dàng, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"landfills\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. landfills",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. landfills"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'landfills'. Trong ngữ cảnh đoạn 2, từ 'landfills' được dùng để diễn đạt: 'landfills' có nghĩa là bãi rác chôn lấp, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"reclaim\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. reclaim",
-            "C. damage",
-            "D. forget"
+            "A. forget",
+            "B. damage",
+            "C. conceal",
+            "D. reclaim"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'reclaim'. Trong ngữ cảnh đoạn 2, từ 'reclaim' được dùng để diễn đạt: 'reclaim' có nghĩa là thu hồi tái chế, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"sustainable\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. sustainable",
             "B. fragile",
-            "C. sustainable",
-            "D. chaotic"
+            "C. chaotic",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'sustainable'. Trong ngữ cảnh đoạn 3, từ 'sustainable' được dùng để diễn đạt: 'sustainable' có nghĩa là bền vững, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
             "B. Tầm quan trọng và các phương pháp áp dụng the circular economy and zero-waste industry trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the circular economy and zero-waste industry."
@@ -63768,10 +63768,10 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Bỏ cuộc ngay khi gặp khó khăn (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -63779,12 +63779,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "B. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -63815,8 +63815,8 @@ window.APP_DATA = {
           "q": "The word \"modulate\" in paragraph 1 is closest in meaning to:",
           "options": [
             "A. modulate",
-            "B. ignore",
-            "C. destroy",
+            "B. destroy",
+            "C. ignore",
             "D. prevent"
           ],
           "answer": 0,
@@ -63848,44 +63848,44 @@ window.APP_DATA = {
           "q": "The word \"miraculous\" in paragraph 3 is closest in meaning to:",
           "options": [
             "A. toxic",
-            "B. fragile",
-            "C. miraculous",
-            "D. chaotic"
+            "B. chaotic",
+            "C. fragile",
+            "D. miraculous"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'miraculous'. Trong ngữ cảnh đoạn 3, từ 'miraculous' được dùng để diễn đạt: 'miraculous' có nghĩa là kỳ diệu, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng deep brain stimulation for parkinson's disease trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng deep brain stimulation for parkinson's disease trong đời sống hiện đại",
+            "B. Những thất bại thường gặp trong kinh doanh (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của deep brain stimulation for parkinson's disease."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. Tránh né hoàn toàn mọi thử thách (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. delays (sự chậm trễ) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. punishments (hình phạt) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -63927,20 +63927,20 @@ window.APP_DATA = {
           "q": "The word \"confined\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. famous",
-            "B. confined",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. confined"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'confined'. Trong ngữ cảnh đoạn 2, từ 'confined' được dùng để diễn đạt: 'confined' có nghĩa là bị bó hẹp tầm nhìn, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"inspire\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
+            "A. forget",
             "B. inspire",
             "C. damage",
-            "D. forget"
+            "D. conceal"
           ],
           "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'inspire'. Trong ngữ cảnh đoạn 2, từ 'inspire' được dùng để diễn đạt: 'inspire' có nghĩa là truyền cảm hứng, là hành động tích cực giúp vượt qua khó khăn."
@@ -63948,10 +63948,10 @@ window.APP_DATA = {
         {
           "q": "The word \"awe-inspiring\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
+            "A. fragile",
+            "B. chaotic",
             "C. awe-inspiring",
-            "D. chaotic"
+            "D. toxic"
           ],
           "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'awe-inspiring'. Trong ngữ cảnh đoạn 3, từ 'awe-inspiring' được dùng để diễn đạt: 'awe-inspiring' có nghĩa là kinh ngạc choáng ngợp, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
@@ -63959,10 +63959,10 @@ window.APP_DATA = {
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
             "B. Tầm quan trọng và các phương pháp áp dụng suborbital tourism and the overview effect trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "C. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Những thất bại thường gặp trong kinh doanh (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của suborbital tourism and the overview effect."
@@ -63970,23 +63970,23 @@ window.APP_DATA = {
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "B. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. delays (sự chậm trễ) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -64016,78 +64016,78 @@ window.APP_DATA = {
         {
           "q": "The word \"verify\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. verify",
-            "B. ignore",
+            "A. ignore",
+            "B. verify",
             "C. destroy",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'verify'. Trong ngữ cảnh đoạn 1, từ 'verify' được dùng để diễn đạt: 'verify' có nghĩa là xác minh tính xác thực, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"manipulated\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. manipulated",
+            "A. manipulated",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'manipulated'. Trong ngữ cảnh đoạn 2, từ 'manipulated' được dùng để diễn đạt: 'manipulated' có nghĩa là bị thao túng lừa dối, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"evaluate\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. evaluate",
-            "C. damage",
-            "D. forget"
+            "A. evaluate",
+            "B. conceal",
+            "C. forget",
+            "D. damage"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'evaluate'. Trong ngữ cảnh đoạn 2, từ 'evaluate' được dùng để diễn đạt: 'evaluate' có nghĩa là đánh giá thông tin, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"discerning\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. discerning",
-            "D. chaotic"
+            "A. fragile",
+            "B. chaotic",
+            "C. toxic",
+            "D. discerning"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'discerning'. Trong ngữ cảnh đoạn 3, từ 'discerning' được dùng để diễn đạt: 'discerning' có nghĩa là tinh tường sáng suốt, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng teaching critical thinking in the internet era trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Những thất bại thường gặp trong kinh doanh (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. Tầm quan trọng và các phương pháp áp dụng teaching critical thinking in the internet era trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của teaching critical thinking in the internet era."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "B. Bỏ cuộc ngay khi gặp khó khăn (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Chờ đợi sự may mắn ngẫu nhiên (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Tránh né hoàn toàn mọi thử thách (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. punishments (hình phạt) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "B. delays (sự chậm trễ) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "D. debts (nợ nần) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -64117,65 +64117,65 @@ window.APP_DATA = {
         {
           "q": "The word \"refill\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. refill",
+            "A. destroy",
             "B. ignore",
-            "C. destroy",
+            "C. refill",
             "D. prevent"
           ],
-          "answer": 0,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'refill'. Trong ngữ cảnh đoạn 1, từ 'refill' được dùng để diễn đạt: 'refill' có nghĩa là đổ đầy bình cá nhân, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"pollute\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. pollute",
-            "C. wealthy",
-            "D. popular"
+            "A. pollute",
+            "B. famous",
+            "C. popular",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'pollute'. Trong ngữ cảnh đoạn 2, từ 'pollute' được dùng để diễn đạt: 'pollute' có nghĩa là làm ô nhiễm, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"dispense\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. dispense",
-            "C. damage",
-            "D. forget"
+            "A. damage",
+            "B. forget",
+            "C. dispense",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'dispense'. Trong ngữ cảnh đoạn 2, từ 'dispense' được dùng để diễn đạt: 'dispense' có nghĩa là chiết xuất sản phẩm, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"eco-friendly\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. eco-friendly",
-            "D. chaotic"
+            "A. chaotic",
+            "B. eco-friendly",
+            "C. fragile",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 1,
           "explain": "Đáp án đúng là lựa chọn chứa 'eco-friendly'. Trong ngữ cảnh đoạn 3, từ 'eco-friendly' được dùng để diễn đạt: 'eco-friendly' có nghĩa là thân thiện môi trường, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng zero-packaging bulk urban supermarkets trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Những thất bại thường gặp trong kinh doanh (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Hướng dẫn sử dụng thiết bị công nghệ (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "D. Tầm quan trọng và các phương pháp áp dụng zero-packaging bulk urban supermarkets trong đời sống hiện đại"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của zero-packaging bulk urban supermarkets."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Chờ đợi sự may mắn ngẫu nhiên (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Tránh né hoàn toàn mọi thử thách (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -64183,10 +64183,10 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. delays (sự chậm trễ) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. punishments (hình phạt) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)",
+            "D. debts (nợ nần) (kết hợp chặt chẽ với quy trình quản lý chất lượng và tối ưu hóa chi phí)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -64218,34 +64218,34 @@ window.APP_DATA = {
         {
           "q": "The word \"circulate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. circulate",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. destroy",
+            "C. prevent",
+            "D. circulate"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'circulate'. Trong ngữ cảnh đoạn 1, từ 'circulate' được dùng để diễn đạt: 'circulate' có nghĩa là luân chuyển tuần hoàn, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"destabilize\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. destabilize",
+            "A. destabilize",
+            "B. popular",
             "C. wealthy",
-            "D. popular"
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'destabilize'. Trong ngữ cảnh đoạn 2, từ 'destabilize' được dùng để diễn đạt: 'destabilize' có nghĩa là làm mất ổn định, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"regulate\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. regulate",
-            "C. damage",
-            "D. forget"
+            "B. damage",
+            "C. forget",
+            "D. regulate"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'regulate'. Trong ngữ cảnh đoạn 2, từ 'regulate' được dùng để diễn đạt: 'regulate' có nghĩa là điều hòa khí hậu, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
@@ -64253,41 +64253,41 @@ window.APP_DATA = {
           "options": [
             "A. toxic",
             "B. fragile",
-            "C. indispensable",
-            "D. chaotic"
+            "C. chaotic",
+            "D. indispensable"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'indispensable'. Trong ngữ cảnh đoạn 3, từ 'indispensable' được dùng để diễn đạt: 'indispensable' có nghĩa là không thể thiếu, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng atlantic ocean conveyor currents and global climate trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Hướng dẫn sử dụng thiết bị công nghệ (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Những thất bại thường gặp trong kinh doanh (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "C. Tầm quan trọng và các phương pháp áp dụng atlantic ocean conveyor currents and global climate trong đời sống hiện đại",
+            "D. Lịch sử hình thành của các khái niệm cổ điển (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của atlantic ocean conveyor currents and global climate."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "C. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
+            "A. debts (nợ nần) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
             "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "C. punishments (hình phạt) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. delays (sự chậm trễ) (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)"
           ],
           "answer": 1,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
@@ -64319,65 +64319,65 @@ window.APP_DATA = {
         {
           "q": "The word \"cultivate\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. cultivate",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. ignore",
+            "B. destroy",
+            "C. prevent",
+            "D. cultivate"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'cultivate'. Trong ngữ cảnh đoạn 1, từ 'cultivate' được dùng để diễn đạt: 'cultivate' có nghĩa là nuôi dưỡng lòng hiếu kỳ, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"apathetic\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. apathetic",
-            "C. wealthy",
-            "D. popular"
+            "A. apathetic",
+            "B. popular",
+            "C. famous",
+            "D. wealthy"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'apathetic'. Trong ngữ cảnh đoạn 2, từ 'apathetic' được dùng để diễn đạt: 'apathetic' có nghĩa là thờ ơ nguội lạnh, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"expand\" in paragraph 2 is closest in meaning to:",
           "options": [
             "A. conceal",
-            "B. expand",
-            "C. damage",
+            "B. damage",
+            "C. expand",
             "D. forget"
           ],
-          "answer": 1,
+          "answer": 2,
           "explain": "Đáp án đúng là lựa chọn chứa 'expand'. Trong ngữ cảnh đoạn 2, từ 'expand' được dùng để diễn đạt: 'expand' có nghĩa là mở rộng tầm nhìn, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"rewarding\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
+            "A. rewarding",
             "B. fragile",
-            "C. rewarding",
-            "D. chaotic"
+            "C. chaotic",
+            "D. toxic"
           ],
-          "answer": 2,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'rewarding'. Trong ngữ cảnh đoạn 3, từ 'rewarding' được dùng để diễn đạt: 'rewarding' có nghĩa là đầy ý nghĩa, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng the psychological architecture of lifelong curiosity trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng the psychological architecture of lifelong curiosity trong đời sống hiện đại",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "C. Những thất bại thường gặp trong kinh doanh (thông qua các mô hình dự báo phân tích dữ liệu chuyên sâu)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của the psychological architecture of lifelong curiosity."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
+            "A. Tránh né hoàn toàn mọi thử thách (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
             "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "C. Chờ đợi sự may mắn ngẫu nhiên (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "D. Bỏ cuộc ngay khi gặp khó khăn (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
           "answer": 1,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
@@ -64385,12 +64385,12 @@ window.APP_DATA = {
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. debts (nợ nần) (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)",
+            "C. delays (sự chậm trễ) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "D. punishments (hình phạt) (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -64420,78 +64420,78 @@ window.APP_DATA = {
         {
           "q": "The word \"persevere\" in paragraph 1 is closest in meaning to:",
           "options": [
-            "A. persevere",
-            "B. ignore",
-            "C. destroy",
-            "D. prevent"
+            "A. prevent",
+            "B. destroy",
+            "C. ignore",
+            "D. persevere"
           ],
-          "answer": 0,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'persevere'. Trong ngữ cảnh đoạn 1, từ 'persevere' được dùng để diễn đạt: 'persevere' có nghĩa là kiên trì bền bỉ, phù hợp nhất với ngữ cảnh của câu."
         },
         {
           "q": "The word \"insurmountable\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. famous",
-            "B. insurmountable",
-            "C. wealthy",
-            "D. popular"
+            "A. insurmountable",
+            "B. wealthy",
+            "C. popular",
+            "D. famous"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'insurmountable'. Trong ngữ cảnh đoạn 2, từ 'insurmountable' được dùng để diễn đạt: 'insurmountable' có nghĩa là tưởng như không thể vượt qua, diễn tả trạng thái tiêu cực hoặc trở ngại được nêu trong đoạn 2."
         },
         {
           "q": "The word \"achieve\" in paragraph 2 is closest in meaning to:",
           "options": [
-            "A. conceal",
-            "B. achieve",
-            "C. damage",
-            "D. forget"
+            "A. achieve",
+            "B. damage",
+            "C. forget",
+            "D. conceal"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Đáp án đúng là lựa chọn chứa 'achieve'. Trong ngữ cảnh đoạn 2, từ 'achieve' được dùng để diễn đạt: 'achieve' có nghĩa là chinh phục mục tiêu, là hành động tích cực giúp vượt qua khó khăn."
         },
         {
           "q": "The word \"triumphant\" in paragraph 3 is closest in meaning to:",
           "options": [
-            "A. toxic",
-            "B. fragile",
-            "C. triumphant",
-            "D. chaotic"
+            "A. fragile",
+            "B. chaotic",
+            "C. toxic",
+            "D. triumphant"
           ],
-          "answer": 2,
+          "answer": 3,
           "explain": "Đáp án đúng là lựa chọn chứa 'triumphant'. Trong ngữ cảnh đoạn 3, từ 'triumphant' được dùng để diễn đạt: 'triumphant' có nghĩa là vinh quang chiến thắng, chỉ trạng thái bền vững và phát triển tốt đẹp ở tương lai."
         },
         {
           "q": "Ý chính của bài đọc là gì?",
           "options": [
-            "A. Lịch sử hình thành của các khái niệm cổ điển",
-            "B. Tầm quan trọng và các phương pháp áp dụng celebrating 90 days of english fluency and growth trong đời sống hiện đại",
-            "C. Những thất bại thường gặp trong kinh doanh",
-            "D. Hướng dẫn sử dụng thiết bị công nghệ"
+            "A. Tầm quan trọng và các phương pháp áp dụng celebrating 90 days of english fluency and growth trong đời sống hiện đại",
+            "B. Lịch sử hình thành của các khái niệm cổ điển (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. Những thất bại thường gặp trong kinh doanh (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Hướng dẫn sử dụng thiết bị công nghệ (nhưng chưa tính đến các yếu tố biến động bất ngờ của thị trường)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Toàn bộ bài viết tập trung phân tích vai trò, phương pháp và triển vọng tương lai của celebrating 90 days of english fluency and growth."
         },
         {
           "q": "Theo đoạn 2, yếu tố nào là tối quan trọng để vượt qua trở ngại?",
           "options": [
-            "A. Chờ đợi sự may mắn ngẫu nhiên",
-            "B. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)",
-            "C. Bỏ cuộc ngay khi gặp khó khăn",
-            "D. Tránh né hoàn toàn mọi thử thách"
+            "A. Tránh né hoàn toàn mọi thử thách (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "B. Chờ đợi sự may mắn ngẫu nhiên (nhằm đáp ứng các tiêu chuẩn quy định nghiêm ngặt của ngành)",
+            "C. Bỏ cuộc ngay khi gặp khó khăn (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)",
+            "D. Sự tận tâm kiên trì và phương pháp có cấu trúc (consistent dedication and structured methods)"
           ],
-          "answer": 1,
+          "answer": 3,
           "explain": "Đoạn 2 nêu rõ: 'Experts emphasize that consistent dedication and structured methods are essential'."
         },
         {
           "q": "Từ 'dividends' trong đoạn 3 mang ý nghĩa gần nhất với từ nào sau đây?",
           "options": [
-            "A. debts (nợ nần)",
-            "B. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
-            "C. punishments (hình phạt)",
-            "D. delays (sự chậm trễ)"
+            "A. benefits / rewards (lợi ích, thành quả tốt đẹp lâu dài)",
+            "B. debts (nợ nần) (đáp ứng các mục tiêu phát triển bền vững và giảm thiểu rủi ro dài hạn)",
+            "C. delays (sự chậm trễ) (dựa trên các khảo sát định lượng toàn diện về xu hướng người dùng)",
+            "D. punishments (hình phạt) (được phân tích và kiểm chứng qua các báo cáo thực nghiệm độc lập)"
           ],
-          "answer": 1,
+          "answer": 0,
           "explain": "Trong ngữ cảnh 'long-term dividends', từ này nghĩa là những lợi ích, quả ngọt và giá trị to lớn gặt hái được về lâu dài."
         }
       ],
@@ -64553,21 +64553,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 101?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To provide a personal narrative of an individual career transition, without accounting for underlying structural variations in systemic conditions",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, in direct coordination with institutional governance and quality benchmarks",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Complete cessation of international trade and commerce, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Immediate and total elimination of all human workforce, without accounting for underlying structural variations in systemic conditions"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -64575,57 +64575,57 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. negligible, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. dangerous, based on comprehensive longitudinal surveys of international participants",
+            "C. accidental, in direct coordination with institutional governance and quality benchmarks",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. Global climate volatility has already been permanently resolved, through continuous predictive modeling and advanced quantitative assessments",
+            "C. No further monitoring or compliance will ever be necessary, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. Modern organizations are abandoning technology in favor of manual labor, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
+            "A. Discarded packaging materials and waste, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "C. Weather anomalies occurring in previous decades.",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Cynical and hostile, through continuous predictive modeling and advanced quantitative assessments",
+            "B. Highly emotional and despairing",
+            "C. Objective, analytical, and informative",
+            "D. Sarcastic and mocking, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -64684,79 +64684,79 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 102?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, in direct coordination with institutional governance and quality benchmarks",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To provide a personal narrative of an individual career transition, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Complete cessation of international trade and commerce, as demonstrated across extensive cross-sectional empirical evaluations",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Immediate and total elimination of all human workforce, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. negligible, supporting sustainable development while mitigating operational risks",
+            "C. dangerous, without accounting for underlying structural variations in systemic conditions",
+            "D. accidental, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Modern organizations are abandoning technology in favor of manual labor, supporting sustainable development while mitigating operational risks",
+            "B. Global climate volatility has already been permanently resolved, based on comprehensive longitudinal surveys of international participants",
+            "C. No further monitoring or compliance will ever be necessary, in direct coordination with institutional governance and quality benchmarks",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Strategic initiatives contribute positively to systemic stability.",
+            "D. Both environmental factors and operational protocols are taken into account."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
+            "A. Discarded packaging materials and waste, in direct coordination with institutional governance and quality benchmarks",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "C. Weather anomalies occurring in previous decades.",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Cynical and hostile, without accounting for underlying structural variations in systemic conditions",
+            "B. Highly emotional and despairing",
+            "C. Objective, analytical, and informative",
+            "D. Sarcastic and mocking, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -64815,64 +64815,64 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 103?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, through continuous predictive modeling and advanced quantitative assessments",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, based on comprehensive longitudinal surveys of international participants",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Complete cessation of international trade and commerce, without accounting for underlying structural variations in systemic conditions",
+            "B. Substantial increases in production waste and overhead expenses.",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Immediate and total elimination of all human workforce, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. dangerous, through continuous predictive modeling and advanced quantitative assessments",
+            "B. accidental, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. essential and highly important",
+            "D. negligible, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. Modern organizations are abandoning technology in favor of manual labor, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Global climate volatility has already been permanently resolved, supporting sustainable development while mitigating operational risks",
+            "D. No further monitoring or compliance will ever be necessary, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "C. Discarded packaging materials and waste, supporting sustainable development while mitigating operational risks",
             "D. Weather anomalies occurring in previous decades."
           ],
           "answer": 0,
@@ -64881,10 +64881,10 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Cynical and hostile, in direct coordination with institutional governance and quality benchmarks",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "C. Highly emotional and despairing",
+            "D. Sarcastic and mocking, without accounting for underlying structural variations in systemic conditions"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
@@ -64946,65 +64946,65 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 104?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, based on comprehensive longitudinal surveys of international participants",
+            "B. To provide a personal narrative of an individual career transition, supporting sustainable development while mitigating operational risks",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Substantial increases in production waste and overhead expenses.",
+            "C. Immediate and total elimination of all human workforce, through continuous predictive modeling and advanced quantitative assessments",
+            "D. Complete cessation of international trade and commerce, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. accidental, supporting sustainable development while mitigating operational risks",
+            "C. negligible, without accounting for underlying structural variations in systemic conditions",
+            "D. dangerous, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. No further monitoring or compliance will ever be necessary, without accounting for underlying structural variations in systemic conditions",
+            "C. Modern organizations are abandoning technology in favor of manual labor, based on comprehensive longitudinal surveys of international participants",
+            "D. Global climate volatility has already been permanently resolved, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
             "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "C. Strategic initiatives contribute positively to systemic stability.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "C. Weather anomalies occurring in previous decades.",
+            "D. Discarded packaging materials and waste, without accounting for underlying structural variations in systemic conditions"
           ],
           "answer": 0,
           "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
@@ -65012,13 +65012,13 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Objective, analytical, and informative",
+            "B. Cynical and hostile, supporting sustainable development while mitigating operational risks",
+            "C. Highly emotional and despairing",
+            "D. Sarcastic and mocking, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -65077,21 +65077,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 105?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To provide a personal narrative of an individual career transition, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Immediate and total elimination of all human workforce, supporting sustainable development while mitigating operational risks",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Complete cessation of international trade and commerce, based on comprehensive longitudinal surveys of international participants"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -65099,43 +65099,43 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. negligible, through continuous predictive modeling and advanced quantitative assessments",
+            "C. dangerous, in direct coordination with institutional governance and quality benchmarks",
+            "D. accidental, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Modern organizations are abandoning technology in favor of manual labor, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. Global climate volatility has already been permanently resolved, in direct coordination with institutional governance and quality benchmarks",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. No further monitoring or compliance will ever be necessary, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. Both environmental factors and operational protocols are taken into account."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "B. Weather anomalies occurring in previous decades.",
+            "C. Competitor organizations operating outside the market.",
+            "D. Discarded packaging materials and waste, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
           "answer": 0,
           "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
@@ -65143,13 +65143,13 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Objective, analytical, and informative",
+            "B. Highly emotional and despairing",
+            "C. Cynical and hostile, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Sarcastic and mocking, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -65208,54 +65208,54 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 106?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, without accounting for underlying structural variations in systemic conditions",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To provide a personal narrative of an individual career transition, in direct coordination with institutional governance and quality benchmarks",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Complete cessation of international trade and commerce, through continuous predictive modeling and advanced quantitative assessments",
+            "B. Immediate and total elimination of all human workforce, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. negligible, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. dangerous, based on comprehensive longitudinal surveys of international participants",
+            "C. accidental, without accounting for underlying structural variations in systemic conditions",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. No further monitoring or compliance will ever be necessary, through continuous predictive modeling and advanced quantitative assessments",
+            "B. Global climate volatility has already been permanently resolved, supporting sustainable development while mitigating operational risks",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. Modern organizations are abandoning technology in favor of manual labor, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
             "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
           "answer": 2,
           "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
@@ -65264,9 +65264,9 @@ window.APP_DATA = {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "B. Discarded packaging materials and waste, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Weather anomalies occurring in previous decades.",
+            "D. Competitor organizations operating outside the market."
           ],
           "answer": 0,
           "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
@@ -65274,13 +65274,13 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Objective, analytical, and informative",
+            "B. Highly emotional and despairing",
+            "C. Cynical and hostile, without accounting for underlying structural variations in systemic conditions",
+            "D. Sarcastic and mocking, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -65339,32 +65339,32 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 107?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, without accounting for underlying structural variations in systemic conditions",
+            "D. To provide a personal narrative of an individual career transition, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Immediate and total elimination of all human workforce, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. Complete cessation of international trade and commerce, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. accidental, through continuous predictive modeling and advanced quantitative assessments",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. negligible, based on comprehensive longitudinal surveys of international participants",
+            "D. dangerous, without accounting for underlying structural variations in systemic conditions"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -65372,46 +65372,46 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Global climate volatility has already been permanently resolved, without accounting for underlying structural variations in systemic conditions",
+            "B. Modern organizations are abandoning technology in favor of manual labor, without accounting for underlying structural variations in systemic conditions",
+            "C. No further monitoring or compliance will ever be necessary, supporting sustainable development while mitigating operational risks",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
             "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Both environmental factors and operational protocols are taken into account.",
             "D. Continuous improvements help reduce turnaround intervals and errors."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Discarded packaging materials and waste, based on comprehensive longitudinal surveys of international participants",
+            "B. Weather anomalies occurring in previous decades.",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
+            "D. Competitor organizations operating outside the market."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Cynical and hostile, in direct coordination with institutional governance and quality benchmarks",
+            "B. Sarcastic and mocking, in direct coordination with institutional governance and quality benchmarks",
+            "C. Highly emotional and despairing",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -65470,43 +65470,43 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 108?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, based on comprehensive longitudinal surveys of international participants",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Complete cessation of international trade and commerce, without accounting for underlying structural variations in systemic conditions",
+            "B. Substantial increases in production waste and overhead expenses.",
+            "C. Immediate and total elimination of all human workforce, in direct coordination with institutional governance and quality benchmarks",
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. accidental, supporting sustainable development while mitigating operational risks",
+            "B. dangerous, through continuous predictive modeling and advanced quantitative assessments",
+            "C. essential and highly important",
+            "D. negligible, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. Modern organizations are abandoning technology in favor of manual labor, in direct coordination with institutional governance and quality benchmarks",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. Global climate volatility has already been permanently resolved, in direct coordination with institutional governance and quality benchmarks",
+            "D. No further monitoring or compliance will ever be necessary, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -65516,33 +65516,33 @@ window.APP_DATA = {
           "options": [
             "A. Strategic initiatives contribute positively to systemic stability.",
             "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
+            "A. Discarded packaging materials and waste, supporting sustainable development while mitigating operational risks",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "C. Weather anomalies occurring in previous decades.",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Cynical and hostile, supporting sustainable development while mitigating operational risks",
+            "B. Sarcastic and mocking, without accounting for underlying structural variations in systemic conditions",
+            "C. Highly emotional and despairing",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -65601,43 +65601,43 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 109?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. To provide a personal narrative of an individual career transition, without accounting for underlying structural variations in systemic conditions",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "A. Immediate and total elimination of all human workforce, based on comprehensive longitudinal surveys of international participants",
+            "B. Complete cessation of international trade and commerce, supporting sustainable development while mitigating operational risks",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. accidental, in direct coordination with institutional governance and quality benchmarks",
+            "C. negligible, supporting sustainable development while mitigating operational risks",
+            "D. dangerous, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. No further monitoring or compliance will ever be necessary, based on comprehensive longitudinal surveys of international participants",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. Modern organizations are abandoning technology in favor of manual labor, supporting sustainable development while mitigating operational risks",
+            "D. Global climate volatility has already been permanently resolved, through continuous predictive modeling and advanced quantitative assessments"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -65645,35 +65645,35 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "A. Competitor organizations operating outside the market.",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Discarded packaging materials and waste, without accounting for underlying structural variations in systemic conditions",
             "D. Weather anomalies occurring in previous decades."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Cynical and hostile, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. Highly emotional and despairing",
+            "C. Sarcastic and mocking, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -65732,52 +65732,52 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 110?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To provide a personal narrative of an individual career transition, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Substantial increases in production waste and overhead expenses.",
+            "B. Immediate and total elimination of all human workforce, based on comprehensive longitudinal surveys of international participants",
+            "C. Complete cessation of international trade and commerce, based on comprehensive longitudinal surveys of international participants",
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. negligible, in direct coordination with institutional governance and quality benchmarks",
+            "C. dangerous, in direct coordination with institutional governance and quality benchmarks",
+            "D. accidental, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Global climate volatility has already been permanently resolved, based on comprehensive longitudinal surveys of international participants",
+            "B. No further monitoring or compliance will ever be necessary, without accounting for underlying structural variations in systemic conditions",
+            "C. Modern organizations are abandoning technology in favor of manual labor, through continuous predictive modeling and advanced quantitative assessments",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
             "C. The outlined procedures are completely illegal and forbidden by international law.",
             "D. Continuous improvements help reduce turnaround intervals and errors."
           ],
@@ -65787,24 +65787,24 @@ window.APP_DATA = {
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "A. Competitor organizations operating outside the market.",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Discarded packaging materials and waste, in direct coordination with institutional governance and quality benchmarks",
             "D. Weather anomalies occurring in previous decades."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Highly emotional and despairing",
+            "B. Cynical and hostile, based on comprehensive longitudinal surveys of international participants",
+            "C. Sarcastic and mocking, through continuous predictive modeling and advanced quantitative assessments",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -65863,21 +65863,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 111?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, through continuous predictive modeling and advanced quantitative assessments",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Substantial increases in production waste and overhead expenses.",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "C. Complete cessation of international trade and commerce, through continuous predictive modeling and advanced quantitative assessments",
+            "D. Immediate and total elimination of all human workforce, without accounting for underlying structural variations in systemic conditions"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -65885,57 +65885,57 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. dangerous, based on comprehensive longitudinal surveys of international participants",
+            "B. negligible, without accounting for underlying structural variations in systemic conditions",
+            "C. accidental, through continuous predictive modeling and advanced quantitative assessments",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Global climate volatility has already been permanently resolved, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. No further monitoring or compliance will ever be necessary, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. Modern organizations are abandoning technology in favor of manual labor, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
             "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Competitor organizations operating outside the market.",
+            "D. Discarded packaging materials and waste, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Highly emotional and despairing",
+            "B. Sarcastic and mocking, supporting sustainable development while mitigating operational risks",
+            "C. Cynical and hostile, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -65994,32 +65994,32 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 112?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To provide a personal narrative of an individual career transition, supporting sustainable development while mitigating operational risks",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, through continuous predictive modeling and advanced quantitative assessments",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Substantial increases in production waste and overhead expenses.",
+            "C. Complete cessation of international trade and commerce, in direct coordination with institutional governance and quality benchmarks",
+            "D. Immediate and total elimination of all human workforce, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. accidental, as demonstrated across extensive cross-sectional empirical evaluations",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. negligible, through continuous predictive modeling and advanced quantitative assessments",
+            "D. dangerous, without accounting for underlying structural variations in systemic conditions"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -66027,21 +66027,21 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. Modern organizations are abandoning technology in favor of manual labor, in direct coordination with institutional governance and quality benchmarks",
+            "C. No further monitoring or compliance will ever be necessary, through continuous predictive modeling and advanced quantitative assessments",
+            "D. Global climate volatility has already been permanently resolved, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
             "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
             "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "D. Both environmental factors and operational protocols are taken into account."
           ],
           "answer": 2,
           "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
@@ -66049,24 +66049,24 @@ window.APP_DATA = {
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Competitor organizations operating outside the market.",
+            "D. Discarded packaging materials and waste, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Highly emotional and despairing",
+            "B. Sarcastic and mocking, in direct coordination with institutional governance and quality benchmarks",
+            "C. Cynical and hostile, through continuous predictive modeling and advanced quantitative assessments",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -66125,21 +66125,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 113?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To provide a personal narrative of an individual career transition, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Immediate and total elimination of all human workforce, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Complete cessation of international trade and commerce, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -66147,10 +66147,10 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. accidental, in direct coordination with institutional governance and quality benchmarks",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. dangerous, through continuous predictive modeling and advanced quantitative assessments",
+            "D. negligible, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -66158,46 +66158,46 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. Modern organizations are abandoning technology in favor of manual labor, supporting sustainable development while mitigating operational risks",
+            "C. Global climate volatility has already been permanently resolved, based on comprehensive longitudinal surveys of international participants",
+            "D. No further monitoring or compliance will ever be necessary, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. Discarded packaging materials and waste, supporting sustainable development while mitigating operational risks",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
+            "D. Competitor organizations operating outside the market."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Sarcastic and mocking, based on comprehensive longitudinal surveys of international participants",
+            "B. Highly emotional and despairing",
+            "C. Cynical and hostile, without accounting for underlying structural variations in systemic conditions",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -66256,79 +66256,79 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 114?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To provide a personal narrative of an individual career transition, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, supporting sustainable development while mitigating operational risks",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Substantial increases in production waste and overhead expenses.",
+            "B. Immediate and total elimination of all human workforce, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Complete cessation of international trade and commerce, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. negligible, based on comprehensive longitudinal surveys of international participants",
+            "B. dangerous, supporting sustainable development while mitigating operational risks",
+            "C. accidental, without accounting for underlying structural variations in systemic conditions",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. No further monitoring or compliance will ever be necessary, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Global climate volatility has already been permanently resolved, supporting sustainable development while mitigating operational risks",
+            "D. Modern organizations are abandoning technology in favor of manual labor, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. Discarded packaging materials and waste, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
+            "D. Competitor organizations operating outside the market."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Cynical and hostile, in direct coordination with institutional governance and quality benchmarks",
+            "B. Sarcastic and mocking, without accounting for underlying structural variations in systemic conditions",
+            "C. Highly emotional and despairing",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -66387,21 +66387,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 115?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, supporting sustainable development while mitigating operational risks",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To provide a personal narrative of an individual career transition, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Complete cessation of international trade and commerce, without accounting for underlying structural variations in systemic conditions",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "C. Immediate and total elimination of all human workforce, supporting sustainable development while mitigating operational risks",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -66409,57 +66409,57 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. negligible, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. dangerous, in direct coordination with institutional governance and quality benchmarks",
+            "D. accidental, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. No further monitoring or compliance will ever be necessary, in direct coordination with institutional governance and quality benchmarks",
+            "B. Global climate volatility has already been permanently resolved, without accounting for underlying structural variations in systemic conditions",
+            "C. Modern organizations are abandoning technology in favor of manual labor, based on comprehensive longitudinal surveys of international participants",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
+            "C. Strategic initiatives contribute positively to systemic stability.",
+            "D. Both environmental factors and operational protocols are taken into account."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Competitor organizations operating outside the market.",
+            "B. Weather anomalies occurring in previous decades.",
+            "C. Discarded packaging materials and waste, in direct coordination with institutional governance and quality benchmarks",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Sarcastic and mocking, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. Cynical and hostile, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Highly emotional and despairing",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -66518,54 +66518,54 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 116?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, based on comprehensive longitudinal surveys of international participants",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, supporting sustainable development while mitigating operational risks",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Immediate and total elimination of all human workforce, supporting sustainable development while mitigating operational risks",
+            "C. Complete cessation of international trade and commerce, through continuous predictive modeling and advanced quantitative assessments",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. dangerous, based on comprehensive longitudinal surveys of international participants",
+            "B. accidental, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. essential and highly important",
+            "D. negligible, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Modern organizations are abandoning technology in favor of manual labor, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. Global climate volatility has already been permanently resolved, in direct coordination with institutional governance and quality benchmarks",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. No further monitoring or compliance will ever be necessary, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
             "B. Both environmental factors and operational protocols are taken into account.",
             "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
           "answer": 2,
           "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
@@ -66573,24 +66573,24 @@ window.APP_DATA = {
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "A. Competitor organizations operating outside the market.",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Discarded packaging materials and waste, through continuous predictive modeling and advanced quantitative assessments",
             "D. Weather anomalies occurring in previous decades."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Highly emotional and despairing",
+            "B. Cynical and hostile, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Sarcastic and mocking, supporting sustainable development while mitigating operational risks",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -66649,21 +66649,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 117?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. To provide a personal narrative of an individual career transition, without accounting for underlying structural variations in systemic conditions",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Immediate and total elimination of all human workforce, as demonstrated across extensive cross-sectional empirical evaluations",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "C. Complete cessation of international trade and commerce, in direct coordination with institutional governance and quality benchmarks",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -66671,21 +66671,21 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. accidental, based on comprehensive longitudinal surveys of international participants",
+            "C. negligible, based on comprehensive longitudinal surveys of international participants",
+            "D. dangerous, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. Modern organizations are abandoning technology in favor of manual labor, through continuous predictive modeling and advanced quantitative assessments",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. No further monitoring or compliance will ever be necessary, without accounting for underlying structural variations in systemic conditions",
+            "D. Global climate volatility has already been permanently resolved, through continuous predictive modeling and advanced quantitative assessments"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -66693,35 +66693,35 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Strategic initiatives contribute positively to systemic stability.",
             "D. Continuous improvements help reduce turnaround intervals and errors."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "A. Discarded packaging materials and waste, without accounting for underlying structural variations in systemic conditions",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Competitor organizations operating outside the market.",
             "D. Weather anomalies occurring in previous decades."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Highly emotional and despairing",
+            "B. Cynical and hostile, without accounting for underlying structural variations in systemic conditions",
+            "C. Sarcastic and mocking, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -66780,32 +66780,32 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 118?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To provide a personal narrative of an individual career transition, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Substantial increases in production waste and overhead expenses.",
+            "B. Immediate and total elimination of all human workforce, in direct coordination with institutional governance and quality benchmarks",
+            "C. Complete cessation of international trade and commerce, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. negligible, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. dangerous, through continuous predictive modeling and advanced quantitative assessments",
+            "D. accidental, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -66813,43 +66813,43 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Global climate volatility has already been permanently resolved, without accounting for underlying structural variations in systemic conditions",
+            "B. Modern organizations are abandoning technology in favor of manual labor, without accounting for underlying structural variations in systemic conditions",
+            "C. No further monitoring or compliance will ever be necessary, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Competitor organizations operating outside the market.",
+            "D. Discarded packaging materials and waste, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Sarcastic and mocking, in direct coordination with institutional governance and quality benchmarks",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "C. Highly emotional and despairing",
+            "D. Cynical and hostile, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
@@ -66911,43 +66911,43 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 119?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To provide a personal narrative of an individual career transition, through continuous predictive modeling and advanced quantitative assessments",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Substantial increases in production waste and overhead expenses.",
+            "B. Complete cessation of international trade and commerce, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Immediate and total elimination of all human workforce, in direct coordination with institutional governance and quality benchmarks",
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. negligible, supporting sustainable development while mitigating operational risks",
+            "B. dangerous, supporting sustainable development while mitigating operational risks",
+            "C. accidental, through continuous predictive modeling and advanced quantitative assessments",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. No further monitoring or compliance will ever be necessary, through continuous predictive modeling and advanced quantitative assessments",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. Global climate volatility has already been permanently resolved, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. Modern organizations are abandoning technology in favor of manual labor, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -66955,32 +66955,32 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
             "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Competitor organizations operating outside the market.",
+            "B. Weather anomalies occurring in previous decades.",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
+            "D. Discarded packaging materials and waste, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Sarcastic and mocking, without accounting for underlying structural variations in systemic conditions",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "C. Highly emotional and despairing",
+            "D. Cynical and hostile, supporting sustainable development while mitigating operational risks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
@@ -67042,32 +67042,32 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 120?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, in direct coordination with institutional governance and quality benchmarks",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To provide a personal narrative of an individual career transition, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Complete cessation of international trade and commerce, without accounting for underlying structural variations in systemic conditions",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Immediate and total elimination of all human workforce, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. accidental, as demonstrated across extensive cross-sectional empirical evaluations",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. negligible, in direct coordination with institutional governance and quality benchmarks",
+            "D. dangerous, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -67075,13 +67075,13 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Modern organizations are abandoning technology in favor of manual labor, supporting sustainable development while mitigating operational risks",
+            "B. No further monitoring or compliance will ever be necessary, supporting sustainable development while mitigating operational risks",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. Global climate volatility has already been permanently resolved, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
@@ -67097,24 +67097,24 @@ window.APP_DATA = {
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. Discarded packaging materials and waste, in direct coordination with institutional governance and quality benchmarks",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
+            "D. Competitor organizations operating outside the market."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Highly emotional and despairing",
+            "B. Sarcastic and mocking, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Objective, analytical, and informative",
+            "D. Cynical and hostile, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -67173,79 +67173,79 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 121?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Substantial increases in production waste and overhead expenses.",
+            "B. Complete cessation of international trade and commerce, supporting sustainable development while mitigating operational risks",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Immediate and total elimination of all human workforce, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. accidental, based on comprehensive longitudinal surveys of international participants",
+            "C. dangerous, based on comprehensive longitudinal surveys of international participants",
+            "D. negligible, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Global climate volatility has already been permanently resolved, based on comprehensive longitudinal surveys of international participants",
+            "B. Modern organizations are abandoning technology in favor of manual labor, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. No further monitoring or compliance will ever be necessary, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
             "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "C. Strategic initiatives contribute positively to systemic stability.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Competitor organizations operating outside the market.",
+            "B. Weather anomalies occurring in previous decades.",
+            "C. Discarded packaging materials and waste, supporting sustainable development while mitigating operational risks",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Sarcastic and mocking, through continuous predictive modeling and advanced quantitative assessments",
+            "B. Highly emotional and despairing",
+            "C. Objective, analytical, and informative",
+            "D. Cynical and hostile, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -67304,79 +67304,79 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 122?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, in direct coordination with institutional governance and quality benchmarks",
+            "C. To provide a personal narrative of an individual career transition, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Immediate and total elimination of all human workforce, without accounting for underlying structural variations in systemic conditions",
+            "B. Substantial increases in production waste and overhead expenses.",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Complete cessation of international trade and commerce, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. accidental, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. dangerous, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. negligible, through continuous predictive modeling and advanced quantitative assessments",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. Global climate volatility has already been permanently resolved, supporting sustainable development while mitigating operational risks",
+            "C. No further monitoring or compliance will ever be necessary, in direct coordination with institutional governance and quality benchmarks",
+            "D. Modern organizations are abandoning technology in favor of manual labor, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. Both environmental factors and operational protocols are taken into account."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Discarded packaging materials and waste, without accounting for underlying structural variations in systemic conditions",
+            "B. Weather anomalies occurring in previous decades.",
+            "C. Competitor organizations operating outside the market.",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Objective, analytical, and informative",
+            "B. Highly emotional and despairing",
+            "C. Sarcastic and mocking, supporting sustainable development while mitigating operational risks",
+            "D. Cynical and hostile, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -67435,79 +67435,79 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 123?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, based on comprehensive longitudinal surveys of international participants",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To provide a personal narrative of an individual career transition, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Substantial increases in production waste and overhead expenses.",
+            "C. Immediate and total elimination of all human workforce, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Complete cessation of international trade and commerce, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. negligible, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. dangerous, through continuous predictive modeling and advanced quantitative assessments",
+            "D. accidental, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Modern organizations are abandoning technology in favor of manual labor, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. Global climate volatility has already been permanently resolved, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. No further monitoring or compliance will ever be necessary, based on comprehensive longitudinal surveys of international participants",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "A. Discarded packaging materials and waste, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Competitor organizations operating outside the market.",
             "D. Weather anomalies occurring in previous decades."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Objective, analytical, and informative",
+            "B. Highly emotional and despairing",
+            "C. Sarcastic and mocking, in direct coordination with institutional governance and quality benchmarks",
+            "D. Cynical and hostile, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -67566,21 +67566,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 124?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, based on comprehensive longitudinal surveys of international participants",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, based on comprehensive longitudinal surveys of international participants",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Immediate and total elimination of all human workforce, through continuous predictive modeling and advanced quantitative assessments",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Complete cessation of international trade and commerce, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -67588,54 +67588,54 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. accidental, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. dangerous, supporting sustainable development while mitigating operational risks",
+            "C. essential and highly important",
+            "D. negligible, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. Modern organizations are abandoning technology in favor of manual labor, supporting sustainable development while mitigating operational risks",
+            "C. Global climate volatility has already been permanently resolved, in direct coordination with institutional governance and quality benchmarks",
+            "D. No further monitoring or compliance will ever be necessary, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
             "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "A. Competitor organizations operating outside the market.",
+            "B. Discarded packaging materials and waste, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
             "D. Weather anomalies occurring in previous decades."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Sarcastic and mocking, based on comprehensive longitudinal surveys of international participants",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "C. Highly emotional and despairing",
+            "D. Cynical and hostile, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
@@ -67697,32 +67697,32 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 125?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To provide a personal narrative of an individual career transition, without accounting for underlying structural variations in systemic conditions",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, without accounting for underlying structural variations in systemic conditions",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Complete cessation of international trade and commerce, without accounting for underlying structural variations in systemic conditions",
+            "B. Immediate and total elimination of all human workforce, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. accidental, based on comprehensive longitudinal surveys of international participants",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. negligible, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. dangerous, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -67730,43 +67730,43 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Modern organizations are abandoning technology in favor of manual labor, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. No further monitoring or compliance will ever be necessary, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. Global climate volatility has already been permanently resolved, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
+            "C. Strategic initiatives contribute positively to systemic stability.",
+            "D. Both environmental factors and operational protocols are taken into account."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Competitor organizations operating outside the market.",
+            "B. Weather anomalies occurring in previous decades.",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
+            "D. Discarded packaging materials and waste, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Sarcastic and mocking, without accounting for underlying structural variations in systemic conditions",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "C. Highly emotional and despairing",
+            "D. Cynical and hostile, based on comprehensive longitudinal surveys of international participants"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
@@ -67828,21 +67828,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 126?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To provide a personal narrative of an individual career transition, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Complete cessation of international trade and commerce, supporting sustainable development while mitigating operational risks",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "C. Immediate and total elimination of all human workforce, supporting sustainable development while mitigating operational risks",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -67850,10 +67850,10 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. negligible, supporting sustainable development while mitigating operational risks",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. dangerous, based on comprehensive longitudinal surveys of international participants",
+            "D. accidental, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -67861,43 +67861,43 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. No further monitoring or compliance will ever be necessary, through continuous predictive modeling and advanced quantitative assessments",
+            "B. Global climate volatility has already been permanently resolved, without accounting for underlying structural variations in systemic conditions",
+            "C. Modern organizations are abandoning technology in favor of manual labor, based on comprehensive longitudinal surveys of international participants",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Discarded packaging materials and waste, supporting sustainable development while mitigating operational risks",
+            "D. Competitor organizations operating outside the market."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Sarcastic and mocking, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "C. Highly emotional and despairing",
+            "D. Cynical and hostile, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
@@ -67959,43 +67959,43 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 127?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, through continuous predictive modeling and advanced quantitative assessments",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, without accounting for underlying structural variations in systemic conditions",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Complete cessation of international trade and commerce, based on comprehensive longitudinal surveys of international participants",
+            "B. Substantial increases in production waste and overhead expenses.",
+            "C. Immediate and total elimination of all human workforce, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. dangerous, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. negligible, in direct coordination with institutional governance and quality benchmarks",
+            "C. accidental, supporting sustainable development while mitigating operational risks",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. Global climate volatility has already been permanently resolved, as demonstrated across extensive cross-sectional empirical evaluations",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. No further monitoring or compliance will ever be necessary, supporting sustainable development while mitigating operational risks",
+            "D. Modern organizations are abandoning technology in favor of manual labor, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -68003,21 +68003,21 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Strategic initiatives contribute positively to systemic stability.",
             "D. Continuous improvements help reduce turnaround intervals and errors."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "B. Weather anomalies occurring in previous decades.",
+            "C. Discarded packaging materials and waste, without accounting for underlying structural variations in systemic conditions",
+            "D. Competitor organizations operating outside the market."
           ],
           "answer": 0,
           "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
@@ -68025,13 +68025,13 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Sarcastic and mocking, supporting sustainable development while mitigating operational risks",
+            "B. Highly emotional and despairing",
+            "C. Objective, analytical, and informative",
+            "D. Cynical and hostile, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -68090,43 +68090,43 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 128?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To provide a personal narrative of an individual career transition, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "A. Immediate and total elimination of all human workforce, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. Complete cessation of international trade and commerce, through continuous predictive modeling and advanced quantitative assessments",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. negligible, without accounting for underlying structural variations in systemic conditions",
+            "C. accidental, in direct coordination with institutional governance and quality benchmarks",
+            "D. dangerous, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. Modern organizations are abandoning technology in favor of manual labor, through continuous predictive modeling and advanced quantitative assessments",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. No further monitoring or compliance will ever be necessary, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. Global climate volatility has already been permanently resolved, through continuous predictive modeling and advanced quantitative assessments"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -68135,34 +68135,34 @@ window.APP_DATA = {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
             "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. Discarded packaging materials and waste, in direct coordination with institutional governance and quality benchmarks",
+            "C. Competitor organizations operating outside the market.",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "A. Sarcastic and mocking, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. Cynical and hostile, without accounting for underlying structural variations in systemic conditions",
+            "C. Objective, analytical, and informative",
             "D. Highly emotional and despairing"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -68221,43 +68221,43 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 129?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Substantial increases in production waste and overhead expenses.",
+            "B. Complete cessation of international trade and commerce, in direct coordination with institutional governance and quality benchmarks",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Immediate and total elimination of all human workforce, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. dangerous, supporting sustainable development while mitigating operational risks",
+            "B. accidental, based on comprehensive longitudinal surveys of international participants",
+            "C. essential and highly important",
+            "D. negligible, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. Modern organizations are abandoning technology in favor of manual labor, without accounting for underlying structural variations in systemic conditions",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. Global climate volatility has already been permanently resolved, based on comprehensive longitudinal surveys of international participants",
+            "D. No further monitoring or compliance will ever be necessary, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -68265,35 +68265,35 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
             "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. Discarded packaging materials and waste, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Competitor organizations operating outside the market.",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "A. Objective, analytical, and informative",
+            "B. Cynical and hostile, in direct coordination with institutional governance and quality benchmarks",
+            "C. Sarcastic and mocking, in direct coordination with institutional governance and quality benchmarks",
             "D. Highly emotional and despairing"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -68352,21 +68352,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 130?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. To provide a personal narrative of an individual career transition, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Substantial increases in production waste and overhead expenses.",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "C. Complete cessation of international trade and commerce, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Immediate and total elimination of all human workforce, based on comprehensive longitudinal surveys of international participants"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -68374,10 +68374,10 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. accidental, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. negligible, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. dangerous, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -68385,10 +68385,10 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. No further monitoring or compliance will ever be necessary, without accounting for underlying structural variations in systemic conditions",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. Global climate volatility has already been permanently resolved, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. Modern organizations are abandoning technology in favor of manual labor, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -68396,31 +68396,31 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
+            "C. Both environmental factors and operational protocols are taken into account.",
             "D. Continuous improvements help reduce turnaround intervals and errors."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
+            "A. Discarded packaging materials and waste, based on comprehensive longitudinal surveys of international participants",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
             "D. Weather anomalies occurring in previous decades."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Cynical and hostile, supporting sustainable development while mitigating operational risks",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "C. Sarcastic and mocking, based on comprehensive longitudinal surveys of international participants",
             "D. Highly emotional and despairing"
           ],
           "answer": 1,
@@ -68483,32 +68483,32 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 131?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To provide a personal narrative of an individual career transition, in direct coordination with institutional governance and quality benchmarks",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Complete cessation of international trade and commerce, as demonstrated across extensive cross-sectional empirical evaluations",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Immediate and total elimination of all human workforce, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. negligible, based on comprehensive longitudinal surveys of international participants",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. dangerous, based on comprehensive longitudinal surveys of international participants",
+            "D. accidental, supporting sustainable development while mitigating operational risks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -68516,42 +68516,42 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Global climate volatility has already been permanently resolved, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. No further monitoring or compliance will ever be necessary, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Modern organizations are abandoning technology in favor of manual labor, supporting sustainable development while mitigating operational risks",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
+            "A. Discarded packaging materials and waste, supporting sustainable development while mitigating operational risks",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
             "D. Weather anomalies occurring in previous decades."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Sarcastic and mocking, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "C. Cynical and hostile, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "D. Highly emotional and despairing"
           ],
           "answer": 1,
@@ -68614,21 +68614,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 132?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, through continuous predictive modeling and advanced quantitative assessments",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To provide a personal narrative of an individual career transition, based on comprehensive longitudinal surveys of international participants",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Immediate and total elimination of all human workforce, without accounting for underlying structural variations in systemic conditions",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Complete cessation of international trade and commerce, without accounting for underlying structural variations in systemic conditions"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -68636,43 +68636,43 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. negligible, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. dangerous, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. accidental, in direct coordination with institutional governance and quality benchmarks",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. Global climate volatility has already been permanently resolved, based on comprehensive longitudinal surveys of international participants",
+            "C. Modern organizations are abandoning technology in favor of manual labor, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. No further monitoring or compliance will ever be necessary, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
             "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. Both environmental factors and operational protocols are taken into account."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "C. Weather anomalies occurring in previous decades.",
+            "D. Discarded packaging materials and waste, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
           "answer": 0,
           "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
@@ -68680,9 +68680,9 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Sarcastic and mocking, through continuous predictive modeling and advanced quantitative assessments",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "C. Cynical and hostile, without accounting for underlying structural variations in systemic conditions",
             "D. Highly emotional and despairing"
           ],
           "answer": 1,
@@ -68745,54 +68745,54 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 133?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, through continuous predictive modeling and advanced quantitative assessments",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To provide a personal narrative of an individual career transition, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Substantial increases in production waste and overhead expenses.",
+            "B. Immediate and total elimination of all human workforce, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Complete cessation of international trade and commerce, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. accidental, without accounting for underlying structural variations in systemic conditions",
+            "C. negligible, supporting sustainable development while mitigating operational risks",
+            "D. dangerous, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. Modern organizations are abandoning technology in favor of manual labor, based on comprehensive longitudinal surveys of international participants",
+            "C. No further monitoring or compliance will ever be necessary, supporting sustainable development while mitigating operational risks",
+            "D. Global climate volatility has already been permanently resolved, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
             "B. Both environmental factors and operational protocols are taken into account.",
             "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
           "answer": 2,
           "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
@@ -68801,9 +68801,9 @@ window.APP_DATA = {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "B. Weather anomalies occurring in previous decades.",
+            "C. Discarded packaging materials and waste, in direct coordination with institutional governance and quality benchmarks",
+            "D. Competitor organizations operating outside the market."
           ],
           "answer": 0,
           "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
@@ -68811,13 +68811,13 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "A. Sarcastic and mocking, supporting sustainable development while mitigating operational risks",
+            "B. Cynical and hostile, in direct coordination with institutional governance and quality benchmarks",
+            "C. Objective, analytical, and informative",
             "D. Highly emotional and despairing"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -68876,21 +68876,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 134?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Complete cessation of international trade and commerce, in direct coordination with institutional governance and quality benchmarks",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "C. Immediate and total elimination of all human workforce, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -68898,43 +68898,43 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. accidental, through continuous predictive modeling and advanced quantitative assessments",
+            "C. dangerous, supporting sustainable development while mitigating operational risks",
+            "D. negligible, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Modern organizations are abandoning technology in favor of manual labor, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. No further monitoring or compliance will ever be necessary, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Global climate volatility has already been permanently resolved, without accounting for underlying structural variations in systemic conditions",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "B. Discarded packaging materials and waste, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Weather anomalies occurring in previous decades.",
+            "D. Competitor organizations operating outside the market."
           ],
           "answer": 0,
           "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
@@ -68942,13 +68942,13 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "A. Sarcastic and mocking, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. Cynical and hostile, supporting sustainable development while mitigating operational risks",
+            "C. Objective, analytical, and informative",
             "D. Highly emotional and despairing"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -69007,54 +69007,54 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 135?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, supporting sustainable development while mitigating operational risks",
+            "C. To provide a personal narrative of an individual career transition, through continuous predictive modeling and advanced quantitative assessments",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Immediate and total elimination of all human workforce, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Complete cessation of international trade and commerce, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. accidental, supporting sustainable development while mitigating operational risks",
+            "B. dangerous, in direct coordination with institutional governance and quality benchmarks",
+            "C. negligible, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. No further monitoring or compliance will ever be necessary, in direct coordination with institutional governance and quality benchmarks",
+            "C. Global climate volatility has already been permanently resolved, in direct coordination with institutional governance and quality benchmarks",
+            "D. Modern organizations are abandoning technology in favor of manual labor, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
             "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "D. Both environmental factors and operational protocols are taken into account."
           ],
           "answer": 2,
           "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
@@ -69062,20 +69062,20 @@ window.APP_DATA = {
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. Discarded packaging materials and waste, based on comprehensive longitudinal surveys of international participants",
+            "C. Competitor organizations operating outside the market.",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Cynical and hostile, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "C. Sarcastic and mocking, based on comprehensive longitudinal surveys of international participants",
             "D. Highly emotional and despairing"
           ],
           "answer": 1,
@@ -69138,32 +69138,32 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 136?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. To provide a personal narrative of an individual career transition, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Immediate and total elimination of all human workforce, supporting sustainable development while mitigating operational risks",
+            "B. Substantial increases in production waste and overhead expenses.",
+            "C. Complete cessation of international trade and commerce, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. negligible, supporting sustainable development while mitigating operational risks",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. dangerous, based on comprehensive longitudinal surveys of international participants",
+            "D. accidental, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -69171,42 +69171,42 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. No further monitoring or compliance will ever be necessary, based on comprehensive longitudinal surveys of international participants",
+            "B. Modern organizations are abandoning technology in favor of manual labor, without accounting for underlying structural variations in systemic conditions",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. Global climate volatility has already been permanently resolved, through continuous predictive modeling and advanced quantitative assessments"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
+            "A. Discarded packaging materials and waste, as demonstrated across extensive cross-sectional empirical evaluations",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "C. Weather anomalies occurring in previous decades.",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Cynical and hostile, based on comprehensive longitudinal surveys of international participants",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "C. Sarcastic and mocking, without accounting for underlying structural variations in systemic conditions",
             "D. Highly emotional and despairing"
           ],
           "answer": 1,
@@ -69269,43 +69269,43 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 137?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, supporting sustainable development while mitigating operational risks",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Substantial increases in production waste and overhead expenses.",
+            "B. Immediate and total elimination of all human workforce, supporting sustainable development while mitigating operational risks",
+            "C. Complete cessation of international trade and commerce, without accounting for underlying structural variations in systemic conditions",
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. accidental, without accounting for underlying structural variations in systemic conditions",
+            "B. dangerous, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. essential and highly important",
+            "D. negligible, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. Global climate volatility has already been permanently resolved, without accounting for underlying structural variations in systemic conditions",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. Modern organizations are abandoning technology in favor of manual labor, based on comprehensive longitudinal surveys of international participants",
+            "D. No further monitoring or compliance will ever be necessary, without accounting for underlying structural variations in systemic conditions"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -69324,20 +69324,20 @@ window.APP_DATA = {
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
+            "A. Discarded packaging materials and waste, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
             "D. Weather anomalies occurring in previous decades."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Sarcastic and mocking, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "C. Cynical and hostile, as demonstrated across extensive cross-sectional empirical evaluations",
             "D. Highly emotional and despairing"
           ],
           "answer": 1,
@@ -69400,32 +69400,32 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 138?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To provide a personal narrative of an individual career transition, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Substantial increases in production waste and overhead expenses.",
+            "B. Complete cessation of international trade and commerce, supporting sustainable development while mitigating operational risks",
+            "C. Immediate and total elimination of all human workforce, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. accidental, through continuous predictive modeling and advanced quantitative assessments",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. negligible, without accounting for underlying structural variations in systemic conditions",
+            "D. dangerous, through continuous predictive modeling and advanced quantitative assessments"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -69433,10 +69433,10 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. Global climate volatility has already been permanently resolved, as demonstrated across extensive cross-sectional empirical evaluations",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. No further monitoring or compliance will ever be necessary, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Modern organizations are abandoning technology in favor of manual labor, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -69444,21 +69444,21 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "C. Weather anomalies occurring in previous decades.",
+            "D. Discarded packaging materials and waste, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 0,
           "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
@@ -69466,13 +69466,13 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
+            "A. Objective, analytical, and informative",
+            "B. Sarcastic and mocking, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Cynical and hostile, through continuous predictive modeling and advanced quantitative assessments",
             "D. Highly emotional and despairing"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -69531,32 +69531,32 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 139?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To provide a personal narrative of an individual career transition, in direct coordination with institutional governance and quality benchmarks",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Complete cessation of international trade and commerce, based on comprehensive longitudinal surveys of international participants",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Immediate and total elimination of all human workforce, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. negligible, through continuous predictive modeling and advanced quantitative assessments",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. dangerous, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. accidental, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -69564,21 +69564,21 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. No further monitoring or compliance will ever be necessary, through continuous predictive modeling and advanced quantitative assessments",
+            "B. Modern organizations are abandoning technology in favor of manual labor, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Global climate volatility has already been permanently resolved, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
             "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
           "answer": 2,
           "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
@@ -69588,8 +69588,8 @@ window.APP_DATA = {
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "C. Weather anomalies occurring in previous decades.",
+            "D. Discarded packaging materials and waste, supporting sustainable development while mitigating operational risks"
           ],
           "answer": 0,
           "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
@@ -69597,13 +69597,13 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Objective, analytical, and informative",
+            "B. Highly emotional and despairing",
+            "C. Cynical and hostile, without accounting for underlying structural variations in systemic conditions",
+            "D. Sarcastic and mocking, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -69662,43 +69662,43 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 140?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, based on comprehensive longitudinal surveys of international participants",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, in direct coordination with institutional governance and quality benchmarks",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Complete cessation of international trade and commerce, through continuous predictive modeling and advanced quantitative assessments",
+            "B. Substantial increases in production waste and overhead expenses.",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Immediate and total elimination of all human workforce, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. dangerous, in direct coordination with institutional governance and quality benchmarks",
+            "B. negligible, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. accidental, in direct coordination with institutional governance and quality benchmarks",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. No further monitoring or compliance will ever be necessary, supporting sustainable development while mitigating operational risks",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. Global climate volatility has already been permanently resolved, based on comprehensive longitudinal surveys of international participants",
+            "D. Modern organizations are abandoning technology in favor of manual labor, without accounting for underlying structural variations in systemic conditions"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -69706,21 +69706,21 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
             "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Strategic initiatives contribute positively to systemic stability.",
             "D. Continuous improvements help reduce turnaround intervals and errors."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "B. Discarded packaging materials and waste, without accounting for underlying structural variations in systemic conditions",
+            "C. Weather anomalies occurring in previous decades.",
+            "D. Competitor organizations operating outside the market."
           ],
           "answer": 0,
           "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
@@ -69728,13 +69728,13 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Highly emotional and despairing",
+            "B. Cynical and hostile, in direct coordination with institutional governance and quality benchmarks",
+            "C. Objective, analytical, and informative",
+            "D. Sarcastic and mocking, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -69793,21 +69793,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 141?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, in direct coordination with institutional governance and quality benchmarks",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To provide a personal narrative of an individual career transition, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Substantial increases in production waste and overhead expenses.",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "C. Immediate and total elimination of all human workforce, based on comprehensive longitudinal surveys of international participants",
+            "D. Complete cessation of international trade and commerce, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -69815,57 +69815,57 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. accidental, without accounting for underlying structural variations in systemic conditions",
+            "C. negligible, based on comprehensive longitudinal surveys of international participants",
+            "D. dangerous, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Modern organizations are abandoning technology in favor of manual labor, in direct coordination with institutional governance and quality benchmarks",
+            "B. No further monitoring or compliance will ever be necessary, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. Global climate volatility has already been permanently resolved, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
             "A. Strategic initiatives contribute positively to systemic stability.",
             "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Discarded packaging materials and waste, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. Weather anomalies occurring in previous decades.",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
+            "D. Competitor organizations operating outside the market."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Cynical and hostile, as demonstrated across extensive cross-sectional empirical evaluations",
+            "B. Highly emotional and despairing",
+            "C. Objective, analytical, and informative",
+            "D. Sarcastic and mocking, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -69924,76 +69924,76 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 142?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To provide a personal narrative of an individual career transition, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Substantial increases in production waste and overhead expenses.",
+            "C. Immediate and total elimination of all human workforce, without accounting for underlying structural variations in systemic conditions",
+            "D. Complete cessation of international trade and commerce, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. dangerous, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. accidental, through continuous predictive modeling and advanced quantitative assessments",
+            "C. essential and highly important",
+            "D. negligible, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Global climate volatility has already been permanently resolved, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "B. Modern organizations are abandoning technology in favor of manual labor, supporting sustainable development while mitigating operational risks",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. No further monitoring or compliance will ever be necessary, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Strategic initiatives contribute positively to systemic stability.",
+            "D. Both environmental factors and operational protocols are taken into account."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
+            "A. Discarded packaging materials and waste, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "C. Weather anomalies occurring in previous decades.",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Cynical and hostile, through continuous predictive modeling and advanced quantitative assessments",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "C. Highly emotional and despairing",
+            "D. Sarcastic and mocking, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
@@ -70055,21 +70055,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 143?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, based on comprehensive longitudinal surveys of international participants",
+            "B. To provide a personal narrative of an individual career transition, through continuous predictive modeling and advanced quantitative assessments",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Immediate and total elimination of all human workforce, without accounting for underlying structural variations in systemic conditions",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "C. Complete cessation of international trade and commerce, supporting sustainable development while mitigating operational risks",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -70077,32 +70077,32 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. dangerous, through continuous predictive modeling and advanced quantitative assessments",
+            "B. accidental, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. negligible, supporting sustainable development while mitigating operational risks",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. Global climate volatility has already been permanently resolved, in direct coordination with institutional governance and quality benchmarks",
+            "C. No further monitoring or compliance will ever be necessary, based on comprehensive longitudinal surveys of international participants",
+            "D. Modern organizations are abandoning technology in favor of manual labor, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
             "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
           "answer": 2,
           "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
@@ -70112,7 +70112,7 @@ window.APP_DATA = {
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "C. Discarded packaging materials and waste, based on comprehensive longitudinal surveys of international participants",
             "D. Weather anomalies occurring in previous decades."
           ],
           "answer": 0,
@@ -70121,10 +70121,10 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Cynical and hostile, without accounting for underlying structural variations in systemic conditions",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "C. Highly emotional and despairing",
+            "D. Sarcastic and mocking, through continuous predictive modeling and advanced quantitative assessments"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
@@ -70186,32 +70186,32 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 144?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To provide a personal narrative of an individual career transition, supporting sustainable development while mitigating operational risks",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Complete cessation of international trade and commerce, based on comprehensive longitudinal surveys of international participants",
+            "B. Immediate and total elimination of all human workforce, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. negligible, in direct coordination with institutional governance and quality benchmarks",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. dangerous, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. accidental, based on comprehensive longitudinal surveys of international participants"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -70219,31 +70219,31 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Modern organizations are abandoning technology in favor of manual labor, based on comprehensive longitudinal surveys of international participants",
+            "B. No further monitoring or compliance will ever be necessary, without accounting for underlying structural variations in systemic conditions",
+            "C. Global climate volatility has already been permanently resolved, supporting sustainable development while mitigating operational risks",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
             "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "C. Strategic initiatives contribute positively to systemic stability.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
             "A. The highlighted strategies, materials, or procedural frameworks.",
             "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "C. Discarded packaging materials and waste, supporting sustainable development while mitigating operational risks",
             "D. Weather anomalies occurring in previous decades."
           ],
           "answer": 0,
@@ -70252,13 +70252,13 @@ window.APP_DATA = {
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Objective, analytical, and informative",
+            "B. Highly emotional and despairing",
+            "C. Cynical and hostile, in direct coordination with institutional governance and quality benchmarks",
+            "D. Sarcastic and mocking, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -70317,21 +70317,21 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 145?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, without accounting for underlying structural variations in systemic conditions",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To provide a personal narrative of an individual career transition, supporting sustainable development while mitigating operational risks",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Complete cessation of international trade and commerce, through continuous predictive modeling and advanced quantitative assessments",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "C. Immediate and total elimination of all human workforce, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Substantial increases in production waste and overhead expenses."
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -70339,32 +70339,32 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. accidental, without accounting for underlying structural variations in systemic conditions",
+            "B. dangerous, in direct coordination with institutional governance and quality benchmarks",
+            "C. essential and highly important",
+            "D. negligible, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "B. Modern organizations are abandoning technology in favor of manual labor, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Global climate volatility has already been permanently resolved, without accounting for underlying structural variations in systemic conditions",
+            "D. No further monitoring or compliance will ever be necessary, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
             "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
             "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "D. Both environmental factors and operational protocols are taken into account."
           ],
           "answer": 2,
           "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
@@ -70372,24 +70372,24 @@ window.APP_DATA = {
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Competitor organizations operating outside the market.",
+            "D. Discarded packaging materials and waste, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Objective, analytical, and informative",
+            "B. Highly emotional and despairing",
+            "C. Cynical and hostile, supporting sustainable development while mitigating operational risks",
+            "D. Sarcastic and mocking, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -70448,79 +70448,79 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 146?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, without accounting for underlying structural variations in systemic conditions",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To provide a personal narrative of an individual career transition, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "A. Complete cessation of international trade and commerce, in direct coordination with institutional governance and quality benchmarks",
+            "B. Immediate and total elimination of all human workforce, through continuous predictive modeling and advanced quantitative assessments",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. accidental, through continuous predictive modeling and advanced quantitative assessments",
+            "C. negligible, through continuous predictive modeling and advanced quantitative assessments",
+            "D. dangerous, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. Modern organizations are abandoning technology in favor of manual labor, through continuous predictive modeling and advanced quantitative assessments",
+            "B. No further monitoring or compliance will ever be necessary, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
+            "D. Global climate volatility has already been permanently resolved, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
             "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "C. Continuous improvements help reduce turnaround intervals and errors.",
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Competitor organizations operating outside the market.",
+            "D. Discarded packaging materials and waste, in direct coordination with institutional governance and quality benchmarks"
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Highly emotional and despairing",
+            "B. Cynical and hostile, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. Objective, analytical, and informative",
+            "D. Sarcastic and mocking, based on comprehensive longitudinal surveys of international participants"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -70579,52 +70579,52 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 147?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To provide a personal narrative of an individual career transition, in direct coordination with institutional governance and quality benchmarks",
+            "B. To criticize outdated administrative procedures in governmental bodies.",
+            "C. To present key advancements, strategies, and principles related to the subject matter.",
+            "D. To announce immediate budget reductions for upcoming fiscal quarters, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "A. Immediate and total elimination of all human workforce, supporting sustainable development while mitigating operational risks",
+            "B. Complete cessation of international trade and commerce, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Enhanced operational accuracy, environmental resilience, or systemic efficiency."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. essential and highly important",
+            "B. negligible, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. dangerous, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. accidental, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 0,
+          "explain": "Đáp án A đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
-            "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "A. No further monitoring or compliance will ever be necessary, supporting sustainable development while mitigating operational risks",
+            "B. Global climate volatility has already been permanently resolved, through continuous predictive modeling and advanced quantitative assessments",
+            "C. Modern organizations are abandoning technology in favor of manual labor, without accounting for underlying structural variations in systemic conditions",
+            "D. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
         },
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. Strategic initiatives contribute positively to systemic stability.",
             "C. The outlined procedures are completely illegal and forbidden by international law.",
             "D. Continuous improvements help reduce turnaround intervals and errors."
           ],
@@ -70634,24 +70634,24 @@ window.APP_DATA = {
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. Discarded packaging materials and waste, through continuous predictive modeling and advanced quantitative assessments",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
+            "D. Competitor organizations operating outside the market."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Cynical and hostile, based on comprehensive longitudinal surveys of international participants",
+            "B. Highly emotional and despairing",
+            "C. Objective, analytical, and informative",
+            "D. Sarcastic and mocking, without accounting for underlying structural variations in systemic conditions"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -70710,43 +70710,43 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 148?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To present key advancements, strategies, and principles related to the subject matter.",
+            "B. To announce immediate budget reductions for upcoming fiscal quarters, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. To provide a personal narrative of an individual career transition, based on comprehensive longitudinal surveys of international participants",
+            "D. To criticize outdated administrative procedures in governmental bodies."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "A. Substantial increases in production waste and overhead expenses.",
+            "B. Complete cessation of international trade and commerce, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "D. Immediate and total elimination of all human workforce, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. dangerous, through continuous predictive modeling and advanced quantitative assessments",
+            "B. negligible, based on comprehensive longitudinal surveys of international participants",
+            "C. accidental, based on comprehensive longitudinal surveys of international participants",
+            "D. essential and highly important"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 3,
+          "explain": "Đáp án D đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. Global climate volatility has already been permanently resolved, based on comprehensive longitudinal surveys of international participants",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. No further monitoring or compliance will ever be necessary, as demonstrated across extensive cross-sectional empirical evaluations",
+            "D. Modern organizations are abandoning technology in favor of manual labor, in direct coordination with institutional governance and quality benchmarks"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -70754,32 +70754,32 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Both environmental factors and operational protocols are taken into account.",
+            "B. Continuous improvements help reduce turnaround intervals and errors.",
+            "C. Strategic initiatives contribute positively to systemic stability.",
+            "D. The outlined procedures are completely illegal and forbidden by international law."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Weather anomalies occurring in previous decades.",
+            "B. Discarded packaging materials and waste, based on comprehensive longitudinal surveys of international participants",
+            "C. The highlighted strategies, materials, or procedural frameworks.",
+            "D. Competitor organizations operating outside the market."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 2,
+          "explain": "Đáp án C đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
+            "A. Cynical and hostile, as demonstrated across extensive cross-sectional empirical evaluations",
             "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "C. Highly emotional and despairing",
+            "D. Sarcastic and mocking, to fulfill rigorous compliance benchmarks established by oversight bodies"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
@@ -70843,8 +70843,8 @@ window.APP_DATA = {
           "options": [
             "A. To criticize outdated administrative procedures in governmental bodies.",
             "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "C. To announce immediate budget reductions for upcoming fiscal quarters, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. To provide a personal narrative of an individual career transition, without accounting for underlying structural variations in systemic conditions"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
@@ -70852,10 +70852,10 @@ window.APP_DATA = {
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
+            "A. Substantial increases in production waste and overhead expenses.",
             "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
-            "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "C. Complete cessation of international trade and commerce, without accounting for underlying structural variations in systemic conditions",
+            "D. Immediate and total elimination of all human workforce, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
@@ -70863,10 +70863,10 @@ window.APP_DATA = {
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
+            "A. negligible, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "C. accidental, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. dangerous, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
@@ -70874,10 +70874,10 @@ window.APP_DATA = {
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. No further monitoring or compliance will ever be necessary, in direct coordination with institutional governance and quality benchmarks",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. Modern organizations are abandoning technology in favor of manual labor, supporting sustainable development while mitigating operational risks",
+            "D. Global climate volatility has already been permanently resolved, as demonstrated across extensive cross-sectional empirical evaluations"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -70885,35 +70885,35 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
-            "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
-            "D. Continuous improvements help reduce turnaround intervals and errors."
+            "A. Continuous improvements help reduce turnaround intervals and errors.",
+            "B. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Both environmental factors and operational protocols are taken into account.",
+            "D. Strategic initiatives contribute positively to systemic stability."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
-            "D. Weather anomalies occurring in previous decades."
+            "A. Competitor organizations operating outside the market.",
+            "B. Weather anomalies occurring in previous decades.",
+            "C. Discarded packaging materials and waste, supporting sustainable development while mitigating operational risks",
+            "D. The highlighted strategies, materials, or procedural frameworks."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Cynical and hostile, through continuous predictive modeling and advanced quantitative assessments",
+            "B. Highly emotional and despairing",
+            "C. Sarcastic and mocking, through continuous predictive modeling and advanced quantitative assessments",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,
@@ -70972,43 +70972,43 @@ window.APP_DATA = {
         {
           "q": "What is the main purpose or central theme of Passage 150?",
           "options": [
-            "A. To criticize outdated administrative procedures in governmental bodies.",
-            "B. To present key advancements, strategies, and principles related to the subject matter.",
-            "C. To announce immediate budget reductions for upcoming fiscal quarters.",
-            "D. To provide a personal narrative of an individual career transition."
+            "A. To announce immediate budget reductions for upcoming fiscal quarters, through continuous predictive modeling and advanced quantitative assessments",
+            "B. To provide a personal narrative of an individual career transition, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "C. To criticize outdated administrative procedures in governmental bodies.",
+            "D. To present key advancements, strategies, and principles related to the subject matter."
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Đoạn văn cung cấp cái nhìn tổng quan, phân tích các nguyên lý, giải pháp và thực tiễn liên quan trực tiếp đến chủ đề bài đọc."
         },
         {
           "q": "According to the passage, which of the following is highlighted as a primary benefit or objective?",
           "options": [
-            "A. Immediate and total elimination of all human workforce.",
-            "B. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "A. Enhanced operational accuracy, environmental resilience, or systemic efficiency.",
+            "B. Immediate and total elimination of all human workforce, in direct coordination with institutional governance and quality benchmarks",
             "C. Substantial increases in production waste and overhead expenses.",
-            "D. Complete cessation of international trade and commerce."
+            "D. Complete cessation of international trade and commerce, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Bài đọc nêu rõ mục tiêu nâng cao tính chính xác, hiệu quả vận hành và khả năng thích ứng của hệ thống."
         },
         {
           "q": "The word 'crucial' or 'critical' in the passage is closest in meaning to:",
           "options": [
-            "A. negligible",
-            "B. essential and highly important",
-            "C. dangerous",
-            "D. accidental"
+            "A. accidental, supporting sustainable development while mitigating operational risks",
+            "B. dangerous, in direct coordination with institutional governance and quality benchmarks",
+            "C. essential and highly important",
+            "D. negligible, supporting sustainable development while mitigating operational risks"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
+          "answer": 2,
+          "explain": "Đáp án C đúng. 'critical/crucial' biểu thị tính thiết yếu, mang ý nghĩa quyết định = 'essential and highly important'."
         },
         {
           "q": "What can be inferred from the final paragraph of the text?",
           "options": [
-            "A. No further monitoring or compliance will ever be necessary.",
+            "A. Modern organizations are abandoning technology in favor of manual labor, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "B. Sustained success depends on ongoing adherence, ethical stewardship, and systematic planning.",
-            "C. Global climate volatility has already been permanently resolved.",
-            "D. Modern organizations are abandoning technology in favor of manual labor."
+            "C. Global climate volatility has already been permanently resolved, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. No further monitoring or compliance will ever be necessary, based on comprehensive longitudinal surveys of international participants"
           ],
           "answer": 1,
           "explain": "Đáp án B đúng. Đoạn kết đúc kết rằng thành công lâu dài đòi hỏi sự duy trì kỷ luật, kế hoạch hóa và trách nhiệm dài hạn."
@@ -71016,35 +71016,35 @@ window.APP_DATA = {
         {
           "q": "Which of the following is NOT true according to the passage?",
           "options": [
-            "A. Strategic initiatives contribute positively to systemic stability.",
+            "A. The outlined procedures are completely illegal and forbidden by international law.",
             "B. Both environmental factors and operational protocols are taken into account.",
-            "C. The outlined procedures are completely illegal and forbidden by international law.",
+            "C. Strategic initiatives contribute positively to systemic stability.",
             "D. Continuous improvements help reduce turnaround intervals and errors."
           ],
-          "answer": 2,
-          "explain": "Đáp án C đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
+          "answer": 0,
+          "explain": "Đáp án A đúng. Thông tin C là sai hoàn toàn so với nội dung văn bản (các quy trình đều là chuẩn mực hợp pháp)."
         },
         {
           "q": "The pronoun 'they' or 'these' in the passage refers to:",
           "options": [
-            "A. The highlighted strategies, materials, or procedural frameworks.",
-            "B. Competitor organizations operating outside the market.",
-            "C. Discarded packaging materials and waste.",
+            "A. Competitor organizations operating outside the market.",
+            "B. The highlighted strategies, materials, or procedural frameworks.",
+            "C. Discarded packaging materials and waste, to fulfill rigorous compliance benchmarks established by oversight bodies",
             "D. Weather anomalies occurring in previous decades."
           ],
-          "answer": 0,
-          "explain": "Đáp án A đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
+          "answer": 1,
+          "explain": "Đáp án B đúng. Đại từ này quy chiếu đến các giải pháp, quy trình hoặc vật liệu được nhắc đến ở câu liền trước."
         },
         {
           "q": "The author's overall tone in this passage can best be described as:",
           "options": [
-            "A. Cynical and hostile",
-            "B. Objective, analytical, and informative",
-            "C. Sarcastic and mocking",
-            "D. Highly emotional and despairing"
+            "A. Highly emotional and despairing",
+            "B. Sarcastic and mocking, as demonstrated across extensive cross-sectional empirical evaluations",
+            "C. Cynical and hostile, to fulfill rigorous compliance benchmarks established by oversight bodies",
+            "D. Objective, analytical, and informative"
           ],
-          "answer": 1,
-          "explain": "Đáp án B đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
+          "answer": 3,
+          "explain": "Đáp án D đúng. Giọng văn mang tính khách quan, phân tích khoa học và cung cấp thông tin chuẩn học thuật/thương mại."
         }
       ],
       "month": 3,

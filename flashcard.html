@@ -195,7 +195,7 @@
             </div>
             <div id="goalItemListening" class="flex items-center gap-1.5">
               <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
-              <span id="goalItemListeningText">2 Bài nghe chuẩn form (HP3/VSTEP)</span>
+              <span id="goalItemListeningText">1 Bài nghe chuẩn form (IELTS/APTIS)</span>
             </div>
 
           </div>
@@ -461,7 +461,7 @@
               <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
                 <span>🔁</span> <span>Ôn Flashcard & Luyện Nghe</span>
               </h4>
-              <p class="text-xs text-slate-400 leading-relaxed">Ôn lặp lại ngắt quãng Flashcard đợt 1 + Luyện 1-2 bài nghe chuẩn đề HP3/VSTEP.</p>
+              <p class="text-xs text-slate-400 leading-relaxed">Ôn lặp lại ngắt quãng Flashcard đợt 1 + Luyện 1 bài nghe chuẩn form đủ dài (IELTS/APTIS).</p>
               <div class="grid grid-cols-2 gap-1.5 pt-0.5">
                 <button onclick="startSessionWorkflow('noon_flashcard')" class="py-2 rounded-lg bg-indigo-600/30 hover:bg-indigo-600 text-indigo-200 hover:text-white text-xs font-bold transition flex items-center justify-center gap-1 active:scale-95">
                   <i data-lucide="repeat" class="w-3.5 h-3.5"></i>
@@ -857,7 +857,16 @@
             </div>
           </div>
 
-          <div class="flex items-center gap-2 self-end sm:self-center shrink-0">
+          <div class="flex items-center gap-2 self-end sm:self-center shrink-0 flex-wrap">
+            <div class="flex items-center gap-1 bg-slate-800/90 px-2 py-1 rounded-xl border border-slate-700">
+              <span class="text-[10px] text-amber-300 font-bold hidden sm:inline flex items-center gap-1"><i data-lucide="mic" class="w-3 h-3 text-amber-400"></i> Giọng đọc:</span>
+              <select id="flashcardVoiceAccentSelect" onchange="setIELTSSpeechAccent(this.value)" class="bg-slate-900 border border-slate-700 text-indigo-300 text-xs rounded-lg px-2 py-1 font-bold focus:outline-none focus:border-indigo-400">
+                <option value="auto_ielts">🔄 Đa giọng IELTS</option>
+                <option value="british">🇬🇧 Anh - Anh (RP)</option>
+                <option value="australian">🇦🇺 Anh - Úc (AU)</option>
+                <option value="american">🇺🇸 Anh - Mỹ (US)</option>
+              </select>
+            </div>
             <button onclick="reshuffleInterleavedDeck()" id="btnReshuffleInterleaved" class="hidden px-2.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition flex items-center gap-1 text-xs font-bold" title="Trộn lại ngẫu nhiên thẻ ôn tập">
               <i data-lucide="shuffle" class="w-3.5 h-3.5"></i> Trộn lại
             </button>
@@ -1413,7 +1422,7 @@
                 HP3 An Ninh • VSTEP B1-B2 • Cambridge
               </span>
               <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs border border-emerald-500/30 flex items-center gap-1">
-                <i data-lucide="check-circle" class="w-3 h-3"></i> Deadline: 2 Bài Nghe / Ngày
+                <i data-lucide="check-circle" class="w-3 h-3"></i> Deadline: 1 Bài Nghe Chuẩn Form / Ngày
               </span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-white mt-2">🎧 Luyện Nghe Trắc Nghiệm Chuẩn Đề & Lời Thoại Song Ngữ</h2>
@@ -1421,7 +1430,7 @@
           </div>
           <div class="shrink-0 flex items-center gap-2">
             <span id="listeningDailyStatusBadge" class="px-3 py-1.5 rounded-xl bg-cyan-600/30 border border-cyan-500/40 text-cyan-300 font-bold text-xs flex items-center gap-1">
-              ⏳ Hôm nay: 0/2 bài nghe
+              ⏳ Hôm nay: 0/1 bài nghe chuẩn form
             </span>
           </div>
         </div>
@@ -1515,12 +1524,25 @@
             </div>
           </div>
 
-          <!-- Speed Controls -->
-          <div class="flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700">
-            <span class="text-[10px] text-slate-400 px-1 font-bold">Tốc độ:</span>
-            <button onclick="setListeningSpeed(0.75)" data-rate="0.75" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">0.75x</button>
-            <button onclick="setListeningSpeed(1.0)" data-rate="1.0" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold bg-cyan-600 text-white transition shadow">1.0x</button>
-            <button onclick="setListeningSpeed(1.25)" data-rate="1.25" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">1.25x</button>
+          <!-- Controls: Voice Accent & Speed -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <div class="flex items-center gap-1.5 bg-slate-800/80 p-1 px-2 rounded-xl border border-slate-700">
+              <span class="text-[10px] text-amber-300 font-bold flex items-center gap-1"><i data-lucide="mic" class="w-3.5 h-3.5 text-amber-400"></i> Giọng thi:</span>
+              <select id="ieltsVoiceAccentSelect" onchange="setIELTSSpeechAccent(this.value)" class="bg-slate-900 border border-slate-700 text-cyan-300 text-xs rounded-lg px-2 py-1 font-bold focus:outline-none focus:border-cyan-400">
+                <option value="auto_ielts">🔄 Đa giọng IELTS (Chuẩn thi)</option>
+                <option value="british">🇬🇧 Anh - Anh (British RP)</option>
+                <option value="australian">🇦🇺 Anh - Úc (Australian)</option>
+                <option value="american">🇺🇸 Anh - Mỹ (American)</option>
+              </select>
+            </div>
+
+            <!-- Speed Controls -->
+            <div class="flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700">
+              <span class="text-[10px] text-slate-400 px-1 font-bold">Tốc độ:</span>
+              <button onclick="setListeningSpeed(0.75)" data-rate="0.75" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">0.75x</button>
+              <button onclick="setListeningSpeed(1.0)" data-rate="1.0" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold bg-cyan-600 text-white transition shadow">1.0x</button>
+              <button onclick="setListeningSpeed(1.25)" data-rate="1.25" class="btn-listening-speed px-2 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">1.25x</button>
+            </div>
           </div>
         </div>
 
@@ -2630,14 +2652,14 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=59.0"></script>
-  <script src="./listening_data.js?v=59.0"></script>
-  <script src="./vietnam_today_data.js?v=59.0"></script>
-  <script src="./educational_channels_data.js?v=59.0"></script>
-  <script src="./international_news_videos.js?v=59.0"></script>
-  <script src="./bilingual_news_data.js?v=59.0"></script>
-  <script src="./reading_lexicon.js?v=59.0"></script>
-  <script src="./app.js?v=59.0"></script>
+  <script src="./data.js?v=60.0"></script>
+  <script src="./listening_data.js?v=60.0"></script>
+  <script src="./vietnam_today_data.js?v=60.0"></script>
+  <script src="./educational_channels_data.js?v=60.0"></script>
+  <script src="./international_news_videos.js?v=60.0"></script>
+  <script src="./bilingual_news_data.js?v=60.0"></script>
+  <script src="./reading_lexicon.js?v=60.0"></script>
+  <script src="./app.js?v=60.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {

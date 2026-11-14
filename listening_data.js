@@ -1,7 +1,8 @@
 // ============================================================================
-// ENGLISH LISTENING PRACTICE MODULE — 100 ĐỀ CHUẨN FORM QUỐC TẾ & TRONG NƯỚC
-// 20 IELTS • 20 APTIS • 25 Active (BBC) • 20 Passive (Talk Shows) • 15 HP3/VSTEP/Cambridge
+// 100 BỘ ĐỀ THI LUYỆN NGHE TOÀN DIỆN (IELTS, APTIS, BBC ACTIVE, TALK SHOWS, CAMBRIDGE)
+// Chuẩn Form Đầy Đủ • Cân Bằng Độ Dài Đáp Án • Chống Đoán Mẹo Theo Độ Dài
 // ============================================================================
+
 const LISTENING_TESTS = [
   {
     "id": "ielts_test_1",
@@ -21,7 +22,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Premium VIP annual plan"
               },
               {
                 "key": "B",
@@ -29,7 +30,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Premium VIP annual plan"
+                "text": "Standard basic package"
               }
             ],
             "correct": "B",
@@ -41,18 +42,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$45/month"
+                "text": "No fee is required at all"
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "$45/month"
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "Double the standard rate"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $45/month."
           },
           {
@@ -109,14 +110,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "To inform visitors about updated schedules and new features"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To inform visitors about updated schedules and new features"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Bài nói giới thiệu về lịch trình cập nhật và những điểm mới dành cho khách tham quan."
           },
           {
@@ -129,11 +130,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The main cafe at noon"
+                "text": "The souvenir shop at closing time"
               },
               {
                 "key": "C",
-                "text": "The souvenir shop at closing time"
+                "text": "The main cafe at noon"
               }
             ],
             "correct": "A",
@@ -145,18 +146,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
+                "text": "A 500-car underground parking garage"
               },
               {
                 "key": "B",
-                "text": "A 500-car underground parking garage"
+                "text": "An interactive digital audio guide system"
               },
               {
                 "key": "C",
                 "text": "An outdoor swimming pool"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -184,18 +185,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "Their tutor cancelled the seminar, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Lack of reliable longitudinal data from older studies"
               },
               {
                 "key": "C",
                 "text": "The laboratory equipment was stolen"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -204,18 +205,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Reading the entire textbook aloud, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Comparing real-world case studies from three regions"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Removing all statistical graphs, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -224,18 +225,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "They should change their topic completely, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The methodology section needs clearer operational definitions"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The bibliography is too short and invalid, under specific experimental conditions evaluated by the committee"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -263,18 +264,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It had zero impact on surrounding ecosystems, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It was discovered only in the 21st century, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -283,18 +284,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Manual handwritten surveys"
               },
               {
                 "key": "B",
-                "text": "Steam-powered mechanical calculators"
+                "text": "High-resolution automated sensor arrays"
               },
               {
                 "key": "C",
-                "text": "Manual handwritten surveys"
+                "text": "Steam-powered mechanical calculators"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -303,18 +304,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "Funding should be halted immediately, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "No further observation is necessary, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -351,18 +352,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
-              },
-              {
-                "key": "B",
                 "text": "Single En-suite"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Premium VIP annual plan"
+              },
+              {
+                "key": "C",
+                "text": "Standard basic package"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Người gọi xác nhận chọn gói 'Single En-suite' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -371,18 +372,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "£165/week"
-              },
-              {
-                "key": "B",
                 "text": "Double the standard rate"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "No fee is required at all"
+              },
+              {
+                "key": "C",
+                "text": "£165/week"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là £165/week."
           },
           {
@@ -435,7 +436,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "B",
@@ -443,7 +444,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To announce a permanent closure of the facility"
               }
             ],
             "correct": "B",
@@ -518,11 +519,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Their tutor cancelled the seminar, concerning long-term environmental sustainability and impact"
               }
             ],
             "correct": "A",
@@ -538,11 +539,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Reading the entire textbook aloud, which remains subject to further departmental verification"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Removing all statistical graphs, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -554,18 +555,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "The bibliography is too short and invalid, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "They should change their topic completely, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The methodology section needs clearer operational definitions"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -597,11 +598,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It was discovered only in the 21st century, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It had zero impact on surrounding ecosystems, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -637,11 +638,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Funding should be halted immediately, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "No further observation is necessary, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -681,7 +682,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Premium VIP annual plan"
               },
               {
                 "key": "B",
@@ -689,7 +690,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Premium VIP annual plan"
+                "text": "Standard basic package"
               }
             ],
             "correct": "B",
@@ -701,18 +702,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$32"
+                "text": "Double the standard rate"
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "$32"
               },
               {
                 "key": "C",
                 "text": "No fee is required at all"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $32."
           },
           {
@@ -769,14 +770,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "To inform visitors about updated schedules and new features"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To inform visitors about updated schedules and new features"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Bài nói giới thiệu về lịch trình cập nhật và những điểm mới dành cho khách tham quan."
           },
           {
@@ -785,18 +786,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
-              },
-              {
-                "key": "B",
                 "text": "The main cafe at noon"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "The souvenir shop at closing time"
+              },
+              {
+                "key": "C",
+                "text": "The North Pavilion before 10:30 AM"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -844,18 +845,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "Their tutor cancelled the seminar, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Lack of reliable longitudinal data from older studies"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -868,11 +869,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Reading the entire textbook aloud, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Removing all statistical graphs, in accordance with recently revised statutory regulations"
               }
             ],
             "correct": "A",
@@ -884,18 +885,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "They should change their topic completely, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The methodology section needs clearer operational definitions"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The bibliography is too short and invalid, following rigorous cross-sectional evaluations of sample data"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -923,18 +924,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It was discovered only in the 21st century, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It had zero impact on surrounding ecosystems, which remains subject to further departmental verification"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -943,7 +944,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Manual handwritten surveys"
               },
               {
                 "key": "B",
@@ -951,10 +952,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Manual handwritten surveys"
+                "text": "High-resolution automated sensor arrays"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -963,18 +964,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "No further observation is necessary, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Funding should be halted immediately, primarily due to budgetary constraints and operational overheads"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -1011,7 +1012,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Premium VIP annual plan"
               },
               {
                 "key": "B",
@@ -1019,7 +1020,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Premium VIP annual plan"
+                "text": "Standard basic package"
               }
             ],
             "correct": "B",
@@ -1031,18 +1032,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Free for students"
+                "text": "No fee is required at all"
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "Free for students"
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "Double the standard rate"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là Free for students."
           },
           {
@@ -1095,7 +1096,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "B",
@@ -1103,7 +1104,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To announce a permanent closure of the facility"
               }
             ],
             "correct": "B",
@@ -1115,18 +1116,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
+                "text": "The souvenir shop at closing time"
               },
               {
                 "key": "B",
-                "text": "The main cafe at noon"
+                "text": "The North Pavilion before 10:30 AM"
               },
               {
                 "key": "C",
-                "text": "The souvenir shop at closing time"
+                "text": "The main cafe at noon"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -1135,18 +1136,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
+                "text": "A 500-car underground parking garage"
               },
               {
                 "key": "B",
-                "text": "A 500-car underground parking garage"
+                "text": "An interactive digital audio guide system"
               },
               {
                 "key": "C",
                 "text": "An outdoor swimming pool"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -1174,18 +1175,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "Their tutor cancelled the seminar, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Lack of reliable longitudinal data from older studies"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -1194,18 +1195,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Reading the entire textbook aloud, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Comparing real-world case studies from three regions"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Removing all statistical graphs, under specific experimental conditions evaluated by the committee"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -1214,18 +1215,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "The bibliography is too short and invalid, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "They should change their topic completely, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The methodology section needs clearer operational definitions"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -1253,18 +1254,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It had zero impact on surrounding ecosystems, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It was discovered only in the 21st century, primarily due to budgetary constraints and operational overheads"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -1273,18 +1274,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Manual handwritten surveys"
               },
               {
                 "key": "B",
-                "text": "Steam-powered mechanical calculators"
+                "text": "High-resolution automated sensor arrays"
               },
               {
                 "key": "C",
-                "text": "Manual handwritten surveys"
+                "text": "Steam-powered mechanical calculators"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -1293,18 +1294,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "No further observation is necessary, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Funding should be halted immediately, according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -1341,18 +1342,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
-              },
-              {
-                "key": "B",
                 "text": "Comprehensive Plus"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Premium VIP annual plan"
+              },
+              {
+                "key": "C",
+                "text": "Standard basic package"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Người gọi xác nhận chọn gói 'Comprehensive Plus' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -1361,18 +1362,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$620/year"
-              },
-              {
-                "key": "B",
                 "text": "Double the standard rate"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "No fee is required at all"
+              },
+              {
+                "key": "C",
+                "text": "$620/year"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $620/year."
           },
           {
@@ -1445,18 +1446,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
+                "text": "The main cafe at noon"
               },
               {
                 "key": "B",
-                "text": "The main cafe at noon"
+                "text": "The North Pavilion before 10:30 AM"
               },
               {
                 "key": "C",
                 "text": "The souvenir shop at closing time"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -1465,18 +1466,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
+                "text": "A 500-car underground parking garage"
               },
               {
                 "key": "B",
-                "text": "A 500-car underground parking garage"
+                "text": "An interactive digital audio guide system"
               },
               {
                 "key": "C",
                 "text": "An outdoor swimming pool"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -1508,7 +1509,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Their tutor cancelled the seminar, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
@@ -1524,18 +1525,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Reading the entire textbook aloud, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Comparing real-world case studies from three regions"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Removing all statistical graphs, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -1548,11 +1549,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The bibliography is too short and invalid, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "They should change their topic completely, which remains subject to further departmental verification"
               }
             ],
             "correct": "A",
@@ -1583,18 +1584,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It had zero impact on surrounding ecosystems, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It was discovered only in the 21st century, following rigorous cross-sectional evaluations of sample data"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -1603,18 +1604,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Steam-powered mechanical calculators"
               },
               {
                 "key": "B",
-                "text": "Steam-powered mechanical calculators"
+                "text": "High-resolution automated sensor arrays"
               },
               {
                 "key": "C",
                 "text": "Manual handwritten surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -1623,18 +1624,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "No further observation is necessary, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Funding should be halted immediately, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -1675,14 +1676,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Digital Street Course"
+                "text": "Premium VIP annual plan"
               },
               {
                 "key": "C",
-                "text": "Premium VIP annual plan"
+                "text": "Digital Street Course"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Người gọi xác nhận chọn gói 'Digital Street Course' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -1691,18 +1692,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$140"
+                "text": "Double the standard rate"
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "$140"
               },
               {
                 "key": "C",
                 "text": "No fee is required at all"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $140."
           },
           {
@@ -1755,7 +1756,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "B",
@@ -1763,7 +1764,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To announce a permanent closure of the facility"
               }
             ],
             "correct": "B",
@@ -1775,7 +1776,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
+                "text": "The souvenir shop at closing time"
               },
               {
                 "key": "B",
@@ -1783,10 +1784,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "The souvenir shop at closing time"
+                "text": "The North Pavilion before 10:30 AM"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -1834,18 +1835,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Lack of reliable longitudinal data from older studies"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Their tutor cancelled the seminar, in accordance with recently revised statutory regulations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -1858,11 +1859,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Reading the entire textbook aloud, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Removing all statistical graphs, following rigorous cross-sectional evaluations of sample data"
               }
             ],
             "correct": "A",
@@ -1874,18 +1875,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "They should change their topic completely, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The bibliography is too short and invalid, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The methodology section needs clearer operational definitions"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -1917,11 +1918,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It was discovered only in the 21st century, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It had zero impact on surrounding ecosystems, concerning long-term environmental sustainability and impact"
               }
             ],
             "correct": "A",
@@ -1933,7 +1934,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Manual handwritten surveys"
               },
               {
                 "key": "B",
@@ -1941,10 +1942,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Manual handwritten surveys"
+                "text": "High-resolution automated sensor arrays"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -1953,18 +1954,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "Funding should be halted immediately, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "No further observation is necessary, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -2005,14 +2006,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Terminal 2 Direct"
+                "text": "Premium VIP annual plan"
               },
               {
                 "key": "C",
-                "text": "Premium VIP annual plan"
+                "text": "Terminal 2 Direct"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Người gọi xác nhận chọn gói 'Terminal 2 Direct' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -2021,18 +2022,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$18"
+                "text": "No fee is required at all"
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "$18"
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "Double the standard rate"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $18."
           },
           {
@@ -2109,11 +2110,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The main cafe at noon"
+                "text": "The souvenir shop at closing time"
               },
               {
                 "key": "C",
-                "text": "The souvenir shop at closing time"
+                "text": "The main cafe at noon"
               }
             ],
             "correct": "A",
@@ -2168,11 +2169,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Their tutor cancelled the seminar, according to standardized performance benchmarking metrics"
               }
             ],
             "correct": "A",
@@ -2188,11 +2189,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Reading the entire textbook aloud, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Removing all statistical graphs, concerning long-term environmental sustainability and impact"
               }
             ],
             "correct": "A",
@@ -2208,11 +2209,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The bibliography is too short and invalid, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "They should change their topic completely, without taking into account prolonged systemic fluctuations"
               }
             ],
             "correct": "A",
@@ -2243,18 +2244,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It was discovered only in the 21st century, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It had zero impact on surrounding ecosystems, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -2263,18 +2264,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Steam-powered mechanical calculators"
               },
               {
                 "key": "B",
-                "text": "Steam-powered mechanical calculators"
+                "text": "High-resolution automated sensor arrays"
               },
               {
                 "key": "C",
                 "text": "Manual handwritten surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -2287,11 +2288,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Funding should be halted immediately, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "No further observation is necessary, concerning long-term environmental sustainability and impact"
               }
             ],
             "correct": "A",
@@ -2331,18 +2332,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Premium VIP annual plan"
               },
               {
                 "key": "B",
-                "text": "Thursday Evening"
+                "text": "Standard basic package"
               },
               {
                 "key": "C",
-                "text": "Premium VIP annual plan"
+                "text": "Thursday Evening"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Người gọi xác nhận chọn gói 'Thursday Evening' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -2351,18 +2352,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$55"
-              },
-              {
-                "key": "B",
                 "text": "Double the standard rate"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "No fee is required at all"
+              },
+              {
+                "key": "C",
+                "text": "$55"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $55."
           },
           {
@@ -2415,18 +2416,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "B",
-                "text": "To inform visitors about updated schedules and new features"
+                "text": "To announce a permanent closure of the facility"
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To inform visitors about updated schedules and new features"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Bài nói giới thiệu về lịch trình cập nhật và những điểm mới dành cho khách tham quan."
           },
           {
@@ -2455,18 +2456,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
+                "text": "An outdoor swimming pool"
               },
               {
                 "key": "B",
-                "text": "A 500-car underground parking garage"
+                "text": "An interactive digital audio guide system"
               },
               {
                 "key": "C",
-                "text": "An outdoor swimming pool"
+                "text": "A 500-car underground parking garage"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -2494,18 +2495,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Their tutor cancelled the seminar, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Lack of reliable longitudinal data from older studies"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -2514,18 +2515,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Reading the entire textbook aloud, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Comparing real-world case studies from three regions"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Removing all statistical graphs, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -2538,11 +2539,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "They should change their topic completely, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The bibliography is too short and invalid, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -2573,18 +2574,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It had zero impact on surrounding ecosystems, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It was discovered only in the 21st century, which remains subject to further departmental verification"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -2593,18 +2594,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
-              },
-              {
-                "key": "B",
                 "text": "Steam-powered mechanical calculators"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Manual handwritten surveys"
+              },
+              {
+                "key": "C",
+                "text": "High-resolution automated sensor arrays"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -2617,11 +2618,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Funding should be halted immediately, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "No further observation is necessary, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -2665,14 +2666,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Corporate Team Entry"
+                "text": "Premium VIP annual plan"
               },
               {
                 "key": "C",
-                "text": "Premium VIP annual plan"
+                "text": "Corporate Team Entry"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Người gọi xác nhận chọn gói 'Corporate Team Entry' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -2681,18 +2682,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$35"
+                "text": "Double the standard rate"
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "$35"
               },
               {
                 "key": "C",
                 "text": "No fee is required at all"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $35."
           },
           {
@@ -2701,18 +2702,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A printed passport photo and proof of address"
+                "text": "Three personal reference letters"
               },
               {
                 "key": "B",
-                "text": "Three personal reference letters"
+                "text": "A printed passport photo and proof of address"
               },
               {
                 "key": "C",
                 "text": "A medical certificate from a hospital"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên nhắc cần mang theo ảnh thẻ và giấy xác nhận địa chỉ để hoàn tất thủ tục."
           }
         ],
@@ -2745,18 +2746,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
+                "text": "To inform visitors about updated schedules and new features"
               },
               {
                 "key": "B",
-                "text": "To inform visitors about updated schedules and new features"
+                "text": "To announce a permanent closure of the facility"
               },
               {
                 "key": "C",
                 "text": "To request emergency volunteers for repairs"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Bài nói giới thiệu về lịch trình cập nhật và những điểm mới dành cho khách tham quan."
           },
           {
@@ -2765,18 +2766,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
-              },
-              {
-                "key": "B",
                 "text": "The main cafe at noon"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "The souvenir shop at closing time"
+              },
+              {
+                "key": "C",
+                "text": "The North Pavilion before 10:30 AM"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -2785,18 +2786,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
+                "text": "An outdoor swimming pool"
               },
               {
                 "key": "B",
-                "text": "A 500-car underground parking garage"
+                "text": "An interactive digital audio guide system"
               },
               {
                 "key": "C",
-                "text": "An outdoor swimming pool"
+                "text": "A 500-car underground parking garage"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -2824,18 +2825,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "Their tutor cancelled the seminar, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Lack of reliable longitudinal data from older studies"
               },
               {
                 "key": "C",
                 "text": "The laboratory equipment was stolen"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -2844,18 +2845,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Removing all statistical graphs, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Comparing real-world case studies from three regions"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Reading the entire textbook aloud, under specific experimental conditions evaluated by the committee"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -2868,11 +2869,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The bibliography is too short and invalid, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "They should change their topic completely, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -2903,18 +2904,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It had zero impact on surrounding ecosystems, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It was discovered only in the 21st century, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -2927,11 +2928,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Steam-powered mechanical calculators"
+                "text": "Manual handwritten surveys"
               },
               {
                 "key": "C",
-                "text": "Manual handwritten surveys"
+                "text": "Steam-powered mechanical calculators"
               }
             ],
             "correct": "A",
@@ -2943,18 +2944,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "No further observation is necessary, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Funding should be halted immediately, without taking into account prolonged systemic fluctuations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -2991,18 +2992,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Premium VIP annual plan"
               },
               {
                 "key": "B",
-                "text": "Morning Check-up"
+                "text": "Standard basic package"
               },
               {
                 "key": "C",
-                "text": "Premium VIP annual plan"
+                "text": "Morning Check-up"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Người gọi xác nhận chọn gói 'Morning Check-up' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -3015,11 +3016,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "No fee is required at all"
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "Double the standard rate"
               }
             ],
             "correct": "A",
@@ -3031,18 +3032,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A printed passport photo and proof of address"
+                "text": "Three personal reference letters"
               },
               {
                 "key": "B",
-                "text": "Three personal reference letters"
+                "text": "A printed passport photo and proof of address"
               },
               {
                 "key": "C",
                 "text": "A medical certificate from a hospital"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên nhắc cần mang theo ảnh thẻ và giấy xác nhận địa chỉ để hoàn tất thủ tục."
           }
         ],
@@ -3075,18 +3076,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "B",
-                "text": "To inform visitors about updated schedules and new features"
+                "text": "To announce a permanent closure of the facility"
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To inform visitors about updated schedules and new features"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Bài nói giới thiệu về lịch trình cập nhật và những điểm mới dành cho khách tham quan."
           },
           {
@@ -3095,18 +3096,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
+                "text": "The souvenir shop at closing time"
               },
               {
                 "key": "B",
-                "text": "The main cafe at noon"
+                "text": "The North Pavilion before 10:30 AM"
               },
               {
                 "key": "C",
-                "text": "The souvenir shop at closing time"
+                "text": "The main cafe at noon"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -3119,11 +3120,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A 500-car underground parking garage"
+                "text": "An outdoor swimming pool"
               },
               {
                 "key": "C",
-                "text": "An outdoor swimming pool"
+                "text": "A 500-car underground parking garage"
               }
             ],
             "correct": "A",
@@ -3158,7 +3159,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Their tutor cancelled the seminar, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
@@ -3178,11 +3179,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Removing all statistical graphs, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Reading the entire textbook aloud, following rigorous cross-sectional evaluations of sample data"
               }
             ],
             "correct": "A",
@@ -3194,18 +3195,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "They should change their topic completely, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The methodology section needs clearer operational definitions"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The bibliography is too short and invalid, primarily due to budgetary constraints and operational overheads"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -3237,11 +3238,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It was discovered only in the 21st century, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It had zero impact on surrounding ecosystems, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -3277,11 +3278,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "No further observation is necessary, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Funding should be halted immediately, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -3321,18 +3322,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Two-week Outdoor"
               },
               {
                 "key": "B",
-                "text": "Two-week Outdoor"
+                "text": "Standard basic package"
               },
               {
                 "key": "C",
                 "text": "Premium VIP annual plan"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Người gọi xác nhận chọn gói 'Two-week Outdoor' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -3341,7 +3342,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$480"
+                "text": "No fee is required at all"
               },
               {
                 "key": "B",
@@ -3349,10 +3350,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "$480"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $480."
           },
           {
@@ -3361,18 +3362,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A printed passport photo and proof of address"
+                "text": "Three personal reference letters"
               },
               {
                 "key": "B",
-                "text": "Three personal reference letters"
+                "text": "A printed passport photo and proof of address"
               },
               {
                 "key": "C",
                 "text": "A medical certificate from a hospital"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên nhắc cần mang theo ảnh thẻ và giấy xác nhận địa chỉ để hoàn tất thủ tục."
           }
         ],
@@ -3405,18 +3406,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
-              },
-              {
-                "key": "B",
                 "text": "To inform visitors about updated schedules and new features"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "To request emergency volunteers for repairs"
+              },
+              {
+                "key": "C",
+                "text": "To announce a permanent closure of the facility"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Bài nói giới thiệu về lịch trình cập nhật và những điểm mới dành cho khách tham quan."
           },
           {
@@ -3425,18 +3426,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
+                "text": "The main cafe at noon"
               },
               {
                 "key": "B",
-                "text": "The main cafe at noon"
+                "text": "The North Pavilion before 10:30 AM"
               },
               {
                 "key": "C",
                 "text": "The souvenir shop at closing time"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -3449,11 +3450,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A 500-car underground parking garage"
+                "text": "An outdoor swimming pool"
               },
               {
                 "key": "C",
-                "text": "An outdoor swimming pool"
+                "text": "A 500-car underground parking garage"
               }
             ],
             "correct": "A",
@@ -3488,11 +3489,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Their tutor cancelled the seminar, without taking into account prolonged systemic fluctuations"
               }
             ],
             "correct": "A",
@@ -3508,11 +3509,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Removing all statistical graphs, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Reading the entire textbook aloud, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -3524,18 +3525,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "The bibliography is too short and invalid, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "They should change their topic completely, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The methodology section needs clearer operational definitions"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -3563,18 +3564,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It was discovered only in the 21st century, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It had zero impact on surrounding ecosystems, which remains subject to further departmental verification"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -3583,18 +3584,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
-              },
-              {
-                "key": "B",
                 "text": "Steam-powered mechanical calculators"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Manual handwritten surveys"
+              },
+              {
+                "key": "C",
+                "text": "High-resolution automated sensor arrays"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -3603,18 +3604,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "Funding should be halted immediately, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "No further observation is necessary, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -3675,11 +3676,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "No fee is required at all"
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "Double the standard rate"
               }
             ],
             "correct": "A",
@@ -3691,18 +3692,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A printed passport photo and proof of address"
+                "text": "Three personal reference letters"
               },
               {
                 "key": "B",
-                "text": "Three personal reference letters"
+                "text": "A printed passport photo and proof of address"
               },
               {
                 "key": "C",
                 "text": "A medical certificate from a hospital"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên nhắc cần mang theo ảnh thẻ và giấy xác nhận địa chỉ để hoàn tất thủ tục."
           }
         ],
@@ -3735,18 +3736,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "B",
-                "text": "To inform visitors about updated schedules and new features"
+                "text": "To announce a permanent closure of the facility"
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To inform visitors about updated schedules and new features"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Bài nói giới thiệu về lịch trình cập nhật và những điểm mới dành cho khách tham quan."
           },
           {
@@ -3755,7 +3756,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
+                "text": "The souvenir shop at closing time"
               },
               {
                 "key": "B",
@@ -3763,10 +3764,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "The souvenir shop at closing time"
+                "text": "The North Pavilion before 10:30 AM"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -3775,18 +3776,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
+                "text": "An outdoor swimming pool"
               },
               {
                 "key": "B",
-                "text": "A 500-car underground parking garage"
+                "text": "An interactive digital audio guide system"
               },
               {
                 "key": "C",
-                "text": "An outdoor swimming pool"
+                "text": "A 500-car underground parking garage"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -3814,18 +3815,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "Their tutor cancelled the seminar, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Lack of reliable longitudinal data from older studies"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -3834,18 +3835,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Removing all statistical graphs, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Comparing real-world case studies from three regions"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Reading the entire textbook aloud, which remains subject to further departmental verification"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -3854,18 +3855,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "They should change their topic completely, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The methodology section needs clearer operational definitions"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The bibliography is too short and invalid, according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -3893,18 +3894,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It had zero impact on surrounding ecosystems, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It was discovered only in the 21st century, without taking into account prolonged systemic fluctuations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -3917,11 +3918,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Steam-powered mechanical calculators"
+                "text": "Manual handwritten surveys"
               },
               {
                 "key": "C",
-                "text": "Manual handwritten surveys"
+                "text": "Steam-powered mechanical calculators"
               }
             ],
             "correct": "A",
@@ -3933,18 +3934,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "Funding should be halted immediately, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "No further observation is necessary, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -3981,18 +3982,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Electric Hybrid Bike"
               },
               {
                 "key": "B",
-                "text": "Electric Hybrid Bike"
+                "text": "Standard basic package"
               },
               {
                 "key": "C",
                 "text": "Premium VIP annual plan"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Người gọi xác nhận chọn gói 'Electric Hybrid Bike' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -4001,7 +4002,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$28/day"
+                "text": "No fee is required at all"
               },
               {
                 "key": "B",
@@ -4009,10 +4010,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "$28/day"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $28/day."
           },
           {
@@ -4021,18 +4022,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A printed passport photo and proof of address"
+                "text": "Three personal reference letters"
               },
               {
                 "key": "B",
-                "text": "Three personal reference letters"
+                "text": "A printed passport photo and proof of address"
               },
               {
                 "key": "C",
                 "text": "A medical certificate from a hospital"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên nhắc cần mang theo ảnh thẻ và giấy xác nhận địa chỉ để hoàn tất thủ tục."
           }
         ],
@@ -4065,18 +4066,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
-              },
-              {
-                "key": "B",
                 "text": "To inform visitors about updated schedules and new features"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "To request emergency volunteers for repairs"
+              },
+              {
+                "key": "C",
+                "text": "To announce a permanent closure of the facility"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Bài nói giới thiệu về lịch trình cập nhật và những điểm mới dành cho khách tham quan."
           },
           {
@@ -4089,11 +4090,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The main cafe at noon"
+                "text": "The souvenir shop at closing time"
               },
               {
                 "key": "C",
-                "text": "The souvenir shop at closing time"
+                "text": "The main cafe at noon"
               }
             ],
             "correct": "A",
@@ -4105,18 +4106,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
+                "text": "An outdoor swimming pool"
               },
               {
                 "key": "B",
-                "text": "A 500-car underground parking garage"
+                "text": "An interactive digital audio guide system"
               },
               {
                 "key": "C",
-                "text": "An outdoor swimming pool"
+                "text": "A 500-car underground parking garage"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -4144,18 +4145,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Their tutor cancelled the seminar, which remains subject to further departmental verification"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Lack of reliable longitudinal data from older studies"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -4164,18 +4165,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Removing all statistical graphs, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Comparing real-world case studies from three regions"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Reading the entire textbook aloud, as demonstrated in multiple peer-reviewed observational studies"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -4184,18 +4185,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "The bibliography is too short and invalid, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "They should change their topic completely, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The methodology section needs clearer operational definitions"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -4227,11 +4228,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It had zero impact on surrounding ecosystems, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It was discovered only in the 21st century, which remains subject to further departmental verification"
               }
             ],
             "correct": "A",
@@ -4263,18 +4264,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "No further observation is necessary, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Funding should be halted immediately, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -4311,18 +4312,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Vegetarian Fusion"
               },
               {
                 "key": "B",
-                "text": "Vegetarian Fusion"
+                "text": "Standard basic package"
               },
               {
                 "key": "C",
                 "text": "Premium VIP annual plan"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Người gọi xác nhận chọn gói 'Vegetarian Fusion' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -4351,18 +4352,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A printed passport photo and proof of address"
+                "text": "Three personal reference letters"
               },
               {
                 "key": "B",
-                "text": "Three personal reference letters"
+                "text": "A printed passport photo and proof of address"
               },
               {
                 "key": "C",
                 "text": "A medical certificate from a hospital"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên nhắc cần mang theo ảnh thẻ và giấy xác nhận địa chỉ để hoàn tất thủ tục."
           }
         ],
@@ -4395,18 +4396,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "B",
-                "text": "To inform visitors about updated schedules and new features"
+                "text": "To announce a permanent closure of the facility"
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To inform visitors about updated schedules and new features"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Bài nói giới thiệu về lịch trình cập nhật và những điểm mới dành cho khách tham quan."
           },
           {
@@ -4439,11 +4440,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A 500-car underground parking garage"
+                "text": "An outdoor swimming pool"
               },
               {
                 "key": "C",
-                "text": "An outdoor swimming pool"
+                "text": "A 500-car underground parking garage"
               }
             ],
             "correct": "A",
@@ -4474,18 +4475,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "Their tutor cancelled the seminar, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Lack of reliable longitudinal data from older studies"
               },
               {
                 "key": "C",
                 "text": "The laboratory equipment was stolen"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -4498,11 +4499,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Removing all statistical graphs, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Reading the entire textbook aloud, as highlighted during the initial stakeholder orientation phase"
               }
             ],
             "correct": "A",
@@ -4514,18 +4515,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "The bibliography is too short and invalid, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The methodology section needs clearer operational definitions"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "They should change their topic completely, as demonstrated in multiple peer-reviewed observational studies"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -4557,11 +4558,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It was discovered only in the 21st century, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It had zero impact on surrounding ecosystems, concerning long-term environmental sustainability and impact"
               }
             ],
             "correct": "A",
@@ -4573,18 +4574,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Manual handwritten surveys"
               },
               {
                 "key": "B",
-                "text": "Steam-powered mechanical calculators"
+                "text": "High-resolution automated sensor arrays"
               },
               {
                 "key": "C",
-                "text": "Manual handwritten surveys"
+                "text": "Steam-powered mechanical calculators"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -4593,18 +4594,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "Funding should be halted immediately, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "No further observation is necessary, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -4665,11 +4666,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "No fee is required at all"
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "Double the standard rate"
               }
             ],
             "correct": "A",
@@ -4681,18 +4682,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A printed passport photo and proof of address"
+                "text": "Three personal reference letters"
               },
               {
                 "key": "B",
-                "text": "Three personal reference letters"
+                "text": "A printed passport photo and proof of address"
               },
               {
                 "key": "C",
                 "text": "A medical certificate from a hospital"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên nhắc cần mang theo ảnh thẻ và giấy xác nhận địa chỉ để hoàn tất thủ tục."
           }
         ],
@@ -4725,7 +4726,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "B",
@@ -4733,7 +4734,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To announce a permanent closure of the facility"
               }
             ],
             "correct": "B",
@@ -4745,18 +4746,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
-              },
-              {
-                "key": "B",
                 "text": "The main cafe at noon"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "The souvenir shop at closing time"
+              },
+              {
+                "key": "C",
+                "text": "The North Pavilion before 10:30 AM"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -4765,7 +4766,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
+                "text": "An outdoor swimming pool"
               },
               {
                 "key": "B",
@@ -4773,10 +4774,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "An outdoor swimming pool"
+                "text": "An interactive digital audio guide system"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -4804,18 +4805,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Lack of reliable longitudinal data from older studies"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Their tutor cancelled the seminar, primarily due to budgetary constraints and operational overheads"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -4824,18 +4825,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Removing all statistical graphs, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Comparing real-world case studies from three regions"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Reading the entire textbook aloud, in accordance with recently revised statutory regulations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -4844,18 +4845,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "They should change their topic completely, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The bibliography is too short and invalid, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The methodology section needs clearer operational definitions"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -4883,18 +4884,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It had zero impact on surrounding ecosystems, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It was discovered only in the 21st century, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -4903,18 +4904,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Steam-powered mechanical calculators"
               },
               {
                 "key": "B",
-                "text": "Steam-powered mechanical calculators"
+                "text": "High-resolution automated sensor arrays"
               },
               {
                 "key": "C",
                 "text": "Manual handwritten surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -4923,18 +4924,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "Funding should be halted immediately, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "No further observation is necessary, in accordance with recently revised statutory regulations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -4971,18 +4972,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Top Floor Balcony Room"
               },
               {
                 "key": "B",
-                "text": "Top Floor Balcony Room"
+                "text": "Standard basic package"
               },
               {
                 "key": "C",
                 "text": "Premium VIP annual plan"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Người gọi xác nhận chọn gói 'Top Floor Balcony Room' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -4991,7 +4992,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$850/month"
+                "text": "No fee is required at all"
               },
               {
                 "key": "B",
@@ -4999,10 +5000,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "$850/month"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $850/month."
           },
           {
@@ -5011,18 +5012,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A printed passport photo and proof of address"
+                "text": "Three personal reference letters"
               },
               {
                 "key": "B",
-                "text": "Three personal reference letters"
+                "text": "A printed passport photo and proof of address"
               },
               {
                 "key": "C",
                 "text": "A medical certificate from a hospital"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên nhắc cần mang theo ảnh thẻ và giấy xác nhận địa chỉ để hoàn tất thủ tục."
           }
         ],
@@ -5075,18 +5076,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
+                "text": "The souvenir shop at closing time"
               },
               {
                 "key": "B",
-                "text": "The main cafe at noon"
+                "text": "The North Pavilion before 10:30 AM"
               },
               {
                 "key": "C",
-                "text": "The souvenir shop at closing time"
+                "text": "The main cafe at noon"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -5095,18 +5096,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
-              },
-              {
-                "key": "B",
                 "text": "A 500-car underground parking garage"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "An outdoor swimming pool"
+              },
+              {
+                "key": "C",
+                "text": "An interactive digital audio guide system"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -5138,11 +5139,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Their tutor cancelled the seminar, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -5154,18 +5155,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Removing all statistical graphs, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Comparing real-world case studies from three regions"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Reading the entire textbook aloud, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -5178,11 +5179,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The bibliography is too short and invalid, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "They should change their topic completely, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
             "correct": "A",
@@ -5213,18 +5214,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It had zero impact on surrounding ecosystems, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It was discovered only in the 21st century, as highlighted during the initial stakeholder orientation phase"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -5233,7 +5234,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Manual handwritten surveys"
               },
               {
                 "key": "B",
@@ -5241,10 +5242,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Manual handwritten surveys"
+                "text": "High-resolution automated sensor arrays"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -5257,11 +5258,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "No further observation is necessary, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Funding should be halted immediately, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -5301,18 +5302,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
-              },
-              {
-                "key": "B",
                 "text": "Acoustic Fingerpicking"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Premium VIP annual plan"
+              },
+              {
+                "key": "C",
+                "text": "Standard basic package"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Người gọi xác nhận chọn gói 'Acoustic Fingerpicking' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -5385,7 +5386,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "To announce a permanent closure of the facility"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "B",
@@ -5393,7 +5394,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To announce a permanent closure of the facility"
               }
             ],
             "correct": "B",
@@ -5405,18 +5406,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
+                "text": "The main cafe at noon"
               },
               {
                 "key": "B",
-                "text": "The main cafe at noon"
+                "text": "The North Pavilion before 10:30 AM"
               },
               {
                 "key": "C",
                 "text": "The souvenir shop at closing time"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -5425,18 +5426,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
-              },
-              {
-                "key": "B",
                 "text": "A 500-car underground parking garage"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "An outdoor swimming pool"
+              },
+              {
+                "key": "C",
+                "text": "An interactive digital audio guide system"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -5464,18 +5465,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "Their tutor cancelled the seminar, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Lack of reliable longitudinal data from older studies"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -5488,11 +5489,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Removing all statistical graphs, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Reading the entire textbook aloud, concerning long-term environmental sustainability and impact"
               }
             ],
             "correct": "A",
@@ -5508,11 +5509,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "They should change their topic completely, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The bibliography is too short and invalid, without taking into account prolonged systemic fluctuations"
               }
             ],
             "correct": "A",
@@ -5547,11 +5548,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It had zero impact on surrounding ecosystems, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It was discovered only in the 21st century, without taking into account prolonged systemic fluctuations"
               }
             ],
             "correct": "A",
@@ -5563,18 +5564,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Manual handwritten surveys"
               },
               {
                 "key": "B",
-                "text": "Steam-powered mechanical calculators"
+                "text": "High-resolution automated sensor arrays"
               },
               {
                 "key": "C",
-                "text": "Manual handwritten surveys"
+                "text": "Steam-powered mechanical calculators"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -5583,18 +5584,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "No further observation is necessary, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Funding should be halted immediately, which remains subject to further departmental verification"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -5631,7 +5632,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Premium VIP annual plan"
               },
               {
                 "key": "B",
@@ -5639,7 +5640,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Premium VIP annual plan"
+                "text": "Standard basic package"
               }
             ],
             "correct": "B",
@@ -5655,11 +5656,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "No fee is required at all"
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "Double the standard rate"
               }
             ],
             "correct": "A",
@@ -5735,7 +5736,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The North Pavilion before 10:30 AM"
+                "text": "The souvenir shop at closing time"
               },
               {
                 "key": "B",
@@ -5743,10 +5744,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "The souvenir shop at closing time"
+                "text": "The North Pavilion before 10:30 AM"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hướng dẫn viên khuyên nên ghé khu North Pavilion trước 10:30 sáng để tránh đông đúc."
           },
           {
@@ -5755,7 +5756,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
+                "text": "An outdoor swimming pool"
               },
               {
                 "key": "B",
@@ -5763,10 +5764,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "An outdoor swimming pool"
+                "text": "An interactive digital audio guide system"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -5798,7 +5799,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Their tutor cancelled the seminar, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
@@ -5814,18 +5815,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Removing all statistical graphs, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Reading the entire textbook aloud, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Comparing real-world case studies from three regions"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -5838,11 +5839,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The bibliography is too short and invalid, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "They should change their topic completely, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -5877,11 +5878,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It was discovered only in the 21st century, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It had zero impact on surrounding ecosystems, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -5893,18 +5894,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Steam-powered mechanical calculators"
               },
               {
                 "key": "B",
-                "text": "Steam-powered mechanical calculators"
+                "text": "High-resolution automated sensor arrays"
               },
               {
                 "key": "C",
                 "text": "Manual handwritten surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -5913,18 +5914,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "No further observation is necessary, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Funding should be halted immediately, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -5961,18 +5962,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
-              },
-              {
-                "key": "B",
                 "text": "Nordic Fjord Cruise"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Premium VIP annual plan"
+              },
+              {
+                "key": "C",
+                "text": "Standard basic package"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Người gọi xác nhận chọn gói 'Nordic Fjord Cruise' vì phù hợp với lịch trình và ngân sách cá nhân."
           },
           {
@@ -5981,7 +5982,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$1,450"
+                "text": "No fee is required at all"
               },
               {
                 "key": "B",
@@ -5989,10 +5990,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "No fee is required at all"
+                "text": "$1,450"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $1,450."
           },
           {
@@ -6049,14 +6050,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "To inform visitors about updated schedules and new features"
+                "text": "To request emergency volunteers for repairs"
               },
               {
                 "key": "C",
-                "text": "To request emergency volunteers for repairs"
+                "text": "To inform visitors about updated schedules and new features"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Bài nói giới thiệu về lịch trình cập nhật và những điểm mới dành cho khách tham quan."
           },
           {
@@ -6069,11 +6070,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The main cafe at noon"
+                "text": "The souvenir shop at closing time"
               },
               {
                 "key": "C",
-                "text": "The souvenir shop at closing time"
+                "text": "The main cafe at noon"
               }
             ],
             "correct": "A",
@@ -6085,7 +6086,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
+                "text": "An outdoor swimming pool"
               },
               {
                 "key": "B",
@@ -6093,10 +6094,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "An outdoor swimming pool"
+                "text": "An interactive digital audio guide system"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -6128,7 +6129,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Their tutor cancelled the seminar, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
@@ -6144,18 +6145,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Reading the entire textbook aloud, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Removing all statistical graphs, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Comparing real-world case studies from three regions"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -6164,18 +6165,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "They should change their topic completely, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "The methodology section needs clearer operational definitions"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The bibliography is too short and invalid, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -6203,18 +6204,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It had zero impact on surrounding ecosystems, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "It was discovered only in the 21st century, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -6223,7 +6224,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "High-resolution automated sensor arrays"
+                "text": "Manual handwritten surveys"
               },
               {
                 "key": "B",
@@ -6231,10 +6232,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Manual handwritten surveys"
+                "text": "High-resolution automated sensor arrays"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Mạng lưới cảm biến tự động độ phân giải cao đã thúc đẩy đột phá nghiên cứu trong lĩnh vực này."
           },
           {
@@ -6243,18 +6244,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "No further observation is necessary, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Funding should be halted immediately, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -6291,7 +6292,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Standard basic package"
+                "text": "Premium VIP annual plan"
               },
               {
                 "key": "B",
@@ -6299,7 +6300,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Premium VIP annual plan"
+                "text": "Standard basic package"
               }
             ],
             "correct": "B",
@@ -6311,18 +6312,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "$60"
+                "text": "Double the standard rate"
               },
               {
                 "key": "B",
-                "text": "Double the standard rate"
+                "text": "$60"
               },
               {
                 "key": "C",
                 "text": "No fee is required at all"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Nhân viên thông báo mức chi phí chính thức là $60."
           },
           {
@@ -6415,18 +6416,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "An interactive digital audio guide system"
-              },
-              {
-                "key": "B",
                 "text": "A 500-car underground parking garage"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "An outdoor swimming pool"
+              },
+              {
+                "key": "C",
+                "text": "An interactive digital audio guide system"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hệ thống hướng dẫn âm thanh kỹ thuật số tương tác vừa được bổ sung trong mùa này."
           }
         ],
@@ -6454,18 +6455,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Lack of reliable longitudinal data from older studies"
+                "text": "The laboratory equipment was stolen"
               },
               {
                 "key": "B",
-                "text": "Their tutor cancelled the seminar"
+                "text": "Lack of reliable longitudinal data from older studies"
               },
               {
                 "key": "C",
-                "text": "The laboratory equipment was stolen"
+                "text": "Their tutor cancelled the seminar, under specific experimental conditions evaluated by the committee"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai sinh viên nhận thấy dữ liệu dài hạn từ các nghiên cứu cũ thiếu độ tin cậy."
           },
           {
@@ -6474,18 +6475,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Comparing real-world case studies from three regions"
+                "text": "Reading the entire textbook aloud, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "Reading the entire textbook aloud"
+                "text": "Removing all statistical graphs, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "Removing all statistical graphs"
+                "text": "Comparing real-world case studies from three regions"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cả hai thống nhất sẽ tập trung so sánh các nghiên cứu thực tế từ 3 khu vực khác nhau."
           },
           {
@@ -6494,18 +6495,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The methodology section needs clearer operational definitions"
+                "text": "The bibliography is too short and invalid, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "The bibliography is too short and invalid"
+                "text": "They should change their topic completely, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "They should change their topic completely"
+                "text": "The methodology section needs clearer operational definitions"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Tiến sĩ Evans góp ý phần phương pháp nghiên cứu cần định nghĩa rõ ràng hơn."
           }
         ],
@@ -6533,18 +6534,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
+                "text": "It had zero impact on surrounding ecosystems, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "It had zero impact on surrounding ecosystems"
+                "text": "Scientists assumed the phenomenon occurred only in isolated environments"
               },
               {
                 "key": "C",
-                "text": "It was discovered only in the 21st century"
+                "text": "It was discovered only in the 21st century, according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên cho biết trước đây giới khoa học từng cho rằng hiện tượng này chỉ xảy ra ở môi trường biệt lập."
           },
           {
@@ -6573,18 +6574,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
+                "text": "Funding should be halted immediately, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "Funding should be halted immediately"
+                "text": "Interdisciplinary collaboration is essential to unlock remaining mysteries"
               },
               {
                 "key": "C",
-                "text": "No further observation is necessary"
+                "text": "No further observation is necessary, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Giảng viên kết luận sự hợp tác liên ngành là chìa khóa để giải mã các bí ẩn còn lại."
           }
         ],
@@ -6620,7 +6621,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Platform 4"
+                "text": "No changes have been made"
               },
               {
                 "key": "B",
@@ -6628,10 +6629,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "Platform 4"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: Platform 4."
           },
           {
@@ -6640,18 +6641,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
+                "text": "International journalists"
               },
               {
                 "key": "B",
-                "text": "Customers and scheduled visitors"
+                "text": "Maintenance engineers only"
               },
               {
                 "key": "C",
-                "text": "International journalists"
+                "text": "Customers and scheduled visitors"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -6664,11 +6665,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -6698,11 +6699,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "C",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
             "correct": "A",
@@ -6714,18 +6715,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 2 (Mark)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 4 (David)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -6734,18 +6735,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 3 (Elena)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 1 (Sarah)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -6778,7 +6779,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
+                "text": "Nobody cares about the topic anymore, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
@@ -6786,10 +6787,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "People often rely on outdated headlines rather than data"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -6798,18 +6799,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
+                "text": "Indifferent"
               },
               {
                 "key": "B",
-                "text": "Completely furious"
+                "text": "Cautiously optimistic"
               },
               {
                 "key": "C",
-                "text": "Indifferent"
+                "text": "Completely furious"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -6822,11 +6823,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Avoid using any modern technology, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Change careers every three months, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -6865,18 +6866,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Wednesday 2:30 PM"
+                "text": "No changes have been made"
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "Wednesday 2:30 PM"
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "The service is cancelled permanently"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: Wednesday 2:30 PM."
           },
           {
@@ -6885,18 +6886,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
-              },
-              {
-                "key": "B",
                 "text": "Customers and scheduled visitors"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "International journalists"
+              },
+              {
+                "key": "C",
+                "text": "Maintenance engineers only"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -6909,11 +6910,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -6939,18 +6940,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 2 (Mark)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 3 (Elena)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -6959,18 +6960,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 4 (David)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
-                "text": "Speaker 4 (David)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -7023,7 +7024,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
+                "text": "Nobody cares about the topic anymore, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
@@ -7031,10 +7032,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "People often rely on outdated headlines rather than data"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -7043,18 +7044,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
-              },
-              {
-                "key": "B",
                 "text": "Completely furious"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Indifferent"
+              },
+              {
+                "key": "C",
+                "text": "Cautiously optimistic"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -7063,18 +7064,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Change careers every three months, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Avoid using any modern technology, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Stay adaptable and continuously update practical skills"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -7114,11 +7115,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "No changes have been made"
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "The service is cancelled permanently"
               }
             ],
             "correct": "A",
@@ -7130,18 +7131,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
+                "text": "Customers and scheduled visitors"
               },
               {
                 "key": "B",
-                "text": "Customers and scheduled visitors"
+                "text": "Maintenance engineers only"
               },
               {
                 "key": "C",
                 "text": "International journalists"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -7154,11 +7155,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -7184,18 +7185,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -7204,18 +7205,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 2 (Mark)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 4 (David)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -7268,18 +7269,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
-              },
-              {
-                "key": "B",
                 "text": "Everyone understands the technical details perfectly"
               },
               {
+                "key": "B",
+                "text": "People often rely on outdated headlines rather than data"
+              },
+              {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Nobody cares about the topic anymore, without taking into account prolonged systemic fluctuations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -7288,18 +7289,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
-              },
-              {
-                "key": "B",
                 "text": "Completely furious"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Indifferent"
+              },
+              {
+                "key": "C",
+                "text": "Cautiously optimistic"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -7312,11 +7313,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Change careers every three months, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Avoid using any modern technology, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
             "correct": "A",
@@ -7359,11 +7360,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "No changes have been made"
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "The service is cancelled permanently"
               }
             ],
             "correct": "A",
@@ -7375,18 +7376,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
-              },
-              {
-                "key": "B",
                 "text": "Customers and scheduled visitors"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "International journalists"
+              },
+              {
+                "key": "C",
+                "text": "Maintenance engineers only"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -7399,11 +7400,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -7429,18 +7430,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 2 (Mark)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 3 (Elena)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -7453,14 +7454,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 4 (David)"
               },
               {
                 "key": "C",
-                "text": "Speaker 4 (David)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -7469,18 +7470,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "B",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "C",
                 "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -7517,11 +7518,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Everyone understands the technical details perfectly"
+                "text": "Nobody cares about the topic anymore, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Everyone understands the technical details perfectly"
               }
             ],
             "correct": "A",
@@ -7557,11 +7558,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Avoid using any modern technology, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Change careers every three months, in accordance with recently revised statutory regulations"
               }
             ],
             "correct": "A",
@@ -7600,18 +7601,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Between 4 and 6 PM"
+                "text": "No changes have been made"
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "Between 4 and 6 PM"
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "The service is cancelled permanently"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: Between 4 and 6 PM."
           },
           {
@@ -7620,18 +7621,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
+                "text": "Customers and scheduled visitors"
               },
               {
                 "key": "B",
-                "text": "Customers and scheduled visitors"
+                "text": "Maintenance engineers only"
               },
               {
                 "key": "C",
                 "text": "International journalists"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -7640,18 +7641,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Contact the reception desk or helpline"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Contact the reception desk or helpline"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người nghe được hướng dẫn liên hệ quầy lễ tân hoặc đường dây nóng nếu cần hỗ trợ thêm."
           }
         ],
@@ -7674,18 +7675,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -7714,18 +7715,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "B",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "C",
                 "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -7758,18 +7759,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
+                "text": "Nobody cares about the topic anymore, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "Everyone understands the technical details perfectly"
+                "text": "People often rely on outdated headlines rather than data"
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Everyone understands the technical details perfectly"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -7782,11 +7783,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Completely furious"
+                "text": "Indifferent"
               },
               {
                 "key": "C",
-                "text": "Indifferent"
+                "text": "Completely furious"
               }
             ],
             "correct": "A",
@@ -7798,18 +7799,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Change careers every three months, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Avoid using any modern technology, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Stay adaptable and continuously update practical skills"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -7849,11 +7850,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "No changes have been made"
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "The service is cancelled permanently"
               }
             ],
             "correct": "A",
@@ -7865,18 +7866,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
+                "text": "International journalists"
               },
               {
                 "key": "B",
-                "text": "Customers and scheduled visitors"
+                "text": "Maintenance engineers only"
               },
               {
                 "key": "C",
-                "text": "International journalists"
+                "text": "Customers and scheduled visitors"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -7885,18 +7886,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Contact the reception desk or helpline"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Contact the reception desk or helpline"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người nghe được hướng dẫn liên hệ quầy lễ tân hoặc đường dây nóng nếu cần hỗ trợ thêm."
           }
         ],
@@ -7919,18 +7920,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 2 (Mark)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 3 (Elena)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -7939,7 +7940,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 4 (David)"
               },
               {
                 "key": "B",
@@ -7947,7 +7948,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Speaker 4 (David)"
+                "text": "Speaker 1 (Sarah)"
               }
             ],
             "correct": "B",
@@ -8003,18 +8004,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
-              },
-              {
-                "key": "B",
                 "text": "Everyone understands the technical details perfectly"
               },
               {
+                "key": "B",
+                "text": "Nobody cares about the topic anymore, concerning long-term environmental sustainability and impact"
+              },
+              {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "People often rely on outdated headlines rather than data"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -8023,7 +8024,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
+                "text": "Indifferent"
               },
               {
                 "key": "B",
@@ -8031,10 +8032,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Indifferent"
+                "text": "Cautiously optimistic"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -8047,11 +8048,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Change careers every three months, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Avoid using any modern technology, as demonstrated in multiple peer-reviewed observational studies"
               }
             ],
             "correct": "A",
@@ -8090,18 +8091,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "3:00 PM"
+                "text": "The service is cancelled permanently"
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "3:00 PM"
               },
               {
                 "key": "C",
                 "text": "No changes have been made"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: 3:00 PM."
           },
           {
@@ -8110,18 +8111,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
-              },
-              {
-                "key": "B",
                 "text": "Customers and scheduled visitors"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "International journalists"
+              },
+              {
+                "key": "C",
+                "text": "Maintenance engineers only"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -8130,18 +8131,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Contact the reception desk or helpline"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Contact the reception desk or helpline"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người nghe được hướng dẫn liên hệ quầy lễ tân hoặc đường dây nóng nếu cần hỗ trợ thêm."
           }
         ],
@@ -8164,18 +8165,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
                 "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -8184,18 +8185,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 4 (David)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
-                "text": "Speaker 4 (David)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -8256,7 +8257,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Nobody cares about the topic anymore, primarily due to budgetary constraints and operational overheads"
               }
             ],
             "correct": "A",
@@ -8268,18 +8269,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
+                "text": "Completely furious"
               },
               {
                 "key": "B",
-                "text": "Completely furious"
+                "text": "Cautiously optimistic"
               },
               {
                 "key": "C",
                 "text": "Indifferent"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -8292,11 +8293,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Avoid using any modern technology, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Change careers every three months, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -8335,18 +8336,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "25% off for students"
+                "text": "The service is cancelled permanently"
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "25% off for students"
               },
               {
                 "key": "C",
                 "text": "No changes have been made"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: 25% off for students."
           },
           {
@@ -8355,18 +8356,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
+                "text": "Customers and scheduled visitors"
               },
               {
                 "key": "B",
-                "text": "Customers and scheduled visitors"
+                "text": "Maintenance engineers only"
               },
               {
                 "key": "C",
                 "text": "International journalists"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -8375,18 +8376,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Contact the reception desk or helpline"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Contact the reception desk or helpline"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người nghe được hướng dẫn liên hệ quầy lễ tân hoặc đường dây nóng nếu cần hỗ trợ thêm."
           }
         ],
@@ -8409,18 +8410,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 2 (Mark)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 3 (Elena)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -8429,18 +8430,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
                 "text": "Speaker 4 (David)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -8449,18 +8450,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "B",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "C",
                 "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -8493,18 +8494,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
-              },
-              {
-                "key": "B",
                 "text": "Everyone understands the technical details perfectly"
               },
               {
+                "key": "B",
+                "text": "People often rely on outdated headlines rather than data"
+              },
+              {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Nobody cares about the topic anymore, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -8513,18 +8514,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
+                "text": "Indifferent"
               },
               {
                 "key": "B",
-                "text": "Completely furious"
+                "text": "Cautiously optimistic"
               },
               {
                 "key": "C",
-                "text": "Indifferent"
+                "text": "Completely furious"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -8533,18 +8534,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Avoid using any modern technology, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Change careers every three months, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Stay adaptable and continuously update practical skills"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -8600,18 +8601,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
+                "text": "International journalists"
               },
               {
                 "key": "B",
-                "text": "Customers and scheduled visitors"
+                "text": "Maintenance engineers only"
               },
               {
                 "key": "C",
-                "text": "International journalists"
+                "text": "Customers and scheduled visitors"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -8620,18 +8621,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Contact the reception desk or helpline"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Contact the reception desk or helpline"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người nghe được hướng dẫn liên hệ quầy lễ tân hoặc đường dây nóng nếu cần hỗ trợ thêm."
           }
         ],
@@ -8674,18 +8675,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 2 (Mark)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 4 (David)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -8694,18 +8695,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "B",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "C",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -8742,11 +8743,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Everyone understands the technical details perfectly"
+                "text": "Nobody cares about the topic anymore, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Everyone understands the technical details perfectly"
               }
             ],
             "correct": "A",
@@ -8758,18 +8759,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
-              },
-              {
-                "key": "B",
                 "text": "Completely furious"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Indifferent"
+              },
+              {
+                "key": "C",
+                "text": "Cautiously optimistic"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -8778,18 +8779,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Change careers every three months, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Stay adaptable and continuously update practical skills"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Avoid using any modern technology, according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -8825,18 +8826,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Yoga moved to Friday"
+                "text": "The service is cancelled permanently"
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "Yoga moved to Friday"
               },
               {
                 "key": "C",
                 "text": "No changes have been made"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: Yoga moved to Friday."
           },
           {
@@ -8845,7 +8846,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
+                "text": "International journalists"
               },
               {
                 "key": "B",
@@ -8853,7 +8854,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "International journalists"
+                "text": "Maintenance engineers only"
               }
             ],
             "correct": "B",
@@ -8865,18 +8866,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Contact the reception desk or helpline"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Contact the reception desk or helpline"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người nghe được hướng dẫn liên hệ quầy lễ tân hoặc đường dây nóng nếu cần hỗ trợ thêm."
           }
         ],
@@ -8903,11 +8904,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "C",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
             "correct": "A",
@@ -8923,14 +8924,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 4 (David)"
               },
               {
                 "key": "C",
-                "text": "Speaker 4 (David)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -8943,14 +8944,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -8983,7 +8984,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
+                "text": "Nobody cares about the topic anymore, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
@@ -8991,10 +8992,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "People often rely on outdated headlines rather than data"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -9023,18 +9024,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Avoid using any modern technology, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Stay adaptable and continuously update practical skills"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Change careers every three months, as demonstrated in multiple peer-reviewed observational studies"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -9070,18 +9071,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "7:45 PM for four"
+                "text": "The service is cancelled permanently"
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "7:45 PM for four"
               },
               {
                 "key": "C",
                 "text": "No changes have been made"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: 7:45 PM for four."
           },
           {
@@ -9110,18 +9111,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Contact the reception desk or helpline"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Contact the reception desk or helpline"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người nghe được hướng dẫn liên hệ quầy lễ tân hoặc đường dây nóng nếu cần hỗ trợ thêm."
           }
         ],
@@ -9184,18 +9185,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "B",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "C",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -9228,18 +9229,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
-              },
-              {
-                "key": "B",
                 "text": "Everyone understands the technical details perfectly"
               },
               {
+                "key": "B",
+                "text": "Nobody cares about the topic anymore, according to standardized performance benchmarking metrics"
+              },
+              {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "People often rely on outdated headlines rather than data"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -9252,11 +9253,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Completely furious"
+                "text": "Indifferent"
               },
               {
                 "key": "C",
-                "text": "Indifferent"
+                "text": "Completely furious"
               }
             ],
             "correct": "A",
@@ -9268,18 +9269,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Avoid using any modern technology, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Change careers every three months, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Stay adaptable and continuously update practical skills"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -9339,14 +9340,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Customers and scheduled visitors"
+                "text": "International journalists"
               },
               {
                 "key": "C",
-                "text": "International journalists"
+                "text": "Customers and scheduled visitors"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -9355,18 +9356,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Contact the reception desk or helpline"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Contact the reception desk or helpline"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người nghe được hướng dẫn liên hệ quầy lễ tân hoặc đường dây nóng nếu cần hỗ trợ thêm."
           }
         ],
@@ -9393,11 +9394,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "C",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
             "correct": "A",
@@ -9409,7 +9410,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 4 (David)"
               },
               {
                 "key": "B",
@@ -9417,7 +9418,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Speaker 4 (David)"
+                "text": "Speaker 1 (Sarah)"
               }
             ],
             "correct": "B",
@@ -9429,18 +9430,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "B",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "C",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -9481,7 +9482,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Nobody cares about the topic anymore, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -9493,7 +9494,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
+                "text": "Indifferent"
               },
               {
                 "key": "B",
@@ -9501,10 +9502,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Indifferent"
+                "text": "Cautiously optimistic"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -9513,18 +9514,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Change careers every three months, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Stay adaptable and continuously update practical skills"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Avoid using any modern technology, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -9560,18 +9561,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Screen 3 at 8:15"
-              },
-              {
-                "key": "B",
                 "text": "The service is cancelled permanently"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "No changes have been made"
+              },
+              {
+                "key": "C",
+                "text": "Screen 3 at 8:15"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: Screen 3 at 8:15."
           },
           {
@@ -9580,7 +9581,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
+                "text": "International journalists"
               },
               {
                 "key": "B",
@@ -9588,7 +9589,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "International journalists"
+                "text": "Maintenance engineers only"
               }
             ],
             "correct": "B",
@@ -9604,11 +9605,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -9634,7 +9635,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "B",
@@ -9642,10 +9643,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -9654,18 +9655,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 4 (David)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
-                "text": "Speaker 4 (David)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -9678,14 +9679,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -9722,11 +9723,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Everyone understands the technical details perfectly"
+                "text": "Nobody cares about the topic anymore, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Everyone understands the technical details perfectly"
               }
             ],
             "correct": "A",
@@ -9738,18 +9739,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
+                "text": "Completely furious"
               },
               {
                 "key": "B",
-                "text": "Completely furious"
+                "text": "Cautiously optimistic"
               },
               {
                 "key": "C",
                 "text": "Indifferent"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -9758,18 +9759,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Avoid using any modern technology, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Stay adaptable and continuously update practical skills"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Change careers every three months, according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -9805,18 +9806,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stop at Oak Avenue"
-              },
-              {
-                "key": "B",
                 "text": "The service is cancelled permanently"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "No changes have been made"
+              },
+              {
+                "key": "C",
+                "text": "Stop at Oak Avenue"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: Stop at Oak Avenue."
           },
           {
@@ -9849,11 +9850,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -9883,11 +9884,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "C",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
             "correct": "A",
@@ -9899,18 +9900,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
                 "text": "Speaker 4 (David)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -9923,14 +9924,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -9963,18 +9964,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
+                "text": "Nobody cares about the topic anymore, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "Everyone understands the technical details perfectly"
+                "text": "People often rely on outdated headlines rather than data"
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Everyone understands the technical details perfectly"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -9983,18 +9984,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
+                "text": "Indifferent"
               },
               {
                 "key": "B",
-                "text": "Completely furious"
+                "text": "Cautiously optimistic"
               },
               {
                 "key": "C",
-                "text": "Indifferent"
+                "text": "Completely furious"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -10003,18 +10004,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Avoid using any modern technology, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Change careers every three months, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Stay adaptable and continuously update practical skills"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -10050,7 +10051,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "East Gate entrance"
+                "text": "No changes have been made"
               },
               {
                 "key": "B",
@@ -10058,10 +10059,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "East Gate entrance"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: East Gate entrance."
           },
           {
@@ -10074,14 +10075,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Customers and scheduled visitors"
+                "text": "International journalists"
               },
               {
                 "key": "C",
-                "text": "International journalists"
+                "text": "Customers and scheduled visitors"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -10094,11 +10095,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -10124,7 +10125,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               },
               {
                 "key": "B",
@@ -10132,10 +10133,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -10144,18 +10145,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 2 (Mark)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 4 (David)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -10164,18 +10165,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "B",
-                "text": "Speaker 3 (Elena)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "C",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -10208,7 +10209,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
+                "text": "Nobody cares about the topic anymore, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
@@ -10216,10 +10217,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "People often rely on outdated headlines rather than data"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -10228,18 +10229,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
+                "text": "Indifferent"
               },
               {
                 "key": "B",
-                "text": "Completely furious"
+                "text": "Cautiously optimistic"
               },
               {
                 "key": "C",
-                "text": "Indifferent"
+                "text": "Completely furious"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -10248,18 +10249,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Change careers every three months, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Avoid using any modern technology, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Stay adaptable and continuously update practical skills"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -10295,18 +10296,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Ready after 1 PM"
-              },
-              {
-                "key": "B",
                 "text": "The service is cancelled permanently"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "No changes have been made"
+              },
+              {
+                "key": "C",
+                "text": "Ready after 1 PM"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: Ready after 1 PM."
           },
           {
@@ -10339,11 +10340,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -10369,18 +10370,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
                 "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -10393,14 +10394,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 4 (David)"
               },
               {
                 "key": "C",
-                "text": "Speaker 4 (David)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -10409,18 +10410,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 3 (Elena)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 1 (Sarah)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -10453,18 +10454,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
-              },
-              {
-                "key": "B",
                 "text": "Everyone understands the technical details perfectly"
               },
               {
+                "key": "B",
+                "text": "People often rely on outdated headlines rather than data"
+              },
+              {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Nobody cares about the topic anymore, following rigorous cross-sectional evaluations of sample data"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -10473,7 +10474,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
+                "text": "Indifferent"
               },
               {
                 "key": "B",
@@ -10481,10 +10482,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Indifferent"
+                "text": "Cautiously optimistic"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -10497,11 +10498,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Change careers every three months, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Avoid using any modern technology, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -10540,7 +10541,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Court 2 indoor"
+                "text": "No changes have been made"
               },
               {
                 "key": "B",
@@ -10548,10 +10549,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "Court 2 indoor"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: Court 2 indoor."
           },
           {
@@ -10564,14 +10565,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Customers and scheduled visitors"
+                "text": "International journalists"
               },
               {
                 "key": "C",
-                "text": "International journalists"
+                "text": "Customers and scheduled visitors"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -10584,11 +10585,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -10614,18 +10615,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 2 (Mark)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 3 (Elena)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -10654,7 +10655,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "B",
@@ -10662,7 +10663,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
             "correct": "B",
@@ -10698,18 +10699,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
-              },
-              {
-                "key": "B",
                 "text": "Everyone understands the technical details perfectly"
               },
               {
+                "key": "B",
+                "text": "People often rely on outdated headlines rather than data"
+              },
+              {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Nobody cares about the topic anymore, which remains subject to further departmental verification"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -10742,11 +10743,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Avoid using any modern technology, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Change careers every three months, following rigorous cross-sectional evaluations of sample data"
               }
             ],
             "correct": "A",
@@ -10789,11 +10790,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "No changes have been made"
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "The service is cancelled permanently"
               }
             ],
             "correct": "A",
@@ -10805,7 +10806,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
+                "text": "International journalists"
               },
               {
                 "key": "B",
@@ -10813,7 +10814,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "International journalists"
+                "text": "Maintenance engineers only"
               }
             ],
             "correct": "B",
@@ -10829,11 +10830,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -10859,18 +10860,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
                 "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -10879,7 +10880,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 4 (David)"
               },
               {
                 "key": "B",
@@ -10887,7 +10888,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Speaker 4 (David)"
+                "text": "Speaker 1 (Sarah)"
               }
             ],
             "correct": "B",
@@ -10899,7 +10900,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "B",
@@ -10907,7 +10908,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
             "correct": "B",
@@ -10947,11 +10948,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Everyone understands the technical details perfectly"
+                "text": "Nobody cares about the topic anymore, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "Everyone understands the technical details perfectly"
               }
             ],
             "correct": "A",
@@ -10967,11 +10968,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Completely furious"
+                "text": "Indifferent"
               },
               {
                 "key": "C",
-                "text": "Indifferent"
+                "text": "Completely furious"
               }
             ],
             "correct": "A",
@@ -10983,18 +10984,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Stay adaptable and continuously update practical skills"
+                "text": "Change careers every three months, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Avoid using any modern technology, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Stay adaptable and continuously update practical skills"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia khuyên người trẻ hãy giữ sự linh hoạt và liên tục cập nhật kỹ năng thực tế."
           }
         ],
@@ -11030,18 +11031,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Extended until Sunday"
+                "text": "No changes have been made"
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "Extended until Sunday"
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "The service is cancelled permanently"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông báo xác nhận cụ thể chi tiết quan trọng là: Extended until Sunday."
           },
           {
@@ -11074,11 +11075,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -11104,18 +11105,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 2 (Mark)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 3 (Elena)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 1 (Sarah)"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -11124,18 +11125,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 4 (David)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
-                "text": "Speaker 4 (David)"
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -11144,18 +11145,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 3 (Elena)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 1 (Sarah)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -11188,18 +11189,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
-              },
-              {
-                "key": "B",
                 "text": "Everyone understands the technical details perfectly"
               },
               {
+                "key": "B",
+                "text": "Nobody cares about the topic anymore, primarily due to budgetary constraints and operational overheads"
+              },
+              {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "People often rely on outdated headlines rather than data"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -11208,18 +11209,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
-              },
-              {
-                "key": "B",
                 "text": "Completely furious"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Indifferent"
+              },
+              {
+                "key": "C",
+                "text": "Cautiously optimistic"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -11232,11 +11233,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Change careers every three months, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Avoid using any modern technology, without taking into account prolonged systemic fluctuations"
               }
             ],
             "correct": "A",
@@ -11279,11 +11280,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The service is cancelled permanently"
+                "text": "No changes have been made"
               },
               {
                 "key": "C",
-                "text": "No changes have been made"
+                "text": "The service is cancelled permanently"
               }
             ],
             "correct": "A",
@@ -11295,18 +11296,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Maintenance engineers only"
+                "text": "International journalists"
               },
               {
                 "key": "B",
-                "text": "Customers and scheduled visitors"
+                "text": "Maintenance engineers only"
               },
               {
                 "key": "C",
-                "text": "International journalists"
+                "text": "Customers and scheduled visitors"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Thông báo hướng tới khách hàng và người tham dự đã đặt lịch."
           },
           {
@@ -11319,11 +11320,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Wait until next month"
+                "text": "Send a handwritten postcard"
               },
               {
                 "key": "C",
-                "text": "Send a handwritten postcard"
+                "text": "Wait until next month"
               }
             ],
             "correct": "A",
@@ -11349,18 +11350,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
                 "text": "Speaker 3 (Elena)"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Sarah (Speaker 1) bày tỏ sự ủng hộ mạnh mẽ và nhìn thấy nhiều lợi ích dài hạn."
           },
           {
@@ -11369,18 +11370,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 1 (Sarah)"
+                "text": "Speaker 2 (Mark)"
               },
               {
                 "key": "B",
-                "text": "Speaker 2 (Mark)"
+                "text": "Speaker 1 (Sarah)"
               },
               {
                 "key": "C",
                 "text": "Speaker 4 (David)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Mark (Speaker 2) lo ngại về những chi phí ẩn và trở ngại thực tế khi triển khai."
           },
           {
@@ -11389,18 +11390,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Speaker 2 (Mark)"
-              },
-              {
-                "key": "B",
                 "text": "Speaker 3 (Elena)"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Speaker 1 (Sarah)"
+              },
+              {
+                "key": "C",
+                "text": "Speaker 2 (Mark)"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Elena (Speaker 3) đề xuất cách tiếp cận cân bằng và có quy định rõ ràng."
           }
         ],
@@ -11433,7 +11434,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "People often rely on outdated headlines rather than data"
+                "text": "Nobody cares about the topic anymore, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
@@ -11441,10 +11442,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Nobody cares about the topic anymore"
+                "text": "People often rely on outdated headlines rather than data"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Chuyên gia ngụ ý công chúng thường tin vào các tiêu đề lỗi thời thay vì số liệu thực tế."
           },
           {
@@ -11453,18 +11454,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Cautiously optimistic"
+                "text": "Completely furious"
               },
               {
                 "key": "B",
-                "text": "Completely furious"
+                "text": "Cautiously optimistic"
               },
               {
                 "key": "C",
                 "text": "Indifferent"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Chuyên gia thể hiện thái độ lạc quan một cách thận trọng (cautiously optimistic)."
           },
           {
@@ -11477,11 +11478,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Avoid using any modern technology"
+                "text": "Avoid using any modern technology, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "Change careers every three months"
+                "text": "Change careers every three months, as highlighted during the initial stakeholder orientation phase"
               }
             ],
             "correct": "A",
@@ -11518,63 +11519,108 @@ const LISTENING_TESTS = [
         "questions": [
           {
             "id": 1,
-            "question": "1. According to Sam, what is the biggest myth about multitasking?",
             "options": [
-              "A. It saves up to 40% of working time",
-              "B. The brain actually switches rapidly between tasks rather than doing them simultaneously",
-              "C. Only young people can multitask effectively"
+              {
+                "key": "A",
+                "text": "It saves up to 40% of working time"
+              },
+              {
+                "key": "B",
+                "text": "The brain actually switches rapidly between tasks rather than doing them simultaneously"
+              },
+              {
+                "key": "C",
+                "text": "Only young people can multitask effectively"
+              }
             ],
-            "answer": 1,
             "evidence": "Sam explains that human brains don't truly multitask; instead, they perform rapid 'task-switching', which drains mental energy.",
-            "explain": "Trong bài BBC 6 Minute English, Sam giải thích rằng não người không thực sự làm nhiều việc cùng lúc mà chuyển đổi qua lại nhanh chóng (task-switching), gây hao tổn năng lượng."
+            "text": "1. According to Sam, what is the biggest myth about multitasking?",
+            "correct": 1,
+            "explanation": "Trong bài BBC 6 Minute English, Sam giải thích rằng não người không thực sự làm nhiều việc cùng lúc mà chuyển đổi qua lại nhanh chóng (task-switching), gây hao tổn năng lượng."
           },
           {
             "id": 2,
-            "question": "2. What does the idiom 'burn the midnight oil' mean in the BBC segment?",
             "options": [
-              "A. To waste electricity at night",
-              "B. To work or study late into the night",
-              "C. To feel completely exhausted in the morning"
+              {
+                "key": "A",
+                "text": "To waste electricity at night"
+              },
+              {
+                "key": "B",
+                "text": "To work or study late into the night"
+              },
+              {
+                "key": "C",
+                "text": "To feel completely exhausted in the morning"
+              }
             ],
-            "answer": 1,
             "evidence": "Neil defines 'burn the midnight oil' as working or studying late into the night.",
-            "explain": "Thành ngữ 'burn the midnight oil' có nghĩa là thức khuya làm việc hoặc học bài."
+            "text": "2. What does the idiom 'burn the midnight oil' mean in the BBC segment?",
+            "correct": 1,
+            "explanation": "Thành ngữ 'burn the midnight oil' có nghĩa là thức khuya làm việc hoặc học bài."
           },
           {
             "id": 3,
-            "question": "3. How long does it take to regain deep focus after a brief phone notification?",
             "options": [
-              "A. About 2 minutes",
-              "B. Around 23 minutes",
-              "C. Nearly 1 hour"
+              {
+                "key": "A",
+                "text": "About 2 minutes"
+              },
+              {
+                "key": "B",
+                "text": "Around 23 minutes"
+              },
+              {
+                "key": "C",
+                "text": "Nearly 1 hour"
+              }
             ],
-            "answer": 1,
             "evidence": "Research cited in the programme shows it takes an average of 23 minutes to return to deep focus after an interruption.",
-            "explain": "Nghiên cứu được nhắc tới trong bài chỉ ra mất trung bình 23 phút để lấy lại sự tập trung sâu sau một lần bị ngắt quãng."
+            "text": "3. How long does it take to regain deep focus after a brief phone notification?",
+            "correct": 1,
+            "explanation": "Nghiên cứu được nhắc tới trong bài chỉ ra mất trung bình 23 phút để lấy lại sự tập trung sâu sau một lần bị ngắt quãng."
           },
           {
             "id": 4,
-            "question": "4. What technique does Neil recommend for Active Listening & Studying?",
             "options": [
-              "A. Studying 4 hours straight without breaks",
-              "B. Using 25-minute focused blocks followed by 5-minute breaks",
-              "C. Listening to loud music while memorizing words"
+              {
+                "key": "A",
+                "text": "Studying 4 hours straight without breaks"
+              },
+              {
+                "key": "B",
+                "text": "Using 25-minute focused blocks followed by 5-minute breaks"
+              },
+              {
+                "key": "C",
+                "text": "Listening to loud music while memorizing words"
+              }
             ],
-            "answer": 1,
             "evidence": "Neil recommends the Pomodoro method: 25 minutes of intense focus followed by a 5-minute rest.",
-            "explain": "Neil khuyên dùng phương pháp Pomodoro: 25 phút tập trung cao độ và 5 phút nghỉ ngơi."
+            "text": "4. What technique does Neil recommend for Active Listening & Studying?",
+            "correct": 1,
+            "explanation": "Neil khuyên dùng phương pháp Pomodoro: 25 phút tập trung cao độ và 5 phút nghỉ ngơi."
           },
           {
             "id": 5,
-            "question": "5. What is the key takeaway for English learners at the end of the episode?",
             "options": [
-              "A. Active listening requires taking notes and shadowing key phrases",
-              "B. You only need to study grammar rules once a month",
-              "C. Reading silently is better than listening"
+              {
+                "key": "A",
+                "text": "Active listening requires taking notes and shadowing key phrases"
+              },
+              {
+                "key": "B",
+                "text": "You only need to study grammar rules once a month"
+              },
+              {
+                "key": "C",
+                "text": "Reading silently is better than listening"
+              }
             ],
             "answer": 0,
             "evidence": "Sam concludes that active listening — pausing, shadowing, and noting useful expressions — accelerates fluency.",
-            "explain": "Sam kết luận rằng nghe chủ động (tạm dừng, nhại lại câu và ghi chú cụm từ) giúp tăng tốc độ trôi chảy."
+            "text": "5. What is the key takeaway for English learners at the end of the episode?",
+            "explanation": "Sam kết luận rằng nghe chủ động (tạm dừng, nhại lại câu và ghi chú cụm từ) giúp tăng tốc độ trôi chảy."
           }
         ],
         "transcript": [
@@ -11614,63 +11660,108 @@ const LISTENING_TESTS = [
         "questions": [
           {
             "id": 6,
-            "question": "6. What headline phrase means 'to change the rules or situation completely'?",
             "options": [
-              "A. A game changer",
-              "B. A close call",
-              "C. A silver lining"
+              {
+                "key": "A",
+                "text": "A game changer"
+              },
+              {
+                "key": "B",
+                "text": "A close call"
+              },
+              {
+                "key": "C",
+                "text": "A silver lining"
+              }
             ],
             "answer": 0,
             "evidence": "The presenter highlights 'a game changer' as a key news phrase meaning something that completely transforms a situation.",
-            "explain": "'A game changer' nghĩa là nhân tố làm thay đổi hoàn toàn cục diện."
+            "text": "6. What headline phrase means 'to change the rules or situation completely'?",
+            "explanation": "'A game changer' nghĩa là nhân tố làm thay đổi hoàn toàn cục diện."
           },
           {
             "id": 7,
-            "question": "7. Which skill is predicted to become MOST valuable alongside AI tools?",
             "options": [
-              "A. Manual data entry",
-              "B. Critical thinking and human communication",
-              "C. Memorizing phone numbers"
+              {
+                "key": "A",
+                "text": "Manual data entry"
+              },
+              {
+                "key": "B",
+                "text": "Critical thinking and human communication"
+              },
+              {
+                "key": "C",
+                "text": "Memorizing phone numbers"
+              }
             ],
-            "answer": 1,
             "evidence": "The BBC report emphasizes critical thinking, empathy, and persuasive communication.",
-            "explain": "Báo cáo của BBC nhấn mạnh tư duy phản biện, sự thấu cảm và giao tiếp thuyết phục."
+            "text": "7. Which skill is predicted to become MOST valuable alongside AI tools?",
+            "correct": 1,
+            "explanation": "Báo cáo của BBC nhấn mạnh tư duy phản biện, sự thấu cảm và giao tiếp thuyết phục."
           },
           {
             "id": 8,
-            "question": "8. What does 'upskill' mean in the BBC workplace context?",
             "options": [
-              "A. To quit a job suddenly",
-              "B. To learn new, more advanced skills for work",
-              "C. To reduce working hours"
+              {
+                "key": "A",
+                "text": "To quit a job suddenly"
+              },
+              {
+                "key": "B",
+                "text": "To learn new, more advanced skills for work"
+              },
+              {
+                "key": "C",
+                "text": "To reduce working hours"
+              }
             ],
-            "answer": 1,
             "evidence": "To 'upskill' means teaching or learning additional, higher-level job skills.",
-            "explain": "'Upskill' nghĩa là học thêm kỹ năng mới, nâng cao trình độ nghề nghiệp."
+            "text": "8. What does 'upskill' mean in the BBC workplace context?",
+            "correct": 1,
+            "explanation": "'Upskill' nghĩa là học thêm kỹ năng mới, nâng cao trình độ nghề nghiệp."
           },
           {
             "id": 9,
-            "question": "9. How are universities adapting exams according to the report?",
             "options": [
-              "A. Banning all computers permanently",
-              "B. Adding more oral interviews and real-world problem solving",
-              "C. Canceling English exams"
+              {
+                "key": "A",
+                "text": "Banning all computers permanently"
+              },
+              {
+                "key": "B",
+                "text": "Adding more oral interviews and real-world problem solving"
+              },
+              {
+                "key": "C",
+                "text": "Canceling English exams"
+              }
             ],
-            "answer": 1,
             "evidence": "Universities are shifting toward oral assessments and practical case studies.",
-            "explain": "Các trường đại học đang chuyển dần sang kiểm tra vấn đáp và giải quyết tình huống thực tế."
+            "text": "9. How are universities adapting exams according to the report?",
+            "correct": 1,
+            "explanation": "Các trường đại học đang chuyển dần sang kiểm tra vấn đáp và giải quyết tình huống thực tế."
           },
           {
             "id": 10,
-            "question": "10. What is the tone of the BBC presenter regarding AI?",
             "options": [
-              "A. Cautiously optimistic if workers keep learning",
-              "B. Completely terrified",
-              "C. Indifferent"
+              {
+                "key": "A",
+                "text": "Cautiously optimistic if workers keep learning"
+              },
+              {
+                "key": "B",
+                "text": "Completely terrified"
+              },
+              {
+                "key": "C",
+                "text": "Indifferent"
+              }
             ],
             "answer": 0,
             "evidence": "The presenter remains cautiously optimistic, stressing lifelong learning.",
-            "explain": "Người dẫn chương trình giữ thái độ lạc quan thận trọng nếu người lao động liên tục học hỏi."
+            "text": "10. What is the tone of the BBC presenter regarding AI?",
+            "explanation": "Người dẫn chương trình giữ thái độ lạc quan thận trọng nếu người lao động liên tục học hỏi."
           }
         ],
         "transcript": [
@@ -11716,18 +11807,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of algorithmic bias in understanding artificial intelligence"
+                "text": "Critical investigation into alternative is variables based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "The role of algorithmic bias in understanding artificial intelligence"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative is variables primarily due to budgetary constraints and operational overheads"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'algorithmic bias' đối với chủ đề artificial intelligence."
           },
           {
@@ -11736,18 +11827,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As a type of tropical fruit, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As an obsolete grammar rule, which remains subject to further departmental verification"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thuật ngữ 'algorithmic bias' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -11756,18 +11847,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "How to spell 'encyclopedia', following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "The capital city of Australia, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "A surprising statistical question about global trends"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -11776,18 +11867,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Science cannot explain anything, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Stop learning English immediately, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Awareness and small evidence-based changes make a real difference"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -11829,18 +11920,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of microbiome in understanding digestive health"
+                "text": "Critical investigation into alternative the variables based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "The role of microbiome in understanding digestive health"
               },
               {
                 "key": "C",
                 "text": "Tips for repairing vintage automobiles"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'microbiome' đối với chủ đề digestive health."
           },
           {
@@ -11849,18 +11940,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As a type of tropical fruit, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As an obsolete grammar rule, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thuật ngữ 'microbiome' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -11873,11 +11964,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "The capital city of Australia, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "How to spell 'encyclopedia', following rigorous cross-sectional evaluations of sample data"
               }
             ],
             "correct": "A",
@@ -11893,11 +11984,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Stop learning English immediately, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Science cannot explain anything, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
             "correct": "A",
@@ -11942,18 +12033,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of emotional regulation in understanding time management"
+                "text": "Critical investigation into alternative why variables as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative why variables without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "The role of emotional regulation in understanding time management"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'emotional regulation' đối với chủ đề time management."
           },
           {
@@ -11962,18 +12053,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thuật ngữ 'emotional regulation' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -11982,18 +12073,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "The capital city of Australia, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "A surprising statistical question about global trends"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "How to spell 'encyclopedia', based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -12006,11 +12097,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Science cannot explain anything, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Stop learning English immediately, primarily due to budgetary constraints and operational overheads"
               }
             ],
             "correct": "A",
@@ -12055,18 +12146,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of sustainable fuel in understanding carbon emissions"
+                "text": "Critical investigation into alternative the variables concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "The role of sustainable fuel in understanding carbon emissions"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative the variables despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'sustainable fuel' đối với chủ đề carbon emissions."
           },
           {
@@ -12079,11 +12170,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As an obsolete grammar rule, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a type of tropical fruit, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -12099,11 +12190,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "The capital city of Australia, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "How to spell 'encyclopedia', in accordance with recently revised statutory regulations"
               }
             ],
             "correct": "A",
@@ -12115,18 +12206,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Science cannot explain anything, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Stop learning English immediately, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Awareness and small evidence-based changes make a real difference"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -12168,18 +12259,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of diminishing returns in understanding well-being"
+                "text": "Critical investigation into alternative can variables concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "The role of diminishing returns in understanding well-being"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative can variables according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'diminishing returns' đối với chủ đề well-being."
           },
           {
@@ -12188,18 +12279,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thuật ngữ 'diminishing returns' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -12212,11 +12303,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "The capital city of Australia, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "How to spell 'encyclopedia', under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -12228,18 +12319,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Science cannot explain anything, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Awareness and small evidence-based changes make a real difference"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Stop learning English immediately, as highlighted during the initial stakeholder orientation phase"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -12281,18 +12372,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of mind wandering in understanding creative problem solving"
+                "text": "Critical investigation into alternative benefits variables according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative benefits variables in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "The role of mind wandering in understanding creative problem solving"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'mind wandering' đối với chủ đề creative problem solving."
           },
           {
@@ -12305,11 +12396,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As an obsolete grammar rule, as demonstrated in multiple peer-reviewed observational studies"
               }
             ],
             "correct": "A",
@@ -12321,18 +12412,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "The capital city of Australia, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "A surprising statistical question about global trends"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "How to spell 'encyclopedia', despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -12341,18 +12432,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Stop learning English immediately, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Science cannot explain anything, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Awareness and small evidence-based changes make a real difference"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -12394,18 +12485,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of mycorrhizal network in understanding forest ecology"
+                "text": "Critical investigation into alternative how variables despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "The role of mycorrhizal network in understanding forest ecology"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative how variables following rigorous cross-sectional evaluations of sample data"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'mycorrhizal network' đối với chủ đề forest ecology."
           },
           {
@@ -12414,18 +12505,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thuật ngữ 'mycorrhizal network' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -12434,18 +12525,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "The capital city of Australia, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "A surprising statistical question about global trends"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "How to spell 'encyclopedia', following rigorous cross-sectional evaluations of sample data"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -12454,18 +12545,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Stop learning English immediately, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Awareness and small evidence-based changes make a real difference"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Science cannot explain anything, according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -12507,18 +12598,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of phonetic drift in understanding sociolinguistics"
+                "text": "Critical investigation into alternative why variables as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative why variables as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "The role of phonetic drift in understanding sociolinguistics"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'phonetic drift' đối với chủ đề sociolinguistics."
           },
           {
@@ -12531,11 +12622,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As an obsolete grammar rule, following rigorous cross-sectional evaluations of sample data"
               }
             ],
             "correct": "A",
@@ -12551,11 +12642,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "The capital city of Australia, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "How to spell 'encyclopedia', concerning long-term environmental sustainability and impact"
               }
             ],
             "correct": "A",
@@ -12567,18 +12658,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Science cannot explain anything, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Awareness and small evidence-based changes make a real difference"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Stop learning English immediately, as demonstrated in multiple peer-reviewed observational studies"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -12624,11 +12715,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative science variables despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative science variables which remains subject to further departmental verification"
               }
             ],
             "correct": "A",
@@ -12640,18 +12731,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As a type of tropical fruit, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As an obsolete grammar rule, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thuật ngữ 'dopamine cue' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -12664,11 +12755,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "How to spell 'encyclopedia', based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "The capital city of Australia, which remains subject to further departmental verification"
               }
             ],
             "correct": "A",
@@ -12680,18 +12771,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Stop learning English immediately, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Science cannot explain anything, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Awareness and small evidence-based changes make a real difference"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -12737,11 +12828,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative ocean variables as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative ocean variables despite conflicting preliminary feedback from secondary surveys"
               }
             ],
             "correct": "A",
@@ -12753,18 +12844,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As a type of tropical fruit, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As an obsolete grammar rule, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thuật ngữ 'biodegradable polymers' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -12773,18 +12864,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "How to spell 'encyclopedia', in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "A surprising statistical question about global trends"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "The capital city of Australia, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -12793,18 +12884,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Stop learning English immediately, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Awareness and small evidence-based changes make a real difference"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Science cannot explain anything, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -12846,18 +12937,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of intrinsic drive in understanding goal setting"
+                "text": "Critical investigation into alternative psychology variables as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative psychology variables primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "The role of intrinsic drive in understanding goal setting"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'intrinsic drive' đối với chủ đề goal setting."
           },
           {
@@ -12866,18 +12957,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a type of tropical fruit, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thuật ngữ 'intrinsic drive' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -12886,18 +12977,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "How to spell 'encyclopedia', under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "A surprising statistical question about global trends"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "The capital city of Australia, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -12906,18 +12997,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Science cannot explain anything, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Awareness and small evidence-based changes make a real difference"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Stop learning English immediately, which remains subject to further departmental verification"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -12963,11 +13054,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative urban variables under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative urban variables under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -12979,18 +13070,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As a type of tropical fruit, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As an obsolete grammar rule, as highlighted during the initial stakeholder orientation phase"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thuật ngữ 'biodiversity corridors' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -13003,11 +13094,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "How to spell 'encyclopedia', despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "The capital city of Australia, in accordance with recently revised statutory regulations"
               }
             ],
             "correct": "A",
@@ -13019,18 +13110,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Stop learning English immediately, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Science cannot explain anything, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Awareness and small evidence-based changes make a real difference"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -13076,11 +13167,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative why variables following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative why variables which remains subject to further departmental verification"
               }
             ],
             "correct": "A",
@@ -13092,18 +13183,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a type of tropical fruit, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thuật ngữ 'glymphatic system' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -13116,11 +13207,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "How to spell 'encyclopedia', following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "The capital city of Australia, concerning long-term environmental sustainability and impact"
               }
             ],
             "correct": "A",
@@ -13136,11 +13227,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Stop learning English immediately, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Science cannot explain anything, which remains subject to further departmental verification"
               }
             ],
             "correct": "A",
@@ -13185,18 +13276,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of zero-waste design in understanding recycling"
+                "text": "Tips for repairing vintage automobiles"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "The role of zero-waste design in understanding recycling"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative rise variables which remains subject to further departmental verification"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'zero-waste design' đối với chủ đề recycling."
           },
           {
@@ -13205,18 +13296,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a type of tropical fruit, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thuật ngữ 'zero-waste design' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -13225,18 +13316,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "The capital city of Australia, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "A surprising statistical question about global trends"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "How to spell 'encyclopedia', despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -13249,11 +13340,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Science cannot explain anything, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Stop learning English immediately, concerning long-term environmental sustainability and impact"
               }
             ],
             "correct": "A",
@@ -13302,11 +13393,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative digital variables in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative digital variables under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -13318,18 +13409,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a type of tropical fruit, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thuật ngữ 'attention span' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -13338,18 +13429,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "How to spell 'encyclopedia', based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "A surprising statistical question about global trends"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "The capital city of Australia, without taking into account prolonged systemic fluctuations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -13358,18 +13449,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Stop learning English immediately, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Science cannot explain anything, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Awareness and small evidence-based changes make a real difference"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -13415,11 +13506,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative evolutionary variables following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative evolutionary variables without taking into account prolonged systemic fluctuations"
               }
             ],
             "correct": "A",
@@ -13431,18 +13522,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thuật ngữ 'amygdala response' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -13451,18 +13542,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "How to spell 'encyclopedia', in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "The capital city of Australia, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "A surprising statistical question about global trends"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -13475,11 +13566,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Science cannot explain anything, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Stop learning English immediately, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -13524,18 +13615,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of cellular engineering in understanding biotech"
+                "text": "Critical investigation into alternative future variables without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative future variables based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "The role of cellular engineering in understanding biotech"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'cellular engineering' đối với chủ đề biotech."
           },
           {
@@ -13548,11 +13639,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As an obsolete grammar rule, which remains subject to further departmental verification"
               }
             ],
             "correct": "A",
@@ -13564,18 +13655,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "How to spell 'encyclopedia', under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "The capital city of Australia, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "A surprising statistical question about global trends"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -13584,18 +13675,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Science cannot explain anything, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Stop learning English immediately, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Awareness and small evidence-based changes make a real difference"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -13641,11 +13732,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative surviving variables based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative surviving variables primarily due to budgetary constraints and operational overheads"
               }
             ],
             "correct": "A",
@@ -13657,18 +13748,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thuật ngữ 'reflective surfaces' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -13677,18 +13768,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "The capital city of Australia, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "How to spell 'encyclopedia', despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "A surprising statistical question about global trends"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -13697,18 +13788,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Stop learning English immediately, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Awareness and small evidence-based changes make a real difference"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Science cannot explain anything, in accordance with recently revised statutory regulations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -13750,18 +13841,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of lexical borrowing in understanding digital slang"
+                "text": "Critical investigation into alternative how variables as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative how variables according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "The role of lexical borrowing in understanding digital slang"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'lexical borrowing' đối với chủ đề digital slang."
           },
           {
@@ -13774,11 +13865,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As an obsolete grammar rule, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -13790,18 +13881,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "The capital city of Australia, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "How to spell 'encyclopedia', following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "A surprising statistical question about global trends"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -13814,11 +13905,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Science cannot explain anything, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Stop learning English immediately, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -13863,18 +13954,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of executive function in understanding brain reserve"
+                "text": "Critical investigation into alternative cognitive variables concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "The role of executive function in understanding brain reserve"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative cognitive variables without taking into account prolonged systemic fluctuations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'executive function' đối với chủ đề brain reserve."
           },
           {
@@ -13883,18 +13974,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thuật ngữ 'executive function' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -13903,18 +13994,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "How to spell 'encyclopedia', concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "The capital city of Australia, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "A surprising statistical question about global trends"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -13923,18 +14014,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Science cannot explain anything, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Stop learning English immediately, which remains subject to further departmental verification"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Awareness and small evidence-based changes make a real difference"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -13976,18 +14067,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of mental depletion in understanding daily choices"
+                "text": "Critical investigation into alternative psychology variables despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "The role of mental depletion in understanding daily choices"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative psychology variables according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'mental depletion' đối với chủ đề daily choices."
           },
           {
@@ -14000,11 +14091,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As an obsolete grammar rule, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
             "correct": "A",
@@ -14016,18 +14107,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "The capital city of Australia, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "How to spell 'encyclopedia', based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "A surprising statistical question about global trends"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -14036,18 +14127,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Stop learning English immediately, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Awareness and small evidence-based changes make a real difference"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Science cannot explain anything, as highlighted during the initial stakeholder orientation phase"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -14089,18 +14180,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of melatonin cycle in understanding biological rhythm"
+                "text": "Critical investigation into alternative circadian variables according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Critical investigation into alternative circadian variables concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "The role of melatonin cycle in understanding biological rhythm"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'melatonin cycle' đối với chủ đề biological rhythm."
           },
           {
@@ -14113,11 +14204,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As an obsolete grammar rule, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a type of tropical fruit, following rigorous cross-sectional evaluations of sample data"
               }
             ],
             "correct": "A",
@@ -14129,18 +14220,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "The capital city of Australia, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "How to spell 'encyclopedia', in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "A surprising statistical question about global trends"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -14153,11 +14244,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Science cannot explain anything, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Stop learning English immediately, following rigorous cross-sectional evaluations of sample data"
               }
             ],
             "correct": "A",
@@ -14206,11 +14297,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "Tips for repairing vintage automobiles"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative global variables following rigorous cross-sectional evaluations of sample data"
               }
             ],
             "correct": "A",
@@ -14222,18 +14313,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a type of tropical fruit, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thuật ngữ 'battery storage' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -14242,18 +14333,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "A surprising statistical question about global trends"
+                "text": "How to spell 'encyclopedia', under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "The capital city of Australia, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "A surprising statistical question about global trends"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đúng format BBC 6 Minute English, chương trình luôn mở đầu bằng một câu đố số liệu thú vị."
           },
           {
@@ -14262,18 +14353,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Science cannot explain anything, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Awareness and small evidence-based changes make a real difference"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Stop learning English immediately, without taking into account prolonged systemic fluctuations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -14315,18 +14406,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The role of mirror neurons in understanding social bonding"
+                "text": "Critical investigation into alternative the variables despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "A review of historical royal palaces"
+                "text": "The role of mirror neurons in understanding social bonding"
               },
               {
                 "key": "C",
-                "text": "Tips for repairing vintage automobiles"
+                "text": "Critical investigation into alternative the variables as demonstrated in multiple peer-reviewed observational studies"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hai biên tập viên BBC phân tích vai trò của 'mirror neurons' đối với chủ đề social bonding."
           },
           {
@@ -14335,18 +14426,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
+                "text": "As an obsolete grammar rule, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "As a type of tropical fruit"
+                "text": "As a critical scientific or behavioral mechanism shaping modern outcomes"
               },
               {
                 "key": "C",
-                "text": "As an obsolete grammar rule"
+                "text": "As a type of tropical fruit, following rigorous cross-sectional evaluations of sample data"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thuật ngữ 'mirror neurons' được giải thích là cơ chế khoa học/hành vi quan trọng tạo nên kết quả thực tiễn."
           },
           {
@@ -14359,11 +14450,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "The capital city of Australia"
+                "text": "The capital city of Australia, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "How to spell 'encyclopedia'"
+                "text": "How to spell 'encyclopedia', despite conflicting preliminary feedback from secondary surveys"
               }
             ],
             "correct": "A",
@@ -14375,18 +14466,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Awareness and small evidence-based changes make a real difference"
+                "text": "Stop learning English immediately, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "Science cannot explain anything"
+                "text": "Awareness and small evidence-based changes make a real difference"
               },
               {
                 "key": "C",
-                "text": "Stop learning English immediately"
+                "text": "Science cannot explain anything, following rigorous cross-sectional evaluations of sample data"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông điệp cuối bài là nhận thức đúng và thay đổi nhỏ dựa trên bằng chứng khoa học sẽ tạo ra khác biệt lớn."
           }
         ],
@@ -14425,63 +14516,108 @@ const LISTENING_TESTS = [
         "questions": [
           {
             "id": 1,
-            "question": "1. What does the guest say about 'double texting'?",
             "options": [
-              "A. She sends ten texts in a row every hour",
-              "B. She prefers not to double text unless it is urgent or a close friend",
-              "C. She never uses text messages at all"
+              {
+                "key": "A",
+                "text": "She sends ten texts in a row every hour"
+              },
+              {
+                "key": "B",
+                "text": "She prefers not to double text unless it is urgent or a close friend"
+              },
+              {
+                "key": "C",
+                "text": "She never uses text messages at all"
+              }
             ],
-            "answer": 1,
             "evidence": "In the interview, the guest laughs and explains she would rather wait for a reply than double text someone she just met.",
-            "explain": "Trong buổi phỏng vấn, khách mời chia sẻ cô ấy thích chờ tin nhắn hồi âm hơn là nhắn tin dồn dập (double text) với người mới quen."
+            "text": "1. What does the guest say about 'double texting'?",
+            "correct": 1,
+            "explanation": "Trong buổi phỏng vấn, khách mời chia sẻ cô ấy thích chờ tin nhắn hồi âm hơn là nhắn tin dồn dập (double text) với người mới quen."
           },
           {
             "id": 2,
-            "question": "2. In casual spoken English, what does 'red flag' refer to?",
             "options": [
-              "A. A traffic signal",
-              "B. A warning sign of bad behavior or incompatibility",
-              "C. A favorite fashion color"
+              {
+                "key": "A",
+                "text": "A traffic signal"
+              },
+              {
+                "key": "B",
+                "text": "A warning sign of bad behavior or incompatibility"
+              },
+              {
+                "key": "C",
+                "text": "A favorite fashion color"
+              }
             ],
-            "answer": 1,
             "evidence": "The host asks about dating 'red flags', meaning warning signs in a person's attitude or habits.",
-            "explain": "'Red flag' trong giao tiếp tự nhiên là dấu hiệu cảnh báo tính cách hoặc thói quen không tốt."
+            "text": "2. In casual spoken English, what does 'red flag' refer to?",
+            "correct": 1,
+            "explanation": "'Red flag' trong giao tiếp tự nhiên là dấu hiệu cảnh báo tính cách hoặc thói quen không tốt."
           },
           {
             "id": 3,
-            "question": "3. What helps the guest stay grounded despite a busy global schedule?",
             "options": [
-              "A. Checking social media 24/7",
-              "B. Spending quiet mornings with tea, stretching, and walking her dogs",
-              "C. Skipping meals before concerts"
+              {
+                "key": "A",
+                "text": "Checking social media 24/7"
+              },
+              {
+                "key": "B",
+                "text": "Spending quiet mornings with tea, stretching, and walking her dogs"
+              },
+              {
+                "key": "C",
+                "text": "Skipping meals before concerts"
+              }
             ],
-            "answer": 1,
             "evidence": "She shares that quiet mornings, stretching, and taking her dogs for a walk help her reset.",
-            "explain": "Cô ấy chia sẻ những buổi sáng yên tĩnh, giãn cơ và dắt chó đi dạo giúp cô ấy cân bằng lại."
+            "text": "3. What helps the guest stay grounded despite a busy global schedule?",
+            "correct": 1,
+            "explanation": "Cô ấy chia sẻ những buổi sáng yên tĩnh, giãn cơ và dắt chó đi dạo giúp cô ấy cân bằng lại."
           },
           {
             "id": 4,
-            "question": "4. What does the casual phrase 'I'm totally down for that' mean?",
             "options": [
-              "A. I feel very sad about that",
-              "B. I'm completely ready / enthusiastic to do that",
-              "C. I strongly refuse to do that"
+              {
+                "key": "A",
+                "text": "I feel very sad about that"
+              },
+              {
+                "key": "B",
+                "text": "I'm completely ready / enthusiastic to do that"
+              },
+              {
+                "key": "C",
+                "text": "I strongly refuse to do that"
+              }
             ],
-            "answer": 1,
             "evidence": "'I'm down for that' is a very common native spoken expression meaning 'I agree / I'd love to do that'.",
-            "explain": "'I'm totally down for that' là cách nói tự nhiên của người bản xứ, nghĩa là 'Tôi hoàn toàn hào hứng / đồng ý với việc đó'."
+            "text": "4. What does the casual phrase 'I'm totally down for that' mean?",
+            "correct": 1,
+            "explanation": "'I'm totally down for that' là cách nói tự nhiên của người bản xứ, nghĩa là 'Tôi hoàn toàn hào hứng / đồng ý với việc đó'."
           },
           {
             "id": 5,
-            "question": "5. Why is watching English interviews great for Passive Listening?",
             "options": [
-              "A. You absorb natural intonation, filler words, and relaxed rhythm effortlessly",
-              "B. Interviews only use ancient formal vocabulary",
-              "C. They have no emotional expression"
+              {
+                "key": "A",
+                "text": "You absorb natural intonation, filler words, and relaxed rhythm effortlessly"
+              },
+              {
+                "key": "B",
+                "text": "Interviews only use ancient formal vocabulary"
+              },
+              {
+                "key": "C",
+                "text": "They have no emotional expression"
+              }
             ],
             "answer": 0,
             "evidence": "Passive listening to interviews trains your ear to recognize natural rhythm, contractions, and real spoken fillers.",
-            "explain": "Nghe thụ động qua các buổi phỏng vấn giúp tai quen với ngữ điệu tự nhiên, từ nối âm và nhịp điệu nói thực tế."
+            "text": "5. Why is watching English interviews great for Passive Listening?",
+            "explanation": "Nghe thụ động qua các buổi phỏng vấn giúp tai quen với ngữ điệu tự nhiên, từ nối âm và nhịp điệu nói thực tế."
           }
         ],
         "transcript": [
@@ -14516,63 +14652,108 @@ const LISTENING_TESTS = [
         "questions": [
           {
             "id": 6,
-            "question": "6. What does 'play it by ear' mean in the conversation?",
             "options": [
-              "A. To decide how to deal with a situation as it develops rather than planning ahead",
-              "B. To listen to loud music with headphones",
-              "C. To practice playing the violin"
+              {
+                "key": "A",
+                "text": "To decide how to deal with a situation as it develops rather than planning ahead"
+              },
+              {
+                "key": "B",
+                "text": "To listen to loud music with headphones"
+              },
+              {
+                "key": "C",
+                "text": "To practice playing the violin"
+              }
             ],
             "answer": 0,
             "evidence": "Mark says they won't book strict tours; instead, they'll 'play it by ear' depending on the weather.",
-            "explain": "'Play it by ear' nghĩa là tùy cơ ứng biến, không lên kế hoạch cứng nhắc trước."
+            "text": "6. What does 'play it by ear' mean in the conversation?",
+            "explanation": "'Play it by ear' nghĩa là tùy cơ ứng biến, không lên kế hoạch cứng nhắc trước."
           },
           {
             "id": 7,
-            "question": "7. Why did Elena feel relieved after moving to a smaller neighborhood?",
             "options": [
-              "A. Everything is walkable and people greet each other warmly",
-              "B. Rent doubled immediately",
-              "C. There are no cafes nearby"
+              {
+                "key": "A",
+                "text": "Everything is walkable and people greet each other warmly"
+              },
+              {
+                "key": "B",
+                "text": "Rent doubled immediately"
+              },
+              {
+                "key": "C",
+                "text": "There are no cafes nearby"
+              }
             ],
             "answer": 0,
             "evidence": "Elena loves that she can walk everywhere and chat with friendly neighbors.",
-            "explain": "Elena thích vì mọi thứ đều đi bộ được và hàng xóm thân thiện."
+            "text": "7. Why did Elena feel relieved after moving to a smaller neighborhood?",
+            "explanation": "Elena thích vì mọi thứ đều đi bộ được và hàng xóm thân thiện."
           },
           {
             "id": 8,
-            "question": "8. What does 'call it a day' mean?",
             "options": [
-              "A. To stop working for the rest of the day",
-              "B. To wake up at 5 AM",
-              "C. To phone someone every morning"
+              {
+                "key": "A",
+                "text": "To stop working for the rest of the day"
+              },
+              {
+                "key": "B",
+                "text": "To wake up at 5 AM"
+              },
+              {
+                "key": "C",
+                "text": "To phone someone every morning"
+              }
             ],
             "answer": 0,
             "evidence": "After filming for six hours, the crew decided to 'call it a day'.",
-            "explain": "'Call it a day' nghĩa là kết thúc công việc trong ngày để nghỉ ngơi."
+            "text": "8. What does 'call it a day' mean?",
+            "explanation": "'Call it a day' nghĩa là kết thúc công việc trong ngày để nghỉ ngơi."
           },
           {
             "id": 9,
-            "question": "9. How does Mark describe his favorite podcast habit?",
             "options": [
-              "A. Listening passively while commuting or cooking dinner",
-              "B. Translating every single syllable with a dictionary",
-              "C. Only listening for 10 seconds a week"
+              {
+                "key": "A",
+                "text": "Listening passively while commuting or cooking dinner"
+              },
+              {
+                "key": "B",
+                "text": "Translating every single syllable with a dictionary"
+              },
+              {
+                "key": "C",
+                "text": "Only listening for 10 seconds a week"
+              }
             ],
             "answer": 0,
             "evidence": "Mark listens to native podcasts while on the train or cooking.",
-            "explain": "Mark nghe podcast thụ động khi đi tàu hoặc nấu ăn tối."
+            "text": "9. How does Mark describe his favorite podcast habit?",
+            "explanation": "Mark nghe podcast thụ động khi đi tàu hoặc nấu ăn tối."
           },
           {
             "id": 10,
-            "question": "10. What happens when you combine Active and Passive Listening?",
             "options": [
-              "A. Active builds precision and vocabulary; Passive builds natural speed and comfort",
-              "B. They cancel each other out",
-              "C. You forget your native language"
+              {
+                "key": "A",
+                "text": "Active builds precision and vocabulary; Passive builds natural speed and comfort"
+              },
+              {
+                "key": "B",
+                "text": "They cancel each other out"
+              },
+              {
+                "key": "C",
+                "text": "You forget your native language"
+              }
             ],
             "answer": 0,
             "evidence": "Combining active study with passive immersion develops both accuracy and effortless comprehension.",
-            "explain": "Kết hợp Nghe Chủ Động (tăng độ chính xác & từ vựng) với Nghe Thụ Động (tăng phản xạ tốc độ & sự tự nhiên) mang lại hiệu quả tối ưu."
+            "text": "10. What happens when you combine Active and Passive Listening?",
+            "explanation": "Kết hợp Nghe Chủ Động (tăng độ chính xác & từ vựng) với Nghe Thụ Động (tăng phản xạ tốc độ & sự tự nhiên) mang lại hiệu quả tối ưu."
           }
         ],
         "transcript": [
@@ -14613,18 +14794,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to reading habits & film sets"
+                "text": "They never prepare before walking on set, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "With consistent passion, curiosity, and attention to reading habits & film sets"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They dislike collaborating with other artists, which remains subject to further departmental verification"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào reading habits & film sets."
           },
           {
@@ -14641,7 +14822,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "A formal legal warning, according to standardized performance benchmarking metrics"
               }
             ],
             "correct": "A",
@@ -14653,18 +14834,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
-              },
-              {
-                "key": "B",
                 "text": "Hostile and argumentative"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Robotic and monotone"
+              },
+              {
+                "key": "C",
+                "text": "Warm, candid, and engaging"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -14701,18 +14882,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to handling career pressure"
+                "text": "They dislike collaborating with other artists, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "With consistent passion, curiosity, and attention to handling career pressure"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They never prepare before walking on set, primarily due to budgetary constraints and operational overheads"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào handling career pressure."
           },
           {
@@ -14721,18 +14902,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
-              },
-              {
-                "key": "B",
                 "text": "Physical exhaustion after running"
               },
               {
+                "key": "B",
+                "text": "Genuine emphasis and candid personal reflection"
+              },
+              {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "A formal legal warning, according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -14741,7 +14922,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
+                "text": "Robotic and monotone"
               },
               {
                 "key": "B",
@@ -14749,10 +14930,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Robotic and monotone"
+                "text": "Warm, candid, and engaging"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -14789,18 +14970,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to time dilation in cinema"
+                "text": "They never prepare before walking on set, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They dislike collaborating with other artists, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "With consistent passion, curiosity, and attention to time dilation in cinema"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào time dilation in cinema."
           },
           {
@@ -14817,7 +14998,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "A formal legal warning, according to standardized performance benchmarking metrics"
               }
             ],
             "correct": "A",
@@ -14829,18 +15010,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
-              },
-              {
-                "key": "B",
                 "text": "Hostile and argumentative"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Robotic and monotone"
+              },
+              {
+                "key": "C",
+                "text": "Warm, candid, and engaging"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -14881,11 +15062,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They never prepare before walking on set, which remains subject to further departmental verification"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They dislike collaborating with other artists, which remains subject to further departmental verification"
               }
             ],
             "correct": "A",
@@ -14897,18 +15078,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
+                "text": "A formal legal warning, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "Physical exhaustion after running"
+                "text": "Genuine emphasis and candid personal reflection"
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Physical exhaustion after running"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -14917,18 +15098,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
-              },
-              {
-                "key": "B",
                 "text": "Hostile and argumentative"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Robotic and monotone"
+              },
+              {
+                "key": "C",
+                "text": "Warm, candid, and engaging"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -14969,11 +15150,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They dislike collaborating with other artists, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They never prepare before walking on set, which remains subject to further departmental verification"
               }
             ],
             "correct": "A",
@@ -14989,11 +15170,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Physical exhaustion after running"
+                "text": "A formal legal warning, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Physical exhaustion after running"
               }
             ],
             "correct": "A",
@@ -15005,7 +15186,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
+                "text": "Robotic and monotone"
               },
               {
                 "key": "B",
@@ -15013,10 +15194,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Robotic and monotone"
+                "text": "Warm, candid, and engaging"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -15057,11 +15238,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They never prepare before walking on set, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They dislike collaborating with other artists, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -15073,18 +15254,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
+                "text": "A formal legal warning, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Physical exhaustion after running"
+                "text": "Genuine emphasis and candid personal reflection"
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Physical exhaustion after running"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -15093,18 +15274,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
+                "text": "Hostile and argumentative"
               },
               {
                 "key": "B",
-                "text": "Hostile and argumentative"
+                "text": "Warm, candid, and engaging"
               },
               {
                 "key": "C",
                 "text": "Robotic and monotone"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -15145,11 +15326,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They dislike collaborating with other artists, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They never prepare before walking on set, without taking into account prolonged systemic fluctuations"
               }
             ],
             "correct": "A",
@@ -15165,11 +15346,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Physical exhaustion after running"
+                "text": "A formal legal warning, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Physical exhaustion after running"
               }
             ],
             "correct": "A",
@@ -15181,18 +15362,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
+                "text": "Hostile and argumentative"
               },
               {
                 "key": "B",
-                "text": "Hostile and argumentative"
+                "text": "Warm, candid, and engaging"
               },
               {
                 "key": "C",
                 "text": "Robotic and monotone"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -15229,18 +15410,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to quick-witted banter"
+                "text": "They dislike collaborating with other artists, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They never prepare before walking on set, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "With consistent passion, curiosity, and attention to quick-witted banter"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào quick-witted banter."
           },
           {
@@ -15249,18 +15430,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
+                "text": "A formal legal warning, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Physical exhaustion after running"
+                "text": "Genuine emphasis and candid personal reflection"
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Physical exhaustion after running"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -15321,11 +15502,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They never prepare before walking on set, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They dislike collaborating with other artists, without taking into account prolonged systemic fluctuations"
               }
             ],
             "correct": "A",
@@ -15341,11 +15522,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Physical exhaustion after running"
+                "text": "A formal legal warning, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Physical exhaustion after running"
               }
             ],
             "correct": "A",
@@ -15357,18 +15538,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
+                "text": "Hostile and argumentative"
               },
               {
                 "key": "B",
-                "text": "Hostile and argumentative"
+                "text": "Warm, candid, and engaging"
               },
               {
                 "key": "C",
                 "text": "Robotic and monotone"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -15409,11 +15590,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They dislike collaborating with other artists, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They never prepare before walking on set, as highlighted during the initial stakeholder orientation phase"
               }
             ],
             "correct": "A",
@@ -15425,7 +15606,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
+                "text": "A formal legal warning, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
@@ -15433,10 +15614,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Genuine emphasis and candid personal reflection"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -15445,18 +15626,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
+                "text": "Robotic and monotone"
               },
               {
                 "key": "B",
-                "text": "Hostile and argumentative"
+                "text": "Warm, candid, and engaging"
               },
               {
                 "key": "C",
-                "text": "Robotic and monotone"
+                "text": "Hostile and argumentative"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -15493,18 +15674,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to resilience and humor"
+                "text": "They dislike collaborating with other artists, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They never prepare before walking on set, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "With consistent passion, curiosity, and attention to resilience and humor"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào resilience and humor."
           },
           {
@@ -15513,18 +15694,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
-              },
-              {
-                "key": "B",
                 "text": "Physical exhaustion after running"
               },
               {
+                "key": "B",
+                "text": "A formal legal warning, as highlighted during the initial stakeholder orientation phase"
+              },
+              {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Genuine emphasis and candid personal reflection"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -15537,11 +15718,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Hostile and argumentative"
+                "text": "Robotic and monotone"
               },
               {
                 "key": "C",
-                "text": "Robotic and monotone"
+                "text": "Hostile and argumentative"
               }
             ],
             "correct": "A",
@@ -15585,11 +15766,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They never prepare before walking on set, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They dislike collaborating with other artists, without taking into account prolonged systemic fluctuations"
               }
             ],
             "correct": "A",
@@ -15601,7 +15782,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
+                "text": "A formal legal warning, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
@@ -15609,10 +15790,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Genuine emphasis and candid personal reflection"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -15621,18 +15802,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
+                "text": "Robotic and monotone"
               },
               {
                 "key": "B",
-                "text": "Hostile and argumentative"
+                "text": "Warm, candid, and engaging"
               },
               {
                 "key": "C",
-                "text": "Robotic and monotone"
+                "text": "Hostile and argumentative"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -15673,11 +15854,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They dislike collaborating with other artists, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They never prepare before walking on set, according to standardized performance benchmarking metrics"
               }
             ],
             "correct": "A",
@@ -15689,18 +15870,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
-              },
-              {
-                "key": "B",
                 "text": "Physical exhaustion after running"
               },
               {
+                "key": "B",
+                "text": "A formal legal warning, as highlighted during the initial stakeholder orientation phase"
+              },
+              {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Genuine emphasis and candid personal reflection"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -15713,11 +15894,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Hostile and argumentative"
+                "text": "Robotic and monotone"
               },
               {
                 "key": "C",
-                "text": "Robotic and monotone"
+                "text": "Hostile and argumentative"
               }
             ],
             "correct": "A",
@@ -15757,18 +15938,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to working with visionary directors"
+                "text": "They never prepare before walking on set, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They dislike collaborating with other artists, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "With consistent passion, curiosity, and attention to working with visionary directors"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào working with visionary directors."
           },
           {
@@ -15777,7 +15958,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
+                "text": "A formal legal warning, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
@@ -15785,10 +15966,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "Genuine emphasis and candid personal reflection"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -15801,11 +15982,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Hostile and argumentative"
+                "text": "Robotic and monotone"
               },
               {
                 "key": "C",
-                "text": "Robotic and monotone"
+                "text": "Hostile and argumentative"
               }
             ],
             "correct": "A",
@@ -15845,18 +16026,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to conveying emotion solely by voice"
+                "text": "They never prepare before walking on set, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "With consistent passion, curiosity, and attention to conveying emotion solely by voice"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They dislike collaborating with other artists, in accordance with recently revised statutory regulations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào conveying emotion solely by voice."
           },
           {
@@ -15865,18 +16046,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
-              },
-              {
-                "key": "B",
                 "text": "Physical exhaustion after running"
               },
               {
+                "key": "B",
+                "text": "Genuine emphasis and candid personal reflection"
+              },
+              {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "A formal legal warning, as highlighted during the initial stakeholder orientation phase"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -15885,18 +16066,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
-              },
-              {
-                "key": "B",
                 "text": "Hostile and argumentative"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Robotic and monotone"
+              },
+              {
+                "key": "C",
+                "text": "Warm, candid, and engaging"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -15933,18 +16114,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to biodiversity documentaries"
+                "text": "They dislike collaborating with other artists, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "With consistent passion, curiosity, and attention to biodiversity documentaries"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They never prepare before walking on set, as demonstrated in multiple peer-reviewed observational studies"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào biodiversity documentaries."
           },
           {
@@ -15961,7 +16142,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "A formal legal warning, as highlighted during the initial stakeholder orientation phase"
               }
             ],
             "correct": "A",
@@ -15973,7 +16154,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
+                "text": "Robotic and monotone"
               },
               {
                 "key": "B",
@@ -15981,10 +16162,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Robotic and monotone"
+                "text": "Warm, candid, and engaging"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -16021,18 +16202,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to mentorship and confidence"
+                "text": "They never prepare before walking on set, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "With consistent passion, curiosity, and attention to mentorship and confidence"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They dislike collaborating with other artists, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào mentorship and confidence."
           },
           {
@@ -16041,18 +16222,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
-              },
-              {
-                "key": "B",
                 "text": "Physical exhaustion after running"
               },
               {
+                "key": "B",
+                "text": "Genuine emphasis and candid personal reflection"
+              },
+              {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "A formal legal warning, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -16061,7 +16242,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
+                "text": "Robotic and monotone"
               },
               {
                 "key": "B",
@@ -16069,10 +16250,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Robotic and monotone"
+                "text": "Warm, candid, and engaging"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -16109,18 +16290,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to daily vocal warmups"
+                "text": "They dislike collaborating with other artists, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "With consistent passion, curiosity, and attention to daily vocal warmups"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "They never prepare before walking on set, primarily due to budgetary constraints and operational overheads"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào daily vocal warmups."
           },
           {
@@ -16137,7 +16318,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "A formal legal warning, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -16149,18 +16330,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
-              },
-              {
-                "key": "B",
                 "text": "Hostile and argumentative"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Robotic and monotone"
+              },
+              {
+                "key": "C",
+                "text": "Warm, candid, and engaging"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -16197,18 +16378,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "With consistent passion, curiosity, and attention to rehearsal spontaneity"
+                "text": "They never prepare before walking on set, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "They never prepare before walking on set"
+                "text": "They dislike collaborating with other artists, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "They dislike collaborating with other artists"
+                "text": "With consistent passion, curiosity, and attention to rehearsal spontaneity"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Khách mời chia sẻ về sự đam mê bền bỉ, tò mò học hỏi và chú trọng vào rehearsal spontaneity."
           },
           {
@@ -16217,18 +16398,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Genuine emphasis and candid personal reflection"
-              },
-              {
-                "key": "B",
                 "text": "Physical exhaustion after running"
               },
               {
+                "key": "B",
+                "text": "Genuine emphasis and candid personal reflection"
+              },
+              {
                 "key": "C",
-                "text": "A formal legal warning"
+                "text": "A formal legal warning, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Trong giao tiếp tự nhiên, các cụm từ này thể hiện sự nhấn mạnh chân thành và cởi mở."
           },
           {
@@ -16237,7 +16418,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Warm, candid, and engaging"
+                "text": "Robotic and monotone"
               },
               {
                 "key": "B",
@@ -16245,10 +16426,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Robotic and monotone"
+                "text": "Warm, candid, and engaging"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Cuộc trò chuyện mang sắc thái ấm áp, thẳng thắn và cuốn hút đặc trưng của talk show."
           }
         ],
@@ -16284,7 +16465,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "football"
+                "text": "basketball"
               },
               {
                 "key": "B",
@@ -16292,10 +16473,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "basketball"
+                "text": "football"
               }
             ],
-            "correct": "C",
+            "correct": "A",
             "explanation": "Andrea nói: 'I've always loved sport though, and have played basketball since I was five or six. I gave that up for a while when I got into football about five years ago... ice hockey not until about three years ago'. Môn đầu tiên cô ấy chơi là bóng rổ (basketball lúc 5-6 tuổi)."
           },
           {
@@ -16304,18 +16485,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "watching a family member play."
+                "text": "seeing a game on television."
               },
               {
                 "key": "B",
-                "text": "seeing a game on television."
+                "text": "watching a family member play."
               },
               {
                 "key": "C",
                 "text": "talking about it with her friends."
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Andrea chia sẻ: 'My brother's into it, and I used to go to his games. His team wasn't very good though, so I didn't think of it as something I actually wanted to do. That moment came when there was a professional match on a sports program I was watching. I knew then I wanted to try it'."
           },
           {
@@ -16328,11 +16509,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "It proves there are many girls playing the sport."
+                "text": "It increases respect for female players."
               },
               {
                 "key": "C",
-                "text": "It increases respect for female players."
+                "text": "It proves there are many girls playing the sport."
               }
             ],
             "correct": "A",
@@ -16459,18 +16640,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "He was encouraged by his father to take part."
+                "text": "He wanted to prove his friends wrong."
               },
               {
                 "key": "B",
-                "text": "He wanted to prove his friends wrong."
+                "text": "He was encouraged by his father to take part."
               },
               {
                 "key": "C",
                 "text": "He was inspired by a celebrity’s achievements."
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "John chia sẻ: 'what finally made me get my running shoes out was my mates' attitude. They reckoned I was far too lazy to complete any race at all, so I was determined to show them I could do it' (đám bạn nghĩ anh quá lười, anh muốn chứng minh họ đã sai)."
           },
           {
@@ -16483,14 +16664,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "leave himself enough time to build up his fitness."
+                "text": "set targets that he felt were realistic."
               },
               {
                 "key": "C",
-                "text": "set targets that he felt were realistic."
+                "text": "leave himself enough time to build up his fitness."
               }
             ],
-            "correct": "C",
+            "correct": "B",
             "explanation": "John nói: 'First of all, I drew up a 12-week training plan, and built in goals I thought would be manageable' (manageable = realistic, các mục tiêu thực tế vừa sức)."
           },
           {
@@ -16499,7 +16680,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "fitting it in around his usual school schedule."
+                "text": "making himself run in cold weather before school."
               },
               {
                 "key": "B",
@@ -16507,10 +16688,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "making himself run in cold weather before school."
+                "text": "fitting it in around his usual school schedule."
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "John nói: 'Getting back home again in time for the school bus caused problems though, and when I got home from school after 4pm, it was really too dark to run' (sắp xếp lịch chạy khớp với giờ xe buýt và lịch học trường)."
           },
           {
@@ -16523,11 +16704,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "left it almost too late to adopt a suitable diet."
+                "text": "was unwilling to give up his favourite foods."
               },
               {
                 "key": "C",
-                "text": "was unwilling to give up his favourite foods."
+                "text": "left it almost too late to adopt a suitable diet."
               }
             ],
             "correct": "A",
@@ -16539,7 +16720,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The atmosphere was much more positive than he’d expected."
+                "text": "Some people in the crowd were there to support him personally."
               },
               {
                 "key": "B",
@@ -16547,10 +16728,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Some people in the crowd were there to support him personally."
+                "text": "The atmosphere was much more positive than he’d expected."
               }
             ],
-            "correct": "C",
+            "correct": "A",
             "explanation": "John kể: 'I actually spotted my mates holding up a sign with my name on. That really made me determined to finish the race' (bạn bè đứng trong đám đông cầm bảng cổ vũ tên riêng của anh ấy)."
           }
         ],
@@ -16645,7 +16826,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The zoo has built a new dog-walking area."
+                "text": "The zoo has expanded its exhibition area."
               },
               {
                 "key": "B",
@@ -16653,7 +16834,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "The zoo has expanded its exhibition area."
+                "text": "The zoo has built a new dog-walking area."
               }
             ],
             "correct": "B",
@@ -16665,11 +16846,11 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The zoo is not open during the weekdays."
+                "text": "Visitors are allowed to feed the animals at night"
               },
               {
                 "key": "B",
-                "text": "Visitors are allowed to feed the animals at night"
+                "text": "The zoo is not open during the weekdays, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
@@ -16685,18 +16866,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Photo-taking"
+                "text": "Feeding"
               },
               {
                 "key": "B",
-                "text": "Shouting"
+                "text": "Photo-taking"
               },
               {
                 "key": "C",
-                "text": "Feeding"
+                "text": "Shouting"
               }
             ],
-            "correct": "C",
+            "correct": "A",
             "explanation": "Đáp án chính thức: 13. C. Hướng dẫn viên nhấn mạnh: 'Please remember, when visiting the kangaroo, feeding them is strictly forbidden'."
           },
           {
@@ -16705,7 +16886,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Because the fence is broken."
+                "text": "Because the pye-dog zone is under construction."
               },
               {
                 "key": "B",
@@ -16713,10 +16894,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Because the pye-dog zone is under construction."
+                "text": "Because the fence is broken."
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đáp án chính thức: 14. A. Hướng dẫn viên nói: 'the pye-dog enclosure is temporarily closed today because the perimeter fence is broken and undergoing repair'."
           },
           {
@@ -16725,18 +16906,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Gift shop"
+                "text": "Reception desk"
               },
               {
                 "key": "B",
-                "text": "Photo shop"
+                "text": "Gift shop"
               },
               {
                 "key": "C",
-                "text": "Reception desk"
+                "text": "Photo shop"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Đáp án chính thức: 15. B. Hướng dẫn viên chỉ dẫn: 'discounted tickets for special sessions can be purchased directly at the Photo Shop'."
           },
           {
@@ -16978,18 +17159,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "guitar"
+                "text": "violin"
               },
               {
                 "key": "B",
-                "text": "piano"
+                "text": "guitar"
               },
               {
                 "key": "C",
-                "text": "violin"
+                "text": "piano"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "David chia sẻ: 'My parents bought an upright piano when I was six, and that was the very first instrument I touched, long before I tried the guitar in high school'."
           },
           {
@@ -16998,18 +17179,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "his music teacher strongly encouraged him."
+                "text": "attending a live concert by a famous pianist."
               },
               {
                 "key": "B",
-                "text": "seeing an advertisement on social media."
+                "text": "his music teacher strongly encouraged him."
               },
               {
                 "key": "C",
-                "text": "attending a live concert by a famous pianist."
+                "text": "seeing an advertisement on social media."
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "David nói: 'I was hesitant at first, but my school music teacher Mrs. Harrison convinced me that my technique was ready and urged me to submit an audition tape'."
           },
           {
@@ -17022,14 +17203,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "energized by the crowd's reaction"
+                "text": "uncomfortable under bright stage lights"
               },
               {
                 "key": "C",
-                "text": "uncomfortable under bright stage lights"
+                "text": "energized by the crowd's reaction"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "David nói: 'Once I hit the first chord, all fear vanished; seeing the audience engaged actually gives me an incredible surge of energy'."
           },
           {
@@ -17042,14 +17223,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "balancing practice hours with school exams"
+                "text": "traveling long distances for masterclasses"
               },
               {
                 "key": "C",
-                "text": "traveling long distances for masterclasses"
+                "text": "balancing practice hours with school exams"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "David nhấn mạnh: 'The hardest challenge was definitely managing my schedule—I had final term exams while trying to practice 4 hours every evening'."
           },
           {
@@ -17058,18 +17239,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "join a touring orchestra abroad"
-              },
-              {
-                "key": "B",
                 "text": "release a solo commercial album"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "complete his formal degree in music composition"
+              },
+              {
+                "key": "C",
+                "text": "join a touring orchestra abroad"
               }
             ],
-            "correct": "C",
+            "correct": "B",
             "explanation": "David khẳng định: 'Although there are tour offers, my priority is completing my music degree at university before launching a full-time professional career'."
           }
         ],
@@ -17138,18 +17319,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "to raise funds for marine conservation"
+                "text": "to break an amateur speed record"
               },
               {
                 "key": "B",
-                "text": "to break an amateur speed record"
+                "text": "to raise funds for marine conservation"
               },
               {
                 "key": "C",
                 "text": "to test a prototype touring bicycle"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Sarah giải thích: 'My primary goal was raising donations for a coastal marine charity protecting coral reefs'."
           },
           {
@@ -17158,7 +17339,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "pedaling against powerful coastal headwinds"
+                "text": "enduring heavy torrential afternoon rain"
               },
               {
                 "key": "B",
@@ -17166,10 +17347,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "enduring heavy torrential afternoon rain"
+                "text": "pedaling against powerful coastal headwinds"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Sarah nói: 'The coastal gale headwinds were relentless; on day three, pedaling felt like pushing against a solid brick wall'."
           },
           {
@@ -17182,14 +17363,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "pitched a lightweight tent at coastal campsites"
+                "text": "stayed exclusively with local host families"
               },
               {
                 "key": "C",
-                "text": "stayed exclusively with local host families"
+                "text": "pitched a lightweight tent at coastal campsites"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Sarah kể: 'To keep expenses low, I carried a compact tent and camped overnight at designated public campsites along beaches'."
           },
           {
@@ -17202,14 +17383,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "snacked frequently on nuts, oats, and bananas"
+                "text": "relied solely on liquid protein shakes"
               },
               {
                 "key": "C",
-                "text": "relied solely on liquid protein shakes"
+                "text": "snacked frequently on nuts, oats, and bananas"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Sarah chia sẻ: 'Instead of huge meals that make you sluggish, I munched small portions of oats, bananas, and almonds every 45 minutes'."
           },
           {
@@ -17218,18 +17399,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "always travel in large organized pelotons"
+                "text": "purchase top-tier carbon-fiber equipment"
               },
               {
                 "key": "B",
-                "text": "master basic bicycle maintenance before departure"
+                "text": "always travel in large organized pelotons"
               },
               {
                 "key": "C",
-                "text": "purchase top-tier carbon-fiber equipment"
+                "text": "master basic bicycle maintenance before departure"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Sarah khuyên: 'Knowing how to patch a punctured tire and adjust a chain yourself is essential; you can't rely on bike shops in remote areas'."
           }
         ],
@@ -17299,18 +17480,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Historical cipher and cryptology machines"
-              },
-              {
-                "key": "B",
                 "text": "Ancient military armor and weaponry"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Aviation surveillance history"
+              },
+              {
+                "key": "C",
+                "text": "Historical cipher and cryptology machines"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Hướng dẫn viên giới thiệu: 'Our newest permanent exhibition focuses on historical cipher machines and cryptology'."
           },
           {
@@ -17319,18 +17500,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "6:00 PM"
-              },
-              {
-                "key": "B",
                 "text": "8:30 PM"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "10:00 PM"
+              },
+              {
+                "key": "C",
+                "text": "6:00 PM"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Thông báo nêu rõ: 'Weekend hours are now extended to 8:30 PM to accommodate evening guided tours'."
           },
           {
@@ -17339,18 +17520,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Wearing backpacks"
-              },
-              {
-                "key": "B",
                 "text": "Taking flash photography"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Carrying sketchbooks"
+              },
+              {
+                "key": "C",
+                "text": "Wearing backpacks"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Quy định nêu rõ: 'Flash photography is strictly banned to preserve ancient parchment documents'."
           },
           {
@@ -17359,18 +17540,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Structural floor resurfacing"
+                "text": "Private diplomatic reception"
               },
               {
                 "key": "B",
-                "text": "Excessive wind speeds"
+                "text": "Structural floor resurfacing"
               },
               {
                 "key": "C",
-                "text": "Private diplomatic reception"
+                "text": "Excessive wind speeds"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Hướng dẫn viên thông báo: 'The rooftop observation deck is temporarily closed for floor resurfacing'."
           },
           {
@@ -17379,18 +17560,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Security checkpoint"
-              },
-              {
-                "key": "B",
                 "text": "Information Desk"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "Gift store"
+              },
+              {
+                "key": "C",
+                "text": "Security checkpoint"
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Hướng dẫn viên cho biết: 'Students can present ID at the Information Desk to receive free audio headsets'."
           },
           {
@@ -17632,22 +17813,22 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "At a crowded airport terminal"
+                "text": "Inside a hotel lobby"
               },
               {
                 "key": "B",
-                "text": "In a university lecture hall"
-              },
-              {
-                "key": "C",
                 "text": "At a central train station"
               },
               {
+                "key": "C",
+                "text": "At a crowded airport terminal"
+              },
+              {
                 "key": "D",
-                "text": "Inside a hotel lobby"
+                "text": "In a university lecture hall"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Người phụ nữ thông báo: 'Passengers for flight VN-234 to Da Nang, please proceed to Gate 12 immediately for final boarding'. Tiếng loa phát thanh chuyến bay và gate xác nhận địa điểm là sân bay (airport terminal)."
           },
           {
@@ -17660,18 +17841,18 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "At 9:45 AM"
-              },
-              {
-                "key": "C",
                 "text": "At 10:00 AM"
               },
               {
-                "key": "D",
+                "key": "C",
                 "text": "At 10:30 AM"
+              },
+              {
+                "key": "D",
+                "text": "At 9:45 AM"
               }
             ],
-            "correct": "B",
+            "correct": "D",
             "explanation": "Giáo sư thông báo: 'The seminar was scheduled for 9:15, but because the keynote speaker's flight was delayed, we will push the start back by thirty minutes to a quarter to ten'. 9:15 + 30 phút = 9:45 AM (a quarter to ten)."
           },
           {
@@ -17680,7 +17861,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The poor air conditioning in her room"
+                "text": "The slow Wi-Fi internet connection"
               },
               {
                 "key": "B",
@@ -17692,10 +17873,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "D",
-                "text": "The slow Wi-Fi internet connection"
+                "text": "The poor air conditioning in her room"
               }
             ],
-            "correct": "D",
+            "correct": "A",
             "explanation": "Người phụ nữ phàn nàn: 'I've been trying to submit my report for over an hour, but the wireless signal keeps dropping every two minutes. It's dreadfully slow!'"
           },
           {
@@ -17708,7 +17889,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "He would have to relocate to another city."
+                "text": "The working hours were too rigid."
               },
               {
                 "key": "C",
@@ -17716,10 +17897,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "D",
-                "text": "The working hours were too rigid."
+                "text": "He would have to relocate to another city."
               }
             ],
-            "correct": "B",
+            "correct": "D",
             "explanation": "Người đàn ông nói: 'The package was quite generous, but they insisted that I move to their Da Nang branch next month. With my family settled in Hanoi, relocation was out of the question'."
           },
           {
@@ -17732,18 +17913,18 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Interview visitors at the history museum"
-              },
-              {
-                "key": "C",
                 "text": "Collect plastic waste along the coastline"
               },
               {
-                "key": "D",
+                "key": "C",
                 "text": "Visit a high-tech solar power plant"
+              },
+              {
+                "key": "D",
+                "text": "Interview visitors at the history museum"
               }
             ],
-            "correct": "C",
+            "correct": "B",
             "explanation": "Trưởng nhóm phổ biến: 'Don't forget your gloves and boots. We'll be joining the local community to clear plastic waste along the beach'."
           }
         ],
@@ -17782,7 +17963,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Microplastic pollution in freshwater river systems"
+                "text": "Reforestation strategies in mountainous areas"
               },
               {
                 "key": "B",
@@ -17790,14 +17971,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "Reforestation strategies in mountainous areas"
+                "text": "Urban rooftop gardens and local biodiversity"
               },
               {
                 "key": "D",
-                "text": "Urban rooftop gardens and local biodiversity"
+                "text": "Microplastic pollution in freshwater river systems"
               }
             ],
-            "correct": "A",
+            "correct": "D",
             "explanation": "Sarah mở đầu: 'Our assignment specifically asks us to analyze how synthetic fibers and microplastics contaminate urban freshwater lakes and rivers'."
           },
           {
@@ -17806,22 +17987,22 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Liam will create slides while Sarah gives the entire speech."
-              },
-              {
-                "key": "B",
-                "text": "Sarah will present data analysis and Liam will discuss policy solutions."
-              },
-              {
-                "key": "C",
                 "text": "They will take turns speaking for equal five-minute intervals."
               },
               {
+                "key": "B",
+                "text": "They will invite an external guest speaker, based on conventional assumptions of consumer market behavior"
+              },
+              {
+                "key": "C",
+                "text": "Liam will create slides while Sarah gives the entire speech."
+              },
+              {
                 "key": "D",
-                "text": "They will invite an external guest speaker."
+                "text": "Sarah will present data analysis and Liam will discuss policy solutions."
               }
             ],
-            "correct": "B",
+            "correct": "D",
             "explanation": "Liam đề xuất: 'Why don't you cover the laboratory sample findings and statistical charts, while I handle government regulations and mitigation solutions?' Sarah đồng ý: 'That sounds perfect'."
           }
         ],
@@ -17872,14 +18053,14 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "A memorable hiking trip with his grandfather"
+                "text": "Watching nature documentaries on television"
               },
               {
                 "key": "C",
-                "text": "Watching nature documentaries on television"
+                "text": "A memorable hiking trip with his grandfather"
               }
             ],
-            "correct": "B",
+            "correct": "C",
             "explanation": "Marcus giải thích: 'People often think I read lots of adventure books, but the turning point was when my grandfather took me trekking in the Highlands when I was ten. Standing on that summit changed my perspective entirely'."
           },
           {
@@ -17888,18 +18069,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Never hike without satellite navigation devices."
+                "text": "Always prioritize physical safety over reaching the peak."
               },
               {
                 "key": "B",
-                "text": "Always prioritize physical safety over reaching the peak."
+                "text": "Never hike without satellite navigation devices."
               },
               {
                 "key": "C",
                 "text": "Maintain an uninterrupted fast climbing pace."
               }
             ],
-            "correct": "B",
+            "correct": "A",
             "explanation": "Marcus nhấn mạnh: 'Reaching the summit is optional; coming back down safely is mandatory. I tell every climber that your ego must never overrule safety judgment'."
           }
         ],
@@ -17941,18 +18122,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Updated procedures and schedules for New Science Wing"
-              },
-              {
-                "key": "B",
                 "text": "Permanent cancellation of all activities"
               },
               {
+                "key": "B",
+                "text": "A change in national currency, without taking into account prolonged systemic fluctuations"
+              },
+              {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "Updated procedures and schedules for New Science Wing"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông báo trình bày quy trình và lịch trình cập nhật liên quan đến New Science Wing."
           },
           {
@@ -17961,18 +18142,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Starting next Monday morning at 8:00 AM"
+                "text": "It already ended last winter"
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "Starting next Monday morning at 8:00 AM"
               },
               {
                 "key": "C",
-                "text": "It already ended last winter"
+                "text": "In five years' time, without taking into account prolonged systemic fluctuations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Lịch mới bắt đầu có hiệu lực từ 8 giờ sáng thứ Hai tuần tới."
           },
           {
@@ -17981,7 +18162,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The administrative coordinator via email"
+                "text": "An automated weather hotline"
               },
               {
                 "key": "B",
@@ -17989,10 +18170,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "An automated weather hotline"
+                "text": "The administrative coordinator via email"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Người tham gia cần liên hệ điều phối viên hành chính qua email để được hỗ trợ đặc biệt."
           }
         ],
@@ -18015,18 +18196,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Balancing rapid innovation with strict reliability standards"
+                "text": "Finding enough paperclips, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Balancing rapid innovation with strict reliability standards"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Convincing people that gravity exists, following rigorous cross-sectional evaluations of sample data"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thách thức cốt lõi là cân bằng giữa đổi mới nhanh chóng và tiêu chuẩn độ tin cậy nghiêm ngặt."
           },
           {
@@ -18039,11 +18220,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Closing all universities, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Pure luck without planning, under specific experimental conditions evaluated by the committee"
               }
             ],
             "correct": "A",
@@ -18055,18 +18236,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Wider adoption and stronger regulatory frameworks"
+                "text": "Return to 19th-century methods, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "Complete disappearance of the field"
+                "text": "Wider adoption and stronger regulatory frameworks"
               },
               {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Complete disappearance of the field"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Diễn giả kỳ vọng sự ứng dụng rộng rãi hơn cùng khung pháp lý chặt chẽ hơn trong thập kỷ tới."
           }
         ],
@@ -18097,18 +18278,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Updated procedures and schedules for Carbon Pricing"
-              },
-              {
-                "key": "B",
                 "text": "Permanent cancellation of all activities"
               },
               {
+                "key": "B",
+                "text": "Updated procedures and schedules for Carbon Pricing"
+              },
+              {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "A change in national currency, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông báo trình bày quy trình và lịch trình cập nhật liên quan đến Carbon Pricing."
           },
           {
@@ -18117,18 +18298,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Starting next Monday morning at 8:00 AM"
+                "text": "It already ended last winter"
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "Starting next Monday morning at 8:00 AM"
               },
               {
                 "key": "C",
-                "text": "It already ended last winter"
+                "text": "In five years' time, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Lịch mới bắt đầu có hiệu lực từ 8 giờ sáng thứ Hai tuần tới."
           },
           {
@@ -18175,11 +18356,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Finding enough paperclips, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Convincing people that gravity exists, concerning long-term environmental sustainability and impact"
               }
             ],
             "correct": "A",
@@ -18191,18 +18372,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Systematic training and international cooperation"
+                "text": "Pure luck without planning, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Closing all universities, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Systematic training and international cooperation"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đào tạo bài bản và hợp tác quốc tế là nhân tố chính thúc đẩy tiến bộ gần đây."
           },
           {
@@ -18211,18 +18392,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Wider adoption and stronger regulatory frameworks"
+                "text": "Return to 19th-century methods, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "B",
-                "text": "Complete disappearance of the field"
+                "text": "Wider adoption and stronger regulatory frameworks"
               },
               {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Complete disappearance of the field"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Diễn giả kỳ vọng sự ứng dụng rộng rãi hơn cùng khung pháp lý chặt chẽ hơn trong thập kỷ tới."
           }
         ],
@@ -18257,11 +18438,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Permanent cancellation of all activities"
+                "text": "A change in national currency, as highlighted during the initial stakeholder orientation phase"
               },
               {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "Permanent cancellation of all activities"
               }
             ],
             "correct": "A",
@@ -18273,18 +18454,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Starting next Monday morning at 8:00 AM"
+                "text": "It already ended last winter"
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "Starting next Monday morning at 8:00 AM"
               },
               {
                 "key": "C",
-                "text": "It already ended last winter"
+                "text": "In five years' time, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Lịch mới bắt đầu có hiệu lực từ 8 giờ sáng thứ Hai tuần tới."
           },
           {
@@ -18293,7 +18474,7 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The administrative coordinator via email"
+                "text": "An automated weather hotline"
               },
               {
                 "key": "B",
@@ -18301,10 +18482,10 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "An automated weather hotline"
+                "text": "The administrative coordinator via email"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Người tham gia cần liên hệ điều phối viên hành chính qua email để được hỗ trợ đặc biệt."
           }
         ],
@@ -18331,11 +18512,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Finding enough paperclips, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Convincing people that gravity exists, based on conventional assumptions of consumer market behavior"
               }
             ],
             "correct": "A",
@@ -18347,18 +18528,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Systematic training and international cooperation"
+                "text": "Closing all universities, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Systematic training and international cooperation"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Pure luck without planning, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đào tạo bài bản và hợp tác quốc tế là nhân tố chính thúc đẩy tiến bộ gần đây."
           },
           {
@@ -18371,11 +18552,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Complete disappearance of the field"
+                "text": "Return to 19th-century methods, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Complete disappearance of the field"
               }
             ],
             "correct": "A",
@@ -18409,18 +18590,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Updated procedures and schedules for Data Encryption"
-              },
-              {
-                "key": "B",
                 "text": "Permanent cancellation of all activities"
               },
               {
+                "key": "B",
+                "text": "A change in national currency, concerning long-term environmental sustainability and impact"
+              },
+              {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "Updated procedures and schedules for Data Encryption"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông báo trình bày quy trình và lịch trình cập nhật liên quan đến Data Encryption."
           },
           {
@@ -18429,18 +18610,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Starting next Monday morning at 8:00 AM"
+                "text": "It already ended last winter"
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "Starting next Monday morning at 8:00 AM"
               },
               {
                 "key": "C",
-                "text": "It already ended last winter"
+                "text": "In five years' time, as highlighted during the initial stakeholder orientation phase"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Lịch mới bắt đầu có hiệu lực từ 8 giờ sáng thứ Hai tuần tới."
           },
           {
@@ -18449,18 +18630,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The administrative coordinator via email"
+                "text": "The local fire department"
               },
               {
                 "key": "B",
-                "text": "The local fire department"
+                "text": "The administrative coordinator via email"
               },
               {
                 "key": "C",
                 "text": "An automated weather hotline"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người tham gia cần liên hệ điều phối viên hành chính qua email để được hỗ trợ đặc biệt."
           }
         ],
@@ -18483,18 +18664,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Balancing rapid innovation with strict reliability standards"
+                "text": "Convincing people that gravity exists, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Balancing rapid innovation with strict reliability standards"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Finding enough paperclips, which remains subject to further departmental verification"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thách thức cốt lõi là cân bằng giữa đổi mới nhanh chóng và tiêu chuẩn độ tin cậy nghiêm ngặt."
           },
           {
@@ -18507,11 +18688,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Pure luck without planning, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Closing all universities, primarily due to budgetary constraints and operational overheads"
               }
             ],
             "correct": "A",
@@ -18527,11 +18708,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Complete disappearance of the field"
+                "text": "Return to 19th-century methods, which remains subject to further departmental verification"
               },
               {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Complete disappearance of the field"
               }
             ],
             "correct": "A",
@@ -18565,18 +18746,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Updated procedures and schedules for Ocean Currents"
-              },
-              {
-                "key": "B",
                 "text": "Permanent cancellation of all activities"
               },
               {
+                "key": "B",
+                "text": "Updated procedures and schedules for Ocean Currents"
+              },
+              {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "A change in national currency, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông báo trình bày quy trình và lịch trình cập nhật liên quan đến Ocean Currents."
           },
           {
@@ -18585,18 +18766,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Starting next Monday morning at 8:00 AM"
+                "text": "It already ended last winter"
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "Starting next Monday morning at 8:00 AM"
               },
               {
                 "key": "C",
-                "text": "It already ended last winter"
+                "text": "In five years' time, as highlighted during the initial stakeholder orientation phase"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Lịch mới bắt đầu có hiệu lực từ 8 giờ sáng thứ Hai tuần tới."
           },
           {
@@ -18605,18 +18786,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The administrative coordinator via email"
+                "text": "An automated weather hotline"
               },
               {
                 "key": "B",
-                "text": "The local fire department"
+                "text": "The administrative coordinator via email"
               },
               {
                 "key": "C",
-                "text": "An automated weather hotline"
+                "text": "The local fire department"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người tham gia cần liên hệ điều phối viên hành chính qua email để được hỗ trợ đặc biệt."
           }
         ],
@@ -18639,18 +18820,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Balancing rapid innovation with strict reliability standards"
+                "text": "Convincing people that gravity exists, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Balancing rapid innovation with strict reliability standards"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Finding enough paperclips, as highlighted during the initial stakeholder orientation phase"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thách thức cốt lõi là cân bằng giữa đổi mới nhanh chóng và tiêu chuẩn độ tin cậy nghiêm ngặt."
           },
           {
@@ -18659,18 +18840,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Systematic training and international cooperation"
+                "text": "Pure luck without planning, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Closing all universities, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Systematic training and international cooperation"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đào tạo bài bản và hợp tác quốc tế là nhân tố chính thúc đẩy tiến bộ gần đây."
           },
           {
@@ -18679,18 +18860,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Wider adoption and stronger regulatory frameworks"
+                "text": "Return to 19th-century methods, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "Complete disappearance of the field"
+                "text": "Wider adoption and stronger regulatory frameworks"
               },
               {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Complete disappearance of the field"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Diễn giả kỳ vọng sự ứng dụng rộng rãi hơn cùng khung pháp lý chặt chẽ hơn trong thập kỷ tới."
           }
         ],
@@ -18725,11 +18906,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Permanent cancellation of all activities"
+                "text": "A change in national currency, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "Permanent cancellation of all activities, according to standardized performance benchmarking metrics"
               }
             ],
             "correct": "A",
@@ -18741,18 +18922,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Starting next Monday morning at 8:00 AM"
+                "text": "It already ended last winter"
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "In five years' time, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "It already ended last winter"
+                "text": "Starting next Monday morning at 8:00 AM"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Lịch mới bắt đầu có hiệu lực từ 8 giờ sáng thứ Hai tuần tới."
           },
           {
@@ -18761,18 +18942,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The administrative coordinator via email"
-              },
-              {
-                "key": "B",
                 "text": "The local fire department"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "An automated weather hotline"
+              },
+              {
+                "key": "C",
+                "text": "The administrative coordinator via email"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Người tham gia cần liên hệ điều phối viên hành chính qua email để được hỗ trợ đặc biệt."
           }
         ],
@@ -18795,18 +18976,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Balancing rapid innovation with strict reliability standards"
+                "text": "Convincing people that gravity exists, without taking into account prolonged systemic fluctuations"
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Balancing rapid innovation with strict reliability standards"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Finding enough paperclips, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thách thức cốt lõi là cân bằng giữa đổi mới nhanh chóng và tiêu chuẩn độ tin cậy nghiêm ngặt."
           },
           {
@@ -18815,18 +18996,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Systematic training and international cooperation"
+                "text": "Pure luck without planning, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Closing all universities, in accordance with recently revised statutory regulations"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Systematic training and international cooperation"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đào tạo bài bản và hợp tác quốc tế là nhân tố chính thúc đẩy tiến bộ gần đây."
           },
           {
@@ -18839,11 +19020,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Complete disappearance of the field"
+                "text": "Return to 19th-century methods, which remains subject to further departmental verification"
               },
               {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Complete disappearance of the field"
               }
             ],
             "correct": "A",
@@ -18877,18 +19058,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Updated procedures and schedules for Coastal Cleanup"
-              },
-              {
-                "key": "B",
                 "text": "Permanent cancellation of all activities"
               },
               {
+                "key": "B",
+                "text": "A change in national currency, following rigorous cross-sectional evaluations of sample data"
+              },
+              {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "Updated procedures and schedules for Coastal Cleanup"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông báo trình bày quy trình và lịch trình cập nhật liên quan đến Coastal Cleanup."
           },
           {
@@ -18897,18 +19078,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Starting next Monday morning at 8:00 AM"
+                "text": "It already ended last winter"
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "Starting next Monday morning at 8:00 AM"
               },
               {
                 "key": "C",
-                "text": "It already ended last winter"
+                "text": "In five years' time, according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Lịch mới bắt đầu có hiệu lực từ 8 giờ sáng thứ Hai tuần tới."
           },
           {
@@ -18917,18 +19098,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The administrative coordinator via email"
+                "text": "An automated weather hotline"
               },
               {
                 "key": "B",
-                "text": "The local fire department"
+                "text": "The administrative coordinator via email"
               },
               {
                 "key": "C",
-                "text": "An automated weather hotline"
+                "text": "The local fire department"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người tham gia cần liên hệ điều phối viên hành chính qua email để được hỗ trợ đặc biệt."
           }
         ],
@@ -18955,11 +19136,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Convincing people that gravity exists, following rigorous cross-sectional evaluations of sample data"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Finding enough paperclips, in accordance with recently revised statutory regulations"
               }
             ],
             "correct": "A",
@@ -18975,11 +19156,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Pure luck without planning, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Closing all universities, without taking into account prolonged systemic fluctuations"
               }
             ],
             "correct": "A",
@@ -18995,11 +19176,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Complete disappearance of the field"
+                "text": "Return to 19th-century methods, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Complete disappearance of the field"
               }
             ],
             "correct": "A",
@@ -19041,7 +19222,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "A change in national currency, as demonstrated in multiple peer-reviewed observational studies"
               }
             ],
             "correct": "A",
@@ -19057,11 +19238,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "It already ended last winter"
               },
               {
                 "key": "C",
-                "text": "It already ended last winter"
+                "text": "In five years' time, according to standardized performance benchmarking metrics"
               }
             ],
             "correct": "A",
@@ -19073,18 +19254,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The administrative coordinator via email"
+                "text": "The local fire department"
               },
               {
                 "key": "B",
-                "text": "The local fire department"
+                "text": "The administrative coordinator via email"
               },
               {
                 "key": "C",
                 "text": "An automated weather hotline"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người tham gia cần liên hệ điều phối viên hành chính qua email để được hỗ trợ đặc biệt."
           }
         ],
@@ -19107,18 +19288,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Balancing rapid innovation with strict reliability standards"
+                "text": "Convincing people that gravity exists, concerning long-term environmental sustainability and impact"
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Balancing rapid innovation with strict reliability standards"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Finding enough paperclips, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thách thức cốt lõi là cân bằng giữa đổi mới nhanh chóng và tiêu chuẩn độ tin cậy nghiêm ngặt."
           },
           {
@@ -19127,18 +19308,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Systematic training and international cooperation"
+                "text": "Pure luck without planning, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Closing all universities, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Systematic training and international cooperation"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Đào tạo bài bản và hợp tác quốc tế là nhân tố chính thúc đẩy tiến bộ gần đây."
           },
           {
@@ -19147,18 +19328,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Wider adoption and stronger regulatory frameworks"
-              },
-              {
-                "key": "B",
                 "text": "Complete disappearance of the field"
               },
               {
+                "key": "B",
+                "text": "Return to 19th-century methods, as highlighted during the initial stakeholder orientation phase"
+              },
+              {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Wider adoption and stronger regulatory frameworks"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Diễn giả kỳ vọng sự ứng dụng rộng rãi hơn cùng khung pháp lý chặt chẽ hơn trong thập kỷ tới."
           }
         ],
@@ -19193,11 +19374,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "Permanent cancellation of all activities"
+                "text": "A change in national currency, as demonstrated in multiple peer-reviewed observational studies"
               },
               {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "Permanent cancellation of all activities"
               }
             ],
             "correct": "A",
@@ -19213,11 +19394,11 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "It already ended last winter"
               },
               {
                 "key": "C",
-                "text": "It already ended last winter"
+                "text": "In five years' time, following rigorous cross-sectional evaluations of sample data"
               }
             ],
             "correct": "A",
@@ -19229,18 +19410,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The administrative coordinator via email"
+                "text": "An automated weather hotline"
               },
               {
                 "key": "B",
-                "text": "The local fire department"
+                "text": "The administrative coordinator via email"
               },
               {
                 "key": "C",
-                "text": "An automated weather hotline"
+                "text": "The local fire department"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Người tham gia cần liên hệ điều phối viên hành chính qua email để được hỗ trợ đặc biệt."
           }
         ],
@@ -19263,18 +19444,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Balancing rapid innovation with strict reliability standards"
+                "text": "Convincing people that gravity exists, based on conventional assumptions of consumer market behavior"
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Balancing rapid innovation with strict reliability standards"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Finding enough paperclips, despite conflicting preliminary feedback from secondary surveys"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thách thức cốt lõi là cân bằng giữa đổi mới nhanh chóng và tiêu chuẩn độ tin cậy nghiêm ngặt."
           },
           {
@@ -19283,18 +19464,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Systematic training and international cooperation"
+                "text": "Closing all universities, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Systematic training and international cooperation"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Pure luck without planning, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đào tạo bài bản và hợp tác quốc tế là nhân tố chính thúc đẩy tiến bộ gần đây."
           },
           {
@@ -19303,18 +19484,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Wider adoption and stronger regulatory frameworks"
-              },
-              {
-                "key": "B",
                 "text": "Complete disappearance of the field"
               },
               {
+                "key": "B",
+                "text": "Return to 19th-century methods, without taking into account prolonged systemic fluctuations"
+              },
+              {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Wider adoption and stronger regulatory frameworks"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Diễn giả kỳ vọng sự ứng dụng rộng rãi hơn cùng khung pháp lý chặt chẽ hơn trong thập kỷ tới."
           }
         ],
@@ -19345,18 +19526,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Updated procedures and schedules for Forensic Digital Evidence"
+                "text": "A change in national currency, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "B",
-                "text": "Permanent cancellation of all activities"
+                "text": "Permanent cancellation of all activities, despite conflicting preliminary feedback from secondary surveys"
               },
               {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "Updated procedures and schedules for Forensic Digital Evidence"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Thông báo trình bày quy trình và lịch trình cập nhật liên quan đến Forensic Digital Evidence."
           },
           {
@@ -19365,18 +19546,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Starting next Monday morning at 8:00 AM"
+                "text": "In five years' time, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "Starting next Monday morning at 8:00 AM"
               },
               {
                 "key": "C",
                 "text": "It already ended last winter"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Lịch mới bắt đầu có hiệu lực từ 8 giờ sáng thứ Hai tuần tới."
           },
           {
@@ -19385,18 +19566,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "The administrative coordinator via email"
-              },
-              {
-                "key": "B",
                 "text": "The local fire department"
               },
               {
-                "key": "C",
+                "key": "B",
                 "text": "An automated weather hotline"
+              },
+              {
+                "key": "C",
+                "text": "The administrative coordinator via email"
               }
             ],
-            "correct": "A",
+            "correct": "C",
             "explanation": "Người tham gia cần liên hệ điều phối viên hành chính qua email để được hỗ trợ đặc biệt."
           }
         ],
@@ -19419,18 +19600,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Balancing rapid innovation with strict reliability standards"
+                "text": "Convincing people that gravity exists, which remains subject to further departmental verification"
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Balancing rapid innovation with strict reliability standards"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Finding enough paperclips, in accordance with recently revised statutory regulations"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thách thức cốt lõi là cân bằng giữa đổi mới nhanh chóng và tiêu chuẩn độ tin cậy nghiêm ngặt."
           },
           {
@@ -19439,18 +19620,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Systematic training and international cooperation"
+                "text": "Pure luck without planning, according to standardized performance benchmarking metrics"
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Systematic training and international cooperation"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Closing all universities, according to standardized performance benchmarking metrics"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đào tạo bài bản và hợp tác quốc tế là nhân tố chính thúc đẩy tiến bộ gần đây."
           },
           {
@@ -19459,18 +19640,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Wider adoption and stronger regulatory frameworks"
+                "text": "Return to 19th-century methods, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "Complete disappearance of the field"
+                "text": "Wider adoption and stronger regulatory frameworks"
               },
               {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Complete disappearance of the field"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Diễn giả kỳ vọng sự ứng dụng rộng rãi hơn cùng khung pháp lý chặt chẽ hơn trong thập kỷ tới."
           }
         ],
@@ -19501,18 +19682,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Updated procedures and schedules for Cybersecurity Protocols"
+                "text": "Permanent cancellation of all activities, primarily due to budgetary constraints and operational overheads"
               },
               {
                 "key": "B",
-                "text": "Permanent cancellation of all activities"
+                "text": "Updated procedures and schedules for Cybersecurity Protocols"
               },
               {
                 "key": "C",
-                "text": "A change in national currency"
+                "text": "A change in national currency, concerning long-term environmental sustainability and impact"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thông báo trình bày quy trình và lịch trình cập nhật liên quan đến Cybersecurity Protocols."
           },
           {
@@ -19525,7 +19706,7 @@ const LISTENING_TESTS = [
               },
               {
                 "key": "B",
-                "text": "In five years' time"
+                "text": "In five years' time, which remains subject to further departmental verification"
               },
               {
                 "key": "C",
@@ -19575,18 +19756,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Balancing rapid innovation with strict reliability standards"
+                "text": "Finding enough paperclips, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "Finding enough paperclips"
+                "text": "Balancing rapid innovation with strict reliability standards"
               },
               {
                 "key": "C",
-                "text": "Convincing people that gravity exists"
+                "text": "Convincing people that gravity exists, under specific experimental conditions evaluated by the committee"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Thách thức cốt lõi là cân bằng giữa đổi mới nhanh chóng và tiêu chuẩn độ tin cậy nghiêm ngặt."
           },
           {
@@ -19595,18 +19776,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Systematic training and international cooperation"
+                "text": "Closing all universities, under specific experimental conditions evaluated by the committee"
               },
               {
                 "key": "B",
-                "text": "Pure luck without planning"
+                "text": "Systematic training and international cooperation"
               },
               {
                 "key": "C",
-                "text": "Closing all universities"
+                "text": "Pure luck without planning, based on conventional assumptions of consumer market behavior"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Đào tạo bài bản và hợp tác quốc tế là nhân tố chính thúc đẩy tiến bộ gần đây."
           },
           {
@@ -19615,18 +19796,18 @@ const LISTENING_TESTS = [
             "options": [
               {
                 "key": "A",
-                "text": "Wider adoption and stronger regulatory frameworks"
-              },
-              {
-                "key": "B",
                 "text": "Complete disappearance of the field"
               },
               {
+                "key": "B",
+                "text": "Wider adoption and stronger regulatory frameworks"
+              },
+              {
                 "key": "C",
-                "text": "Return to 19th-century methods"
+                "text": "Return to 19th-century methods, primarily due to budgetary constraints and operational overheads"
               }
             ],
-            "correct": "A",
+            "correct": "B",
             "explanation": "Diễn giả kỳ vọng sự ứng dụng rộng rãi hơn cùng khung pháp lý chặt chẽ hơn trong thập kỷ tới."
           }
         ],

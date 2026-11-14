@@ -1082,15 +1082,20 @@ function getCumulativeReviewDeck(maxDayNum) {
   return words;
 }
 
-// HỆ THỐNG PHÂN 1 BÀI ĐỌC VSTEP CHUẨN ĐỦ DÀI MỖI NGÀY (ACE OF ENGLISH)
+// HỆ THỐNG PHÂN 3 BÀI ĐỌC KHÁC NHAU MỖI NGÀY (KHO 150 BÀI ĐỌC VSTEP & IELTS)
 function getDailyAssignedReadings(dayNum) {
   const list = window.APP_DATA?.readings || [];
   if (list.length === 0) return [];
   const d = Math.max(1, parseInt(dayNum) || 1);
-  const total = list.length;
-  const idx = (d - 1) % total;
+  const total = list.length; // 150 bài
+  // Mỗi ngày phân 3 bài đọc hoàn toàn khác nhau:
+  const idx1 = ((d - 1) * 3) % total;
+  const idx2 = ((d - 1) * 3 + 1) % total;
+  const idx3 = ((d - 1) * 3 + 2) % total;
   return [
-    { slotNumber: 1, index: idx, ...list[idx] }
+    { slotNumber: 1, index: idx1, ...list[idx1] },
+    { slotNumber: 2, index: idx2, ...list[idx2] },
+    { slotNumber: 3, index: idx3, ...list[idx3] }
   ];
 }
 
@@ -1525,12 +1530,18 @@ function startTodayReadingMission(passageIdx) {
     const p = window.APP_DATA?.readings?.[passageIdx];
     showToast(`📖 Đang mở Bài đọc: ${p?.title || ''}`, "info");
   } else {
-    const list = getDailyAssignedReadings(missionRegistry.currentDay);
-    const firstReading = list[0];
+    const curDay = missionRegistry.currentDay || 1;
+    const curStatus = getDayMissionStatus(curDay);
+    const list = getDailyAssignedReadings(curDay);
+    const completedList = curStatus.completedReadings || [];
+    // Tìm bài đầu tiên trong 3 bài chưa hoàn thành
+    const uncompleted = list.find(r => !completedList.includes(r.index));
+    const targetReading = uncompleted || list[0];
     switchTab("reader");
-    if (firstReading) {
-      renderReadingPassage(firstReading.index);
-      showToast(`📖 Đang mở Bài 1 / 3 Ngày ${missionRegistry.currentDay}: ${firstReading.title}`, "info");
+    if (targetReading) {
+      renderReadingPassage(targetReading.index);
+      const slotNum = targetReading.slotNumber || 1;
+      showToast(`📖 Đang mở Bài ${slotNum} / 3 Ngày ${curDay}: ${targetReading.title}`, "info");
     }
   }
 }
@@ -1546,8 +1557,33 @@ function startTodayGrammarMission(slot = 1) {
 }
 
 function completeReadingMission() {
-  setDayMissionStatus(missionRegistry.currentDay, { readingDone: true });
-  showToast("✅ Đã ghi nhận hoàn thành bài đọc hôm nay!", "success");
+  const curDay = missionRegistry.currentDay || 1;
+  const pIdx = appState.activeReadingIndex;
+  const curStatus = getDayMissionStatus(curDay);
+  const assignedReadings = getDailyAssignedReadings(curDay);
+  const assignedIndices = assignedReadings.map(r => r.index);
+
+  let completedList = [...(curStatus.completedReadings || [])];
+  if (!completedList.includes(pIdx)) {
+    completedList.push(pIdx);
+  }
+
+  const doneAssignedCount = assignedIndices.filter(idx => completedList.includes(idx)).length;
+  const isAllDone = (doneAssignedCount >= 3 || completedList.length >= 3);
+  const isAnyDone = (doneAssignedCount >= 1 || completedList.length >= 1);
+
+  setDayMissionStatus(curDay, {
+    completedReadings: completedList,
+    readingDoneCount: Math.min(3, Math.max(doneAssignedCount, completedList.length)),
+    readingDone: isAnyDone || curStatus.readingDone
+  });
+  updateDailyMissionUI();
+  if (typeof renderReaderDailyAssignedBar === "function") renderReaderDailyAssignedBar();
+  if (isAllDone) {
+    showToast(`🎉 Xuất sắc! Bạn đã hoàn thành trọn vẹn cả 3 bài đọc của Ngày ${curDay}!`, "success");
+  } else {
+    showToast(`✅ Đã ghi nhận bài đọc (${doneAssignedCount}/3 bài Ngày ${curDay})!`, "success");
+  }
 }
 
 function completeGrammarMission() {
@@ -3381,9 +3417,59 @@ function getDiversifiedReadingQuestions(passage) {
   return enriched;
 }
 
+function renderReaderDailyAssignedBar() {
+  const barContainer = document.getElementById("readerDailyAssignedPills");
+  const titleEl = document.getElementById("readerDailyAssignedTitle");
+  const statusEl = document.getElementById("readerDailyAssignedStatus");
+  if (!barContainer) return;
+
+  const curDay = (missionRegistry && missionRegistry.currentDay) ? missionRegistry.currentDay : 1;
+  const assigned = getDailyAssignedReadings(curDay);
+  const curStatus = getDayMissionStatus(curDay);
+  const completedList = curStatus.completedReadings || [];
+  const doneCount = assigned.filter(r => completedList.includes(r.index)).length;
+
+  if (titleEl) {
+    titleEl.innerText = `🎯 3 Bài Đọc Chỉ Định Ngày ${curDay}:`;
+  }
+  if (statusEl) {
+    if (doneCount >= 3) {
+      statusEl.className = "text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1";
+      statusEl.innerHTML = "<i data-lucide='check' class='w-3 h-3 text-emerald-400'></i> Đã xong 3/3 bài!";
+    } else {
+      statusEl.className = "text-[10px] font-bold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30";
+      statusEl.innerText = `Tiến độ: ${doneCount}/3 bài xong`;
+    }
+  }
+
+  barContainer.innerHTML = assigned.map(r => {
+    const isActive = (appState.activeReadingIndex === r.index);
+    const isDone = completedList.includes(r.index);
+    const shortTitle = (r.title || `Bài đọc ${r.slotNumber}`).replace(/^Bài \d+:\s*/, "");
+    return `
+      <button type="button" onclick="renderReadingPassage(${r.index})" class="px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 border shadow-sm ${
+        isActive
+          ? "bg-gradient-to-r from-cyan-600 to-indigo-600 text-white border-cyan-400 ring-2 ring-cyan-400/50"
+          : isDone
+          ? "bg-emerald-950/40 text-emerald-300 border-emerald-500/40 hover:bg-emerald-900/50"
+          : "bg-slate-800 text-slate-300 border-slate-700 hover:text-white hover:bg-slate-700"
+      }">
+        <span class="${isDone ? 'text-emerald-400 font-black' : (isActive ? 'text-cyan-200' : 'text-slate-400')}">
+          ${isDone ? '✓' : `Bài ${r.slotNumber}:`}
+        </span>
+        <span class="truncate max-w-[130px] sm:max-w-[180px]">${shortTitle}</span>
+        <span class="text-[10px] opacity-75 font-mono">(${r.questions?.length || 7}c)</span>
+      </button>
+    `;
+  }).join("");
+
+  if (window.lucide) lucide.createIcons();
+}
+
 function setupReadingSelector() {
   buildReadingTestGroups();
   filterReadingByExam("all");
+  renderReaderDailyAssignedBar();
 }
 
 function filterReadingByExam(category) {
@@ -3738,6 +3824,7 @@ function renderReadingPassage(passageIdx) {
     if (timerContainer) timerContainer.classList.add("hidden");
   }
 
+  renderReaderDailyAssignedBar();
   if (window.lucide) lucide.createIcons();
 }
 
@@ -4457,20 +4544,22 @@ function checkReadingQuestion(qIdx, selectedIdx, correctIdx) {
     }
 
     const doneAssignedCount = assignedIndices.filter(idx => completedList.includes(idx)).length;
-    const isReadingCompleted = (doneAssignedCount >= 1 || completedList.length >= 1);
+    const isAllDone = (doneAssignedCount >= 3 || completedList.length >= 3);
+    const isAnyDone = (doneAssignedCount >= 1 || completedList.length >= 1);
 
     setDayMissionStatus(curDay, {
       completedReadings: completedList,
-      readingDoneCount: Math.min(1, Math.max(doneAssignedCount, completedList.length)),
-      readingDone: isReadingCompleted || curStatus.readingDone
+      readingDoneCount: Math.min(3, Math.max(doneAssignedCount, completedList.length)),
+      readingDone: isAnyDone || curStatus.readingDone
     });
 
-    if (isReadingCompleted) {
-      showToast(`🎉 Xuất sắc! Bạn đã hoàn thành bài đọc VSTEP chuẩn quốc tế Ngày ${curDay}! Đã tự động đánh dấu hoàn thành 100%!`, "success");
+    if (isAllDone) {
+      showToast(`🎉 Xuất sắc! Bạn đã hoàn thành trọn vẹn cả 3 bài đọc của Ngày ${curDay}!`, "success");
     } else {
-      showToast(`✓ Đã trả lời xong câu hỏi bài đọc!`, "info");
+      showToast(`✓ Đã hoàn thành bài đọc (${doneAssignedCount}/3 bài Ngày ${curDay}). Hãy làm tiếp bài tiếp theo!`, "info");
     }
     updateDailyMissionUI();
+    if (typeof renderReaderDailyAssignedBar === "function") renderReaderDailyAssignedBar();
   }
 
   const isCorrect = (selectedIdx === correctIdx);
@@ -5728,9 +5817,10 @@ function updateDailyGoalChecklist() {
       : `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i> <span>20 Từ vựng Ngày ${curDay} (${curStatus.vocabCount}/20)</span>`;
   }
   if (rItem) {
+    const doneR = curStatus.readingDoneCount || (curStatus.readingDone ? 3 : 0);
     rItem.innerHTML = curStatus.readingDone
-      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">1 Bài đọc VSTEP (ĐÃ XONG ✓)</span>`
-      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>1 Bài đọc VSTEP chuẩn (${curStatus.readingDoneCount || 0}/1)</span>`;
+      ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">3 Bài đọc chuẩn đề (${doneR >= 3 ? 'ĐÃ XONG 3/3 ✓' : `${doneR}/3 bài xong ✓`})</span>`
+      : `<i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i> <span>3 Bài đọc chuẩn đề (${doneR}/3 bài)</span>`;
   }
   if (gItem) {
     gItem.innerHTML = curStatus.grammarDone
@@ -6000,7 +6090,7 @@ const defaultInterleavedConfig = {
   includePastDays: true,
   includeSRS: true,
   includeReadingCustom: true,
-  insertCount: 20, // Cường độ cao: +20 từ ôn tập ngắt quãng/ngày
+  insertCount: 40, // Chuẩn mục tiêu 60 từ cả mới cả cũ (20 từ mới + 40 từ lặp lại ôn tập)
   insertMode: "interleave" // "interleave" or "random_mix"
 };
 
@@ -6013,8 +6103,8 @@ function getInterleavedConfig() {
       if (parsed.hasUserToggled === undefined) {
         parsed.enabled = true;
       }
-      if (!parsed.insertCount || parseInt(parsed.insertCount) < 15) {
-        parsed.insertCount = 20; // Auto-upgrade to high-intensity repetition
+      if (!parsed.insertCount || parseInt(parsed.insertCount) < 30) {
+        parsed.insertCount = 40; // Nâng cấp tự động lên chuẩn 60 từ (20 mới + 40 ôn)
       }
       return { ...defaultInterleavedConfig, ...parsed };
     }
@@ -6185,7 +6275,7 @@ function getInterleavedDeckForDay(dIdx, baseWords) {
     }
   }
 
-  // B. TỪ LÀM SAI BÀI ĐỌC & SỔ TAY CUSTOM WORDS
+  // B. TỪ TRONG SỔ TAY CÁ NHÂN, TỪ LÀM SAI BÀI ĐỌC & TỪ QUÊN / BỎ QUA
   if (cfg.includeReadingCustom) {
     const customList = getSavedCustomWords();
     customList.forEach(w => {
@@ -6197,25 +6287,66 @@ function getInterleavedDeckForDay(dIdx, baseWords) {
         readingMistakesPool.push({
           ...w,
           cardOrigin: isMistake ? "reading_mistake" : "reading",
-          cardOriginText: isMistake ? "⚠️ Ôn từ làm sai bài đọc" : "Từ bài đọc mới lưu",
+          cardOriginText: isMistake ? "⚠️ Ôn từ làm sai bài đọc" : (w.cardOriginText || "📖 Từ bài đọc / Sổ tay đã thêm"),
           ...cat
         });
       }
     });
+
+    // Bổ sung từ người học từng chọn "Quên" và "Bỏ qua" để lặp lại
+    if (typeof getForgottenWords === "function") {
+      getForgottenWords().forEach(w => {
+        const lw = (w.word || "").toLowerCase();
+        if (lw && !seenPool.has(lw)) {
+          seenPool.add(lw);
+          const cat = categorizeItem(w);
+          readingMistakesPool.push({
+            ...w,
+            cardOrigin: "forgotten",
+            cardOriginText: "❌ Từ đã chọn Quên (Ưu tiên ôn tập)",
+            ...cat
+          });
+        }
+      });
+    }
+    if (typeof getSkippedWords === "function") {
+      getSkippedWords().forEach(w => {
+        const lw = (w.word || "").toLowerCase();
+        if (lw && !seenPool.has(lw)) {
+          seenPool.add(lw);
+          const cat = categorizeItem(w);
+          readingMistakesPool.push({
+            ...w,
+            cardOrigin: "skipped",
+            cardOriginText: "⏭️ Từ đã bấm Bỏ qua (Cần ôn bù)",
+            ...cat
+          });
+        }
+      });
+    }
   }
 
   // C. LỰA CHỌN TỪ CHÈN THEO TỶ LỆ KHOA HỌC:
-  // - 40% từ ngày liên tiếp N-1 (Củng cố trí nhớ ngắn hạn tức thì)
-  // - 30% từ các mốc ngắt quãng (N-3, N-7, N-14) có đủ Collocation & Phrasal Verbs
-  // - 20% từ làm sai bài đọc
-  // - 10% các ngày trước khác
-  let insertCount = parseInt(cfg.insertCount) || 10;
-  if (cfg.insertCount === "all") insertCount = 20;
+  // Đảm bảo đúng chuẩn 60 từ cả mới cả cũ mỗi ngày (hoặc theo cấu hình người học chọn)
+  let targetTotal = 60;
+  if (cfg.insertCount === "all") {
+    targetTotal = 100;
+  } else if (cfg.insertCount === 60 || cfg.insertCount === "60") {
+    targetTotal = 80;
+  } else if (cfg.insertCount === 30 || cfg.insertCount === "30") {
+    targetTotal = 50;
+  } else if (cfg.insertCount === 20 || cfg.insertCount === "20") {
+    targetTotal = 40;
+  } else {
+    targetTotal = 60;
+  }
+
+  let insertCount = Math.max(20, targetTotal - todayTagged.length);
 
   const chosenReviews = [];
-  const countYesterday = Math.min(consecutivePool.length, Math.ceil(insertCount * 0.45));
+  const countYesterday = Math.min(consecutivePool.length, Math.ceil(insertCount * 0.40));
   const countSpaced = Math.min(spacedIntervalPool.length, Math.ceil(insertCount * 0.35));
-  const countMistakes = Math.min(readingMistakesPool.length, Math.ceil(insertCount * 0.20));
+  const countMistakes = Math.min(readingMistakesPool.length, Math.ceil(insertCount * 0.25));
 
   chosenReviews.push(...shuffleArray(consecutivePool).slice(0, countYesterday));
   chosenReviews.push(...shuffleArray(spacedIntervalPool).slice(0, countSpaced));
@@ -6227,14 +6358,40 @@ function getInterleavedDeckForDay(dIdx, baseWords) {
     chosenReviews.push(...shuffleArray(generalPastPool).slice(0, needed));
   }
 
-  // 4. ƯU TIÊN TUYỆT ĐỐI TỪ VỰNG CỦA NGÀY HÔM ĐÓ LÊN ĐẦU TIÊN
-  // Người học tiếp thu toàn bộ từ vựng mới của ngày hôm nay trước (Thẻ 1 -> Thẻ 20),
-  // sau đó mới đến các thẻ lặp lại ngắt quãng, từ hôm qua, từ làm sai bài đọc để củng cố.
+  // ĐẢM BẢO LUÔN ĐỦ LƯỢNG TỪ ÔN TẬP 60 TỪ (20 mới + 40 ôn):
+  // Nếu vẫn chưa đủ (ví dụ ngày 1 hoặc chưa có nhiều từ quá khứ), bổ sung từ kho lộ trình các bài tiếp theo
+  if (chosenReviews.length < insertCount) {
+    const plan = (typeof buildDailyVocabPlan === "function") ? buildDailyVocabPlan() : [];
+    for (let pIdx = 0; pIdx < plan.length && chosenReviews.length < insertCount; pIdx++) {
+      const pDay = plan[pIdx];
+      if (pDay && pDay.dayNumber !== curDayNum && Array.isArray(pDay.words)) {
+        for (let wIdx = 0; wIdx < pDay.words.length && chosenReviews.length < insertCount; wIdx++) {
+          const w = pDay.words[wIdx];
+          const lw = (w.word || "").toLowerCase();
+          if (lw && !seenPool.has(lw)) {
+            seenPool.add(lw);
+            const cat = categorizeItem(w);
+            chosenReviews.push({
+              ...w,
+              sourceDay: pDay.dayNumber,
+              cardOrigin: "past_day",
+              cardOriginText: `Ôn tập củng cố (${pDay.unitTitle || `Ngày ${pDay.dayNumber}`})`,
+              ...cat
+            });
+          }
+        }
+      }
+    }
+  }
+
+  // 4. ƯU TIÊN TUYỆT ĐỐI TỪ VỰNG CỦA NGÀY HÔM ĐÓ LÊN ĐẦU TIÊN (HOẶC XEN KẼ THEO CẤU HÌNH)
   let finalDeck = [];
   if (chosenReviews.length === 0) {
     finalDeck = todayTagged;
+  } else if (cfg.insertMode === "random_mix") {
+    finalDeck = shuffleArray([...todayTagged, ...chosenReviews]);
   } else {
-    // 100% Từ vựng ngày hôm nay được đặt trang trọng lên đầu
+    // 100% Từ vựng ngày hôm nay được đặt trang trọng lên đầu để học từ mới trước
     finalDeck = [...todayTagged, ...chosenReviews];
   }
 
@@ -6274,11 +6431,12 @@ function updateInterleavedUI() {
   if (toggle) toggle.checked = !!cfg.enabled;
   if (badge) {
     if (cfg.enabled) {
+      const insNum = parseInt(cfg.insertCount) || 40;
       badge.className = "text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/40 animate-pulse";
-      badge.innerText = `Đang BẬT (+${cfg.insertCount} từ ôn)`;
+      badge.innerText = `Đang BẬT (+${insNum} từ ôn • Tổng ${20 + insNum} thẻ)`;
     } else {
       badge.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold border border-slate-700";
-      badge.innerText = "Đang tắt";
+      badge.innerText = "Đang tắt (20 từ)";
     }
   }
   if (btnShuffle) {

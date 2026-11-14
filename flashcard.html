@@ -187,7 +187,7 @@
             </div>
             <div id="goalItemReading" class="flex items-center gap-1.5">
               <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
-              <span id="goalItemReadingText">1 Bài đọc VSTEP chuẩn</span>
+              <span id="goalItemReadingText">3 Bài đọc chuẩn đề (VSTEP/IELTS)</span>
             </div>
             <div id="goalItemGrammar" class="flex items-center gap-1.5">
               <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
@@ -1151,6 +1151,25 @@
           </div>
         </div>
 
+        <!-- Daily Assigned 3 Readings Quick Navigation Bar -->
+        <div id="readerDailyAssignedBanner" class="p-3 rounded-xl bg-slate-950/80 border border-cyan-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-300 flex items-center justify-center shrink-0 border border-cyan-500/30">
+              <i data-lucide="target" class="w-4 h-4 text-cyan-400"></i>
+            </span>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <span id="readerDailyAssignedTitle" class="text-xs font-bold text-white uppercase tracking-wider">🎯 3 Bài Đọc Chỉ Định Ngày 1:</span>
+                <span id="readerDailyAssignedStatus" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Tiến độ: 0/3 bài</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5">Mỗi ngày luyện 3 bài đọc chuẩn VSTEP & IELTS (7 câu/bài) để rèn khả năng bắt từ khóa và xử lý thông tin.</p>
+            </div>
+          </div>
+          <div id="readerDailyAssignedPills" class="flex items-center gap-1.5 flex-wrap">
+            <!-- Dynamically populated with 3 buttons for Slot 1, Slot 2, Slot 3 -->
+          </div>
+        </div>
+
         <!-- Filters (Roadmap 3 Months, Exam Types, Levels) -->
         <div class="space-y-2.5 text-xs">
           <!-- 3-Month Roadmap Filter -->
@@ -2074,12 +2093,12 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
         <div>
           <label class="block text-slate-400 font-semibold mb-1">2. Số lượng từ chèn vào mỗi ngày:</label>
-          <select id="cfgInsertCount" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 outline-none focus:border-indigo-500">
-            <option value="15">🔥 Cường độ Vừa (+15 từ ôn • Tổng 35 thẻ)</option>
-            <option value="20" selected>⚡ Cường độ Cao (+20 từ ôn • Tổng 40 thẻ - Khuyên dùng)</option>
-            <option value="25">🚀 Cường độ Cực Đại (+25 từ ôn • Tổng 45 thẻ)</option>
-            <option value="30">🏆 Siêu Tốc Hardcore (+30 từ ôn • Tổng 50 thẻ)</option>
-            <option value="all">🌟 Toàn bộ kho từ đã học (Tối đa)</option>
+          <select id="cfgInsertCount" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 outline-none focus:border-indigo-500 font-medium">
+            <option value="40" selected>⚡ Chuẩn mục tiêu: Tổng 60 từ (20 mới + 40 từ lặp lại - Khuyên dùng)</option>
+            <option value="60">🚀 Cường độ cao: Tổng 80 từ (20 mới + 60 từ lặp lại)</option>
+            <option value="30">🔥 Cường độ vừa: Tổng 50 từ (20 mới + 30 từ lặp lại)</option>
+            <option value="20">📘 Cơ bản: Tổng 40 từ (20 mới + 20 từ lặp lại)</option>
+            <option value="all">🌟 Toàn bộ kho từ đã học & đã thêm theo ngày (Tối đa)</option>
           </select>
         </div>
 
@@ -2652,14 +2671,14 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=60.0"></script>
-  <script src="./listening_data.js?v=60.0"></script>
-  <script src="./vietnam_today_data.js?v=60.0"></script>
-  <script src="./educational_channels_data.js?v=60.0"></script>
-  <script src="./international_news_videos.js?v=60.0"></script>
-  <script src="./bilingual_news_data.js?v=60.0"></script>
-  <script src="./reading_lexicon.js?v=60.0"></script>
-  <script src="./app.js?v=60.0"></script>
+  <script src="./data.js?v=61.0"></script>
+  <script src="./listening_data.js?v=61.0"></script>
+  <script src="./vietnam_today_data.js?v=61.0"></script>
+  <script src="./educational_channels_data.js?v=61.0"></script>
+  <script src="./international_news_videos.js?v=61.0"></script>
+  <script src="./bilingual_news_data.js?v=61.0"></script>
+  <script src="./reading_lexicon.js?v=61.0"></script>
+  <script src="./app.js?v=61.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {

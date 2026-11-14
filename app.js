@@ -251,40 +251,13 @@ function skipCurrentCard() {
 
 // ================= STREAK & DAILY CHECK-IN =================
 function updateDailyStreak(serverStreak, serverLastDate) {
+  if (typeof syncDeadlineStreak === "function") {
+    return syncDeadlineStreak(serverStreak, serverLastDate);
+  }
   const today = new Date().toISOString().slice(0, 10);
   let streak = parseInt(localStorage.getItem("EMH_STREAK") || "1", 10);
-  let lastDate = localStorage.getItem("EMH_LAST_DATE") || "";
-
-  if (serverStreak !== undefined && serverStreak !== null) {
-    streak = serverStreak;
-    lastDate = serverLastDate || today;
-  } else if (lastDate !== today) {
-    if (lastDate) {
-      const dLast = new Date(lastDate);
-      const dToday = new Date(today);
-      const diffDays = Math.round((dToday - dLast) / (1000 * 3600 * 24));
-      if (diffDays === 1) {
-        streak = streak + 1;
-      } else if (diffDays > 1) {
-        streak = 1;
-      }
-    } else {
-      streak = 1;
-    }
-  }
-
   localStorage.setItem("EMH_STREAK", streak.toString());
   localStorage.setItem("EMH_LAST_DATE", today);
-
-  const streakEl = document.getElementById("streakCount");
-  if (streakEl) streakEl.innerText = `${streak} ngày`;
-
-  const profileStreakEl = document.getElementById("statStreakDisplay");
-  if (profileStreakEl) profileStreakEl.innerText = `${streak} ngày 🔥`;
-
-  const streakSubtext = document.getElementById("streakSubtext");
-  if (streakSubtext) streakSubtext.innerText = `Đã điểm danh ngày hôm nay (${today}). Tiếp tục duy trì!`;
-
   return streak;
 }
 
@@ -645,6 +618,9 @@ function saveMissionRegistry() {
   if (typeof tickDeadlineCountdown === "function") {
     tickDeadlineCountdown();
   }
+  if (typeof syncDeadlineStreak === "function") {
+    syncDeadlineStreak();
+  }
   if (typeof triggerBackgroundCloudSync === "function") {
     triggerBackgroundCloudSync();
   }
@@ -654,85 +630,188 @@ function saveMissionRegistry() {
 // ============================================================================
 // STRICT DEADLINE STREAK ENGINE (Duy trì chuỗi khi hoàn thành đủ 4/4 Deadline)
 // ============================================================================
+// ============================================================================
+// COMPREHENSIVE STREAK & ROADMAP COMPLETION ENGINE
+// ============================================================================
 const STORAGE_KEY_DEADLINE_STREAK_V2 = "EMH_DEADLINE_STREAK_V2";
+
+// Đếm số ngày lộ trình đã hoàn thành thực tế trong missionRegistry
+function countCompletedCurriculumDays() {
+  if (typeof loadMissionRegistry === "function" && (!missionRegistry || !missionRegistry.history || Object.keys(missionRegistry.history).length === 0)) {
+    loadMissionRegistry();
+  }
+  let count = 0;
+  const total = (typeof getTotalMissionDays === "function") ? getTotalMissionDays() : 90;
+  for (let d = 1; d <= total; d++) {
+    const st = getDayMissionStatus(d);
+    if (st.isAllDone || st.completedCount >= 3 || (st.vocabDone && st.completedCount >= 2)) {
+      count++;
+    }
+  }
+  return count;
+}
+
+// Lấy ngày cao nhất đã hoàn thành trong lộ trình
+function getMaxCompletedCurriculumDay() {
+  if (typeof loadMissionRegistry === "function" && (!missionRegistry || !missionRegistry.history || Object.keys(missionRegistry.history).length === 0)) {
+    loadMissionRegistry();
+  }
+  let maxD = 0;
+  const total = (typeof getTotalMissionDays === "function") ? getTotalMissionDays() : 90;
+  for (let d = 1; d <= total; d++) {
+    const st = getDayMissionStatus(d);
+    if (st.isAllDone || st.completedCount >= 3 || (st.vocabDone && st.completedCount >= 2)) {
+      if (d > maxD) maxD = d;
+    }
+  }
+  return maxD;
+}
+
+// Kiểm tra xem hôm nay học viên đã học hoặc hoàn thành nhiệm vụ nào chưa
+function isTodayStudyActive() {
+  const now = new Date();
+  const todayStr = now.toISOString().split("T")[0];
+  const lastActiveDate = localStorage.getItem("EMH_LAST_DATE") || "";
+  if (lastActiveDate === todayStr) {
+    return true;
+  }
+  // Kiểm tra ngày đang chọn
+  const curDay = (missionRegistry && missionRegistry.currentDay) ? missionRegistry.currentDay : 1;
+  const curStatus = getDayMissionStatus(curDay);
+  if (curStatus.isAllDone || curStatus.completedCount >= 1 || curStatus.videoDone) {
+    return true;
+  }
+  // Kiểm tra nếu đã lật flashcard hôm nay
+  if (appState.dayVocabStudied && appState.dayVocabStudied[curDay] && appState.dayVocabStudied[curDay].size > 0) {
+    return true;
+  }
+  return false;
+}
 
 function getDeadlineStreakData() {
   const todayStr = new Date().toISOString().split("T")[0];
+  let rawData = null;
   try {
     const raw = localStorage.getItem(STORAGE_KEY_DEADLINE_STREAK_V2);
-    if (raw) {
-      const data = JSON.parse(raw);
-      return {
-        streakDays: parseInt(data.streakDays) || 0,
-        lastCompletedDate: data.lastCompletedDate || "",
-        completedToday: data.lastCompletedDate === todayStr
-      };
-    }
+    if (raw) rawData = JSON.parse(raw);
   } catch (e) {}
-  return { streakDays: 0, lastCompletedDate: "", completedToday: false };
+
+  const storedStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10);
+  const dataStreak = rawData ? (parseInt(rawData.streakDays) || 0) : 0;
+  const completedCurriculumDays = countCompletedCurriculumDays();
+  const maxCompletedDay = getMaxCompletedCurriculumDay();
+
+  // Mốc chuỗi thực tế tối thiểu không bao giờ nhỏ hơn số ngày lộ trình đã xong
+  const curriculumBase = Math.max(completedCurriculumDays, maxCompletedDay);
+  let effectiveStreak = Math.max(storedStreak, dataStreak, curriculumBase);
+  if (effectiveStreak < 1 && (curriculumBase > 0 || isTodayStudyActive())) {
+    effectiveStreak = Math.max(1, curriculumBase);
+  }
+
+  const lastCompletedDate = rawData?.lastCompletedDate || localStorage.getItem("EMH_LAST_DATE") || "";
+  const isMaintainedToday = isTodayStudyActive() || (lastCompletedDate === todayStr);
+
+  return {
+    streakDays: Math.max(1, effectiveStreak),
+    lastCompletedDate: lastCompletedDate,
+    completedToday: isMaintainedToday
+  };
 }
 
-function syncDeadlineStreak() {
-  const curDay = missionRegistry.currentDay || 1;
-  const st = getDayMissionStatus(curDay);
+function renderAllStreakUI(streakCount, isMaintainedToday) {
+  const count = Math.max(1, streakCount || 1);
+  const today = new Date().toISOString().slice(0, 10);
+
+  // 1. Header Streak Badge
+  const headerStreakEl = document.getElementById("streakCount");
+  if (headerStreakEl) headerStreakEl.innerText = `${count} ngày`;
+
+  // 2. Profile Tab Streak
+  const profileStreakEl = document.getElementById("statStreakDisplay");
+  if (profileStreakEl) profileStreakEl.innerText = `${count} ngày 🔥`;
+
+  const streakSubtext = document.getElementById("streakSubtext");
+  if (streakSubtext) {
+    streakSubtext.innerText = isMaintainedToday
+      ? `Đã bảo toàn chuỗi ngày hôm nay (${today}). Tiếp tục duy trì!`
+      : `Đăng nhập và hoàn thành nhiệm vụ mỗi ngày để tích lũy chuỗi liên tục`;
+  }
+
+  // 3. Deadline Banner Badge (Today & Flashcard tab)
+  const badge = document.getElementById("todayStreakBadge");
+  if (badge) {
+    if (isMaintainedToday) {
+      badge.className = "px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1 shadow-sm";
+      badge.innerHTML = `🔥 Chuỗi Streak: ${count} ngày (Đã giữ chuỗi hôm nay ✓)`;
+    } else {
+      badge.className = "px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold flex items-center gap-1";
+      badge.innerHTML = `🔥 Chuỗi Streak: ${count} ngày (Đủ 4/4 Deadline để giữ chuỗi)`;
+    }
+  }
+
+  // 4. Đồng bộ vào LocalStorage
+  localStorage.setItem("EMH_STREAK", String(count));
+  localStorage.setItem("EMH_LAST_DATE", today);
+  localStorage.setItem(STORAGE_KEY_DEADLINE_STREAK_V2, JSON.stringify({
+    streakDays: count,
+    lastCompletedDate: today,
+    completedToday: !!isMaintainedToday
+  }));
+}
+
+function syncDeadlineStreak(serverStreak, serverLastDate) {
+  const officialToday = (typeof getOfficialTodayDay === "function") ? getOfficialTodayDay() : 1;
+  const todayStatus = getDayMissionStatus(officialToday);
+  const curDay = (missionRegistry && missionRegistry.currentDay) ? missionRegistry.currentDay : officialToday;
+  const curStatus = getDayMissionStatus(curDay);
+
+  const completedCurriculumDays = countCompletedCurriculumDays();
+  const maxCompletedDay = getMaxCompletedCurriculumDay();
+  const curriculumBase = Math.max(completedCurriculumDays, maxCompletedDay);
+
+  let data = getDeadlineStreakData();
+  let currentStreak = Math.max(data.streakDays, curriculumBase, 1);
+
+  if (serverStreak !== undefined && serverStreak !== null) {
+    currentStreak = Math.max(currentStreak, parseInt(serverStreak) || 1, curriculumBase);
+  }
+
   const now = new Date();
   const todayStr = now.toISOString().split("T")[0];
   const yesterday = new Date(now);
   yesterday.setDate(now.getDate() - 1);
   const yesterdayStr = yesterday.toISOString().split("T")[0];
 
-  let data = getDeadlineStreakData();
+  const isCompletedFull = todayStatus.isAllDone || curStatus.isAllDone;
+  const isStudyActive = isTodayStudyActive() || isCompletedFull;
 
-  if (st.isAllDone && data.lastCompletedDate !== todayStr) {
+  if (isCompletedFull && data.lastCompletedDate !== todayStr) {
     if (data.lastCompletedDate === yesterdayStr) {
-      data.streakDays = (data.streakDays || 0) + 1;
-    } else if (!data.lastCompletedDate) {
-      data.streakDays = 1;
-    } else {
-      // Missed a day previously -> restart streak at 1
-      data.streakDays = 1;
+      currentStreak += 1;
+    } else if (currentStreak <= curriculumBase) {
+      currentStreak = Math.max(currentStreak, curriculumBase);
     }
     data.lastCompletedDate = todayStr;
-    data.completedToday = true;
-    localStorage.setItem(STORAGE_KEY_DEADLINE_STREAK_V2, JSON.stringify(data));
     if (typeof showToast === "function") {
-      showToast(`🔥 CHUỖI STREAK ĐƯỢC DUY TRÌ: ${data.streakDays} NGÀY LIÊN TIẾP! (Đã xong 4/4 Deadline hôm nay)`, "success");
+      showToast(`🔥 CHUỖI STREAK ĐƯỢC DUY TRÌ: ${currentStreak} NGÀY LIÊN TIẾP! (Đã xong 4/4 Deadline hôm nay)`, "success");
     }
   }
 
-  // Update UI Badge
-  const badge = document.getElementById("todayStreakBadge");
-  if (badge) {
-    if (data.completedToday || st.isAllDone) {
-      const count = Math.max(1, data.streakDays);
-      badge.className = "px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1";
-      badge.innerHTML = `🔥 Chuỗi Streak: ${count} ngày (Đã giữ chuỗi hôm nay ✓)`;
-    } else {
-      badge.className = "px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold flex items-center gap-1";
-      badge.innerHTML = `🔥 Chuỗi Streak: ${data.streakDays} ngày (Đủ 4/4 Deadline để giữ chuỗi)`;
-    }
-  }
+  renderAllStreakUI(currentStreak, isStudyActive);
+  return currentStreak;
 }
 
 function getDayMissionStatus(dayNum) {
+  if (typeof loadMissionRegistry === "function" && (!missionRegistry || !missionRegistry.history || Object.keys(missionRegistry.history).length === 0)) {
+    loadMissionRegistry();
+  }
   const dStr = String(dayNum);
-  const data = missionRegistry.history[dStr] || {
-    vocabDone: false,
-    vocabCount: 0,
-    readingDone: false,
-    readingDoneCount: 0,
-    completedReadings: [],
-    grammarDone: false,
-    grammarDoneCount: 0,
-    completedGrammarTopics: [],
-    videoDone: false,
-    completedVideos: []
-  };
+  const data = (missionRegistry && missionRegistry.history) ? (missionRegistry.history[dStr] || {}) : {};
   const isVocab = !!data.vocabDone || (data.vocabCount >= 20);
   const readingCount = (data.completedReadings && Array.isArray(data.completedReadings))
     ? data.completedReadings.length
-    : (data.readingDoneCount || (data.readingDone ? 3 : 0));
-  const isReading = !!data.readingDone || (readingCount >= 3);
+    : (data.readingDoneCount || (data.readingDone ? 1 : 0));
+  const isReading = !!data.readingDone || (readingCount >= 1);
 
   // Ngữ pháp: 2 chuyên đề mỗi ngày
   const grammarCount = (data.completedGrammarTopics && Array.isArray(data.completedGrammarTopics))
@@ -740,15 +819,15 @@ function getDayMissionStatus(dayNum) {
     : (data.grammarDoneCount || (data.grammarDone ? 2 : 0));
   const isGrammar = !!data.grammarDone || (grammarCount >= 2);
 
-  // Luyện Nghe Đề Thi: Mục tiêu 2 bài chuẩn form mỗi ngày (HP3, VSTEP, Cambridge)
+  // Luyện Nghe Đề Thi: Mục tiêu 2 bài chuẩn form mỗi ngày (HP3, VSTEP, Cambridge, APTIS, IELTS)
   const listeningCount = (data.completedListeningTests && Array.isArray(data.completedListeningTests))
     ? data.completedListeningTests.length
     : (data.listeningDoneCount || (data.listeningDone ? 2 : 0));
   const isListening = !!data.listeningDone || (listeningCount >= 2);
 
   // Video là mục giải trí / nghe thụ động tự do (không tính vào Deadline bắt buộc)
-  const watchedVideos = getWatchedVietnamTodayVideos();
-  const isVideo = !!data.videoDone || (data.completedVideos && data.completedVideos.length > 0) || watchedVideos.size > 0;
+  const watchedVideos = (typeof getWatchedVietnamTodayVideos === "function") ? getWatchedVietnamTodayVideos() : new Set();
+  const isVideo = !!data.videoDone || (data.completedVideos && data.completedVideos.length > 0) || (watchedVideos && watchedVideos.size > 0);
 
   let count = 0;
   if (isVocab) count++;
@@ -756,9 +835,14 @@ function getDayMissionStatus(dayNum) {
   if (isGrammar) count++;
   if (isListening) count++;
 
+  // Backward compatibility: Hỗ trợ cả chuẩn cũ 3/3 (từ vựng + ngữ pháp + đọc) lẫn chuẩn mới 4/4 (+ nghe)
+  const isLegacyDone = (isVocab && isReading && isGrammar);
+  const isModernDone = (isVocab && isReading && isGrammar && isListening);
+  const isAllDone = isModernDone || isLegacyDone || (count >= 3 && isVocab);
+
   return {
     vocabDone: isVocab,
-    vocabCount: data.vocabCount || 0,
+    vocabCount: data.vocabCount || (isVocab ? 20 : 0),
     readingDone: isReading,
     readingDoneCount: readingCount,
     completedReadings: data.completedReadings || [],
@@ -769,13 +853,16 @@ function getDayMissionStatus(dayNum) {
     listeningDoneCount: Math.min(2, listeningCount),
     completedListeningTests: data.completedListeningTests || [],
     videoDone: isVideo,
-    completedVideos: data.completedVideos || (isVideo ? Array.from(watchedVideos) : []),
+    completedVideos: data.completedVideos || (isVideo ? Array.from(watchedVideos || []) : []),
     completedCount: count,
-    isAllDone: (isVocab && isReading && isGrammar && isListening)
+    isAllDone: isAllDone
   };
 }
 
 function setDayMissionStatus(dayNum, updates) {
+  if (typeof loadMissionRegistry === "function" && (!missionRegistry || !missionRegistry.history)) {
+    loadMissionRegistry();
+  }
   const dStr = String(dayNum);
   const current = missionRegistry.history[dStr] || {
     vocabDone: false,
@@ -787,6 +874,9 @@ function setDayMissionStatus(dayNum, updates) {
   };
   missionRegistry.history[dStr] = { ...current, ...updates };
   saveMissionRegistry();
+  if (typeof syncDeadlineStreak === "function") {
+    syncDeadlineStreak();
+  }
 }
 
 function toggleMissionDone(type) {
@@ -1049,6 +1139,7 @@ function initDailyMissionEngine() {
   appState.studyMode = "daily_locked";
   appState.currentUnitIndex = info.unitIndex;
   appState.currentDayIndex = info.dayIndex;
+  if (typeof syncDeadlineStreak === "function") syncDeadlineStreak();
 }
 
 
@@ -1069,10 +1160,10 @@ function getOfficialTodayDay() {
     if (st.isAllDone) maxCompleted = d;
   }
 
-  const streak = (typeof getDeadlineStreakData === "function") ? getDeadlineStreakData() : { completedToday: false, lastCompletedDate: "" };
+  const lastDate = localStorage.getItem("EMH_LAST_DATE") || "";
 
   // Nếu hôm nay đã tick hoàn thành ngày cao nhất:
-  if (streak.lastCompletedDate === todayStr && maxCompleted >= 1) {
+  if (lastDate === todayStr && maxCompleted >= 1) {
     return maxCompleted;
   }
 
@@ -1125,7 +1216,7 @@ function populateMissionDaySelectOptions(sel, selectedDay) {
 
     if (st.isAllDone) {
       icon = "✓ ";
-      statusText = "(Đã xong 4/4 ✓)";
+      statusText = (st.completedCount === 4) ? "(Đã xong 4/4 ✓)" : "(Đã hoàn thành ✓)";
     } else if (st.completedCount > 0) {
       icon = "⏳ ";
       statusText = `(${st.completedCount}/4)`;
@@ -1257,6 +1348,9 @@ function jumpToMissionDay(dayNum) {
   }
   if (typeof tickDeadlineCountdown === "function") {
     tickDeadlineCountdown();
+  }
+  if (typeof syncDeadlineStreak === "function") {
+    syncDeadlineStreak();
   }
 
   const officialToday = getOfficialTodayDay();

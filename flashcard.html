@@ -1370,6 +1370,12 @@
             <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Cô Trang Anh</span>
           </div>
 
+          <!-- Revise Mode Quick Launch Button -->
+          <button onclick="startGrammarReviseMode()" id="btnStartGrammarRevise" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-purple-950/40 transition active:scale-95 border border-purple-400/30">
+            <i data-lucide="brain" class="w-4 h-4 text-amber-300"></i>
+            <span>🧠 Revise: Ôn Tổng Hợp Các Chuyên Đề</span>
+          </button>
+
           <!-- Quick Topic Search -->
           <div>
             <input type="text" id="grammarSearchInput" oninput="filterGrammarTopics(this.value)" placeholder="🔍 Tìm chuyên đề (thì, bị động...)..." class="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl px-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 outline-none focus:border-indigo-500 transition">
@@ -1379,44 +1385,120 @@
         </div>
 
         <div class="md:col-span-2 glass-card rounded-2xl p-6 space-y-6">
-          <div class="border-b border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div>
-              <div class="flex items-center gap-2">
-                <span class="text-xs uppercase font-bold text-indigo-400 tracking-wider">Chuyên đề chi tiết</span>
-                <span class="text-[10px] text-slate-400">Nguồn: Tổng ôn Ngữ pháp Tiếng Anh - Cô Trang Anh (NXB ĐHQG Hà Nội)</span>
+          <!-- Topic Detail View -->
+          <div id="grammarTopicDetailContainer" class="space-y-6">
+            <div class="border-b border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs uppercase font-bold text-indigo-400 tracking-wider">Chuyên đề chi tiết</span>
+                  <span class="text-[10px] text-slate-400">Nguồn: Tổng ôn Ngữ pháp Tiếng Anh - Cô Trang Anh (NXB ĐHQG Hà Nội)</span>
+                </div>
+                <h2 id="grammarTopicTitle" class="text-xl md:text-2xl font-extrabold text-white mt-1">Chuyên đề Thì động từ</h2>
+                <p id="grammarTopicSummary" class="text-xs text-slate-300 mt-1.5 leading-relaxed"></p>
               </div>
-              <h2 id="grammarTopicTitle" class="text-xl md:text-2xl font-extrabold text-white mt-1">Chuyên đề Thì động từ</h2>
-              <p id="grammarTopicSummary" class="text-xs text-slate-300 mt-1.5 leading-relaxed"></p>
+              <button onclick="completeGrammarMission()" class="px-3.5 py-2 rounded-xl bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1.5 shadow-sm shrink-0">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                <span>Hoàn thành chuyên đề hôm nay</span>
+              </button>
             </div>
-            <button onclick="completeGrammarMission()" class="px-3.5 py-2 rounded-xl bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1.5 shadow-sm shrink-0">
-              <i data-lucide="check-circle" class="w-4 h-4"></i>
-              <span>Hoàn thành chuyên đề hôm nay</span>
-            </button>
+
+            <!-- Lý thuyết cốt lõi -->
+            <div id="grammarContentBody" class="space-y-5 text-sm sm:text-base leading-relaxed text-slate-200"></div>
+
+            <!-- Bài tập điền từ ngắn vào chỗ trống -->
+            <div class="mt-8 border-t border-slate-800 pt-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-sm uppercase tracking-wider text-emerald-400 flex items-center gap-2">
+                  <i data-lucide="edit-3" class="w-4 h-4 text-emerald-400"></i> Bài tập điền từ ngắn & chia động từ
+                </h4>
+                <span class="text-[11px] text-slate-400">Tự gõ đáp án & nhấn Enter hoặc Kiểm tra</span>
+              </div>
+              <div id="grammarFillBlanksList" class="space-y-4"></div>
+            </div>
+
+            <!-- Bài tập trắc nghiệm áp dụng -->
+            <div class="mt-8 border-t border-slate-800 pt-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-sm uppercase tracking-wider text-amber-400 flex items-center gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Bài tập trắc nghiệm áp dụng chuyên đề
+                </h4>
+                <span class="text-[11px] text-slate-400">Chọn 1 trong 4 đáp án A, B, C, D</span>
+              </div>
+              <div id="grammarQuizList" class="space-y-4"></div>
+            </div>
           </div>
 
-          <!-- Lý thuyết cốt lõi -->
-          <div id="grammarContentBody" class="space-y-5 text-sm sm:text-base leading-relaxed text-slate-200"></div>
+          <!-- Cumulative Revise View -->
+          <div id="grammarReviseContainer" class="hidden space-y-6">
+            <!-- Revise Header Banner -->
+            <div class="p-5 rounded-2xl bg-gradient-to-r from-purple-950/70 via-indigo-950/60 to-slate-900 border border-purple-500/40 space-y-4 shadow-xl">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-purple-500/20 pb-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-[11px] font-bold uppercase tracking-wider border border-purple-500/30 flex items-center gap-1.5">
+                      <i data-lucide="brain" class="w-3.5 h-3.5 text-amber-300"></i>
+                      <span>Revise Engine • Ôn Tập Tích Lũy</span>
+                    </span>
+                    <span class="text-[11px] text-slate-400">Chống quên kiến thức</span>
+                  </div>
+                  <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Ôn Tập Tổng Hợp Các Chuyên Đề Đã Học</h2>
+                  <p class="text-xs text-purple-200/80 mt-1">Hệ thống chọn ngẫu nhiên bài tập từ các chuyên đề đã học để củng cố phản xạ và nhớ lâu.</p>
+                </div>
+                <button onclick="backToTopicView()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold transition flex items-center gap-1.5 shrink-0">
+                  <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                  <span>Quay lại Chuyên đề</span>
+                </button>
+              </div>
 
-          <!-- Bài tập điền từ ngắn vào chỗ trống -->
-          <div class="mt-8 border-t border-slate-800 pt-6 space-y-4">
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-sm uppercase tracking-wider text-emerald-400 flex items-center gap-2">
-                <i data-lucide="edit-3" class="w-4 h-4 text-emerald-400"></i> Bài tập điền từ ngắn & chia động từ
-              </h4>
-              <span class="text-[11px] text-slate-400">Tự gõ đáp án & nhấn Enter hoặc Kiểm tra</span>
-            </div>
-            <div id="grammarFillBlanksList" class="space-y-4"></div>
-          </div>
+              <!-- Scope & Count Filters -->
+              <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-slate-400 font-medium">Phạm vi:</span>
+                  <select id="grammarReviseScope" onchange="changeReviseFilters()" class="bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-xl px-2.5 py-1.5 outline-none focus:border-purple-500">
+                    <option value="studied">Các chuyên đề đã học đến nay</option>
+                    <option value="all">Toàn bộ 25 chuyên đề (Tổng ôn toàn diện)</option>
+                  </select>
 
-          <!-- Bài tập trắc nghiệm áp dụng -->
-          <div class="mt-8 border-t border-slate-800 pt-6 space-y-4">
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-sm uppercase tracking-wider text-amber-400 flex items-center gap-2">
-                <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Bài tập trắc nghiệm áp dụng chuyên đề
-              </h4>
-              <span class="text-[11px] text-slate-400">Chọn 1 trong 4 đáp án A, B, C, D</span>
+                  <span class="text-slate-400 font-medium ml-2">Số câu:</span>
+                  <div class="inline-flex rounded-xl bg-slate-800/80 p-0.5 border border-slate-700">
+                    <button onclick="setReviseQuestionCount(10)" id="rev-cnt-10" class="px-2.5 py-1 text-xs font-bold rounded-lg transition bg-purple-600 text-white">10 câu</button>
+                    <button onclick="setReviseQuestionCount(20)" id="rev-cnt-20" class="px-2.5 py-1 text-xs font-bold rounded-lg transition text-slate-400 hover:text-white">20 câu</button>
+                    <button onclick="setReviseQuestionCount(30)" id="rev-cnt-30" class="px-2.5 py-1 text-xs font-bold rounded-lg transition text-slate-400 hover:text-white">30 câu</button>
+                  </div>
+                </div>
+
+                <button onclick="generateReviseTest()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-md shadow-purple-900/40 transition active:scale-95">
+                  <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                  <span>Tạo Đề Mới (Randomize)</span>
+                </button>
+              </div>
+
+              <!-- Live Progress & Score Indicator -->
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-purple-500/20 flex items-center justify-between flex-wrap gap-2 text-xs">
+                <div class="flex items-center gap-3">
+                  <span id="reviseAnsweredCounter" class="font-bold text-slate-300">Tiến độ: 0/10 câu</span>
+                  <span id="reviseScoreCounter" class="text-emerald-400 font-bold hidden">Điểm: 0/0 (0%)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span id="reviseTopicScopeBadge" class="px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-300 text-[11px] font-semibold">Đang chuẩn bị đề ôn...</span>
+                </div>
+              </div>
             </div>
-            <div id="grammarQuizList" class="space-y-4"></div>
+
+            <!-- Revise Questions List -->
+            <div id="grammarReviseQuestionsList" class="space-y-5"></div>
+
+            <!-- Revise Bottom Actions -->
+            <div id="grammarReviseBottomBar" class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center justify-between gap-3">
+              <span id="reviseStatusSummaryText" class="text-xs text-slate-400">Hãy trả lời các câu hỏi bên trên để kiểm tra kiến thức tích lũy.</span>
+              <button onclick="finishReviseTest()" id="btnFinishReviseTest" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-950/40 transition active:scale-95 flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                <span>Nộp Bài & Tổng Kết Kết Quả</span>
+              </button>
+            </div>
+
+            <!-- Revise Result Summary Modal/Card -->
+            <div id="grammarReviseResultCard" class="hidden p-6 rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 border border-indigo-500/30 space-y-4 shadow-2xl"></div>
           </div>
         </div>
       </div>
@@ -2671,19 +2753,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=61.0"></script>
-  <script src="./listening_data.js?v=61.0"></script>
-  <script src="./vietnam_today_data.js?v=61.0"></script>
-  <script src="./educational_channels_data.js?v=61.0"></script>
-  <script src="./international_news_videos.js?v=61.0"></script>
-  <script src="./bilingual_news_data.js?v=61.0"></script>
-  <script src="./reading_lexicon.js?v=61.0"></script>
-  <script src="./app.js?v=61.0"></script>
+  <script src="./data.js?v=62.0"></script>
+  <script src="./listening_data.js?v=62.0"></script>
+  <script src="./vietnam_today_data.js?v=62.0"></script>
+  <script src="./educational_channels_data.js?v=62.0"></script>
+  <script src="./international_news_videos.js?v=62.0"></script>
+  <script src="./bilingual_news_data.js?v=62.0"></script>
+  <script src="./reading_lexicon.js?v=62.0"></script>
+  <script src="./app.js?v=62.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=59.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=62.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

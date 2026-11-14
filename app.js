@@ -3063,6 +3063,17 @@ function formatGrammarText(text) {
 
 async function renderGrammarDetail(weekNum) {
   appState.activeGrammarWeek = weekNum;
+  appState.isGrammarReviseMode = false;
+
+  const topicContainer = document.getElementById("grammarTopicDetailContainer");
+  const reviseContainer = document.getElementById("grammarReviseContainer");
+  if (topicContainer) topicContainer.classList.remove("hidden");
+  if (reviseContainer) reviseContainer.classList.add("hidden");
+  const revBtn = document.getElementById("btnStartGrammarRevise");
+  if (revBtn) {
+    revBtn.classList.remove("ring-2", "ring-purple-400", "scale-[1.02]");
+  }
+
   const detail = await apiCall(`/api/grammar/topics/${weekNum}`) || window.APP_DATA?.grammar?.[weekNum - 1];
   if (!detail) return;
 
@@ -3268,6 +3279,473 @@ async function checkGrammarQuiz(qIdx, optIdx) {
     }
     feedback.classList.remove("hidden");
   }
+}
+
+// ============================================================================
+// REVISE ENGINE: ÔN TẬP TỔNG HỢP CÁC CHUYÊN ĐỀ ĐÃ HỌC (CUMULATIVE GRAMMAR REVISION)
+// ============================================================================
+if (!appState.grammarRevise) {
+  appState.grammarRevise = {
+    count: 10,
+    scope: 'studied',
+    questions: [],
+    answers: {},
+    checked: {},
+    isFinished: false
+  };
+}
+
+function startGrammarReviseMode() {
+  appState.isGrammarReviseMode = true;
+  const topicContainer = document.getElementById("grammarTopicDetailContainer");
+  const reviseContainer = document.getElementById("grammarReviseContainer");
+  if (topicContainer) topicContainer.classList.add("hidden");
+  if (reviseContainer) reviseContainer.classList.remove("hidden");
+
+  const revBtn = document.getElementById("btnStartGrammarRevise");
+  if (revBtn) {
+    revBtn.classList.add("ring-2", "ring-purple-400", "scale-[1.02]");
+  }
+
+  // De-activate all topic buttons
+  const topics = appState.grammarTopics || (window.APP_DATA?.grammar || []);
+  topics.forEach((t, i) => {
+    const w = t.week_number || (i + 1);
+    const btn = document.getElementById(`grammar-btn-${w}`);
+    if (btn) {
+      btn.className = "w-full text-left p-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition text-slate-300 hover:bg-slate-800";
+    }
+  });
+
+  generateReviseTest();
+  if (window.lucide) lucide.createIcons();
+}
+
+function backToTopicView() {
+  appState.isGrammarReviseMode = false;
+  renderGrammarDetail(appState.activeGrammarWeek || 1);
+}
+
+function setReviseQuestionCount(cnt) {
+  appState.grammarRevise.count = cnt;
+  [10, 20, 30].forEach(n => {
+    const btn = document.getElementById(`rev-cnt-${n}`);
+    if (btn) {
+      if (n === cnt) {
+        btn.className = "px-2.5 py-1 text-xs font-bold rounded-lg transition bg-purple-600 text-white shadow";
+      } else {
+        btn.className = "px-2.5 py-1 text-xs font-bold rounded-lg transition text-slate-400 hover:text-white";
+      }
+    }
+  });
+  generateReviseTest();
+}
+
+function changeReviseFilters() {
+  const scopeSelect = document.getElementById("grammarReviseScope");
+  if (scopeSelect) {
+    appState.grammarRevise.scope = scopeSelect.value;
+  }
+  generateReviseTest();
+}
+
+function generateReviseTest() {
+  const allTopics = window.APP_DATA?.grammar || [];
+  if (allTopics.length === 0) return;
+
+  const scope = appState.grammarRevise.scope || "studied";
+  const count = appState.grammarRevise.count || 10;
+
+  let targetTopics = [];
+  if (scope === "all") {
+    targetTopics = allTopics;
+  } else {
+    const curDay = missionRegistry?.currentDay || 1;
+    // Each day covers 2 grammar topics; ensure at least topics 1-4 for rich variety
+    const maxStudiedWeek = Math.max(4, Math.min(25, curDay * 2));
+    targetTopics = allTopics.filter(t => (t.week_number || 1) <= maxStudiedWeek);
+  }
+
+  // Update scope badge in UI
+  const badge = document.getElementById("reviseTopicScopeBadge");
+  if (badge) {
+    if (scope === "all") {
+      badge.innerText = `Đang ôn: Toàn bộ 25 Chuyên Đề (${targetTopics.length} chuyên đề)`;
+    } else {
+      const minW = targetTopics[0]?.week_number || 1;
+      const maxW = targetTopics[targetTopics.length - 1]?.week_number || targetTopics.length;
+      badge.innerText = `Đang ôn: Chuyên đề ${minW} → ${maxW} (mục tiêu ngày 1 đến ngày ${missionRegistry?.currentDay || 1})`;
+    }
+  }
+
+  // Pool questions from targetTopics
+  const pool = [];
+  targetTopics.forEach(t => {
+    const wNum = t.week_number || 1;
+    const cleanTitle = (t.title || "").replace(/Chuyên đề\s*\d+:\s*/, "");
+
+    (t.quiz || []).forEach(q => {
+      pool.push({
+        topicNum: wNum,
+        topicTitle: cleanTitle,
+        type: 'quiz',
+        q: q.q,
+        options: q.options,
+        answer: q.answer,
+        explain: q.explain
+      });
+    });
+
+    (t.fill_blanks || []).forEach(fb => {
+      pool.push({
+        topicNum: wNum,
+        topicTitle: cleanTitle,
+        type: 'fill',
+        sentence: fb.sentence,
+        answer: fb.answer,
+        alternatives: fb.alternatives || [],
+        hint: fb.hint,
+        explain: fb.explain
+      });
+    });
+  });
+
+  // Fisher-Yates shuffle
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+
+  const selected = pool.slice(0, count);
+  appState.grammarRevise.questions = selected;
+  appState.grammarRevise.answers = {};
+  appState.grammarRevise.checked = {};
+  appState.grammarRevise.isFinished = false;
+
+  const resCard = document.getElementById("grammarReviseResultCard");
+  if (resCard) {
+    resCard.classList.add("hidden");
+    resCard.innerHTML = "";
+  }
+  const counter = document.getElementById("reviseAnsweredCounter");
+  if (counter) counter.innerText = `Tiến độ: 0/${selected.length} câu`;
+  const scoreCounter = document.getElementById("reviseScoreCounter");
+  if (scoreCounter) {
+    scoreCounter.classList.add("hidden");
+    scoreCounter.innerText = "Điểm: 0/0 (0%)";
+  }
+
+  renderReviseQuestions();
+}
+
+function renderReviseQuestions() {
+  const container = document.getElementById("grammarReviseQuestionsList");
+  if (!container) return;
+
+  const questions = appState.grammarRevise.questions || [];
+  if (questions.length === 0) {
+    container.innerHTML = '<p class="p-6 text-center text-slate-400 italic">Không có câu hỏi trong phạm vi đã chọn.</p>';
+    return;
+  }
+
+  container.innerHTML = questions.map((q, idx) => {
+    const isAnswered = !!appState.grammarRevise.checked[idx];
+    const isCorrect = appState.grammarRevise.answers[idx]?.isCorrect;
+
+    if (q.type === 'quiz') {
+      const selectedOptIdx = appState.grammarRevise.answers[idx]?.selectedOptIdx;
+      return `
+        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 shadow-sm" id="rev-card-${idx}">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-purple-500/20 text-purple-300 flex items-center justify-center text-xs font-black">
+                ${idx + 1}
+              </span>
+              <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Trắc nghiệm A, B, C, D</span>
+            </div>
+            <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 font-semibold border border-indigo-500/20">
+              🏷️ Chuyên đề ${q.topicNum}: ${q.topicTitle}
+            </span>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">${q.q}</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            ${(q.options || []).map((opt, oIdx) => {
+              let optStyle = "bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 border-slate-700/60";
+              if (isAnswered) {
+                const ansLetters = ["A", "B", "C", "D"];
+                const correctIdx = ansLetters.indexOf(q.answer.trim().toUpperCase());
+                if (oIdx === correctIdx) {
+                  optStyle = "bg-emerald-950/60 border-emerald-500 text-emerald-300 font-bold";
+                } else if (oIdx === selectedOptIdx) {
+                  optStyle = "bg-red-950/60 border-red-500 text-red-300";
+                }
+              }
+              return `
+                <button onclick="checkReviseQuiz(${idx}, ${oIdx})" id="rev-q-${idx}-opt-${oIdx}" class="text-left p-3 rounded-xl border text-xs sm:text-sm font-medium transition ${optStyle}">
+                  ${opt}
+                </button>
+              `;
+            }).join("")}
+          </div>
+
+          <div id="rev-feedback-${idx}" class="${isAnswered ? '' : 'hidden'} p-3 rounded-xl text-xs sm:text-sm ${isCorrect ? 'bg-emerald-950/50 border border-emerald-500/40 text-emerald-300' : 'bg-red-950/50 border border-red-500/40 text-red-300'}">
+            ${isAnswered ? (isCorrect ? `<strong>✓ Chính xác!</strong> Đáp án ${q.answer}.<br><span class="text-slate-300 text-xs mt-1 block">${q.explain || ''}</span>` : `<strong>✗ Chưa chính xác.</strong> Đáp án đúng là: <span class="font-bold text-amber-300">${q.answer}</span>.<br><span class="text-slate-300 text-xs mt-1 block">${q.explain || ''}</span>`) : ''}
+          </div>
+        </div>
+      `;
+    } else {
+      // Fill blank
+      return `
+        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 shadow-sm" id="rev-card-${idx}">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-xs font-black">
+                ${idx + 1}
+              </span>
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Điền từ ngắn / Chia động từ</span>
+            </div>
+            <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 font-semibold border border-indigo-500/20">
+              🏷️ Chuyên đề ${q.topicNum}: ${q.topicTitle}
+            </span>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">${q.sentence}</p>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <input type="text" id="rev-fb-input-${idx}" placeholder="Gõ từ cần điền vào đây..." class="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-xs sm:text-sm text-white placeholder-slate-500 outline-none focus:border-purple-500 transition" onkeydown="if(event.key==='Enter') checkReviseFillBlank(${idx})">
+            <button onclick="checkReviseFillBlank(${idx})" class="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition shadow-md shadow-purple-600/20 flex items-center gap-1.5">
+              <span>Kiểm tra</span>
+            </button>
+            ${q.hint ? `
+              <button onclick="toggleReviseHint(${idx})" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-amber-300 text-xs font-bold transition" title="Xem gợi ý">
+                💡 Gợi ý
+              </button>
+            ` : ''}
+          </div>
+
+          ${q.hint ? `<div id="rev-fb-hint-${idx}" class="hidden p-2.5 rounded-xl bg-amber-950/30 border border-amber-500/30 text-amber-300 text-xs font-medium">💡 Gợi ý: ${q.hint}</div>` : ''}
+
+          <div id="rev-fb-feedback-${idx}" class="hidden p-3 rounded-xl text-xs sm:text-sm"></div>
+        </div>
+      `;
+    }
+  }).join("");
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function toggleReviseHint(idx) {
+  const hintEl = document.getElementById(`rev-fb-hint-${idx}`);
+  if (hintEl) hintEl.classList.toggle("hidden");
+}
+
+function checkReviseQuiz(qIdx, optIdx) {
+  const q = appState.grammarRevise.questions?.[qIdx];
+  if (!q) return;
+
+  const ansLetters = ["A", "B", "C", "D"];
+  const correctIdx = ansLetters.indexOf(q.answer.trim().toUpperCase());
+  const isCorrect = (optIdx === correctIdx);
+
+  appState.grammarRevise.checked[qIdx] = true;
+  appState.grammarRevise.answers[qIdx] = { selectedOptIdx: optIdx, isCorrect, topicNum: q.topicNum, topicTitle: q.topicTitle };
+
+  (q.options || []).forEach((opt, oIdx) => {
+    const btn = document.getElementById(`rev-q-${qIdx}-opt-${oIdx}`);
+    if (btn) {
+      if (oIdx === correctIdx) {
+        btn.className = "text-left p-3 rounded-xl border text-xs sm:text-sm font-medium transition bg-emerald-950/60 border-emerald-500 text-emerald-300 font-bold";
+      } else if (oIdx === optIdx) {
+        btn.className = "text-left p-3 rounded-xl border text-xs sm:text-sm font-medium transition bg-red-950/60 border-red-500 text-red-300";
+      } else {
+        btn.className = "text-left p-3 rounded-xl border text-xs sm:text-sm font-medium transition bg-slate-800/80 text-slate-400 border-slate-700/60 opacity-60";
+      }
+    }
+  });
+
+  const fbEl = document.getElementById(`rev-feedback-${qIdx}`);
+  if (fbEl) {
+    fbEl.className = isCorrect
+      ? "p-3 rounded-xl text-xs sm:text-sm bg-emerald-950/50 border border-emerald-500/40 text-emerald-300"
+      : "p-3 rounded-xl text-xs sm:text-sm bg-red-950/50 border border-red-500/40 text-red-300";
+    fbEl.innerHTML = isCorrect
+      ? `<strong>✓ Chính xác!</strong> Đáp án ${q.answer}.<br><span class="text-slate-300 text-xs mt-1 block">${q.explain || ""}</span>`
+      : `<strong>✗ Chưa chính xác.</strong> Đáp án đúng là: <span class="font-bold text-amber-300">${q.answer}</span>.<br><span class="text-slate-300 text-xs mt-1 block">${q.explain || ""}</span>`;
+    fbEl.classList.remove("hidden");
+  }
+
+  updateReviseProgressCounters();
+}
+
+function checkReviseFillBlank(qIdx) {
+  const q = appState.grammarRevise.questions?.[qIdx];
+  if (!q) return;
+
+  const input = document.getElementById(`rev-fb-input-${qIdx}`);
+  const feedback = document.getElementById(`rev-fb-feedback-${qIdx}`);
+  if (!input || !feedback) return;
+
+  const val = input.value.trim().toLowerCase();
+  if (!val) {
+    showToast("Vui lòng nhập đáp án vào ô trống!", "warning");
+    return;
+  }
+
+  const answer = (q.answer || "").trim().toLowerCase();
+  const alts = (q.alternatives || []).map(a => a.trim().toLowerCase());
+  const allCorrect = [answer, ...alts];
+
+  const normalize = (s) => s.replace(/['’]/g, "'").replace(/\s+/g, " ").trim();
+  const isMatch = allCorrect.some(c => normalize(c) === normalize(val));
+
+  appState.grammarRevise.checked[qIdx] = true;
+  appState.grammarRevise.answers[qIdx] = { isCorrect: isMatch, val, topicNum: q.topicNum, topicTitle: q.topicTitle };
+
+  if (isMatch) {
+    input.classList.remove("border-slate-700", "border-red-500");
+    input.classList.add("border-emerald-500", "bg-emerald-950/30", "text-emerald-300");
+    feedback.className = "p-3 rounded-xl text-xs sm:text-sm font-medium bg-emerald-950/50 border border-emerald-500/40 text-emerald-300";
+    feedback.innerHTML = `<strong>✓ Xuất sắc! Đáp án chính xác:</strong> <span class="font-bold underline">${q.answer}</span>.<br><span class="text-slate-300 text-xs mt-1 block">${q.explain || ""}</span>`;
+  } else {
+    input.classList.remove("border-slate-700", "border-emerald-500");
+    input.classList.add("border-red-500", "bg-red-950/30", "text-red-300");
+    feedback.className = "p-3 rounded-xl text-xs sm:text-sm font-medium bg-red-950/50 border border-red-500/40 text-red-300";
+    feedback.innerHTML = `<strong>✗ Chưa chính xác.</strong> Đáp án đúng là: <span class="font-bold text-amber-300">${q.answer}</span>.<br><span class="text-slate-300 text-xs mt-1 block">${q.explain || ""}</span>`;
+  }
+  feedback.classList.remove("hidden");
+
+  updateReviseProgressCounters();
+}
+
+function updateReviseProgressCounters() {
+  const questions = appState.grammarRevise.questions || [];
+  const answeredCount = Object.keys(appState.grammarRevise.checked || {}).length;
+  let correctCount = 0;
+  Object.values(appState.grammarRevise.answers || {}).forEach(a => {
+    if (a.isCorrect) correctCount++;
+  });
+
+  const counter = document.getElementById("reviseAnsweredCounter");
+  if (counter) counter.innerText = `Tiến độ: ${answeredCount}/${questions.length} câu`;
+
+  const scoreCounter = document.getElementById("reviseScoreCounter");
+  if (scoreCounter) {
+    scoreCounter.classList.remove("hidden");
+    const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+    scoreCounter.innerText = `Điểm hiện tại: ${correctCount}/${answeredCount} (${pct}%)`;
+  }
+}
+
+function finishReviseTest() {
+  const questions = appState.grammarRevise.questions || [];
+  if (questions.length === 0) return;
+
+  const answeredCount = Object.keys(appState.grammarRevise.checked || {}).length;
+  if (answeredCount < questions.length) {
+    if (!confirm(`Bạn mới trả lời ${answeredCount}/${questions.length} câu. Bạn có chắc chắn muốn nộp bài và tổng kết ngay không?`)) {
+      return;
+    }
+  }
+
+  let correctCount = 0;
+  const topicStats = {};
+
+  questions.forEach((q, idx) => {
+    const tNum = q.topicNum;
+    if (!topicStats[tNum]) {
+      topicStats[tNum] = { title: q.topicTitle, total: 0, correct: 0 };
+    }
+    topicStats[tNum].total++;
+
+    const ans = appState.grammarRevise.answers[idx];
+    if (ans && ans.isCorrect) {
+      correctCount++;
+      topicStats[tNum].correct++;
+    }
+  });
+
+  const total = questions.length;
+  const pct = Math.round((correctCount / total) * 100);
+  appState.grammarRevise.isFinished = true;
+
+  const resCard = document.getElementById("grammarReviseResultCard");
+  if (resCard) {
+    let evaluation = "";
+    let badgeColor = "";
+    if (pct >= 85) {
+      evaluation = "🔥 Xuất sắc! Bạn nắm rất vững kiến thức các chuyên đề đã học.";
+      badgeColor = "text-emerald-400 bg-emerald-500/20 border-emerald-500/40";
+    } else if (pct >= 70) {
+      evaluation = "💪 Khá tốt! Bạn đã nắm được đa số kiến thức trọng tâm.";
+      badgeColor = "text-indigo-300 bg-indigo-500/20 border-indigo-500/40";
+    } else {
+      evaluation = "⚠️ Cần xem lại các chuyên đề có câu trả lời sai bên dưới để củng cố ngữ pháp nhé.";
+      badgeColor = "text-amber-300 bg-amber-500/20 border-amber-500/40";
+    }
+
+    resCard.innerHTML = `
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-indigo-500/30 pb-4">
+        <div>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider border ${badgeColor}">
+            Kết Quả Bài Ôn Tập Tổng Hợp
+          </span>
+          <h3 class="text-2xl font-black text-white mt-1">Tổng điểm: ${correctCount}/${total} (${pct}%)</h3>
+          <p class="text-xs text-slate-300 mt-1">${evaluation}</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="generateReviseTest()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold transition shadow-lg">
+            🔄 Làm đề ôn mới khác
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+          <i data-lucide="bar-chart-2" class="w-4 h-4 text-purple-400"></i> Thống kê năng lực theo từng chuyên đề
+        </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          ${Object.keys(topicStats).map(tNum => {
+            const stat = topicStats[tNum];
+            const tPct = Math.round((stat.correct / stat.total) * 100);
+            const isNeedReview = tPct < 70;
+            return `
+              <div class="p-3.5 rounded-xl bg-slate-900 border ${isNeedReview ? 'border-amber-500/40 bg-amber-950/20' : 'border-slate-800'} flex items-center justify-between gap-2">
+                <div>
+                  <span class="text-xs font-bold text-white block">Chuyên đề ${tNum}: ${stat.title}</span>
+                  <span class="text-[11px] ${isNeedReview ? 'text-amber-400 font-semibold' : 'text-slate-400'}">
+                    Đúng ${stat.correct}/${stat.total} câu (${tPct}%)
+                  </span>
+                </div>
+                ${isNeedReview ? `
+                  <button onclick="renderGrammarDetail(${tNum})" class="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-black text-[11px] font-bold transition shrink-0">
+                    Ôn lại lý thuyết →
+                  </button>
+                ` : `
+                  <span class="text-emerald-400 text-xs font-bold">✓ Vững</span>
+                `}
+              </div>
+            `;
+          }).join("")}
+        </div>
+      </div>
+    `;
+    resCard.classList.remove("hidden");
+    resCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  if (pct >= 70) {
+    const curDay = missionRegistry.currentDay || 1;
+    const curStatus = getDayMissionStatus(curDay);
+    if (!curStatus.grammarDone) {
+      setDayMissionStatus(curDay, { grammarDone: true });
+      showToast(`🎉 Xuất sắc! Bạn đã vượt qua bài ôn tập tổng hợp với ${pct}% điểm! Đã tự động hoàn thành ngữ pháp hôm nay!`, "success");
+      updateDailyMissionUI();
+    }
+  }
+
+  if (window.lucide) lucide.createIcons();
 }
 
 // ================= KHO BÀI ĐỌC LUYỆN THI & CLICK-TO-LOOKUP =================

@@ -52605,1607 +52605,4338 @@ window.APP_DATA = {
     }
   ],
   "grammar": [
-    {
-      "week_number": 1,
-      "title": "Chuyên đề 1: Thì Động Từ (Hiện Tại Đơn, HT Tiếp Diễn, Quá Khứ Đơn, QK Tiếp Diễn)",
-      "summary": "Nắm vững công thức, cách dùng và dấu hiệu nhận biết của 4 thì cơ bản nhất trong tiếng Anh theo sách Tổng ôn Ngữ pháp Cô Trang Anh.",
-      "sections": [
-        {
-          "subtitle": "1. Thì Hiện tại đơn (Present Simple)",
-          "content": "• Công thức: S + V(s/es) | S + do/does not + V_bare | Do/Does + S + V_bare?\n• Cách dùng: Diễn tả chân lý, sự thật hiển nhiên, thói quen lặp đi lặp lại hoặc lịch trình cố định.\n• Dấu hiệu: always, usually, often, sometimes, seldom, every day/week/month, once/twice a year."
-        },
-        {
-          "subtitle": "2. Thì Hiện tại tiếp diễn (Present Continuous)",
-          "content": "• Công thức: S + am/is/are + V-ing | S + am/is/are not + V-ing | Am/Is/Are + S + V-ing?\n• Cách dùng: Diễn tả hành động đang xảy ra tại thời điểm nói hoặc xung quanh thời điểm nói; phàn nàn thói quen xấu với 'always'.\n• Dấu hiệu: now, at the moment, at present, Look!, Listen!, Keep silent!..."
-        },
-        {
-          "subtitle": "3. Thì Quá khứ đơn (Past Simple)",
-          "content": "• Công thức: S + V2/ed | S + did not + V_bare | Did + S + V_bare?\n• Cách dùng: Diễn tả hành động đã xảy ra và chấm dứt hoàn toàn trong quá khứ, biết rõ thời gian.\n• Dấu hiệu: yesterday, ago, last week/month/year, in 1999, when I was young..."
-        },
-        {
-          "subtitle": "4. Thì Quá khứ tiếp diễn (Past Continuous)",
-          "content": "• Công thức: S + was/were + V-ing\n• Cách dùng: Diễn tả hành động đang xảy ra tại một thời điểm xác định trong quá khứ; hoặc hành động đang xảy ra thì có hành động khác xen vào (When + QKĐ, QKTD / While + QKTD, QKTD).\n• Dấu hiệu: at 8 PM yesterday, at this time last week, between 2 and 4 PM yesterday..."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "Look at those dark clouds! I think it ______ to rain soon.",
-          "options": [
-            "A. is going",
-            "B. goes",
-            "C. is raining",
-            "D. was raining"
-          ],
-          "answer": "A",
-          "explain": "Dấu hiệu có căn cứ hiện tại (dark clouds) báo trước một sự việc sắp xảy ra -> be going to V: is going to rain."
-        },
-        {
-          "q": "I ______ my keys while I ______ through the central park yesterday.",
-          "options": [
-            "A. lost / was jogging",
-            "B. was losing / jogged",
-            "C. lost / jogged",
-            "D. was losing / was jogging"
-          ],
-          "answer": "A",
-          "explain": "Hành động chạy bộ đang diễn ra (was jogging) thì hành động đánh rơi chìa khóa bất chợt xen vào (lost)."
-        },
-        {
-          "q": "Mr. Brown ______ as a senior financial analyst for this bank for 10 years before he retired.",
-          "options": [
-            "A. works",
-            "B. worked",
-            "C. is working",
-            "D. has worked"
-          ],
-          "answer": "B",
-          "explain": "Vì ông Brown đã về hưu (retired - chấm dứt trong quá khứ) nên khoảng thời gian 10 năm đó không còn kéo dài tới hiện tại -> Quá khứ đơn: worked."
-        },
-        {
-          "q": "Why ______ you always ______ your dirty clothes on the floor? It really annoys me!",
-          "options": [
-            "A. do / leave",
-            "B. are / leaving",
-            "C. have / left",
-            "D. did / leave"
-          ],
-          "answer": "B",
-          "explain": "Thì Hiện tại tiếp diễn kết hợp với 'always' dùng để phàn nàn về một thói quen xấu gây bực mình: are you always leaving."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "Water (boil) ______ at 100 degrees Celsius under standard atmospheric pressure.",
-          "answer": "boils",
-          "alternatives": [
-            "boil"
-          ],
-          "hint": "Chân lý khoa học hiển nhiên -> Hiện tại đơn ngôi thứ 3 số ít",
-          "explain": "Quy tắc: Chân lý/sự thật khoa học dùng thì Hiện tại đơn. Chủ ngữ 'Water' là danh từ không đếm được nên động từ thêm -s: boils."
-        },
-        {
-          "sentence": "Listen! The baby (cry) ______ in the next bedroom.",
-          "answer": "is crying",
-          "alternatives": [
-            "'s crying"
-          ],
-          "hint": "Dấu hiệu 'Listen!' báo hiệu hành động đang diễn ra",
-          "explain": "Quy tắc: Các câu mệnh lệnh như Listen!, Look! báo hiệu hành động đang xảy ra ngay lúc nói -> Hiện tại tiếp diễn: is crying."
-        },
-        {
-          "sentence": "Yesterday while Mary was cooking dinner, the phone suddenly (ring) ______.",
-          "answer": "rang",
-          "alternatives": [],
-          "hint": "Hành động đang xảy ra (QKTD) thì hành động khác xen vào (QKĐ)",
-          "explain": "Quy tắc phối thì: Một hành động đang xảy ra trong quá khứ (was cooking) thì hành động ngắn bất chợt xen vào chia Quá khứ đơn: ring -> rang."
-        },
-        {
-          "sentence": "At 8 PM yesterday, we (watch) ______ an exciting documentary on television.",
-          "answer": "were watching",
-          "alternatives": [
-            "watched"
-          ],
-          "hint": "Thời điểm xác định trong quá khứ 'at 8 PM yesterday'",
-          "explain": "Quy tắc: Hành động đang xảy ra tại một mốc thời gian cụ thể trong quá khứ dùng Quá khứ tiếp diễn: were watching."
-        },
-        {
-          "sentence": "He usually (go) ______ to school by bicycle, but today he is taking the bus.",
-          "answer": "goes",
-          "alternatives": [],
-          "hint": "Thói quen hàng ngày với 'usually'",
-          "explain": "Quy tắc: 'Usually' diễn tả thói quen định kỳ, chủ ngữ 'He' số ít -> goes."
-        }
-      ]
-    },
-    {
-      "week_number": 2,
-      "title": "Chuyên đề 2: Thì Hoàn Thành & Tương Lai (HTHT, QKHT, Tương Lai Hoàn Thành)",
-      "summary": "Công thức và sự phân biệt tinh tế giữa Hiện tại hoàn thành, Hiện tại HTTD, Quá khứ hoàn thành và Tương lai hoàn thành.",
-      "sections": [
-        {
-          "subtitle": "1. Thì Hiện tại hoàn thành (Present Perfect)",
-          "content": "• Công thức: S + have/has + Vp2\n• Cách dùng: Hành động bắt đầu trong quá khứ kéo dài đến hiện tại; hành động vừa mới xảy ra; trải nghiệm tính đến nay.\n• Dấu hiệu: already, just, yet, recently, so far, since + mốc, for + khoảng, ever, never."
-        },
-        {
-          "subtitle": "2. Hiện tại hoàn thành tiếp diễn (Present Perfect Continuous)",
-          "content": "• Công thức: S + have/has been + V-ing\n• Cách dùng: Nhấn mạnh tính liên tục của hành động kéo dài từ quá khứ đến hiện tại hoặc để lại kết quả rõ rệt ở hiện tại."
-        },
-        {
-          "subtitle": "3. Quá khứ hoàn thành (Past Perfect)",
-          "content": "• Công thức: S + had + Vp2\n• Cách dùng: Hành động xảy ra và hoàn tất TRƯỚC một hành động khác trong quá khứ hoặc trước một mốc thời gian trong quá khứ (By the time / Before / After)."
-        },
-        {
-          "subtitle": "4. Tương lai hoàn thành (Future Perfect)",
-          "content": "• Công thức: S + will have + Vp2\n• Cách dùng: Hành động sẽ hoàn thành TRƯỚC một thời điểm hoặc một hành động khác trong tương lai.\n• Dấu hiệu: By the end of this month, By next year, By the time + Hiện tại đơn..."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "She ______ three international conferences so far this semester.",
-          "options": [
-            "A. attended",
-            "B. has attended",
-            "C. had attended",
-            "D. is attending"
-          ],
-          "answer": "B",
-          "explain": "Dấu hiệu 'so far' (cho đến nay) là dấu hiệu điển hình của thì Hiện tại hoàn thành: has attended."
-        },
-        {
-          "q": "When we reached the stadium, the football match ______ already.",
-          "options": [
-            "A. started",
-            "B. has started",
-            "C. had started",
-            "D. was starting"
-          ],
-          "answer": "C",
-          "explain": "Trận bóng đá bắt đầu trước thời điểm chúng tôi đến sân (reached) -> Quá khứ hoàn thành: had started."
-        },
-        {
-          "q": "By this time tomorrow, John ______ in London for his new job interview.",
-          "options": [
-            "A. arrives",
-            "B. will arrive",
-            "C. will have arrived",
-            "D. had arrived"
-          ],
-          "answer": "C",
-          "explain": "Dấu hiệu 'By this time tomorrow' (trước thời điểm này ngày mai) -> Tương lai hoàn thành: will have arrived."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "By the time the police arrived at the bank, the robbers (escape) ______.",
-          "answer": "had escaped",
-          "alternatives": [],
-          "hint": "Hành động xảy ra trước hành động đến (arrived) trong quá khứ",
-          "explain": "Quy tắc phối thì với 'By the time + S + V(quá khứ đơn), S + had + Vp2'. Tên cướp tẩu thoát trước khi cảnh sát tới -> had escaped."
-        },
-        {
-          "sentence": "I (live) ______ in this city for 5 years now, and I really love the friendly people here.",
-          "answer": "have lived",
-          "alternatives": [
-            "have been living",
-            "'ve lived"
-          ],
-          "hint": "Hành động bắt đầu trong quá khứ kéo dài đến nay với 'for 5 years now'",
-          "explain": "Thì Hiện tại hoàn thành (have lived) hoặc HTHT tiếp diễn diễn tả hành động kéo dài từ quá khứ đến hiện tại."
-        },
-        {
-          "sentence": "By the end of next month, our construction team (finish) ______ the suspension bridge.",
-          "answer": "will have finished",
-          "alternatives": [
-            "will finish"
-          ],
-          "hint": "Mốc thời gian 'By the end of next month' -> Tương lai hoàn thành",
-          "explain": "Dấu hiệu 'By + mốc tương lai' chia thì Tương lai hoàn thành: will have finished."
-        },
-        {
-          "sentence": "His hands are covered in grease because he (repair) ______ his car all afternoon.",
-          "answer": "has been repairing",
-          "alternatives": [
-            "has repaired"
-          ],
-          "hint": "Nhấn mạnh quá trình liên tục để lại dấu vết ở hiện tại",
-          "explain": "Hiện tại hoàn thành tiếp diễn (has been repairing) nhấn mạnh hành động diễn ra liên tục để lại hậu quả hiện tại."
-        }
-      ]
-    },
-    {
-      "week_number": 3,
-      "title": "Chuyên đề 3: Sự Phối Thì (Sequence of Tenses)",
-      "summary": "Quy tắc phối thì chuẩn mực giữa mệnh đề chính và mệnh đề trạng ngữ chỉ thời gian (When, As soon as, Until, By the time, Since).",
-      "sections": [
-        {
-          "subtitle": "1. Phối thì Hiện tại - Tương lai",
-          "content": "• Mệnh đề trạng ngữ chỉ thời gian (sau When, As soon as, Once, Until) KHÔNG dùng thì tương lai (will), mà phải dùng Hiện tại đơn hoặc Hiện tại hoàn thành.\n• Công thức: S + will + V_bare + as soon as / when / until + S + V(hiện tại đơn)."
-        },
-        {
-          "subtitle": "2. Phối thì Quá khứ",
-          "content": "• When + QKĐ, QKĐ (hai hành động nối tiếp nhau trong quá khứ).\n• When + QKĐ, QKTD (hành động đang xảy ra thì hành động khác chen vào).\n• When + QKĐ, QKHT (hành động đã hoàn thành trước khi hành động khác tới).\n• S + had + Vp2 + before / by the time + S + V2/ed."
-        },
-        {
-          "subtitle": "3. Phối thì với Since",
-          "content": "• Công thức bất biến: S + have/has + Vp2 + SINCE + S + V2/ed (hoặc mốc thời gian trong quá khứ)."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "I will wait here until you ______ your assignment.",
-          "options": [
-            "A. will finish",
-            "B. finish",
-            "C. finished",
-            "D. had finished"
-          ],
-          "answer": "B",
-          "explain": "Sau liên từ 'until' trong mệnh đề thời gian tương lai, tuyệt đối không dùng 'will', phải dùng Hiện tại đơn: finish."
-        },
-        {
-          "q": "No sooner ______ the house than it started pouring with rain.",
-          "options": [
-            "A. had I left",
-            "B. I had left",
-            "C. did I leave",
-            "D. have I left"
-          ],
-          "answer": "A",
-          "explain": "Cấu trúc đảo ngữ phối thì: No sooner + had + S + Vp2 + than + S + V2/ed (Vừa mới... thì...)."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "I will give him your message as soon as he (arrive) ______ at the airport.",
-          "answer": "arrives",
-          "alternatives": [
-            "has arrived"
-          ],
-          "hint": "Sau liên từ chỉ thời gian 'as soon as' dùng thì Hiện tại đơn, không dùng will",
-          "explain": "Quy tắc vàng: Mệnh đề chỉ thời gian đi với as soon as, when chia hiện tại đơn (arrives) khi mệnh đề chính ở tương lai."
-        },
-        {
-          "sentence": "We haven't seen each other since we (graduate) ______ from university in 2020.",
-          "answer": "graduated",
-          "alternatives": [],
-          "hint": "Sau 'since' mệnh đề chia ở Quá khứ đơn",
-          "explain": "Cấu trúc kinh điển: Hiện tại hoàn thành (haven't seen) + since + Quá khứ đơn (graduated)."
-        },
-        {
-          "sentence": "He had turned off all the lights before he (leave) ______ the office.",
-          "answer": "left",
-          "alternatives": [],
-          "hint": "Mệnh đề sau 'before' chia Quá khứ đơn",
-          "explain": "Hành động tắt điện (had turned off) xảy ra trước hành động rời đi (left) -> sau before chia Quá khứ đơn."
-        }
-      ]
-    },
-    {
-      "week_number": 4,
-      "title": "Chuyên đề 4: Sự Hòa Hợp Giữa Chủ Ngữ & Động Từ (Subject-Verb Agreement)",
-      "summary": "Nắm trọn các quy tắc chia động từ theo chủ ngữ đơn, chủ ngữ ghép, đại từ bất định, danh từ tập hợp và các bẫy đề thi kinh điển.",
-      "sections": [
-        {
-          "subtitle": "1. Các trường hợp chia động từ số ít",
-          "content": "• Mỗi, từng (Each, Every), đại từ bất định (Everyone, Someone, Anybody, Nothing...).\n• Khoảng cách, thời gian, tiền bạc, đo lường (Ten miles, Two hours, 100 dollars).\n• Tên môn học, bệnh tật, quốc gia tận cùng là -s (Physics, Mathematics, Measles, The United States).\n• Cụm V-ing hoặc Mệnh đề danh ngữ làm chủ ngữ (Learning English is fun)."
-        },
-        {
-          "subtitle": "2. Chia theo chủ ngữ thứ nhất hoặc thứ hai",
-          "content": "• Chia theo S1: S1 + together with / along with / as well as / accompanied by + S2 -> V chia theo S1.\n• Chia theo S2 (gần động từ nhất): Either S1 or S2 / Neither S1 nor S2 / Not only S1 but also S2 -> V chia theo S2."
-        },
-        {
-          "subtitle": "3. The number of vs A number of",
-          "content": "• The number of + N(số nhiều) + V(số ít) [Ý nghĩa: Số lượng của...].\n• A number of + N(số nhiều) + V(số nhiều) [Ý nghĩa: Rất nhiều...]."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "A number of applicants ______ already submitted their resumes online.",
-          "options": [
-            "A. has",
-            "B. have",
-            "C. is",
-            "D. was"
-          ],
-          "answer": "B",
-          "explain": "'A number of + N số nhiều' mang nghĩa 'nhiều' nên động từ chia số nhiều -> have submitted."
-        },
-        {
-          "q": "The number of endangered species in this national reserve ______ steadily over the past five years.",
-          "options": [
-            "A. have increased",
-            "B. has increased",
-            "C. are increasing",
-            "D. were increasing"
-          ],
-          "answer": "B",
-          "explain": "'The number of...' biểu thị số lượng (số ít) nên động từ chia số ít -> has increased."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "The teacher, along with his twenty students, (be) ______ visiting the history museum today.",
-          "answer": "is",
-          "alternatives": [
-            "'s"
-          ],
-          "hint": "Cụm 'along with' -> động từ chia theo chủ ngữ thứ nhất (The teacher)",
-          "explain": "Khi hai chủ ngữ nối với nhau bằng 'along with', động từ chia theo S1 (The teacher - số ít) -> is."
-        },
-        {
-          "sentence": "Neither the manager nor his assistants (agree) ______ with the proposed policy.",
-          "answer": "agree",
-          "alternatives": [],
-          "hint": "Neither... nor... -> chia theo chủ ngữ gần nhất (his assistants)",
-          "explain": "Quy tắc: Với Neither S1 nor S2, động từ hòa hợp theo S2 gần nó nhất. 'his assistants' là số nhiều -> agree."
-        },
-        {
-          "sentence": "Ten thousand dollars (be) ______ an enormous sum of money for a high school student.",
-          "answer": "is",
-          "alternatives": [
-            "was"
-          ],
-          "hint": "Số tiền bạc được coi là một thể thống nhất -> số ít",
-          "explain": "Số tiền, khoảng cách, thời gian được xem là một khối duy nhất nên luôn chia động từ số ít -> is."
-        }
-      ]
-    },
-    {
-      "week_number": 5,
-      "title": "Chuyên đề 5: Câu Bị Động (Passive Voice & Cấu Trúc Truyền Khiến)",
-      "summary": "Công thức chuyển đổi câu chủ động sang bị động của tất cả các thì, bị động đặc biệt, và thể truyền khiến (have/get something done).",
-      "sections": [
-        {
-          "subtitle": "1. Nguyên tắc cốt lõi của câu bị động",
-          "content": "• Công thức chung: S + Be + Vp2 (+ by O).\n• Động từ 'Be' được chia theo đúng thì của câu chủ động và hòa hợp với chủ ngữ mới."
-        },
-        {
-          "subtitle": "2. Cấu trúc nhờ vả / truyền khiến (Causative Form)",
-          "content": "• Have: S + have + someone + V_bare = S + have + something + Vp2 (nhờ ai làm gì).\n• Get: S + get + someone + TO V = S + get + something + Vp2."
-        },
-        {
-          "subtitle": "3. Bị động với động từ chỉ quan điểm (Say, Think, Believe)",
-          "content": "• It is said/thought/believed that S + V...\n• S + is/are said to + V_bare (cùng thì) hoặc to have + Vp2 (khác thì/xảy ra trước)."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "The suspect is believed ______ the country two days before the arrest warrant was issued.",
-          "options": [
-            "A. to leave",
-            "B. to be leaving",
-            "C. to have left",
-            "D. having left"
-          ],
-          "answer": "C",
-          "explain": "Hành động rời khỏi đất nước xảy ra trước thời điểm hiện tại 'is believed' -> dùng 'to have + Vp2' (to have left)."
-        },
-        {
-          "q": "She got her brother ______ her heavy luggage up to the fifth floor.",
-          "options": [
-            "A. carry",
-            "B. to carry",
-            "C. carried",
-            "D. carrying"
-          ],
-          "answer": "B",
-          "explain": "Cấu trúc truyền khiến với Get: Get + somebody + TO V -> to carry."
-        },
-        {
-          "q": "The committee decided that all confidential files ______ before the audit began.",
-          "options": [
-            "A. had been destroyed",
-            "B. destroyed",
-            "C. were destroying",
-            "D. have been destroyed"
-          ],
-          "answer": "A",
-          "explain": "Hành động tiêu hủy xảy ra trước hành động 'began' trong quá khứ và ở thể bị động -> Quá khứ hoàn thành bị động: had been + V3/ed."
-        },
-        {
-          "q": "They had their house ______ by professional interior designers.",
-          "options": [
-            "A. redecorated",
-            "B. redecorating",
-            "C. to redecorate",
-            "D. redecorate"
-          ],
-          "answer": "A",
-          "explain": "Cấu trúc truyền khiến bị động (Causative form): have + something + V3/ed -> had their house redecorated."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "The new modern hospital (build) ______ in this neighborhood next year.",
-          "answer": "will be built",
-          "alternatives": [
-            "is going to be built"
-          ],
-          "hint": "Bị động thì Tương lai đơn (will + be + Vp2)",
-          "explain": "Chủ ngữ 'The new hospital' là vật chịu tác động, thời gian 'next year' -> will be built."
-        },
-        {
-          "sentence": "I need to have my car (repair) ______ by a certified mechanic this weekend.",
-          "answer": "repaired",
-          "alternatives": [],
-          "hint": "Cấu trúc truyền khiến: Have + something + Vp2",
-          "explain": "Cấu trúc: Have + sth + Vp2 (nhờ sửa cái gì). 'my car' là vật được sửa -> repaired."
-        },
-        {
-          "sentence": "The new administrative building (construct) ______ by a Japanese firm at this time next month.",
-          "answer": "will be being constructed",
-          "alternatives": [
-            "will be constructed",
-            "is being constructed"
-          ],
-          "hint": "Bị động tương lai tiếp diễn: S + will be being + V3/ed (hoặc tương lai đơn)",
-          "explain": "Quy tắc bị động tiếp diễn với mốc thời gian xác định trong tương lai: will be being + V3/ed."
-        },
-        {
-          "sentence": "It is reported that the ancient pagoda (damage) ______ during the violent storm last week.",
-          "answer": "was damaged",
-          "alternatives": [
-            "has been damaged"
-          ],
-          "hint": "Bị động quá khứ đơn (last week)",
-          "explain": "Quy tắc bị động với thời gian quá khứ rõ ràng 'last week': was/were + V3/ed -> was damaged."
-        }
-      ]
-    },
-    {
-      "week_number": 6,
-      "title": "Chuyên đề 6: Câu Điều Kiện & Câu Điều Ước (Conditionals & Wish)",
-      "summary": "Công thức loại 1, 2, 3, điều kiện hỗn hợp (Mixed conditionals), đảo ngữ câu điều kiện, cấu trúc Wish và If only.",
-      "sections": [
-        {
-          "subtitle": "1. Ba loại câu điều kiện cơ bản",
-          "content": "• Loại 1 (Có thật ở hiện tại/tương lai): If + S + V(hiện tại đơn), S + will/can + V_bare.\n• Loại 2 (Không có thật ở hiện tại): If + S + V2/were, S + would/could + V_bare.\n• Loại 3 (Không có thật ở quá khứ): If + S + had + Vp2, S + would/could have + Vp2."
-        },
-        {
-          "subtitle": "2. Câu điều kiện hỗn hợp (Mixed Conditionals)",
-          "content": "• Giả thiết trái ngược quá khứ, kết quả ở hiện tại: If + S + had + Vp2, S + would + V_bare (dấu hiệu: now, today ở vế chính)."
-        },
-        {
-          "subtitle": "3. Đảo ngữ câu điều kiện (Bỏ IF)",
-          "content": "• Loại 1: Should + S + V_bare, S + will + V_bare.\n• Loại 2: Were + S + to V (hoặc Were + S + ...), S + would + V_bare.\n• Loại 3: Had + S + Vp2, S + would have + Vp2."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "______ you require any further assistance, please do not hesitate to contact our customer support desk.",
-          "options": [
-            "A. Should",
-            "B. Were",
-            "C. Had",
-            "D. If should"
-          ],
-          "answer": "A",
-          "explain": "Đảo ngữ câu điều kiện loại 1: Should + S + V_bare = If + S + V."
-        },
-        {
-          "q": "I wish I ______ enough money right now to purchase that electric car.",
-          "options": [
-            "A. have",
-            "B. had",
-            "C. had had",
-            "D. will have"
-          ],
-          "answer": "B",
-          "explain": "Ước một điều trái với thực tế ở hiện tại (right now) lùi về Quá khứ đơn: had."
-        },
-        {
-          "q": "______ you work harder, you will not pass the upcoming VSTEP B2 examination.",
-          "options": [
-            "A. Unless",
-            "B. Provided that",
-            "C. As long as",
-            "D. If"
-          ],
-          "answer": "A",
-          "explain": "Unless = If not ('Trừ khi bạn chăm chỉ hơn, bạn sẽ không thể đỗ kỳ thi')."
-        },
-        {
-          "q": "Had the rescue team arrived a few minutes later, the trapped mountaineers ______.",
-          "options": [
-            "A. could have perished",
-            "B. will perish",
-            "C. would perish",
-            "D. perish"
-          ],
-          "answer": "A",
-          "explain": "Đảo ngữ câu điều kiện loại 3: Had + S + V3/ed, S + would/could have + V3/ed."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "If I (know) ______ your phone number yesterday, I would have called you immediately.",
-          "answer": "had known",
-          "alternatives": [],
-          "hint": "Điều kiện loại 3 trái ngược quá khứ: If + had + Vp2",
-          "explain": "Vế chính có 'would have called' và có 'yesterday' -> Điều kiện loại 3: had known."
-        },
-        {
-          "sentence": "If he studied harder in high school, he (not be) ______ struggling at university right now.",
-          "answer": "would not be",
-          "alternatives": [
-            "wouldn't be"
-          ],
-          "hint": "Điều kiện hỗn hợp: Điều kiện quá khứ, kết quả hiện tại 'right now'",
-          "explain": "Vế chính có dấu hiệu 'right now' ở hiện tại -> câu điều kiện hỗn hợp: would not be."
-        },
-        {
-          "sentence": "If he (listen) ______ to my warning yesterday, he would not be in such deep trouble right now.",
-          "answer": "had listened",
-          "alternatives": [
-            "had listened"
-          ],
-          "hint": "Điều kiện trộn: Vế If quá khứ (loại 3) -> Vế chính hiện tại (loại 2)",
-          "explain": "Quy tắc Mixed Conditional: 'yesterday' ở vế If dùng QKHT (had listened), 'now' ở vế chính dùng would + V_bare."
-        },
-        {
-          "sentence": "I wish I (have) ______ enough courage to speak up at the meeting this morning.",
-          "answer": "had had",
-          "alternatives": [
-            "had had"
-          ],
-          "hint": "Ước cho quá khứ: S + wish + S + had + V3/ed",
-          "explain": "Quy tắc câu ước trong quá khứ ('this morning' đã qua) lùi về thì Quá khứ hoàn thành: had had."
-        }
-      ]
-    },
-    {
-      "week_number": 7,
-      "title": "Chuyên đề 7: Câu Gián Tiếp / Tường Thuật (Reported Speech)",
-      "summary": "Quy tắc lùi thì, biến đổi đại từ, trạng từ chỉ thời gian nơi chốn và các động từ tường thuật đặc biệt (accuse of, apologize for, deny, insist on).",
-      "sections": [
-        {
-          "subtitle": "1. Quy tắc lùi thì khi động từ tường thuật ở quá khứ (said, told)",
-          "content": "• Hiện tại đơn -> Quá khứ đơn\n• Hiện tại tiếp diễn -> Quá khứ tiếp diễn\n• Hiện tại hoàn thành / Quá khứ đơn -> Quá khứ hoàn thành\n• Will -> Would | Can -> Could | Must -> Had to."
-        },
-        {
-          "subtitle": "2. Biến đổi trạng từ chỉ thời gian & nơi chốn",
-          "content": "• Now -> then | Here -> there | Today -> that day | Yesterday -> the day before / previous day | Tomorrow -> the following day."
-        },
-        {
-          "subtitle": "3. Động từ tường thuật với V-ing và To V",
-          "content": "• S + accuse + O + of + V-ing (buộc tội ai)\n• S + apologize to O + for + V-ing (xin lỗi)\n• S + advise / encourage / invite / warn + O + to V."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "The young man denied ______ the expensive diamond necklace from the store.",
-          "options": [
-            "A. steal",
-            "B. to steal",
-            "C. stealing",
-            "D. to have stolen"
-          ],
-          "answer": "C",
-          "explain": "Động từ 'deny' đi với V-ing (phủ nhận đã làm gì): denying + stealing."
-        },
-        {
-          "q": "Mary asked me ______ I had ever visited Singapore before.",
-          "options": [
-            "A. weather",
-            "B. if",
-            "C. that",
-            "D. what"
-          ],
-          "answer": "B",
-          "explain": "Tường thuật câu hỏi Yes/No dùng liên từ 'if' hoặc 'whether'."
-        },
-        {
-          "q": "He asked me ______ for the international scholarship the following year.",
-          "options": [
-            "A. whether I would apply",
-            "B. if will I apply",
-            "C. did I apply",
-            "D. that I applied"
-          ],
-          "answer": "A",
-          "explain": "Tường thuật câu hỏi Yes/No: S + asked + if/whether + S + V (lùi thì). Will -> would."
-        },
-        {
-          "q": "The manager apologized ______ informing us of the project delay in advance.",
-          "options": [
-            "A. for not",
-            "B. to not",
-            "C. not to",
-            "D. on not"
-          ],
-          "answer": "A",
-          "explain": "Cấu trúc: apologize to someone for (not) doing something."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "The police officer ordered the driver (show) ______ his driving license.",
-          "answer": "to show",
-          "alternatives": [],
-          "hint": "Cấu trúc tường thuật câu mệnh lệnh: Order someone + TO V",
-          "explain": "Cấu trúc: S + order + O + to V -> to show."
-        },
-        {
-          "sentence": "He apologized to his teacher for (be) ______ late for class this morning.",
-          "answer": "being",
-          "alternatives": [
-            "having been"
-          ],
-          "hint": "Cấu trúc: Apologize to someone for + V-ing",
-          "explain": "Sau giới từ 'for' động từ thêm -ing -> being / having been."
-        },
-        {
-          "sentence": "The police officer ordered the suspect (put) ______ his hands up immediately.",
-          "answer": "to put",
-          "alternatives": [
-            "to put"
-          ],
-          "hint": "Cấu trúc gián tiếp câu mệnh lệnh: order sb to do sth",
-          "explain": "Quy tắc: order / tell / ask + someone + to V_bare."
-        },
-        {
-          "sentence": "She denied (steal) ______ the confidential documents from the company safe.",
-          "answer": "stealing",
-          "alternatives": [
-            "having stolen"
-          ],
-          "hint": "Cấu trúc deny + V-ing / having + V3/ed",
-          "explain": "Quy tắc tường thuật phủ nhận hành vi: deny + V-ing hoặc having stolen."
-        }
-      ]
-    },
-    {
-      "week_number": 8,
-      "title": "Chuyên đề 8: Cấp So Sánh (Comparisons: Bằng, Hơn, Nhất, Kép)",
-      "summary": "Công thức so sánh ngang bằng, so sánh hơn/nhất của tính từ và trạng từ ngắn/dài, cùng cấu trúc so sánh kép (The more... the more...).",
-      "sections": [
-        {
-          "subtitle": "1. So sánh bằng & không bằng",
-          "content": "• Khẳng định: S + V + as + adj/adv + as + N/Pronoun.\n• Phủ định: S + V not + as/so + adj/adv + as + N/Pronoun."
-        },
-        {
-          "subtitle": "2. So sánh hơn & So sánh nhất",
-          "content": "• Ngắn: adj/adv-er + than | the + adj/adv-est.\n• Dài: more + adj/adv + than | the most + adj/adv.\n• Ngoại lệ: good/well -> better -> best | bad/badly -> worse -> worst | far -> farther/further -> farthest/furthest."
-        },
-        {
-          "subtitle": "3. So sánh kép (The + so sánh hơn, the + so sánh hơn)",
-          "content": "• Càng... thì càng...: The + comparative + S + V, the + comparative + S + V.\n• Ví dụ: The harder you study, the higher scores you will achieve."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "The higher the altitude of a mountain is, ______ the atmospheric temperature becomes.",
-          "options": [
-            "A. colder",
-            "B. the coldest",
-            "C. the colder",
-            "D. more cold"
-          ],
-          "answer": "C",
-          "explain": "Cấu trúc so sánh kép sóng đôi: The higher..., the colder..."
-        },
-        {
-          "q": "His performance today was ______ than his rehearsal yesterday.",
-          "options": [
-            "A. far good",
-            "B. much better",
-            "C. very better",
-            "D. more well"
-          ],
-          "answer": "B",
-          "explain": "Để nhấn mạnh so sánh hơn dùng 'much' hoặc 'far' trước tính từ so sánh hơn (better): much better."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "The more you practice speaking English, the (confident) ______ you will become.",
-          "answer": "more confident",
-          "alternatives": [],
-          "hint": "Cấu trúc so sánh kép: The more + S + V, the more + adj + S + V",
-          "explain": "Confident là tính từ dài nên trong cấu trúc so sánh kép dùng: the more confident."
-        },
-        {
-          "sentence": "This luxury sports car is by far the (expensive) ______ vehicle in our showroom.",
-          "answer": "most expensive",
-          "alternatives": [],
-          "hint": "Cụm 'by far the...' dùng trong so sánh nhất",
-          "explain": "So sánh nhất với tính từ dài: the most expensive."
-        }
-      ]
-    },
-    {
-      "week_number": 9,
-      "title": "Chuyên đề 9: Mệnh Đề Quan Hệ & Rút Gọn Mệnh Đề (Relative Clauses)",
-      "summary": "Cách sử dụng Who, Whom, Which, That, Whose, Where, When, Why, phân biệt mệnh đề quan hệ xác định/không xác định và 3 cách rút gọn mệnh đề quan hệ.",
-      "sections": [
-        {
-          "subtitle": "1. Đại từ và trạng từ quan hệ",
-          "content": "• Who (người, làm chủ ngữ/tân ngữ) | Whom (người, làm tân ngữ) | Which (vật).\n• That: Thay cho who/whom/which trong mệnh đề xác định (không dùng sau dấu phẩy và giới từ).\n• Whose: Sở hữu cách (Whose + N)."
-        },
-        {
-          "subtitle": "2. Ba cách rút gọn mệnh đề quan hệ",
-          "content": "• Rút thành V-ing: Khi mệnh đề mang nghĩa chủ động (The boy who is playing -> The boy playing).\n• Rút thành Vp2: Khi mệnh đề mang nghĩa bị động (The book which was written -> The book written).\n• Rút thành To-V: Khi danh từ đi trước có the first, the second, the last, the only hoặc so sánh nhất."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "The professor ______ lecture we attended yesterday is a world-renowned astrophysicist.",
-          "options": [
-            "A. who",
-            "B. whom",
-            "C. whose",
-            "D. which"
-          ],
-          "answer": "C",
-          "explain": "Chỉ quan hệ sở hữu đối với bài giảng (lecture của vị giáo sư) -> đại từ sở hữu 'whose lecture'."
-        },
-        {
-          "q": "Candidates ______ in this international recruitment drive must possess fluent English skills.",
-          "options": [
-            "A. participating",
-            "B. participated",
-            "C. participate",
-            "D. are participating"
-          ],
-          "answer": "A",
-          "explain": "Rút gọn mệnh đề quan hệ chủ động (Candidates who participate -> Candidates participating)."
-        },
-        {
-          "q": "The international convention was attended by over 500 delegates, most of ______ were environmental experts.",
-          "options": [
-            "A. whom",
-            "B. who",
-            "C. which",
-            "D. that"
-          ],
-          "answer": "A",
-          "explain": "Cấu trúc lượng từ + giới từ + whom (chỉ người) trong mệnh đề quan hệ không xác định."
-        },
-        {
-          "q": "Neil Armstrong was the first human ______ on the surface of the Moon.",
-          "options": [
-            "A. to walk",
-            "B. walking",
-            "C. walked",
-            "D. who walk"
-          ],
-          "answer": "A",
-          "explain": "Rút gọn MĐQH sau 'the first / the second / the only / so sánh nhất' bắt buộc dùng to-infinitive: to walk."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "The scientific report (publish) ______ by Harvard researchers yesterday has attracted global attention.",
-          "answer": "published",
-          "alternatives": [],
-          "hint": "Rút gọn mệnh đề quan hệ bị động (which was published -> published)",
-          "explain": "Bản báo cáo được xuất bản (mang nghĩa bị động) nên rút gọn thành quá khứ phân từ Vp2: published."
-        },
-        {
-          "sentence": "Neil Armstrong was the first human (walk) ______ on the surface of the Moon.",
-          "answer": "to walk",
-          "alternatives": [],
-          "hint": "Có 'the first' nên rút gọn mệnh đề quan hệ thành To-V",
-          "explain": "Quy tắc: Sau the first / second / last / only rút gọn mệnh đề quan hệ bằng To-V: to walk."
-        },
-        {
-          "sentence": "The scientific breakthrough, (publish) ______ in Nature last week, has astounded biologists.",
-          "answer": "published",
-          "alternatives": [
-            "which was published"
-          ],
-          "hint": "Rút gọn MĐQH thể bị động -> dùng Quá khứ phân từ V3/ed",
-          "explain": "Quy tắc rút gọn MĐQH bị động: 'which was published' rút gọn thành 'published'."
-        },
-        {
-          "sentence": "Professor Miller is the pioneer (theories) ______ revolutionized modern macroeconomic policies.",
-          "answer": "whose theories",
-          "alternatives": [
-            "whose"
-          ],
-          "hint": "Đại từ quan hệ chỉ sở hữu: whose + N",
-          "explain": "Quy tắc sở hữu cách: whose theories (những lý thuyết của vị giáo sư ấy)."
-        }
-      ]
-    },
-    {
-      "week_number": 10,
-      "title": "Chuyên đề 10: Động Từ Khuyết Thiếu & Dự Đoán Trong Quá Khứ (Modal Verbs)",
-      "summary": "Cách dùng Can, May, Must, Should, Need, và đặc biệt là Modal Perfect diễn tả dự đoán quá khứ: Must have Vp2, Can't have Vp2, Should have Vp2.",
-      "sections": [
-        {
-          "subtitle": "1. Khuyết thiếu cơ bản",
-          "content": "• Must: Bắt buộc từ người nói / Can't: Không thể.\n• Should / Ought to / Had better: Lời khuyên nên làm gì.\n• May / Might: Có thể xảy ra (độ chắc chắn thấp)."
-        },
-        {
-          "subtitle": "2. Dự đoán hành động trong quá khứ (Modal + Have + Vp2)",
-          "content": "• Must have + Vp2: Chắc hẳn đã (suy đoán chắc chắn 99% trong quá khứ dựa trên chứng cứ rõ ràng).\n• Can't have + Vp2: Chắc hẳn không thể đã xảy ra.\n• Should have + Vp2: Lẽ ra nên làm gì trong quá khứ nhưng đã không làm."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "Tom ______ the bank robbery yesterday because he was attending a meeting in London with me.",
-          "options": [
-            "A. must have committed",
-            "B. can't have committed",
-            "C. should have committed",
-            "D. needn't have committed"
-          ],
-          "answer": "B",
-          "explain": "Có chứng cứ ngoại phạm chắc chắn (đang họp ở London) -> Tom chắc chắn không thể là thủ phạm: can't have committed."
-        },
-        {
-          "q": "You ______ bought all that milk; we already had three unopened cartons in the fridge.",
-          "options": [
-            "A. needn't have",
-            "B. mustn't have",
-            "C. shouldn't",
-            "D. couldn't"
-          ],
-          "answer": "A",
-          "explain": "Needn't have + V3/ed: lẽ ra không cần phải làm nhưng trong thực tế đã lỡ làm rồi."
-        },
-        {
-          "q": "Mark wasn't at the party yesterday; he ______ working late at the laboratory.",
-          "options": [
-            "A. might have been",
-            "B. must be",
-            "C. should have been",
-            "D. can be"
-          ],
-          "answer": "A",
-          "explain": "Suy đoán không chắc chắn về một sự việc trong quá khứ: might / may have + V3/ed."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "The pavement is soaking wet. It must (rain) ______ heavily last night.",
-          "answer": "have rained",
-          "alternatives": [],
-          "hint": "Dự đoán chắc chắn trong quá khứ có chứng cứ (soaking wet): must have + Vp2",
-          "explain": "Vỉa hè ướt sũng là chứng cứ rõ ràng -> chắc hẳn tối qua trời đã mưa: must have rained."
-        },
-        {
-          "sentence": "You should (consult) ______ your doctor before starting this extreme fitness diet.",
-          "answer": "have consulted",
-          "alternatives": [
-            "consult"
-          ],
-          "hint": "Lẽ ra nên tham khảo ý kiến bác sĩ (nhưng đã không làm trong quá khứ)",
-          "explain": "Cấu trúc: Should have Vp2 diễn tả một việc lẽ ra nên làm trong quá khứ: should have consulted."
-        },
-        {
-          "sentence": "You (not leave) ______ your laptop unattended in public places; someone might take it.",
-          "answer": "should not leave",
-          "alternatives": [
-            "must not leave",
-            "shouldn't leave",
-            "ought not to leave"
-          ],
-          "hint": "Khuyên bảo / cảnh báo không nên làm gì: should not + V_bare",
-          "explain": "Quy tắc khuyên răn: should not / ought not to + V."
-        },
-        {
-          "sentence": "The pavement is soaking wet; it (rain) ______ heavily during the night.",
-          "answer": "must have rained",
-          "alternatives": [
-            "must have rained"
-          ],
-          "hint": "Dự đoán chắc chắn trong quá khứ dựa trên bằng chứng rõ ràng: must have + V3/ed",
-          "explain": "Quy tắc suy đoán quá khứ: must have + V3/ed (hẳn là đã mưa vì vỉa hè ướt sũng)."
-        }
-      ]
-    },
-    {
-      "week_number": 11,
-      "title": "Chuyên đề 11: Danh Động Từ & Động Từ Nguyên Mẫu (Gerunds & Infinitives)",
-      "summary": "Phân loại động từ đi với V-ing, To-V, và nhóm động từ đổi nghĩa: Remember, Forget, Regret, Stop, Try, Mean.",
-      "sections": [
-        {
-          "subtitle": "1. Động từ luôn theo sau bởi V-ing",
-          "content": "• Avoid, admit, consider, deny, enjoy, finish, postpone, practice, suggest, mind, can't help, look forward to, be used to + V-ing."
-        },
-        {
-          "subtitle": "2. Động từ luôn theo sau bởi To V",
-          "content": "• Agree, decide, demand, hope, intend, manage, offer, plan, promise, refuse, afford + To-V."
-        },
-        {
-          "subtitle": "3. Nhóm động từ thay đổi nghĩa",
-          "content": "• Stop to V (dừng lại để làm gì) vs Stop V-ing (dừng hẳn việc đang làm).\n• Remember to V (nhớ phải làm gì) vs Remember V-ing (nhớ đã làm gì).\n• Try to V (cố gắng làm gì) vs Try V-ing (thử nghiệm làm gì)."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "I really look forward to ______ you at the international technology expo next week.",
-          "options": [
-            "A. meet",
-            "B. meeting",
-            "C. to meet",
-            "D. met"
-          ],
-          "answer": "B",
-          "explain": "Cụm cố định: Look forward to + V-ing (rất mong chờ được làm gì) -> meeting."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "He stopped (smoke) ______ three years ago because of severe respiratory health issues.",
-          "answer": "smoking",
-          "alternatives": [],
-          "hint": "Dừng hẳn một thói quen dùng Stop + V-ing",
-          "explain": "Quy tắc: Stop + V-ing là từ bỏ hoàn toàn một thói quen (bỏ thuốc lá) -> smoking."
-        },
-        {
-          "sentence": "Don't forget (lock) ______ the front gate before you go to sleep tonight.",
-          "answer": "to lock",
-          "alternatives": [],
-          "hint": "Nhớ phải làm một nhiệm vụ trong tương lai dùng Remember/Forget + To V",
-          "explain": "Nhắc nhở làm bổn phận ở tương lai -> to lock."
-        }
-      ]
-    },
-    {
-      "week_number": 12,
-      "title": "Chuyên đề 12: Câu Hỏi Đuôi (Tag Questions & Các Trường Hợp Đặc Biệt)",
-      "summary": "Nguyên tắc đối lập khẳng định/phủ định và 10 trường hợp câu hỏi đuôi đặc biệt dễ mất điểm trong các kỳ thi.",
-      "sections": [
-        {
-          "subtitle": "1. Quy tắc cơ bản",
-          "content": "• Mệnh đề khẳng định, đuôi phủ định (You are ready, aren't you?).\n• Mệnh đề phủ định, đuôi khẳng định (She didn't come, did she?)."
-        },
-        {
-          "subtitle": "2. Các trường hợp đặc biệt quan trọng",
-          "content": "• I am... -> aren't I?\n• Let's... -> shall we?\n• Câu mệnh lệnh (Open the window) -> will you?\n• Chủ ngữ là Everyone, Nobody, Somebody -> đại từ ở đuôi là 'they'.\n• Chủ ngữ là Nothing, Everything -> đại từ ở đuôi là 'it'.\n• Có từ bán phủ định (seldom, rarely, hardly, never, barely) -> đuôi khẳng định."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "Nobody phoned me while I was out at the supermarket, ______?",
-          "options": [
-            "A. didn't they",
-            "B. did they",
-            "C. did it",
-            "D. didn't it"
-          ],
-          "answer": "B",
-          "explain": "'Nobody' mang nghĩa phủ định và thay bằng đại từ 'they' ở đuôi -> đuôi khẳng định: did they."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "She rarely drinks coffee in the late afternoon, (do) ______ she?",
-          "answer": "does",
-          "alternatives": [],
-          "hint": "Từ bán phủ định 'rarely' khiến câu mang nghĩa phủ định, nên phần đuôi phải ở dạng khẳng định",
-          "explain": "Có 'rarely' là từ bán phủ định, thì hiện tại đơn ngôi she -> đuôi khẳng định: does she."
-        },
-        {
-          "sentence": "Let's organize a beach cleanup campaign this weekend, ______ we?",
-          "answer": "shall",
-          "alternatives": [],
-          "hint": "Cấu trúc rủ rê 'Let's...' đi với câu hỏi đuôi 'shall we?'",
-          "explain": "Quy tắc: Bắt đầu bằng Let's -> câu hỏi đuôi luôn là: shall we."
-        }
-      ]
-    },
-    {
-      "week_number": 13,
-      "title": "Chuyên đề 13: Đảo Ngữ (Inversion)",
-      "summary": "Toàn bộ các cấu trúc đảo ngữ nâng cao: Đảo ngữ với trạng từ phủ định, Only, Not only... but also, No sooner, So/Such.",
-      "sections": [
-        {
-          "subtitle": "1. Đảo ngữ với trạng từ phủ định đứng đầu câu",
-          "content": "• Never, Rarely, Seldom, Little, Hardly, Scarcely + Trợ động từ + S + V.\n• Ví dụ: Seldom have I witnessed such profound resilience."
-        },
-        {
-          "subtitle": "2. Cấu trúc Vừa mới... thì...",
-          "content": "• No sooner + had + S + Vp2 + THAN + S + V2/ed.\n• Hardly/Scarcely + had + S + Vp2 + WHEN + S + V2/ed."
-        },
-        {
-          "subtitle": "3. Đảo ngữ với ONLY và NOT UNTIL",
-          "content": "• Not until + mốc/mệnh đề + Trợ động từ + S + V (Mãi cho đến khi... mới...).\n• Only after / Only when / Only by + Trợ động từ + S + V."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "Not until late in the evening ______ the final election results.",
-          "options": [
-            "A. did the committee announce",
-            "B. the committee announced",
-            "C. announced the committee",
-            "D. has the committee announced"
-          ],
-          "answer": "A",
-          "explain": "Cấu trúc đảo ngữ: Not until + thời gian + Trợ động từ + S + V -> did the committee announce."
-        },
-        {
-          "q": "Under no circumstances ______ employees to disclose proprietary company passwords.",
-          "options": [
-            "A. are allowed",
-            "B. are permitted",
-            "C. should you allow",
-            "D. are you allowed"
-          ],
-          "answer": "B",
-          "explain": "Đảo ngữ với cụm từ phủ định đứng đầu câu 'Under no circumstances' + trợ động từ / to be + S."
-        },
-        {
-          "q": "Only after the DNA results arrived ______ convinced of the suspect's innocence.",
-          "options": [
-            "A. was the detective",
-            "B. the detective was",
-            "C. did the detective",
-            "D. had the detective"
-          ],
-          "answer": "A",
-          "explain": "Đảo ngữ với 'Only after + MĐ/cụm': vế chính đảo to be/trợ động từ lên trước chủ ngữ: was the detective convinced."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "Hardly had the keynote speaker stepped onto the stage (when) ______ the audience erupted into applause.",
-          "answer": "when",
-          "alternatives": [],
-          "hint": "Cặp liên từ: Hardly/Scarcely had... WHEN...",
-          "explain": "Quy tắc: No sooner đi với than; Hardly/Scarcely đi với when."
-        },
-        {
-          "sentence": "Never before (have) ______ humanity faced such interconnected ecological crises.",
-          "answer": "has",
-          "alternatives": [
-            "have"
-          ],
-          "hint": "Đảo ngữ với Never before: Trợ động từ + S (humanity - số ít)",
-          "explain": "Chủ ngữ 'humanity' (nhân loại) là danh từ số ít -> đảo trợ động từ has lên trước."
-        },
-        {
-          "sentence": "Scarcely (the flight take) ______ off when the pilot detected a hydraulic failure.",
-          "answer": "had the flight taken",
-          "alternatives": [
-            "had the plane taken"
-          ],
-          "hint": "Cấu trúc đảo ngữ: Scarcely + had + S + V3/ed + when + S + V2/ed",
-          "explain": "Quy tắc đảo ngữ vừa mới... thì...: Scarcely had + S + V3/ed when S + V2/ed."
-        },
-        {
-          "sentence": "Not only (she speak) ______ four foreign languages fluently, but she also plays the violin brilliantly.",
-          "answer": "does she speak",
-          "alternatives": [
-            "does she speak"
-          ],
-          "hint": "Đảo ngữ hiện tại đơn: Not only + does + S + V_bare",
-          "explain": "Quy tắc: Not only + trợ động từ + S + V ... but also..."
-        }
-      ]
-    },
-    {
-      "week_number": 14,
-      "title": "Chuyên đề 14: Thức Giả Định (Subjunctive Mood)",
-      "summary": "Giả định thức hiện tại với động từ và tính từ khuyên bảo, yêu cầu (essential, vital, recommend, demand, suggest) và giả định với It's time / Would rather.",
-      "sections": [
-        {
-          "subtitle": "1. Thức giả định với tính từ & động từ yêu cầu",
-          "content": "• Động từ: suggest, demand, insist, recommend, require, request, order + THAT + S + (should) + V_BARE.\n• Tính từ: It is important / essential / vital / imperative / necessary + THAT + S + (should) + V_BARE."
-        },
-        {
-          "subtitle": "2. Cấu trúc It is (high/about) time",
-          "content": "• It is high time + S + V2/ed (Đã đến lúc ai đó phải làm gì ở hiện tại)."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "It is imperative that every flight passenger ______ their seatbelt fastened during turbulence.",
-          "options": [
-            "A. keeps",
-            "B. keep",
-            "C. kept",
-            "D. is keeping"
-          ],
-          "answer": "B",
-          "explain": "Cấu trúc giả định thức: It is imperative that + S + (should) + V_bare -> keep."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "The doctor strongly advised that the patient (stop) ______ consuming excessive sugar immediately.",
-          "answer": "stop",
-          "alternatives": [
-            "should stop"
-          ],
-          "hint": "Thức giả định: S + advise that + S + (should) + V_bare (động từ nguyên thể không chia)",
-          "explain": "Sau 'advised that', động từ của mệnh đề sau luôn ở dạng nguyên thể không chia: stop."
-        },
-        {
-          "sentence": "It is high time you (take) ______ responsibility for your own financial budget.",
-          "answer": "took",
-          "alternatives": [],
-          "hint": "Cấu trúc: It is high time + S + V(quá khứ đơn)",
-          "explain": "Sau 'It is high time', động từ lùi về thì quá khứ đơn: take -> took."
-        }
-      ]
-    },
-    {
-      "week_number": 15,
-      "title": "Chuyên đề 15: Mạo Từ (Articles: A, An, The & Zero Article)",
-      "summary": "Cách phân biệt mạo từ bất định (A/An), xác định (The) và các trường hợp không dùng mạo từ (Zero Article) trong tiếng Anh chuẩn.",
-      "sections": [
-        {
-          "subtitle": "1. Mạo từ bất định A / An",
-          "content": "• Dùng trước danh từ đếm được số ít, nhắc đến lần đầu tiên.\n• An dùng trước danh từ phát âm bắt đầu bằng nguyên âm (/i/, /e/, /æ/, /ʌ/, /ɒ/ - an honest man, an hour, an umbrella)."
-        },
-        {
-          "subtitle": "2. Mạo từ xác định THE",
-          "content": "• Nhắc đến lần thứ hai; vật thể duy nhất (the Sun, the Moon, the Earth).\n• Dãy núi (the Himalayas), đại dương (the Pacific), sông (the Nile), quần đảo (the Philippines).\n• The + adj -> chỉ một nhóm người (the poor, the elderly)."
-        },
-        {
-          "subtitle": "3. Không dùng mạo từ (Zero Article)",
-          "content": "• Danh từ số nhiều / không đếm được nói chung (Love, Gold, Books are essential).\n• Tên ngọn núi đơn lẻ (Mount Everest), hồ đơn lẻ (Lake Geneva), lục địa (Asia, Europe), bữa ăn thông thường (have breakfast)."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "My uncle is ______ honest businessman who always contributes to charitable causes.",
-          "options": [
-            "A. a",
-            "B. an",
-            "C. the",
-            "D. zero article"
-          ],
-          "answer": "B",
-          "explain": "'Honest' có âm 'h' câm, phát âm bắt đầu bằng nguyên âm /ˈɒnɪst/ -> dùng 'an'."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "He has been working as (a/an/the) ______ university lecturer for over fifteen years.",
-          "answer": "a",
-          "alternatives": [],
-          "hint": "Từ 'university' bắt đầu bằng phụ âm /j/ nên đi với 'a', không đi với 'an'",
-          "explain": "Mặc dù viết bằng chữ cái 'u', nhưng 'university' phát âm là /ˌjuːnɪˈvɜːsəti/ (phụ âm /j/) -> dùng mạo từ 'a'."
-        },
-        {
-          "sentence": "(The/A/An) ______ Pacific Ocean is the largest and deepest oceanic division on Earth.",
-          "answer": "The",
-          "alternatives": [
-            "the"
-          ],
-          "hint": "Tên các đại dương luôn có mạo từ 'The'",
-          "explain": "Đại dương, biển, sông ngòi luôn đi cùng 'The': The Pacific Ocean."
-        }
-      ]
-    },
-    {
-      "week_number": 16,
-      "title": "Chuyên đề 16: Giới Từ (Prepositions of Time, Place & Dependent Prepositions)",
-      "summary": "Giới từ chỉ thời gian (In, On, At), giới từ chỉ nơi chốn, và các cụm tính từ/danh từ đi kèm giới từ cố định bắt buộc phải thuộc lòng.",
-      "sections": [
-        {
-          "subtitle": "1. Giới từ chỉ thời gian & nơi chốn cơ bản",
-          "content": "• IN: Năm, tháng, mùa, thế kỷ, buổi (in the morning), không gian lớn (in Vietnam, in the room).\n• ON: Ngày trong tuần (on Monday), ngày tháng cụ thể (on October 15th), bề mặt (on the table).\n• AT: Giờ chính xác (at 7 AM), dịp lễ (at Christmas), địa điểm cụ thể (at school, at home)."
-        },
-        {
-          "subtitle": "2. Tính từ đi kèm giới từ cố định",
-          "content": "• Fond of, proud of, capable of, guilty of.\n• Interested in, succeed in, engage in.\n• Dependent on, keen on, rely on.\n• Surprised at, good/bad at, furious at."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "He has been fully responsible ______ managing customer accounts for three years.",
-          "options": [
-            "A. of",
-            "B. with",
-            "C. for",
-            "D. about"
-          ],
-          "answer": "C",
-          "explain": "Cụm tính từ: To be responsible for sth/doing sth (chịu trách nhiệm cho việc gì)."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "She is extraordinarily proud (of) ______ her daughter's academic achievements.",
-          "answer": "of",
-          "alternatives": [],
-          "hint": "Cụm tính từ cố định: Proud + OF",
-          "explain": "Quy tắc: To be proud of sth/sb (tự hào về điều gì)."
-        },
-        {
-          "sentence": "The international financial summit will take place (on) ______ October 24th, 2026.",
-          "answer": "on",
-          "alternatives": [],
-          "hint": "Ngày tháng cụ thể đi với giới từ 'on'",
-          "explain": "Quy tắc: Ngày cụ thể trong lịch luôn dùng giới từ 'on'."
-        }
-      ]
-    },
-    {
-      "week_number": 17,
-      "title": "Chuyên đề 17: Liên Từ & Mệnh Đề Trạng Ngữ (Conjunctions & Clauses)",
-      "summary": "Phân biệt liên từ kết hợp (FANBOYS), tương quan, và cặp biến đổi kinh điển: Although/Even though vs In spite of/Despite, Because vs Because of.",
-      "sections": [
-        {
-          "subtitle": "1. Nhượng bộ: Mặc dù... nhưng...",
-          "content": "• Although / Even though / Though + MỆNH ĐỀ (S + V).\n• In spite of / Despite + CỤM DANH TỪ / V-ING.\n• Ví dụ: Despite the heavy rain, they arrived on time."
-        },
-        {
-          "subtitle": "2. Nguyên nhân: Bởi vì...",
-          "content": "• Because / Since / As + MỆNH ĐỀ (S + V).\n• Because of / Due to / Owing to + CỤM DANH TỪ / V-ING."
-        },
-        {
-          "subtitle": "3. Mục đích: Để mà...",
-          "content": "• So that / In order that + S + can/could/will/would + V_bare.\n• In order to / So as to + V_bare."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "______ severe supply chain bottlenecks, factory production remained on schedule.",
-          "options": [
-            "A. Although",
-            "B. In spite",
-            "C. Despite",
-            "D. Because"
-          ],
-          "answer": "C",
-          "explain": "'severe supply chain bottlenecks' là một cụm danh từ mang ý nghĩa tương phản -> dùng 'Despite'."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "(Despite/Although) ______ experiencing extreme fatigue, she managed to finish the marathon.",
-          "answer": "Despite",
-          "alternatives": [
-            "In spite of"
-          ],
-          "hint": "Đi với cụm V-ing (experiencing...) mang nghĩa nhượng bộ",
-          "explain": "Sau vị trí trống là cụm V-ing 'experiencing extreme fatigue' -> dùng Despite hoặc In spite of."
-        },
-        {
-          "sentence": "He wore a thick waterproof jacket in order (protect) ______ himself from the biting frost.",
-          "answer": "to protect",
-          "alternatives": [],
-          "hint": "Cấu trúc mục đích: In order + TO V",
-          "explain": "Cấu trúc: In order to + V_bare (để làm gì) -> to protect."
-        }
-      ]
-    },
-    {
-      "week_number": 18,
-      "title": "Chuyên đề 18: Cụm Động Từ Thông Dụng (Essential Phrasal Verbs)",
-      "summary": "Bộ tuyển tập hơn 50 cụm động từ thường gặp nhất trong đề thi THPT, VSTEP, IELTS: Look up, Turn down, Give up, Carry out, Put off...",
-      "sections": [
-        {
-          "subtitle": "1. Phrasal verbs với Look & Turn",
-          "content": "• Look after (chăm sóc) | Look for (tìm kiếm) | Look up (tra cứu) | Look down on (khinh thường).\n• Turn down (từ chối / vặn nhỏ) | Turn off (tắt) | Turn on (bật) | Turn up (xuất hiện / vặn to)."
-        },
-        {
-          "subtitle": "2. Phrasal verbs với Put & Give & Carry",
-          "content": "• Put off (trì hoãn = postpone/delay) | Put up with (chịu đựng = tolerate).\n• Give up (từ bỏ) | Give in (nhượng bộ / đầu hàng).\n• Carry out (tiến hành, thực hiện nghiên cứu) | Carry on (tiếp tục = continue)."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "She ______ the lucrative job offer in Singapore because she wanted to remain close to her family.",
-          "options": [
-            "A. turned down",
-            "B. took after",
-            "C. looked up",
-            "D. put out"
-          ],
-          "answer": "A",
-          "explain": "'Turn down' có nghĩa là từ chối (refuse/reject) một lời đề nghị công việc."
-        },
-        {
-          "q": "I accidentally ______ an old university professor while shopping in Hanoi last weekend.",
-          "options": [
-            "A. ran into",
-            "B. looked into",
-            "C. broke into",
-            "D. came into"
-          ],
-          "answer": "A",
-          "explain": "Run into someone = tình cờ bắt gặp ai đó (bump into / meet by chance)."
-        },
-        {
-          "q": "The company had to ______ twenty factory workers due to the severe economic downturn.",
-          "options": [
-            "A. lay off",
-            "B. put off",
-            "C. turn off",
-            "D. take off"
-          ],
-          "answer": "A",
-          "explain": "Lay off = sa thải nhân viên do khó khăn kinh tế / thiếu việc làm."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "The scientific team decided to carry (out) ______ clinical trials on the new vaccine.",
-          "answer": "out",
-          "alternatives": [],
-          "hint": "Cụm 'Carry out' có nghĩa là tiến hành hoặc thực hiện",
-          "explain": "Carry out research/trials: tiến hành thử nghiệm, nghiên cứu."
-        },
-        {
-          "sentence": "Due to the torrential thunderstorm, the outdoor concert was put (off) ______ until next Sunday.",
-          "answer": "off",
-          "alternatives": [],
-          "hint": "Cụm 'Put off' có nghĩa là trì hoãn (postpone)",
-          "explain": "Put off = hoãn lại -> put off."
-        },
-        {
-          "sentence": "Due to torrential rainfall, the organizers decided to (call) ______ off the outdoor music concert.",
-          "answer": "call",
-          "alternatives": [
-            "call off"
-          ],
-          "hint": "Hủy bỏ sự kiện: call off",
-          "explain": "Phrasal verb: call off = cancel (hủy bỏ hoàn toàn sự kiện)."
-        },
-        {
-          "sentence": "She has been trying to (cut) ______ down on sugary beverages to enhance her overall health.",
-          "answer": "cut",
-          "alternatives": [
-            "cut down on"
-          ],
-          "hint": "Cắt giảm tiêu thụ: cut down on",
-          "explain": "Phrasal verb: cut down on sth = reduce consumption of sth."
-        }
-      ]
-    },
-    {
-      "week_number": 19,
-      "title": "Chuyên đề 19: Trật Tự Của Tính Từ (Order of Adjectives: OSASCOMP)",
-      "summary": "Công thức thần chú OSASCOMP giúp giải quyết mọi câu hỏi trật tự tính từ đứng trước danh từ chỉ trong 5 giây.",
-      "sections": [
-        {
-          "subtitle": "1. Thần chú OSASCOMP",
-          "content": "• O - Opinion (Ý kiến, quan điểm: beautiful, lovely, terrible, nice).\n• S - Size (Kích thước: big, small, huge, tiny, long, short).\n• A - Age (Độ tuổi: young, old, new, ancient, antique).\n• S - Shape (Hình dáng: round, square, oval, flat).\n• C - Color (Màu sắc: red, blue, dark, black, white).\n• O - Origin (Nguồn gốc, xuất xứ: Vietnamese, Japanese, British, American).\n• M - Material (Chất liệu: silk, wooden, leather, metal, plastic).\n• P - Purpose (Mục đích: sleeping (bag), running (shoes), wedding (dress))."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "My father bought a ______ dining table for our newly renovated apartment.",
-          "options": [
-            "A. wooden luxurious round",
-            "B. luxurious round wooden",
-            "C. round luxurious wooden",
-            "D. wooden round luxurious"
-          ],
-          "answer": "B",
-          "explain": "Theo OSASCOMP: Opinion (luxurious) -> Shape (round) -> Material (wooden) -> luxurious round wooden."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "She was wearing a (beautiful / Italian / black) ______ silk evening dress to the gala.",
-          "answer": "beautiful black Italian",
-          "alternatives": [],
-          "hint": "OSASCOMP: Opinion (beautiful) -> Color (black) -> Origin (Italian)",
-          "explain": "Theo trật tự OSASCOMP: Opinion (beautiful) đứng trước Color (black), rồi đến Origin (Italian)."
-        }
-      ]
-    },
-    {
-      "week_number": 20,
-      "title": "Chuyên đề 20: Câu Chẻ Nhấn Mạnh (Cleft Sentences: It is/was... that...)",
-      "summary": "Cấu trúc nhấn mạnh chủ ngữ, tân ngữ, trạng ngữ và các biến thể nhấn mạnh trong văn viết học thuật.",
-      "sections": [
-        {
-          "subtitle": "1. Cấu trúc câu chẻ cơ bản",
-          "content": "• Công thức: IT IS / WAS + Thành phần nhấn mạnh + THAT + Mệnh đề còn lại.\n• Nhấn mạnh chủ ngữ: It was John that/who broke the window yesterday.\n• Nhấn mạnh tân ngữ: It is the environment that we must protect.\n• Nhấn mạnh trạng ngữ: It was in Paris that they first fell in love."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "It was my dedicated high school teacher ______ inspired me to pursue astrophysics.",
-          "options": [
-            "A. which",
-            "B. who",
-            "C. whose",
-            "D. whom"
-          ],
-          "answer": "B",
-          "explain": "Nhấn mạnh chủ ngữ chỉ người trong câu chẻ có thể dùng 'who' hoặc 'that'."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "It was in 1969 (that) ______ Apollo 11 successfully landed astronauts on the Moon.",
-          "answer": "that",
-          "alternatives": [],
-          "hint": "Cấu trúc câu chẻ nhấn mạnh trạng ngữ thời gian: It was [time] THAT...",
-          "explain": "Trong câu chẻ 'It was... that', từ nối chuẩn luôn là 'that'."
-        }
-      ]
-    },
-    {
-      "week_number": 21,
-      "title": "Chuyên đề 21: Cấu Tạo Từ & Từ Loại (Word Formation)",
-      "summary": "Nhận biết vị trí của Danh từ, Động từ, Tính từ, Trạng từ trong câu và các hậu tố/tiền tố tạo từ vựng quan trọng.",
-      "sections": [
-        {
-          "subtitle": "1. Vị trí các từ loại",
-          "content": "• Danh từ (Noun): Đứng đầu câu làm chủ ngữ; sau mạo từ (a/an/the); sau tính từ; sau giới từ.\n• Tính từ (Adjective): Đứng trước danh từ; đứng sau to be và linking verbs (seem, look, feel, become).\n• Trạng từ (Adverb): Bổ nghĩa cho động từ thường, tính từ, hoặc toàn bộ câu (Adv + Adj, V + Adv)."
-        },
-        {
-          "subtitle": "2. Hậu tố nhận biết",
-          "content": "• Noun: -tion, -sion, -ment, -ness, -ity, -ance, -ence, -er, -or.\n• Adj: -ful, -less, -able, -ive, -ous, -ic, -al.\n• Adv: -ly."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "The committee commended the architect for her ______ contribution to urban renewal.",
-          "options": [
-            "A. significance",
-            "B. significantly",
-            "C. significant",
-            "D. signify"
-          ],
-          "answer": "C",
-          "explain": "Đứng trước danh từ 'contribution' cần một tính từ bổ nghĩa: significant contribution."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "Solar energy is an environmentally (friend) ______ alternative to burning fossil fuels.",
-          "answer": "friendly",
-          "alternatives": [],
-          "hint": "Environmentally là trạng từ, đứng trước bổ nghĩa cho tính từ: friendly",
-          "explain": "Cụm 'environmentally friendly' là cụm từ chuẩn (thân thiện với môi trường). Friend (danh từ) -> friendly (tính từ)."
-        },
-        {
-          "sentence": "His outstanding (dedicate) ______ to clinical cancer research earned him international accolades.",
-          "answer": "dedication",
-          "alternatives": [],
-          "hint": "Sau tính từ 'outstanding' cần một danh từ",
-          "explain": "Sau tính từ cần danh từ: dedicate (v) -> dedication (n)."
-        }
-      ]
-    },
-    {
-      "week_number": 22,
-      "title": "Chuyên đề 22: Rút Gọn Mệnh Đề Cùng Chủ Ngữ (Participle Clauses)",
-      "summary": "Cách rút gọn hai mệnh đề có chung chủ ngữ bằng Hiện tại phân từ (V-ing), Quá khứ phân từ (Vp2) và Phân từ hoàn thành (Having + Vp2).",
-      "sections": [
-        {
-          "subtitle": "1. Nguyên tắc rút gọn cùng chủ ngữ",
-          "content": "• Hai mệnh đề phải có CÙNG CHỦ NGỮ.\n• Chủ động: Lược bỏ liên từ & chủ ngữ vế phụ, đưa động từ về V-ing.\n• Bị động: Đưa động từ về Vp2 (hoặc Being + Vp2).\n• Xảy ra trước: Dùng Having + Vp2 (chủ động) hoặc Having been + Vp2 (bị động)."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "______ from recycled plastic bottles, these eco-friendly jackets are lightweight yet durable.",
-          "options": [
-            "A. Making",
-            "B. Having made",
-            "C. Made",
-            "D. To make"
-          ],
-          "answer": "C",
-          "explain": "Áo khoác được làm từ nhựa tái chế (mang nghĩa bị động) -> dùng quá khứ phân từ Vp2 đứng đầu câu: Made."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "(Finish) ______ all her university entrance exams, she embarked on a relaxing trip to Da Lat.",
-          "answer": "Having finished",
-          "alternatives": [
-            "Finishing"
-          ],
-          "hint": "Hành động thi xong xảy ra trước hành động đi du lịch -> Having + Vp2",
-          "explain": "Dùng Phân từ hoàn thành (Having finished) để nhấn mạnh một hành động đã hoàn tất trước khi hành động chính bắt đầu."
-        }
-      ]
-    },
-    {
-      "week_number": 23,
-      "title": "Chuyên đề 23: Lượng Từ & Từ Chỉ Số Lượng (Quantifiers)",
-      "summary": "Phân biệt Many vs Much, A few vs Few, A little vs Little, Some vs Any, và Each vs Every.",
-      "sections": [
-        {
-          "subtitle": "1. Few vs Little (Có rất ít, gần như không có - mang nghĩa tiêu cực)",
-          "content": "• Few + Danh từ đếm được số nhiều (Few people came to the meeting).\n• Little + Danh từ không đếm được (I have little time left)."
-        },
-        {
-          "subtitle": "2. A few vs A little (Có một chút, đủ dùng - mang nghĩa tích cực)",
-          "content": "• A few + Danh từ đếm được số nhiều (I have a few close friends).\n• A little + Danh từ không đếm được (Add a little salt to the soup)."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "She was disappointed because ______ students registered for the advanced robotics course.",
-          "options": [
-            "A. few",
-            "B. a few",
-            "C. little",
-            "D. a little"
-          ],
-          "answer": "A",
-          "explain": "'Students' là danh từ đếm được số nhiều, và ngữ cảnh thất vọng (tiêu cực, hầu như không có ai) -> dùng 'few'."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "Unfortunately, there is very (little/few) ______ hope of recovering the lost submarine.",
-          "answer": "little",
-          "alternatives": [],
-          "hint": "'Hope' (hy vọng) là danh từ không đếm được",
-          "explain": "Danh từ không đếm được 'hope' đi với 'little' (rất ít hy vọng)."
-        }
-      ]
-    },
-    {
-      "week_number": 24,
-      "title": "Chuyên đề 24: Cụm Từ Cố Định & Cụm Giới Từ (Collocations)",
-      "summary": "Các kết hợp từ tự nhiên quan trọng trong đề thi: Make vs Do, Pay attention to, Catch/Lose sight of, In charge of...",
-      "sections": [
-        {
-          "subtitle": "1. Phân biệt Make và Do",
-          "content": "• Make: make a decision, make an effort, make a mistake, make progress, make room for, make fun of.\n• Do: do homework, do research, do business, do a favor, do harm/good, do one's best."
-        },
-        {
-          "subtitle": "2. Cụm từ cố định ăn điểm",
-          "content": "• Take advantage of (tận dụng) | Pay attention to (chú ý) | Keep pace with (bắt kịp) | Lose track of (mất dấu)."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "Students are encouraged to ______ an active part in community greening initiatives.",
-          "options": [
-            "A. make",
-            "B. take",
-            "C. do",
-            "D. have"
-          ],
-          "answer": "B",
-          "explain": "Collocation chuẩn: Take part in = participate in (tham gia vào)."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "Scientists are actively doing (research) ______ into renewable perovskite solar cells.",
-          "answer": "research",
-          "alternatives": [],
-          "hint": "Cụm từ đi với DO: do research (làm nghiên cứu)",
-          "explain": "Collocation chuẩn: Do research (không dùng make research)."
-        }
-      ]
-    },
-    {
-      "week_number": 25,
-      "title": "Chuyên đề 25: Tổng Ôn Toàn Diện & Giải Mã Bẫy Đề Thi Quốc Gia / VSTEP / IELTS",
-      "summary": "Chiến lược nhận diện bẫy ngữ pháp: hòa hợp chủ vị phức hợp, đảo ngữ điều kiện kép, rút gọn khác chủ ngữ và câu hỏi phân hóa 9+.",
-      "sections": [
-        {
-          "subtitle": "1. Nhận diện các bẫy thường gặp",
-          "content": "• Bẫy mệnh đề quan hệ chen giữa chủ ngữ và động từ chính.\n• Bẫy đại từ phản thân và đảo ngữ phủ định.\n• Bẫy thì hoàn thành với mốc thời gian đã chấm dứt trong quá khứ."
-        }
-      ],
-      "quiz": [
-        {
-          "q": "The newly discovered manuscript, along with several ceremonial artifacts, ______ currently on display.",
-          "options": [
-            "A. are",
-            "B. is",
-            "C. were",
-            "D. have been"
-          ],
-          "answer": "B",
-          "explain": "Chủ ngữ chính là 'The newly discovered manuscript' (số ít), cụm 'along with...' không làm thay đổi số của chủ ngữ -> is."
-        }
-      ],
-      "fill_blanks": [
-        {
-          "sentence": "Neither of the proposed solutions (be) ______ deemed feasible by the executive board.",
-          "answer": "was",
-          "alternatives": [
-            "is"
-          ],
-          "hint": "'Neither of + N số nhiều' theo ngữ pháp chuẩn mực đi với động từ số ít",
-          "explain": "'Neither of' đi với động từ số ít trong văn phong học thuật chuẩn mực -> was."
-        }
-      ]
-    }
+      {
+          "week_number": 1,
+          "title": "Chuyên đề 1: Thì Động Từ (Hiện Tại Đơn, HT Tiếp Diễn, Quá Khứ Đơn, QK Tiếp Diễn)",
+          "summary": "Nắm vững công thức, cách dùng và dấu hiệu nhận biết của 4 thì cơ bản nhất trong tiếng Anh theo sách Tổng ôn Ngữ pháp Cô Trang Anh.",
+          "sections": [
+              {
+                  "subtitle": "1. Thì Hiện tại đơn (Present Simple)",
+                  "content": "• Công thức: S + V(s/es) | S + do/does not + V_bare | Do/Does + S + V_bare?\n• Cách dùng: Diễn tả chân lý, sự thật hiển nhiên, thói quen lặp đi lặp lại hoặc lịch trình cố định.\n• Dấu hiệu: always, usually, often, sometimes, seldom, every day/week/month, once/twice a year."
+              },
+              {
+                  "subtitle": "2. Thì Hiện tại tiếp diễn (Present Continuous)",
+                  "content": "• Công thức: S + am/is/are + V-ing | S + am/is/are not + V-ing | Am/Is/Are + S + V-ing?\n• Cách dùng: Diễn tả hành động đang xảy ra tại thời điểm nói hoặc xung quanh thời điểm nói; phàn nàn thói quen xấu với 'always'.\n• Dấu hiệu: now, at the moment, at present, Look!, Listen!, Keep silent!..."
+              },
+              {
+                  "subtitle": "3. Thì Quá khứ đơn (Past Simple)",
+                  "content": "• Công thức: S + V2/ed | S + did not + V_bare | Did + S + V_bare?\n• Cách dùng: Diễn tả hành động đã xảy ra và chấm dứt hoàn toàn trong quá khứ, biết rõ thời gian.\n• Dấu hiệu: yesterday, ago, last week/month/year, in 1999, when I was young..."
+              },
+              {
+                  "subtitle": "4. Thì Quá khứ tiếp diễn (Past Continuous)",
+                  "content": "• Công thức: S + was/were + V-ing\n• Cách dùng: Diễn tả hành động đang xảy ra tại một thời điểm xác định trong quá khứ; hoặc hành động đang xảy ra thì có hành động khác xen vào (When + QKĐ, QKTD / While + QKTD, QKTD).\n• Dấu hiệu: at 8 PM yesterday, at this time last week, between 2 and 4 PM yesterday..."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "Look at those dark clouds! I think it ______ to rain soon.",
+                  "options": [
+                      "A. is going",
+                      "B. goes",
+                      "C. is raining",
+                      "D. was raining"
+                  ],
+                  "answer": "A",
+                  "explain": "Dấu hiệu có căn cứ hiện tại (dark clouds) báo trước một sự việc sắp xảy ra -> be going to V: is going to rain."
+              },
+              {
+                  "q": "I ______ my keys while I ______ through the central park yesterday.",
+                  "options": [
+                      "A. lost / was jogging",
+                      "B. was losing / jogged",
+                      "C. lost / jogged",
+                      "D. was losing / was jogging"
+                  ],
+                  "answer": "A",
+                  "explain": "Hành động chạy bộ đang diễn ra (was jogging) thì hành động đánh rơi chìa khóa bất chợt xen vào (lost)."
+              },
+              {
+                  "q": "Mr. Brown ______ as a senior financial analyst for this bank for 10 years before he retired.",
+                  "options": [
+                      "A. works",
+                      "B. worked",
+                      "C. is working",
+                      "D. has worked"
+                  ],
+                  "answer": "B",
+                  "explain": "Vì ông Brown đã về hưu (retired - chấm dứt trong quá khứ) nên khoảng thời gian 10 năm đó không còn kéo dài tới hiện tại -> Quá khứ đơn: worked."
+              },
+              {
+                  "q": "Why ______ you always ______ your dirty clothes on the floor? It really annoys me!",
+                  "options": [
+                      "A. do / leave",
+                      "B. are / leaving",
+                      "C. have / left",
+                      "D. did / leave"
+                  ],
+                  "answer": "B",
+                  "explain": "Thì Hiện tại tiếp diễn kết hợp với 'always' dùng để phàn nàn về một thói quen xấu gây bực mình: are you always leaving."
+              },
+              {
+                  "q": "My father usually ______ tea in the morning, but today he ______ coffee.",
+                  "options": [
+                      "A. drinks / is drinking",
+                      "B. is drinking / drinks",
+                      "C. drank / drinks",
+                      "D. drinks / drank"
+                  ],
+                  "answer": "A",
+                  "explain": "Thói quen thường xuyên dùng Hiện tại đơn ('usually drinks'). Hành động khác thường xảy ra hôm nay dùng Hiện tại tiếp diễn ('today he is drinking')."
+              },
+              {
+                  "q": "While we ______ in the park, it suddenly ______ to rain heavily.",
+                  "options": [
+                      "A. were walking / began",
+                      "B. walked / was beginning",
+                      "C. walked / began",
+                      "D. are walking / begins"
+                  ],
+                  "answer": "A",
+                  "explain": "Hành động đang diễn ra trong quá khứ dùng Quá khứ tiếp diễn (While we were walking), hành động ngắn xen vào dùng Quá khứ đơn (it suddenly began)."
+              },
+              {
+                  "q": "Why ______ at me like that? Have I said something wrong?",
+                  "options": [
+                      "A. do you look",
+                      "B. are you looking",
+                      "C. did you look",
+                      "D. were you looking"
+                  ],
+                  "answer": "B",
+                  "explain": "Hành động đang diễn ra ngay tại thời điểm nói -> Hiện tại tiếp diễn ('are you looking')."
+              },
+              {
+                  "q": "The train to London ______ at 6:30 tomorrow morning from platform 4.",
+                  "options": [
+                      "A. leaves",
+                      "B. will leave",
+                      "C. is leaving",
+                      "D. left"
+                  ],
+                  "answer": "A",
+                  "explain": "Lịch trình tàu xe, thời khóa biểu cố định trong tương lai dùng thì Hiện tại đơn -> 'leaves'."
+              },
+              {
+                  "q": "He ______ always ______ his keys, which annoys everyone in the house.",
+                  "options": [
+                      "A. is / losing",
+                      "B. - / loses",
+                      "C. was / lost",
+                      "D. has / lost"
+                  ],
+                  "answer": "A",
+                  "explain": "Hiện tại tiếp diễn đi với 'always' để phàn nàn về một thói quen xấu gây khó chịu: S + is/are always + V-ing -> 'is always losing'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "Water (boil) ______ at 100 degrees Celsius under standard atmospheric pressure.",
+                  "answer": "boils",
+                  "alternatives": [
+                      "boil"
+                  ],
+                  "hint": "Chân lý khoa học hiển nhiên -> Hiện tại đơn ngôi thứ 3 số ít",
+                  "explain": "Quy tắc: Chân lý/sự thật khoa học dùng thì Hiện tại đơn. Chủ ngữ 'Water' là danh từ không đếm được nên động từ thêm -s: boils."
+              },
+              {
+                  "sentence": "Listen! The baby (cry) ______ in the next bedroom.",
+                  "answer": "is crying",
+                  "alternatives": [
+                      "'s crying"
+                  ],
+                  "hint": "Dấu hiệu 'Listen!' báo hiệu hành động đang diễn ra",
+                  "explain": "Quy tắc: Các câu mệnh lệnh như Listen!, Look! báo hiệu hành động đang xảy ra ngay lúc nói -> Hiện tại tiếp diễn: is crying."
+              },
+              {
+                  "sentence": "Yesterday while Mary was cooking dinner, the phone suddenly (ring) ______.",
+                  "answer": "rang",
+                  "alternatives": [],
+                  "hint": "Hành động đang xảy ra (QKTD) thì hành động khác xen vào (QKĐ)",
+                  "explain": "Quy tắc phối thì: Một hành động đang xảy ra trong quá khứ (was cooking) thì hành động ngắn bất chợt xen vào chia Quá khứ đơn: ring -> rang."
+              },
+              {
+                  "sentence": "At 8 PM yesterday, we (watch) ______ an exciting documentary on television.",
+                  "answer": "were watching",
+                  "alternatives": [
+                      "watched"
+                  ],
+                  "hint": "Thời điểm xác định trong quá khứ 'at 8 PM yesterday'",
+                  "explain": "Quy tắc: Hành động đang xảy ra tại một mốc thời gian cụ thể trong quá khứ dùng Quá khứ tiếp diễn: were watching."
+              },
+              {
+                  "sentence": "He usually (go) ______ to school by bicycle, but today he is taking the bus.",
+                  "answer": "goes",
+                  "alternatives": [],
+                  "hint": "Thói quen hàng ngày với 'usually'",
+                  "explain": "Quy tắc: 'Usually' diễn tả thói quen định kỳ, chủ ngữ 'He' số ít -> goes."
+              },
+              {
+                  "sentence": "Listen! Someone (knock) ______ on the front door.",
+                  "answer": "is knocking",
+                  "alternatives": [
+                      "knocking"
+                  ],
+                  "hint": "Có từ mệnh lệnh 'Listen!' -> Hiện tại tiếp diễn",
+                  "explain": "Dấu hiệu mệnh lệnh thức 'Listen!' chỉ hành động đang xảy ra tại thời điểm nói -> 'is knocking'."
+              },
+              {
+                  "sentence": "At 8 PM yesterday, Tom and his brother (play) ______ video games in their room.",
+                  "answer": "were playing",
+                  "alternatives": [
+                      "was playing"
+                  ],
+                  "hint": "Thời điểm cụ thể trong quá khứ ('At 8 PM yesterday') -> Quá khứ tiếp diễn",
+                  "explain": "Thời điểm xác định trong quá khứ 'At 8 PM yesterday' kết hợp với chủ ngữ số nhiều (Tom and his brother) -> 'were playing'."
+              },
+              {
+                  "sentence": "The Sun (rise) ______ in the East and sets in the West.",
+                  "answer": "rises",
+                  "alternatives": [
+                      "rise"
+                  ],
+                  "hint": "Sự thật hiển nhiên/chân lý vũ trụ -> Hiện tại đơn ngôi thứ 3 số ít",
+                  "explain": "Chân lý hiển nhiên luôn dùng thì Hiện tại đơn: 'The Sun rises'."
+              }
+          ]
+      },
+      {
+          "week_number": 2,
+          "title": "Chuyên đề 2: Thì Hoàn Thành & Tương Lai (HTHT, QKHT, Tương Lai Hoàn Thành)",
+          "summary": "Công thức và sự phân biệt tinh tế giữa Hiện tại hoàn thành, Hiện tại HTTD, Quá khứ hoàn thành và Tương lai hoàn thành.",
+          "sections": [
+              {
+                  "subtitle": "1. Thì Hiện tại hoàn thành (Present Perfect)",
+                  "content": "• Công thức: S + have/has + Vp2\n• Cách dùng: Hành động bắt đầu trong quá khứ kéo dài đến hiện tại; hành động vừa mới xảy ra; trải nghiệm tính đến nay.\n• Dấu hiệu: already, just, yet, recently, so far, since + mốc, for + khoảng, ever, never."
+              },
+              {
+                  "subtitle": "2. Hiện tại hoàn thành tiếp diễn (Present Perfect Continuous)",
+                  "content": "• Công thức: S + have/has been + V-ing\n• Cách dùng: Nhấn mạnh tính liên tục của hành động kéo dài từ quá khứ đến hiện tại hoặc để lại kết quả rõ rệt ở hiện tại."
+              },
+              {
+                  "subtitle": "3. Quá khứ hoàn thành (Past Perfect)",
+                  "content": "• Công thức: S + had + Vp2\n• Cách dùng: Hành động xảy ra và hoàn tất TRƯỚC một hành động khác trong quá khứ hoặc trước một mốc thời gian trong quá khứ (By the time / Before / After)."
+              },
+              {
+                  "subtitle": "4. Tương lai hoàn thành (Future Perfect)",
+                  "content": "• Công thức: S + will have + Vp2\n• Cách dùng: Hành động sẽ hoàn thành TRƯỚC một thời điểm hoặc một hành động khác trong tương lai.\n• Dấu hiệu: By the end of this month, By next year, By the time + Hiện tại đơn..."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "She ______ three international conferences so far this semester.",
+                  "options": [
+                      "A. attended",
+                      "B. has attended",
+                      "C. had attended",
+                      "D. is attending"
+                  ],
+                  "answer": "B",
+                  "explain": "Dấu hiệu 'so far' (cho đến nay) là dấu hiệu điển hình của thì Hiện tại hoàn thành: has attended."
+              },
+              {
+                  "q": "When we reached the stadium, the football match ______ already.",
+                  "options": [
+                      "A. started",
+                      "B. has started",
+                      "C. had started",
+                      "D. was starting"
+                  ],
+                  "answer": "C",
+                  "explain": "Trận bóng đá bắt đầu trước thời điểm chúng tôi đến sân (reached) -> Quá khứ hoàn thành: had started."
+              },
+              {
+                  "q": "By this time tomorrow, John ______ in London for his new job interview.",
+                  "options": [
+                      "A. arrives",
+                      "B. will arrive",
+                      "C. will have arrived",
+                      "D. had arrived"
+                  ],
+                  "answer": "C",
+                  "explain": "Dấu hiệu 'By this time tomorrow' (trước thời điểm này ngày mai) -> Tương lai hoàn thành: will have arrived."
+              },
+              {
+                  "q": "By the time we arrived at the cinema, the movie ______ for ten minutes.",
+                  "options": [
+                      "A. has started",
+                      "B. had started",
+                      "C. started",
+                      "D. was starting"
+                  ],
+                  "answer": "B",
+                  "explain": "Hành động xảy ra trước một thời điểm hoặc hành động khác trong quá khứ ('arrived') dùng Quá khứ hoàn thành ('had started')."
+              },
+              {
+                  "q": "This is the first time I ______ such a fascinating documentary about marine life.",
+                  "options": [
+                      "A. have ever seen",
+                      "B. saw",
+                      "C. had seen",
+                      "D. see"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc 'This is the first/second time + S + have/has + Vp2' -> 'have ever seen'."
+              },
+              {
+                  "q": "By this time next year, my sister ______ from university with honors.",
+                  "options": [
+                      "A. will graduate",
+                      "B. will have graduated",
+                      "C. graduates",
+                      "D. is graduating"
+                  ],
+                  "answer": "B",
+                  "explain": "'By + mốc thời gian trong tương lai' (By this time next year) dùng thì Tương lai hoàn thành: S + will have + Vp2 -> 'will have graduated'."
+              },
+              {
+                  "q": "Don't phone me between 8 and 9 tonight because I ______ dinner with my family.",
+                  "options": [
+                      "A. will have",
+                      "B. will be having",
+                      "C. have",
+                      "D. had"
+                  ],
+                  "answer": "B",
+                  "explain": "Hành động sẽ đang diễn ra tại một thời điểm cụ thể trong tương lai dùng thì Tương lai tiếp diễn: S + will be + V-ing -> 'will be having'."
+              },
+              {
+                  "q": "They ______ each other since they were students at high school.",
+                  "options": [
+                      "A. knew",
+                      "B. have known",
+                      "C. know",
+                      "D. had known"
+                  ],
+                  "answer": "B",
+                  "explain": "Mệnh đề với 'since + mốc quá khứ' đi với mệnh đề chính chia ở Hiện tại hoàn thành: S + have/has + Vp2 -> 'have known'."
+              },
+              {
+                  "q": "I'm sure she ______ the job offer because the salary is too low.",
+                  "options": [
+                      "A. will reject",
+                      "B. is rejecting",
+                      "C. rejects",
+                      "D. rejected"
+                  ],
+                  "answer": "A",
+                  "explain": "Dự đoán chủ quan không có căn cứ trước mắt ('I'm sure') dùng thì Tương lai đơn với 'will' -> 'will reject'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "By the time the police arrived at the bank, the robbers (escape) ______.",
+                  "answer": "had escaped",
+                  "alternatives": [],
+                  "hint": "Hành động xảy ra trước hành động đến (arrived) trong quá khứ",
+                  "explain": "Quy tắc phối thì với 'By the time + S + V(quá khứ đơn), S + had + Vp2'. Tên cướp tẩu thoát trước khi cảnh sát tới -> had escaped."
+              },
+              {
+                  "sentence": "I (live) ______ in this city for 5 years now, and I really love the friendly people here.",
+                  "answer": "have lived",
+                  "alternatives": [
+                      "have been living",
+                      "'ve lived"
+                  ],
+                  "hint": "Hành động bắt đầu trong quá khứ kéo dài đến nay với 'for 5 years now'",
+                  "explain": "Thì Hiện tại hoàn thành (have lived) hoặc HTHT tiếp diễn diễn tả hành động kéo dài từ quá khứ đến hiện tại."
+              },
+              {
+                  "sentence": "By the end of next month, our construction team (finish) ______ the suspension bridge.",
+                  "answer": "will have finished",
+                  "alternatives": [
+                      "will finish"
+                  ],
+                  "hint": "Mốc thời gian 'By the end of next month' -> Tương lai hoàn thành",
+                  "explain": "Dấu hiệu 'By + mốc tương lai' chia thì Tương lai hoàn thành: will have finished."
+              },
+              {
+                  "sentence": "His hands are covered in grease because he (repair) ______ his car all afternoon.",
+                  "answer": "has been repairing",
+                  "alternatives": [
+                      "has repaired"
+                  ],
+                  "hint": "Nhấn mạnh quá trình liên tục để lại dấu vết ở hiện tại",
+                  "explain": "Hiện tại hoàn thành tiếp diễn (has been repairing) nhấn mạnh hành động diễn ra liên tục để lại hậu quả hiện tại."
+              },
+              {
+                  "sentence": "Up to now, the team (complete) ______ three out of five assigned tasks.",
+                  "answer": "has completed",
+                  "alternatives": [
+                      "have completed"
+                  ],
+                  "hint": "'Up to now' là dấu hiệu thì Hiện tại hoàn thành",
+                  "explain": "'Up to now / So far' báo hiệu thì Hiện tại hoàn thành: 'has completed'."
+              },
+              {
+                  "sentence": "When I entered the office, everyone (already / leave) ______ for the conference.",
+                  "answer": "had already left",
+                  "alternatives": [
+                      "already left"
+                  ],
+                  "hint": "Hành động đã xảy ra trước khi tôi bước vào văn phòng -> Quá khứ hoàn thành",
+                  "explain": "Hành động mọi người rời đi xảy ra trước hành động 'entered' trong quá khứ -> 'had already left'."
+              },
+              {
+                  "sentence": "By 2030, scientists hope that they (find) ______ an effective cure for this disease.",
+                  "answer": "will have found",
+                  "alternatives": [
+                      "will find"
+                  ],
+                  "hint": "'By + năm tương lai' -> Tương lai hoàn thành (will have + Vp2)",
+                  "explain": "'By 2030' diễn tả hành động hoàn tất trước một mốc tương lai -> 'will have found'."
+              },
+              {
+                  "sentence": "I haven't seen Sarah (for / since) ______ last Christmas.",
+                  "answer": "since",
+                  "alternatives": [
+                      "since"
+                  ],
+                  "hint": "'last Christmas' là mốc thời gian cụ thể trong quá khứ",
+                  "explain": "Dùng 'since' trước mốc thời gian cụ thể (since last Christmas). 'For' đi với khoảng thời gian."
+              }
+          ]
+      },
+      {
+          "week_number": 3,
+          "title": "Chuyên đề 3: Sự Phối Thì (Sequence of Tenses)",
+          "summary": "Quy tắc phối thì chuẩn mực giữa mệnh đề chính và mệnh đề trạng ngữ chỉ thời gian (When, As soon as, Until, By the time, Since).",
+          "sections": [
+              {
+                  "subtitle": "1. Phối thì Hiện tại - Tương lai",
+                  "content": "• Mệnh đề trạng ngữ chỉ thời gian (sau When, As soon as, Once, Until) KHÔNG dùng thì tương lai (will), mà phải dùng Hiện tại đơn hoặc Hiện tại hoàn thành.\n• Công thức: S + will + V_bare + as soon as / when / until + S + V(hiện tại đơn)."
+              },
+              {
+                  "subtitle": "2. Phối thì Quá khứ",
+                  "content": "• When + QKĐ, QKĐ (hai hành động nối tiếp nhau trong quá khứ).\n• When + QKĐ, QKTD (hành động đang xảy ra thì hành động khác chen vào).\n• When + QKĐ, QKHT (hành động đã hoàn thành trước khi hành động khác tới).\n• S + had + Vp2 + before / by the time + S + V2/ed."
+              },
+              {
+                  "subtitle": "3. Phối thì với Since",
+                  "content": "• Công thức bất biến: S + have/has + Vp2 + SINCE + S + V2/ed (hoặc mốc thời gian trong quá khứ)."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "I will wait here until you ______ your assignment.",
+                  "options": [
+                      "A. will finish",
+                      "B. finish",
+                      "C. finished",
+                      "D. had finished"
+                  ],
+                  "answer": "B",
+                  "explain": "Sau liên từ 'until' trong mệnh đề thời gian tương lai, tuyệt đối không dùng 'will', phải dùng Hiện tại đơn: finish."
+              },
+              {
+                  "q": "No sooner ______ the house than it started pouring with rain.",
+                  "options": [
+                      "A. had I left",
+                      "B. I had left",
+                      "C. did I leave",
+                      "D. have I left"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc đảo ngữ phối thì: No sooner + had + S + Vp2 + than + S + V2/ed (Vừa mới... thì...)."
+              },
+              {
+                  "q": "He said that he ______ to France the following month.",
+                  "options": [
+                      "A. will travel",
+                      "B. would travel",
+                      "C. traveled",
+                      "D. had traveled"
+                  ],
+                  "answer": "B",
+                  "explain": "Lùi thì trong câu tường thuật: mệnh đề chính ở quá khứ ('said') thì tương lai 'will travel' lùi thành 'would travel' ('the following month')."
+              },
+              {
+                  "q": "As soon as the bell ______, the children will rush out to the playground.",
+                  "options": [
+                      "A. rings",
+                      "B. will ring",
+                      "C. rang",
+                      "D. is ringing"
+                  ],
+                  "answer": "A",
+                  "explain": "Trong mệnh đề trạng ngữ chỉ thời gian (as soon as, when, until, before, after) không dùng 'will'. Dùng Hiện tại đơn khi mệnh đề chính ở thì Tương lai."
+              },
+              {
+                  "q": "Hardly ______ into bed when the phone started ringing.",
+                  "options": [
+                      "A. had I got",
+                      "B. I had got",
+                      "C. did I get",
+                      "D. I got"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc đảo ngữ phối thì: Hardly + had + S + Vp2 + when + S + V2/ed -> 'Hardly had I got'."
+              },
+              {
+                  "q": "We will wait here until she ______ her presentation.",
+                  "options": [
+                      "A. finishes",
+                      "B. will finish",
+                      "C. finished",
+                      "D. is going to finish"
+                  ],
+                  "answer": "A",
+                  "explain": "Mệnh đề thời gian sau 'until' chia ở Hiện tại đơn khi mệnh đề chính mang nghĩa tương lai ('will wait')."
+              },
+              {
+                  "q": "Mary told me that she ______ her report by the deadline two days before.",
+                  "options": [
+                      "A. submitted",
+                      "B. had submitted",
+                      "C. has submitted",
+                      "D. will submit"
+                  ],
+                  "answer": "B",
+                  "explain": "Hành động xảy ra trước thời điểm trong quá khứ được tường thuật lại ('two days before') -> Quá khứ hoàn thành 'had submitted'."
+              },
+              {
+                  "q": "When you call him tomorrow afternoon, he ______ in the lab.",
+                  "options": [
+                      "A. works",
+                      "B. will be working",
+                      "C. worked",
+                      "D. has worked"
+                  ],
+                  "answer": "B",
+                  "explain": "Phối thì: When + S + V(htđ), S + will be V-ing (khi hành động sẽ đang diễn ra tại thời điểm hành động kia xảy ra)."
+              },
+              {
+                  "q": "Before she went to bed last night, she ______ off all the lights.",
+                  "options": [
+                      "A. turns",
+                      "B. has turned",
+                      "C. had turned",
+                      "D. will turn"
+                  ],
+                  "answer": "C",
+                  "explain": "Before + S + V2/ed, S + had Vp2 (hành động tắt đèn xảy ra trước khi đi ngủ trong quá khứ)."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "I will give him your message as soon as he (arrive) ______ at the airport.",
+                  "answer": "arrives",
+                  "alternatives": [
+                      "has arrived"
+                  ],
+                  "hint": "Sau liên từ chỉ thời gian 'as soon as' dùng thì Hiện tại đơn, không dùng will",
+                  "explain": "Quy tắc vàng: Mệnh đề chỉ thời gian đi với as soon as, when chia hiện tại đơn (arrives) khi mệnh đề chính ở tương lai."
+              },
+              {
+                  "sentence": "We haven't seen each other since we (graduate) ______ from university in 2020.",
+                  "answer": "graduated",
+                  "alternatives": [],
+                  "hint": "Sau 'since' mệnh đề chia ở Quá khứ đơn",
+                  "explain": "Cấu trúc kinh điển: Hiện tại hoàn thành (haven't seen) + since + Quá khứ đơn (graduated)."
+              },
+              {
+                  "sentence": "He had turned off all the lights before he (leave) ______ the office.",
+                  "answer": "left",
+                  "alternatives": [],
+                  "hint": "Mệnh đề sau 'before' chia Quá khứ đơn",
+                  "explain": "Hành động tắt điện (had turned off) xảy ra trước hành động rời đi (left) -> sau before chia Quá khứ đơn."
+              },
+              {
+                  "sentence": "By the time the police arrived, the burglar (escape) ______ through the back window.",
+                  "answer": "had escaped",
+                  "alternatives": [
+                      "escaped"
+                  ],
+                  "hint": "By the time + QKĐ, QKHT -> had + Vp2",
+                  "explain": "Kẻ trộm đã tẩu thoát trước khi cảnh sát đến -> dùng thì Quá khứ hoàn thành: 'had escaped'."
+              },
+              {
+                  "sentence": "I will give you a phone call as soon as I (arrive) ______ in New York.",
+                  "answer": "arrive",
+                  "alternatives": [
+                      "have arrived"
+                  ],
+                  "hint": "Mệnh đề sau 'as soon as' chỉ thời gian trong tương lai dùng thì Hiện tại đơn",
+                  "explain": "Quy tắc phối thì: Tương lai đơn + as soon as + Hiện tại đơn -> 'arrive'."
+              },
+              {
+                  "sentence": "She realized that she (leave) ______ her umbrella on the bus.",
+                  "answer": "had left",
+                  "alternatives": [
+                      "left"
+                  ],
+                  "hint": "Việc để quên dù xảy ra trước khi cô ấy nhận ra ('realized')",
+                  "explain": "Hành động xảy ra trước một hành động quá khứ khác -> 'had left'."
+              },
+              {
+                  "sentence": "No sooner had the teacher entered the classroom (than / when) ______ all the students stood up.",
+                  "answer": "than",
+                  "alternatives": [
+                      "than"
+                  ],
+                  "hint": "Cấu trúc: No sooner had + S + Vp2 ... THAN ...",
+                  "explain": "Đi kèm với 'No sooner' là liên từ 'than'. ('Hardly/Scarcely' mới đi với 'when')."
+              }
+          ]
+      },
+      {
+          "week_number": 4,
+          "title": "Chuyên đề 4: Sự Hòa Hợp Giữa Chủ Ngữ & Động Từ (Subject-Verb Agreement)",
+          "summary": "Nắm trọn các quy tắc chia động từ theo chủ ngữ đơn, chủ ngữ ghép, đại từ bất định, danh từ tập hợp và các bẫy đề thi kinh điển.",
+          "sections": [
+              {
+                  "subtitle": "1. Các trường hợp chia động từ số ít",
+                  "content": "• Mỗi, từng (Each, Every), đại từ bất định (Everyone, Someone, Anybody, Nothing...).\n• Khoảng cách, thời gian, tiền bạc, đo lường (Ten miles, Two hours, 100 dollars).\n• Tên môn học, bệnh tật, quốc gia tận cùng là -s (Physics, Mathematics, Measles, The United States).\n• Cụm V-ing hoặc Mệnh đề danh ngữ làm chủ ngữ (Learning English is fun)."
+              },
+              {
+                  "subtitle": "2. Chia theo chủ ngữ thứ nhất hoặc thứ hai",
+                  "content": "• Chia theo S1: S1 + together with / along with / as well as / accompanied by + S2 -> V chia theo S1.\n• Chia theo S2 (gần động từ nhất): Either S1 or S2 / Neither S1 nor S2 / Not only S1 but also S2 -> V chia theo S2."
+              },
+              {
+                  "subtitle": "3. The number of vs A number of",
+                  "content": "• The number of + N(số nhiều) + V(số ít) [Ý nghĩa: Số lượng của...].\n• A number of + N(số nhiều) + V(số nhiều) [Ý nghĩa: Rất nhiều...]."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "A number of applicants ______ already submitted their resumes online.",
+                  "options": [
+                      "A. has",
+                      "B. have",
+                      "C. is",
+                      "D. was"
+                  ],
+                  "answer": "B",
+                  "explain": "'A number of + N số nhiều' mang nghĩa 'nhiều' nên động từ chia số nhiều -> have submitted."
+              },
+              {
+                  "q": "The number of endangered species in this national reserve ______ steadily over the past five years.",
+                  "options": [
+                      "A. have increased",
+                      "B. has increased",
+                      "C. are increasing",
+                      "D. were increasing"
+                  ],
+                  "answer": "B",
+                  "explain": "'The number of...' biểu thị số lượng (số ít) nên động từ chia số ít -> has increased."
+              },
+              {
+                  "q": "The manager, along with his assistants, ______ attending the international conference today.",
+                  "options": [
+                      "A. is",
+                      "B. are",
+                      "C. have been",
+                      "D. were"
+                  ],
+                  "answer": "A",
+                  "explain": "Khi hai chủ ngữ nối với nhau bằng 'along with / as well as / together with', động từ chia theo chủ ngữ thứ nhất ('The manager' là số ít -> 'is')."
+              },
+              {
+                  "q": "Neither the teacher nor the students ______ satisfied with the exam results.",
+                  "options": [
+                      "A. was",
+                      "B. were",
+                      "C. is",
+                      "D. has been"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc 'Neither S1 nor S2 + V' chia theo S2 gần động từ nhất. 'the students' là danh từ số nhiều -> dùng 'were'."
+              },
+              {
+                  "q": "The number of students who applied for the scholarship ______ increased dramatically this year.",
+                  "options": [
+                      "A. has",
+                      "B. have",
+                      "C. are",
+                      "D. were"
+                  ],
+                  "answer": "A",
+                  "explain": "'The number of + N số nhiều' mang nghĩa 'số lượng...' đi với động từ số ít ('has increased'). Ngược lại, 'A number of' đi với động từ số nhiều."
+              },
+              {
+                  "q": "Ten miles ______ a long distance for a young child to walk in one day.",
+                  "options": [
+                      "A. is",
+                      "B. are",
+                      "C. were",
+                      "D. have been"
+                  ],
+                  "answer": "A",
+                  "explain": "Khoảng cách, thời gian, tiền bạc, đo lường được xem là một đơn vị tổng thể duy nhất nên chia động từ số ít -> 'is'."
+              },
+              {
+                  "q": "Every boy and girl in the classroom ______ given a new textbook yesterday.",
+                  "options": [
+                      "A. was",
+                      "B. were",
+                      "C. are",
+                      "D. have been"
+                  ],
+                  "answer": "A",
+                  "explain": "Danh từ đi sau 'Every' hoặc 'Each' luôn được xem là số ít, dù có nối bằng 'and' (Every N1 and N2 + V số ít) -> 'was'."
+              },
+              {
+                  "q": "Physics ______ one of the most challenging subjects in the high school curriculum.",
+                  "options": [
+                      "A. is",
+                      "B. are",
+                      "C. were",
+                      "D. have been"
+                  ],
+                  "answer": "A",
+                  "explain": "Tên môn học kết thúc bằng 's' (Physics, Mathematics, Economics, Politics) là danh từ số ít -> 'is'."
+              },
+              {
+                  "q": "Not only the students but also their teacher ______ surprised by the announcement.",
+                  "options": [
+                      "A. was",
+                      "B. were",
+                      "C. are",
+                      "D. have been"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc 'Not only S1 but also S2 + V' chia theo S2 ('their teacher' là số ít -> 'was')."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "The teacher, along with his twenty students, (be) ______ visiting the history museum today.",
+                  "answer": "is",
+                  "alternatives": [
+                      "'s"
+                  ],
+                  "hint": "Cụm 'along with' -> động từ chia theo chủ ngữ thứ nhất (The teacher)",
+                  "explain": "Khi hai chủ ngữ nối với nhau bằng 'along with', động từ chia theo S1 (The teacher - số ít) -> is."
+              },
+              {
+                  "sentence": "Neither the manager nor his assistants (agree) ______ with the proposed policy.",
+                  "answer": "agree",
+                  "alternatives": [],
+                  "hint": "Neither... nor... -> chia theo chủ ngữ gần nhất (his assistants)",
+                  "explain": "Quy tắc: Với Neither S1 nor S2, động từ hòa hợp theo S2 gần nó nhất. 'his assistants' là số nhiều -> agree."
+              },
+              {
+                  "sentence": "Ten thousand dollars (be) ______ an enormous sum of money for a high school student.",
+                  "answer": "is",
+                  "alternatives": [
+                      "was"
+                  ],
+                  "hint": "Số tiền bạc được coi là một thể thống nhất -> số ít",
+                  "explain": "Số tiền, khoảng cách, thời gian được xem là một khối duy nhất nên luôn chia động từ số ít -> is."
+              },
+              {
+                  "sentence": "A number of endangered animals (be) ______ facing extinction due to habitat loss.",
+                  "answer": "are",
+                  "alternatives": [
+                      "were"
+                  ],
+                  "hint": "'A number of + N số nhiều' đi với động từ số nhiều",
+                  "explain": "Quy tắc: 'A number of + N số nhiều + V số nhiều' (nhiều loài động vật). Phân biệt với 'The number of + V số ít'."
+              },
+              {
+                  "sentence": "Bread and butter (be) ______ his favorite breakfast every morning.",
+                  "answer": "is",
+                  "alternatives": [
+                      "is"
+                  ],
+                  "hint": "Cụm hai danh từ cùng tạo thành một món ăn hoặc một khái niệm duy nhất",
+                  "explain": "'Bread and butter' là món bánh mì bơ (một món ăn duy nhất) -> động từ chia số ít: 'is'."
+              },
+              {
+                  "sentence": "Neither of the two candidates (seem) ______ suitable for this managerial position.",
+                  "answer": "seems",
+                  "alternatives": [
+                      "seem"
+                  ],
+                  "hint": "'Neither of + N' theo ngữ pháp chuẩn mực chia động từ số ít",
+                  "explain": "'Neither of / Either of / Each of / None of' theo ngữ pháp chuẩn dùng động từ ngôi thứ ba số ít -> 'seems'."
+              },
+              {
+                  "sentence": "Twenty thousand dollars (be) ______ too much to spend on a vacation.",
+                  "answer": "is",
+                  "alternatives": [
+                      "was"
+                  ],
+                  "hint": "Số tiền là một khoản duy nhất -> động từ số ít",
+                  "explain": "Số tiền (money), khoảng cách (distance), thời gian (time) luôn đi với động từ số ít -> 'is'."
+              }
+          ]
+      },
+      {
+          "week_number": 5,
+          "title": "Chuyên đề 5: Câu Bị Động (Passive Voice & Cấu Trúc Truyền Khiến)",
+          "summary": "Công thức chuyển đổi câu chủ động sang bị động của tất cả các thì, bị động đặc biệt, và thể truyền khiến (have/get something done).",
+          "sections": [
+              {
+                  "subtitle": "1. Nguyên tắc cốt lõi của câu bị động",
+                  "content": "• Công thức chung: S + Be + Vp2 (+ by O).\n• Động từ 'Be' được chia theo đúng thì của câu chủ động và hòa hợp với chủ ngữ mới."
+              },
+              {
+                  "subtitle": "2. Cấu trúc nhờ vả / truyền khiến (Causative Form)",
+                  "content": "• Have: S + have + someone + V_bare = S + have + something + Vp2 (nhờ ai làm gì).\n• Get: S + get + someone + TO V = S + get + something + Vp2."
+              },
+              {
+                  "subtitle": "3. Bị động với động từ chỉ quan điểm (Say, Think, Believe)",
+                  "content": "• It is said/thought/believed that S + V...\n• S + is/are said to + V_bare (cùng thì) hoặc to have + Vp2 (khác thì/xảy ra trước)."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "The suspect is believed ______ the country two days before the arrest warrant was issued.",
+                  "options": [
+                      "A. to leave",
+                      "B. to be leaving",
+                      "C. to have left",
+                      "D. having left"
+                  ],
+                  "answer": "C",
+                  "explain": "Hành động rời khỏi đất nước xảy ra trước thời điểm hiện tại 'is believed' -> dùng 'to have + Vp2' (to have left)."
+              },
+              {
+                  "q": "She got her brother ______ her heavy luggage up to the fifth floor.",
+                  "options": [
+                      "A. carry",
+                      "B. to carry",
+                      "C. carried",
+                      "D. carrying"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc truyền khiến với Get: Get + somebody + TO V -> to carry."
+              },
+              {
+                  "q": "The committee decided that all confidential files ______ before the audit began.",
+                  "options": [
+                      "A. had been destroyed",
+                      "B. destroyed",
+                      "C. were destroying",
+                      "D. have been destroyed"
+                  ],
+                  "answer": "A",
+                  "explain": "Hành động tiêu hủy xảy ra trước hành động 'began' trong quá khứ và ở thể bị động -> Quá khứ hoàn thành bị động: had been + V3/ed."
+              },
+              {
+                  "q": "They had their house ______ by professional interior designers.",
+                  "options": [
+                      "A. redecorated",
+                      "B. redecorating",
+                      "C. to redecorate",
+                      "D. redecorate"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc truyền khiến bị động (Causative form): have + something + V3/ed -> had their house redecorated."
+              },
+              {
+                  "q": "The newly built suspension bridge ______ by the Prime Minister yesterday afternoon.",
+                  "options": [
+                      "A. inaugurated",
+                      "B. was inaugurated",
+                      "C. is inaugurated",
+                      "D. has been inaugurated"
+                  ],
+                  "answer": "B",
+                  "explain": "Hành động đã hoàn tất trong quá khứ có mốc thời gian rõ ràng ('yesterday afternoon') và chủ ngữ 'bridge' chịu tác động -> Bị động Quá khứ đơn: was/were + Vp2 -> 'was inaugurated'."
+              },
+              {
+                  "q": "It is reported that the criminal ______ in a small suburban town last night.",
+                  "options": [
+                      "A. had arrested",
+                      "B. was arrested",
+                      "C. is arrested",
+                      "D. arrests"
+                  ],
+                  "answer": "B",
+                  "explain": "Tội phạm bị bắt trong quá khứ ('last night') -> Bị động Quá khứ đơn: 'was arrested'."
+              },
+              {
+                  "q": "The president is said ______ a generous donation to the local hospital last week.",
+                  "options": [
+                      "A. to make",
+                      "B. to be made",
+                      "C. to have made",
+                      "D. to have been made"
+                  ],
+                  "answer": "C",
+                  "explain": "Cấu trúc bị động kép: S + be said + to have Vp2 (khi hành động trong mệnh đề that xảy ra trước hành động tường thuật). 'last week' xảy ra trước 'is said' -> 'to have made'."
+              },
+              {
+                  "q": "She hates ______ about her personal life by intrusive journalists.",
+                  "options": [
+                      "A. asking",
+                      "B. being asked",
+                      "C. to ask",
+                      "D. to have asked"
+                  ],
+                  "answer": "B",
+                  "explain": "Sau 'hate' dùng V-ing; nghĩa bị động: hate being Vp2 (ghét bị hỏi) -> 'being asked'."
+              },
+              {
+                  "q": "We need to have our roof ______ before the rainy season arrives.",
+                  "options": [
+                      "A. repaired",
+                      "B. repairing",
+                      "C. repair",
+                      "D. to repair"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc bị động nhờ vả (causative form): have + something + Vp2 (nhờ ai sửa mái nhà) -> 'repaired'."
+              },
+              {
+                  "q": "The little boy was made ______ for his misbehavior in class.",
+                  "options": [
+                      "A. apologize",
+                      "B. to apologize",
+                      "C. apologizing",
+                      "D. apologized"
+                  ],
+                  "answer": "B",
+                  "explain": "Thể chủ động: make somebody do something. Khi chuyển sang bị động: be made to do something -> 'to apologize'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "The new modern hospital (build) ______ in this neighborhood next year.",
+                  "answer": "will be built",
+                  "alternatives": [
+                      "is going to be built"
+                  ],
+                  "hint": "Bị động thì Tương lai đơn (will + be + Vp2)",
+                  "explain": "Chủ ngữ 'The new hospital' là vật chịu tác động, thời gian 'next year' -> will be built."
+              },
+              {
+                  "sentence": "I need to have my car (repair) ______ by a certified mechanic this weekend.",
+                  "answer": "repaired",
+                  "alternatives": [],
+                  "hint": "Cấu trúc truyền khiến: Have + something + Vp2",
+                  "explain": "Cấu trúc: Have + sth + Vp2 (nhờ sửa cái gì). 'my car' là vật được sửa -> repaired."
+              },
+              {
+                  "sentence": "The new administrative building (construct) ______ by a Japanese firm at this time next month.",
+                  "answer": "will be being constructed",
+                  "alternatives": [
+                      "will be constructed",
+                      "is being constructed"
+                  ],
+                  "hint": "Bị động tương lai tiếp diễn: S + will be being + V3/ed (hoặc tương lai đơn)",
+                  "explain": "Quy tắc bị động tiếp diễn với mốc thời gian xác định trong tương lai: will be being + V3/ed."
+              },
+              {
+                  "sentence": "It is reported that the ancient pagoda (damage) ______ during the violent storm last week.",
+                  "answer": "was damaged",
+                  "alternatives": [
+                      "has been damaged"
+                  ],
+                  "hint": "Bị động quá khứ đơn (last week)",
+                  "explain": "Quy tắc bị động với thời gian quá khứ rõ ràng 'last week': was/were + V3/ed -> was damaged."
+              },
+              {
+                  "sentence": "English (speak) ______ by over 1.5 billion people worldwide as a first or second language.",
+                  "answer": "is spoken",
+                  "alternatives": [
+                      "is spoken"
+                  ],
+                  "hint": "Hiện tại đơn thể bị động: S + am/is/are + Vp2",
+                  "explain": "Sự thật hiển nhiên ở hiện tại, 'English' là danh từ số ít không đếm được -> 'is spoken'."
+              },
+              {
+                  "sentence": "The important documents must (sign) ______ by the CEO before 5 PM today.",
+                  "answer": "be signed",
+                  "alternatives": [
+                      "be signed"
+                  ],
+                  "hint": "Bị động với động từ khuyết thiếu: modal + be + Vp2",
+                  "explain": "Cấu trúc bị động của Modal Verb: must + be + Vp2 -> 'be signed'."
+              },
+              {
+                  "sentence": "My car was broken, so I had the mechanic (check) ______ the engine.",
+                  "answer": "check",
+                  "alternatives": [
+                      "check"
+                  ],
+                  "hint": "Cấu trúc chủ động nhờ vả: have someone do something",
+                  "explain": "Cấu trúc: have + người + V_bare (nhờ ai làm gì) -> 'check'."
+              },
+              {
+                  "sentence": "He got his laptop (repair) ______ at the computer service center yesterday.",
+                  "answer": "repaired",
+                  "alternatives": [
+                      "repaired"
+                  ],
+                  "hint": "Cấu trúc bị động nhờ vả với Get: get + something + Vp2",
+                  "explain": "Cấu trúc: get + vật + Vp2 -> 'repaired'."
+              }
+          ]
+      },
+      {
+          "week_number": 6,
+          "title": "Chuyên đề 6: Câu Điều Kiện & Câu Điều Ước (Conditionals & Wish)",
+          "summary": "Công thức loại 1, 2, 3, điều kiện hỗn hợp (Mixed conditionals), đảo ngữ câu điều kiện, cấu trúc Wish và If only.",
+          "sections": [
+              {
+                  "subtitle": "1. Ba loại câu điều kiện cơ bản",
+                  "content": "• Loại 1 (Có thật ở hiện tại/tương lai): If + S + V(hiện tại đơn), S + will/can + V_bare.\n• Loại 2 (Không có thật ở hiện tại): If + S + V2/were, S + would/could + V_bare.\n• Loại 3 (Không có thật ở quá khứ): If + S + had + Vp2, S + would/could have + Vp2."
+              },
+              {
+                  "subtitle": "2. Câu điều kiện hỗn hợp (Mixed Conditionals)",
+                  "content": "• Giả thiết trái ngược quá khứ, kết quả ở hiện tại: If + S + had + Vp2, S + would + V_bare (dấu hiệu: now, today ở vế chính)."
+              },
+              {
+                  "subtitle": "3. Đảo ngữ câu điều kiện (Bỏ IF)",
+                  "content": "• Loại 1: Should + S + V_bare, S + will + V_bare.\n• Loại 2: Were + S + to V (hoặc Were + S + ...), S + would + V_bare.\n• Loại 3: Had + S + Vp2, S + would have + Vp2."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "______ you require any further assistance, please do not hesitate to contact our customer support desk.",
+                  "options": [
+                      "A. Should",
+                      "B. Were",
+                      "C. Had",
+                      "D. If should"
+                  ],
+                  "answer": "A",
+                  "explain": "Đảo ngữ câu điều kiện loại 1: Should + S + V_bare = If + S + V."
+              },
+              {
+                  "q": "I wish I ______ enough money right now to purchase that electric car.",
+                  "options": [
+                      "A. have",
+                      "B. had",
+                      "C. had had",
+                      "D. will have"
+                  ],
+                  "answer": "B",
+                  "explain": "Ước một điều trái với thực tế ở hiện tại (right now) lùi về Quá khứ đơn: had."
+              },
+              {
+                  "q": "______ you work harder, you will not pass the upcoming VSTEP B2 examination.",
+                  "options": [
+                      "A. Unless",
+                      "B. Provided that",
+                      "C. As long as",
+                      "D. If"
+                  ],
+                  "answer": "A",
+                  "explain": "Unless = If not ('Trừ khi bạn chăm chỉ hơn, bạn sẽ không thể đỗ kỳ thi')."
+              },
+              {
+                  "q": "Had the rescue team arrived a few minutes later, the trapped mountaineers ______.",
+                  "options": [
+                      "A. could have perished",
+                      "B. will perish",
+                      "C. would perish",
+                      "D. perish"
+                  ],
+                  "answer": "A",
+                  "explain": "Đảo ngữ câu điều kiện loại 3: Had + S + V3/ed, S + would/could have + V3/ed."
+              },
+              {
+                  "q": "If I ______ you, I would think carefully before making such an important decision.",
+                  "options": [
+                      "A. am",
+                      "B. was",
+                      "C. were",
+                      "D. had been"
+                  ],
+                  "answer": "C",
+                  "explain": "Câu điều kiện loại 2 giả định điều không có thật ở hiện tại: If + S + were / V2, S + would + V_bare. Với to be luôn dùng 'were' cho mọi ngôi -> 'were'."
+              },
+              {
+                  "q": "Had they informed us in advance, we ______ appropriate preparations for the meeting.",
+                  "options": [
+                      "A. would make",
+                      "B. will make",
+                      "C. would have made",
+                      "D. had made"
+                  ],
+                  "answer": "C",
+                  "explain": "Đảo ngữ câu điều kiện loại 3: Had + S + Vp2, S + would have + Vp2 -> 'would have made'."
+              },
+              {
+                  "q": "If he had taken your advice yesterday, he ______ in such a difficult situation right now.",
+                  "options": [
+                      "A. wouldn't be",
+                      "B. wouldn't have been",
+                      "C. won't be",
+                      "D. isn't"
+                  ],
+                  "answer": "A",
+                  "explain": "Câu điều kiện hỗn hợp (Mixed conditional 3 - 2): Mệnh đề If giả định quá khứ ('yesterday' -> Had Vp2), mệnh đề chính giả định kết quả ở hiện tại ('right now' -> would/could + V_bare) -> 'wouldn't be'."
+              },
+              {
+                  "q": "I wish I ______ enough money to buy that comfortable apartment downtown.",
+                  "options": [
+                      "A. have",
+                      "B. had",
+                      "C. had had",
+                      "D. would have"
+                  ],
+                  "answer": "B",
+                  "explain": "Ước muốn điều không có thật ở hiện tại: S + wish + S + V2/ed -> 'had'."
+              },
+              {
+                  "q": "______ for his remarkable bravery, the little girl would have drowned in the river.",
+                  "options": [
+                      "A. If it were not",
+                      "B. But for",
+                      "C. Without",
+                      "D. Had it not been"
+                  ],
+                  "answer": "D",
+                  "explain": "Cấu trúc đảo ngữ điều kiện loại 3: Had it not been for + N/V-ing (Nếu không vì...) = But for / Without + N -> 'Had it not been'."
+              },
+              {
+                  "q": "She talks as if she ______ everything about quantum physics, but actually she knows nothing.",
+                  "options": [
+                      "A. knows",
+                      "B. knew",
+                      "C. had known",
+                      "D. would know"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc 'as if / as though' giả định sự việc không có thật ở hiện tại dùng thì Quá khứ đơn: S + V(htđ) + as if + S + V2/ed -> 'knew'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "If I (know) ______ your phone number yesterday, I would have called you immediately.",
+                  "answer": "had known",
+                  "alternatives": [],
+                  "hint": "Điều kiện loại 3 trái ngược quá khứ: If + had + Vp2",
+                  "explain": "Vế chính có 'would have called' và có 'yesterday' -> Điều kiện loại 3: had known."
+              },
+              {
+                  "sentence": "If he studied harder in high school, he (not be) ______ struggling at university right now.",
+                  "answer": "would not be",
+                  "alternatives": [
+                      "wouldn't be"
+                  ],
+                  "hint": "Điều kiện hỗn hợp: Điều kiện quá khứ, kết quả hiện tại 'right now'",
+                  "explain": "Vế chính có dấu hiệu 'right now' ở hiện tại -> câu điều kiện hỗn hợp: would not be."
+              },
+              {
+                  "sentence": "If he (listen) ______ to my warning yesterday, he would not be in such deep trouble right now.",
+                  "answer": "had listened",
+                  "alternatives": [
+                      "had listened"
+                  ],
+                  "hint": "Điều kiện trộn: Vế If quá khứ (loại 3) -> Vế chính hiện tại (loại 2)",
+                  "explain": "Quy tắc Mixed Conditional: 'yesterday' ở vế If dùng QKHT (had listened), 'now' ở vế chính dùng would + V_bare."
+              },
+              {
+                  "sentence": "I wish I (have) ______ enough courage to speak up at the meeting this morning.",
+                  "answer": "had had",
+                  "alternatives": [
+                      "had had"
+                  ],
+                  "hint": "Ước cho quá khứ: S + wish + S + had + V3/ed",
+                  "explain": "Quy tắc câu ước trong quá khứ ('this morning' đã qua) lùi về thì Quá khứ hoàn thành: had had."
+              },
+              {
+                  "sentence": "If it (not / rain) ______ tomorrow, we will go on a picnic by the lake.",
+                  "answer": "does not rain",
+                  "alternatives": [
+                      "doesn't rain"
+                  ],
+                  "hint": "Điều kiện loại 1: Mệnh đề If chia ở Hiện tại đơn",
+                  "explain": "Câu điều kiện loại 1 diễn tả sự việc có thể xảy ra ở hiện tại hoặc tương lai: If + S + V(htđ), S + will + V -> 'does not rain' hoặc 'doesn't rain'."
+              },
+              {
+                  "sentence": "I wish I (study) ______ harder when I was at high school.",
+                  "answer": "had studied",
+                  "alternatives": [
+                      "studied"
+                  ],
+                  "hint": "Ước muốn về một sự việc trong quá khứ ('when I was at high school') -> Quá khứ hoàn thành",
+                  "explain": "Cấu trúc wish cho quá khứ: S + wish + S + had + Vp2 -> 'had studied'."
+              },
+              {
+                  "sentence": "(Should / Were / Had) ______ you require any further information, please do not hesitate to contact our customer support team.",
+                  "answer": "Should",
+                  "alternatives": [
+                      "should"
+                  ],
+                  "hint": "Đảo ngữ câu điều kiện loại 1: Should + S + V_bare...",
+                  "explain": "Đảo ngữ điều kiện loại 1 dùng 'Should + S + V_bare' thay cho 'If + S + V(s/es)' -> 'Should'."
+              },
+              {
+                  "sentence": "Unless you (practice) ______ speaking English every day, you cannot become fluent.",
+                  "answer": "practice",
+                  "alternatives": [
+                      "practise"
+                  ],
+                  "hint": "Mệnh đề chứa Unless (= If...not) chia ở thể khẳng định hiện tại đơn",
+                  "explain": "'Unless' mang nghĩa 'trừ khi' (= if... not), sau Unless mệnh đề khẳng định: 'practice'."
+              }
+          ]
+      },
+      {
+          "week_number": 7,
+          "title": "Chuyên đề 7: Câu Gián Tiếp / Tường Thuật (Reported Speech)",
+          "summary": "Quy tắc lùi thì, biến đổi đại từ, trạng từ chỉ thời gian nơi chốn và các động từ tường thuật đặc biệt (accuse of, apologize for, deny, insist on).",
+          "sections": [
+              {
+                  "subtitle": "1. Quy tắc lùi thì khi động từ tường thuật ở quá khứ (said, told)",
+                  "content": "• Hiện tại đơn -> Quá khứ đơn\n• Hiện tại tiếp diễn -> Quá khứ tiếp diễn\n• Hiện tại hoàn thành / Quá khứ đơn -> Quá khứ hoàn thành\n• Will -> Would | Can -> Could | Must -> Had to."
+              },
+              {
+                  "subtitle": "2. Biến đổi trạng từ chỉ thời gian & nơi chốn",
+                  "content": "• Now -> then | Here -> there | Today -> that day | Yesterday -> the day before / previous day | Tomorrow -> the following day."
+              },
+              {
+                  "subtitle": "3. Động từ tường thuật với V-ing và To V",
+                  "content": "• S + accuse + O + of + V-ing (buộc tội ai)\n• S + apologize to O + for + V-ing (xin lỗi)\n• S + advise / encourage / invite / warn + O + to V."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "The young man denied ______ the expensive diamond necklace from the store.",
+                  "options": [
+                      "A. steal",
+                      "B. to steal",
+                      "C. stealing",
+                      "D. to have stolen"
+                  ],
+                  "answer": "C",
+                  "explain": "Động từ 'deny' đi với V-ing (phủ nhận đã làm gì): denying + stealing."
+              },
+              {
+                  "q": "Mary asked me ______ I had ever visited Singapore before.",
+                  "options": [
+                      "A. weather",
+                      "B. if",
+                      "C. that",
+                      "D. what"
+                  ],
+                  "answer": "B",
+                  "explain": "Tường thuật câu hỏi Yes/No dùng liên từ 'if' hoặc 'whether'."
+              },
+              {
+                  "q": "He asked me ______ for the international scholarship the following year.",
+                  "options": [
+                      "A. whether I would apply",
+                      "B. if will I apply",
+                      "C. did I apply",
+                      "D. that I applied"
+                  ],
+                  "answer": "A",
+                  "explain": "Tường thuật câu hỏi Yes/No: S + asked + if/whether + S + V (lùi thì). Will -> would."
+              },
+              {
+                  "q": "The manager apologized ______ informing us of the project delay in advance.",
+                  "options": [
+                      "A. for not",
+                      "B. to not",
+                      "C. not to",
+                      "D. on not"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc: apologize to someone for (not) doing something."
+              },
+              {
+                  "q": "The police officer asked the witness ______ anyone suspicious hanging around the bank.",
+                  "options": [
+                      "A. if she had seen",
+                      "B. did she see",
+                      "C. if had she seen",
+                      "D. that she saw"
+                  ],
+                  "answer": "A",
+                  "explain": "Tường thuật câu hỏi Yes/No: S + asked + if/whether + S + V (trật tự xuôi, lùi thì) -> 'if she had seen'."
+              },
+              {
+                  "q": "The instructor told us ______ in the laboratory without safety goggles.",
+                  "options": [
+                      "A. not to smoke",
+                      "B. don't smoke",
+                      "C. not smoking",
+                      "D. not smoke"
+                  ],
+                  "answer": "A",
+                  "explain": "Tường thuật câu mệnh lệnh phủ định: S + told + O + not to V -> 'not to smoke'."
+              },
+              {
+                  "q": "Jack apologized ______ his friend waiting for more than an hour in the rain.",
+                  "options": [
+                      "A. to keep",
+                      "B. for keeping",
+                      "C. keeping",
+                      "D. that he kept"
+                  ],
+                  "answer": "B",
+                  "explain": "Động từ tường thuật đặc biệt: apologize to somebody for doing something (xin lỗi ai vì đã làm gì) -> 'for keeping'."
+              },
+              {
+                  "q": "The suspect denied ______ any connection with the jewelry robbery.",
+                  "options": [
+                      "A. having",
+                      "B. to have",
+                      "C. had",
+                      "D. of having"
+                  ],
+                  "answer": "A",
+                  "explain": "Động từ tường thuật: deny + V-ing / having Vp2 (phủ nhận đã làm gì) -> 'having'."
+              },
+              {
+                  "q": "The teacher congratulated Minh ______ winning the first prize in the national contest.",
+                  "options": [
+                      "A. about",
+                      "B. on",
+                      "C. in",
+                      "D. for"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc tường thuật: congratulate somebody on something / doing something -> 'on'."
+              },
+              {
+                  "q": "She asked me where ______ the previous weekend.",
+                  "options": [
+                      "A. had I gone",
+                      "B. I had gone",
+                      "C. did I go",
+                      "D. I went"
+                  ],
+                  "answer": "B",
+                  "explain": "Tường thuật câu hỏi Wh-question: S + asked + Wh-word + S + V (trật tự khẳng định, không đảo trợ động từ, lùi thì) -> 'I had gone'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "The police officer ordered the driver (show) ______ his driving license.",
+                  "answer": "to show",
+                  "alternatives": [],
+                  "hint": "Cấu trúc tường thuật câu mệnh lệnh: Order someone + TO V",
+                  "explain": "Cấu trúc: S + order + O + to V -> to show."
+              },
+              {
+                  "sentence": "He apologized to his teacher for (be) ______ late for class this morning.",
+                  "answer": "being",
+                  "alternatives": [
+                      "having been"
+                  ],
+                  "hint": "Cấu trúc: Apologize to someone for + V-ing",
+                  "explain": "Sau giới từ 'for' động từ thêm -ing -> being / having been."
+              },
+              {
+                  "sentence": "The police officer ordered the suspect (put) ______ his hands up immediately.",
+                  "answer": "to put",
+                  "alternatives": [
+                      "to put"
+                  ],
+                  "hint": "Cấu trúc gián tiếp câu mệnh lệnh: order sb to do sth",
+                  "explain": "Quy tắc: order / tell / ask + someone + to V_bare."
+              },
+              {
+                  "sentence": "She denied (steal) ______ the confidential documents from the company safe.",
+                  "answer": "stealing",
+                  "alternatives": [
+                      "having stolen"
+                  ],
+                  "hint": "Cấu trúc deny + V-ing / having + V3/ed",
+                  "explain": "Quy tắc tường thuật phủ nhận hành vi: deny + V-ing hoặc having stolen."
+              },
+              {
+                  "sentence": "\"I am leaving for Tokyo tomorrow,\" Ken said. -> Ken said that he was leaving for Tokyo (the next day / tomorrow) ______.",
+                  "answer": "the next day",
+                  "alternatives": [
+                      "the following day"
+                  ],
+                  "hint": "Chuyển đổi trạng từ chỉ thời gian 'tomorrow' trong câu gián tiếp",
+                  "explain": "Quy tắc chuyển câu gián tiếp: 'tomorrow' đổi thành 'the next day' hoặc 'the following day'."
+              },
+              {
+                  "sentence": "The doctor advised me (give) ______ up smoking immediately for my health.",
+                  "answer": "to give",
+                  "alternatives": [
+                      "to give"
+                  ],
+                  "hint": "Cấu trúc: advise somebody to do something",
+                  "explain": "Cấu trúc tường thuật lời khuyên: S + advise + O + to V -> 'to give'."
+              },
+              {
+                  "sentence": "\"Don't touch that wire!\" the technician said to the boy. -> The technician warned the boy (not / touch) ______ that wire.",
+                  "answer": "not to touch",
+                  "alternatives": [
+                      "not to touch"
+                  ],
+                  "hint": "Cấu trúc: warn somebody not to do something",
+                  "explain": "Cấu trúc cảnh báo: warn + O + not to V -> 'not to touch'."
+              },
+              {
+                  "sentence": "He accused the cashier (of / for) ______ stealing money from the cash register.",
+                  "answer": "of",
+                  "alternatives": [
+                      "of"
+                  ],
+                  "hint": "Cấu trúc: accuse someone OF doing something",
+                  "explain": "Đi với động từ 'accuse' là giới từ 'of': accuse sb of V-ing (buộc tội ai làm gì)."
+              }
+          ]
+      },
+      {
+          "week_number": 8,
+          "title": "Chuyên đề 8: Cấp So Sánh (Comparisons: Bằng, Hơn, Nhất, Kép)",
+          "summary": "Công thức so sánh ngang bằng, so sánh hơn/nhất của tính từ và trạng từ ngắn/dài, cùng cấu trúc so sánh kép (The more... the more...).",
+          "sections": [
+              {
+                  "subtitle": "1. So sánh bằng & không bằng",
+                  "content": "• Khẳng định: S + V + as + adj/adv + as + N/Pronoun.\n• Phủ định: S + V not + as/so + adj/adv + as + N/Pronoun."
+              },
+              {
+                  "subtitle": "2. So sánh hơn & So sánh nhất",
+                  "content": "• Ngắn: adj/adv-er + than | the + adj/adv-est.\n• Dài: more + adj/adv + than | the most + adj/adv.\n• Ngoại lệ: good/well -> better -> best | bad/badly -> worse -> worst | far -> farther/further -> farthest/furthest."
+              },
+              {
+                  "subtitle": "3. So sánh kép (The + so sánh hơn, the + so sánh hơn)",
+                  "content": "• Càng... thì càng...: The + comparative + S + V, the + comparative + S + V.\n• Ví dụ: The harder you study, the higher scores you will achieve."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "The higher the altitude of a mountain is, ______ the atmospheric temperature becomes.",
+                  "options": [
+                      "A. colder",
+                      "B. the coldest",
+                      "C. the colder",
+                      "D. more cold"
+                  ],
+                  "answer": "C",
+                  "explain": "Cấu trúc so sánh kép sóng đôi: The higher..., the colder..."
+              },
+              {
+                  "q": "His performance today was ______ than his rehearsal yesterday.",
+                  "options": [
+                      "A. far good",
+                      "B. much better",
+                      "C. very better",
+                      "D. more well"
+                  ],
+                  "answer": "B",
+                  "explain": "Để nhấn mạnh so sánh hơn dùng 'much' hoặc 'far' trước tính từ so sánh hơn (better): much better."
+              },
+              {
+                  "q": "The more energy-efficient a vehicle is, ______ greenhouse gases it emits into the atmosphere.",
+                  "options": [
+                      "A. fewer",
+                      "B. the fewer",
+                      "C. the fewest",
+                      "D. the less"
+                  ],
+                  "answer": "B",
+                  "explain": "So sánh kép (The more... the more...): The + so sánh hơn + S + V, the + so sánh hơn + S + V. 'greenhouse gases' là danh từ đếm được số nhiều nên dùng 'the fewer' -> 'the fewer'."
+              },
+              {
+                  "q": "This brand-new laptop is three times ______ the old model I bought five years ago.",
+                  "options": [
+                      "A. faster than",
+                      "B. as fast as",
+                      "C. as faster as",
+                      "D. more fast than"
+                  ],
+                  "answer": "B",
+                  "explain": "So sánh gấp bội (Multiple numbers): S + V + half/twice/three times... + as + adj/adv + as + N/pronoun -> 'as fast as'."
+              },
+              {
+                  "q": "Of the two candidates interviewed this morning, Mr. Watson is by far ______.",
+                  "options": [
+                      "A. the most qualified",
+                      "B. the more qualified",
+                      "C. more qualified",
+                      "D. most qualified"
+                  ],
+                  "answer": "B",
+                  "explain": "Khi so sánh giữa 2 đối tượng ('Of the two...'), ta dùng 'the + comparative' (the more qualified), không dùng so sánh nhất."
+              },
+              {
+                  "q": "Her English pronunciation is becoming ______ day by day thanks to consistent practice.",
+                  "options": [
+                      "A. better and better",
+                      "B. more and more good",
+                      "C. good and good",
+                      "D. best and best"
+                  ],
+                  "answer": "A",
+                  "explain": "So sánh càng ngày càng (Càng... càng...): với tính từ bất quy tắc 'good' -> 'better and better'."
+              },
+              {
+                  "q": "No one in our department works ______ effectively as Mrs. Jennifer does.",
+                  "options": [
+                      "A. as",
+                      "B. so",
+                      "C. more",
+                      "D. both A and B"
+                  ],
+                  "answer": "D",
+                  "explain": "Trong câu phủ định so sánh bằng ('No one...'), có thể dùng cả 'as...as' và 'so...as'. Do đó cả A và B đều đúng."
+              },
+              {
+                  "q": "Mount Everest is ______ mountain peak in the entire world.",
+                  "options": [
+                      "A. the highest",
+                      "B. higher",
+                      "C. the most high",
+                      "D. highest"
+                  ],
+                  "answer": "A",
+                  "explain": "So sánh nhất với tính từ ngắn: the + adj-est -> 'the highest'."
+              },
+              {
+                  "q": "Life in the countryside is far ______ peaceful than that in crowded metropolitan cities.",
+                  "options": [
+                      "A. more",
+                      "B. much",
+                      "C. very",
+                      "D. so"
+                  ],
+                  "answer": "A",
+                  "explain": "So sánh hơn của tính từ dài: 'more peaceful than'. Từ 'far' đóng vai trò nhấn mạnh cấp so sánh hơn (far more peaceful)."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "The more you practice speaking English, the (confident) ______ you will become.",
+                  "answer": "more confident",
+                  "alternatives": [],
+                  "hint": "Cấu trúc so sánh kép: The more + S + V, the more + adj + S + V",
+                  "explain": "Confident là tính từ dài nên trong cấu trúc so sánh kép dùng: the more confident."
+              },
+              {
+                  "sentence": "This luxury sports car is by far the (expensive) ______ vehicle in our showroom.",
+                  "answer": "most expensive",
+                  "alternatives": [],
+                  "hint": "Cụm 'by far the...' dùng trong so sánh nhất",
+                  "explain": "So sánh nhất với tính từ dài: the most expensive."
+              },
+              {
+                  "sentence": "The older he gets, (wise) ______ he becomes.",
+                  "answer": "the wiser",
+                  "alternatives": [
+                      "the wiser"
+                  ],
+                  "hint": "Cấu trúc so sánh kép: The + comp, the + comp",
+                  "explain": "So sánh càng... càng...: The older..., the wiser he becomes."
+              },
+              {
+                  "sentence": "This luxury watch is twice as (expensive) ______ as that regular timepiece.",
+                  "answer": "expensive",
+                  "alternatives": [
+                      "expensive"
+                  ],
+                  "hint": "So sánh gấp bội dùng dạng so sánh bằng: twice as + adj + as",
+                  "explain": "Cấu trúc: twice as + adj nguyên mẫu + as -> 'expensive'."
+              },
+              {
+                  "sentence": "Russia is the (large) ______ country in the world in terms of geographical area.",
+                  "answer": "largest",
+                  "alternatives": [
+                      "largest"
+                  ],
+                  "hint": "So sánh nhất của tính từ ngắn: the + adj-est",
+                  "explain": "'large' kết thúc bằng 'e', so sánh nhất thêm -st -> 'largest'."
+              },
+              {
+                  "sentence": "My younger brother doesn't run as (fast / faster) ______ as I do.",
+                  "answer": "fast",
+                  "alternatives": [
+                      "fast"
+                  ],
+                  "hint": "So sánh bằng giữ nguyên tính từ/trạng từ: as + adv + as",
+                  "explain": "Trong cấu trúc 'as...as', trạng từ giữ nguyên dạng nguyên thể -> 'fast'."
+              }
+          ]
+      },
+      {
+          "week_number": 9,
+          "title": "Chuyên đề 9: Mệnh Đề Quan Hệ & Rút Gọn Mệnh Đề (Relative Clauses)",
+          "summary": "Cách sử dụng Who, Whom, Which, That, Whose, Where, When, Why, phân biệt mệnh đề quan hệ xác định/không xác định và 3 cách rút gọn mệnh đề quan hệ.",
+          "sections": [
+              {
+                  "subtitle": "1. Đại từ và trạng từ quan hệ",
+                  "content": "• Who (người, làm chủ ngữ/tân ngữ) | Whom (người, làm tân ngữ) | Which (vật).\n• That: Thay cho who/whom/which trong mệnh đề xác định (không dùng sau dấu phẩy và giới từ).\n• Whose: Sở hữu cách (Whose + N)."
+              },
+              {
+                  "subtitle": "2. Ba cách rút gọn mệnh đề quan hệ",
+                  "content": "• Rút thành V-ing: Khi mệnh đề mang nghĩa chủ động (The boy who is playing -> The boy playing).\n• Rút thành Vp2: Khi mệnh đề mang nghĩa bị động (The book which was written -> The book written).\n• Rút thành To-V: Khi danh từ đi trước có the first, the second, the last, the only hoặc so sánh nhất."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "The professor ______ lecture we attended yesterday is a world-renowned astrophysicist.",
+                  "options": [
+                      "A. who",
+                      "B. whom",
+                      "C. whose",
+                      "D. which"
+                  ],
+                  "answer": "C",
+                  "explain": "Chỉ quan hệ sở hữu đối với bài giảng (lecture của vị giáo sư) -> đại từ sở hữu 'whose lecture'."
+              },
+              {
+                  "q": "Candidates ______ in this international recruitment drive must possess fluent English skills.",
+                  "options": [
+                      "A. participating",
+                      "B. participated",
+                      "C. participate",
+                      "D. are participating"
+                  ],
+                  "answer": "A",
+                  "explain": "Rút gọn mệnh đề quan hệ chủ động (Candidates who participate -> Candidates participating)."
+              },
+              {
+                  "q": "The international convention was attended by over 500 delegates, most of ______ were environmental experts.",
+                  "options": [
+                      "A. whom",
+                      "B. who",
+                      "C. which",
+                      "D. that"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc lượng từ + giới từ + whom (chỉ người) trong mệnh đề quan hệ không xác định."
+              },
+              {
+                  "q": "Neil Armstrong was the first human ______ on the surface of the Moon.",
+                  "options": [
+                      "A. to walk",
+                      "B. walking",
+                      "C. walked",
+                      "D. who walk"
+                  ],
+                  "answer": "A",
+                  "explain": "Rút gọn MĐQH sau 'the first / the second / the only / so sánh nhất' bắt buộc dùng to-infinitive: to walk."
+              },
+              {
+                  "q": "The professor ______ research paper won the Nobel Prize will deliver a keynote speech tomorrow.",
+                  "options": [
+                      "A. who",
+                      "B. whom",
+                      "C. whose",
+                      "D. that"
+                  ],
+                  "answer": "C",
+                  "explain": "'whose' là đại từ quan hệ chỉ sở hữu, đứng trước danh từ 'research paper' (bài báo nghiên cứu của giáo sư đó)."
+              },
+              {
+                  "q": "The historic building, ______ was constructed in the early 19th century, is now a museum.",
+                  "options": [
+                      "A. that",
+                      "B. which",
+                      "C. where",
+                      "D. what"
+                  ],
+                  "answer": "B",
+                  "explain": "Mệnh đề quan hệ không xác định (có dấu phẩy ngăn cách) không bao giờ được dùng 'that'. Chủ ngữ chỉ vật thay thế bằng 'which'."
+              },
+              {
+                  "q": "Neil Armstrong was the first human ______ on the surface of the Moon.",
+                  "options": [
+                      "A. stepping",
+                      "B. to step",
+                      "C. stepped",
+                      "D. who step"
+                  ],
+                  "answer": "B",
+                  "explain": "Rút gọn mệnh đề quan hệ khi danh từ đi trước có số thứ tự (the first, the second, the last, the only): dùng 'to + V_bare' -> 'to step'."
+              },
+              {
+                  "q": "The students ______ in the front row are taking notes very diligently.",
+                  "options": [
+                      "A. sitting",
+                      "B. sat",
+                      "C. were sitting",
+                      "D. to sit"
+                  ],
+                  "answer": "A",
+                  "explain": "Rút gọn mệnh đề quan hệ dạng chủ động (who sit / who are sitting) -> dùng hiện tại phân từ V-ing: 'sitting'."
+              },
+              {
+                  "q": "The magnificent painting ______ on the main wall was donated by a renowned collector.",
+                  "options": [
+                      "A. displaying",
+                      "B. displayed",
+                      "C. is displayed",
+                      "D. which displayed"
+                  ],
+                  "answer": "B",
+                  "explain": "Rút gọn mệnh đề quan hệ dạng bị động (which was displayed) -> dùng quá khứ phân từ Vp2: 'displayed'."
+              },
+              {
+                  "q": "The company for ______ she has been working for a decade is expanding abroad.",
+                  "options": [
+                      "A. that",
+                      "B. which",
+                      "C. whom",
+                      "D. where"
+                  ],
+                  "answer": "B",
+                  "explain": "Đại từ quan hệ đứng sau giới từ: chỉ vật dùng 'giới từ + which' (for which). Không dùng 'that' sau giới từ."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "The scientific report (publish) ______ by Harvard researchers yesterday has attracted global attention.",
+                  "answer": "published",
+                  "alternatives": [],
+                  "hint": "Rút gọn mệnh đề quan hệ bị động (which was published -> published)",
+                  "explain": "Bản báo cáo được xuất bản (mang nghĩa bị động) nên rút gọn thành quá khứ phân từ Vp2: published."
+              },
+              {
+                  "sentence": "Neil Armstrong was the first human (walk) ______ on the surface of the Moon.",
+                  "answer": "to walk",
+                  "alternatives": [],
+                  "hint": "Có 'the first' nên rút gọn mệnh đề quan hệ thành To-V",
+                  "explain": "Quy tắc: Sau the first / second / last / only rút gọn mệnh đề quan hệ bằng To-V: to walk."
+              },
+              {
+                  "sentence": "The scientific breakthrough, (publish) ______ in Nature last week, has astounded biologists.",
+                  "answer": "published",
+                  "alternatives": [
+                      "which was published"
+                  ],
+                  "hint": "Rút gọn MĐQH thể bị động -> dùng Quá khứ phân từ V3/ed",
+                  "explain": "Quy tắc rút gọn MĐQH bị động: 'which was published' rút gọn thành 'published'."
+              },
+              {
+                  "sentence": "Professor Miller is the pioneer (theories) ______ revolutionized modern macroeconomic policies.",
+                  "answer": "whose theories",
+                  "alternatives": [
+                      "whose"
+                  ],
+                  "hint": "Đại từ quan hệ chỉ sở hữu: whose + N",
+                  "explain": "Quy tắc sở hữu cách: whose theories (những lý thuyết của vị giáo sư ấy)."
+              },
+              {
+                  "sentence": "The man to (whom / who) ______ you were speaking on the phone is our department director.",
+                  "answer": "whom",
+                  "alternatives": [
+                      "whom"
+                  ],
+                  "hint": "Đại từ quan hệ chỉ người đứng sau giới từ 'to' bắt buộc phải dùng WHOM",
+                  "explain": "Quy tắc: Sau giới từ chỉ người bắt buộc dùng 'whom' (to whom), không dùng 'who' hay 'that'."
+              },
+              {
+                  "sentence": "The smartphone (produce) ______ by this high-tech corporation has outstanding battery life.",
+                  "answer": "produced",
+                  "alternatives": [
+                      "produced"
+                  ],
+                  "hint": "Rút gọn mệnh đề quan hệ bị động (which is produced) -> Vp2",
+                  "explain": "Rút gọn mệnh đề quan hệ mang nghĩa bị động dùng quá khứ phân từ Vp2 -> 'produced'."
+              },
+              {
+                  "sentence": "1945 was the historical year (when / where) ______ World War II officially ended.",
+                  "answer": "when",
+                  "alternatives": [
+                      "when"
+                  ],
+                  "hint": "Trạng từ quan hệ thay thế cho danh từ chỉ thời gian ('the historical year')",
+                  "explain": "'the year' là mốc thời gian -> trạng từ quan hệ là 'when'."
+              },
+              {
+                  "sentence": "The only student (solve) ______ that complex mathematical puzzle received a special award.",
+                  "answer": "to solve",
+                  "alternatives": [
+                      "to solve"
+                  ],
+                  "hint": "Có từ 'The only' đi trước danh từ -> rút gọn bằng 'to V'",
+                  "explain": "Rút gọn mệnh đề quan hệ sau 'the first / the last / the only' dùng 'to V' -> 'to solve'."
+              }
+          ]
+      },
+      {
+          "week_number": 10,
+          "title": "Chuyên đề 10: Động Từ Khuyết Thiếu & Dự Đoán Trong Quá Khứ (Modal Verbs)",
+          "summary": "Cách dùng Can, May, Must, Should, Need, và đặc biệt là Modal Perfect diễn tả dự đoán quá khứ: Must have Vp2, Can't have Vp2, Should have Vp2.",
+          "sections": [
+              {
+                  "subtitle": "1. Khuyết thiếu cơ bản",
+                  "content": "• Must: Bắt buộc từ người nói / Can't: Không thể.\n• Should / Ought to / Had better: Lời khuyên nên làm gì.\n• May / Might: Có thể xảy ra (độ chắc chắn thấp)."
+              },
+              {
+                  "subtitle": "2. Dự đoán hành động trong quá khứ (Modal + Have + Vp2)",
+                  "content": "• Must have + Vp2: Chắc hẳn đã (suy đoán chắc chắn 99% trong quá khứ dựa trên chứng cứ rõ ràng).\n• Can't have + Vp2: Chắc hẳn không thể đã xảy ra.\n• Should have + Vp2: Lẽ ra nên làm gì trong quá khứ nhưng đã không làm."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "Tom ______ the bank robbery yesterday because he was attending a meeting in London with me.",
+                  "options": [
+                      "A. must have committed",
+                      "B. can't have committed",
+                      "C. should have committed",
+                      "D. needn't have committed"
+                  ],
+                  "answer": "B",
+                  "explain": "Có chứng cứ ngoại phạm chắc chắn (đang họp ở London) -> Tom chắc chắn không thể là thủ phạm: can't have committed."
+              },
+              {
+                  "q": "You ______ bought all that milk; we already had three unopened cartons in the fridge.",
+                  "options": [
+                      "A. needn't have",
+                      "B. mustn't have",
+                      "C. shouldn't",
+                      "D. couldn't"
+                  ],
+                  "answer": "A",
+                  "explain": "Needn't have + V3/ed: lẽ ra không cần phải làm nhưng trong thực tế đã lỡ làm rồi."
+              },
+              {
+                  "q": "Mark wasn't at the party yesterday; he ______ working late at the laboratory.",
+                  "options": [
+                      "A. might have been",
+                      "B. must be",
+                      "C. should have been",
+                      "D. can be"
+                  ],
+                  "answer": "A",
+                  "explain": "Suy đoán không chắc chắn về một sự việc trong quá khứ: might / may have + V3/ed."
+              },
+              {
+                  "q": "The ground is completely soaking wet. It ______ very heavily last night.",
+                  "options": [
+                      "A. must rain",
+                      "B. must have rained",
+                      "C. can't have rained",
+                      "D. should have rained"
+                  ],
+                  "answer": "B",
+                  "explain": "Dự đoán chắc chắn về một sự việc trong quá khứ dựa trên chứng cứ hiện tại (ground is soaking wet): must have + Vp2 -> 'must have rained'."
+              },
+              {
+                  "q": "You ______ so much coffee before going to bed; that's why you couldn't sleep.",
+                  "options": [
+                      "A. shouldn't drink",
+                      "B. shouldn't have drunk",
+                      "C. mustn't have drunk",
+                      "D. needn't drink"
+                  ],
+                  "answer": "B",
+                  "explain": "Chỉ trích / tiếc nuối về một hành động lẽ ra không nên làm trong quá khứ: shouldn't have + Vp2 -> 'shouldn't have drunk'."
+              },
+              {
+                  "q": "He ______ the exam because he didn't study at all and looked extremely shocked.",
+                  "options": [
+                      "A. can't have passed",
+                      "B. must have passed",
+                      "C. should have passed",
+                      "D. needn't have passed"
+                  ],
+                  "answer": "A",
+                  "explain": "Dự đoán chắc chắn một sự việc KHÔNG THỂ xảy ra trong quá khứ: can't / couldn't have + Vp2 -> 'can't have passed'."
+              },
+              {
+                  "q": "You ______ all this food; we have already ordered lunch from the restaurant.",
+                  "options": [
+                      "A. needn't have bought",
+                      "B. mustn't have bought",
+                      "C. shouldn't buy",
+                      "D. couldn't buy"
+                  ],
+                  "answer": "A",
+                  "explain": "Diễn tả hành động đã làm trong quá khứ nhưng thực tế không cần thiết: needn't have + Vp2 -> 'needn't have bought'."
+              },
+              {
+                  "q": "Visitors ______ touch the ancient artifacts displayed in the museum gallery.",
+                  "options": [
+                      "A. don't have to",
+                      "B. mustn't",
+                      "C. needn't",
+                      "D. shouldn't"
+                  ],
+                  "answer": "B",
+                  "explain": "Quy tắc cấm đoán nghiêm ngặt (Prohibition) dùng 'mustn't' (không được phép làm)."
+              },
+              {
+                  "q": "I'm not completely sure, but Mark ______ at home right now because his lights are off.",
+                  "options": [
+                      "A. might not be",
+                      "B. mustn't be",
+                      "C. shouldn't be",
+                      "D. can't have been"
+                  ],
+                  "answer": "A",
+                  "explain": "Dự đoán không chắc chắn ở hiện tại ('I'm not completely sure'): might / may + V_bare -> 'might not be'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "The pavement is soaking wet. It must (rain) ______ heavily last night.",
+                  "answer": "have rained",
+                  "alternatives": [],
+                  "hint": "Dự đoán chắc chắn trong quá khứ có chứng cứ (soaking wet): must have + Vp2",
+                  "explain": "Vỉa hè ướt sũng là chứng cứ rõ ràng -> chắc hẳn tối qua trời đã mưa: must have rained."
+              },
+              {
+                  "sentence": "You should (consult) ______ your doctor before starting this extreme fitness diet.",
+                  "answer": "have consulted",
+                  "alternatives": [
+                      "consult"
+                  ],
+                  "hint": "Lẽ ra nên tham khảo ý kiến bác sĩ (nhưng đã không làm trong quá khứ)",
+                  "explain": "Cấu trúc: Should have Vp2 diễn tả một việc lẽ ra nên làm trong quá khứ: should have consulted."
+              },
+              {
+                  "sentence": "You (not leave) ______ your laptop unattended in public places; someone might take it.",
+                  "answer": "should not leave",
+                  "alternatives": [
+                      "must not leave",
+                      "shouldn't leave",
+                      "ought not to leave"
+                  ],
+                  "hint": "Khuyên bảo / cảnh báo không nên làm gì: should not + V_bare",
+                  "explain": "Quy tắc khuyên răn: should not / ought not to + V."
+              },
+              {
+                  "sentence": "The pavement is soaking wet; it (rain) ______ heavily during the night.",
+                  "answer": "must have rained",
+                  "alternatives": [
+                      "must have rained"
+                  ],
+                  "hint": "Dự đoán chắc chắn trong quá khứ dựa trên bằng chứng rõ ràng: must have + V3/ed",
+                  "explain": "Quy tắc suy đoán quá khứ: must have + V3/ed (hẳn là đã mưa vì vỉa hè ướt sũng)."
+              },
+              {
+                  "sentence": "You (must / have to) ______ wear a helmet when riding a motorbike; it is mandated by traffic law.",
+                  "answer": "have to",
+                  "alternatives": [
+                      "must"
+                  ],
+                  "hint": "Sự bắt buộc do luật pháp/quy định khách quan bên ngoài -> have to",
+                  "explain": "Sự bắt buộc khách quan do luật pháp quy định thường dùng 'have to'."
+              },
+              {
+                  "sentence": "She was so exhausted yesterday that she (not / finish) ______ the marathon.",
+                  "answer": "could not finish",
+                  "alternatives": [
+                      "couldn't finish"
+                  ],
+                  "hint": "Khả năng trong quá khứ thể phủ định: could not + V_bare",
+                  "explain": "Diễn tả không thể làm được gì trong quá khứ -> 'could not finish' hoặc 'couldn't finish'."
+              },
+              {
+                  "sentence": "Tom didn't come to work today. He (might / should) ______ have caught a cold.",
+                  "answer": "might",
+                  "alternatives": [
+                      "may"
+                  ],
+                  "hint": "Dự đoán khả năng xảy ra trong quá khứ nhưng không chắc chắn -> might have Vp2",
+                  "explain": "Dự đoán sự việc có thể đã xảy ra trong quá khứ (không chắc chắn 100%) dùng 'might have Vp2' hoặc 'may have Vp2'."
+              },
+              {
+                  "sentence": "You (mustn't / don't have to) ______ pay for admission; the museum is completely free of charge today.",
+                  "answer": "don't have to",
+                  "alternatives": [
+                      "do not have to",
+                      "needn't"
+                  ],
+                  "hint": "Không cần thiết phải làm gì (không bắt buộc) -> don't have to / needn't",
+                  "explain": "'don't have to' chỉ sự không cần thiết (bạn không phải trả tiền). 'mustn't' chỉ sự cấm đoán."
+              }
+          ]
+      },
+      {
+          "week_number": 11,
+          "title": "Chuyên đề 11: Danh Động Từ & Động Từ Nguyên Mẫu (Gerunds & Infinitives)",
+          "summary": "Phân loại động từ đi với V-ing, To-V, và nhóm động từ đổi nghĩa: Remember, Forget, Regret, Stop, Try, Mean.",
+          "sections": [
+              {
+                  "subtitle": "1. Động từ luôn theo sau bởi V-ing",
+                  "content": "• Avoid, admit, consider, deny, enjoy, finish, postpone, practice, suggest, mind, can't help, look forward to, be used to + V-ing."
+              },
+              {
+                  "subtitle": "2. Động từ luôn theo sau bởi To V",
+                  "content": "• Agree, decide, demand, hope, intend, manage, offer, plan, promise, refuse, afford + To-V."
+              },
+              {
+                  "subtitle": "3. Nhóm động từ thay đổi nghĩa",
+                  "content": "• Stop to V (dừng lại để làm gì) vs Stop V-ing (dừng hẳn việc đang làm).\n• Remember to V (nhớ phải làm gì) vs Remember V-ing (nhớ đã làm gì).\n• Try to V (cố gắng làm gì) vs Try V-ing (thử nghiệm làm gì)."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "I really look forward to ______ you at the international technology expo next week.",
+                  "options": [
+                      "A. meet",
+                      "B. meeting",
+                      "C. to meet",
+                      "D. met"
+                  ],
+                  "answer": "B",
+                  "explain": "Cụm cố định: Look forward to + V-ing (rất mong chờ được làm gì) -> meeting."
+              },
+              {
+                  "q": "She avoided ______ about her previous employment during the job interview.",
+                  "options": [
+                      "A. asking",
+                      "B. being asked",
+                      "C. to ask",
+                      "D. to be asked"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc: avoid + V-ing. Về mặt ý nghĩa, cô ấy tránh 'bị hỏi' về công việc cũ -> avoid being Vp2: 'being asked'."
+              },
+              {
+                  "q": "I clearly remember ______ the front door before leaving home this morning.",
+                  "options": [
+                      "A. locking",
+                      "B. to lock",
+                      "C. lock",
+                      "D. locked"
+                  ],
+                  "answer": "A",
+                  "explain": "Remember + V-ing: nhớ đã làm việc gì trong quá khứ (đã khóa cửa). Phân biệt với 'Remember + to V': nhớ phải làm việc gì (chưa làm)."
+              },
+              {
+                  "q": "Don't forget ______ off the air conditioner when you leave the office.",
+                  "options": [
+                      "A. turning",
+                      "B. to turn",
+                      "C. turn",
+                      "D. turned"
+                  ],
+                  "answer": "B",
+                  "explain": "Forget + to V: quên phải làm việc gì (nhắc nhở việc cần làm) -> 'to turn'."
+              },
+              {
+                  "q": "We regret ______ you that your application has not been successful this time.",
+                  "options": [
+                      "A. informing",
+                      "B. to inform",
+                      "C. inform",
+                      "D. informed"
+                  ],
+                  "answer": "B",
+                  "explain": "Regret + to V: lấy làm tiếc khi phải thông báo tin buồn. Phân biệt với 'Regret + V-ing': hối hận vì đã làm gì trong quá khứ."
+              },
+              {
+                  "q": "The committee decided ______ the meeting until next Wednesday morning.",
+                  "options": [
+                      "A. postponing",
+                      "B. to postpone",
+                      "C. postpone",
+                      "D. postponed"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc: decide + to V (quyết định làm gì) -> 'to postpone'."
+              },
+              {
+                  "q": "It is no use ______ over spilled milk; we need to find a constructive solution.",
+                  "options": [
+                      "A. crying",
+                      "B. to cry",
+                      "C. cry",
+                      "D. cried"
+                  ],
+                  "answer": "A",
+                  "explain": "Thành ngữ: It is no use / It is no good + V-ing (vô ích khi làm gì) -> 'crying'."
+              },
+              {
+                  "q": "He stopped ______ a cigarette because his doctor warned him about lung cancer.",
+                  "options": [
+                      "A. smoking",
+                      "B. to smoke",
+                      "C. smoke",
+                      "D. smoked"
+                  ],
+                  "answer": "A",
+                  "explain": "Stop + V-ing: từ bỏ, dừng hẳn một thói quen (bỏ hút thuốc). 'Stop + to V': dừng việc đang làm lại để làm việc khác."
+              },
+              {
+                  "q": "I am really looking forward to ______ you at the alumni reunion.",
+                  "options": [
+                      "A. see",
+                      "B. seeing",
+                      "C. to see",
+                      "D. saw"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc: look forward to + V-ing (rất mong đợi điều gì) -> 'seeing'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "He stopped (smoke) ______ three years ago because of severe respiratory health issues.",
+                  "answer": "smoking",
+                  "alternatives": [],
+                  "hint": "Dừng hẳn một thói quen dùng Stop + V-ing",
+                  "explain": "Quy tắc: Stop + V-ing là từ bỏ hoàn toàn một thói quen (bỏ thuốc lá) -> smoking."
+              },
+              {
+                  "sentence": "Don't forget (lock) ______ the front gate before you go to sleep tonight.",
+                  "answer": "to lock",
+                  "alternatives": [],
+                  "hint": "Nhớ phải làm một nhiệm vụ trong tương lai dùng Remember/Forget + To V",
+                  "explain": "Nhắc nhở làm bổn phận ở tương lai -> to lock."
+              },
+              {
+                  "sentence": "Would you mind (close) ______ the window? It is getting breezy in here.",
+                  "answer": "closing",
+                  "alternatives": [
+                      "closing"
+                  ],
+                  "hint": "Cấu trúc: Would you mind + V-ing?",
+                  "explain": "Sau 'Would you mind / Do you mind' luôn đi với danh động từ V-ing -> 'closing'."
+              },
+              {
+                  "sentence": "He promised (submit) ______ the final project report before midnight.",
+                  "answer": "to submit",
+                  "alternatives": [
+                      "to submit"
+                  ],
+                  "hint": "Cấu trúc: promise + to V",
+                  "explain": "Sau động từ 'promise' dùng to-infinitive -> 'to submit'."
+              },
+              {
+                  "sentence": "I tried (reach) ______ him on his mobile phone, but there was no signal.",
+                  "answer": "to reach",
+                  "alternatives": [
+                      "to reach"
+                  ],
+                  "hint": "Try + to V: cố gắng làm việc gì; Try + V-ing: thử làm việc gì",
+                  "explain": "Ngữ cảnh cố gắng liên lạc nhưng không được -> try to V: 'to reach'."
+              },
+              {
+                  "sentence": "They spent hours (discuss) ______ the strategic business plan.",
+                  "answer": "discussing",
+                  "alternatives": [
+                      "discussing"
+                  ],
+                  "hint": "Cấu trúc: spend + time + V-ing",
+                  "explain": "Cấu trúc: spend + thời gian + V-ing (dành thời gian làm gì) -> 'discussing'."
+              },
+              {
+                  "sentence": "It is worth (visit) ______ the ancient pagoda when you travel to Hue.",
+                  "answer": "visiting",
+                  "alternatives": [
+                      "visiting"
+                  ],
+                  "hint": "Cấu trúc: be worth + V-ing (đáng làm gì)",
+                  "explain": "Sau 'worth' dùng V-ing: be worth visiting -> 'visiting'."
+              }
+          ]
+      },
+      {
+          "week_number": 12,
+          "title": "Chuyên đề 12: Câu Hỏi Đuôi (Tag Questions & Các Trường Hợp Đặc Biệt)",
+          "summary": "Nguyên tắc đối lập khẳng định/phủ định và 10 trường hợp câu hỏi đuôi đặc biệt dễ mất điểm trong các kỳ thi.",
+          "sections": [
+              {
+                  "subtitle": "1. Quy tắc cơ bản",
+                  "content": "• Mệnh đề khẳng định, đuôi phủ định (You are ready, aren't you?).\n• Mệnh đề phủ định, đuôi khẳng định (She didn't come, did she?)."
+              },
+              {
+                  "subtitle": "2. Các trường hợp đặc biệt quan trọng",
+                  "content": "• I am... -> aren't I?\n• Let's... -> shall we?\n• Câu mệnh lệnh (Open the window) -> will you?\n• Chủ ngữ là Everyone, Nobody, Somebody -> đại từ ở đuôi là 'they'.\n• Chủ ngữ là Nothing, Everything -> đại từ ở đuôi là 'it'.\n• Có từ bán phủ định (seldom, rarely, hardly, never, barely) -> đuôi khẳng định."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "Nobody phoned me while I was out at the supermarket, ______?",
+                  "options": [
+                      "A. didn't they",
+                      "B. did they",
+                      "C. did it",
+                      "D. didn't it"
+                  ],
+                  "answer": "B",
+                  "explain": "'Nobody' mang nghĩa phủ định và thay bằng đại từ 'they' ở đuôi -> đuôi khẳng định: did they."
+              },
+              {
+                  "q": "Let's organize a fundraising event for orphaned children, ______?",
+                  "options": [
+                      "A. shall we",
+                      "B. will you",
+                      "C. do we",
+                      "D. aren't we"
+                  ],
+                  "answer": "A",
+                  "explain": "Câu rủ bắt đầu bằng 'Let's...' có phần hỏi đuôi mặc định là 'shall we?'."
+              },
+              {
+                  "q": "Nobody called me while I was away at the conference, ______?",
+                  "options": [
+                      "A. didn't they",
+                      "B. did they",
+                      "C. did he",
+                      "D. didn't he"
+                  ],
+                  "answer": "B",
+                  "explain": "'Nobody' mang nghĩa phủ định nên phần hỏi đuôi phải ở thể khẳng định. Đại từ thay thế cho 'nobody/everyone/someone' là 'they'. Thì quá khứ đơn -> 'did they?'."
+              },
+              {
+                  "q": "I am responsible for coordinating the marketing campaign, ______?",
+                  "options": [
+                      "A. am not I",
+                      "B. aren't I",
+                      "C. am I",
+                      "D. isn't I"
+                  ],
+                  "answer": "B",
+                  "explain": "Mệnh đề chính khẳng định 'I am...' có câu hỏi đuôi đặc biệt là 'aren't I?'."
+              },
+              {
+                  "q": "He rarely eats fast food or drinks sugary soda, ______?",
+                  "options": [
+                      "A. does he",
+                      "B. doesn't he",
+                      "C. did he",
+                      "D. is he"
+                  ],
+                  "answer": "A",
+                  "explain": "Các từ mang nghĩa bán phủ định (rarely, seldom, hardly, barely, scarcely, never) làm cho mệnh đề chính mang nghĩa phủ định -> câu hỏi đuôi ở thể khẳng định 'does he?'."
+              },
+              {
+                  "q": "Open the entrance door for our guests, ______?",
+                  "options": [
+                      "A. will you",
+                      "B. do you",
+                      "C. don't you",
+                      "D. shall we"
+                  ],
+                  "answer": "A",
+                  "explain": "Câu mệnh lệnh khẳng định có câu hỏi đuôi thường là 'will you?' (hoặc 'won't you?'). Phổ biến và chuẩn mực nhất là 'will you?'."
+              },
+              {
+                  "q": "Nothing serious happened to the passengers in the train incident, ______?",
+                  "options": [
+                      "A. did it",
+                      "B. didn't it",
+                      "C. did they",
+                      "D. didn't they"
+                  ],
+                  "answer": "A",
+                  "explain": "'Nothing' mang nghĩa phủ định và làm chủ ngữ chỉ vật số ít -> đại từ ở đuôi là 'it'. Thì quá khứ đơn khẳng định -> 'did it?'."
+              },
+              {
+                  "q": "You think that she will agree to our collaborative proposal, ______?",
+                  "options": [
+                      "A. don't you",
+                      "B. won't she",
+                      "C. do you",
+                      "D. will she"
+                  ],
+                  "answer": "A",
+                  "explain": "Khi chủ ngữ là 'You think...' (không phải I think), câu hỏi đuôi chia theo mệnh đề chính 'You think' -> 'don't you?'."
+              },
+              {
+                  "q": "I don't think he will pass the stringent entrance exam, ______?",
+                  "options": [
+                      "A. do I",
+                      "B. will he",
+                      "C. won't he",
+                      "D. doesn't he"
+                  ],
+                  "answer": "B",
+                  "explain": "Khi chủ ngữ là 'I don't think + S2 + V2', câu hỏi đuôi lấy theo S2 và V2, đồng thời chuyển phủ định của 'don't think' sang đuôi (thành khẳng định) -> 'will he?'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "She rarely drinks coffee in the late afternoon, (do) ______ she?",
+                  "answer": "does",
+                  "alternatives": [],
+                  "hint": "Từ bán phủ định 'rarely' khiến câu mang nghĩa phủ định, nên phần đuôi phải ở dạng khẳng định",
+                  "explain": "Có 'rarely' là từ bán phủ định, thì hiện tại đơn ngôi she -> đuôi khẳng định: does she."
+              },
+              {
+                  "sentence": "Let's organize a beach cleanup campaign this weekend, ______ we?",
+                  "answer": "shall",
+                  "alternatives": [],
+                  "hint": "Cấu trúc rủ rê 'Let's...' đi với câu hỏi đuôi 'shall we?'",
+                  "explain": "Quy tắc: Bắt đầu bằng Let's -> câu hỏi đuôi luôn là: shall we."
+              },
+              {
+                  "sentence": "Don't touch that high-voltage electrical equipment, ______?",
+                  "answer": "will you",
+                  "alternatives": [
+                      "will you?"
+                  ],
+                  "hint": "Câu mệnh lệnh phủ định (Don't + V_bare) có đuôi cố định",
+                  "explain": "Câu mệnh lệnh phủ định 'Don't...' luôn có câu hỏi đuôi là 'will you?'."
+              },
+              {
+                  "sentence": "She has never been abroad before, ______?",
+                  "answer": "has she",
+                  "alternatives": [
+                      "has she?"
+                  ],
+                  "hint": "'never' mang nghĩa phủ định -> đuôi khẳng định thì Hiện tại hoàn thành",
+                  "explain": "Mệnh đề chính có 'never' (phủ định) và trợ động từ 'has' -> câu hỏi đuôi khẳng định: 'has she?'."
+              },
+              {
+                  "sentence": "Everyone enjoyed the music festival last weekend, ______?",
+                  "answer": "didn't they",
+                  "alternatives": [
+                      "did not they"
+                  ],
+                  "hint": "'Everyone' thay thế bằng đại từ 'they', động từ enjoyed ở thì quá khứ đơn",
+                  "explain": "'Everyone' thay thế bằng 'they', mệnh đề khẳng định ở quá khứ đơn -> đuôi phủ định: 'didn't they?'."
+              },
+              {
+                  "sentence": "This is your new office workstation, ______?",
+                  "answer": "isn't it",
+                  "alternatives": [
+                      "is not it"
+                  ],
+                  "hint": "Chủ ngữ 'This' chuyển thành đại từ 'it' trong câu hỏi đuôi",
+                  "explain": "'This/That' làm chủ ngữ được thay bằng đại từ 'it' ở phần hỏi đuôi -> 'isn't it?'."
+              }
+          ]
+      },
+      {
+          "week_number": 13,
+          "title": "Chuyên đề 13: Đảo Ngữ (Inversion)",
+          "summary": "Toàn bộ các cấu trúc đảo ngữ nâng cao: Đảo ngữ với trạng từ phủ định, Only, Not only... but also, No sooner, So/Such.",
+          "sections": [
+              {
+                  "subtitle": "1. Đảo ngữ với trạng từ phủ định đứng đầu câu",
+                  "content": "• Never, Rarely, Seldom, Little, Hardly, Scarcely + Trợ động từ + S + V.\n• Ví dụ: Seldom have I witnessed such profound resilience."
+              },
+              {
+                  "subtitle": "2. Cấu trúc Vừa mới... thì...",
+                  "content": "• No sooner + had + S + Vp2 + THAN + S + V2/ed.\n• Hardly/Scarcely + had + S + Vp2 + WHEN + S + V2/ed."
+              },
+              {
+                  "subtitle": "3. Đảo ngữ với ONLY và NOT UNTIL",
+                  "content": "• Not until + mốc/mệnh đề + Trợ động từ + S + V (Mãi cho đến khi... mới...).\n• Only after / Only when / Only by + Trợ động từ + S + V."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "Not until late in the evening ______ the final election results.",
+                  "options": [
+                      "A. did the committee announce",
+                      "B. the committee announced",
+                      "C. announced the committee",
+                      "D. has the committee announced"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc đảo ngữ: Not until + thời gian + Trợ động từ + S + V -> did the committee announce."
+              },
+              {
+                  "q": "Under no circumstances ______ employees to disclose proprietary company passwords.",
+                  "options": [
+                      "A. are allowed",
+                      "B. are permitted",
+                      "C. should you allow",
+                      "D. are you allowed"
+                  ],
+                  "answer": "B",
+                  "explain": "Đảo ngữ với cụm từ phủ định đứng đầu câu 'Under no circumstances' + trợ động từ / to be + S."
+              },
+              {
+                  "q": "Only after the DNA results arrived ______ convinced of the suspect's innocence.",
+                  "options": [
+                      "A. was the detective",
+                      "B. the detective was",
+                      "C. did the detective",
+                      "D. had the detective"
+                  ],
+                  "answer": "A",
+                  "explain": "Đảo ngữ với 'Only after + MĐ/cụm': vế chính đảo to be/trợ động từ lên trước chủ ngữ: was the detective convinced."
+              },
+              {
+                  "q": "Never before ______ such a breathtaking display of the Northern Lights.",
+                  "options": [
+                      "A. I have witnessed",
+                      "B. have I witnessed",
+                      "C. did I witness",
+                      "D. I witnessed"
+                  ],
+                  "answer": "B",
+                  "explain": "Đảo ngữ với trạng từ phủ định 'Never before' đứng đầu câu: Never before + have/has + S + Vp2 -> 'have I witnessed'."
+              },
+              {
+                  "q": "Not until midnight ______ that she had lost her passport at the terminal.",
+                  "options": [
+                      "A. she realized",
+                      "B. did she realize",
+                      "C. had she realized",
+                      "D. she did realize"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc đảo ngữ: Not until + mốc thời gian / mệnh đề + trợ động từ + S + V_bare -> 'did she realize'."
+              },
+              {
+                  "q": "Only by working diligently ______ your long-term career aspirations.",
+                  "options": [
+                      "A. you can achieve",
+                      "B. can you achieve",
+                      "C. you achieve",
+                      "D. will achieve you"
+                  ],
+                  "answer": "B",
+                  "explain": "Đảo ngữ với 'Only by + V-ing': Only by + V-ing + trợ động từ/modal + S + V_bare -> 'can you achieve'."
+              },
+              {
+                  "q": "So intensely ______ that all outdoor flights had to be canceled.",
+                  "options": [
+                      "A. did the blizzard blow",
+                      "B. the blizzard blew",
+                      "C. blew the blizzard",
+                      "D. does the blizzard blow"
+                  ],
+                  "answer": "A",
+                  "explain": "Đảo ngữ với So + adv: So + adv + trợ động từ + S + V + that... -> 'did the blizzard blow'."
+              },
+              {
+                  "q": "Under no circumstances ______ to leave the examination room without permission.",
+                  "options": [
+                      "A. students are allowed",
+                      "B. are students allowed",
+                      "C. do students allow",
+                      "D. students allow"
+                  ],
+                  "answer": "B",
+                  "explain": "Cụm từ phủ định 'Under no circumstances' (dù trong bất kỳ hoàn cảnh nào cũng không) đứng đầu câu kéo theo đảo ngữ: 'are students allowed'."
+              },
+              {
+                  "q": "______ had the plane touched down than the passengers burst into applause.",
+                  "options": [
+                      "A. Hardly",
+                      "B. Scarcely",
+                      "C. No sooner",
+                      "D. As soon as"
+                  ],
+                  "answer": "C",
+                  "explain": "Cấu trúc: No sooner had + S + Vp2 + THAN... (Hardly và Scarcely đi với WHEN) -> 'No sooner'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "Hardly had the keynote speaker stepped onto the stage (when) ______ the audience erupted into applause.",
+                  "answer": "when",
+                  "alternatives": [],
+                  "hint": "Cặp liên từ: Hardly/Scarcely had... WHEN...",
+                  "explain": "Quy tắc: No sooner đi với than; Hardly/Scarcely đi với when."
+              },
+              {
+                  "sentence": "Never before (have) ______ humanity faced such interconnected ecological crises.",
+                  "answer": "has",
+                  "alternatives": [
+                      "have"
+                  ],
+                  "hint": "Đảo ngữ với Never before: Trợ động từ + S (humanity - số ít)",
+                  "explain": "Chủ ngữ 'humanity' (nhân loại) là danh từ số ít -> đảo trợ động từ has lên trước."
+              },
+              {
+                  "sentence": "Scarcely (the flight take) ______ off when the pilot detected a hydraulic failure.",
+                  "answer": "had the flight taken",
+                  "alternatives": [
+                      "had the plane taken"
+                  ],
+                  "hint": "Cấu trúc đảo ngữ: Scarcely + had + S + V3/ed + when + S + V2/ed",
+                  "explain": "Quy tắc đảo ngữ vừa mới... thì...: Scarcely had + S + V3/ed when S + V2/ed."
+              },
+              {
+                  "sentence": "Not only (she speak) ______ four foreign languages fluently, but she also plays the violin brilliantly.",
+                  "answer": "does she speak",
+                  "alternatives": [
+                      "does she speak"
+                  ],
+                  "hint": "Đảo ngữ hiện tại đơn: Not only + does + S + V_bare",
+                  "explain": "Quy tắc: Not only + trợ động từ + S + V ... but also..."
+              },
+              {
+                  "sentence": "Rarely (do / does) ______ he complain about the heavy workload assigned to him.",
+                  "answer": "does",
+                  "alternatives": [
+                      "does"
+                  ],
+                  "hint": "Rarely + trợ động từ hiện tại đơn ngôi 'he'",
+                  "explain": "Đảo ngữ với trạng từ tần suất bán phủ định 'Rarely': Rarely + does + he + V_bare -> 'does'."
+              },
+              {
+                  "sentence": "Only after the sun had set (did / had) ______ we begin our trek through the dense forest.",
+                  "answer": "did",
+                  "alternatives": [
+                      "did"
+                  ],
+                  "hint": "Only after + QKHT + Did + S + V_bare",
+                  "explain": "Cấu trúc: Only after + S + had Vp2 + did + S + V_bare -> 'did'."
+              },
+              {
+                  "sentence": "Not only (is / does) ______ she speak fluent French, but she also writes it flawlessly.",
+                  "answer": "does",
+                  "alternatives": [
+                      "does"
+                  ],
+                  "hint": "Động từ 'speak' là động từ thường -> dùng trợ động từ Does",
+                  "explain": "Cấu trúc đảo ngữ: Not only + does + S + V_bare... but also... -> 'does'."
+              }
+          ]
+      },
+      {
+          "week_number": 14,
+          "title": "Chuyên đề 14: Thức Giả Định (Subjunctive Mood)",
+          "summary": "Giả định thức hiện tại với động từ và tính từ khuyên bảo, yêu cầu (essential, vital, recommend, demand, suggest) và giả định với It's time / Would rather.",
+          "sections": [
+              {
+                  "subtitle": "1. Thức giả định với tính từ & động từ yêu cầu",
+                  "content": "• Động từ: suggest, demand, insist, recommend, require, request, order + THAT + S + (should) + V_BARE.\n• Tính từ: It is important / essential / vital / imperative / necessary + THAT + S + (should) + V_BARE."
+              },
+              {
+                  "subtitle": "2. Cấu trúc It is (high/about) time",
+                  "content": "• It is high time + S + V2/ed (Đã đến lúc ai đó phải làm gì ở hiện tại)."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "It is imperative that every flight passenger ______ their seatbelt fastened during turbulence.",
+                  "options": [
+                      "A. keeps",
+                      "B. keep",
+                      "C. kept",
+                      "D. is keeping"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc giả định thức: It is imperative that + S + (should) + V_bare -> keep."
+              },
+              {
+                  "q": "The committee recommended that the outdated regulations ______ without delay.",
+                  "options": [
+                      "A. be abolished",
+                      "B. are abolished",
+                      "C. were abolished",
+                      "D. to be abolished"
+                  ],
+                  "answer": "A",
+                  "explain": "Thức giả định với động từ 'recommend': recommend that S + (should) be Vp2 (dạng bị động) -> 'be abolished'."
+              },
+              {
+                  "q": "It is essential that every citizen ______ about the upcoming constitutional referendum.",
+                  "options": [
+                      "A. informs",
+                      "B. be informed",
+                      "C. is informed",
+                      "D. was informed"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc giả định với tính từ: It is essential/vital that S + (should) be Vp2 -> 'be informed'."
+              },
+              {
+                  "q": "It is high time you ______ taking responsibility for your own financial future.",
+                  "options": [
+                      "A. start",
+                      "B. started",
+                      "C. should start",
+                      "D. have started"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc: It is (high/about) time + S + V2/ed (đã đến lúc ai đó phải làm gì) -> 'started'."
+              },
+              {
+                  "q": "I would rather you ______ anyone about our conversation yesterday.",
+                  "options": [
+                      "A. don't tell",
+                      "B. didn't tell",
+                      "C. hadn't told",
+                      "D. won't tell"
+                  ],
+                  "answer": "C",
+                  "explain": "Cấu trúc 'would rather' cho quá khứ: S1 + would rather + S2 + had (not) + Vp2 (hôm qua 'yesterday') -> 'hadn't told'."
+              },
+              {
+                  "q": "The environmental group demanded that the factory ______ discharging untreated wastewater.",
+                  "options": [
+                      "A. cease",
+                      "B. ceases",
+                      "C. ceased",
+                      "D. will cease"
+                  ],
+                  "answer": "A",
+                  "explain": "Thức giả định với 'demand': demand that S + (should) + V_bare -> 'cease'."
+              },
+              {
+                  "q": "I would rather ______ at home tonight than attend that crowded party.",
+                  "options": [
+                      "A. stay",
+                      "B. stayed",
+                      "C. to stay",
+                      "D. staying"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc 'would rather' cùng chủ ngữ ở hiện tại/tương lai: S + would rather + V_bare + than + V_bare -> 'stay'."
+              },
+              {
+                  "q": "It is imperative that the emergency supplies ______ dispatched to the disaster zone immediately.",
+                  "options": [
+                      "A. are",
+                      "B. be",
+                      "C. were",
+                      "D. being"
+                  ],
+                  "answer": "B",
+                  "explain": "Giả định thức: It is imperative that + S + (should) be Vp2 -> 'be'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "The doctor strongly advised that the patient (stop) ______ consuming excessive sugar immediately.",
+                  "answer": "stop",
+                  "alternatives": [
+                      "should stop"
+                  ],
+                  "hint": "Thức giả định: S + advise that + S + (should) + V_bare (động từ nguyên thể không chia)",
+                  "explain": "Sau 'advised that', động từ của mệnh đề sau luôn ở dạng nguyên thể không chia: stop."
+              },
+              {
+                  "sentence": "It is high time you (take) ______ responsibility for your own financial budget.",
+                  "answer": "took",
+                  "alternatives": [],
+                  "hint": "Cấu trúc: It is high time + S + V(quá khứ đơn)",
+                  "explain": "Sau 'It is high time', động từ lùi về thì quá khứ đơn: take -> took."
+              },
+              {
+                  "sentence": "The doctor insisted that the patient (stay) ______ in bed for at least another week.",
+                  "answer": "stay",
+                  "alternatives": [
+                      "should stay"
+                  ],
+                  "hint": "Cấu trúc giả định với động từ 'insist that S + (should) V_bare'",
+                  "explain": "Sau 'insist that' động từ ở thể giả định nguyên mẫu không chia -> 'stay'."
+              },
+              {
+                  "sentence": "It is about time we (leave) ______ for the airport before the rush hour begins.",
+                  "answer": "left",
+                  "alternatives": [
+                      "left"
+                  ],
+                  "hint": "It is about time + S + V2/ed",
+                  "explain": "Cấu trúc: It is about time + S + Quá khứ đơn (V2/ed) -> 'left'."
+              },
+              {
+                  "sentence": "I would rather you (not / smoke) ______ inside the conference room.",
+                  "answer": "did not smoke",
+                  "alternatives": [
+                      "didn't smoke"
+                  ],
+                  "hint": "would rather + S + Quá khứ đơn (cho mong muốn ở hiện tại/tương lai)",
+                  "explain": "S1 + would rather + S2 + V2/ed (phủ định: did not + V_bare) -> 'did not smoke'."
+              },
+              {
+                  "sentence": "The judge ordered that the defendant (pay) ______ a substantial fine.",
+                  "answer": "pay",
+                  "alternatives": [
+                      "should pay"
+                  ],
+                  "hint": "Thức giả định với 'order that S + V_bare'",
+                  "explain": "Sau 'order that', động từ chia ở dạng nguyên thể không chia -> 'pay'."
+              }
+          ]
+      },
+      {
+          "week_number": 15,
+          "title": "Chuyên đề 15: Mạo Từ (Articles: A, An, The & Zero Article)",
+          "summary": "Cách phân biệt mạo từ bất định (A/An), xác định (The) và các trường hợp không dùng mạo từ (Zero Article) trong tiếng Anh chuẩn.",
+          "sections": [
+              {
+                  "subtitle": "1. Mạo từ bất định A / An",
+                  "content": "• Dùng trước danh từ đếm được số ít, nhắc đến lần đầu tiên.\n• An dùng trước danh từ phát âm bắt đầu bằng nguyên âm (/i/, /e/, /æ/, /ʌ/, /ɒ/ - an honest man, an hour, an umbrella)."
+              },
+              {
+                  "subtitle": "2. Mạo từ xác định THE",
+                  "content": "• Nhắc đến lần thứ hai; vật thể duy nhất (the Sun, the Moon, the Earth).\n• Dãy núi (the Himalayas), đại dương (the Pacific), sông (the Nile), quần đảo (the Philippines).\n• The + adj -> chỉ một nhóm người (the poor, the elderly)."
+              },
+              {
+                  "subtitle": "3. Không dùng mạo từ (Zero Article)",
+                  "content": "• Danh từ số nhiều / không đếm được nói chung (Love, Gold, Books are essential).\n• Tên ngọn núi đơn lẻ (Mount Everest), hồ đơn lẻ (Lake Geneva), lục địa (Asia, Europe), bữa ăn thông thường (have breakfast)."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "My uncle is ______ honest businessman who always contributes to charitable causes.",
+                  "options": [
+                      "A. a",
+                      "B. an",
+                      "C. the",
+                      "D. zero article"
+                  ],
+                  "answer": "B",
+                  "explain": "'Honest' có âm 'h' câm, phát âm bắt đầu bằng nguyên âm /ˈɒnɪst/ -> dùng 'an'."
+              },
+              {
+                  "q": "______ Pacific Ocean is the largest and deepest ocean basin on Earth.",
+                  "options": [
+                      "A. A",
+                      "B. An",
+                      "C. The",
+                      "D. Ø (no article)"
+                  ],
+                  "answer": "C",
+                  "explain": "Tên các đại dương (oceans), biển (seas), sông (rivers) luôn đi với mạo từ xác định 'The': The Pacific Ocean, The Atlantic Ocean."
+              },
+              {
+                  "q": "She plays ______ violin beautifully, but she doesn't enjoy playing ______ football.",
+                  "options": [
+                      "A. the / the",
+                      "B. the / Ø",
+                      "C. Ø / the",
+                      "D. a / a"
+                  ],
+                  "answer": "B",
+                  "explain": "Quy tắc mạo từ: Chơi nhạc cụ dùng 'the' (play the violin), chơi môn thể thao KHÔNG dùng mạo từ (play football) -> 'the / Ø'."
+              },
+              {
+                  "q": "Mr. Harrison has been working as ______ honest accountant for thirty years.",
+                  "options": [
+                      "A. a",
+                      "B. an",
+                      "C. the",
+                      "D. Ø"
+                  ],
+                  "answer": "B",
+                  "explain": "Từ 'honest' bắt đầu bằng âm câm 'h' và phiên âm là nguyên âm /ˈɒn.ɪst/ -> dùng mạo từ 'an': an honest accountant."
+              },
+              {
+                  "q": "______ Mount Everest is situated in ______ Himalayas mountain range.",
+                  "options": [
+                      "A. The / the",
+                      "B. Ø / the",
+                      "C. The / Ø",
+                      "D. Ø / Ø"
+                  ],
+                  "answer": "B",
+                  "explain": "Đỉnh núi đơn lẻ không dùng mạo từ (Mount Everest). Dãy núi gồm nhiều ngọn núi phải dùng 'The' (The Himalayas, The Alps) -> 'Ø / the'."
+              },
+              {
+                  "q": "We went to ______ prison to visit our friend who is an inmate there.",
+                  "options": [
+                      "A. a",
+                      "B. the",
+                      "C. Ø",
+                      "D. an"
+                  ],
+                  "answer": "B",
+                  "explain": "Khi đến nhà tù, bệnh viện, trường học đúng mục đích chính (tù nhân, bệnh nhân, học sinh) thì không dùng 'the'. Khi đến chỉ để thăm/làm việc khác thì PHẢI dùng 'the' -> 'the'."
+              },
+              {
+                  "q": "______ rich should do more to help ______ poor and underprivileged in society.",
+                  "options": [
+                      "A. The / the",
+                      "B. A / a",
+                      "C. Ø / Ø",
+                      "D. The / a"
+                  ],
+                  "answer": "A",
+                  "explain": "'The + adjective' tạo thành danh từ tập hợp chỉ một nhóm người trong xã hội: The rich (người giàu), The poor (người nghèo)."
+              },
+              {
+                  "q": "He was admitted to ______ university in London after scoring high in the exams.",
+                  "options": [
+                      "A. a",
+                      "B. an",
+                      "C. the",
+                      "D. Ø"
+                  ],
+                  "answer": "A",
+                  "explain": "Từ 'university' bắt đầu bằng âm bán nguyên âm /j/ (/ˌjuː.nɪˈvɜː.sə.ti/), không phải nguyên âm, nên dùng 'a university'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "He has been working as (a/an/the) ______ university lecturer for over fifteen years.",
+                  "answer": "a",
+                  "alternatives": [],
+                  "hint": "Từ 'university' bắt đầu bằng phụ âm /j/ nên đi với 'a', không đi với 'an'",
+                  "explain": "Mặc dù viết bằng chữ cái 'u', nhưng 'university' phát âm là /ˌjuːnɪˈvɜːsəti/ (phụ âm /j/) -> dùng mạo từ 'a'."
+              },
+              {
+                  "sentence": "(The/A/An) ______ Pacific Ocean is the largest and deepest oceanic division on Earth.",
+                  "answer": "The",
+                  "alternatives": [
+                      "the"
+                  ],
+                  "hint": "Tên các đại dương luôn có mạo từ 'The'",
+                  "explain": "Đại dương, biển, sông ngòi luôn đi cùng 'The': The Pacific Ocean."
+              },
+              {
+                  "sentence": "My uncle travels to work every morning (by the car / by car) ______.",
+                  "answer": "by car",
+                  "alternatives": [
+                      "by car"
+                  ],
+                  "hint": "Cụm phương tiện giao thông với 'by': by car, by bus, by train (không mạo từ)",
+                  "explain": "Quy tắc: by + phương tiện giao thông không có mạo từ (by car, by train, by bus, by plane)."
+              },
+              {
+                  "sentence": "She has lived in (the United Kingdom / United Kingdom) ______ for nearly a decade.",
+                  "answer": "the United Kingdom",
+                  "alternatives": [
+                      "the United Kingdom"
+                  ],
+                  "hint": "Tên quốc gia gồm nhiều bang hoặc từ 'Kingdom/States/Republic' phải có The",
+                  "explain": "Các quốc gia có chứa Kingdom, States, Republic dùng 'The': The United Kingdom, The United States."
+              },
+              {
+                  "sentence": "He gave me (a / an) ______ useful piece of advice regarding my career.",
+                  "answer": "a",
+                  "alternatives": [
+                      "a"
+                  ],
+                  "hint": "'useful' bắt đầu bằng phụ âm /j/ (/ˈjuːs.fəl/)",
+                  "explain": "Phiên âm của 'useful' là /ˈjuːs.fəl/ (bắt đầu bằng âm /j/), nên dùng mạo từ 'a useful piece of advice'."
+              },
+              {
+                  "sentence": "We had dinner at (the / a) ______ fantastic restaurant near the riverside last night.",
+                  "answer": "a",
+                  "alternatives": [
+                      "a"
+                  ],
+                  "hint": "Một nhà hàng được nhắc tới lần đầu tiên, chưa xác định",
+                  "explain": "Danh từ đếm được số ít được nhắc đến lần đầu tiên dùng mạo từ bất định 'a': a fantastic restaurant."
+              }
+          ]
+      },
+      {
+          "week_number": 16,
+          "title": "Chuyên đề 16: Giới Từ (Prepositions of Time, Place & Dependent Prepositions)",
+          "summary": "Giới từ chỉ thời gian (In, On, At), giới từ chỉ nơi chốn, và các cụm tính từ/danh từ đi kèm giới từ cố định bắt buộc phải thuộc lòng.",
+          "sections": [
+              {
+                  "subtitle": "1. Giới từ chỉ thời gian & nơi chốn cơ bản",
+                  "content": "• IN: Năm, tháng, mùa, thế kỷ, buổi (in the morning), không gian lớn (in Vietnam, in the room).\n• ON: Ngày trong tuần (on Monday), ngày tháng cụ thể (on October 15th), bề mặt (on the table).\n• AT: Giờ chính xác (at 7 AM), dịp lễ (at Christmas), địa điểm cụ thể (at school, at home)."
+              },
+              {
+                  "subtitle": "2. Tính từ đi kèm giới từ cố định",
+                  "content": "• Fond of, proud of, capable of, guilty of.\n• Interested in, succeed in, engage in.\n• Dependent on, keen on, rely on.\n• Surprised at, good/bad at, furious at."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "He has been fully responsible ______ managing customer accounts for three years.",
+                  "options": [
+                      "A. of",
+                      "B. with",
+                      "C. for",
+                      "D. about"
+                  ],
+                  "answer": "C",
+                  "explain": "Cụm tính từ: To be responsible for sth/doing sth (chịu trách nhiệm cho việc gì)."
+              },
+              {
+                  "q": "The international symposium will commence ______ 9:00 AM ______ Monday morning.",
+                  "options": [
+                      "A. at / on",
+                      "B. in / at",
+                      "C. on / in",
+                      "D. at / in"
+                  ],
+                  "answer": "A",
+                  "explain": "Giới từ chỉ thời gian: 'at' đi với giờ cụ thể (at 9:00 AM); 'on' đi với các thứ trong tuần hoặc buổi của ngày cụ thể (on Monday morning) -> 'at / on'."
+              },
+              {
+                  "q": "She is remarkably proficient ______ analyzing statistical data and financial trends.",
+                  "options": [
+                      "A. in",
+                      "B. at",
+                      "C. on",
+                      "D. with"
+                  ],
+                  "answer": "A",
+                  "explain": "Cụm tính từ đi kèm giới từ: be proficient in / at something (thành thạo về cái gì). 'Proficient in' là chuẩn mực học thuật phổ biến nhất -> 'in'."
+              },
+              {
+                  "q": "The students succeeded ______ passing the arduous entrance examination with flying colors.",
+                  "options": [
+                      "A. on",
+                      "B. in",
+                      "C. at",
+                      "D. with"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc: succeed in doing something (thành công trong việc gì) -> 'in'."
+              },
+              {
+                  "q": "The manager congratulated David ______ his outstanding sales performance.",
+                  "options": [
+                      "A. about",
+                      "B. for",
+                      "C. on",
+                      "D. of"
+                  ],
+                  "answer": "C",
+                  "explain": "Cấu trúc: congratulate somebody on something / doing something -> 'on'."
+              },
+              {
+                  "q": "Parents should prevent their young children ______ accessing harmful online content.",
+                  "options": [
+                      "A. from",
+                      "B. against",
+                      "C. of",
+                      "D. away"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc: prevent / stop somebody from doing something (ngăn cản ai làm gì) -> 'from'."
+              },
+              {
+                  "q": "He is very proud ______ his daughter's academic achievements at Cambridge University.",
+                  "options": [
+                      "A. of",
+                      "B. with",
+                      "C. about",
+                      "D. in"
+                  ],
+                  "answer": "A",
+                  "explain": "Cụm tính từ: proud of somebody/something (tự hào về) -> 'of'."
+              },
+              {
+                  "q": "Smoking in public places is prohibited ______ law.",
+                  "options": [
+                      "A. under",
+                      "B. by",
+                      "C. with",
+                      "D. in"
+                  ],
+                  "answer": "B",
+                  "explain": "Thành ngữ pháp lý: prohibited by law (bị cấm bởi luật pháp) -> 'by'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "She is extraordinarily proud (of) ______ her daughter's academic achievements.",
+                  "answer": "of",
+                  "alternatives": [],
+                  "hint": "Cụm tính từ cố định: Proud + OF",
+                  "explain": "Quy tắc: To be proud of sth/sb (tự hào về điều gì)."
+              },
+              {
+                  "sentence": "The international financial summit will take place (on) ______ October 24th, 2026.",
+                  "answer": "on",
+                  "alternatives": [],
+                  "hint": "Ngày tháng cụ thể đi với giới từ 'on'",
+                  "explain": "Quy tắc: Ngày cụ thể trong lịch luôn dùng giới từ 'on'."
+              },
+              {
+                  "sentence": "The train arrived (at / in) ______ Hanoi Railway Station exactly on schedule.",
+                  "answer": "at",
+                  "alternatives": [
+                      "at"
+                  ],
+                  "hint": "Arrive at: đến một địa điểm nhỏ (ga tàu, sân bay); Arrive in: đến thành phố, quốc gia",
+                  "explain": "Địa điểm cụ thể như nhà ga (Hanoi Railway Station) dùng 'arrive at'. Đến thành phố lớn/quốc gia dùng 'arrive in'."
+              },
+              {
+                  "sentence": "Are you interested (in / on) ______ learning how to code in Python?",
+                  "answer": "in",
+                  "alternatives": [
+                      "in"
+                  ],
+                  "hint": "Cụm tính từ: be interested IN something",
+                  "explain": "Cấu trúc: interested in + V-ing / N (thích thú, quan tâm đến) -> 'in'."
+              },
+              {
+                  "sentence": "I'm looking forward (to / for) ______ meeting you at the upcoming workshop.",
+                  "answer": "to",
+                  "alternatives": [
+                      "to"
+                  ],
+                  "hint": "Look forward TO + V-ing",
+                  "explain": "Cấu trúc: look forward to + V-ing (mong đợi điều gì) -> 'to'."
+              },
+              {
+                  "sentence": "He apologized to his colleagues (for / about) ______ being late for the briefing.",
+                  "answer": "for",
+                  "alternatives": [
+                      "for"
+                  ],
+                  "hint": "Apologize to sb FOR doing sth",
+                  "explain": "Cấu trúc: apologize to somebody for V-ing (xin lỗi vì đã làm gì) -> 'for'."
+              }
+          ]
+      },
+      {
+          "week_number": 17,
+          "title": "Chuyên đề 17: Liên Từ & Mệnh Đề Trạng Ngữ (Conjunctions & Clauses)",
+          "summary": "Phân biệt liên từ kết hợp (FANBOYS), tương quan, và cặp biến đổi kinh điển: Although/Even though vs In spite of/Despite, Because vs Because of.",
+          "sections": [
+              {
+                  "subtitle": "1. Nhượng bộ: Mặc dù... nhưng...",
+                  "content": "• Although / Even though / Though + MỆNH ĐỀ (S + V).\n• In spite of / Despite + CỤM DANH TỪ / V-ING.\n• Ví dụ: Despite the heavy rain, they arrived on time."
+              },
+              {
+                  "subtitle": "2. Nguyên nhân: Bởi vì...",
+                  "content": "• Because / Since / As + MỆNH ĐỀ (S + V).\n• Because of / Due to / Owing to + CỤM DANH TỪ / V-ING."
+              },
+              {
+                  "subtitle": "3. Mục đích: Để mà...",
+                  "content": "• So that / In order that + S + can/could/will/would + V_bare.\n• In order to / So as to + V_bare."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "______ severe supply chain bottlenecks, factory production remained on schedule.",
+                  "options": [
+                      "A. Although",
+                      "B. In spite",
+                      "C. Despite",
+                      "D. Because"
+                  ],
+                  "answer": "C",
+                  "explain": "'severe supply chain bottlenecks' là một cụm danh từ mang ý nghĩa tương phản -> dùng 'Despite'."
+              },
+              {
+                  "q": "______ the severe snowstorm, all domestic flights were grounded yesterday.",
+                  "options": [
+                      "A. Because",
+                      "B. Because of",
+                      "C. Although",
+                      "D. In spite of"
+                  ],
+                  "answer": "B",
+                  "explain": "'the severe snowstorm' là một cụm danh từ (noun phrase), và chỉ nguyên nhân dẫn đến các chuyến bay bị hoãn -> dùng 'Because of'."
+              },
+              {
+                  "q": "______ she was feeling exhausted after the long trip, she still finished her report.",
+                  "options": [
+                      "A. Despite",
+                      "B. In spite of",
+                      "C. Although",
+                      "D. Because of"
+                  ],
+                  "answer": "C",
+                  "explain": "Phía sau là một mệnh đề hoàn chỉnh (S + V: 'she was feeling exhausted'), chỉ sự nhượng bộ (tương phản) -> dùng liên từ 'Although'."
+              },
+              {
+                  "q": "He left early in the morning ______ he could avoid the heavy traffic congestion.",
+                  "options": [
+                      "A. so that",
+                      "B. in order to",
+                      "C. so as to",
+                      "D. because"
+                  ],
+                  "answer": "A",
+                  "explain": "Mệnh đề chỉ mục đích có đầy đủ chủ ngữ và động từ khiếm khuyết (he could avoid...) -> dùng liên từ 'so that' hoặc 'in order that'. 'in order to' và 'so as to' đi với V nguyên mẫu."
+              },
+              {
+                  "q": "It was ______ an intriguing novel that I couldn't put it down until 2 AM.",
+                  "options": [
+                      "A. so",
+                      "B. such",
+                      "C. too",
+                      "D. very"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc: Such + (a/an) + adj + noun + that... (an intriguing novel) -> 'such'."
+              },
+              {
+                  "q": "You can borrow my car ______ you promise to return it with a full tank of gas.",
+                  "options": [
+                      "A. provided that",
+                      "B. unless",
+                      "C. in case",
+                      "D. even if"
+                  ],
+                  "answer": "A",
+                  "explain": "'provided that' = 'as long as' = 'if' (miễn là / với điều kiện là) phù hợp với ngữ cảnh cho mượn xe."
+              },
+              {
+                  "q": "Take a waterproof raincoat with you ______ it rains in the afternoon.",
+                  "options": [
+                      "A. in case",
+                      "B. so that",
+                      "C. unless",
+                      "D. if not"
+                  ],
+                  "answer": "A",
+                  "explain": "'in case' (phòng khi) diễn tả việc chuẩn bị trước cho một tình huống có thể xảy ra: 'in case it rains'."
+              },
+              {
+                  "q": "The weather was ______ cold that the lake froze solid overnight.",
+                  "options": [
+                      "A. so",
+                      "B. such",
+                      "C. too",
+                      "D. enough"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc: So + adj/adv + that... ('cold' là tính từ đứng một mình) -> 'so'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "(Despite/Although) ______ experiencing extreme fatigue, she managed to finish the marathon.",
+                  "answer": "Despite",
+                  "alternatives": [
+                      "In spite of"
+                  ],
+                  "hint": "Đi với cụm V-ing (experiencing...) mang nghĩa nhượng bộ",
+                  "explain": "Sau vị trí trống là cụm V-ing 'experiencing extreme fatigue' -> dùng Despite hoặc In spite of."
+              },
+              {
+                  "sentence": "He wore a thick waterproof jacket in order (protect) ______ himself from the biting frost.",
+                  "answer": "to protect",
+                  "alternatives": [],
+                  "hint": "Cấu trúc mục đích: In order + TO V",
+                  "explain": "Cấu trúc: In order to + V_bare (để làm gì) -> to protect."
+              },
+              {
+                  "sentence": "(Despite / Although) ______ having a bad headache, Sarah attended the seminar.",
+                  "answer": "Despite",
+                  "alternatives": [
+                      "In spite of"
+                  ],
+                  "hint": "Phía sau là cụm V-ing ('having a bad headache') -> dùng giới từ chỉ sự nhượng bộ",
+                  "explain": "'having a bad headache' là V-ing phrase -> dùng 'Despite' hoặc 'In spite of'."
+              },
+              {
+                  "sentence": "He woke up early in order (to / that) ______ catch the earliest commuter train.",
+                  "answer": "to",
+                  "alternatives": [
+                      "to"
+                  ],
+                  "hint": "In order TO + V_bare (mục đích)",
+                  "explain": "Cấu trúc: in order to + V_bare = so as to + V_bare -> 'to'."
+              },
+              {
+                  "sentence": "The event was canceled (due to / because) ______ the sudden torrential rainstorm.",
+                  "answer": "due to",
+                  "alternatives": [
+                      "because of",
+                      "owing to"
+                  ],
+                  "hint": "'the sudden torrential rainstorm' là cụm danh từ chỉ nguyên nhân",
+                  "explain": "Sau 'due to / because of' là cụm danh từ chỉ nguyên nhân -> 'due to'."
+              },
+              {
+                  "sentence": "We will start the meeting as soon (as / than) ______ the committee chairperson arrives.",
+                  "answer": "as",
+                  "alternatives": [
+                      "as"
+                  ],
+                  "hint": "Liên từ thời gian: as soon as (ngay khi)",
+                  "explain": "Cụm liên từ chỉ thời gian: 'as soon as' -> 'as'."
+              }
+          ]
+      },
+      {
+          "week_number": 18,
+          "title": "Chuyên đề 18: Cụm Động Từ Thông Dụng (Essential Phrasal Verbs)",
+          "summary": "Bộ tuyển tập hơn 50 cụm động từ thường gặp nhất trong đề thi THPT, VSTEP, IELTS: Look up, Turn down, Give up, Carry out, Put off...",
+          "sections": [
+              {
+                  "subtitle": "1. Phrasal verbs với Look & Turn",
+                  "content": "• Look after (chăm sóc) | Look for (tìm kiếm) | Look up (tra cứu) | Look down on (khinh thường).\n• Turn down (từ chối / vặn nhỏ) | Turn off (tắt) | Turn on (bật) | Turn up (xuất hiện / vặn to)."
+              },
+              {
+                  "subtitle": "2. Phrasal verbs với Put & Give & Carry",
+                  "content": "• Put off (trì hoãn = postpone/delay) | Put up with (chịu đựng = tolerate).\n• Give up (từ bỏ) | Give in (nhượng bộ / đầu hàng).\n• Carry out (tiến hành, thực hiện nghiên cứu) | Carry on (tiếp tục = continue)."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "She ______ the lucrative job offer in Singapore because she wanted to remain close to her family.",
+                  "options": [
+                      "A. turned down",
+                      "B. took after",
+                      "C. looked up",
+                      "D. put out"
+                  ],
+                  "answer": "A",
+                  "explain": "'Turn down' có nghĩa là từ chối (refuse/reject) một lời đề nghị công việc."
+              },
+              {
+                  "q": "I accidentally ______ an old university professor while shopping in Hanoi last weekend.",
+                  "options": [
+                      "A. ran into",
+                      "B. looked into",
+                      "C. broke into",
+                      "D. came into"
+                  ],
+                  "answer": "A",
+                  "explain": "Run into someone = tình cờ bắt gặp ai đó (bump into / meet by chance)."
+              },
+              {
+                  "q": "The company had to ______ twenty factory workers due to the severe economic downturn.",
+                  "options": [
+                      "A. lay off",
+                      "B. put off",
+                      "C. turn off",
+                      "D. take off"
+                  ],
+                  "answer": "A",
+                  "explain": "Lay off = sa thải nhân viên do khó khăn kinh tế / thiếu việc làm."
+              },
+              {
+                  "q": "Due to unexpected bad weather, the organizers had to ______ the music festival.",
+                  "options": [
+                      "A. call off",
+                      "B. put off",
+                      "C. turn off",
+                      "D. take off"
+                  ],
+                  "answer": "A",
+                  "explain": "'call off' = cancel (hủy bỏ hoàn toàn). 'put off' = postpone (trì hoãn sang dịp khác). Ngữ cảnh hủy bỏ sự kiện vì bão -> 'call off'."
+              },
+              {
+                  "q": "She ______ her grandmother not only in physical appearance but also in artistic talent.",
+                  "options": [
+                      "A. takes after",
+                      "B. looks after",
+                      "C. goes after",
+                      "D. runs after"
+                  ],
+                  "answer": "A",
+                  "explain": "'take after somebody' = resemble (giống ai đó về ngoại hình hoặc tính cách) -> 'takes after'."
+              },
+              {
+                  "q": "It took him several painful months to ______ the grief of losing his lifelong pet.",
+                  "options": [
+                      "A. get over",
+                      "B. look over",
+                      "C. turn over",
+                      "D. take over"
+                  ],
+                  "answer": "A",
+                  "explain": "'get over something' = recover from (vượt qua nỗi đau, hồi phục khỏi bệnh tật) -> 'get over'."
+              },
+              {
+                  "q": "Could you please ______ the volume? I can barely hear the news reporter.",
+                  "options": [
+                      "A. turn up",
+                      "B. turn down",
+                      "C. turn into",
+                      "D. turn off"
+                  ],
+                  "answer": "A",
+                  "explain": "'turn up' = tăng âm lượng/nhiệt độ. 'turn down' = giảm âm lượng/từ chối. Ngữ cảnh nghe không rõ nên cần tăng lên -> 'turn up'."
+              },
+              {
+                  "q": "The laboratory will ______ a series of clinical trials to test the vaccine's efficacy.",
+                  "options": [
+                      "A. carry out",
+                      "B. carry on",
+                      "C. carry away",
+                      "D. carry off"
+                  ],
+                  "answer": "A",
+                  "explain": "'carry out' = conduct (tiến hành, thực hiện thí nghiệm/dự án) -> 'carry out'."
+              },
+              {
+                  "q": "She was ______ by her grandparents in a tranquil village in the countryside.",
+                  "options": [
+                      "A. brought up",
+                      "B. grown up",
+                      "C. taken up",
+                      "D. turned up"
+                  ],
+                  "answer": "A",
+                  "explain": "'bring up' (bị động: be brought up) = raise, rear (nuôi nấng, nuôi dạy ai) -> 'brought up'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "The scientific team decided to carry (out) ______ clinical trials on the new vaccine.",
+                  "answer": "out",
+                  "alternatives": [],
+                  "hint": "Cụm 'Carry out' có nghĩa là tiến hành hoặc thực hiện",
+                  "explain": "Carry out research/trials: tiến hành thử nghiệm, nghiên cứu."
+              },
+              {
+                  "sentence": "Due to the torrential thunderstorm, the outdoor concert was put (off) ______ until next Sunday.",
+                  "answer": "off",
+                  "alternatives": [],
+                  "hint": "Cụm 'Put off' có nghĩa là trì hoãn (postpone)",
+                  "explain": "Put off = hoãn lại -> put off."
+              },
+              {
+                  "sentence": "Due to torrential rainfall, the organizers decided to (call) ______ off the outdoor music concert.",
+                  "answer": "call",
+                  "alternatives": [
+                      "call off"
+                  ],
+                  "hint": "Hủy bỏ sự kiện: call off",
+                  "explain": "Phrasal verb: call off = cancel (hủy bỏ hoàn toàn sự kiện)."
+              },
+              {
+                  "sentence": "She has been trying to (cut) ______ down on sugary beverages to enhance her overall health.",
+                  "answer": "cut",
+                  "alternatives": [
+                      "cut down on"
+                  ],
+                  "hint": "Cắt giảm tiêu thụ: cut down on",
+                  "explain": "Phrasal verb: cut down on sth = reduce consumption of sth."
+              },
+              {
+                  "sentence": "You should (give up / give in) ______ smoking immediately to protect your cardiovascular health.",
+                  "answer": "give up",
+                  "alternatives": [
+                      "give up"
+                  ],
+                  "hint": "Cụm động từ mang nghĩa từ bỏ một thói quen",
+                  "explain": "'give up' = quit, abandon (từ bỏ thói quen) -> 'give up'."
+              },
+              {
+                  "sentence": "While cleaning the attic, I unexpectedly came (across / into) ______ an album of old childhood photographs.",
+                  "answer": "across",
+                  "alternatives": [
+                      "across"
+                  ],
+                  "hint": "Come across: tình cờ bắt gặp/tìm thấy",
+                  "explain": "'come across' = run into, find by chance (tình cờ thấy) -> 'across'."
+              },
+              {
+                  "sentence": "My car broke (down / up) ______ on the freeway, so I had to call a tow truck.",
+                  "answer": "down",
+                  "alternatives": [
+                      "down"
+                  ],
+                  "hint": "Break down: hỏng hóc (máy móc, xe cộ)",
+                  "explain": "'break down' = stop working due to a mechanical fault (xe cộ, máy móc bị hỏng) -> 'down'."
+              },
+              {
+                  "sentence": "Never look (down / up) ______ on people just because they have less money than you.",
+                  "answer": "down",
+                  "alternatives": [
+                      "down"
+                  ],
+                  "hint": "Look down on someone: coi thường ai đó",
+                  "explain": "'look down on somebody' = despise, feel superior to (coi thường ai) -> 'down'."
+              }
+          ]
+      },
+      {
+          "week_number": 19,
+          "title": "Chuyên đề 19: Trật Tự Của Tính Từ (Order of Adjectives: OSASCOMP)",
+          "summary": "Công thức thần chú OSASCOMP giúp giải quyết mọi câu hỏi trật tự tính từ đứng trước danh từ chỉ trong 5 giây.",
+          "sections": [
+              {
+                  "subtitle": "1. Thần chú OSASCOMP",
+                  "content": "• O - Opinion (Ý kiến, quan điểm: beautiful, lovely, terrible, nice).\n• S - Size (Kích thước: big, small, huge, tiny, long, short).\n• A - Age (Độ tuổi: young, old, new, ancient, antique).\n• S - Shape (Hình dáng: round, square, oval, flat).\n• C - Color (Màu sắc: red, blue, dark, black, white).\n• O - Origin (Nguồn gốc, xuất xứ: Vietnamese, Japanese, British, American).\n• M - Material (Chất liệu: silk, wooden, leather, metal, plastic).\n• P - Purpose (Mục đích: sleeping (bag), running (shoes), wedding (dress))."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "My father bought a ______ dining table for our newly renovated apartment.",
+                  "options": [
+                      "A. wooden luxurious round",
+                      "B. luxurious round wooden",
+                      "C. round luxurious wooden",
+                      "D. wooden round luxurious"
+                  ],
+                  "answer": "B",
+                  "explain": "Theo OSASCOMP: Opinion (luxurious) -> Shape (round) -> Material (wooden) -> luxurious round wooden."
+              },
+              {
+                  "q": "My sister bought a ______ dining table for her new apartment.",
+                  "options": [
+                      "A. beautiful round wooden",
+                      "B. wooden round beautiful",
+                      "C. round beautiful wooden",
+                      "D. beautiful wooden round"
+                  ],
+                  "answer": "A",
+                  "explain": "Quy tắc trật tự tính từ OSASCOMP: Opinion (beautiful) -> Shape (round) -> Material (wooden) -> 'beautiful round wooden'."
+              },
+              {
+                  "q": "She was wearing an elegant ______ dress at the gala dinner.",
+                  "options": [
+                      "A. long silk black",
+                      "B. black long silk",
+                      "C. long black silk",
+                      "D. silk long black"
+                  ],
+                  "answer": "C",
+                  "explain": "Quy tắc OSASCOMP: Size (long) -> Color (black) -> Material (silk) -> 'long black silk'."
+              },
+              {
+                  "q": "They live in a ______ house in the suburban area.",
+                  "options": [
+                      "A. lovely modern brick",
+                      "B. modern lovely brick",
+                      "C. brick modern lovely",
+                      "D. lovely brick modern"
+                  ],
+                  "answer": "A",
+                  "explain": "OSASCOMP: Opinion (lovely) -> Age (modern) -> Material (brick) -> 'lovely modern brick'."
+              },
+              {
+                  "q": "He gave his mother a ______ handbag on her 50th birthday.",
+                  "options": [
+                      "A. luxurious small Italian leather",
+                      "B. small luxurious Italian leather",
+                      "C. luxurious Italian small leather",
+                      "D. Italian luxurious small leather"
+                  ],
+                  "answer": "A",
+                  "explain": "OSASCOMP: Opinion (luxurious) -> Size (small) -> Origin (Italian) -> Material (leather) -> 'luxurious small Italian leather'."
+              },
+              {
+                  "q": "Look at those ______ sports cars parked outside the stadium.",
+                  "options": [
+                      "A. sleek new German",
+                      "B. German sleek new",
+                      "C. new sleek German",
+                      "D. sleek German new"
+                  ],
+                  "answer": "A",
+                  "explain": "OSASCOMP: Opinion (sleek) -> Age (new) -> Origin (German) -> 'sleek new German'."
+              },
+              {
+                  "q": "She owns a ______ porcelain vase handed down through generations.",
+                  "options": [
+                      "A. delicate ancient Chinese",
+                      "B. ancient delicate Chinese",
+                      "C. Chinese delicate ancient",
+                      "D. delicate Chinese ancient"
+                  ],
+                  "answer": "A",
+                  "explain": "OSASCOMP: Opinion (delicate) -> Age (ancient) -> Origin (Chinese) -> 'delicate ancient Chinese'."
+              },
+              {
+                  "q": "We sat on a comfortable ______ sofa in the lounge.",
+                  "options": [
+                      "A. large brown leather",
+                      "B. brown large leather",
+                      "C. leather large brown",
+                      "D. large leather brown"
+                  ],
+                  "answer": "A",
+                  "explain": "OSASCOMP: Size (large) -> Color (brown) -> Material (leather) -> 'large brown leather'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "She was wearing a (beautiful / Italian / black) ______ silk evening dress to the gala.",
+                  "answer": "beautiful black Italian",
+                  "alternatives": [],
+                  "hint": "OSASCOMP: Opinion (beautiful) -> Color (black) -> Origin (Italian)",
+                  "explain": "Theo trật tự OSASCOMP: Opinion (beautiful) đứng trước Color (black), rồi đến Origin (Italian)."
+              },
+              {
+                  "sentence": "Put the adjectives in correct order: (Japanese / red / small) -> He drives a ______ car.",
+                  "answer": "small red Japanese",
+                  "alternatives": [
+                      "small red Japanese"
+                  ],
+                  "hint": "OSASCOMP: Size -> Color -> Origin",
+                  "explain": "Size (small) -> Color (red) -> Origin (Japanese): 'small red Japanese'."
+              },
+              {
+                  "sentence": "Put the adjectives in correct order: (woolen / cozy / blue) -> She wore a ______ scarf.",
+                  "answer": "cozy blue woolen",
+                  "alternatives": [
+                      "cozy blue woolen"
+                  ],
+                  "hint": "OSASCOMP: Opinion -> Color -> Material",
+                  "explain": "Opinion (cozy) -> Color (blue) -> Material (woolen): 'cozy blue woolen'."
+              },
+              {
+                  "sentence": "Put the adjectives in correct order: (French / antique / valuable) -> It is a ______ grandfather clock.",
+                  "answer": "valuable antique French",
+                  "alternatives": [
+                      "valuable antique French"
+                  ],
+                  "hint": "OSASCOMP: Opinion -> Age -> Origin",
+                  "explain": "Opinion (valuable) -> Age (antique) -> Origin (French): 'valuable antique French'."
+              },
+              {
+                  "sentence": "Put the adjectives in correct order: (plastic / square / black) -> They kept the files in a ______ container.",
+                  "answer": "square black plastic",
+                  "alternatives": [
+                      "square black plastic"
+                  ],
+                  "hint": "OSASCOMP: Shape -> Color -> Material",
+                  "explain": "Shape (square) -> Color (black) -> Material (plastic): 'square black plastic'."
+              }
+          ]
+      },
+      {
+          "week_number": 20,
+          "title": "Chuyên đề 20: Câu Chẻ Nhấn Mạnh (Cleft Sentences: It is/was... that...)",
+          "summary": "Cấu trúc nhấn mạnh chủ ngữ, tân ngữ, trạng ngữ và các biến thể nhấn mạnh trong văn viết học thuật.",
+          "sections": [
+              {
+                  "subtitle": "1. Cấu trúc câu chẻ cơ bản",
+                  "content": "• Công thức: IT IS / WAS + Thành phần nhấn mạnh + THAT + Mệnh đề còn lại.\n• Nhấn mạnh chủ ngữ: It was John that/who broke the window yesterday.\n• Nhấn mạnh tân ngữ: It is the environment that we must protect.\n• Nhấn mạnh trạng ngữ: It was in Paris that they first fell in love."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "It was my dedicated high school teacher ______ inspired me to pursue astrophysics.",
+                  "options": [
+                      "A. which",
+                      "B. who",
+                      "C. whose",
+                      "D. whom"
+                  ],
+                  "answer": "B",
+                  "explain": "Nhấn mạnh chủ ngữ chỉ người trong câu chẻ có thể dùng 'who' hoặc 'that'."
+              },
+              {
+                  "q": "It was in the tranquil coastal village ______ they first met each other.",
+                  "options": [
+                      "A. that",
+                      "B. where",
+                      "C. which",
+                      "D. when"
+                  ],
+                  "answer": "A",
+                  "explain": "Cấu trúc câu chẻ chuẩn mực nhấn mạnh trạng ngữ nơi chốn: It is/was + [trạng ngữ] + THAT + S + V... Trong văn phong học thuật chuẩn mực của đề thi luôn dùng 'that' -> 'that'."
+              },
+              {
+                  "q": "It is his unyielding determination ______ has earned him widespread admiration.",
+                  "options": [
+                      "A. which",
+                      "B. that",
+                      "C. who",
+                      "D. what"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc câu chẻ nhấn mạnh chủ ngữ chỉ vật: It is + Subject + THAT + V... -> 'that'."
+              },
+              {
+                  "q": "It was yesterday afternoon ______ the final contract was officially signed.",
+                  "options": [
+                      "A. when",
+                      "B. that",
+                      "C. which",
+                      "D. at which"
+                  ],
+                  "answer": "B",
+                  "explain": "Câu chẻ nhấn mạnh trạng từ chỉ thời gian: It was + [thời gian] + THAT + S + V... -> 'that'."
+              },
+              {
+                  "q": "It was Professor Anderson ______ delivered the inspiring commencement speech.",
+                  "options": [
+                      "A. whom",
+                      "B. which",
+                      "C. who",
+                      "D. whose"
+                  ],
+                  "answer": "C",
+                  "explain": "Câu chẻ nhấn mạnh chủ ngữ chỉ người có thể dùng 'that' hoặc 'who'. Ở đây 'who' là lựa chọn đúng -> 'who'."
+              },
+              {
+                  "q": "It was the lack of financial resources ______ led to the abandonment of the project.",
+                  "options": [
+                      "A. what",
+                      "B. that",
+                      "C. why",
+                      "D. in which"
+                  ],
+                  "answer": "B",
+                  "explain": "Cấu trúc câu chẻ: It is/was + Noun phrase + THAT... -> 'that'."
+              },
+              {
+                  "q": "It is by practicing consistently ______ one can attain true proficiency in a foreign language.",
+                  "options": [
+                      "A. that",
+                      "B. how",
+                      "C. which",
+                      "D. when"
+                  ],
+                  "answer": "A",
+                  "explain": "Câu chẻ nhấn mạnh trạng ngữ phương thức: It is + [by V-ing] + THAT + S + V... -> 'that'."
+              },
+              {
+                  "q": "It was Mary ______ my brother invited to the graduation prom last night.",
+                  "options": [
+                      "A. whom",
+                      "B. whose",
+                      "C. which",
+                      "D. where"
+                  ],
+                  "answer": "A",
+                  "explain": "Câu chẻ nhấn mạnh tân ngữ chỉ người: It was + O + that/whom + S + V... -> 'whom'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "It was in 1969 (that) ______ Apollo 11 successfully landed astronauts on the Moon.",
+                  "answer": "that",
+                  "alternatives": [],
+                  "hint": "Cấu trúc câu chẻ nhấn mạnh trạng ngữ thời gian: It was [time] THAT...",
+                  "explain": "Trong câu chẻ 'It was... that', từ nối chuẩn luôn là 'that'."
+              },
+              {
+                  "sentence": "It was on a rainy Monday (that / when) ______ the historic peace agreement was finalized.",
+                  "answer": "that",
+                  "alternatives": [
+                      "that"
+                  ],
+                  "hint": "Cấu trúc câu chẻ: It was + thời gian + THAT + S + V",
+                  "explain": "Quy tắc câu chẻ: liên từ kết nối phần nhấn mạnh với mệnh đề sau luôn là 'that'."
+              },
+              {
+                  "sentence": "It is renewable energy (that / which) ______ can alleviate global environmental crises.",
+                  "answer": "that",
+                  "alternatives": [
+                      "that"
+                  ],
+                  "hint": "Câu chẻ: It is + N + THAT...",
+                  "explain": "Cấu trúc câu chẻ nhấn mạnh: It is + [thành phần nhấn mạnh] + THAT -> 'that'."
+              },
+              {
+                  "sentence": "It (is / was) ______ my uncle who helped me choose this university five years ago.",
+                  "answer": "was",
+                  "alternatives": [
+                      "was"
+                  ],
+                  "hint": "Hành động đã xảy ra trong quá khứ ('five years ago') -> dùng It was",
+                  "explain": "Hành động ở quá khứ nên câu chẻ mở đầu bằng 'It was' -> 'was'."
+              },
+              {
+                  "sentence": "It was through sheer persistence (that / how) ______ she overcame all adversity.",
+                  "answer": "that",
+                  "alternatives": [
+                      "that"
+                  ],
+                  "hint": "Câu chẻ nhấn mạnh: It was + cụm giới từ + THAT",
+                  "explain": "Câu chẻ nhấn mạnh phương thức: It was through... THAT -> 'that'."
+              }
+          ]
+      },
+      {
+          "week_number": 21,
+          "title": "Chuyên đề 21: Cấu Tạo Từ & Từ Loại (Word Formation)",
+          "summary": "Nhận biết vị trí của Danh từ, Động từ, Tính từ, Trạng từ trong câu và các hậu tố/tiền tố tạo từ vựng quan trọng.",
+          "sections": [
+              {
+                  "subtitle": "1. Vị trí các từ loại",
+                  "content": "• Danh từ (Noun): Đứng đầu câu làm chủ ngữ; sau mạo từ (a/an/the); sau tính từ; sau giới từ.\n• Tính từ (Adjective): Đứng trước danh từ; đứng sau to be và linking verbs (seem, look, feel, become).\n• Trạng từ (Adverb): Bổ nghĩa cho động từ thường, tính từ, hoặc toàn bộ câu (Adv + Adj, V + Adv)."
+              },
+              {
+                  "subtitle": "2. Hậu tố nhận biết",
+                  "content": "• Noun: -tion, -sion, -ment, -ness, -ity, -ance, -ence, -er, -or.\n• Adj: -ful, -less, -able, -ive, -ous, -ic, -al.\n• Adv: -ly."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "The committee commended the architect for her ______ contribution to urban renewal.",
+                  "options": [
+                      "A. significance",
+                      "B. significantly",
+                      "C. significant",
+                      "D. signify"
+                  ],
+                  "answer": "C",
+                  "explain": "Đứng trước danh từ 'contribution' cần một tính từ bổ nghĩa: significant contribution."
+              },
+              {
+                  "q": "The rapid ______ of urban areas has exerted severe pressure on public infrastructure.",
+                  "options": [
+                      "A. expand",
+                      "B. expansion",
+                      "C. expansive",
+                      "D. expansively"
+                  ],
+                  "answer": "B",
+                  "explain": "Đứng sau tính từ 'rapid' và mạo từ 'The' cần một danh từ đóng vai trò chủ ngữ -> 'expansion' (sự mở rộng)."
+              },
+              {
+                  "q": "Artificial intelligence is developing with remarkable ______ in recent decades.",
+                  "options": [
+                      "A. rapid",
+                      "B. rapidity",
+                      "C. rapidly",
+                      "D. rapidness"
+                  ],
+                  "answer": "B",
+                  "explain": "Sau giới từ 'with' và tính từ 'remarkable' cần một danh từ -> 'rapidity' (sự nhanh chóng, tốc độ nhanh)."
+              },
+              {
+                  "q": "Smoking causes ______ damage to human respiratory organs.",
+                  "options": [
+                      "A. repair",
+                      "B. irreparable",
+                      "C. reparable",
+                      "D. irreparably"
+                  ],
+                  "answer": "B",
+                  "explain": "Đứng trước danh từ 'damage' cần một tính từ. Ngữ cảnh tác hại nghiêm trọng không thể khắc phục được -> tiền tố phủ định 'irreparable' (không thể cứu vãn)."
+              },
+              {
+                  "q": "She handled the delicate negotiation ______ and reached a unanimous consensus.",
+                  "options": [
+                      "A. skillfully",
+                      "B. skill",
+                      "C. skillful",
+                      "D. skillfulness"
+                  ],
+                  "answer": "A",
+                  "explain": "Bổ nghĩa cho động từ 'handled' cần một trạng từ chỉ thể cách (Adverb of manner) -> 'skillfully' (một cách khéo léo)."
+              },
+              {
+                  "q": "Regular physical exercise can significantly ______ your immune system against infections.",
+                  "options": [
+                      "A. strong",
+                      "B. strengthen",
+                      "C. strength",
+                      "D. strongly"
+                  ],
+                  "answer": "B",
+                  "explain": "Sau động từ khiếm khuyết 'can' và trạng từ 'significantly' cần một động từ nguyên mẫu -> 'strengthen' (tăng cường, làm mạnh thêm)."
+              },
+              {
+                  "q": "The government has implemented strict measures to prevent environmental ______.",
+                  "options": [
+                      "A. degrade",
+                      "B. degradation",
+                      "C. degradable",
+                      "D. degraded"
+                  ],
+                  "answer": "B",
+                  "explain": "Sau tính từ 'environmental' cần một danh từ -> 'degradation' (sự suy thoái)."
+              },
+              {
+                  "q": "He is an extremely ______ worker who consistently delivers high-quality outcomes.",
+                  "options": [
+                      "A. rely",
+                      "B. reliable",
+                      "C. reliance",
+                      "D. reliably"
+                  ],
+                  "answer": "B",
+                  "explain": "Đứng trước danh từ 'worker' và sau phó từ 'extremely' cần một tính từ -> 'reliable' (đáng tin cậy)."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "Solar energy is an environmentally (friend) ______ alternative to burning fossil fuels.",
+                  "answer": "friendly",
+                  "alternatives": [],
+                  "hint": "Environmentally là trạng từ, đứng trước bổ nghĩa cho tính từ: friendly",
+                  "explain": "Cụm 'environmentally friendly' là cụm từ chuẩn (thân thiện với môi trường). Friend (danh từ) -> friendly (tính từ)."
+              },
+              {
+                  "sentence": "His outstanding (dedicate) ______ to clinical cancer research earned him international accolades.",
+                  "answer": "dedication",
+                  "alternatives": [],
+                  "hint": "Sau tính từ 'outstanding' cần một danh từ",
+                  "explain": "Sau tính từ cần danh từ: dedicate (v) -> dedication (n)."
+              },
+              {
+                  "sentence": "Deforestation poses a catastrophic threat to global (diverse) ______.",
+                  "answer": "biodiversity",
+                  "alternatives": [
+                      "diversity"
+                  ],
+                  "hint": "Cần danh từ: đa dạng sinh học (biodiversity) hoặc sự đa dạng (diversity)",
+                  "explain": "Sau tính từ 'global' cần danh từ. Cụm từ quen thuộc: biodiversity (sự đa dạng sinh học) hoặc diversity."
+              },
+              {
+                  "sentence": "The company takes pride in providing exceptionally (rely) ______ telecommunication services.",
+                  "answer": "reliable",
+                  "alternatives": [
+                      "reliable"
+                  ],
+                  "hint": "Cần tính từ đứng trước danh từ 'services': đáng tin cậy",
+                  "explain": "Vị trí trước danh từ 'services' cần một tính từ -> 'reliable' (đáng tin cậy)."
+              },
+              {
+                  "sentence": "The scientific discovery has contributed (enormous) ______ to medical progress.",
+                  "answer": "enormously",
+                  "alternatives": [
+                      "enormously"
+                  ],
+                  "hint": "Bổ nghĩa cho động từ 'has contributed' cần trạng từ (-ly)",
+                  "explain": "Trạng từ bổ nghĩa cho động từ: enormously (vô cùng to lớn, đáng kể)."
+              },
+              {
+                  "sentence": "She has dedicated her entire career to the (protect) ______ of wildlife habitats.",
+                  "answer": "protection",
+                  "alternatives": [
+                      "protection"
+                  ],
+                  "hint": "Sau mạo từ 'the' và trước giới từ 'of' cần danh từ",
+                  "explain": "Cấu trúc 'the + Noun + of' -> danh từ của protect là 'protection'."
+              }
+          ]
+      },
+      {
+          "week_number": 22,
+          "title": "Chuyên đề 22: Rút Gọn Mệnh Đề Cùng Chủ Ngữ (Participle Clauses)",
+          "summary": "Cách rút gọn hai mệnh đề có chung chủ ngữ bằng Hiện tại phân từ (V-ing), Quá khứ phân từ (Vp2) và Phân từ hoàn thành (Having + Vp2).",
+          "sections": [
+              {
+                  "subtitle": "1. Nguyên tắc rút gọn cùng chủ ngữ",
+                  "content": "• Hai mệnh đề phải có CÙNG CHỦ NGỮ.\n• Chủ động: Lược bỏ liên từ & chủ ngữ vế phụ, đưa động từ về V-ing.\n• Bị động: Đưa động từ về Vp2 (hoặc Being + Vp2).\n• Xảy ra trước: Dùng Having + Vp2 (chủ động) hoặc Having been + Vp2 (bị động)."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "______ from recycled plastic bottles, these eco-friendly jackets are lightweight yet durable.",
+                  "options": [
+                      "A. Making",
+                      "B. Having made",
+                      "C. Made",
+                      "D. To make"
+                  ],
+                  "answer": "C",
+                  "explain": "Áo khoác được làm từ nhựa tái chế (mang nghĩa bị động) -> dùng quá khứ phân từ Vp2 đứng đầu câu: Made."
+              },
+              {
+                  "q": "______ all his homework, Minh went out to play basketball with his friends.",
+                  "options": [
+                      "A. Having completed",
+                      "B. Completed",
+                      "C. Completing",
+                      "D. Having been completed"
+                  ],
+                  "answer": "A",
+                  "explain": "Hành động hoàn thành bài tập xảy ra và kết thúc TRƯỚC khi đi chơi, chủ ngữ là Minh (chủ động) -> Dùng Perfect Participle: 'Having completed'."
+              },
+              {
+                  "q": "______ by the stunning natural scenery, the tourists took hundreds of photos.",
+                  "options": [
+                      "A. Captivating",
+                      "B. Captivated",
+                      "C. Having captivated",
+                      "D. To captivate"
+                  ],
+                  "answer": "B",
+                  "explain": "Chủ ngữ 'the tourists' chịu tác động của cảnh đẹp (bị động: As they were captivated...) -> rút gọn thành Quá khứ phân từ: 'Captivated'."
+              },
+              {
+                  "q": "______ along the tranquil beach, we watched a magnificent sunset.",
+                  "options": [
+                      "A. Walking",
+                      "B. Walked",
+                      "C. Having walked",
+                      "D. To walk"
+                  ],
+                  "answer": "A",
+                  "explain": "Hai hành động diễn ra song song cùng lúc trong quá khứ do cùng chủ ngữ thực hiện -> dùng Hiện tại phân từ V-ing: 'Walking'."
+              },
+              {
+                  "q": "______ several times before, the criminal was sentenced to ten years in prison.",
+                  "options": [
+                      "A. Having convicted",
+                      "B. Having been convicted",
+                      "C. Convicting",
+                      "D. Being convicted"
+                  ],
+                  "answer": "B",
+                  "explain": "Hành động bị kết án xảy ra trước đó và mang nghĩa bị động -> dùng Having been + Vp2: 'Having been convicted'."
+              },
+              {
+                  "q": "______ of the hazardous road conditions, the driver reduced his speed significantly.",
+                  "options": [
+                      "A. Warning",
+                      "B. Warned",
+                      "C. Having warned",
+                      "D. To warn"
+                  ],
+                  "answer": "B",
+                  "explain": "Người tài xế được cảnh báo (bị động: Having been warned / Warned) -> 'Warned'."
+              },
+              {
+                  "q": "______ the keys inside the locked car, John had to call a professional locksmith.",
+                  "options": [
+                      "A. Leaving",
+                      "B. Having left",
+                      "C. Left",
+                      "D. Having been left"
+                  ],
+                  "answer": "B",
+                  "explain": "Hành động để quên chìa khóa xảy ra trước hành động gọi thợ khóa -> Having + Vp2: 'Having left'."
+              },
+              {
+                  "q": "Not ______ what to say next, the nervous speaker paused for several awkward seconds.",
+                  "options": [
+                      "A. knowing",
+                      "B. known",
+                      "C. to know",
+                      "D. having known"
+                  ],
+                  "answer": "A",
+                  "explain": "Phủ định của phân từ hiện tại chỉ nguyên nhân (Because he did not know...) -> 'Not knowing'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "(Finish) ______ all her university entrance exams, she embarked on a relaxing trip to Da Lat.",
+                  "answer": "Having finished",
+                  "alternatives": [
+                      "Finishing"
+                  ],
+                  "hint": "Hành động thi xong xảy ra trước hành động đi du lịch -> Having + Vp2",
+                  "explain": "Dùng Phân từ hoàn thành (Having finished) để nhấn mạnh một hành động đã hoàn tất trước khi hành động chính bắt đầu."
+              },
+              {
+                  "sentence": "(Finish) ______ the grueling examination, the students sighed with great relief.",
+                  "answer": "Having finished",
+                  "alternatives": [
+                      "Finishing",
+                      "Having finished"
+                  ],
+                  "hint": "Hành động hoàn thành thi xong trước khi thở phào nhẹ nhõm -> Having + Vp2",
+                  "explain": "Dùng hoàn thành phân từ 'Having finished' để nhấn mạnh hành động thi cử đã hoàn tất trước đó."
+              },
+              {
+                  "sentence": "(Hear) ______ a strange noise downstairs, she cautiously walked down to investigate.",
+                  "answer": "Hearing",
+                  "alternatives": [
+                      "On hearing"
+                  ],
+                  "hint": "Hành động nghe thấy tiếng động xảy ra ngay trước đó -> V-ing",
+                  "explain": "Rút gọn mệnh đề chỉ hành động nối tiếp ngay lập tức -> dùng 'Hearing'."
+              },
+              {
+                  "sentence": "(Shock) ______ by the unexpected tragic news, he was unable to utter a single word.",
+                  "answer": "Shocked",
+                  "alternatives": [
+                      "Shocked"
+                  ],
+                  "hint": "Mang nghĩa bị động (Because he was shocked...) -> Quá khứ phân từ Vp2",
+                  "explain": "Chủ ngữ chịu cảm xúc/bị sốc (dạng bị động) -> dùng 'Shocked'."
+              },
+              {
+                  "sentence": "Not (want) ______ to disturb her mother's sleep, Lan tiptoed into the bedroom quietly.",
+                  "answer": "wanting",
+                  "alternatives": [
+                      "wanting"
+                  ],
+                  "hint": "Phủ định phân từ: Not + V-ing",
+                  "explain": "Dạng phủ định của mệnh đề chỉ nguyên nhân (Because she didn't want...) -> 'Not wanting'."
+              }
+          ]
+      },
+      {
+          "week_number": 23,
+          "title": "Chuyên đề 23: Lượng Từ & Từ Chỉ Số Lượng (Quantifiers)",
+          "summary": "Phân biệt Many vs Much, A few vs Few, A little vs Little, Some vs Any, và Each vs Every.",
+          "sections": [
+              {
+                  "subtitle": "1. Few vs Little (Có rất ít, gần như không có - mang nghĩa tiêu cực)",
+                  "content": "• Few + Danh từ đếm được số nhiều (Few people came to the meeting).\n• Little + Danh từ không đếm được (I have little time left)."
+              },
+              {
+                  "subtitle": "2. A few vs A little (Có một chút, đủ dùng - mang nghĩa tích cực)",
+                  "content": "• A few + Danh từ đếm được số nhiều (I have a few close friends).\n• A little + Danh từ không đếm được (Add a little salt to the soup)."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "She was disappointed because ______ students registered for the advanced robotics course.",
+                  "options": [
+                      "A. few",
+                      "B. a few",
+                      "C. little",
+                      "D. a little"
+                  ],
+                  "answer": "A",
+                  "explain": "'Students' là danh từ đếm được số nhiều, và ngữ cảnh thất vọng (tiêu cực, hầu như không có ai) -> dùng 'few'."
+              },
+              {
+                  "q": "Unfortunately, ______ people attended the charity seminar due to the torrential rain.",
+                  "options": [
+                      "A. few",
+                      "B. a few",
+                      "C. little",
+                      "D. a little"
+                  ],
+                  "answer": "A",
+                  "explain": "'people' là danh từ đếm được số nhiều. 'few' mang nghĩa tiêu cực (rất ít, hầu như không có ai đến), phù hợp với từ 'Unfortunately' -> 'few'."
+              },
+              {
+                  "q": "Could you lend me ______ money to buy lunch? I forgot my wallet at home.",
+                  "options": [
+                      "A. few",
+                      "B. a few",
+                      "C. little",
+                      "D. a little"
+                  ],
+                  "answer": "D",
+                  "explain": "'money' là danh từ không đếm được. 'a little' mang nghĩa tích cực (một chút, một ít đủ để dùng) -> 'a little'."
+              },
+              {
+                  "q": "______ the applicants had relevant experience in digital marketing.",
+                  "options": [
+                      "A. Every of",
+                      "B. None of",
+                      "C. No",
+                      "D. Neither"
+                  ],
+                  "answer": "B",
+                  "explain": "'None of + the + N số nhiều' mang nghĩa không ai trong số họ. 'Every' không đi trực tiếp với 'of'. 'Neither' chỉ dùng cho 2 đối tượng -> 'None of'."
+              },
+              {
+                  "q": "There is ______ milk left in the refrigerator, so we must buy some at the supermarket.",
+                  "options": [
+                      "A. little",
+                      "B. a little",
+                      "C. few",
+                      "D. a few"
+                  ],
+                  "answer": "A",
+                  "explain": "'milk' là danh từ không đếm được. 'must buy some' chứng tỏ sữa hầu như đã cạn (nghĩa phủ định/thiếu thốn) -> dùng 'little'."
+              },
+              {
+                  "q": "______ student in the lecture hall was provided with a comprehensive syllabus.",
+                  "options": [
+                      "A. Each",
+                      "B. All",
+                      "C. Both",
+                      "D. Many"
+                  ],
+                  "answer": "A",
+                  "explain": "Đi sau là danh từ đếm được số ít 'student' và động từ số ít 'was provided' -> dùng 'Each' hoặc 'Every'. Lựa chọn đúng là 'Each'."
+              },
+              {
+                  "q": "He has published ______ groundbreaking research papers that received international acclaim.",
+                  "options": [
+                      "A. many",
+                      "B. much",
+                      "C. a little",
+                      "D. every"
+                  ],
+                  "answer": "A",
+                  "explain": "'research papers' là danh từ đếm được số nhiều -> dùng 'many'."
+              },
+              {
+                  "q": "______ of the two brothers wanted to take over their family's grocery business.",
+                  "options": [
+                      "A. Neither",
+                      "B. None",
+                      "C. No",
+                      "D. Every"
+                  ],
+                  "answer": "A",
+                  "explain": "Khi nói về sự phủ định giữa hai đối tượng ('the two brothers'), bắt buộc dùng 'Neither of' (không ai trong số 2 người) -> 'Neither'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "Unfortunately, there is very (little/few) ______ hope of recovering the lost submarine.",
+                  "answer": "little",
+                  "alternatives": [],
+                  "hint": "'Hope' (hy vọng) là danh từ không đếm được",
+                  "explain": "Danh từ không đếm được 'hope' đi với 'little' (rất ít hy vọng)."
+              },
+              {
+                  "sentence": "I have (a few / a little) ______ spare minutes before the flight boards; let's grab a coffee.",
+                  "answer": "a few",
+                  "alternatives": [
+                      "a few"
+                  ],
+                  "hint": "'minutes' là danh từ đếm được số nhiều mang nghĩa tích cực",
+                  "explain": "'minutes' đếm được số nhiều, ngữ cảnh có một vài phút rảnh rỗi -> 'a few'."
+              },
+              {
+                  "sentence": "There isn't (much / many) ______ information available regarding the new patent application.",
+                  "answer": "much",
+                  "alternatives": [
+                      "much"
+                  ],
+                  "hint": "'information' là danh từ không đếm được",
+                  "explain": "Danh từ không đếm được 'information' trong câu phủ định đi với 'much'."
+              },
+              {
+                  "sentence": "(Both / Neither) ______ Sarah and her sister are gifted classical pianists.",
+                  "answer": "Both",
+                  "alternatives": [
+                      "Both"
+                  ],
+                  "hint": "Cấu trúc: Both... and... (Cả hai người)",
+                  "explain": "Cặp liên từ chỉ lượng: 'Both A and B' đi với động từ số nhiều 'are' -> 'Both'."
+              },
+              {
+                  "sentence": "He spent (most / mostly) ______ of his savings renovating the ancestral house.",
+                  "answer": "most",
+                  "alternatives": [
+                      "most"
+                  ],
+                  "hint": "Cấu trúc: most of + the/possessive + Noun",
+                  "explain": "Cấu trúc lượng từ: 'most of' mang nghĩa 'phần lớn' -> 'most'."
+              }
+          ]
+      },
+      {
+          "week_number": 24,
+          "title": "Chuyên đề 24: Cụm Từ Cố Định & Cụm Giới Từ (Collocations)",
+          "summary": "Các kết hợp từ tự nhiên quan trọng trong đề thi: Make vs Do, Pay attention to, Catch/Lose sight of, In charge of...",
+          "sections": [
+              {
+                  "subtitle": "1. Phân biệt Make và Do",
+                  "content": "• Make: make a decision, make an effort, make a mistake, make progress, make room for, make fun of.\n• Do: do homework, do research, do business, do a favor, do harm/good, do one's best."
+              },
+              {
+                  "subtitle": "2. Cụm từ cố định ăn điểm",
+                  "content": "• Take advantage of (tận dụng) | Pay attention to (chú ý) | Keep pace with (bắt kịp) | Lose track of (mất dấu)."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "Students are encouraged to ______ an active part in community greening initiatives.",
+                  "options": [
+                      "A. make",
+                      "B. take",
+                      "C. do",
+                      "D. have"
+                  ],
+                  "answer": "B",
+                  "explain": "Collocation chuẩn: Take part in = participate in (tham gia vào)."
+              },
+              {
+                  "q": "All university graduates must ______ every effort to stay competitive in the dynamic job market.",
+                  "options": [
+                      "A. make",
+                      "B. do",
+                      "C. take",
+                      "D. create"
+                  ],
+                  "answer": "A",
+                  "explain": "Collocation cố định: 'make an effort / make every effort' (nỗ lực hết mình). Không dùng 'do' hay 'take'."
+              },
+              {
+                  "q": "Citizens are urged to ______ attention to public health announcements issued by authorities.",
+                  "options": [
+                      "A. pay",
+                      "B. draw",
+                      "C. give",
+                      "D. put"
+                  ],
+                  "answer": "A",
+                  "explain": "Collocation cố định: 'pay attention to something' (chú ý đến cái gì)."
+              },
+              {
+                  "q": "The newly elected mayor has promised to ______ measures to combat urban pollution.",
+                  "options": [
+                      "A. take",
+                      "B. do",
+                      "C. make",
+                      "D. get"
+                  ],
+                  "answer": "A",
+                  "explain": "Collocation cố định: 'take measures / take action / take steps' (thực hiện các biện pháp) -> 'take'."
+              },
+              {
+                  "q": "The rapid advancement of renewable energy has ______ a major contribution to reducing carbon emissions.",
+                  "options": [
+                      "A. made",
+                      "B. done",
+                      "C. taken",
+                      "D. held"
+                  ],
+                  "answer": "A",
+                  "explain": "Collocation: 'make a contribution to something' (đóng góp vào cái gì) -> 'made'."
+              },
+              {
+                  "q": "The committee decided to ______ a blind eye to minor infractions committed by junior staff.",
+                  "options": [
+                      "A. turn",
+                      "B. keep",
+                      "C. give",
+                      "D. open"
+                  ],
+                  "answer": "A",
+                  "explain": "Idiom cố định: 'turn a blind eye to something' (nhắm mắt làm ngơ, vờ như không thấy) -> 'turn'."
+              },
+              {
+                  "q": "You should always keep your promises and never ______ someone down who trusts you.",
+                  "options": [
+                      "A. let",
+                      "B. put",
+                      "C. take",
+                      "D. hold"
+                  ],
+                  "answer": "A",
+                  "explain": "Collocation / Idiom: 'let somebody down' = disappoint (làm ai đó thất vọng) -> 'let'."
+              },
+              {
+                  "q": "Smoking in enclosed public areas does more ______ than good to public health.",
+                  "options": [
+                      "A. harm",
+                      "B. damage",
+                      "C. injury",
+                      "D. destruction"
+                  ],
+                  "answer": "A",
+                  "explain": "Thành ngữ cố định: 'do harm' (gây hại), 'do more harm than good' (hại nhiều hơn lợi) -> 'harm'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "Scientists are actively doing (research) ______ into renewable perovskite solar cells.",
+                  "answer": "research",
+                  "alternatives": [],
+                  "hint": "Cụm từ đi với DO: do research (làm nghiên cứu)",
+                  "explain": "Collocation chuẩn: Do research (không dùng make research)."
+              },
+              {
+                  "sentence": "The teacher advised us to (take / make) ______ notes carefully during the guest lecture.",
+                  "answer": "take",
+                  "alternatives": [
+                      "take"
+                  ],
+                  "hint": "Collocation: take notes (ghi chép)",
+                  "explain": "Cụm từ cố định chuẩn mực: 'take notes' (ghi chú, ghi chép lại)."
+              },
+              {
+                  "sentence": "Please bear in (mind / heart) ______ that late submissions will incur a strict penalty.",
+                  "answer": "mind",
+                  "alternatives": [
+                      "mind"
+                  ],
+                  "hint": "Idiom: bear in mind (ghi nhớ, khắc cốt ghi tâm)",
+                  "explain": "Thành ngữ cố định: 'bear/keep in mind' = remember (ghi nhớ)."
+              },
+              {
+                  "sentence": "Who will take (charge / responsibility) ______ of organizing the upcoming corporate workshop?",
+                  "answer": "charge",
+                  "alternatives": [
+                      "responsibility"
+                  ],
+                  "hint": "Cụm: take charge of sth (chịu trách nhiệm / phụ trách)",
+                  "explain": "Cụm từ cố định: 'take charge of' hoặc 'take responsibility for' -> 'charge'."
+              },
+              {
+                  "sentence": "The CEO made a decision to (put / bring) ______ an end to the unprofitable department.",
+                  "answer": "put",
+                  "alternatives": [
+                      "bring"
+                  ],
+                  "hint": "Idiom: put an end to something (chấm dứt cái gì)",
+                  "explain": "Thành ngữ: 'put an end to sth' = stop/terminate (chấm dứt cái gì) -> 'put'."
+              }
+          ]
+      },
+      {
+          "week_number": 25,
+          "title": "Chuyên đề 25: Tổng Ôn Toàn Diện & Giải Mã Bẫy Đề Thi Quốc Gia / VSTEP / IELTS",
+          "summary": "Chiến lược nhận diện bẫy ngữ pháp: hòa hợp chủ vị phức hợp, đảo ngữ điều kiện kép, rút gọn khác chủ ngữ và câu hỏi phân hóa 9+.",
+          "sections": [
+              {
+                  "subtitle": "1. Nhận diện các bẫy thường gặp",
+                  "content": "• Bẫy mệnh đề quan hệ chen giữa chủ ngữ và động từ chính.\n• Bẫy đại từ phản thân và đảo ngữ phủ định.\n• Bẫy thì hoàn thành với mốc thời gian đã chấm dứt trong quá khứ."
+              }
+          ],
+          "quiz": [
+              {
+                  "q": "The newly discovered manuscript, along with several ceremonial artifacts, ______ currently on display.",
+                  "options": [
+                      "A. are",
+                      "B. is",
+                      "C. were",
+                      "D. have been"
+                  ],
+                  "answer": "B",
+                  "explain": "Chủ ngữ chính là 'The newly discovered manuscript' (số ít), cụm 'along with...' không làm thay đổi số của chủ ngữ -> is."
+              },
+              {
+                  "q": "Scarcely ______ the auditorium when the power went out completely.",
+                  "options": [
+                      "A. had the audience entered",
+                      "B. the audience had entered",
+                      "C. did the audience enter",
+                      "D. entered the audience"
+                  ],
+                  "answer": "A",
+                  "explain": "Bẫy đảo ngữ với 'Scarcely': Scarcely + had + S + Vp2 + when + S + V2/ed -> 'had the audience entered'."
+              },
+              {
+                  "q": "Neither the headmaster nor the subject teachers ______ present at the assembly yesterday.",
+                  "options": [
+                      "A. was",
+                      "B. were",
+                      "C. are",
+                      "D. have been"
+                  ],
+                  "answer": "B",
+                  "explain": "Bẫy sự hòa hợp S-V: 'Neither S1 nor S2' chia theo S2 ('the subject teachers' là số nhiều), thì quá khứ ('yesterday') -> 'were'."
+              },
+              {
+                  "q": "The manager insisted that the confidential documents ______ in the safe.",
+                  "options": [
+                      "A. be locked",
+                      "B. are locked",
+                      "C. were locked",
+                      "D. should lock"
+                  ],
+                  "answer": "A",
+                  "explain": "Bẫy thức giả định bị động: insist that S + (should) be Vp2. Tài liệu 'được khóa' trong két sắt -> 'be locked'."
+              },
+              {
+                  "q": "The historic treaty ______ by both prime ministers was hailed as a milestone.",
+                  "options": [
+                      "A. signing",
+                      "B. signed",
+                      "C. was signed",
+                      "D. to sign"
+                  ],
+                  "answer": "B",
+                  "explain": "Bẫy rút gọn mệnh đề quan hệ và động từ chính: Động từ chính của câu là 'was hailed'. Vị trí cần điền là phân từ bị động rút gọn (which was signed) -> 'signed'."
+              },
+              {
+                  "q": "Had I known about the inclement weather forecast, I ______ my mountain expedition.",
+                  "options": [
+                      "A. wouldn't schedule",
+                      "B. wouldn't have scheduled",
+                      "C. hadn't scheduled",
+                      "D. didn't schedule"
+                  ],
+                  "answer": "B",
+                  "explain": "Bẫy đảo ngữ điều kiện loại 3: Had + S + Vp2, S + would/could have + Vp2 -> 'wouldn't have scheduled'."
+              },
+              {
+                  "q": "The committee reached a ______ agreement after three consecutive days of debate.",
+                  "options": [
+                      "A. unanimous",
+                      "B. unanimously",
+                      "C. unanimity",
+                      "D. unanimities"
+                  ],
+                  "answer": "A",
+                  "explain": "Bẫy từ loại: Đứng trước danh từ 'agreement' và sau mạo từ 'a' cần một tính từ -> 'unanimous' (nhất trí, đồng thuận)."
+              },
+              {
+                  "q": "It was not until she checked her bank statement ______ she realized she was defrauded.",
+                  "options": [
+                      "A. that",
+                      "B. when",
+                      "C. which",
+                      "D. then"
+                  ],
+                  "answer": "A",
+                  "explain": "Bẫy câu chẻ kết hợp: It was not until... THAT + S + V (không dùng 'when' hay 'which') -> 'that'."
+              }
+          ],
+          "fill_blanks": [
+              {
+                  "sentence": "Neither of the proposed solutions (be) ______ deemed feasible by the executive board.",
+                  "answer": "was",
+                  "alternatives": [
+                      "is"
+                  ],
+                  "hint": "'Neither of + N số nhiều' theo ngữ pháp chuẩn mực đi với động từ số ít",
+                  "explain": "'Neither of' đi với động từ số ít trong văn phong học thuật chuẩn mực -> was."
+              },
+              {
+                  "sentence": "Only by learning from past failures (can / do) ______ we achieve genuine long-term success.",
+                  "answer": "can",
+                  "alternatives": [
+                      "can"
+                  ],
+                  "hint": "Đảo ngữ với 'Only by + V-ing': Only by + modal + S + V_bare",
+                  "explain": "Cấu trúc đảo ngữ: Only by V-ing + can + S + V_bare -> 'can'."
+              },
+              {
+                  "sentence": "The number of endangered wildlife species (has / have) ______ dropped critically this decade.",
+                  "answer": "has",
+                  "alternatives": [
+                      "has"
+                  ],
+                  "hint": "'The number of' đi với động từ số ít",
+                  "explain": "Bẫy kinh điển: 'The number of' đi với động từ số ít (has dropped). Phân biệt với 'A number of' đi với số nhiều."
+              },
+              {
+                  "sentence": "He talks as though he (know) ______ everything about the company's financial state.",
+                  "answer": "knew",
+                  "alternatives": [
+                      "knew"
+                  ],
+                  "hint": "Cấu trúc 'as though' giả định không có thật ở hiện tại -> V2/ed",
+                  "explain": "Giả định thức với 'as if / as though' ở hiện tại: S + V(htđ) + as if + S + V2/ed -> 'knew'."
+              },
+              {
+                  "sentence": "It is high time you (apologize) ______ to your parents for your unacceptable conduct.",
+                  "answer": "apologized",
+                  "alternatives": [
+                      "apologised"
+                  ],
+                  "hint": "Cấu trúc: It is high time + S + V2/ed",
+                  "explain": "Cấu trúc: It is high time + S + V2/ed -> 'apologized' hoặc 'apologised'."
+              }
+          ]
+      }
   ],
   "readings": [
     {

@@ -138,6 +138,9 @@
         <button onclick="switchTab('reader')" id="nav-btn-reader" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Luyện đọc bài thi VSTEP chuẩn và báo song ngữ quốc tế">
           <i data-lucide="book-open" class="w-4 h-4 text-cyan-400"></i> Đọc & Báo Song Ngữ
         </button>
+        <button onclick="switchTab('conversation')" id="nav-btn-conversation" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Các câu tiếng Anh giao tiếp hàng ngày trong mỗi cuộc trò chuyện">
+          <i data-lucide="message-square-quote" class="w-4 h-4 text-emerald-400"></i> 💬 Giao Tiếp Hàng Ngày
+        </button>
         <button onclick="switchTab('grammar')" id="nav-btn-grammar" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="book-marked" class="w-4 h-4"></i> 25 Chuyên Đề Ngữ Pháp
         </button>
@@ -2008,6 +2011,158 @@
     </section>
 
 
+    
+    <!-- ================= TAB: TIẾNG ANH GIAO TIẾP HÀNG NGÀY TRONG MỖI CUỘC TRÒ CHUYỆN ================= -->
+    <section id="tab-conversation" class="hidden space-y-6">
+      <!-- Hero Banner -->
+      <div class="rounded-2xl p-6 bg-gradient-to-r from-emerald-950/80 via-slate-900 to-teal-950/80 border border-emerald-500/40 shadow-xl relative overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs border border-emerald-500/40 flex items-center gap-1.5">
+                <i data-lucide="message-square-quote" class="w-3.5 h-3.5 text-emerald-400"></i> GIAO TIẾP HÀNG NGÀY BẢN XỨ
+              </span>
+              <span id="conversationTotalCountBadge" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 text-xs font-mono font-semibold border border-slate-700">
+                55+ Mẫu câu & Đoạn đối đáp
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold border border-cyan-500/40">
+                🎧 Audio Song Ngữ US/UK
+              </span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
+              <span>💬 Tiếng Anh Giao Tiếp Hàng Ngày Trong Mỗi Cuộc Trò Chuyện</span>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+              Trọn bộ mẫu câu giao tiếp và lời đối đáp tự nhiên nhất của người bản xứ trong mọi tình huống thường nhật: Chào hỏi, Công sở, Ăn uống, Mua sắm, Du lịch, Cảm xúc, Đặt hẹn và Xin lỗi.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2.5 shrink-0 flex-wrap">
+            <button onclick="openConversationFlashcardMode()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm transition flex items-center gap-2 shadow-lg shadow-emerald-600/30 active:scale-95">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+              <span>Luyện Flashcard Phản Xạ</span>
+            </button>
+            <button onclick="filterConversationOnlyBookmarks()" id="btnConversationBookmarkFilter" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/40 font-bold text-xs sm:text-sm transition flex items-center gap-1.5">
+              <i data-lucide="star" class="w-4 h-4 text-amber-400"></i>
+              <span>Đã Lưu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Category Filters -->
+      <div class="glass-card rounded-2xl p-4 sm:p-5 border border-slate-800 space-y-4">
+        <!-- Search Bar -->
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input type="text" id="conversationSearchInput" oninput="onConversationSearchInput(event)" placeholder="Tìm kiếm câu giao tiếp (ví dụ: chào hỏi, cà phê, đồng nghiệp, discount, meeting, weather...)" class="w-full pl-10 pr-10 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-emerald-500 transition">
+          <button onclick="clearConversationSearch()" id="clearConversationSearchBtn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Category Filter Chips -->
+        <div id="conversationCategoryPills" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs">
+          <!-- Rendered dynamically by JS -->
+        </div>
+      </div>
+
+      <!-- Conversation List Container -->
+      <div id="conversationListContainer" class="space-y-4">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- MODAL: CONVERSATION FLASHCARD PRACTICE -->
+    <div id="conversationFlashcardModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+      <div class="glass-card max-w-xl w-full rounded-3xl p-6 sm:p-8 border border-emerald-500/40 bg-gradient-to-br from-slate-900 via-slate-950 to-emerald-950/40 shadow-2xl space-y-6 relative">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold text-xs">
+              <i data-lucide="message-square-quote" class="w-4 h-4"></i>
+            </span>
+            <div>
+              <h3 class="font-extrabold text-white text-base">Luyện Phản Xạ Giao Tiếp</h3>
+              <p id="convFcCardCounter" class="text-[11px] text-slate-400 font-mono">Thẻ 1 / 55</p>
+            </div>
+          </div>
+          <button onclick="closeConversationFlashcardMode()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- 3D Interactive Card Box -->
+        <div id="convFcCardBox" onclick="flipConversationCard()" class="min-h-[260px] p-6 rounded-2xl border-2 border-dashed border-emerald-500/40 bg-slate-900/90 flex flex-col justify-between cursor-pointer hover:border-emerald-400 transition select-none group shadow-inner">
+          <div class="flex items-center justify-between">
+            <span id="convFcCategoryBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-[11px] border border-emerald-500/30">
+              Chào hỏi & Làm quen
+            </span>
+            <span class="text-xs text-slate-400 flex items-center gap-1 group-hover:text-emerald-300 transition">
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Nhấn để lật đáp án đối đáp
+            </span>
+          </div>
+
+          <!-- Front / Question Side -->
+          <div id="convFcFront" class="text-center py-4 space-y-2">
+            <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Tình huống & Câu tiếng Việt:</div>
+            <h4 id="convFcFrontVi" class="text-lg sm:text-xl font-bold text-white leading-relaxed">
+              Dạo này thế nào rồi? Mọi chuyện với bạn vẫn ổn chứ?
+            </h4>
+            <p id="convFcContext" class="text-xs text-cyan-300 italic pt-1">
+              Lời chào thân thiện, tự nhiên hàng ngày thay cho câu 'How are you?' sách vở.
+            </p>
+          </div>
+
+          <!-- Back / Answer Side (Hidden initially) -->
+          <div id="convFcBack" class="hidden text-center py-2 space-y-3">
+            <div class="space-y-1">
+              <div class="text-[11px] text-emerald-400 font-bold uppercase tracking-wider">Câu tiếng Anh bạn nói:</div>
+              <h4 id="convFcBackEn" class="text-lg sm:text-xl font-black text-amber-300 font-mono">
+                How's it going? Everything good with you?
+              </h4>
+              <p id="convFcPronounceTip" class="text-xs text-slate-400 font-mono">
+                Nối âm: /haʊ-zɪt ˈɡoʊ.ɪŋ/, lướt nhẹ 'it going'.
+              </p>
+            </div>
+
+            <!-- Dialogue Response Box -->
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-left space-y-1">
+              <div class="text-[10px] text-cyan-400 font-bold uppercase flex items-center gap-1">
+                <i data-lucide="corner-down-right" class="w-3 h-3"></i> Đối phương sẽ trả lời:
+              </div>
+              <p id="convFcDialogueB" class="text-xs sm:text-sm font-semibold text-white">
+                Couldn't be better, thanks! How about yourself?
+              </p>
+              <p id="convFcDialogueBVi" class="text-[11px] text-slate-400">
+                Không thể tốt hơn được nữa, cảm ơn bạn! Còn bạn thì sao?
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px] text-slate-500">
+            <span>Nhấn thẻ để lật qua lại</span>
+            <button onclick="event.stopPropagation(); playCurrentConvAudio();" class="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1">
+              <i data-lucide="volume-2" class="w-4 h-4"></i> Nghe phát âm
+            </button>
+          </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="flex items-center justify-between gap-3 pt-1">
+          <button onclick="prevConversationCard()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition flex items-center gap-1.5">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i> Câu Trước
+          </button>
+          <button onclick="randomConversationCard()" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold text-xs border border-amber-500/30 transition flex items-center gap-1">
+            <i data-lucide="shuffle" class="w-3.5 h-3.5"></i> Ngẫu Nhiên
+          </button>
+          <button onclick="nextConversationCard()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+            Câu Tiếp Theo <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
     <section id="tab-profile" class="hidden space-y-6">
         <!-- BẢNG XẾP HẠNG & THI ĐUA TẤT CẢ TÀI KHOẢN ĐANG SỬ DỤNG -->
         <div id="profileAccountsCompetitionContainer" class="glass-card rounded-2xl p-6 space-y-4 col-span-full border border-amber-500/40 bg-gradient-to-br from-amber-950/20 via-slate-900 to-slate-950 shadow-xl">
@@ -2021,7 +2176,7 @@
                   <h3 class="font-bold text-white text-base">Bảng Xếp Hạng & Thi Đua Tất Cả Tài Khoản Học Viên</h3>
                   <span id="profileAccountsCountBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">4 Học Viên</span>
                 </div>
-                <p class="text-xs text-slate-400">Xếp loại thi đua thực tế giữa các tài khoản đang sử dụng trên máy. Bấm để chuyển đổi 1-click hoặc xem thứ hạng.</p>
+                <p class="text-xs text-slate-400">Bảng xếp hạng 100% người dùng thực đang sử dụng web. Tài khoản của ai người đó dùng, bảo mật riêng biệt.</p>
               </div>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
@@ -2133,6 +2288,10 @@
       <button onclick="switchTab('reader')" id="mob-btn-reader" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="newspaper" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Đọc hiểu</span>
+      </button>
+      <button onclick="switchTab('conversation')" id="mob-btn-conversation" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
+        <i data-lucide="message-square-quote" class="w-5 h-5 text-emerald-400"></i>
+        <span class="text-[10px] font-semibold mt-1">Giao tiếp</span>
       </button>
       <button onclick="switchTab('grammar')" id="mob-btn-grammar" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="book-marked" class="w-5 h-5"></i>
@@ -2864,7 +3023,8 @@
   <script src="./international_news_videos.js?v=64.0"></script>
   <script src="./bilingual_news_data.js?v=64.0"></script>
   <script src="./reading_lexicon.js?v=64.0"></script>
-  <script src="./app.js?v=64.1"></script>
+  <script src="./conversation_data.js?v=65.0"></script>
+  <script src="./app.js?v=65.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {

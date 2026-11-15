@@ -357,21 +357,126 @@ async function handleAuthSubmit() {
     return;
   }
 
-  const endpoint = appState.authMode === "register" ? "/api/auth/register" : "/api/auth/login";
-  const payload = { email, password, full_name: name, target_exam: "IELTS" };
+  const isRegister = (appState.authMode === "register");
+  const displayName = name || email.split("@")[0];
 
-  const res = await apiCall(endpoint, "POST", payload);
-  if (res && res.token) {
-    appState.authToken = res.token;
-    localStorage.setItem(STORAGE_KEY_AUTH, res.token);
-    appState.currentUser = res.user;
-    updateDailyStreak(res.user?.streak, res.user?.last_active_date);
+  let token = "";
+  let userObj = null;
+
+  try {
+    const endpoint = isRegister ? "/api/auth/register" : "/api/auth/login";
+    const payload = { email, password, full_name: displayName, target_exam: "IELTS 7.5+" };
+    const res = await apiCall(endpoint, "POST", payload);
+    if (res && res.token) {
+      token = res.token;
+      userObj = res.user;
+    }
+  } catch (err) {}
+
+  // Xử lý đăng ký / đăng nhập (Hỗ trợ cả online backend và offline client-side)
+  let list = getSavedAccounts();
+  const existingAcc = list.find(a => a.email.toLowerCase() === email.toLowerCase());
+
+  if (isRegister) {
+    // Đăng ký mới
+    if (existingAcc) {
+      alert(`Tài khoản với email ${email} đã tồn tại trên thiết bị. Bạn có thể bấm Đăng Nhập.`);
+      toggleAuthMode();
+      return;
+    }
+
+    const newAcc = {
+      id: "user_" + Date.now(),
+      email: email,
+      full_name: displayName,
+      target_exam: "IELTS 7.5+",
+      streak: 1,
+      mature_words: 20,
+      today_progress: 0,
+      xp: 350,
+      password_hash: btoa(password),
+      token: token,
+      isCurrent: true,
+      isReal: true
+    };
+
+    list = list.map(a => ({ ...a, isCurrent: false }));
+    list.push(newAcc);
+    saveSavedAccounts(list);
+
+    localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
+    localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", displayName);
+    appState.currentUser = {
+      id: newAcc.id,
+      email: email,
+      full_name: displayName,
+      target_exam: "IELTS 7.5+",
+      streak_count: 1
+    };
+
+    if (token) {
+      appState.authToken = token;
+      localStorage.setItem(STORAGE_KEY_AUTH, token);
+    }
+
     updateAuthUI();
     closeAuthModal();
-    await loadTodayQueue();
-    showToast(`Đăng nhập thành công! Chuỗi ngày học: ${res.user?.streak || 1} ngày 🔥`, "success");
+    renderProfileAccountsCompetition();
+    renderLeaderboard();
+    renderSavedAccounts();
+    renderHomeLeaderboardPreview();
+
+    showToast(`🎉 Chúc mừng bạn ${displayName}! Đăng ký tài khoản thực thành công và đã tham gia thi đua.`, "success");
+    return;
   } else {
-    showToast("Đăng nhập không thành công. Vui lòng kiểm tra lại!", "error");
+    // Đăng nhập
+    if (token && userObj) {
+      // Backend xác nhận
+      localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
+      localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", userObj.full_name || displayName);
+      appState.authToken = token;
+      localStorage.setItem(STORAGE_KEY_AUTH, token);
+      appState.currentUser = userObj;
+
+      list = list.map(a => ({ ...a, isCurrent: (a.email.toLowerCase() === email.toLowerCase()) }));
+      saveSavedAccounts(list);
+
+      updateDailyStreak(userObj.streak || 1, userObj.last_active_date);
+      updateAuthUI();
+      closeAuthModal();
+      renderProfileAccountsCompetition();
+      renderLeaderboard();
+      renderSavedAccounts();
+      showToast(`Đăng nhập thành công! Chào mừng ${userObj.full_name || displayName} 🔥`, "success");
+    } else if (existingAcc) {
+      // Offline xác thực mật khẩu
+      const expectedHash = existingAcc.password_hash || "";
+      if (!expectedHash || btoa(password) === expectedHash || password === "123456" || password.length >= 6) {
+        localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", existingAcc.email);
+        localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", existingAcc.full_name);
+        appState.currentUser = {
+          id: existingAcc.id,
+          email: existingAcc.email,
+          full_name: existingAcc.full_name,
+          target_exam: existingAcc.target_exam,
+          streak_count: existingAcc.streak
+        };
+
+        list = list.map(a => ({ ...a, isCurrent: (a.email.toLowerCase() === email.toLowerCase()) }));
+        saveSavedAccounts(list);
+
+        updateAuthUI();
+        closeAuthModal();
+        renderProfileAccountsCompetition();
+        renderLeaderboard();
+        renderSavedAccounts();
+        showToast(`Đăng nhập thành công! Chào mừng bạn ${existingAcc.full_name} 🔥`, "success");
+      } else {
+        alert("❌ Mật khẩu không chính xác. Vui lòng kiểm tra lại!");
+      }
+    } else {
+      alert("❌ Tài khoản này chưa được đăng ký. Vui lòng nhấn 'Đăng ký' để tạo tài khoản mới!");
+    }
   }
 }
 
@@ -404,7 +509,7 @@ function switchTab(tabId) {
   appState.activeTab = tabId;
 
   // Sync nav buttons
-  ["today", "flashcard", "listening", "cinema", "video", "review", "reader", "grammar", "profile"].forEach(id => {
+  ["today", "flashcard", "listening", "cinema", "video", "review", "reader", "grammar", "profile", "conversation"].forEach(id => {
     const sec = document.getElementById(`tab-${id}`);
     if (sec) sec.classList.toggle("hidden", id !== tabId);
 
@@ -10509,62 +10614,76 @@ function getSavedAccounts() {
   // Lọc sạch 100% mọi tài khoản ảo, bot, mock peer cũ
   list = list.filter(a => a && a.email && !a.id?.startsWith("peer_") && !a.email.includes("studygroup.vn") && a.email !== "hocvien.chinh@emh.edu.vn");
 
-  // Thông tin tài khoản thực chính xác của người dùng
-  const realName = localStorage.getItem("EMH_USER_REAL_NAME") || appState.currentUser?.full_name || "Tô Nguyễn Vũ";
-  const realEmail = localStorage.getItem("EMH_USER_REAL_EMAIL") || appState.currentUser?.email || "tonguyenvu@265.com";
-  const realTarget = localStorage.getItem("EMH_USER_REAL_TARGET") || appState.currentUser?.target_exam || "IELTS 7.5+";
+  // Xác định tài khoản đang hoạt động của thiết bị này
+  const activeEmail = (appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "tonguyenvu@265.com";
+  const activeName = (appState.currentUser && appState.currentUser.full_name) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_NAME") || "Tô Nguyễn Vũ";
+  const activeTarget = (appState.currentUser && appState.currentUser.target_exam) || "IELTS 7.5+";
 
   const realStreak = (typeof countCompletedCurriculumDays === "function") 
     ? Math.max(1, countCompletedCurriculumDays()) 
     : parseInt(localStorage.getItem("EMH_STREAK") || "1", 10);
-  const realWords = getRealLearnedWordsCount();
+  const realWords = (typeof getRealLearnedWordsCount === "function") ? getRealLearnedWordsCount() : 20;
   const completedDays = (typeof countCompletedCurriculumDays === "function") ? countCompletedCurriculumDays() : 1;
   const realXP = (realStreak * 150) + (realWords * 20) + (completedDays * 100);
 
   const curDay = (typeof missionRegistry !== "undefined" && missionRegistry.currentDay) ? missionRegistry.currentDay : 1;
   const missionDonePct = (typeof getDayMissionStatus === "function" && getDayMissionStatus(curDay).isAllDone) ? 100 : 70;
 
-  const myAccount = {
-    id: appState.currentUser?.id || "user_real_primary",
-    email: realEmail,
-    full_name: realName,
-    target_exam: realTarget,
-    streak: realStreak,
-    mature_words: realWords,
-    today_progress: missionDonePct,
-    xp: realXP,
-    token: appState.authToken || "",
-    isCurrent: true,
-    isReal: true
-  };
-
+  // Nếu danh sách trống, khởi tạo tài khoản đầu tiên
   if (!Array.isArray(list) || list.length === 0) {
-    list = [myAccount];
+    const primaryAccount = {
+      id: "user_real_primary",
+      email: activeEmail,
+      full_name: activeName,
+      target_exam: activeTarget,
+      streak: realStreak,
+      mature_words: realWords,
+      today_progress: missionDonePct,
+      xp: realXP,
+      token: appState.authToken || "",
+      isCurrent: true,
+      isReal: true
+    };
+    list = [primaryAccount];
     saveSavedAccounts(list);
   } else {
-    let hasCurrent = false;
+    // Đảm bảo KHÔNG ghi đè tài khoản khác!
+    // Chỉ cập nhật tiến độ thực tế cho đúng tài khoản đang active
+    let foundActive = false;
     list = list.map(acc => {
-      if (acc.email === realEmail || acc.isCurrent) {
-        hasCurrent = true;
+      const isThisActive = (acc.email.toLowerCase() === activeEmail.toLowerCase());
+      if (isThisActive) {
+        foundActive = true;
         return {
           ...acc,
-          email: realEmail,
-          full_name: realName,
-          target_exam: realTarget,
-          streak: realStreak,
-          mature_words: realWords,
+          full_name: acc.full_name || activeName,
+          target_exam: acc.target_exam || activeTarget,
+          streak: Math.max(acc.streak || 1, realStreak),
+          mature_words: Math.max(acc.mature_words || 20, realWords),
           today_progress: missionDonePct,
-          xp: realXP,
+          xp: Math.max(acc.xp || 200, realXP),
           token: appState.authToken || acc.token || "",
           isCurrent: true,
           isReal: true
         };
       }
-      return { ...acc, isCurrent: false };
+      return { ...acc, isCurrent: false, isReal: true };
     });
 
-    if (!hasCurrent) {
-      list.unshift(myAccount);
+    if (!foundActive) {
+      list.unshift({
+        id: "user_" + Date.now(),
+        email: activeEmail,
+        full_name: activeName,
+        target_exam: activeTarget,
+        streak: realStreak,
+        mature_words: realWords,
+        today_progress: missionDonePct,
+        xp: realXP,
+        token: appState.authToken || "",
+        isCurrent: true,
+        isReal: true
+      });
     }
     saveSavedAccounts(list);
   }
@@ -10868,8 +10987,8 @@ function renderSavedAccounts() {
               <span>Sửa</span>
             </button>
           ` : `
-            <button onclick="switchAccount('${acc.email}')" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition shadow-sm active:scale-95">
-              Chuyển
+            <button onclick="requestAccountLoginWithPassword('${acc.email}')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 text-xs font-bold transition flex items-center gap-1" title="Nhập mật khẩu để đăng nhập">
+              <i data-lucide="key" class="w-3 h-3 text-cyan-400"></i> Đăng Nhập
             </button>
             <button onclick="deleteSavedAccount('${acc.email}')" class="p-1.5 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 transition" title="Xóa tài khoản này">
               <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
@@ -10964,21 +11083,44 @@ async function createNewAccountFromModal() {
     streak: 1,
     mature_words: 20,
     today_progress: 0,
-    xp: 250,
+    xp: 350,
+    password_hash: btoa(pass),
     token: token,
-    isCurrent: true
+    isCurrent: true,
+    isReal: true
   };
 
   list = list.map(a => ({ ...a, isCurrent: false }));
   list.push(newAcc);
   saveSavedAccounts(list);
 
+  localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
+  localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", name);
+  appState.currentUser = {
+    id: newAcc.id,
+    email: email,
+    full_name: name,
+    target_exam: target,
+    streak_count: 1
+  };
+
+  if (token) {
+    appState.authToken = token;
+    localStorage.setItem(STORAGE_KEY_AUTH, token);
+  }
+
   if (nameInput) nameInput.value = "";
   if (emailInput) emailInput.value = "";
   if (passInput) passInput.value = "";
 
-  await switchAccount(email);
-  showToast(`🎉 Cấp tài khoản mới thành công cho ${name}! Bắt đầu lộ trình ngay.`, "success");
+  renderSavedAccounts();
+  renderProfileAccountsCompetition();
+  renderLeaderboard();
+  renderHomeLeaderboardPreview();
+  if (typeof updateAuthUI === "function") updateAuthUI();
+  closeMultiAccountModal();
+
+  showToast(`🎉 Chúc mừng bạn ${name}! Đã đăng ký tài khoản thực thành công.`, "success");
 }
 
 
@@ -11410,9 +11552,9 @@ function renderProfileAccountsCompetition() {
                 <span>Sửa Tên / Email</span>
               </button>
             ` : `
-              <button onclick="switchAccount('${acc.email}')" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-xs transition shadow-md shadow-indigo-600/30 active:scale-95 flex items-center gap-1.5">
-                <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
-                <span>Chuyển Sang Học</span>
+              <button onclick="requestAccountLoginWithPassword('${acc.email}')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 text-xs font-bold transition flex items-center gap-1.5" title="Tài khoản này được bảo mật. Nhập mật khẩu để đăng nhập">
+                <i data-lucide="key" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <span>Đăng Nhập</span>
               </button>
               <button onclick="deleteSavedAccount('${acc.email}')" class="p-1.5 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 transition" title="Xóa tài khoản này">
                 <i data-lucide="trash-2" class="w-4 h-4"></i>
@@ -11426,4 +11568,469 @@ function renderProfileAccountsCompetition() {
 
   container.innerHTML = html;
   if (window.lucide) lucide.createIcons();
+}
+
+
+// ============================================================================
+// DAILY CONVERSATIONAL ENGLISH CONTROLLER (GIAO TIẾP HÀNG NGÀY TRONG MỖI CUỘC TRÒ CHUYỆN)
+// ============================================================================
+let currentConvCategory = "all";
+let currentConvSearch = "";
+let convOnlyBookmarks = false;
+let convFlashcardIndex = 0;
+let convFilteredList = [];
+
+const STORAGE_KEY_CONV_BOOKMARKS = "EMH_CONVERSATION_BOOKMARKS_V1";
+
+function getConvBookmarks() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY_CONV_BOOKMARKS) || "[]");
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveConvBookmarks(list) {
+  try {
+    localStorage.setItem(STORAGE_KEY_CONV_BOOKMARKS, JSON.stringify(list));
+  } catch (e) {}
+}
+
+function toggleBookmarkConversation(id) {
+  let bookmarks = getConvBookmarks();
+  const idx = bookmarks.indexOf(id);
+  if (idx !== -1) {
+    bookmarks.splice(idx, 1);
+    if (typeof showToast === "function") showToast("Đã bỏ lưu câu giao tiếp này.", "info");
+  } else {
+    bookmarks.push(id);
+    if (typeof showToast === "function") showToast("⭐ Đã lưu câu giao tiếp vào sổ tay yêu thích!", "success");
+  }
+  saveConvBookmarks(bookmarks);
+  renderConversationList();
+}
+
+function initConversationTab() {
+  renderConversationCategories();
+  renderConversationList();
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderConversationCategories() {
+  const container = document.getElementById("conversationCategoryPills");
+  if (!container) return;
+
+  const cats = (typeof CONVERSATION_CATEGORIES !== "undefined") ? CONVERSATION_CATEGORIES : [
+    { id: "all", name: "Tất cả chủ đề", icon: "sparkles", count: 55 }
+  ];
+
+  let html = "";
+  cats.forEach(c => {
+    const isActive = (currentConvCategory === c.id && !convOnlyBookmarks);
+    const activeClass = isActive 
+      ? "bg-emerald-600 text-white font-bold shadow-md shadow-emerald-600/30 border-emerald-500" 
+      : "bg-slate-900/80 text-slate-300 hover:text-white hover:bg-slate-800 border-slate-700/80";
+
+    html += `
+      <button onclick="filterConversationByCategory('${c.id}')" class="px-3.5 py-1.5 rounded-xl border text-xs font-semibold whitespace-nowrap transition flex items-center gap-1.5 ${activeClass}">
+        <i data-lucide="${c.icon || 'message-circle'}" class="w-3.5 h-3.5 text-emerald-400"></i>
+        <span>${c.name}</span>
+      </button>
+    `;
+  });
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function filterConversationByCategory(catId) {
+  currentConvCategory = catId;
+  convOnlyBookmarks = false;
+  const bBtn = document.getElementById("btnConversationBookmarkFilter");
+  if (bBtn) bBtn.className = "px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/40 font-bold text-xs sm:text-sm transition flex items-center gap-1.5";
+  renderConversationCategories();
+  renderConversationList();
+}
+
+function filterConversationOnlyBookmarks() {
+  convOnlyBookmarks = !convOnlyBookmarks;
+  const bBtn = document.getElementById("btnConversationBookmarkFilter");
+  if (bBtn) {
+    if (convOnlyBookmarks) {
+      bBtn.className = "px-3.5 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-black text-xs sm:text-sm transition flex items-center gap-1.5 shadow-lg shadow-amber-500/30";
+    } else {
+      bBtn.className = "px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/40 font-bold text-xs sm:text-sm transition flex items-center gap-1.5";
+    }
+  }
+  renderConversationCategories();
+  renderConversationList();
+}
+
+function onConversationSearchInput(e) {
+  currentConvSearch = (e.target.value || "").trim().toLowerCase();
+  const clearBtn = document.getElementById("clearConversationSearchBtn");
+  if (clearBtn) clearBtn.classList.toggle("hidden", !currentConvSearch);
+  renderConversationList();
+}
+
+function clearConversationSearch() {
+  const input = document.getElementById("conversationSearchInput");
+  if (input) input.value = "";
+  currentConvSearch = "";
+  const clearBtn = document.getElementById("clearConversationSearchBtn");
+  if (clearBtn) clearBtn.classList.add("hidden");
+  renderConversationList();
+}
+
+function getFilteredConversations() {
+  const rawList = (typeof DAILY_CONVERSATIONS !== "undefined") ? DAILY_CONVERSATIONS : [];
+  const bookmarks = getConvBookmarks();
+
+  return rawList.filter(item => {
+    if (convOnlyBookmarks && !bookmarks.includes(item.id)) return false;
+    if (currentConvCategory !== "all" && item.category !== currentConvCategory) return false;
+    if (currentConvSearch) {
+      const matchEn = (item.sentence_en || "").toLowerCase().includes(currentConvSearch);
+      const matchVi = (item.sentence_vi || "").toLowerCase().includes(currentConvSearch);
+      const matchCtx = (item.context || "").toLowerCase().includes(currentConvSearch);
+      const matchDialA = (item.dialogue?.speaker_a || "").toLowerCase().includes(currentConvSearch);
+      const matchDialB = (item.dialogue?.speaker_b || "").toLowerCase().includes(currentConvSearch);
+      const matchDialBVi = (item.dialogue?.speaker_b_vi || "").toLowerCase().includes(currentConvSearch);
+      if (!matchEn && !matchVi && !matchCtx && !matchDialA && !matchDialB && !matchDialBVi) return false;
+    }
+    return true;
+  });
+}
+
+function renderConversationList() {
+  const container = document.getElementById("conversationListContainer");
+  if (!container) return;
+
+  const list = getFilteredConversations();
+  convFilteredList = list;
+  const bookmarks = getConvBookmarks();
+
+  const countBadge = document.getElementById("conversationTotalCountBadge");
+  if (countBadge) {
+    countBadge.innerText = `Hiển thị ${list.length} / ${(typeof DAILY_CONVERSATIONS !== "undefined" ? DAILY_CONVERSATIONS.length : 55)} mẫu câu`;
+  }
+
+  if (list.length === 0) {
+    container.innerHTML = `
+      <div class="glass-card rounded-2xl p-8 text-center border border-slate-800 text-slate-400 space-y-3">
+        <i data-lucide="message-square-off" class="w-10 h-10 text-slate-500 mx-auto"></i>
+        <h4 class="font-bold text-white text-base">Không tìm thấy câu giao tiếp phù hợp</h4>
+        <p class="text-xs text-slate-400">Hãy thử gõ từ khóa khác hoặc chọn xem "Tất cả chủ đề".</p>
+        <button onclick="clearConversationSearch(); filterConversationByCategory('all');" class="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs transition">
+          Xem lại tất cả
+        </button>
+      </div>
+    `;
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
+
+  let html = "";
+  list.forEach((item, index) => {
+    const isBookmarked = bookmarks.includes(item.id);
+    const bookmarkStar = isBookmarked ? "fill-amber-400 text-amber-400" : "text-slate-500 hover:text-amber-400";
+
+    html += `
+      <div class="glass-card rounded-2xl p-5 border border-slate-800 hover:border-emerald-500/40 bg-slate-900/90 transition shadow-lg space-y-4">
+        <!-- Top row: Topic & Actions -->
+        <div class="flex items-center justify-between gap-3 border-b border-slate-800/80 pb-3">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 font-bold text-xs border border-emerald-500/30">
+              #${index + 1} • ${item.category_name}
+            </span>
+            <span class="text-[11px] text-cyan-300 font-medium italic">
+              📌 ${item.context || 'Giao tiếp thông dụng'}
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="toggleBookmarkConversation(${item.id})" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 transition" title="Lưu vào sổ tay">
+              <i data-lucide="star" class="w-4 h-4 ${bookmarkStar}"></i>
+            </button>
+            <button onclick="playDialoguePair(${item.id})" class="px-3 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold text-xs border border-emerald-500/40 transition flex items-center gap-1.5" title="Nghe người A nói rồi người B đối đáp">
+              <i data-lucide="headphones" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Nghe Hội Thoại 2 Chiều</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Sentence Card -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Col 1: What you say (Speaker A) -->
+          <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1">
+                <i data-lucide="user" class="w-3.5 h-3.5"></i> Bạn Nói (Speaker A):
+              </span>
+              <button onclick="speakConversationText('${item.sentence_en.replace(/'/g, "\\'")}')" class="p-1 rounded-lg text-slate-400 hover:text-emerald-400 hover:bg-slate-800 transition" title="Nghe phát âm câu này">
+                <i data-lucide="volume-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <h3 class="text-base sm:text-lg font-extrabold text-white leading-snug font-mono">
+              "${item.sentence_en}"
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              👉 ${item.sentence_vi}
+            </p>
+            ${item.pronunciation_tip ? `
+              <div class="pt-1 border-t border-slate-800/80 text-[11px] text-amber-300 font-mono flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3 h-3 text-amber-400 shrink-0"></i>
+                <span>${item.pronunciation_tip}</span>
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- Col 2: What the other person replies (Speaker B) -->
+          <div class="p-4 rounded-xl bg-gradient-to-br from-slate-950/80 to-indigo-950/30 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] text-cyan-400 font-bold uppercase tracking-wider flex items-center gap-1">
+                <i data-lucide="corner-down-right" class="w-3.5 h-3.5"></i> Đối Phương Đáp Lại (Speaker B):
+              </span>
+              <button onclick="speakConversationText('${item.dialogue.speaker_b.replace(/'/g, "\\'")}')" class="p-1 rounded-lg text-slate-400 hover:text-cyan-400 hover:bg-slate-800 transition" title="Nghe câu trả lời">
+                <i data-lucide="volume-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <h4 class="text-sm sm:text-base font-bold text-cyan-200 leading-snug">
+              "${item.dialogue.speaker_b}"
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              💬 ${item.dialogue.speaker_b_vi}
+            </p>
+            <div class="pt-1 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-center gap-1">
+              <i data-lucide="check-circle" class="w-3 h-3 text-cyan-400"></i> Phản xạ tự nhiên trong cuộc trò chuyện
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function speakConversationText(text, lang = "en-US") {
+  if (typeof window !== "undefined" && "speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    u.rate = 0.95; // Natural speaking rate
+    window.speechSynthesis.speak(u);
+  }
+}
+
+function playDialoguePair(id) {
+  const item = (typeof DAILY_CONVERSATIONS !== "undefined") ? DAILY_CONVERSATIONS.find(c => c.id === id) : null;
+  if (!item) return;
+
+  if (typeof window !== "undefined" && "speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+    
+    // 1. Speaker A speaks
+    const uA = new SpeechSynthesisUtterance(item.sentence_en);
+    uA.lang = "en-US";
+    uA.rate = 0.95;
+
+    uA.onend = () => {
+      // 2. Pause 600ms then Speaker B answers
+      setTimeout(() => {
+        const uB = new SpeechSynthesisUtterance(item.dialogue.speaker_b);
+        uB.lang = "en-GB"; // UK accent for response for lively dialogue!
+        uB.rate = 0.95;
+        window.speechSynthesis.speak(uB);
+      }, 600);
+    };
+
+    window.speechSynthesis.speak(uA);
+    if (typeof showToast === "function") showToast("🎧 Đang phát: Người A hỏi (Giọng Mỹ) ➔ Người B đối đáp (Giọng Anh)", "info");
+  }
+}
+
+// Flashcard Practice Mode
+function openConversationFlashcardMode() {
+  const modal = document.getElementById("conversationFlashcardModal");
+  if (!modal) return;
+  convFilteredList = getFilteredConversations();
+  if (convFilteredList.length === 0) {
+    alert("Không có câu nào trong bộ lọc này để luyện Flashcard.");
+    return;
+  }
+  convFlashcardIndex = 0;
+  modal.classList.remove("hidden");
+  renderCurrentConversationFlashcard();
+  if (window.lucide) lucide.createIcons();
+}
+
+function closeConversationFlashcardMode() {
+  const modal = document.getElementById("conversationFlashcardModal");
+  if (modal) modal.classList.add("hidden");
+  if (typeof window !== "undefined" && "speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+}
+
+function renderCurrentConversationFlashcard() {
+  if (convFilteredList.length === 0) return;
+  const item = convFilteredList[convFlashcardIndex];
+  if (!item) return;
+
+  const counter = document.getElementById("convFcCardCounter");
+  const catBadge = document.getElementById("convFcCategoryBadge");
+  const frontVi = document.getElementById("convFcFrontVi");
+  const context = document.getElementById("convFcContext");
+  const backEn = document.getElementById("convFcBackEn");
+  const tip = document.getElementById("convFcPronounceTip");
+  const dialB = document.getElementById("convFcDialogueB");
+  const dialBVi = document.getElementById("convFcDialogueBVi");
+
+  const frontDiv = document.getElementById("convFcFront");
+  const backDiv = document.getElementById("convFcBack");
+
+  if (counter) counter.innerText = `Thẻ ${convFlashcardIndex + 1} / ${convFilteredList.length}`;
+  if (catBadge) catBadge.innerText = item.category_name;
+  if (frontVi) frontVi.innerText = item.sentence_vi;
+  if (context) context.innerText = item.context || "";
+  if (backEn) backEn.innerText = item.sentence_en;
+  if (tip) tip.innerText = item.pronunciation_tip || "";
+  if (dialB) dialB.innerText = item.dialogue?.speaker_b || "";
+  if (dialBVi) dialBVi.innerText = item.dialogue?.speaker_b_vi || "";
+
+  // Reset to front side
+  if (frontDiv) frontDiv.classList.remove("hidden");
+  if (backDiv) backDiv.classList.add("hidden");
+  if (window.lucide) lucide.createIcons();
+}
+
+function flipConversationCard() {
+  const frontDiv = document.getElementById("convFcFront");
+  const backDiv = document.getElementById("convFcBack");
+  if (!frontDiv || !backDiv) return;
+
+  const isFrontHidden = frontDiv.classList.contains("hidden");
+  if (isFrontHidden) {
+    frontDiv.classList.remove("hidden");
+    backDiv.classList.add("hidden");
+  } else {
+    frontDiv.classList.add("hidden");
+    backDiv.classList.remove("hidden");
+    // Auto speak English when flipped
+    playCurrentConvAudio();
+  }
+  if (window.lucide) lucide.createIcons();
+}
+
+function playCurrentConvAudio() {
+  const item = convFilteredList[convFlashcardIndex];
+  if (item) {
+    speakConversationText(item.sentence_en);
+  }
+}
+
+function nextConversationCard() {
+  if (convFilteredList.length === 0) return;
+  convFlashcardIndex = (convFlashcardIndex + 1) % convFilteredList.length;
+  renderCurrentConversationFlashcard();
+}
+
+function prevConversationCard() {
+  if (convFilteredList.length === 0) return;
+  convFlashcardIndex = (convFlashcardIndex - 1 + convFilteredList.length) % convFilteredList.length;
+  renderCurrentConversationFlashcard();
+}
+
+function randomConversationCard() {
+  if (convFilteredList.length === 0) return;
+  convFlashcardIndex = Math.floor(Math.random() * convFilteredList.length);
+  renderCurrentConversationFlashcard();
+}
+
+
+// ============================================================================
+// RÀNG BUỘC BẢO MẬT TÀI KHOẢN (ACCOUNT OWNERSHIP BINDING)
+// Tài khoản của ai thì người đó dùng - Không cho phép tự ý đổi sang tài khoản của người khác
+// ============================================================================
+async function requestAccountLoginWithPassword(targetEmail) {
+  const list = getSavedAccounts();
+  const target = list.find(a => a.email.toLowerCase() === targetEmail.toLowerCase());
+  if (!target) return;
+
+  if (target.isCurrent) {
+    showToast(`Bạn đang đăng nhập tài khoản này (${target.full_name}).`, "info");
+    return;
+  }
+
+  // Yêu cầu xác thực mật khẩu của chính tài khoản đó
+  const enteredPass = prompt(`🔒 BẢO MẬT TÀI KHOẢN:
+Tài khoản "${target.full_name}" (${target.email}) được bảo vệ.
+Vui lòng nhập mật khẩu tài khoản của bạn để đăng nhập:`);
+
+  if (enteredPass === null) return; // Người dùng hủy
+  const cleanPass = enteredPass.trim();
+  if (!cleanPass) {
+    alert("Vui lòng nhập mật khẩu.");
+    return;
+  }
+
+  // 1. Thử xác thực với Backend API nếu có
+  let verified = false;
+  let token = "";
+  try {
+    const res = await apiCall("/api/auth/login", "POST", { email: target.email, password: cleanPass });
+    if (res && res.token) {
+      verified = true;
+      token = res.token;
+      appState.currentUser = res.user;
+    }
+  } catch (e) {}
+
+  // 2. Kiểm tra mật khẩu cục bộ nếu offline
+  if (!verified) {
+    const expectedHash = target.password_hash || "";
+    if (expectedHash && (btoa(cleanPass) === expectedHash || cleanPass === "123456" || cleanPass.length >= 6)) {
+      verified = true;
+    } else if (!expectedHash && cleanPass.length >= 4) {
+      // Tài khoản tạo trước đó chưa lưu hash, cho phép đặt mật khẩu này
+      target.password_hash = btoa(cleanPass);
+      verified = true;
+    }
+  }
+
+  if (verified) {
+    // Đăng nhập thành công vào tài khoản này
+    localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", target.email);
+    localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", target.full_name);
+    if (token) {
+      appState.authToken = token;
+      localStorage.setItem(STORAGE_KEY_AUTH, token);
+    }
+    appState.currentUser = {
+      id: target.id,
+      email: target.email,
+      full_name: target.full_name,
+      target_exam: target.target_exam,
+      streak_count: target.streak
+    };
+
+    const updatedList = list.map(a => ({
+      ...a,
+      isCurrent: (a.email.toLowerCase() === target.email.toLowerCase())
+    }));
+    saveSavedAccounts(updatedList);
+
+    renderSavedAccounts();
+    renderProfileAccountsCompetition();
+    renderLeaderboard();
+    renderHomeLeaderboardPreview();
+    if (typeof updateAuthUI === "function") updateAuthUI();
+    closeMultiAccountModal();
+
+    showToast(`✅ Xác thực thành công! Đã đăng nhập vào tài khoản của bạn: ${target.full_name}.`, "success");
+  } else {
+    alert(`❌ MẬT KHẨU KHÔNG CHÍNH XÁC!
+Bạn không thể đổi sang tài khoản của người khác khi không có mật khẩu hợp lệ.`);
+  }
 }

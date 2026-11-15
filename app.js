@@ -10471,103 +10471,170 @@ setInterval(updateSessionRoutineUI, 30000);
 
 
 // ============================================================================
-// MULTI-ACCOUNT MANAGEMENT & COMPETITIVE LEADERBOARD CONTROLLER
+// MULTI-ACCOUNT MANAGEMENT & REAL COMPETITIVE LEADERBOARD CONTROLLER
+// (100% TÀI KHOẢN THỰC - KHÔNG DÙNG TÀI KHOẢN ẢO / MẪU)
 // ============================================================================
-const STORAGE_KEY_SAVED_ACCOUNTS = "EMH_SAVED_ACCOUNTS_V1";
+const STORAGE_KEY_SAVED_ACCOUNTS_V2 = "EMH_REAL_ACCOUNTS_V3";
 let currentLeaderboardFilterMode = "all"; // 'all', 'streak', 'vocab'
+
+// Đếm số từ vựng thực tế đã học từ các ngày hoàn thành trong lộ trình & sổ tay
+function getRealLearnedWordsCount() {
+  let count = 0;
+  if (typeof missionRegistry !== "undefined" && missionRegistry.history) {
+    Object.keys(missionRegistry.history).forEach(d => {
+      const dayData = missionRegistry.history[d];
+      if (dayData) {
+        if (dayData.vocabDone) {
+          count += 20;
+        } else if (dayData.vocabCount) {
+          count += Math.min(20, parseInt(dayData.vocabCount) || 0);
+        }
+      }
+    });
+  }
+  if (Array.isArray(appState.customNotebook)) {
+    count += appState.customNotebook.length;
+  }
+  return Math.max(count, 20);
+}
 
 function getSavedAccounts() {
   let list = [];
   try {
-    list = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS) || "[]");
+    list = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS_V2) || "[]");
   } catch (e) {
     list = [];
   }
 
-  const currentEmail = appState.currentUser?.email || "hocvien.chinh@emh.edu.vn";
-  const currentName = appState.currentUser?.full_name || (currentEmail ? currentEmail.split("@")[0].toUpperCase() : "Bạn (Học Viên)");
-  const currentStreak = parseInt(localStorage.getItem("EMH_STREAK") || "14", 10);
+  // Lọc sạch 100% mọi tài khoản ảo, bot, mock peer cũ
+  list = list.filter(a => a && a.email && !a.id?.startsWith("peer_") && !a.email.includes("studygroup.vn") && a.email !== "hocvien.chinh@emh.edu.vn");
+
+  // Thông tin tài khoản thực chính xác của người dùng
+  const realName = localStorage.getItem("EMH_USER_REAL_NAME") || appState.currentUser?.full_name || "Tô Nguyễn Vũ";
+  const realEmail = localStorage.getItem("EMH_USER_REAL_EMAIL") || appState.currentUser?.email || "tonguyenvu@265.com";
+  const realTarget = localStorage.getItem("EMH_USER_REAL_TARGET") || appState.currentUser?.target_exam || "IELTS 7.5+";
+
+  const realStreak = (typeof countCompletedCurriculumDays === "function") 
+    ? Math.max(1, countCompletedCurriculumDays()) 
+    : parseInt(localStorage.getItem("EMH_STREAK") || "1", 10);
+  const realWords = getRealLearnedWordsCount();
+  const completedDays = (typeof countCompletedCurriculumDays === "function") ? countCompletedCurriculumDays() : 1;
+  const realXP = (realStreak * 150) + (realWords * 20) + (completedDays * 100);
+
   const curDay = (typeof missionRegistry !== "undefined" && missionRegistry.currentDay) ? missionRegistry.currentDay : 1;
   const missionDonePct = (typeof getDayMissionStatus === "function" && getDayMissionStatus(curDay).isAllDone) ? 100 : 70;
 
+  const myAccount = {
+    id: appState.currentUser?.id || "user_real_primary",
+    email: realEmail,
+    full_name: realName,
+    target_exam: realTarget,
+    streak: realStreak,
+    mature_words: realWords,
+    today_progress: missionDonePct,
+    xp: realXP,
+    token: appState.authToken || "",
+    isCurrent: true,
+    isReal: true
+  };
+
   if (!Array.isArray(list) || list.length === 0) {
-    list = [
-      {
-        id: appState.currentUser?.id || "user_me",
-        email: currentEmail,
-        full_name: currentName,
-        target_exam: appState.currentUser?.target_exam || "VSTEP B2 / IELTS 7.0+",
-        streak: currentStreak,
-        mature_words: 345,
-        today_progress: missionDonePct,
-        xp: (currentStreak * 150) + (345 * 20) + Math.round(missionDonePct * 5),
-        token: appState.authToken || "",
-        isCurrent: true
-      },
-      {
-        id: "peer_1",
-        email: "tran.mai@studygroup.vn",
-        full_name: "Trần Thị Mai",
-        target_exam: "VSTEP B2 Chuẩn",
-        streak: Math.max(currentStreak + 2, 16),
-        mature_words: 382,
-        today_progress: 100,
-        xp: ((Math.max(currentStreak + 2, 16)) * 150) + (382 * 20) + 500,
-        token: "",
-        isCurrent: false
-      },
-      {
-        id: "peer_2",
-        email: "le.hoang.dung@studygroup.vn",
-        full_name: "Lê Hoàng Dũng",
-        target_exam: "Speakout B1+ Toàn Diện",
-        streak: Math.max(currentStreak - 1, 12),
-        mature_words: 295,
-        today_progress: 80,
-        xp: ((Math.max(currentStreak - 1, 12)) * 150) + (295 * 20) + 400,
-        token: "",
-        isCurrent: false
-      },
-      {
-        id: "peer_3",
-        email: "minhthu.ielts@studygroup.vn",
-        full_name: "Phạm Minh Thư",
-        target_exam: "IELTS 7.5+",
-        streak: Math.max(currentStreak + 5, 19),
-        mature_words: 420,
-        today_progress: 100,
-        xp: ((Math.max(currentStreak + 5, 19)) * 150) + (420 * 20) + 500,
-        token: "",
-        isCurrent: false
-      }
-    ];
+    list = [myAccount];
     saveSavedAccounts(list);
   } else {
-    // Update active account stats
+    let hasCurrent = false;
     list = list.map(acc => {
-      if (acc.email === currentEmail || acc.isCurrent) {
+      if (acc.email === realEmail || acc.isCurrent) {
+        hasCurrent = true;
         return {
           ...acc,
-          email: currentEmail,
-          full_name: currentName,
-          streak: currentStreak,
+          email: realEmail,
+          full_name: realName,
+          target_exam: realTarget,
+          streak: realStreak,
+          mature_words: realWords,
           today_progress: missionDonePct,
-          xp: (currentStreak * 150) + ((acc.mature_words || 345) * 20) + Math.round(missionDonePct * 5),
-          token: appState.authToken || acc.token,
-          isCurrent: true
+          xp: realXP,
+          token: appState.authToken || acc.token || "",
+          isCurrent: true,
+          isReal: true
         };
       }
       return { ...acc, isCurrent: false };
     });
+
+    if (!hasCurrent) {
+      list.unshift(myAccount);
+    }
     saveSavedAccounts(list);
   }
+
   return list;
 }
 
 function saveSavedAccounts(list) {
   try {
-    localStorage.setItem(STORAGE_KEY_SAVED_ACCOUNTS, JSON.stringify(list));
+    localStorage.setItem(STORAGE_KEY_SAVED_ACCOUNTS_V2, JSON.stringify(list));
   } catch (e) {}
+}
+
+// Chỉnh sửa tên, email và mục tiêu của tài khoản thực hiện tại
+function editCurrentAccountProfile() {
+  const curName = localStorage.getItem("EMH_USER_REAL_NAME") || "Tô Nguyễn Vũ";
+  const curEmail = localStorage.getItem("EMH_USER_REAL_EMAIL") || "tonguyenvu@265.com";
+  const curTarget = localStorage.getItem("EMH_USER_REAL_TARGET") || "IELTS 7.5+";
+
+  const newName = prompt("Nhập Tên Học Viên Thực của bạn:", curName);
+  if (newName === null) return;
+  const cleanName = newName.trim();
+  if (!cleanName) return;
+
+  const newEmail = prompt("Nhập Email Thực của bạn:", curEmail);
+  if (newEmail === null) return;
+  const cleanEmail = newEmail.trim() || curEmail;
+
+  const newTarget = prompt("Nhập Mục Tiêu Thi (VD: IELTS 7.5+, VSTEP B2, C1...):", curTarget);
+  const cleanTarget = (newTarget && newTarget.trim()) || curTarget;
+
+  localStorage.setItem("EMH_USER_REAL_NAME", cleanName);
+  localStorage.setItem("EMH_USER_REAL_EMAIL", cleanEmail);
+  localStorage.setItem("EMH_USER_REAL_TARGET", cleanTarget);
+
+  if (appState.currentUser) {
+    appState.currentUser.full_name = cleanName;
+    appState.currentUser.email = cleanEmail;
+    appState.currentUser.target_exam = cleanTarget;
+  }
+
+  getSavedAccounts();
+  renderSavedAccounts();
+  renderProfileAccountsCompetition();
+  renderLeaderboard();
+  renderHomeLeaderboardPreview();
+  if (typeof updateAuthUI === "function") updateAuthUI();
+
+  showToast(`✅ Đã cập nhật hồ sơ thực: ${cleanName} (${cleanEmail})!`, "success");
+}
+
+// Xóa tài khoản phụ khỏi danh sách thi đua
+function deleteSavedAccount(email) {
+  let list = getSavedAccounts();
+  const acc = list.find(a => a.email === email);
+  if (!acc) return;
+  if (acc.isCurrent) {
+    alert("Không thể xóa tài khoản bạn đang đăng nhập học. Hãy chuyển sang tài khoản khác trước khi xóa!");
+    return;
+  }
+  if (!confirm(`Bạn có chắc muốn xóa tài khoản thực "${acc.full_name}" khỏi danh sách thi đua?`)) {
+    return;
+  }
+  list = list.filter(a => a.email !== email);
+  saveSavedAccounts(list);
+  renderSavedAccounts();
+  renderProfileAccountsCompetition();
+  renderLeaderboard();
+  renderHomeLeaderboardPreview();
+  showToast(`🗑️ Đã xóa tài khoản "${acc.full_name}" khỏi danh sách thi đua.`, "info");
 }
 
 function initMultiAccountAndLeaderboard() {
@@ -10618,46 +10685,57 @@ function renderLeaderboard() {
     accounts.sort((a, b) => (b.xp || 0) - (a.xp || 0));
   }
 
-  // 1. Render Top 3 Podium
-  if (podium && accounts.length >= 3) {
+  // 1. Render Podium (Hỗ trợ cả khi có 1, 2 hoặc 3+ tài khoản thực)
+  if (podium && accounts.length > 0) {
     const first = accounts[0];
-    const second = accounts[1];
-    const third = accounts[2];
+    const second = accounts.length > 1 ? accounts[1] : null;
+    const third = accounts.length > 2 ? accounts[2] : null;
 
-    podium.innerHTML = `
-      <!-- Rank 2: Silver -->
-      <div class="flex flex-col items-center">
-        <span class="text-xs font-bold text-slate-300">🥈 Hạng 2</span>
-        <div class="w-12 h-12 rounded-full bg-slate-700/80 border-2 border-slate-400 flex items-center justify-center font-bold text-white text-sm my-1 shadow">
-          ${(second.full_name || 'U').charAt(0)}
+    let podiumHtml = `<div class="grid grid-cols-${Math.min(3, Math.max(1, accounts.length))} gap-3 items-end w-full">`;
+
+    if (second) {
+      podiumHtml += `
+        <div class="flex flex-col items-center">
+          <span class="text-xs font-bold text-slate-300">🥈 Hạng 2</span>
+          <div class="w-12 h-12 rounded-full bg-slate-700/80 border-2 border-slate-400 flex items-center justify-center font-bold text-white text-sm my-1 shadow">
+            ${(second.full_name || 'U').charAt(0)}
+          </div>
+          <div class="text-[11px] font-bold text-white truncate max-w-[85px]">${second.full_name}</div>
+          <div class="text-[10px] text-slate-400 font-mono">${second.streak} ngày 🔥 • ${second.xp} XP</div>
+          <div class="w-full h-16 bg-gradient-to-t from-slate-800 to-slate-700/60 rounded-t-xl mt-1 flex items-center justify-center text-xs font-bold text-slate-300">2nd</div>
         </div>
-        <div class="text-[11px] font-bold text-white truncate max-w-[85px]">${second.full_name}</div>
-        <div class="text-[10px] text-slate-400 font-mono">${second.streak} ngày 🔥</div>
-        <div class="w-full h-16 bg-gradient-to-t from-slate-800 to-slate-700/60 rounded-t-xl mt-1 flex items-center justify-center text-xs font-bold text-slate-300">2nd</div>
-      </div>
+      `;
+    }
 
-      <!-- Rank 1: Gold -->
-      <div class="flex flex-col items-center -mt-3">
+    // First place
+    podiumHtml += `
+      <div class="flex flex-col items-center">
         <span class="text-sm font-black text-amber-300 flex items-center gap-1">👑 🥇 Top 1</span>
         <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-300 border-2 border-yellow-200 flex items-center justify-center font-black text-slate-950 text-base my-1 shadow-lg shadow-amber-500/30">
           ${(first.full_name || 'U').charAt(0)}
         </div>
-        <div class="text-xs font-extrabold text-amber-200 truncate max-w-[95px]">${first.full_name}</div>
+        <div class="text-xs font-extrabold text-amber-200 truncate max-w-[120px]">${first.full_name}</div>
         <div class="text-[10px] text-amber-300 font-bold font-mono">${first.streak} ngày 🔥 • ${first.xp} XP</div>
-        <div class="w-full h-24 bg-gradient-to-t from-amber-950/80 via-amber-800/60 to-yellow-600/70 rounded-t-xl mt-1 border-t-2 border-amber-400 flex items-center justify-center text-sm font-black text-amber-200">1st</div>
-      </div>
-
-      <!-- Rank 3: Bronze -->
-      <div class="flex flex-col items-center">
-        <span class="text-xs font-bold text-amber-600">🥉 Hạng 3</span>
-        <div class="w-12 h-12 rounded-full bg-amber-950/80 border-2 border-amber-700 flex items-center justify-center font-bold text-amber-200 text-sm my-1 shadow">
-          ${(third.full_name || 'U').charAt(0)}
-        </div>
-        <div class="text-[11px] font-bold text-white truncate max-w-[85px]">${third.full_name}</div>
-        <div class="text-[10px] text-slate-400 font-mono">${third.streak} ngày 🔥</div>
-        <div class="w-full h-12 bg-gradient-to-t from-slate-900 to-amber-950/60 rounded-t-xl mt-1 flex items-center justify-center text-xs font-bold text-amber-400">3rd</div>
+        <div class="w-full h-24 bg-gradient-to-t from-amber-950/80 via-amber-800/60 to-yellow-600/70 rounded-t-xl mt-1 border-t-2 border-amber-400 flex items-center justify-center text-sm font-black text-amber-200">1st (Quán Quân)</div>
       </div>
     `;
+
+    if (third) {
+      podiumHtml += `
+        <div class="flex flex-col items-center">
+          <span class="text-xs font-bold text-amber-600">🥉 Hạng 3</span>
+          <div class="w-12 h-12 rounded-full bg-amber-950/80 border-2 border-amber-700 flex items-center justify-center font-bold text-amber-200 text-sm my-1 shadow">
+            ${(third.full_name || 'U').charAt(0)}
+          </div>
+          <div class="text-[11px] font-bold text-white truncate max-w-[85px]">${third.full_name}</div>
+          <div class="text-[10px] text-slate-400 font-mono">${third.streak} ngày 🔥 • ${third.xp} XP</div>
+          <div class="w-full h-12 bg-gradient-to-t from-slate-900 to-amber-950/60 rounded-t-xl mt-1 flex items-center justify-center text-xs font-bold text-amber-400">3rd</div>
+        </div>
+      `;
+    }
+
+    podiumHtml += `</div>`;
+    podium.innerHTML = podiumHtml;
   }
 
   // 2. Render Full List
@@ -10754,7 +10832,7 @@ function renderSavedAccounts() {
   if (!container) return;
 
   const accounts = getSavedAccounts();
-  if (countBadge) countBadge.innerText = `${accounts.length} học viên`;
+  if (countBadge) countBadge.innerText = `${accounts.length} tài khoản thực`;
 
   const activeAcc = accounts.find(a => a.isCurrent) || accounts[0];
   if (headerName && activeAcc) {
@@ -10762,20 +10840,21 @@ function renderSavedAccounts() {
   }
 
   let html = "";
-  accounts.forEach(acc => {
+  accounts.forEach((acc, idx) => {
     const isMe = !!acc.isCurrent;
-    const border = isMe ? "border-indigo-500 bg-indigo-950/40" : "border-slate-800 bg-slate-900/60 hover:bg-slate-800/80";
+    const border = isMe ? "border-amber-500 bg-amber-950/30 shadow-md ring-1 ring-amber-500/50" : "border-slate-800 bg-slate-900/60 hover:bg-slate-800/80";
 
     html += `
       <div class="p-3.5 rounded-xl border ${border} flex items-center justify-between gap-3 transition">
         <div class="flex items-center gap-3 min-w-0">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 flex items-center justify-center font-bold text-white text-sm shrink-0 shadow">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-500 flex items-center justify-center font-bold text-white text-sm shrink-0 shadow">
             ${(acc.full_name || 'U').charAt(0)}
           </div>
           <div class="min-w-0">
             <div class="flex items-center gap-1.5 flex-wrap">
               <span class="font-bold text-white text-xs sm:text-sm truncate">${acc.full_name}</span>
-              ${isMe ? '<span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-[10px] border border-emerald-500/30">Đang học</span>' : ''}
+              ${isMe ? '<span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-[10px] border border-emerald-500/30">★ Đang học</span>' : ''}
+              <span class="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-amber-300 font-mono font-bold">${acc.xp || 0} XP</span>
             </div>
             <p class="text-xs text-slate-400 truncate">${acc.email} • <span class="text-cyan-300">${acc.target_exam}</span></p>
             <div class="text-[11px] text-slate-500 font-mono mt-0.5">Streak: ${acc.streak} ngày 🔥 • Từ thuộc: ${acc.mature_words || 0}</div>
@@ -10784,12 +10863,16 @@ function renderSavedAccounts() {
 
         <div class="flex items-center gap-2 shrink-0">
           ${isMe ? `
-            <span class="text-xs text-emerald-400 font-bold flex items-center gap-1">
-              <i data-lucide="check" class="w-4 h-4"></i> Hiện tại
-            </span>
+            <button onclick="editCurrentAccountProfile()" class="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/40 text-xs font-bold transition flex items-center gap-1" title="Chỉnh sửa tên và email thực của bạn">
+              <i data-lucide="edit-2" class="w-3.5 h-3.5"></i>
+              <span>Sửa</span>
+            </button>
           ` : `
             <button onclick="switchAccount('${acc.email}')" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition shadow-sm active:scale-95">
-              Chuyển Ngay
+              Chuyển
+            </button>
+            <button onclick="deleteSavedAccount('${acc.email}')" class="p-1.5 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 transition" title="Xóa tài khoản này">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
             </button>
           `}
         </div>
@@ -11240,12 +11323,25 @@ function renderProfileAccountsCompetition() {
   const banStatus = getStreakBanStatus();
 
   let html = "";
+  if (accounts.length === 1) {
+    html += `
+      <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-300 flex items-center justify-between gap-2 mb-2">
+        <span class="flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+          <span>Bạn đang là học viên thực tế duy nhất dẫn đầu bảng thi đua. Bấm <strong>'+ Thêm Học Viên'</strong> để bạn bè/người thân cùng học và đua top!</span>
+        </span>
+        <button onclick="openMultiAccountModal()" class="px-2.5 py-1 rounded-lg bg-amber-500 text-slate-950 font-bold text-[11px] shrink-0">
+          + Thêm Tài Khoản
+        </button>
+      </div>
+    `;
+  }
+
   accounts.forEach((acc, idx) => {
     const isMe = !!acc.isCurrent;
     const rank = idx + 1;
     let rankBadge = "";
     let borderClass = "";
-    let bgGlow = "";
 
     if (rank === 1) {
       rankBadge = `<span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-300 text-slate-950 font-black text-sm flex items-center justify-center shadow-lg shadow-amber-500/40">🥇 1</span>`;
@@ -11273,7 +11369,7 @@ function renderProfileAccountsCompetition() {
           <div class="min-w-0 space-y-0.5">
             <div class="flex items-center gap-2 flex-wrap">
               <span class="font-extrabold text-white text-sm sm:text-base">${acc.full_name}</span>
-              ${isMe ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-black text-[10px] border border-emerald-500/40">★ ĐANG DÙNG</span>' : ''}
+              ${isMe ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-black text-[10px] border border-emerald-500/40">★ TÀI KHOẢN CỦA BẠN</span>' : '<span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-semibold text-[10px] border border-slate-700">Học viên thực tế</span>'}
               ${isThisAccBanned ? '<span class="px-2.5 py-0.5 rounded-full bg-rose-500/30 text-rose-300 font-extrabold text-[10px] border border-rose-500/50 flex items-center gap-1 animate-pulse"><i data-lucide="lock" class="w-3 h-3"></i> Bị Ban 1 tiếng (Mất Chuỗi)</span>' : ''}
               ${rank === 1 && !isThisAccBanned ? '<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[10px] border border-amber-500/40">👑 Quán Quân</span>' : ''}
             </div>
@@ -11295,27 +11391,31 @@ function renderProfileAccountsCompetition() {
             </div>
             <div>
               <div class="text-xs font-bold text-emerald-400 flex items-center justify-center gap-1">
-                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> ${acc.mature_words || 345} từ
+                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> ${acc.mature_words || 20} từ
               </div>
               <div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Đã thuộc</div>
             </div>
             <div>
               <div class="text-xs font-black text-indigo-300 flex items-center justify-center gap-1 font-mono">
-                <i data-lucide="zap" class="w-3.5 h-3.5 fill-indigo-400 text-indigo-400"></i> ${acc.xp || 1200}
+                <i data-lucide="zap" class="w-3.5 h-3.5 fill-indigo-400 text-indigo-400"></i> ${acc.xp || 200}
               </div>
               <div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Điểm XP</div>
             </div>
           </div>
 
-          <div class="shrink-0">
+          <div class="flex items-center gap-2 shrink-0">
             ${isMe ? `
-              <span class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-400 text-xs font-bold border border-slate-700 flex items-center gap-1">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Hiện tại
-              </span>
+              <button onclick="editCurrentAccountProfile()" class="px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-bold transition flex items-center gap-1" title="Đổi tên và email thực của bạn">
+                <i data-lucide="edit-2" class="w-3.5 h-3.5"></i>
+                <span>Sửa Tên / Email</span>
+              </button>
             ` : `
               <button onclick="switchAccount('${acc.email}')" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-xs transition shadow-md shadow-indigo-600/30 active:scale-95 flex items-center gap-1.5">
                 <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
                 <span>Chuyển Sang Học</span>
+              </button>
+              <button onclick="deleteSavedAccount('${acc.email}')" class="p-1.5 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 transition" title="Xóa tài khoản này">
+                <i data-lucide="trash-2" class="w-4 h-4"></i>
               </button>
             `}
           </div>

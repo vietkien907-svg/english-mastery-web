@@ -82,6 +82,8 @@ let appState = {
 
 // ================= INITIALIZATION =================
 window.addEventListener("DOMContentLoaded", async () => {
+  const initialBan = (typeof getStreakBanStatus === 'function') ? getStreakBanStatus() : { isBanned: false };
+  if (initialBan.isBanned && typeof showBanOverlay === 'function') showBanOverlay();
   // 1. Khởi tạo và nạp tiến độ Lộ trình đầu tiên (đảm bảo giữ nguyên tiến độ 100% khi F5)
   initDailyMissionEngine();
   setupUnitSelectors();
@@ -385,6 +387,17 @@ async function logoutUser() {
 
 // ================= TAB NAVIGATION =================
 function switchTab(tabId) {
+  // Kiểm tra lệnh cấm: Nếu tài khoản đang bị ban 1 tiếng do mất chuỗi, ngăn truy cập các khu vực học tập
+  const banStatus = (typeof getStreakBanStatus === "function") ? getStreakBanStatus() : { isBanned: false };
+  if (banStatus.isBanned && ["flashcard", "reader", "reading", "grammar", "listening", "review"].includes(tabId)) {
+    if (typeof showBanOverlay === "function") showBanOverlay();
+    if (typeof showToast === "function") {
+      const minsLeft = Math.ceil(banStatus.remainingMs / 60000);
+      showToast(`🚨 Tài khoản đang bị phạt tạm khóa 1 tiếng do mất chuỗi Streak! Còn lại ${minsLeft} phút.`, "error");
+    }
+    return;
+  }
+
   if (tabId === "cinema") tabId = "video";
   if (tabId === "reading") tabId = "reader";
   if (tabId === "film" || tabId === "phim" || tabId === "movie" || tabId === "movies") tabId = "cinema";
@@ -5902,6 +5915,7 @@ function checkQuizAnswer(qIdx, selectedIdx, correctIdx, wordId) {
 
 // ================= PROFILE & ANALYTICS =================
 async function loadProfileAnalytics() {
+  if (typeof renderProfileAccountsCompetition === 'function') renderProfileAccountsCompetition();
   const streakVal = localStorage.getItem("EMH_STREAK") || (appState.currentUser?.streak_count || 1);
   const profileStreakEl = document.getElementById("statStreakDisplay");
   if (profileStreakEl) profileStreakEl.innerText = `${streakVal} ngày 🔥`;
@@ -11043,4 +11057,273 @@ function updateDailyIdiomsUI() {
     countBadge.innerText = `${topic.totalItems} Cụm Đầy Đủ`;
   }
   populateIdiomsTopicSelector();
+}
+
+// ============================================================================
+// STREAK LOSS BAN ENGINE: BAN 1 TIẾNG KHI MẤT CHUỖI STREAK & KỶ LUẬT THI ĐUA
+// ============================================================================
+const STORAGE_KEY_BAN_UNTIL = "EMH_STREAK_BAN_UNTIL";
+const STORAGE_KEY_BAN_REASON = "EMH_STREAK_BAN_REASON";
+const STORAGE_KEY_BAN_ACCOUNT_EMAIL = "EMH_STREAK_BAN_ACCOUNT_EMAIL";
+
+let banIntervalTimer = null;
+let currentProfileCompetitionFilter = "all"; // 'all' (XP), 'streak', 'vocab'
+
+function getStreakBanStatus() {
+  const banUntil = parseInt(localStorage.getItem(STORAGE_KEY_BAN_UNTIL) || "0", 10);
+  const now = Date.now();
+  const remainingMs = Math.max(0, banUntil - now);
+  const isBanned = remainingMs > 0;
+  const reason = localStorage.getItem(STORAGE_KEY_BAN_REASON) || "Làm mất chuỗi ngày học liên tục (Streak)";
+  const bannedEmail = localStorage.getItem(STORAGE_KEY_BAN_ACCOUNT_EMAIL) || "";
+  return { isBanned, remainingMs, reason, banUntil, bannedEmail };
+}
+
+function applyStreakLossBan(reason = "Làm mất chuỗi ngày học liên tục (Streak)") {
+  const oneHourMs = 60 * 60 * 1000; // 1 tiếng = 3600 giây
+  const banUntil = Date.now() + oneHourMs;
+  const curEmail = appState.currentUser?.email || "hocvien.chinh@emh.edu.vn";
+
+  localStorage.setItem(STORAGE_KEY_BAN_UNTIL, String(banUntil));
+  localStorage.setItem(STORAGE_KEY_BAN_REASON, reason);
+  localStorage.setItem(STORAGE_KEY_BAN_ACCOUNT_EMAIL, curEmail);
+
+  // Cập nhật chuỗi Streak về 0
+  let data = (typeof getDeadlineStreakData === "function") ? getDeadlineStreakData() : { streakDays: 0, lastCompletedDate: "" };
+  data.streakDays = 0;
+  localStorage.setItem("EMH_DEADLINE_STREAK_V2", JSON.stringify(data));
+  localStorage.setItem("EMH_STREAK", "0");
+
+  // Cập nhật trạng thái trong danh sách tài khoản
+  let list = getSavedAccounts();
+  list = list.map(a => {
+    if (a.email === curEmail || a.isCurrent) {
+      return { ...a, streak: 0, isBanned: true, banUntil: banUntil };
+    }
+    return a;
+  });
+  saveSavedAccounts(list);
+
+  showBanOverlay();
+  renderAllStreakUI(0, false);
+  renderSavedAccounts();
+  renderProfileAccountsCompetition();
+  renderLeaderboard();
+  renderHomeLeaderboardPreview();
+
+  if (typeof showToast === "function") {
+    showToast(`🚨 BỊ PHẠT BAN 1 TIẾNG: ${reason}`, "error");
+  }
+}
+
+function removeStreakLossBan() {
+  localStorage.removeItem(STORAGE_KEY_BAN_UNTIL);
+  localStorage.removeItem(STORAGE_KEY_BAN_REASON);
+  localStorage.removeItem(STORAGE_KEY_BAN_ACCOUNT_EMAIL);
+
+  if (banIntervalTimer) {
+    clearInterval(banIntervalTimer);
+    banIntervalTimer = null;
+  }
+
+  // Gỡ cờ ban trong tài khoản
+  let list = getSavedAccounts();
+  const curEmail = appState.currentUser?.email || "";
+  list = list.map(a => {
+    if (a.email === curEmail || a.isCurrent) {
+      return { ...a, isBanned: false, banUntil: 0 };
+    }
+    return a;
+  });
+  saveSavedAccounts(list);
+
+  hideBanOverlay();
+  renderSavedAccounts();
+  renderProfileAccountsCompetition();
+  renderLeaderboard();
+
+  if (typeof showToast === "function") {
+    showToast("🎉 Tài khoản đã được gỡ phạt! Hãy hoàn thành bài học để xây dựng lại chuỗi Streak mới.", "success");
+  }
+}
+
+function simulateStreakLossBan() {
+  applyStreakLossBan("Giả lập vi phạm: Bỏ lỡ deadline học tập dẫn đến mất chuỗi Streak (Thử nghiệm kỷ luật ban 1 tiếng)");
+}
+
+function showBanOverlay() {
+  const modal = document.getElementById("banLockoutModal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+
+  const st = getStreakBanStatus();
+  const reasonEl = document.getElementById("banReasonText");
+  if (reasonEl) {
+    reasonEl.innerText = `${st.reason}. Theo quy chế thi đua nghiêm khắc, tài khoản bị tạm khóa 1 tiếng để rèn luyện tính kỷ luật!`;
+  }
+
+  startBanTimerInterval();
+  if (window.lucide) lucide.createIcons();
+}
+
+function hideBanOverlay() {
+  const modal = document.getElementById("banLockoutModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function startBanTimerInterval() {
+  if (banIntervalTimer) clearInterval(banIntervalTimer);
+
+  const updateTimerUI = () => {
+    const st = getStreakBanStatus();
+    if (!st.isBanned) {
+      removeStreakLossBan();
+      return;
+    }
+
+    const totalSecs = Math.floor(st.remainingMs / 1000);
+    const mins = Math.floor(totalSecs / 60);
+    const secs = totalSecs % 60;
+    const pad = (n) => String(n).padStart(2, "0");
+
+    const timerEl = document.getElementById("banCountdownTimerDisplay");
+    if (timerEl) {
+      timerEl.innerText = `${pad(mins)}m ${pad(secs)}s`;
+    }
+
+    const progBar = document.getElementById("banProgressBar");
+    if (progBar) {
+      const pct = Math.max(0, Math.min(100, (st.remainingMs / (3600 * 1000)) * 100));
+      progBar.style.width = `${pct}%`;
+    }
+  };
+
+  updateTimerUI();
+  banIntervalTimer = setInterval(updateTimerUI, 1000);
+}
+
+// ============================================================================
+// HIỂN THỊ TẤT CẢ TÀI KHOẢN ĐANG SỬ DỤNG ĐỂ XẾP LOẠI THI ĐUA (PROFILE TAB)
+// ============================================================================
+function filterProfileCompetitionMode(mode) {
+  currentProfileCompetitionFilter = mode;
+  ["all", "streak", "vocab"].forEach(m => {
+    const btn = document.getElementById(`p-comp-tab-${m}`);
+    if (btn) {
+      if (m === mode) {
+        btn.className = "px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-black text-xs shadow-md transition";
+      } else {
+        btn.className = "px-3 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white font-semibold text-xs transition";
+      }
+    }
+  });
+  renderProfileAccountsCompetition();
+}
+
+function renderProfileAccountsCompetition() {
+  const container = document.getElementById("profileAccountsListContainer");
+  const countBadge = document.getElementById("profileAccountsCountBadge");
+  if (!container) return;
+
+  const accounts = [...getSavedAccounts()];
+  if (countBadge) countBadge.innerText = `${accounts.length} Học Viên Đang Đua Top`;
+
+  // Sắp xếp xếp hạng theo chế độ
+  if (currentProfileCompetitionFilter === "streak") {
+    accounts.sort((a, b) => (b.streak || 0) - (a.streak || 0));
+  } else if (currentProfileCompetitionFilter === "vocab") {
+    accounts.sort((a, b) => (b.mature_words || 0) - (a.mature_words || 0));
+  } else {
+    accounts.sort((a, b) => (b.xp || 0) - (a.xp || 0));
+  }
+
+  const banStatus = getStreakBanStatus();
+
+  let html = "";
+  accounts.forEach((acc, idx) => {
+    const isMe = !!acc.isCurrent;
+    const rank = idx + 1;
+    let rankBadge = "";
+    let borderClass = "";
+    let bgGlow = "";
+
+    if (rank === 1) {
+      rankBadge = `<span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-300 text-slate-950 font-black text-sm flex items-center justify-center shadow-lg shadow-amber-500/40">🥇 1</span>`;
+      borderClass = isMe ? "border-amber-400 ring-2 ring-amber-400/50 bg-gradient-to-r from-amber-950/40 via-slate-900 to-slate-900" : "border-amber-500/40 bg-slate-900/90";
+    } else if (rank === 2) {
+      rankBadge = `<span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-slate-300 to-slate-100 text-slate-950 font-black text-sm flex items-center justify-center shadow">🥈 2</span>`;
+      borderClass = isMe ? "border-indigo-400 ring-2 ring-indigo-400/50 bg-indigo-950/30" : "border-slate-800 bg-slate-900/80";
+    } else if (rank === 3) {
+      rankBadge = `<span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-700 to-orange-400 text-white font-black text-sm flex items-center justify-center shadow">🥉 3</span>`;
+      borderClass = isMe ? "border-indigo-400 ring-2 ring-indigo-400/50 bg-indigo-950/30" : "border-slate-800 bg-slate-900/80";
+    } else {
+      rankBadge = `<span class="w-8 h-8 rounded-xl bg-slate-800 border border-slate-700 text-slate-400 font-bold text-xs flex items-center justify-center font-mono">#${rank}</span>`;
+      borderClass = isMe ? "border-indigo-500 bg-indigo-950/30" : "border-slate-800/80 bg-slate-900/60";
+    }
+
+    const isThisAccBanned = (isMe && banStatus.isBanned) || (acc.isBanned && (acc.banUntil || 0) > Date.now());
+
+    html += `
+      <div class="p-4 rounded-2xl border ${borderClass} flex flex-col md:flex-row md:items-center justify-between gap-3 transition hover:border-slate-600 shadow-sm">
+        <div class="flex items-center gap-3.5 min-w-0">
+          ${rankBadge}
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-500 flex items-center justify-center font-black text-white text-base shrink-0 shadow-md">
+            ${(acc.full_name || 'U').charAt(0).toUpperCase()}
+          </div>
+          <div class="min-w-0 space-y-0.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-extrabold text-white text-sm sm:text-base">${acc.full_name}</span>
+              ${isMe ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-black text-[10px] border border-emerald-500/40">★ ĐANG DÙNG</span>' : ''}
+              ${isThisAccBanned ? '<span class="px-2.5 py-0.5 rounded-full bg-rose-500/30 text-rose-300 font-extrabold text-[10px] border border-rose-500/50 flex items-center gap-1 animate-pulse"><i data-lucide="lock" class="w-3 h-3"></i> Bị Ban 1 tiếng (Mất Chuỗi)</span>' : ''}
+              ${rank === 1 && !isThisAccBanned ? '<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[10px] border border-amber-500/40">👑 Quán Quân</span>' : ''}
+            </div>
+            <div class="text-xs text-slate-400 flex items-center gap-2 flex-wrap">
+              <span class="font-mono text-slate-300">${acc.email}</span>
+              <span>•</span>
+              <span class="px-2 py-0.5 rounded-md bg-slate-800 text-cyan-300 font-semibold border border-slate-700 text-[11px]">${acc.target_exam || 'IELTS'}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between md:justify-end gap-4 border-t md:border-t-0 border-slate-800/80 pt-2.5 md:pt-0">
+          <div class="flex items-center gap-4 text-center shrink-0">
+            <div>
+              <div class="text-xs font-bold text-amber-400 flex items-center justify-center gap-1">
+                <i data-lucide="flame" class="w-3.5 h-3.5 fill-amber-400"></i> ${acc.streak} ngày
+              </div>
+              <div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Streak</div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-emerald-400 flex items-center justify-center gap-1">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> ${acc.mature_words || 345} từ
+              </div>
+              <div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Đã thuộc</div>
+            </div>
+            <div>
+              <div class="text-xs font-black text-indigo-300 flex items-center justify-center gap-1 font-mono">
+                <i data-lucide="zap" class="w-3.5 h-3.5 fill-indigo-400 text-indigo-400"></i> ${acc.xp || 1200}
+              </div>
+              <div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Điểm XP</div>
+            </div>
+          </div>
+
+          <div class="shrink-0">
+            ${isMe ? `
+              <span class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-400 text-xs font-bold border border-slate-700 flex items-center gap-1">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Hiện tại
+              </span>
+            ` : `
+              <button onclick="switchAccount('${acc.email}')" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-xs transition shadow-md shadow-indigo-600/30 active:scale-95 flex items-center gap-1.5">
+                <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
+                <span>Chuyển Sang Học</span>
+              </button>
+            `}
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
 }

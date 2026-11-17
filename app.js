@@ -2897,7 +2897,13 @@ function renderFlashcard() {
   document.getElementById("cardWord").innerText = curWord.word;
   const pronEl = document.getElementById("cardPron");
   if (pronEl) {
-    pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[11px] border border-blue-500/30 mr-1.5 align-middle">🇺🇸 US</span>${formatPronHtml(curWord.pron)}`;
+    const customMap = (typeof getCustomPronunciationMap === "function") ? getCustomPronunciationMap() : {};
+    const userPron = (curWord.word && customMap[curWord.word.toLowerCase()]) || curWord.custom_pron;
+    if (userPron) {
+      pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[11px] border border-emerald-500/30 mr-1.5 align-middle">✨ Tự nhập</span>${formatPronHtml(userPron)}`;
+    } else {
+      pronEl.innerHTML = `<span class="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[11px] border border-blue-500/30 mr-1.5 align-middle">🇺🇸 US</span>${formatPronHtml(curWord.pron)}`;
+    }
   }
   const cambridgeLink = document.getElementById("cardCambridgeLink");
   if (cambridgeLink) {
@@ -5465,16 +5471,7 @@ async function showWordPopup(wordText, context) {
 
 let activePopupAudioUrl = "";
 
-function speakPopupWord() {
-  if (activePopupAudioUrl) {
-    try {
-      const audio = new Audio(activePopupAudioUrl);
-      audio.play().catch(() => speakText(activePopupWord));
-      return;
-    } catch (e) {}
-  }
-  speakText(activePopupWord);
-}
+
 
 function closeWordPopup() {
   document.getElementById("wordPopupModal").classList.add("hidden");
@@ -5612,8 +5609,13 @@ function closeAddWordModal() {
 }
 
 function speakModalWord() {
-  const word = document.getElementById("newWordInput")?.value.trim();
-  if (word) {
+  const word = (document.getElementById("newWordInput")?.value || "").trim();
+  const pron = (document.getElementById("newWordPron")?.value || "").trim();
+  if (!word && !pron) return;
+  // Phát âm theo đúng nội dung người dùng tự nhập trong ô phiên âm/phát âm
+  if (typeof speakTextWithCustomPron === "function") {
+    speakTextWithCustomPron(word, pron);
+  } else {
     speakWord(word);
   }
 }
@@ -5745,6 +5747,11 @@ async function submitNewWordToDay() {
     day_number: curDayNumber,
     created_at: new Date().toISOString()
   };
+
+  // Lưu phát âm người dùng tự nhập vào Custom Pronunciation Map
+  if (pron && typeof saveCustomPronunciation === "function") {
+    saveCustomPronunciation(word, pron);
+  }
 
   // 1. Save to persistent custom storage
   const newItem = saveCustomWordItem(payload);
@@ -6074,8 +6081,9 @@ function speakCurrentWord() {
   const words = getCurrentDayWords();
   if (words && words[appState.currentCardIndex]) {
     const curWord = words[appState.currentCardIndex];
-    // Đọc trọn vẹn từ/cụm từ/thành ngữ không bị cắt xén
-    speakText(curWord.word);
+    const customMap = (typeof getCustomPronunciationMap === "function") ? getCustomPronunciationMap() : {};
+    const userPron = (curWord.word && customMap[curWord.word.toLowerCase()]) || curWord.custom_pron || curWord.pron || "";
+    speakTextWithCustomPron(curWord.word, userPron, curWord.audioUrl);
   }
 }
 
@@ -6124,7 +6132,13 @@ function speakFlashcardFull() {
 // BỘ PHÁT ÂM TIẾNG ANH CHUẨN US ĐA TẦNG (FULL CARD & NATIVE SPEECH)
 function speakWord(text, audioUrl) {
   if (!text) return;
-  speakText(text, audioUrl);
+  const customMap = (typeof getCustomPronunciationMap === "function") ? getCustomPronunciationMap() : {};
+  const userPron = customMap[text.trim().toLowerCase()] || "";
+  if (userPron) {
+    speakTextWithCustomPron(text, userPron, audioUrl);
+  } else {
+    speakText(text, audioUrl);
+  }
 }
 
 function speakText(text, audioUrl) {
@@ -6238,7 +6252,7 @@ function findBestVoiceForAccent(accentKey, speakerGender = "any") {
   return voices.find(v => v.lang.startsWith("en")) || voices[0] || null;
 }
 
-function speakWithSynthesis(text) {
+function speakWithSynthesis(text, langOverride) {
   if (!("speechSynthesis" in window) || !text) return;
   try {
     if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
@@ -6251,18 +6265,25 @@ function speakWithSynthesis(text) {
     const speechText = text.replace(/\s*\/\s*/g, ", or ");
     const u = new SpeechSynthesisUtterance(speechText);
 
-    const chosenAccent = getIELTSSpeechAccent();
-    let accentToUse = chosenAccent;
-    if (chosenAccent === "auto_ielts") {
-      accentToUse = (Math.random() < 0.6) ? "british" : "australian";
-    }
-
-    const voice = findBestVoiceForAccent(accentToUse);
-    if (voice) {
-      u.voice = voice;
-      u.lang = voice.lang;
+    if (langOverride) {
+      u.lang = langOverride;
+      const voices = getAvailableVoices();
+      const matchVoice = voices.find(v => v.lang.startsWith(langOverride.split("-")[0]));
+      if (matchVoice) u.voice = matchVoice;
     } else {
-      u.lang = (accentToUse === "british") ? "en-GB" : (accentToUse === "australian" ? "en-AU" : "en-US");
+      const chosenAccent = getIELTSSpeechAccent();
+      let accentToUse = chosenAccent;
+      if (chosenAccent === "auto_ielts") {
+        accentToUse = (Math.random() < 0.6) ? "british" : "australian";
+      }
+
+      const voice = findBestVoiceForAccent(accentToUse);
+      if (voice) {
+        u.voice = voice;
+        u.lang = voice.lang;
+      } else {
+        u.lang = (accentToUse === "british") ? "en-GB" : (accentToUse === "australian" ? "en-AU" : "en-US");
+      }
     }
 
     u.rate = 0.92;
@@ -12032,5 +12053,195 @@ Vui lòng nhập mật khẩu tài khoản của bạn để đăng nhập:`);
   } else {
     alert(`❌ MẬT KHẨU KHÔNG CHÍNH XÁC!
 Bạn không thể đổi sang tài khoản của người khác khi không có mật khẩu hợp lệ.`);
+  }
+}
+
+
+// ============================================================================
+// HỆ THỐNG PHÁT ÂM TÙY CHỈNH THEO ĐÚNG NGƯỜI DÙNG TỰ NHẬP (CUSTOM PRONUNCIATION ENGINE)
+// Ưu tiên 100% cách đọc, phiên âm hoặc audio do người dùng tự nhập/chỉnh sửa
+// ============================================================================
+const STORAGE_KEY_CUSTOM_PRON_MAP = "EMH_CUSTOM_PRONUNCIATION_MAP_V1";
+
+function getCustomPronunciationMap() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY_CUSTOM_PRON_MAP) || "{}");
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveCustomPronunciation(word, pron) {
+  if (!word || !pron) return;
+  try {
+    const map = getCustomPronunciationMap();
+    const cleanKey = word.trim().toLowerCase();
+    map[cleanKey] = pron.trim();
+    localStorage.setItem(STORAGE_KEY_CUSTOM_PRON_MAP, JSON.stringify(map));
+  } catch (e) {}
+}
+
+function removeCustomPronunciation(word) {
+  if (!word) return;
+  try {
+    const map = getCustomPronunciationMap();
+    const cleanKey = word.trim().toLowerCase();
+    delete map[cleanKey];
+    localStorage.setItem(STORAGE_KEY_CUSTOM_PRON_MAP, JSON.stringify(map));
+  } catch (e) {}
+}
+
+// Chuyển đổi ký hiệu ngữ âm IPA sang văn bản ngữ âm tự nhiên để Web Speech Synthesis đọc chuẩn xác
+function convertIpaToSpokenText(ipa) {
+  if (!ipa) return "";
+  const trimmed = ipa.trim();
+
+  // 1. Nếu là đường dẫn Audio (URL file mp3, wav, m4a, data:audio)
+  if (/^https?:\/\/|^data:audio|.+\.(mp3|wav|ogg|m4a)$/i.test(trimmed)) {
+    return trimmed;
+  }
+
+  // 2. Nếu người dùng nhập phiên âm tiếng Việt (VD: "rì-di-li-ơn-x")
+  if (/[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i.test(trimmed)) {
+    return trimmed;
+  }
+
+  // 3. Nếu người dùng nhập phiên âm tiếng Anh hoặc IPA
+  let clean = trimmed.replace(/^\/+|\/+$/g, "").replace(/^\[+|\]+$/g, "").trim();
+
+  const ipaReplacements = [
+    ["tʃ", "ch"], ["dʒ", "j"], ["θ", "th"], ["ð", "th"], ["ʃ", "sh"], ["ʒ", "zh"], ["ŋ", "ng"],
+    ["iː", "ee"], ["ɪə", "ear"], ["eə", "air"], ["ʊə", "oor"],
+    ["eɪ", "ay"], ["aɪ", "eye"], ["ɔɪ", "oy"], ["aʊ", "ow"], ["oʊ", "oh"], ["əʊ", "oh"],
+    ["ɑː", "ah"], ["ɔː", "aw"], ["uː", "oo"], ["ɜː", "er"], ["ɝ", "er"],
+    ["ɪ", "i"], ["e", "e"], ["ɛ", "e"], ["æ", "a"], ["ʌ", "u"], ["ʊ", "oo"],
+    ["ɒ", "o"], ["ɔ", "aw"], ["ə", "uh"], ["ɑ", "ah"]
+  ];
+
+  // Bỏ các ký hiệu trọng âm IPA ˈ, ˌ, dấu chấm ngắt âm .
+  clean = clean.replace(/ˈ/g, "").replace(/ˌ/g, "").replace(/\./g, "");
+
+  for (const [src, dst] of ipaReplacements) {
+    clean = clean.split(src).join(dst);
+  }
+
+  return clean.trim();
+}
+
+// Bộ phát âm thông minh: Ưu tiên 100% phát âm tùy chỉnh người dùng nhập
+function speakTextWithCustomPron(word, customPron, audioUrl) {
+  if (!word && !customPron && !audioUrl) return;
+
+  const rawPron = (customPron || "").trim();
+  const cleanWord = (word || "").trim();
+
+  // 1. ƯU TIÊN 1: Nếu người dùng nhập hoặc có sẵn link file Audio (.mp3, .wav)
+  const isAudioUrl = (url) => /^https?:\/\/|^data:audio|.+\.(mp3|wav|ogg|m4a)$/i.test(url);
+  const targetAudio = isAudioUrl(rawPron) ? rawPron : (isAudioUrl(audioUrl) ? audioUrl : null);
+
+  if (targetAudio) {
+    try {
+      const snd = new Audio(targetAudio);
+      snd.play().then(() => {
+        if (typeof showToast === "function") showToast(`🔊 Đang phát audio: ${cleanWord}`, "info");
+      }).catch(() => {
+        // Fallback sang Speech Synthesis nếu audio lỗi
+        speakWithSynthesis(cleanWord);
+      });
+      return;
+    } catch (e) {}
+  }
+
+  // 2. ƯU TIÊN 2: Người dùng tự nhập phiên âm tiếng Việt (VD: "rì-di-li-ơn-s")
+  if (/[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i.test(rawPron)) {
+    speakWithSynthesis(rawPron, "vi-VN");
+    if (typeof showToast === "function") showToast(`🔊 Phát âm tiếng Việt theo bạn nhập: "${rawPron}"`, "info");
+    return;
+  }
+
+  // 3. ƯU TIÊN 3: Người dùng tự nhập phiên âm tiếng Anh / IPA / Respelling
+  if (rawPron && rawPron !== `/${cleanWord.toLowerCase()}/`) {
+    const spokenText = convertIpaToSpokenText(rawPron);
+    if (spokenText) {
+      speakWithSynthesis(spokenText);
+      if (typeof showToast === "function") showToast(`🔊 Phát âm theo đúng bạn nhập: "${spokenText}"`, "info");
+      return;
+    }
+  }
+
+  // 4. MẶC ĐỊNH: Đọc theo từ tiếng Anh chuẩn
+  speakText(cleanWord, audioUrl);
+}
+
+// Modal chỉnh sửa phát âm tùy chỉnh ngay trên Flashcard
+function editFlashcardPronunciation() {
+  const words = (typeof getCurrentDayWords === "function") ? getCurrentDayWords() : [];
+  if (!words || !words[appState.currentCardIndex]) return;
+  const curWord = words[appState.currentCardIndex];
+
+  const modal = document.getElementById("editPronModal");
+  const wordDisplay = document.getElementById("editPronWordDisplay");
+  const pronInput = document.getElementById("editPronInput");
+
+  if (!modal) return;
+
+  const customMap = getCustomPronunciationMap();
+  const currentPron = customMap[curWord.word.toLowerCase()] || curWord.pron || "";
+
+  if (wordDisplay) wordDisplay.value = curWord.word;
+  if (pronInput) pronInput.value = currentPron;
+
+  modal.classList.remove("hidden");
+  if (pronInput) pronInput.focus();
+  if (window.lucide) lucide.createIcons();
+}
+
+function closeEditPronModal() {
+  const modal = document.getElementById("editPronModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function testModalPronAudio() {
+  const word = document.getElementById("editPronWordDisplay")?.value || "";
+  const pron = document.getElementById("editPronInput")?.value || "";
+  if (!word && !pron) return;
+  speakTextWithCustomPron(word, pron);
+}
+
+function saveFlashcardCustomPron() {
+  const word = (document.getElementById("editPronWordDisplay")?.value || "").trim();
+  const pron = (document.getElementById("editPronInput")?.value || "").trim();
+
+  if (!word || !pron) {
+    alert("Vui lòng nhập cách phát âm cho từ!");
+    return;
+  }
+
+  saveCustomPronunciation(word, pron);
+
+  // Cập nhật từ vựng trong danh sách hiện tại
+  const words = (typeof getCurrentDayWords === "function") ? getCurrentDayWords() : [];
+  if (words && words[appState.currentCardIndex]) {
+    words[appState.currentCardIndex].pron = pron;
+    words[appState.currentCardIndex].custom_pron = pron;
+  }
+
+  closeEditPronModal();
+  if (typeof renderFlashcard === "function") renderFlashcard();
+  if (typeof showToast === "function") showToast(`✅ Đã lưu phát âm mới cho "${word}": ${pron}`, "success");
+
+  // Phát âm thử ngay
+  speakTextWithCustomPron(word, pron);
+}
+
+function resetFlashcardCustomPron() {
+  const word = (document.getElementById("editPronWordDisplay")?.value || "").trim();
+  if (!word) return;
+
+  if (confirm(`Khôi phục cách phát âm mặc định cho từ "${word}"?`)) {
+    removeCustomPronunciation(word);
+    closeEditPronModal();
+    if (typeof renderFlashcard === "function") renderFlashcard();
+    if (typeof showToast === "function") showToast(`Đã khôi phục phát âm mặc định cho "${word}".`, "info");
   }
 }

@@ -126,17 +126,11 @@
         <button onclick="switchTab('flashcard')" id="nav-btn-flashcard" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="layers" class="w-4 h-4"></i> Học Deadline Hôm Nay
         </button>
-        <button onclick="switchTab('listening')" id="nav-btn-listening" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Luyện nghe chuẩn đề thi (HP3, VSTEP, Cambridge, IELTS) - Deadline 2 bài/ngày">
-          <i data-lucide="headphones" class="w-4 h-4 text-cyan-400"></i> 🎧 Luyện Nghe (2 Đề/Ngày)
-        </button>
         <button onclick="switchTab('video')" id="nav-btn-video" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Bản tin truyền hình tiếng Anh Vietnam Today (VTV4) cập nhật hằng ngày">
           <i data-lucide="tv" class="w-4 h-4 text-rose-400"></i> 📺 Vietnam Today (Hằng Ngày)
         </button>
         <button onclick="switchTab('review')" id="nav-btn-review" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="rotate-cw" class="w-4 h-4"></i> Ôn Tập Tự Do (Chọn Unit)
-        </button>
-        <button onclick="switchTab('reader')" id="nav-btn-reader" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Luyện đọc bài thi VSTEP chuẩn và báo song ngữ quốc tế">
-          <i data-lucide="book-open" class="w-4 h-4 text-cyan-400"></i> Đọc & Báo Song Ngữ
         </button>
         <button onclick="switchTab('conversation')" id="nav-btn-conversation" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Các câu tiếng Anh giao tiếp hàng ngày trong mỗi cuộc trò chuyện">
           <i data-lucide="message-square-quote" class="w-4 h-4 text-emerald-400"></i> 💬 Giao Tiếp Hàng Ngày
@@ -182,25 +176,20 @@
             <span id="deadlineStatusSubtext" class="text-xs text-slate-400 hidden sm:inline">Hoàn thành bài trước hạn để bảo toàn chuỗi Streak!</span>
           </div>
 
-          <!-- Daily Goals Progress Checklist -->
+          <!-- Daily Goals Progress Checklist (Vocab + Vietnam Today VTV4 + Grammar) -->
           <div class="flex items-center gap-3 sm:gap-6 pt-1 text-xs text-slate-300 flex-wrap">
             <div id="goalItemWords" class="flex items-center gap-1.5">
               <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
               <span id="goalItemWordsText">20 Từ vựng / Idioms</span>
             </div>
-            <div id="goalItemReading" class="flex items-center gap-1.5">
-              <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
-              <span id="goalItemReadingText">3 Bài đọc chuẩn đề (VSTEP/IELTS)</span>
+            <div id="goalItemVideo" class="flex items-center gap-1.5">
+              <i data-lucide="circle" class="w-3.5 h-3.5 text-rose-400"></i>
+              <span id="goalItemVideoText">📺 Bản tin Vietnam Today VTV4 (Hạn 22:00)</span>
             </div>
             <div id="goalItemGrammar" class="flex items-center gap-1.5">
               <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
               <span id="goalItemGrammarText">2 Chuyên đề ngữ pháp</span>
             </div>
-            <div id="goalItemListening" class="flex items-center gap-1.5">
-              <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
-              <span id="goalItemListeningText">1 Bài nghe chuẩn form (IELTS/APTIS)</span>
-            </div>
-
           </div>
         </div>
 
@@ -285,8 +274,8 @@
         <!-- Khu vực thông báo trạng thái hôm nay -->
         <div id="todayStatusNoticeArea" class="transition-all duration-300"></div>
 
-        <!-- 3 Specific Assigned Tasks (Hoàn thành thật mới tick) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- 3 Specific Assigned Tasks (Deadline Bắt Buộc: Từ Vựng + Vietnam Today VTV4 + Ngữ Pháp) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <!-- Task 1: 20 Vocab -->
           <div id="taskCardVocab" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-indigo-500/40 shadow-sm">
             <div>
@@ -297,7 +286,7 @@
                 </span>
                 <span id="taskStatusBadgeVocab" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold">Chưa học (0/20)</span>
               </div>
-              <h4 id="taskTitleVocab" class="font-bold text-white text-sm">20 Từ Vựng Ngày 1</h4>
+              <h4 id="taskTitleVocab" class="font-bold text-white text-sm">20 Từ Vựng Hôm Nay</h4>
               <p id="taskDescVocab" class="text-xs text-slate-400 mt-1">Lật thẻ học hết 20 từ vựng hôm nay. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn học xong thẻ thứ 20!</p>
             </div>
             <div class="pt-2">
@@ -308,24 +297,23 @@
             </div>
           </div>
 
-          <!-- Task 2: Reading -->
-          <div id="taskCardReading" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-cyan-500/40 shadow-sm">
+          <!-- Task 2: Vietnam Today VTV4 (Deadline Bắt Buộc 22:00) -->
+          <div id="taskCardVideo" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-rose-500/40 shadow-sm">
             <div>
-              <div id="taskCardReadingBanner"></div>
+              <div id="taskCardVideoBanner"></div>
               <div class="flex items-center justify-between mb-1.5">
-                <span class="text-[11px] font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <i data-lucide="newspaper" class="w-4 h-4"></i> Nhiệm vụ 2: Đọc hiểu
+                <span class="text-[11px] font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <i data-lucide="tv" class="w-4 h-4"></i> Nhiệm vụ 2: Vietnam Today VTV4
                 </span>
-                <span id="taskStatusBadgeReading" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold">Chưa làm</span>
+                <span id="taskStatusBadgeVideo" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-rose-300 font-semibold border border-rose-500/30">Chưa xem (Hạn 22:00)</span>
               </div>
-              <h4 id="taskTitleReading" class="font-bold text-white text-sm line-clamp-1">IELTS: The Science of Sleep</h4>
-              <p id="taskDescReading" class="text-xs text-slate-400 mt-1">Làm trọn vẹn câu hỏi đọc hiểu học thuật chuẩn VSTEP / IELTS của bài. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn trả lời hết!</p>
-              <div id="dailyAssignedReadingsList" class="mt-2.5 space-y-1.5"></div>
+              <h4 id="taskTitleVideo" class="font-bold text-white text-sm line-clamp-1">Bản Tin Thời Sự Tiếng Anh VTV4</h4>
+              <p id="taskDescVideo" class="text-xs text-slate-400 mt-1">Xem bản tin thời sự tiếng Anh Vietnam Today mỗi ngày kèm phụ đề song ngữ và từ vựng học thuật. Hoàn thành trước 22:00 để giữ chuỗi Streak!</p>
             </div>
             <div class="pt-2">
-              <button onclick="startTodayReadingMission()" id="btnStartReadingMission" class="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-cyan-600/30">
-                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-                <span id="btnStartReadingText">Vào làm bài đọc hôm nay</span>
+              <button onclick="switchTab('video')" id="btnStartVideoMission" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-rose-950/40">
+                <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
+                <span id="btnStartVideoText">Xem Bản Tin Hôm Nay Ngay</span>
               </button>
             </div>
           </div>
@@ -347,28 +335,6 @@
               <button onclick="startTodayGrammarMission()" id="btnStartGrammarMission" class="w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-purple-600/30">
                 <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
                 <span id="btnStartGrammarText">Luyện 2 Chuyên Đề Hôm Nay</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Mission 4: Listening Practice (2 Bài Nghe / Ngày) -->
-          <div id="taskCardListening" class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between space-y-3 relative overflow-hidden group hover:border-cyan-500/40 transition">
-            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl group-hover:bg-cyan-500/20 transition"></div>
-            <div>
-              <div id="taskCardListeningBanner"></div>
-              <div class="flex items-center justify-between text-xs mb-1.5">
-                <span class="font-bold text-cyan-400 flex items-center gap-1">
-                  <i data-lucide="headphones" class="w-3.5 h-3.5"></i> Nhiệm vụ 4: Luyện Nghe
-                </span>
-                <span id="taskStatusBadgeListening" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold">Chưa làm (0/2)</span>
-              </div>
-              <h4 id="taskTitleListening" class="font-bold text-white text-sm line-clamp-1">🎧 2 Bài Nghe (BBC Active • Đề Thi)</h4>
-              <p id="taskDescListening" class="text-xs text-slate-400 mt-1">Luyện nghe chủ động BBC Learning English, Passive Interviews & Đề chuẩn HP3/VSTEP.</p>
-            </div>
-            <div class="pt-2">
-              <button onclick="switchTab('listening')" id="btnStartListeningMission" class="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-cyan-600/30">
-                <i data-lucide="headphones" class="w-3.5 h-3.5"></i>
-                <span id="btnStartListeningText">Vào Luyện Nghe Ngay</span>
               </button>
             </div>
           </div>
@@ -2278,10 +2244,6 @@
         <i data-lucide="layers" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Thẻ từ</span>
       </button>
-      <button onclick="switchTab('listening')" id="mob-btn-listening" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400" title="Luyện nghe chuẩn đề thi">
-        <i data-lucide="headphones" class="w-5 h-5 text-cyan-400"></i>
-        <span class="text-[10px] font-semibold mt-1">Nghe (2/N)</span>
-      </button>
       <button onclick="switchTab('video')" id="mob-btn-video" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400" title="Vietnam Today VTV4">
         <i data-lucide="tv" class="w-5 h-5 text-rose-400"></i>
         <span class="text-[10px] font-semibold mt-1">VTV4 News</span>
@@ -2289,10 +2251,6 @@
       <button onclick="switchTab('review')" id="mob-btn-review" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="rotate-cw" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">Ôn tập</span>
-      </button>
-      <button onclick="switchTab('reader')" id="mob-btn-reader" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
-        <i data-lucide="newspaper" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold mt-1">Đọc hiểu</span>
       </button>
       <button onclick="switchTab('conversation')" id="mob-btn-conversation" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="message-square-quote" class="w-5 h-5 text-emerald-400"></i>
@@ -3089,8 +3047,8 @@
   <script src="./international_news_videos.js?v=64.0"></script>
   <script src="./bilingual_news_data.js?v=64.0"></script>
   <script src="./reading_lexicon.js?v=64.0"></script>
-  <script src="./conversation_data.js?v=66.0"></script>
-  <script src="./app.js?v=66.0"></script>
+  <script src="./conversation_data.js?v=67.0"></script>
+  <script src="./app.js?v=67.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {

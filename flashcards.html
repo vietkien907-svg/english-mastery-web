@@ -116,35 +116,44 @@
     </div>
   </header>
 
-  <!-- DESKTOP NAVIGATION BAR -->
-  <nav class="hidden md:flex bg-slate-900/60 border-b border-slate-800">
+    <!-- DESKTOP NAVIGATION BAR (STREAMLINED NIGHT IELTS STYLE) -->
+  <nav class="hidden md:flex bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-16 z-30">
     <div class="max-w-6xl mx-auto w-full flex items-center justify-between px-4">
-      <div class="flex gap-2 py-2">
-        <button onclick="switchTab('today')" id="nav-btn-today" class="tab-btn active px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition bg-indigo-600 text-white">
-          <i data-lucide="calendar" class="w-4 h-4"></i> Hôm nay
+      <div class="flex items-center gap-1.5 py-2">
+        <button onclick="switchTab('speaking')" id="nav-btn-speaking" class="tab-btn active px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition bg-indigo-600 text-white shadow-md shadow-indigo-600/30">
+          <i data-lucide="mic" class="w-4 h-4 text-purple-300"></i>
+          <span>🎙️ Luyện Nói (Speaking AI)</span>
         </button>
-        <button onclick="switchTab('flashcard')" id="nav-btn-flashcard" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="layers" class="w-4 h-4"></i> Học Deadline Hôm Nay
+        <button onclick="switchTab('today')" id="nav-btn-today" class="tab-btn px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="calendar" class="w-4 h-4 text-indigo-400"></i>
+          <span>🎯 Hôm nay</span>
         </button>
-        <button onclick="switchTab('video')" id="nav-btn-video" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Bản tin truyền hình tiếng Anh Vietnam Today (VTV4) cập nhật hằng ngày">
-          <i data-lucide="tv" class="w-4 h-4 text-rose-400"></i> 📺 Vietnam Today (Hằng Ngày)
+        <button onclick="switchTab('flashcard')" id="nav-btn-flashcard" class="tab-btn px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i>
+          <span>📚 Thẻ Từ Vựng</span>
         </button>
-        <button onclick="switchTab('review')" id="nav-btn-review" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="rotate-cw" class="w-4 h-4"></i> Ôn Tập Tự Do (Chọn Unit)
+        <button onclick="switchTab('video')" id="nav-btn-video" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Bản tin truyền hình tiếng Anh Vietnam Today (VTV4) cập nhật hằng ngày">
+          <i data-lucide="tv" class="w-4 h-4 text-rose-400"></i>
+          <span>📺 Vietnam Today</span>
         </button>
-        <button onclick="switchTab('conversation')" id="nav-btn-conversation" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Các câu tiếng Anh giao tiếp hàng ngày trong mỗi cuộc trò chuyện">
-          <i data-lucide="message-square-quote" class="w-4 h-4 text-emerald-400"></i> 💬 Giao Tiếp Hàng Ngày
+        <button onclick="switchTab('conversation')" id="nav-btn-conversation" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Các câu tiếng Anh giao tiếp hàng ngày trong mỗi cuộc trò chuyện">
+          <i data-lucide="message-square-quote" class="w-4 h-4 text-emerald-400"></i>
+          <span>💬 Giao Tiếp</span>
         </button>
-            <button onclick="switchTab('speaking')" id="nav-btn-speaking" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Luyện nói IELTS Speaking chấm điểm bằng AI chuẩn 4 tiêu chí">
-              <i data-lucide="mic" class="w-4 h-4 text-purple-400"></i>
-              🎙️ Luyện Nói (Speaking AI)
-            </button>
-        <button onclick="switchTab('grammar')" id="nav-btn-grammar" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="book-marked" class="w-4 h-4"></i> 25 Chuyên Đề Ngữ Pháp
+        <button onclick="switchTab('review')" id="nav-btn-review" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="rotate-cw" class="w-4 h-4 text-slate-400"></i>
+          <span>🔄 Ôn Tập Tự Do</span>
         </button>
-        <button onclick="switchTab('profile')" id="nav-btn-profile" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Cá nhân & Thống kê
+        <button onclick="switchTab('profile')" id="nav-btn-profile" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="bar-chart-2" class="w-4 h-4 text-amber-400"></i>
+          <span>📊 Hồ Sơ & Thống Kê</span>
         </button>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span onclick="SpeakingEngine.openGroqModal()" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-950/60 text-purple-300 border border-purple-500/30 hover:bg-purple-900/60 cursor-pointer transition flex items-center gap-1.5 shadow-sm">
+          <i data-lucide="key" class="w-3.5 h-3.5 text-purple-400"></i> <span>Cấu hình AI Key</span>
+        </span>
       </div>
     </div>
   </nav>
@@ -179,10 +188,6 @@
           <i data-lucide="circle" class="w-3.5 h-3.5 text-rose-400"></i>
           <span id="goalItemVideoText">📺 Vietnam Today VTV4</span>
         </div>
-        <div id="goalItemGrammar" class="flex items-center gap-1">
-          <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
-          <span id="goalItemGrammarText">2 Ngữ pháp</span>
-        </div>
         <button onclick="requestNotificationPermission()" id="notificationStatusBadge" class="text-[11px] px-2 py-0.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition flex items-center gap-1">
           <i data-lucide="bell" class="w-3 h-3 text-amber-400"></i> <span>Bật chuông</span>
         </button>
@@ -212,7 +217,7 @@
               </span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-white mt-1.5 flex items-center gap-2">
-              <span>🎯 3 Nhiệm Vụ Deadline Hôm Nay (Đã Lên Lịch Tự Động)</span>
+              <span>🎯 2 Nhiệm Vụ Deadline Hôm Nay (Đã Lên Lịch Tự Động)</span>
             </h2>
             <p class="text-xs text-slate-400 mt-1">
               Hệ thống tự động giao bài hôm nay. Bạn có thể <strong>học vượt deadline</strong> sang ngày kế tiếp bất cứ lúc nào hoặc bấm <strong>ôn tập dần dần</strong>!
@@ -257,7 +262,7 @@
         <div id="todayStatusNoticeArea" class="transition-all duration-300"></div>
 
         <!-- 3 Specific Assigned Tasks (Deadline Bắt Buộc: Từ Vựng + Vietnam Today VTV4 + Ngữ Pháp) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <!-- Task 1: 20 Vocab -->
           <div id="taskCardVocab" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-indigo-500/40 shadow-sm">
             <div>
@@ -299,26 +304,6 @@
               </button>
             </div>
           </div>
-
-          <!-- Task 3: Grammar -->
-          <div id="taskCardGrammar" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-purple-500/40 shadow-sm">
-            <div>
-              <div id="taskCardGrammarBanner"></div>
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-[11px] font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <i data-lucide="book-marked" class="w-4 h-4"></i> Nhiệm vụ 3: Ngữ pháp
-                </span>
-                <span id="taskStatusBadgeGrammar" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold">Chưa làm</span>
-              </div>
-              <h4 id="taskTitleGrammar" class="font-bold text-white text-sm line-clamp-1">2 Chuyên Đề Ngữ Pháp Hôm Nay</h4>
-              <p id="taskDescGrammar" class="text-xs text-slate-400 mt-1">Làm bài tập điền từ hoặc trắc nghiệm. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn làm xong!</p>
-            </div>
-            <div class="pt-2">
-              <button onclick="startTodayGrammarMission()" id="btnStartGrammarMission" class="w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-purple-600/30">
-                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                <span id="btnStartGrammarText">Luyện 2 Chuyên Đề Hôm Nay</span>
-              </button>
-            </div>
           </div>
         </div>
 
@@ -1398,7 +1383,7 @@
     </section>
 
     <!-- ================= TAB: 25 CHUYÊN ĐỀ NGỮ PHÁP TỔNG ÔN CÔ TRANG ANH ================= -->
-    <section id="tab-grammar" class="hidden space-y-6">
+    <section id="tab-grammar" class="hidden" class="hidden space-y-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="glass-card rounded-2xl p-4 space-y-3 h-[600px] overflow-y-auto md:sticky md:top-20">
           <div class="flex items-center justify-between px-1">
@@ -2498,10 +2483,6 @@
       <button onclick="switchTab('speaking')" id="mob-btn-speaking" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400" title="Luyện Nói Speaking AI">
         <i data-lucide="mic" class="w-5 h-5 text-purple-400"></i>
         <span class="text-[10px] font-semibold mt-1">Luyện Nói</span>
-      </button>
-      <button onclick="switchTab('grammar')" id="mob-btn-grammar" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
-        <i data-lucide="book-marked" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold mt-1">Ngữ pháp</span>
       </button>
       <button onclick="switchTab('profile')" id="mob-btn-profile" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="user" class="w-5 h-5"></i>

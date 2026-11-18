@@ -135,6 +135,10 @@
         <button onclick="switchTab('conversation')" id="nav-btn-conversation" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Các câu tiếng Anh giao tiếp hàng ngày trong mỗi cuộc trò chuyện">
           <i data-lucide="message-square-quote" class="w-4 h-4 text-emerald-400"></i> 💬 Giao Tiếp Hàng Ngày
         </button>
+            <button onclick="switchTab('speaking')" id="nav-btn-speaking" class="tab-btn px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Luyện nói IELTS Speaking chấm điểm bằng AI chuẩn 4 tiêu chí">
+              <i data-lucide="mic" class="w-4 h-4 text-purple-400"></i>
+              🎙️ Luyện Nói (Speaking AI)
+            </button>
         <button onclick="switchTab('grammar')" id="nav-btn-grammar" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-800">
           <i data-lucide="book-marked" class="w-4 h-4"></i> 25 Chuyên Đề Ngữ Pháp
         </button>
@@ -2044,6 +2048,235 @@
       </div>
     </section>
 
+    <!-- ================= TAB: IELTS SPEAKING STUDIO (AI EXAMINER) ================= -->
+    <section id="tab-speaking" class="hidden space-y-6">
+      <!-- Hero Banner -->
+      <div class="rounded-3xl p-6 bg-gradient-to-r from-purple-950/80 via-slate-900 to-indigo-950/80 border border-purple-500/30 shadow-2xl relative overflow-hidden">
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-purple-600/30 text-purple-300 border border-purple-500/40 flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> IELTS FORECAST Q3/2026
+              </span>
+              <span id="spGroqStatusBadge" onclick="SpeakingEngine.openGroqModal()" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1.5 cursor-pointer transition">
+                <i data-lucide="key" class="w-3.5 h-3.5 text-slate-400"></i> Cấu hình Groq Key
+              </span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
+              🎙️ IELTS Speaking Studio <span class="text-xs md:text-sm font-semibold text-purple-300 bg-purple-950/60 px-2.5 py-1 rounded-lg border border-purple-500/30">AI Examiner 4 Tiêu Chí</span>
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
+              Ngân hàng 1.211 câu hỏi dự đoán Quý 3/2026 (Part 1, 2, 3) · Ghi âm trực tiếp trên web · AI chấm điểm chuẩn Fluency, Lexical, Grammar, Pronunciation · Nâng cấp câu trả lời Band 8.0+.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="SpeakingEngine.openGroqModal()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold flex items-center gap-2 transition">
+              <i data-lucide="settings" class="w-4 h-4 text-slate-400"></i> Cấu hình Key AI
+            </button>
+            <button onclick="SpeakingEngine.openHistoryModal()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold flex items-center gap-2 transition">
+              <i data-lucide="history" class="w-4 h-4 text-indigo-400"></i> Lịch sử bài nói
+            </button>
+            <button onclick="SpeakingEngine.pickRandomQuestion()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold flex items-center gap-2 transition shadow-lg shadow-purple-600/30">
+              <i data-lucide="shuffle" class="w-4 h-4"></i> Bốc đề ngẫu nhiên
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part Selector Navigation -->
+      <div class="flex flex-wrap items-center gap-2 bg-slate-900/80 p-2 rounded-2xl border border-slate-800">
+        <button id="spPartTab_1" onclick="SpeakingEngine.setPart('1')" class="px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition bg-indigo-600 text-white shadow-lg shadow-indigo-600/30">
+          Part 1: Phỏng vấn ngắn (46 chủ đề)
+        </button>
+        <button id="spPartTab_2" onclick="SpeakingEngine.setPart('2')" class="px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-800">
+          Part 2: Cue Cards 2 Phút (67 đề thi)
+        </button>
+        <button id="spPartTab_3" onclick="SpeakingEngine.setPart('3')" class="px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-800">
+          Part 3: Thảo luận chuyên sâu
+        </button>
+      </div>
+
+      <!-- Topic Picker & Question Selector Card -->
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-xl space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div class="w-full md:w-1/2">
+            <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Chọn Chủ Đề Đề Thi (Topic)</label>
+            <select id="spTopicSelect" onchange="SpeakingEngine.selectTopicIndex(this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500">
+              <!-- Rendered by JS -->
+            </select>
+          </div>
+          <div class="w-full md:w-1/2">
+            <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Chọn Câu Hỏi Cụ Thể</label>
+            <div id="spQuestionPills" class="flex flex-wrap items-center gap-1.5 min-h-[42px] p-1 bg-slate-950/60 rounded-xl border border-slate-800/80">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Question / Cue Card Board -->
+      <div class="space-y-4">
+        <div id="spActiveQuestionBox">
+          <!-- Rendered by JS for Part 1 & Part 3 -->
+        </div>
+
+        <div id="spCueCardZone" class="hidden">
+          <!-- Rendered by JS for Part 2 Cue Cards -->
+        </div>
+
+        <!-- Part 2 Preparation Timer & Scratchpad Note Editor -->
+        <div id="spScratchpadZone" class="hidden grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- 1-Min Prep Timer Card -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-extrabold text-amber-400 flex items-center gap-1.5">
+                  <i data-lucide="timer" class="w-4 h-4"></i> THỜI GIAN CHUẨN BỊ (1 PHÚT)
+                </span>
+                <span id="spPrepTimerDisplay" class="font-mono text-lg font-extrabold text-white">01:00</span>
+              </div>
+              <div class="w-full bg-slate-950 rounded-full h-2 overflow-hidden mb-3 border border-slate-800">
+                <div id="spPrepProgressBar" class="h-full bg-gradient-to-r from-amber-500 to-indigo-500 transition-all duration-300" style="width: 0%"></div>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-relaxed">
+                Như trong phòng thi IELTS thật, bạn có đúng 1 phút để đọc Cue Card và ghi chú dàn ý trước khi bắt đầu nói 2 phút.
+              </p>
+            </div>
+            <div class="mt-4">
+              <button type="button" id="spBtnPrepTimer" onclick="SpeakingEngine.togglePrepTimer()" class="w-full px-3 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center justify-center gap-2 transition">
+                <i data-lucide="play" class="w-4 h-4"></i> Bấm để đếm ngược 1 phút
+              </button>
+            </div>
+          </div>
+
+          <!-- Scratchpad Note Editor -->
+          <div class="md:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="file-edit" class="w-4 h-4 text-purple-400"></i> Phiếu Nháp Ý Tưởng (Scratchpad)
+              </span>
+              <span class="text-[11px] text-slate-500">Tự động lưu trên trình duyệt</span>
+            </div>
+            <textarea id="spScratchpadEditor" rows="3" placeholder="Ghi nhanh keywords, dàn ý, collocations bạn định nói cho đề này..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs md:text-sm text-slate-200 focus:outline-none focus:border-purple-500 font-mono resize-none"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audio Recording Studio -->
+      <div class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl text-center space-y-5">
+        <div class="flex flex-col items-center justify-center space-y-3">
+          <div class="relative">
+            <button type="button" id="spBtnRecord" onclick="SpeakingEngine.toggleRecording()" class="w-20 h-20 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center shadow-lg shadow-indigo-600/40 transition transform hover:scale-105" aria-label="Ghi âm">
+              <i data-lucide="mic" class="w-8 h-8 text-white"></i>
+            </button>
+          </div>
+          <div class="space-y-1">
+            <p id="spRecTimer" class="font-mono text-2xl font-extrabold text-slate-200">00:00</p>
+            <p id="spRecordingStatus" class="text-xs text-slate-400">Nhấn micro để bắt đầu nói</p>
+          </div>
+        </div>
+
+        <!-- Live Realtime Transcript -->
+        <div id="spLiveTranscriptBox" class="hidden max-w-2xl mx-auto bg-slate-950/80 border border-slate-800 rounded-2xl p-4 text-left">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Nhận diện giọng nói trực tiếp (Speech-to-Text)</span>
+          </div>
+          <p id="spLiveTranscriptText" class="text-xs md:text-sm text-slate-200 italic font-sans leading-relaxed min-h-[24px]">Đang nghe bạn nói...</p>
+        </div>
+
+        <!-- Audio Player Playback & Score Button -->
+        <div id="spAudioPlayerZone" class="hidden max-w-xl mx-auto space-y-3">
+          <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800">
+            <span class="text-[11px] font-bold text-slate-400 block mb-2">🎧 Nghe lại giọng nói của bạn:</span>
+            <audio id="spPlaybackAudio" controls class="w-full h-10 rounded-lg"></audio>
+          </div>
+          <button type="button" id="spBtnScoreNow" onclick="SpeakingEngine.runAiEvaluation()" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-emerald-600 hover:from-purple-500 hover:to-emerald-500 text-white font-extrabold text-sm md:text-base flex items-center justify-center gap-2 shadow-xl shadow-indigo-600/30 transition transform hover:scale-[1.01]">
+            <i data-lucide="bot" class="w-5 h-5"></i> 🤖 Chấm Điểm AI Ngay (Chuẩn 4 Tiêu Chí IELTS)
+          </button>
+        </div>
+
+        <!-- Scoring Loading Indicator -->
+        <div id="spScoringLoading" class="hidden max-w-md mx-auto py-4">
+          <div class="flex items-center justify-center gap-3">
+            <div class="w-5 h-5 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin"></div>
+            <span class="text-xs md:text-sm font-bold text-indigo-300">Đang phân tích âm thanh, đối chiếu ngữ pháp & chấm 4 tiêu chí IELTS...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Evaluation Results Dashboard -->
+      <div id="spResultZone" class="hidden">
+        <!-- Rendered dynamically by SpeakingEngine.renderEvaluationResult() -->
+      </div>
+    </section>
+
+    <!-- MODAL: GROQ API KEY CONFIGURATION (BYOK) -->
+    <div id="spGroqSettingsModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4" onclick="if(event.target===this) SpeakingEngine.closeGroqModal()">
+      <div class="bg-slate-900 border border-purple-500/30 rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-2xl relative">
+        <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="p-2 rounded-xl bg-purple-950 text-purple-400 border border-purple-500/30"><i data-lucide="key" class="w-5 h-5"></i></span>
+            <div>
+              <h3 class="text-base md:text-lg font-bold text-white">Cấu Hình Groq Cloud API Key</h3>
+              <p class="text-xs text-slate-400">Miễn phí 100% · Llama 3.3 + Whisper Large v3</p>
+            </div>
+          </div>
+          <button type="button" onclick="SpeakingEngine.closeGroqModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <div class="space-y-4 text-xs md:text-sm text-slate-300 leading-relaxed mb-5">
+          <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+            <p class="font-bold text-purple-300">💡 Cách lấy API Key miễn phí trong 30 giây:</p>
+            <ol class="list-decimal pl-5 space-y-1 text-slate-300 text-xs">
+              <li>Truy cập <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer" class="text-indigo-400 font-bold underline">console.groq.com/keys</a> (đăng nhập Google, không cần thẻ tín dụng).</li>
+              <li>Bấm nút <b>"Create API Key"</b> và sao chép chuỗi mã bắt đầu bằng <code>gsk_...</code>.</li>
+              <li>Dán vào ô bên dưới rồi nhấn <b>Lưu Key</b>.</li>
+            </ol>
+          </div>
+          <p class="text-[11px] text-slate-400">
+            🔒 <b>Bảo mật tuyệt đối:</b> Key chỉ được lưu cục bộ trên trình duyệt máy bạn (localStorage) và chỉ gửi trực tiếp đến API của Groq để xử lý âm thanh/chấm điểm.
+          </p>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1.5">Groq API Key của bạn:</label>
+            <input type="password" id="spGroqKeyInput" placeholder="gsk_..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white font-mono focus:outline-none focus:border-purple-500">
+          </div>
+
+          <p id="spGroqSaveMsg" class="text-xs font-bold text-center min-h-[18px]"></p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button type="button" onclick="SpeakingEngine.saveGroqKeyFromInput()" class="flex-1 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs md:text-sm flex items-center justify-center gap-2 shadow-lg shadow-purple-600/30 transition">
+            <i data-lucide="save" class="w-4 h-4"></i> Lưu API Key
+          </button>
+          <button type="button" onclick="SpeakingEngine.closeGroqModal()" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs md:text-sm font-semibold transition">
+            Đóng
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: SPEAKING PRACTICE HISTORY -->
+    <div id="spHistoryModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4" onclick="if(event.target===this) SpeakingEngine.closeHistoryModal()">
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 max-w-lg w-full shadow-2xl relative flex flex-col max-h-[85vh]">
+        <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="p-2 rounded-xl bg-indigo-950 text-indigo-400 border border-indigo-500/30"><i data-lucide="history" class="w-5 h-5"></i></span>
+            <h3 class="text-base md:text-lg font-bold text-white">Lịch Sử Luyện Nói & Điểm Số</h3>
+          </div>
+          <button type="button" onclick="SpeakingEngine.closeHistoryModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+        <div id="spHistoryList" class="flex-1 overflow-y-auto space-y-2 pr-1">
+          <!-- Rendered by SpeakingEngine.renderHistoryModalList() -->
+        </div>
+      </div>
+    </div>
+
     <!-- MODAL: CONVERSATION FLASHCARD PRACTICE -->
     <div id="conversationFlashcardModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
       <div class="glass-card max-w-xl w-full rounded-3xl p-6 sm:p-8 border border-emerald-500/40 bg-gradient-to-br from-slate-900 via-slate-950 to-emerald-950/40 shadow-2xl space-y-6 relative">
@@ -2255,6 +2488,10 @@
       <button onclick="switchTab('conversation')" id="mob-btn-conversation" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="message-square-quote" class="w-5 h-5 text-emerald-400"></i>
         <span class="text-[10px] font-semibold mt-1">Giao tiếp</span>
+      </button>
+      <button onclick="switchTab('speaking')" id="mob-btn-speaking" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400" title="Luyện Nói Speaking AI">
+        <i data-lucide="mic" class="w-5 h-5 text-purple-400"></i>
+        <span class="text-[10px] font-semibold mt-1">Luyện Nói</span>
       </button>
       <button onclick="switchTab('grammar')" id="mob-btn-grammar" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
         <i data-lucide="book-marked" class="w-5 h-5"></i>
@@ -3047,8 +3284,10 @@
   <script src="./international_news_videos.js?v=64.0"></script>
   <script src="./bilingual_news_data.js?v=64.0"></script>
   <script src="./reading_lexicon.js?v=64.0"></script>
-  <script src="./conversation_data.js?v=67.0"></script>
-  <script src="./app.js?v=67.0"></script>
+  <script src="./conversation_data.js?v=68.0"></script>
+    <script src="./speaking-forecast.js?v=68.0"></script>
+  <script src="./speaking-engine.js?v=68.0"></script>
+  <script src="./app.js?v=68.0"></script>
   <script>
     lucide.createIcons();
     if ('serviceWorker' in navigator) {

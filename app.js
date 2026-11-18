@@ -509,7 +509,7 @@ function switchTab(tabId) {
   appState.activeTab = tabId;
 
   // Sync nav buttons
-  ["today", "flashcard", "listening", "cinema", "video", "review", "reader", "grammar", "profile", "conversation"].forEach(id => {
+  ["today", "flashcard", "listening", "cinema", "video", "review", "reader", "grammar", "profile", "conversation", "speaking"].forEach(id => {
     const sec = document.getElementById(`tab-${id}`);
     if (sec) sec.classList.toggle("hidden", id !== tabId);
 

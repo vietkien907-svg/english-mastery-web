@@ -847,6 +847,7 @@ Please provide the rigorous evaluation and JSON response.`;
     if (!resultZone || !res) return;
 
     resultZone.classList.remove('hidden');
+    const pl = document.getElementById('spResultPlaceholder'); if (pl) pl.classList.add('hidden');
 
     const ob = res.overallBand || 6.5;
     let badgeColor = 'text-emerald-400 border-emerald-500/40 bg-emerald-950/40';
@@ -1011,6 +1012,7 @@ Please provide the rigorous evaluation and JSON response.`;
     stopRecording();
     const resultZone = document.getElementById('spResultZone');
     if (resultZone) resultZone.classList.add('hidden');
+    const pl = document.getElementById('spResultPlaceholder'); if (pl) pl.classList.remove('hidden');
     const playerZone = document.getElementById('spAudioPlayerZone');
     if (playerZone) playerZone.classList.add('hidden');
     const scoreBtn = document.getElementById('spBtnScoreNow');

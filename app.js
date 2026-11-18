@@ -101,6 +101,10 @@ window.addEventListener("DOMContentLoaded", async () => {
   updateSessionRoutineUI();
   initMultiAccountAndLeaderboard();
   updateDailyMissionUI();
+  if (window.location.pathname.includes("speaking") || window.location.hash === "#speaking") {
+    switchTab("speaking");
+  }
+  
   tickDeadlineCountdown();
   lucide.createIcons();
 });

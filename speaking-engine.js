@@ -1,33 +1,42 @@
 /**
  * speaking-engine.js - IELTS Speaking AI Examiner Studio
- * Supports:
- * - 46 Part 1 Topics (520+ questions)
+ * Complete Suite inspired by Night IELTS Speaking:
+ * - 46 Part 1 Topics (523 questions)
  * - 67 Part 2 Cue Cards with 1-min Prep Countdown Timer + Scratchpad Notes + 2-min Speaking Timer
- * - 620+ Part 3 In-depth Discussion Questions
- * - Full Simulated Mock Test Mode
+ * - 621 Part 3 In-depth Discussion Questions
+ * - Full Simulated Mock Test Mode (Part 1 -> Part 2 Cue Card -> Part 3)
+ * - Real-time Search & Filter across all 1,211 questions
+ * - Topic Progress Dots (.fc-dots) tracking completed attempts
  * - In-Browser Audio Recording (MediaRecorder) + Audio Playback
  * - Live Web Speech API Speech-to-Text Transcription
  * - Cloud AI Scoring via Groq Whisper + Llama 3 (BYOK - Bring Your Own Key)
- * - Built-in Offline Intelligent Heuristic Evaluator (Runs instantly with zero setup)
+ * - Built-in Intelligent Heuristic Evaluator (Runs instantly with zero setup)
  * - 4 Official Criteria (Fluency, Lexical, Grammar, Pronunciation) + Band 8.0+ Model Upgrade
+ * - Side-by-side Grammar & Vocabulary Error Correction Table
  * - Practice History & Audio Review
  */
 
 (function (window) {
   'use strict';
 
-  // Constants & Storage Keys
+  // Storage Keys
   const STORAGE_GROQ_KEY = 'user_groq_api_key';
   const STORAGE_SPEAKING_HISTORY = 'speaking_practice_history_v1';
   const STORAGE_CUE_NOTES = 'speaking_cue_card_notes_v1';
+  const STORAGE_DONE_QUESTIONS = 'speaking_done_questions_v1';
 
   // State Management
   const state = {
     currentPart: '1', // '1', '2', '3', 'mock'
     currentTopicIndex: 0,
     currentQuestionIndex: 0,
+    searchQuery: '',
+    
+    // Mock Test State
+    isMockMode: false,
     mockStep: 0,
     mockQuestions: [],
+    mockResults: [],
     
     // Media & Recording
     mediaRecorder: null,
@@ -53,7 +62,7 @@
     currentEvaluation: null
   };
 
-  // Helper: Get Groq API Key
+  // Helper: Groq API Key
   function getGroqKey() {
     try {
       return localStorage.getItem(STORAGE_GROQ_KEY) || '';
@@ -69,16 +78,47 @@
     } catch (e) {}
   }
 
+  // Helper: Completed Questions Registry
+  function getDoneQuestions() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_DONE_QUESTIONS) || '{}');
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function markQuestionDone(qText) {
+    if (!qText) return;
+    try {
+      const done = getDoneQuestions();
+      done[qText.trim()] = Date.now();
+      localStorage.setItem(STORAGE_DONE_QUESTIONS, JSON.stringify(done));
+    } catch (e) {}
+  }
+
   // Helper: Get Forecast Data safely
   function getForecast() {
     if (window.SP_FORECAST && Array.isArray(window.SP_FORECAST.p1) && Array.isArray(window.SP_FORECAST.p2)) {
       return window.SP_FORECAST;
     }
-    return { id: 'fallback', name: 'IELTS Speaking Forecast', p1: [], p2: [] };
+    return { id: 'fallback', name: 'IELTS Speaking Forecast Q3/2026', range: 'Quý 3/2026', p1: [], p2: [] };
   }
 
   // Get current active topic and question
   function getCurrentItem() {
+    if (state.isMockMode && state.mockQuestions.length) {
+      const curQ = state.mockQuestions[state.mockStep] || { part: '1', text: 'Tell me about yourself.' };
+      return {
+        part: curQ.part,
+        topicTitle: `Thi Thử Mock Test · Câu ${state.mockStep + 1}/${state.mockQuestions.length} (Part ${curQ.part})`,
+        questionText: curQ.text,
+        cueCard: curQ.cueCard || null,
+        isMock: true,
+        step: state.mockStep,
+        totalSteps: state.mockQuestions.length
+      };
+    }
+
     const f = getForecast();
     if (state.currentPart === '1') {
       const topic = f.p1[state.currentTopicIndex] || f.p1[0] || { t: 'General', q: ['Tell me about yourself.'] };
@@ -109,15 +149,6 @@
         questionText: qText,
         totalQuestionsInTopic: questions.length,
         topic: cue
-      };
-    } else if (state.currentPart === 'mock') {
-      const curQ = state.mockQuestions[state.mockStep] || { part: '1', text: 'Tell me about yourself.' };
-      return {
-        part: curQ.part,
-        topicTitle: `Thi Thử Mock Test · Câu ${state.mockStep + 1}/${state.mockQuestions.length} (Part ${curQ.part})`,
-        questionText: curQ.text,
-        cueCard: curQ.cueCard || null,
-        isMock: true
       };
     }
   }
@@ -163,13 +194,9 @@
       state.speakingDurationSec = 0;
       state.liveTranscript = '';
 
-      // Start live speech recognition if supported
       startLiveRecognition();
-
-      // UI update
       updateRecordingUI(true);
 
-      // Timer
       if (state.recordingTimerInterval) clearInterval(state.recordingTimerInterval);
       state.recordingTimerInterval = setInterval(() => {
         state.speakingDurationSec = Math.floor((Date.now() - state.recordingStartTime) / 1000);
@@ -178,7 +205,6 @@
         const timerEl = document.getElementById('spRecTimer');
         if (timerEl) timerEl.textContent = `${m}:${s}`;
         
-        // Auto stop if exceeding Part limit (Part 1: 90s, Part 2: 135s, Part 3: 120s)
         const limit = state.currentPart === '2' ? 130 : 90;
         if (state.speakingDurationSec >= limit) {
           stopRecording();
@@ -309,8 +335,8 @@
       btn.innerHTML = `<i data-lucide="pause" class="w-4 h-4"></i> Tạm dừng (1 phút)`;
       btn.className = 'px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold flex items-center gap-1.5 transition';
     } else if (state.prepSecondsLeft <= 0) {
-      btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i> Hết giờ chuẩn bị!`;
-      btn.className = 'px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold flex items-center gap-1.5';
+      btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i> Hết giờ chuẩn bị! Bắt đầu nói`;
+      btn.className = 'px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold flex items-center gap-1.5 animate-bounce';
     } else {
       btn.innerHTML = `<i data-lucide="play" class="w-4 h-4"></i> Bấm để đếm ngược 1 phút`;
       btn.className = 'px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center gap-1.5 transition';
@@ -319,10 +345,6 @@
   }
 
   // Scratchpad Note Saving
-  function getCueNotesKey(topicTitle) {
-    return 'cue_note_' + encodeURIComponent(topicTitle || 'default');
-  }
-
   function loadCueNote(topicTitle) {
     try {
       const notes = JSON.parse(localStorage.getItem(STORAGE_CUE_NOTES) || '{}');
@@ -359,7 +381,6 @@
       let evaluation = null;
 
       if (groqKey && state.audioBlob) {
-        // Mode 1: Cloud AI Evaluation via Groq Whisper + Llama 3
         try {
           evaluation = await evaluateViaGroq(groqKey, cur, state.audioBlob, transcript);
         } catch (apiErr) {
@@ -368,16 +389,17 @@
           evaluation.source = 'Local Smart Engine (Groq gặp lỗi hoặc hết hạn ngạch)';
         }
       } else {
-        // Mode 2: Local Smart Evaluator
         evaluation = evaluateLocally(cur, transcript, state.speakingDurationSec);
         if (!groqKey) {
-          evaluation.source = 'Local Heuristic Engine (Chưa cấu hình Groq Key)';
+          evaluation.source = 'Local Smart Engine (Chưa cấu hình Groq Key)';
         }
       }
 
       state.currentEvaluation = evaluation;
+      markQuestionDone(cur.questionText);
       savePracticeHistory(cur, evaluation);
       renderEvaluationResult(evaluation);
+      renderQuestionSelector(); // refresh progress dots
 
     } catch (err) {
       console.error('Scoring error:', err);
@@ -390,7 +412,6 @@
 
   // Groq Cloud Evaluation Flow
   async function evaluateViaGroq(apiKey, item, audioBlob, fallbackTranscript) {
-    // 1. Transcribe audio via Whisper Large v3
     let transcriptText = fallbackTranscript;
     try {
       const ext = (audioBlob.type || '').includes('mp4') ? 'm4a' : 'webm';
@@ -415,8 +436,7 @@
 
     if (!transcriptText) transcriptText = 'Candidate spoke for ' + (state.speakingDurationSec || 15) + ' seconds.';
 
-    // 2. Chat Completion Scoring via Llama 3.3 70B Versatile
-    const sysPrompt = `You are a certified IELTS Speaking Senior Examiner and expert native English tutor.
+    const sysPrompt = `You are an official IELTS Speaking Senior Examiner and native English coach.
 Evaluate the candidate's spoken response according to the 4 official IELTS criteria:
 1. Fluency & Coherence (FC)
 2. Lexical Resource (LR)
@@ -500,7 +520,7 @@ Please provide the rigorous evaluation and JSON response.`;
     return parsed;
   }
 
-  // Built-in Smart Local Evaluator (Rule-based & Linguistic heuristics)
+  // Built-in Smart Local Evaluator
   function evaluateLocally(item, transcript, durationSec) {
     const text = transcript.trim();
     const words = text ? text.split(/\s+/) : [];
@@ -508,14 +528,11 @@ Please provide the rigorous evaluation and JSON response.`;
     const dur = Math.max(5, durationSec || 15);
     const wpm = Math.round((wordCount / dur) * 60);
 
-    // Heuristics
-    // 1. Fluency: target 100-140 WPM
     let fc = 6.0;
     if (wpm >= 110 && wpm <= 150 && wordCount >= 30) fc = 7.0;
     else if (wpm >= 90 && wordCount >= 20) fc = 6.5;
     else if (wordCount < 15) fc = 5.0;
 
-    // 2. Lexical: check unique words and complex vocabulary
     const unique = new Set(words.map(w => w.toLowerCase().replace(/[^a-z]/g, ''))).size;
     const ttr = wordCount > 0 ? unique / wordCount : 0;
     let lr = 6.0;
@@ -523,21 +540,17 @@ Please provide the rigorous evaluation and JSON response.`;
     else if (ttr > 0.6) lr = 6.5;
     else if (wordCount < 15) lr = 5.0;
 
-    // 3. Grammar: check clause markers (because, although, if, which, that, when, since)
     const clauses = (text.match(/\b(because|although|though|even if|which|that|when|while|whereas|since|if)\b/gi) || []).length;
     let gra = 6.0;
     if (clauses >= 3 && wordCount >= 30) gra = 7.0;
     else if (clauses >= 1) gra = 6.5;
     else if (wordCount < 15) gra = 5.0;
 
-    // 4. Pronunciation estimate
     let pr = 6.5;
 
-    // Overall Band
     const rawOverall = (fc + lr + gra + pr) / 4;
     const overallBand = Math.round(rawOverall * 2) / 2;
 
-    // Detect simple common grammar slips
     const errors = [];
     if (/\b(he|she|it)\s+(don't|have|go|want|make)\b/i.test(text)) {
       errors.push({
@@ -561,7 +574,6 @@ Please provide the rigorous evaluation and JSON response.`;
       });
     }
 
-    // Generate Upgraded Band 8.0+ Model Answer
     let upgradedAnswer = '';
     if (item.part === '2') {
       upgradedAnswer = `To be completely candid, when it comes to ${item.topicTitle.toLowerCase()}, I would definitely single out a pivotal experience that left an indelible impression on me. What made it particularly extraordinary was the steep learning curve involved and the sheer perseverance required. Looking back in hindsight, it not only broadened my horizons but also fundamentally reshaped how I tackle multifaceted challenges in day-to-day life.`;
@@ -620,48 +632,68 @@ Please provide the rigorous evaluation and JSON response.`;
         transcript: evaluation.transcript,
         durationSec: state.speakingDurationSec
       });
-      // Keep last 40 attempts
-      localStorage.setItem(STORAGE_SPEAKING_HISTORY, JSON.stringify(hist.slice(0, 40)));
+      localStorage.setItem(STORAGE_SPEAKING_HISTORY, JSON.stringify(hist.slice(0, 50)));
       renderHistoryModalList();
     } catch (e) {}
   }
 
-  // Render UI Components
+  // Render Topic Selector with Search & Filter
   function renderTopicSelector() {
     const f = getForecast();
     const select = document.getElementById('spTopicSelect');
     if (!select) return;
 
+    const query = (state.searchQuery || '').toLowerCase().trim();
     select.innerHTML = '';
+
+    const doneMap = getDoneQuestions();
+
     if (state.currentPart === '1') {
       f.p1.forEach((t, idx) => {
+        if (query && !t.t.toLowerCase().includes(query)) return;
         const opt = document.createElement('option');
         opt.value = idx;
-        opt.textContent = `${idx + 1}. ${t.t} (${t.q.length} câu hỏi)`;
+        const doneCount = t.q.filter(q => !!doneMap[q.trim()]).length;
+        const statusIcon = doneCount === t.q.length ? '✓ ' : (doneCount > 0 ? `(${doneCount}/${t.q.length}) ` : '');
+        opt.textContent = `${statusIcon}${idx + 1}. ${t.t} (${t.q.length} câu hỏi)`;
         if (idx === state.currentTopicIndex) opt.selected = true;
         select.appendChild(opt);
       });
     } else if (state.currentPart === '2' || state.currentPart === '3') {
       f.p2.forEach((cue, idx) => {
+        if (query && !cue.t.toLowerCase().includes(query)) return;
         const opt = document.createElement('option');
         opt.value = idx;
+        const isDone = !!doneMap[(cue.card || cue.t).trim()];
+        const statusIcon = isDone ? '✓ ' : '';
         const p3Count = cue.q ? cue.q.length : 0;
         opt.textContent = state.currentPart === '2'
-          ? `${idx + 1}. [Cue Card] ${cue.t}`
-          : `${idx + 1}. [Part 3] ${cue.t} (${p3Count} câu)`;
+          ? `${statusIcon}${idx + 1}. [Cue Card] ${cue.t}`
+          : `${statusIcon}${idx + 1}. [Part 3] ${cue.t} (${p3Count} câu)`;
         if (idx === state.currentTopicIndex) opt.selected = true;
         select.appendChild(opt);
       });
     }
   }
 
+  // Render Question Selector with Progress Dots (.fc-dots)
   function renderQuestionSelector() {
-    const cur = getCurrentItem();
     const container = document.getElementById('spQuestionPills');
     if (!container) return;
 
     if (state.currentPart === '2') {
-      container.innerHTML = `<span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-500/30">🗂️ Cue Card 2 Phút Nói</span>`;
+      const cur = getCurrentItem();
+      const doneMap = getDoneQuestions();
+      const isDone = cur && !!doneMap[cur.questionText.trim()];
+      container.innerHTML = `
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-500/30">
+            🗂️ Cue Card 2 Phút Nói
+          </span>
+          ${isDone ? '<span class="text-xs font-bold text-emerald-400 flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Đã hoàn thành</span>' : ''}
+        </div>
+      `;
+      if (window.lucide) window.lucide.createIcons();
       return;
     }
 
@@ -675,10 +707,21 @@ Please provide the rigorous evaluation and JSON response.`;
       questions = cue && cue.q ? cue.q : [];
     }
 
+    const doneMap = getDoneQuestions();
     let html = '';
     questions.forEach((q, idx) => {
-      const active = idx === state.currentQuestionIndex ? 'bg-indigo-600 text-white font-bold' : 'bg-slate-800 text-slate-300 hover:bg-slate-700';
-      html += `<button type="button" onclick="SpeakingEngine.selectQuestionIndex(${idx})" class="px-2.5 py-1 rounded-md text-xs transition ${active}">Câu ${idx + 1}</button>`;
+      const isCurrent = idx === state.currentQuestionIndex;
+      const isDone = !!doneMap[q.trim()];
+      let cls = 'bg-slate-800 text-slate-300 hover:bg-slate-700';
+      if (isCurrent) cls = 'bg-indigo-600 text-white font-bold shadow-md shadow-indigo-600/30 ring-1 ring-white/20';
+      else if (isDone) cls = 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/30';
+
+      html += `
+        <button type="button" onclick="SpeakingEngine.selectQuestionIndex(${idx})" class="px-2.5 py-1 rounded-lg text-xs transition flex items-center gap-1.5 ${cls}">
+          ${isDone ? '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>' : ''}
+          Câu ${idx + 1}
+        </button>
+      `;
     });
     container.innerHTML = html;
   }
@@ -693,31 +736,31 @@ Please provide the rigorous evaluation and JSON response.`;
     if (titleEl) titleEl.textContent = cur.topicTitle;
 
     if (state.currentPart === '2' && cur.cueCard) {
-      // Cue Card View
       if (qBox) qBox.classList.add('hidden');
       if (cueZone) {
         cueZone.classList.remove('hidden');
         const cue = cur.cueCard;
-        const cuesHtml = (cue.cue || []).map(c => `<li class="my-1">${c}</li>`).join('');
+        const cuesHtml = (cue.cue || []).map(c => `<li class="my-1.5 font-medium">${c}</li>`).join('');
         cueZone.innerHTML = `
-          <div class="bg-gradient-to-br from-purple-950/40 via-slate-900 to-slate-900 border-2 border-purple-500/40 rounded-2xl p-5 shadow-xl">
+          <div class="cue-card-container">
             <div class="flex items-center justify-between mb-3 border-b border-purple-500/20 pb-3">
-              <span class="px-3 py-1 bg-purple-600/30 text-purple-300 text-xs font-extrabold rounded-full border border-purple-500/40">PART 2 CUE CARD</span>
+              <span class="px-3 py-1 bg-purple-600/30 text-purple-300 text-xs font-extrabold rounded-full border border-purple-500/40">
+                PART 2 CUE CARD
+              </span>
               <button type="button" onclick="SpeakingEngine.speakCurrentQuestion()" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-purple-300 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition">
                 <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Nghe đề thi (TTS)
               </button>
             </div>
-            <h3 class="text-base md:text-lg font-bold text-white mb-3">${cue.t}</h3>
-            <p class="text-xs font-semibold text-purple-300 uppercase tracking-wider mb-2">You should say:</p>
-            <ul class="list-disc pl-5 text-sm text-slate-200 leading-relaxed mb-3">
+            <h3 class="text-base md:text-xl font-extrabold text-white mb-2 leading-snug">${cue.t}</h3>
+            <span class="cue-say">You should say:</span>
+            <ul class="cue-list mb-3">
               ${cuesHtml}
             </ul>
-            ${cue.ex ? `<p class="text-sm font-semibold text-purple-300 italic">And explain: ${cue.ex}</p>` : ''}
+            ${cue.ex ? `<p class="text-sm font-semibold text-purple-300 italic pt-1 border-t border-purple-500/20">And explain: ${cue.ex}</p>` : ''}
           </div>
         `;
       }
 
-      // Scratchpad & Timer View
       if (noteZone) {
         noteZone.classList.remove('hidden');
         const noteArea = document.getElementById('spScratchpadEditor');
@@ -731,20 +774,19 @@ Please provide the rigorous evaluation and JSON response.`;
       }
 
     } else {
-      // Part 1 or Part 3 View
       if (cueZone) cueZone.classList.add('hidden');
       if (noteZone) noteZone.classList.add('hidden');
       if (qBox) {
         qBox.classList.remove('hidden');
         qBox.innerHTML = `
-          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="bg-gradient-to-r from-slate-900 to-slate-900/90 border border-slate-800 rounded-2xl p-5 md:p-6 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <span class="text-[11px] font-bold text-indigo-400 uppercase tracking-wider block mb-1">
+              <span class="text-[11px] font-extrabold text-indigo-400 uppercase tracking-wider block mb-1">
                 ${state.currentPart === '1' ? 'Part 1 · Phỏng vấn ngắn' : 'Part 3 · Thảo luận chuyên sâu'}
               </span>
-              <p class="text-base md:text-lg font-bold text-white leading-snug">${cur.questionText}</p>
+              <p class="text-base md:text-xl font-bold text-white leading-relaxed font-sans">${cur.questionText}</p>
             </div>
-            <button type="button" onclick="SpeakingEngine.speakCurrentQuestion()" class="shrink-0 px-3.5 py-2 bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition">
+            <button type="button" onclick="SpeakingEngine.speakCurrentQuestion()" class="shrink-0 px-4 py-2.5 bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition shadow-sm">
               <i data-lucide="volume-2" class="w-4 h-4 text-indigo-400"></i> Nghe câu hỏi (TTS)
             </button>
           </div>
@@ -764,13 +806,13 @@ Please provide the rigorous evaluation and JSON response.`;
 
     if (isRecording) {
       btn.innerHTML = `<i data-lucide="square" class="w-7 h-7 text-white fill-white"></i>`;
-      btn.className = 'w-18 h-18 md:w-20 md:h-20 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg shadow-rose-600/40 animate-pulse transition transform hover:scale-105';
+      btn.className = 'rec-btn recording w-20 h-20 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg shadow-rose-600/40 transition transform hover:scale-105';
       if (statusText) statusText.innerHTML = '<span class="text-rose-400 font-bold flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span> Đang ghi âm... Nhấn nút vuông để hoàn thành</span>';
       if (timerEl) timerEl.classList.remove('text-slate-400');
       if (liveBox) liveBox.classList.remove('hidden');
     } else {
       btn.innerHTML = `<i data-lucide="mic" class="w-8 h-8 text-white"></i>`;
-      btn.className = 'w-18 h-18 md:w-20 md:h-20 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center shadow-lg shadow-indigo-600/40 transition transform hover:scale-105';
+      btn.className = 'rec-btn w-20 h-20 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center shadow-lg shadow-indigo-600/40 transition transform hover:scale-105';
       if (statusText) statusText.innerHTML = '<span class="text-slate-400">Nhấn micro để bắt đầu nói</span>';
     }
     if (window.lucide) window.lucide.createIcons();
@@ -806,101 +848,98 @@ Please provide the rigorous evaluation and JSON response.`;
 
     resultZone.classList.remove('hidden');
 
-    // Overall Band Badge Color
     const ob = res.overallBand || 6.5;
     let badgeColor = 'text-emerald-400 border-emerald-500/40 bg-emerald-950/40';
-    if (ob >= 7.5) badgeColor = 'text-purple-300 border-purple-500/40 bg-purple-950/40';
-    else if (ob < 6.0) badgeColor = 'text-amber-400 border-amber-500/40 bg-amber-950/40';
+    let bandDescriptor = 'Good User';
+    if (ob >= 8.0) { badgeColor = 'text-purple-300 border-purple-500/40 bg-purple-950/40'; bandDescriptor = 'Very Good User'; }
+    else if (ob >= 7.0) { badgeColor = 'text-emerald-300 border-emerald-500/40 bg-emerald-950/40'; bandDescriptor = 'Good User'; }
+    else if (ob < 6.0) { badgeColor = 'text-amber-400 border-amber-500/40 bg-amber-950/40'; bandDescriptor = 'Competent User'; }
 
-    // Criteria
     const crits = res.criteria || {};
-    const fc = crits.fluency || { band: 6.0, feedback: '' };
-    const lr = crits.lexical || { band: 6.0, feedback: '' };
+    const fc = crits.fluency || { band: 6.0, feedback: '', strengths: [], improvements: [] };
+    const lr = crits.lexical || { band: 6.0, feedback: '', suggestedUpgrades: [] };
     const gra = crits.grammar || { band: 6.0, feedback: '', errors: [] };
     const pr = crits.pronunciation || { band: 6.0, feedback: '' };
 
-    // Grammar Errors
     let errorsHtml = '';
     if (gra.errors && gra.errors.length) {
       errorsHtml = gra.errors.map(err => `
-        <div class="bg-slate-900 border border-rose-500/30 rounded-xl p-3 text-xs mb-2">
-          <div class="flex items-center gap-2 mb-1">
+        <div class="err-box mb-2.5 text-xs">
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
             <span class="line-through text-rose-400 font-semibold">${err.original || ''}</span>
             <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-400"></i>
             <span class="text-emerald-400 font-bold">${err.correction || ''}</span>
           </div>
-          <p class="text-slate-300">${err.reason || ''}</p>
+          <p class="text-slate-300 leading-relaxed">${err.reason || ''}</p>
         </div>
       `).join('');
     } else {
-      errorsHtml = `<p class="text-xs text-slate-400 italic">Không phát hiện lỗi ngữ pháp thô thiển nào. Bài nói ngữ pháp tự nhiên!</p>`;
+      errorsHtml = `<p class="text-xs text-emerald-300 font-medium italic flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4"></i> Không phát hiện lỗi ngữ pháp thô thiển nào. Bài nói chuẩn xác!</p>`;
     }
 
-    // Upgraded Model Answer
     const upg = res.upgradedAnswer || '';
     
-    // Topic Vocabulary
     const vocabList = (res.topicVocabulary || []).map(v => `
-      <div class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-        <span class="font-bold text-indigo-300 block">${v.phrase}</span>
+      <div class="px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-xs">
+        <span class="font-bold text-indigo-300 block text-sm">${v.phrase}</span>
         <span class="text-[11px] text-slate-400 italic">${v.ipa || ''}</span>
-        <p class="text-slate-300 mt-0.5">${v.meaning || ''}</p>
+        <p class="text-slate-300 mt-1 leading-snug">${v.meaning || ''}</p>
       </div>
     `).join('');
 
     resultZone.innerHTML = `
-      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-6">
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl space-y-6">
         <!-- Top Overall Band Banner -->
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-800 pb-5">
-          <div class="flex items-center gap-4">
-            <div class="w-20 h-20 rounded-2xl border-2 flex flex-col items-center justify-center font-extrabold ${badgeColor}">
-              <span class="text-xs uppercase tracking-wider font-semibold opacity-80">Overall</span>
-              <span class="text-3xl leading-none">${ob}</span>
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-5 border-b border-slate-800 pb-6">
+          <div class="flex items-center gap-5">
+            <div class="w-22 h-22 rounded-2xl border-2 flex flex-col items-center justify-center font-extrabold ${badgeColor} shadow-xl">
+              <span class="text-[10px] uppercase tracking-wider font-extrabold opacity-80">OVERALL</span>
+              <span class="text-3xl leading-none mt-0.5">${ob}</span>
+              <span class="text-[9px] uppercase tracking-wider font-semibold opacity-80 mt-1">${bandDescriptor}</span>
             </div>
             <div>
-              <h4 class="text-lg font-bold text-white">Kết Quả Chấm Điểm IELTS Speaking</h4>
-              <p class="text-xs text-slate-400">Động cơ: <span class="text-indigo-400 font-semibold">${res.source || 'AI Engine'}</span> · Thời gian nói: ${res.speakingDurationSec || state.speakingDurationSec}s</p>
+              <div class="flex items-center gap-2">
+                <h4 class="text-lg md:text-xl font-bold text-white">Kết Quả Chấm Điểm IELTS Speaking</h4>
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-950 text-indigo-300 border border-indigo-500/30">Official Rubric</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1">Động cơ: <span class="text-indigo-400 font-semibold">${res.source || 'AI Engine'}</span> · Thời gian nói: <strong class="text-white">${res.speakingDurationSec || state.speakingDurationSec}s</strong></p>
             </div>
           </div>
-          <button type="button" onclick="SpeakingEngine.speakText('${upg.replace(/'/g, "\\'")}')" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-xs font-bold flex items-center gap-2 transition shadow-lg shadow-purple-600/30">
+          <button type="button" onclick="SpeakingEngine.speakText('${upg.replace(/'/g, "\\'")}')" class="px-4 py-2.5 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-xs font-bold flex items-center gap-2 transition shadow-lg shadow-purple-600/30">
             <i data-lucide="volume-2" class="w-4 h-4"></i> Nghe Bài Mẫu Band 8.0+
           </button>
         </div>
 
         <!-- 4 Official Criteria Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <!-- FC -->
-          <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4">
+          <div class="sc-crd">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-extrabold text-indigo-400">Fluency & Coherence</span>
-              <span class="px-2 py-0.5 rounded-lg bg-indigo-950 text-indigo-300 font-bold text-xs border border-indigo-500/30">Band ${fc.band || 6.0}</span>
+              <span class="text-xs font-extrabold text-indigo-400 uppercase tracking-wider">Fluency & Coherence</span>
+              <span class="px-2 py-0.5 rounded-lg bg-indigo-950 text-indigo-300 font-black text-xs border border-indigo-500/30">Band ${fc.band || 6.0}</span>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed">${fc.feedback || 'Tốc độ và tính liên kết ổn định.'}</p>
           </div>
 
-          <!-- LR -->
-          <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4">
+          <div class="sc-crd">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-extrabold text-emerald-400">Lexical Resource</span>
-              <span class="px-2 py-0.5 rounded-lg bg-emerald-950 text-emerald-300 font-bold text-xs border border-emerald-500/30">Band ${lr.band || 6.0}</span>
+              <span class="text-xs font-extrabold text-emerald-400 uppercase tracking-wider">Lexical Resource</span>
+              <span class="px-2 py-0.5 rounded-lg bg-emerald-950 text-emerald-300 font-black text-xs border border-emerald-500/30">Band ${lr.band || 6.0}</span>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed">${lr.feedback || 'Vốn từ sử dụng đúng ngữ cảnh.'}</p>
           </div>
 
-          <!-- GRA -->
-          <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4">
+          <div class="sc-crd">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-extrabold text-amber-400">Grammar Range</span>
-              <span class="px-2 py-0.5 rounded-lg bg-amber-950 text-amber-300 font-bold text-xs border border-amber-500/30">Band ${gra.band || 6.0}</span>
+              <span class="text-xs font-extrabold text-amber-400 uppercase tracking-wider">Grammar Range</span>
+              <span class="px-2 py-0.5 rounded-lg bg-amber-950 text-amber-300 font-black text-xs border border-amber-500/30">Band ${gra.band || 6.0}</span>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed">${gra.feedback || 'Cấu trúc câu phong phú.'}</p>
           </div>
 
-          <!-- PR -->
-          <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4">
+          <div class="sc-crd">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-extrabold text-rose-400">Pronunciation</span>
-              <span class="px-2 py-0.5 rounded-lg bg-rose-950 text-rose-300 font-bold text-xs border border-rose-500/30">Band ${pr.band || 6.0}</span>
+              <span class="text-xs font-extrabold text-rose-400 uppercase tracking-wider">Pronunciation</span>
+              <span class="px-2 py-0.5 rounded-lg bg-rose-950 text-rose-300 font-black text-xs border border-rose-500/30">Band ${pr.band || 6.0}</span>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed">${pr.feedback || 'Rõ ràng, ngữ điệu tự nhiên.'}</p>
           </div>
@@ -909,30 +948,30 @@ Please provide the rigorous evaluation and JSON response.`;
         <!-- Transcript of candidate -->
         <div class="bg-slate-950 border border-slate-800/80 rounded-2xl p-4">
           <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">📝 Lời Bạn Đã Nói (Transcript)</span>
-          <p class="text-xs md:text-sm text-slate-200 leading-relaxed font-mono bg-slate-900/60 p-3 rounded-xl border border-slate-800/60">"${res.transcript || ''}"</p>
+          <p class="text-xs md:text-sm text-slate-200 leading-relaxed font-sans bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/60">"${res.transcript || ''}"</p>
         </div>
 
         <!-- Error Correction Box -->
         <div class="bg-slate-950 border border-rose-500/20 rounded-2xl p-5">
           <div class="flex items-center gap-2 mb-3">
-            <span class="p-1 rounded-lg bg-rose-950 text-rose-400"><i data-lucide="alert-triangle" class="w-4 h-4"></i></span>
+            <span class="p-1.5 rounded-lg bg-rose-950 text-rose-400"><i data-lucide="alert-triangle" class="w-4 h-4"></i></span>
             <h5 class="text-sm font-bold text-white">Chữa Lỗi Ngữ Pháp & Dùng Từ Cần Khắc Phục</h5>
           </div>
           ${errorsHtml}
         </div>
 
         <!-- Band 8.0+ Upgraded Model Answer -->
-        <div class="bg-gradient-to-br from-purple-950/40 via-slate-950 to-slate-950 border-2 border-purple-500/30 rounded-2xl p-5">
+        <div class="upg-box">
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2">
-              <span class="p-1 rounded-lg bg-purple-900/50 text-purple-300"><i data-lucide="sparkles" class="w-4 h-4"></i></span>
+              <span class="p-1.5 rounded-lg bg-purple-900/50 text-purple-300"><i data-lucide="sparkles" class="w-4 h-4"></i></span>
               <h5 class="text-sm font-bold text-white">Phiên Bản Nâng Cấp Chuẩn Bản Xứ (Band 8.0 - 8.5)</h5>
             </div>
             <button type="button" onclick="SpeakingEngine.copyToClipboard('${upg.replace(/'/g, "\\'")}')" class="text-xs text-purple-300 hover:text-white flex items-center gap-1 font-semibold transition">
               <i data-lucide="copy" class="w-3.5 h-3.5"></i> Sao chép
             </button>
           </div>
-          <p class="text-sm text-purple-100 leading-relaxed font-serif bg-slate-900/60 p-4 rounded-xl border border-purple-500/20 mb-3">${upg}</p>
+          <p class="text-sm text-purple-100 leading-relaxed font-serif bg-slate-900/80 p-4 rounded-xl border border-purple-500/20 mb-3">${upg}</p>
         </div>
 
         <!-- Recommended Topic Collocations -->
@@ -953,11 +992,11 @@ Please provide the rigorous evaluation and JSON response.`;
 
   // Switch Speaking Part
   function setPart(part) {
+    state.isMockMode = (part === 'mock');
     state.currentPart = part;
     state.currentTopicIndex = 0;
     state.currentQuestionIndex = 0;
 
-    // Nav tabs styling
     ['1', '2', '3', 'mock'].forEach(p => {
       const btn = document.getElementById(`spPartTab_${p}`);
       if (btn) {
@@ -969,7 +1008,6 @@ Please provide the rigorous evaluation and JSON response.`;
       }
     });
 
-    // Reset recording & results
     stopRecording();
     const resultZone = document.getElementById('spResultZone');
     if (resultZone) resultZone.classList.add('hidden');
@@ -979,6 +1017,31 @@ Please provide the rigorous evaluation and JSON response.`;
     if (scoreBtn) scoreBtn.classList.add('hidden');
     const liveBox = document.getElementById('spLiveTranscriptBox');
     if (liveBox) liveBox.classList.add('hidden');
+
+    if (part === 'mock') {
+      startMockTestMode();
+    } else {
+      renderTopicSelector();
+      renderQuestionSelector();
+      renderCurrentQuestionBoard();
+    }
+  }
+
+  // Mock Test Flow
+  function startMockTestMode() {
+    const f = getForecast();
+    // Build 6 questions: 3 Part 1, 1 Part 2 Cue Card, 2 Part 3
+    const p1Topic = f.p1[Math.floor(Math.random() * f.p1.length)] || f.p1[0];
+    const p1Qs = (p1Topic.q || []).slice(0, 3).map(q => ({ part: '1', text: q }));
+    
+    const p2Cue = f.p2[Math.floor(Math.random() * f.p2.length)] || f.p2[0];
+    const p2Card = { part: '2', text: p2Cue.card || p2Cue.t, cueCard: p2Cue };
+    
+    const p3Qs = (p2Cue.q || []).slice(0, 2).map(q => ({ part: '3', text: q }));
+
+    state.mockQuestions = [...p1Qs, p2Card, ...p3Qs];
+    state.mockStep = 0;
+    state.mockResults = [];
 
     renderTopicSelector();
     renderQuestionSelector();
@@ -994,6 +1057,15 @@ Please provide the rigorous evaluation and JSON response.`;
 
   function selectQuestionIndex(idx) {
     state.currentQuestionIndex = parseInt(idx, 10) || 0;
+    renderQuestionSelector();
+    renderCurrentQuestionBoard();
+  }
+
+  function handleSearch(query) {
+    state.searchQuery = query || '';
+    state.currentTopicIndex = 0;
+    state.currentQuestionIndex = 0;
+    renderTopicSelector();
     renderQuestionSelector();
     renderCurrentQuestionBoard();
   }
@@ -1089,7 +1161,7 @@ Please provide the rigorous evaluation and JSON response.`;
     const key = getGroqKey();
     if (key) {
       badge.innerHTML = `<i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i> <span class="text-amber-300 font-bold">Groq AI Active</span>`;
-      badge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-amber-950/60 border border-amber-500/40 flex items-center gap-1.5 cursor-pointer';
+      badge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-amber-950/60 border border-amber-500/40 flex items-center gap-1.5 cursor-pointer shadow-sm';
     } else {
       badge.innerHTML = `<i data-lucide="key" class="w-3.5 h-3.5 text-slate-400"></i> <span class="text-slate-300">Cấu hình Groq Key</span>`;
       badge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1.5 cursor-pointer transition';
@@ -1117,6 +1189,7 @@ Please provide the rigorous evaluation and JSON response.`;
     setPart: setPart,
     selectTopicIndex: selectTopicIndex,
     selectQuestionIndex: selectQuestionIndex,
+    handleSearch: handleSearch,
     pickRandomQuestion: pickRandomQuestion,
     speakCurrentQuestion: function () {
       const cur = getCurrentItem();

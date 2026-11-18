@@ -344,6 +344,26 @@
           </div>
         </div>
 
+        <!-- ================= TIỆN ÍCH ĐỘT PHÁ: IELTS SPEAKING AI STUDIO (FORECAST Q3/2026) ================= -->
+        <div class="rounded-2xl p-5 bg-gradient-to-r from-purple-950/70 via-slate-900 to-indigo-950/70 border border-purple-500/40 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-purple-600/20 border border-purple-500/40 flex items-center justify-center text-purple-300 shrink-0 shadow-lg shadow-purple-600/20">
+              <i data-lucide="mic" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h4 class="font-bold text-white text-base">🎙️ IELTS Speaking AI Studio (Đề Dự Đoán Q3/2026)</h4>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-purple-600/30 text-purple-300 border border-purple-500/30">1.211 Đề Thi</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-0.5">Thu âm trên web, AI chấm 4 tiêu chí FC - LR - GRA - PR và gợi ý câu trả lời mẫu Band 8.0+ tức thì.</p>
+            </div>
+          </div>
+          <button onclick="switchTab('speaking')" class="shrink-0 px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-purple-600/30 transition transform hover:scale-[1.02]">
+            <span>Vào Luyện Nói Ngay</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
         <!-- Action bar: Hoc vuot deadline & On tap dan dan -->
         <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-800/80">
           <div class="flex items-center gap-2 flex-wrap">
@@ -2094,10 +2114,18 @@
         <button id="spPartTab_3" onclick="SpeakingEngine.setPart('3')" class="px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-800">
           Part 3: Thảo luận chuyên sâu
         </button>
+        <button id="spPartTab_mock" onclick="SpeakingEngine.setPart('mock')" class="px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1.5">
+          <i data-lucide="award" class="w-4 h-4 text-amber-400"></i> Thi thử mô phỏng (Full Mock Test)
+        </button>
       </div>
 
       <!-- Topic Picker & Question Selector Card -->
       <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-xl space-y-4">
+        <!-- Topic Search Input -->
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5 pointer-events-none"></i>
+          <input type="text" id="spSearchInput" oninput="SpeakingEngine.handleSearch(this.value)" placeholder="🔍 Tìm kiếm chủ đề hoặc từ khóa (Weather, Bags, Memory, Work, Routine, Hometown...)" class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-xs md:text-sm text-slate-200 focus:outline-none focus:border-indigo-500 placeholder-slate-500">
+        </div>
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div class="w-full md:w-1/2">
             <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Chọn Chủ Đề Đề Thi (Topic)</label>

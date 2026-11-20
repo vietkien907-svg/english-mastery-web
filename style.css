@@ -1,35 +1,35 @@
 /* ============================================================
    NIGHT IELTS MINIMALIST DESIGN SYSTEM
    GIAO DIỆN TỐI GIẢN: Tờ giấy trắng duy nhất, ngăn bằng đường kẻ mảnh #ece8f1
-   Màu nền nhẹ dịu: #f5f3f8, Màu chữ đen mực: #221c2b, Điểm nhấn: Hồng mâm xôi #d6336c
+   Màu nền nhẹ dịu: #f8fafc, Màu chữ đen mực: #0f172a, Điểm nhấn: Royal Ocean Blue #2563eb
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --page: #f5f3f8;
+  --page: #f8fafc;
   --sheet: #ffffff;
-  --ink: #221c2b;
-  --ink-2: #5f5870;
-  --ink-3: #9a93a8;
-  --rule: #ece8f1;
-  --accent: #d6336c;
-  --accent-ink: #b0245a;
-  --accent-wash: #fbeef3;
-  --good: #2f855a;
-  --good-wash: #f1f8f4;
-  --hover-bg: #f7f5fa;
+  --ink: #0f172a;
+  --ink-2: #475569;
+  --ink-3: #94a3b8;
+  --rule: #e2e8f0;
+  --accent: #2563eb;
+  --accent-ink: #1d4ed8;
+  --accent-wash: #eff6ff;
+  --good: #16a34a;
+  --good-wash: #f0fdf4;
+  --hover-bg: #f1f5f9;
   --correct-color: var(--good);
-  --incorrect-color: #d64545;
+  --incorrect-color: #dc2626;
 
   /* 4 IELTS Speaking Criteria Colors */
-  --fluency: #0e7f75;
-  --fluency-w: #e4f4f2;
-  --lexical: #a65f00;
-  --lexical-w: #fbf1e1;
-  --grammar: #c0392b;
-  --grammar-w: #fcebea;
-  --pronunciation: #7a4fc4;
-  --pronunciation-w: #f3eefc;
+  --fluency: #0d9488;
+  --fluency-w: #f0fdfa;
+  --lexical: #d97706;
+  --lexical-w: #fffbeb;
+  --grammar: #e11d48;
+  --grammar-w: #fff1f2;
+  --pronunciation: #7c3aed;
+  --pronunciation-w: #f5f3ff;
 
   /* Compatibility bindings */
   --bg-color: var(--page);
@@ -39,6 +39,62 @@
   --muted: var(--ink-3);
   --line: var(--rule);
   --primary-button: var(--accent);
+}
+
+/* THEME: Emerald Green (Xanh lục bảo thanh mát, tập trung) */
+[data-theme="emerald"] {
+  --page: #f6faf7;
+  --sheet: #ffffff;
+  --ink: #062b1b;
+  --ink-2: #335948;
+  --ink-3: #759a89;
+  --rule: #dbebe2;
+  --accent: #059669;
+  --accent-ink: #047857;
+  --accent-wash: #ecfdf5;
+  --hover-bg: #eef7f2;
+}
+
+/* THEME: Night Teal (Xanh ngọc chuẩn Night IELTS) */
+[data-theme="teal"] {
+  --page: #f0fdfa;
+  --sheet: #ffffff;
+  --ink: #042f2e;
+  --ink-2: #115e59;
+  --ink-3: #5eead4;
+  --rule: #ccfbf1;
+  --accent: #0d9488;
+  --accent-ink: #0f766e;
+  --accent-wash: #f0fdfa;
+  --hover-bg: #e6fffa;
+}
+
+/* THEME: Royal Indigo (Tím hoàng gia sang trọng) */
+[data-theme="indigo"] {
+  --page: #f8f8fc;
+  --sheet: #ffffff;
+  --ink: #1e1b4b;
+  --ink-2: #4338ca;
+  --ink-3: #818cf8;
+  --rule: #e0e7ff;
+  --accent: #4f46e5;
+  --accent-ink: #3730a3;
+  --accent-wash: #eef2ff;
+  --hover-bg: #f5f6ff;
+}
+
+/* THEME: Minimalist Slate (Xám than tối giản chuẩn Notion) */
+[data-theme="slate"] {
+  --page: #f8fafc;
+  --sheet: #ffffff;
+  --ink: #0f172a;
+  --ink-2: #334155;
+  --ink-3: #64748b;
+  --rule: #cbd5e1;
+  --accent: #0f172a;
+  --accent-ink: #1e293b;
+  --accent-wash: #f1f5f9;
+  --hover-bg: #e2e8f0;
 }
 
 * {
@@ -188,6 +244,24 @@ html, body {
   background: transparent !important;
   font-weight: 700 !important;
   box-shadow: none !important;
+}
+
+.ni-tab-btn.active svg,
+.ni-tab-btn.active i,
+.ni-tab-btn.bg-indigo-600 svg,
+.ni-tab-btn.bg-indigo-600 i {
+  color: var(--accent) !important;
+}
+
+.mob-tab {
+  color: var(--ink-2) !important;
+  transition: color 0.15s ease;
+}
+
+.mob-tab.text-indigo-400,
+.mob-tab.active {
+  color: var(--accent) !important;
+  font-weight: 700 !important;
 }
 
 /* ================= PANELS & CARDS ================= */
@@ -364,9 +438,9 @@ html, body {
 }
 
 @keyframes recPulse {
-  0% { box-shadow: 0 0 0 0 rgba(214, 51, 108, .4); }
-  70% { box-shadow: 0 0 0 16px rgba(214, 51, 108, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(214, 51, 108, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, .4); }
+  70% { box-shadow: 0 0 0 16px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
 }
 
 .rec-timer {

@@ -687,13 +687,10 @@ Please provide the rigorous evaluation and JSON response.`;
       const isDone = cur && !!doneMap[cur.questionText.trim()];
       container.innerHTML = `
         <div class="flex items-center gap-2">
-          <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 border border-purple-500/30">
-            🗂️ Cue Card 2 Phút Nói
-          </span>
-          ${isDone ? '<span class="text-xs font-bold text-emerald-400 flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Đã hoàn thành</span>' : ''}
+          <span class="q-nav-btn is-cue current">Cue Card</span>
+          ${isDone ? '<span class="text-xs font-bold text-[#2f855a] flex items-center gap-1">✓ Đã làm</span>' : ''}
         </div>
       `;
-      if (window.lucide) window.lucide.createIcons();
       return;
     }
 
@@ -712,14 +709,13 @@ Please provide the rigorous evaluation and JSON response.`;
     questions.forEach((q, idx) => {
       const isCurrent = idx === state.currentQuestionIndex;
       const isDone = !!doneMap[q.trim()];
-      let cls = 'bg-slate-800 text-slate-300 hover:bg-slate-700';
-      if (isCurrent) cls = 'bg-indigo-600 text-white font-bold shadow-md shadow-indigo-600/30 ring-1 ring-white/20';
-      else if (isDone) cls = 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/30';
+      let cls = 'q-nav-btn';
+      if (isCurrent) cls += ' current';
+      else if (isDone) cls += ' done';
 
       html += `
-        <button type="button" onclick="SpeakingEngine.selectQuestionIndex(${idx})" class="px-2.5 py-1 rounded-lg text-xs transition flex items-center gap-1.5 ${cls}">
-          ${isDone ? '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>' : ''}
-          Câu ${idx + 1}
+        <button type="button" onclick="SpeakingEngine.selectQuestionIndex(${idx})" class="${cls}" title="Câu ${idx + 1}">
+          ${idx + 1}
         </button>
       `;
     });
@@ -740,23 +736,23 @@ Please provide the rigorous evaluation and JSON response.`;
       if (cueZone) {
         cueZone.classList.remove('hidden');
         const cue = cur.cueCard;
-        const cuesHtml = (cue.cue || []).map(c => `<li class="my-1.5 font-medium">${c}</li>`).join('');
+        const cuesHtml = (cue.cue || []).map(c => `<li class="my-1 font-medium">${c}</li>`).join('');
         cueZone.innerHTML = `
           <div class="cue-card-container">
-            <div class="flex items-center justify-between mb-3 border-b border-purple-500/20 pb-3">
-              <span class="px-3 py-1 bg-purple-600/30 text-purple-300 text-xs font-extrabold rounded-full border border-purple-500/40">
-                PART 2 CUE CARD
+            <div class="flex items-center justify-between mb-3 border-b border-[#ece8f1] pb-2">
+              <span class="part-chip" style="font-size: 11px; font-weight: 800; color: var(--accent-ink); background: var(--accent-wash); padding: 2px 10px; border-radius: 999px;">
+                PART 2 · CUE CARD
               </span>
-              <button type="button" onclick="SpeakingEngine.speakCurrentQuestion()" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-purple-300 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition">
-                <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Nghe đề thi (TTS)
+              <button type="button" onclick="SpeakingEngine.speakCurrentQuestion()" class="ni-nav-btn" style="padding: 3px 8px; font-size: 12px;">
+                🔊 Nghe đề thi
               </button>
             </div>
-            <h3 class="text-base md:text-xl font-extrabold text-white mb-2 leading-snug">${cue.t}</h3>
+            <h3 class="text-lg md:text-xl font-extrabold text-[#221c2b] mb-2 leading-snug">${cue.t}</h3>
             <span class="cue-say">You should say:</span>
             <ul class="cue-list mb-3">
               ${cuesHtml}
             </ul>
-            ${cue.ex ? `<p class="text-sm font-semibold text-purple-300 italic pt-1 border-t border-purple-500/20">And explain: ${cue.ex}</p>` : ''}
+            ${cue.ex ? `<p class="text-sm font-semibold text-[#5f5870] italic pt-2 border-t border-[#ece8f1]">And explain: ${cue.ex}</p>` : ''}
           </div>
         `;
       }
@@ -779,21 +775,20 @@ Please provide the rigorous evaluation and JSON response.`;
       if (qBox) {
         qBox.classList.remove('hidden');
         qBox.innerHTML = `
-          <div class="bg-gradient-to-r from-slate-900 to-slate-900/90 border border-slate-800 rounded-2xl p-5 md:p-6 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div>
-              <span class="text-[11px] font-extrabold text-indigo-400 uppercase tracking-wider block mb-1">
-                ${state.currentPart === '1' ? 'Part 1 · Phỏng vấn ngắn' : 'Part 3 · Thảo luận chuyên sâu'}
+          <div class="pv-card">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="text-xs font-bold text-[#5f5870] uppercase tracking-wider">
+                ${state.currentPart === '1' ? 'Part 1 · Phỏng vấn ngắn' : 'Part 3 · Thảo luận chuyên sâu'} · Câu ${state.currentQuestionIndex + 1}
               </span>
-              <p class="text-base md:text-xl font-bold text-white leading-relaxed font-sans">${cur.questionText}</p>
+              <button type="button" onclick="SpeakingEngine.speakCurrentQuestion()" class="ni-nav-btn" style="padding: 3px 8px; font-size: 12px;" title="Nghe phát âm câu hỏi">
+                🔊 Nghe câu hỏi
+              </button>
             </div>
-            <button type="button" onclick="SpeakingEngine.speakCurrentQuestion()" class="shrink-0 px-4 py-2.5 bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition shadow-sm">
-              <i data-lucide="volume-2" class="w-4 h-4 text-indigo-400"></i> Nghe câu hỏi (TTS)
-            </button>
+            <p class="q-text" style="font-size: 20px; line-height: 1.35; font-weight: 700; color: var(--ink); margin: 6px 0 2px;">${cur.questionText}</p>
           </div>
         `;
       }
     }
-    if (window.lucide) window.lucide.createIcons();
   }
 
   function updateRecordingUI(isRecording) {
@@ -850,145 +845,95 @@ Please provide the rigorous evaluation and JSON response.`;
     const pl = document.getElementById('spResultPlaceholder'); if (pl) pl.classList.add('hidden');
 
     const ob = res.overallBand || 6.5;
-    let badgeColor = 'text-emerald-400 border-emerald-500/40 bg-emerald-950/40';
-    let bandDescriptor = 'Good User';
-    if (ob >= 8.0) { badgeColor = 'text-purple-300 border-purple-500/40 bg-purple-950/40'; bandDescriptor = 'Very Good User'; }
-    else if (ob >= 7.0) { badgeColor = 'text-emerald-300 border-emerald-500/40 bg-emerald-950/40'; bandDescriptor = 'Good User'; }
-    else if (ob < 6.0) { badgeColor = 'text-amber-400 border-amber-500/40 bg-amber-950/40'; bandDescriptor = 'Competent User'; }
-
     const crits = res.criteria || {};
-    const fc = crits.fluency || { band: 6.0, feedback: '', strengths: [], improvements: [] };
-    const lr = crits.lexical || { band: 6.0, feedback: '', suggestedUpgrades: [] };
+    const fc = crits.fluency || { band: 6.0, feedback: '' };
+    const lr = crits.lexical || { band: 6.0, feedback: '' };
     const gra = crits.grammar || { band: 6.0, feedback: '', errors: [] };
     const pr = crits.pronunciation || { band: 6.0, feedback: '' };
 
     let errorsHtml = '';
     if (gra.errors && gra.errors.length) {
       errorsHtml = gra.errors.map(err => `
-        <div class="err-box mb-2.5 text-xs">
+        <div class="err-box mb-2 text-xs">
           <div class="flex items-center gap-2 mb-1 flex-wrap">
-            <span class="line-through text-rose-400 font-semibold">${err.original || ''}</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-400"></i>
-            <span class="text-emerald-400 font-bold">${err.correction || ''}</span>
+            <del class="text-[#9a93a8]">${err.original || ''}</del>
+            <span class="text-[#5f5870]">→</span>
+            <ins class="text-[#2f855a] font-bold no-underline">${err.correction || ''}</ins>
           </div>
-          <p class="text-slate-300 leading-relaxed">${err.reason || ''}</p>
+          <p class="text-[#5f5870] leading-relaxed">${err.reason || ''}</p>
         </div>
       `).join('');
     } else {
-      errorsHtml = `<p class="text-xs text-emerald-300 font-medium italic flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4"></i> Không phát hiện lỗi ngữ pháp thô thiển nào. Bài nói chuẩn xác!</p>`;
+      errorsHtml = `<p class="text-xs text-[#2f855a] font-medium italic">✓ Không phát hiện lỗi sai thô thiển. Diễn đạt chính xác!</p>`;
     }
 
     const upg = res.upgradedAnswer || '';
-    
-    const vocabList = (res.topicVocabulary || []).map(v => `
-      <div class="px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-xs">
-        <span class="font-bold text-indigo-300 block text-sm">${v.phrase}</span>
-        <span class="text-[11px] text-slate-400 italic">${v.ipa || ''}</span>
-        <p class="text-slate-300 mt-1 leading-snug">${v.meaning || ''}</p>
-      </div>
-    `).join('');
 
     resultZone.innerHTML = `
-      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl space-y-6">
-        <!-- Top Overall Band Banner -->
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-5 border-b border-slate-800 pb-6">
-          <div class="flex items-center gap-5">
-            <div class="w-22 h-22 rounded-2xl border-2 flex flex-col items-center justify-center font-extrabold ${badgeColor} shadow-xl">
-              <span class="text-[10px] uppercase tracking-wider font-extrabold opacity-80">OVERALL</span>
-              <span class="text-3xl leading-none mt-0.5">${ob}</span>
-              <span class="text-[9px] uppercase tracking-wider font-semibold opacity-80 mt-1">${bandDescriptor}</span>
+      <div class="space-y-3.5">
+        <!-- Top Overall Band Score Card -->
+        <div class="pv-card">
+          <div class="score-line">
+            <div class="score-main">
+              <b>${ob}</b>
+              <span>Overall Band ước tính</span>
             </div>
-            <div>
-              <div class="flex items-center gap-2">
-                <h4 class="text-lg md:text-xl font-bold text-white">Kết Quả Chấm Điểm IELTS Speaking</h4>
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-950 text-indigo-300 border border-indigo-500/30">Official Rubric</span>
+            <div class="mini-bands">
+              <div class="mini-band">
+                <b style="color: var(--fluency)">${fc.band || 6.0}</b>
+                <span><i class="dot fluency"></i> Fluency</span>
               </div>
-              <p class="text-xs text-slate-400 mt-1">Động cơ: <span class="text-indigo-400 font-semibold">${res.source || 'AI Engine'}</span> · Thời gian nói: <strong class="text-white">${res.speakingDurationSec || state.speakingDurationSec}s</strong></p>
+              <div class="mini-band">
+                <b style="color: var(--lexical)">${lr.band || 6.0}</b>
+                <span><i class="dot lexical"></i> Lexical</span>
+              </div>
+              <div class="mini-band">
+                <b style="color: var(--grammar)">${gra.band || 6.0}</b>
+                <span><i class="dot grammar"></i> Grammar</span>
+              </div>
+              <div class="mini-band">
+                <b style="color: var(--pronunciation)">${pr.band || 6.0}</b>
+                <span><i class="dot pronunciation"></i> Pronunciation</span>
+              </div>
             </div>
           </div>
-          <button type="button" onclick="SpeakingEngine.speakText('${upg.replace(/'/g, "\\'")}')" class="px-4 py-2.5 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-xs font-bold flex items-center gap-2 transition shadow-lg shadow-purple-600/30">
-            <i data-lucide="volume-2" class="w-4 h-4"></i> Nghe Bài Mẫu Band 8.0+
-          </button>
-        </div>
-
-        <!-- 4 Official Criteria Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="sc-crd">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-extrabold text-indigo-400 uppercase tracking-wider">Fluency & Coherence</span>
-              <span class="px-2 py-0.5 rounded-lg bg-indigo-950 text-indigo-300 font-black text-xs border border-indigo-500/30">Band ${fc.band || 6.0}</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">${fc.feedback || 'Tốc độ và tính liên kết ổn định.'}</p>
-          </div>
-
-          <div class="sc-crd">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-extrabold text-emerald-400 uppercase tracking-wider">Lexical Resource</span>
-              <span class="px-2 py-0.5 rounded-lg bg-emerald-950 text-emerald-300 font-black text-xs border border-emerald-500/30">Band ${lr.band || 6.0}</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">${lr.feedback || 'Vốn từ sử dụng đúng ngữ cảnh.'}</p>
-          </div>
-
-          <div class="sc-crd">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-extrabold text-amber-400 uppercase tracking-wider">Grammar Range</span>
-              <span class="px-2 py-0.5 rounded-lg bg-amber-950 text-amber-300 font-black text-xs border border-amber-500/30">Band ${gra.band || 6.0}</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">${gra.feedback || 'Cấu trúc câu phong phú.'}</p>
-          </div>
-
-          <div class="sc-crd">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-extrabold text-rose-400 uppercase tracking-wider">Pronunciation</span>
-              <span class="px-2 py-0.5 rounded-lg bg-rose-950 text-rose-300 font-black text-xs border border-rose-500/30">Band ${pr.band || 6.0}</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">${pr.feedback || 'Rõ ràng, ngữ điệu tự nhiên.'}</p>
-          </div>
-        </div>
-
-        <!-- Transcript of candidate -->
-        <div class="bg-slate-950 border border-slate-800/80 rounded-2xl p-4">
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">📝 Lời Bạn Đã Nói (Transcript)</span>
-          <p class="text-xs md:text-sm text-slate-200 leading-relaxed font-sans bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/60">"${res.transcript || ''}"</p>
-        </div>
-
-        <!-- Error Correction Box -->
-        <div class="bg-slate-950 border border-rose-500/20 rounded-2xl p-5">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="p-1.5 rounded-lg bg-rose-950 text-rose-400"><i data-lucide="alert-triangle" class="w-4 h-4"></i></span>
-            <h5 class="text-sm font-bold text-white">Chữa Lỗi Ngữ Pháp & Dùng Từ Cần Khắc Phục</h5>
-          </div>
-          ${errorsHtml}
-        </div>
-
-        <!-- Band 8.0+ Upgraded Model Answer -->
-        <div class="upg-box">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-2">
-              <span class="p-1.5 rounded-lg bg-purple-900/50 text-purple-300"><i data-lucide="sparkles" class="w-4 h-4"></i></span>
-              <h5 class="text-sm font-bold text-white">Phiên Bản Nâng Cấp Chuẩn Bản Xứ (Band 8.0 - 8.5)</h5>
-            </div>
-            <button type="button" onclick="SpeakingEngine.copyToClipboard('${upg.replace(/'/g, "\\'")}')" class="text-xs text-purple-300 hover:text-white flex items-center gap-1 font-semibold transition">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i> Sao chép
+          <div class="flex items-center justify-between text-xs text-[#5f5870] pt-3 mt-3 border-t border-[#ece8f1]">
+            <span>Động cơ: <strong class="text-[#221c2b]">${res.source || 'AI Engine'}</strong> · Thời gian: <strong>${res.speakingDurationSec || state.speakingDurationSec}s</strong></span>
+            <button type="button" onclick="SpeakingEngine.speakText('${upg.replace(/'/g, "\'")}')" class="ni-nav-btn" style="padding: 4px 10px; font-size: 12px;">
+              🔊 Nghe bài mẫu
             </button>
           </div>
-          <p class="text-sm text-purple-100 leading-relaxed font-serif bg-slate-900/80 p-4 rounded-xl border border-purple-500/20 mb-3">${upg}</p>
         </div>
 
-        <!-- Recommended Topic Collocations -->
-        ${vocabList ? `
-          <div class="border-t border-slate-800 pt-5">
-            <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">✨ Từ Vựng & Collocation Đắt Giá Cho Đề Này</h5>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-              ${vocabList}
-            </div>
+        <!-- Transcript -->
+        ${res.transcript ? `
+        <div class="pv-card text-xs">
+          <span class="font-bold text-[#5f5870] uppercase tracking-wider block mb-1">📝 Lời Bạn Đã Nói (Transcript)</span>
+          <p class="text-xs text-[#221c2b] bg-[#f5f3f8] p-2.5 rounded-lg leading-relaxed">"${res.transcript}"</p>
+        </div>` : ''}
+
+        <!-- Detailed Error Correction -->
+        <div class="pv-card">
+          <h5 class="font-bold text-sm text-[#221c2b] mb-1.5 flex items-center justify-between">
+            <span>Chữa Lỗi Chi Tiết</span>
+            <span class="legend"><del>chữ sai</del> <ins>chữ đúng</ins></span>
+          </h5>
+          <div class="space-y-1.5 mt-2">
+            ${errorsHtml}
           </div>
-        ` : ''}
+        </div>
+
+        <!-- Upgraded Band 8.0+ Model Answer -->
+        <div class="answer-card upgraded">
+          <div class="answer-card-title">
+            <span>✨ Bản Nâng Cấp Band 8.0+ Chuẩn Bản Xứ</span>
+          </div>
+          <p class="answer-card-text">${upg}</p>
+        </div>
       </div>
     `;
 
     resultZone.scrollIntoView({ behavior: 'smooth' });
-    if (window.lucide) window.lucide.createIcons();
   }
 
   // Switch Speaking Part

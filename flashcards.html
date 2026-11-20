@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" class="dark">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -41,155 +41,119 @@
 </head>
 <body class="pb-24 md:pb-8 flex flex-col min-h-screen text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
 
-  <!-- TOP NAVBAR -->
-  <header class="sticky top-0 z-40 glass-panel border-b border-slate-800 px-4 py-3">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-500/25">
-          <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+  <!-- TOP NAVBAR (EXACT NIGHT IELTS STYLE) -->
+  <header class="ni-header sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#ece8f1] px-4 py-2.5">
+    <div class="max-w-5xl mx-auto w-full flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-pink-50 text-[#d6336c] border border-pink-200 flex items-center justify-center font-bold text-sm shadow-sm">
+          <i data-lucide="mic" class="w-4 h-4 text-[#d6336c]"></i>
         </div>
         <div>
-          <h1 class="font-bold text-base md:text-lg leading-tight flex items-center gap-2">
-            <span>English Mastery Hub</span>
-            <span id="targetExamBadge" class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-medium">IELTS • VSTEP</span>
+          <h1 class="font-bold text-sm md:text-base leading-tight flex items-center gap-2 text-[#221c2b]">
+            <span>English Mastery</span>
+            <span id="targetExamBadge" class="text-[11px] px-2 py-0.5 rounded-full bg-pink-50 text-[#b0245a] border border-pink-200 font-semibold">IELTS Speaking</span>
           </h1>
-          <p id="userStatusText" class="text-xs text-slate-400">Đang chạy máy chủ cục bộ • Sẵn sàng đồng bộ</p>
+          <p id="userStatusText" class="text-[11px] text-[#5f5870]">Tự học IELTS Speaking & Từ Vựng Chuẩn Quốc Tế</p>
         </div>
       </div>
 
       <div class="flex items-center gap-2">
-                <!-- Leaderboard & Competition Drawer Button -->
-        <button onclick="toggleLeaderboardDrawer()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/35 text-amber-300 text-xs font-bold border border-amber-500/40 transition shadow-sm active:scale-95" title="Bảng xếp hạng thi đua học tập giữa các học viên">
-          <i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-400"></i>
-          <span class="hidden sm:inline font-mono">🏆 Thi Đua</span>
+        <!-- BYOK Groq AI Config Gear (Exact Night IELTS) -->
+        <button type="button" onclick="SpeakingEngine.openGroqModal()" class="ni-nav-btn" title="Cấu hình Groq API Key">
+          <i data-lucide="settings" class="w-3.5 h-3.5 text-[#5f5870]"></i>
+          <span class="hidden sm:inline">⚙️ Groq AI</span>
         </button>
 
-        <!-- Fast Multi-Account Switcher Button -->
-        <button onclick="openMultiAccountModal()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/35 text-indigo-300 text-xs font-bold border border-indigo-500/40 transition shadow-sm active:scale-95" title="Chuyển đổi tài khoản hoặc cấp tài khoản học viên mới">
-          <i data-lucide="users" class="w-3.5 h-3.5 text-indigo-400"></i>
-          <span id="headerAccountName" class="hidden md:inline">Đổi Tài Khoản</span>
+        <!-- Leaderboard -->
+        <button type="button" onclick="toggleLeaderboardDrawer()" class="ni-nav-btn" title="Bảng xếp hạng thi đua">
+          <i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span class="hidden sm:inline">🏆 Thi Đua</span>
         </button>
 
-        <!-- Quick Manual Sync Button -->
-        <button id="btnManualSyncHeader" onclick="manualSyncNow(true)" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/35 text-emerald-300 text-xs font-bold border border-emerald-500/40 transition shadow-sm active:scale-95" title="Bấm để đồng bộ thủ công ngay lập tức">
-          <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-emerald-400" id="manualSyncIcon"></i>
-          <span class="hidden md:inline">Đồng Bộ Thủ Công</span>
-          <span class="md:hidden">Đồng Bộ</span>
+        <!-- Profile / Multi-Account -->
+        <button type="button" onclick="openMultiAccountModal()" class="ni-nav-btn" title="Hồ sơ cá nhân & Đổi tài khoản">
+          <i data-lucide="user" class="w-3.5 h-3.5 text-indigo-500"></i>
+          <span id="headerAccountName" class="hidden sm:inline">Tài Khoản</span>
         </button>
 
-        <!-- Cross-Device Cloud Sync Settings / Pairing Button -->
-        <button onclick="openSyncModal()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/35 text-cyan-300 text-xs font-bold border border-cyan-500/40 transition shadow-sm" title="Quản lý đồng bộ & Ghép nối Điện thoại - Máy tính">
-          <i data-lucide="smartphone" class="w-3.5 h-3.5 text-cyan-400"></i>
-          <span class="hidden lg:inline">Ghép Nối ĐT</span>
-        </button>
-
-        <!-- Streak Counter -->
-        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold" title="Chuỗi ngày học liên tục (Mục tiêu tối thiểu 20 từ/ngày)">
-          <i data-lucide="flame" class="w-4 h-4 fill-amber-500 text-amber-500"></i>
-          <span id="streakCount">0 ngày</span>
+        <!-- Preserved hidden triggers for background JS -->
+        <div class="hidden">
+          <button id="btnManualSyncHeader" onclick="manualSyncNow(true)"><i id="manualSyncIcon"></i></button>
+          <button onclick="openSyncModal()"></button>
+          <div id="streakCount">0 ngày</div>
+          <button onclick="openAuthModal()" id="userAuthBtn"><span id="userAuthName">Tài khoản</span></button>
+          <button id="pwaInstallBtn"></button>
+          <button onclick="openQrModal()"></button>
+          <button onclick="openAddWordModal()"></button>
         </div>
-
-        <!-- Auth / Profile Button -->
-        <button onclick="openAuthModal()" id="userAuthBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition">
-          <i data-lucide="user" class="w-4 h-4"></i>
-          <span id="userAuthName">Tài khoản</span>
-        </button>
-
-        <!-- Install PWA App to Home Screen -->
-        <button onclick="triggerPwaInstall()" id="pwaInstallBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md shadow-emerald-600/30 transition" title="Cài đặt App ra màn hình chính">
-          <i data-lucide="download" class="w-4 h-4"></i>
-          <span>Cài App Ra Màn Hình</span>
-        </button>
-
-        <!-- Mobile Connect QR Button -->
-        <button onclick="openQrModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-300 text-xs font-semibold border border-cyan-500/30 transition shadow-sm" title="Quét mã QR để mở trên điện thoại">
-          <i data-lucide="smartphone" class="w-4 h-4"></i>
-          <span class="hidden sm:inline">Dùng trên ĐT</span>
-        </button>
-
-        <!-- Quick Add Word -->
-        <button onclick="openAddWordModal()" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-md shadow-indigo-600/30 transition">
-          <i data-lucide="plus" class="w-4 h-4"></i>
-          <span>Thêm từ</span>
-        </button>
       </div>
     </div>
   </header>
 
-    <!-- DESKTOP NAVIGATION BAR (STREAMLINED NIGHT IELTS STYLE) -->
-  <nav class="hidden md:flex bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-16 z-30">
-    <div class="max-w-6xl mx-auto w-full flex items-center justify-between px-4">
-      <div class="flex items-center gap-1.5 py-2">
-        <button onclick="switchTab('speaking')" id="nav-btn-speaking" class="tab-btn active px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition bg-indigo-600 text-white shadow-md shadow-indigo-600/30">
-          <i data-lucide="mic" class="w-4 h-4 text-purple-300"></i>
-          <span>🎙️ Luyện Nói (Speaking AI)</span>
+  <!-- MINIMALIST NAVIGATION TABBAR (EXACT NIGHT IELTS STYLE) -->
+  <nav class="bg-white border-b border-[#ece8f1] sticky top-14 z-30">
+    <div class="max-w-5xl mx-auto w-full px-4">
+      <div class="ni-tabbar" style="margin-bottom: 0; border-bottom: 0;">
+        <button type="button" onclick="switchTab('speaking')" id="nav-btn-speaking" class="ni-tab-btn active">
+          <i data-lucide="mic" class="w-4 h-4 text-[#d6336c]"></i>
+          <span>Luyện Nói</span>
         </button>
-        <button onclick="switchTab('today')" id="nav-btn-today" class="tab-btn px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="calendar" class="w-4 h-4 text-indigo-400"></i>
-          <span>🎯 Hôm nay</span>
+        <button type="button" onclick="switchTab('today')" id="nav-btn-today" class="ni-tab-btn">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Hôm Nay</span>
         </button>
-        <button onclick="switchTab('flashcard')" id="nav-btn-flashcard" class="tab-btn px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i>
-          <span>📚 Thẻ Từ Vựng</span>
+        <button type="button" onclick="switchTab('flashcard')" id="nav-btn-flashcard" class="ni-tab-btn">
+          <i data-lucide="layers" class="w-4 h-4"></i>
+          <span>Thẻ Từ</span>
         </button>
-        <button onclick="switchTab('video')" id="nav-btn-video" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Bản tin truyền hình tiếng Anh Vietnam Today (VTV4) cập nhật hằng ngày">
-          <i data-lucide="tv" class="w-4 h-4 text-rose-400"></i>
-          <span>📺 Vietnam Today</span>
+        <button type="button" onclick="switchTab('video')" id="nav-btn-video" class="ni-tab-btn" title="Bản tin truyền hình Vietnam Today (VTV4)">
+          <i data-lucide="tv" class="w-4 h-4"></i>
+          <span>Vietnam Today</span>
         </button>
-        <button onclick="switchTab('conversation')" id="nav-btn-conversation" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800" title="Các câu tiếng Anh giao tiếp hàng ngày trong mỗi cuộc trò chuyện">
-          <i data-lucide="message-square-quote" class="w-4 h-4 text-emerald-400"></i>
-          <span>💬 Giao Tiếp</span>
+        <button type="button" onclick="switchTab('conversation')" id="nav-btn-conversation" class="ni-tab-btn">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          <span>Giao Tiếp</span>
         </button>
-        <button onclick="switchTab('review')" id="nav-btn-review" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="rotate-cw" class="w-4 h-4 text-slate-400"></i>
-          <span>🔄 Ôn Tập Tự Do</span>
+        <button type="button" onclick="switchTab('profile')" id="nav-btn-profile" class="ni-tab-btn">
+          <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
+          <span>Hồ Sơ</span>
         </button>
-        <button onclick="switchTab('profile')" id="nav-btn-profile" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition text-slate-400 hover:text-white hover:bg-slate-800">
-          <i data-lucide="bar-chart-2" class="w-4 h-4 text-amber-400"></i>
-          <span>📊 Hồ Sơ & Thống Kê</span>
-        </button>
-      </div>
-
-      <div class="flex items-center gap-2">
-        <span onclick="SpeakingEngine.openGroqModal()" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-950/60 text-purple-300 border border-purple-500/30 hover:bg-purple-900/60 cursor-pointer transition flex items-center gap-1.5 shadow-sm">
-          <i data-lucide="key" class="w-3.5 h-3.5 text-purple-400"></i> <span>Cấu hình AI Key</span>
-        </span>
       </div>
     </div>
   </nav>
 
   <!-- MAIN CONTAINER -->
-  <main class="max-w-6xl mx-auto w-full px-4 pt-4 flex-1">
+  <main class="max-w-5xl mx-auto w-full px-4 pt-4 flex-1">
 
     <!-- ================= DAILY STATUS BAR (SLEEK & COMPACT) ================= -->
-    <div id="dailyDeadlineBanner" class="mb-4 rounded-xl px-4 py-2.5 bg-slate-900/90 border border-slate-800 shadow-md backdrop-blur-md flex flex-wrap items-center justify-between gap-3 text-xs">
+    <div id="dailyDeadlineBanner" class="mb-5 bg-white border border-[#ece8f1] rounded-xl px-4 py-2.5 shadow-sm flex flex-wrap items-center justify-between gap-3 text-xs">
       <div class="flex items-center gap-2.5 flex-wrap">
-        <span id="fullTodayDateDisplay" class="font-bold text-slate-300">📅 Hôm nay: Đang tải...</span>
-        <span class="text-slate-600">|</span>
-        <span class="text-slate-400 flex items-center gap-1">
-          <span>⏱️ Hạn 22:00:</span>
-          <span id="deadlineCountdownDisplay" class="font-bold text-amber-400 font-mono">⏳ Đang tính...</span>
+        <span id="fullTodayDateDisplay" class="font-bold text-[#221c2b]">📅 Hôm nay: Đang tải...</span>
+        <span class="text-[#ece8f1]">|</span>
+        <span class="text-[#5f5870] flex items-center gap-1.5">
+          <span>⏱️ Hạn 23:59:</span>
+          <span id="deadlineCountdownDisplay" class="font-bold text-[#b0245a] font-mono">⏳ Đang tính...</span>
         </span>
-        <span id="deadlineTargetTimeText" class="hidden">22:00</span>
+        <span id="deadlineTargetTimeText" class="hidden">23:59</span>
         <span id="deadlineStatusSubtext" class="hidden">Hoàn thành bài trước hạn!</span>
-        <span class="text-slate-600">|</span>
-        <span id="todayStreakBadge" class="font-bold text-amber-300 flex items-center gap-1">
+        <span class="text-[#ece8f1]">|</span>
+        <span id="todayStreakBadge" class="font-bold text-[#2f855a] flex items-center gap-1">
           🔥 Chuỗi: 0 ngày
         </span>
       </div>
 
-      <!-- Quick 3 Goals Checklist (All IDs preserved) -->
-      <div class="flex items-center gap-4 text-xs text-slate-300 flex-wrap">
+      <!-- Quick 2 Goals Checklist (Words + Video) -->
+      <div class="flex items-center gap-3 text-xs text-[#5f5870] flex-wrap">
         <div id="goalItemWords" class="flex items-center gap-1">
-          <i data-lucide="circle" class="w-3.5 h-3.5 text-slate-500"></i>
+          <i data-lucide="circle" class="w-3.5 h-3.5 text-[#9a93a8]"></i>
           <span id="goalItemWordsText">20 Từ vựng</span>
         </div>
         <div id="goalItemVideo" class="flex items-center gap-1">
-          <i data-lucide="circle" class="w-3.5 h-3.5 text-rose-400"></i>
+          <i data-lucide="circle" class="w-3.5 h-3.5 text-rose-500"></i>
           <span id="goalItemVideoText">📺 Vietnam Today VTV4</span>
         </div>
-        <button onclick="requestNotificationPermission()" id="notificationStatusBadge" class="text-[11px] px-2 py-0.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition flex items-center gap-1">
-          <i data-lucide="bell" class="w-3 h-3 text-amber-400"></i> <span>Bật chuông</span>
+        <button type="button" onclick="requestNotificationPermission()" id="notificationStatusBadge" class="text-[11px] px-2 py-0.5 rounded-lg bg-[#f5f3f8] hover:bg-[#ece8f1] text-[#5f5870] border border-[#ece8f1] transition flex items-center gap-1">
+          <i data-lucide="bell" class="w-3 h-3 text-amber-500"></i> <span>Bật chuông</span>
         </button>
       </div>
     </div>
@@ -667,30 +631,38 @@
         </div>
       </div>
 
-      <!-- Quick Action Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div onclick="switchTab('reader')" class="glass-card rounded-2xl p-5 cursor-pointer hover:border-indigo-500/50 transition space-y-2">
-          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
-            <i data-lucide="newspaper" class="w-5 h-5"></i>
+      <!-- Clean Quick Access Cards (Night IELTS Minimalist Style) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-2">
+        <div onclick="switchTab('speaking')" class="ni-panel cursor-pointer hover:border-[#d9d2e3] transition space-y-2 p-4">
+          <div class="w-9 h-9 rounded-xl bg-pink-50 text-[#d6336c] border border-pink-200 flex items-center justify-center">
+            <i data-lucide="mic" class="w-4 h-4"></i>
           </div>
-          <h3 class="font-bold text-white text-base">Đọc Hiểu Ngữ Cảnh</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Đọc bài báo Hot Reads & truyện ngắn chứa từ khóa vừa học. Chạm từ để xem nghĩa và tạo thẻ ngay.</p>
+          <h3 class="font-bold text-[#221c2b] text-sm">🎙️ Luyện Nói Speaking AI</h3>
+          <p class="text-xs text-[#5f5870] leading-relaxed">Forecast Q3/2026 Part 1, 2, 3 với AI chấm 4 tiêu chí chuẩn quốc tế.</p>
         </div>
 
-        <div onclick="switchTab('grammar')" class="glass-card rounded-2xl p-5 cursor-pointer hover:border-indigo-500/50 transition space-y-2">
-          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
-            <i data-lucide="book-marked" class="w-5 h-5"></i>
+        <div onclick="switchTab('flashcard')" class="ni-panel cursor-pointer hover:border-[#d9d2e3] transition space-y-2 p-4">
+          <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-200 flex items-center justify-center">
+            <i data-lucide="layers" class="w-4 h-4"></i>
           </div>
-          <h3 class="font-bold text-white text-base">21 Tuần Ngữ Pháp Toàn Diện</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Trích xuất chính xác theo mục lục Khóa Ngữ Pháp 11 (Cô Trang Anh) từ cơ bản đến nâng cao.</p>
+          <h3 class="font-bold text-[#221c2b] text-sm">📚 20 Thẻ Từ Vựng Cố Định</h3>
+          <p class="text-xs text-[#5f5870] leading-relaxed">Học từ mới, ví dụ, phát âm bản xứ và ghi nhớ theo chu kỳ SuperMemo-2.</p>
         </div>
 
-        <div onclick="switchTab('profile')" class="glass-card rounded-2xl p-5 cursor-pointer hover:border-indigo-500/50 transition space-y-2">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-            <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+        <div onclick="switchTab('video')" class="ni-panel cursor-pointer hover:border-[#d9d2e3] transition space-y-2 p-4">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 border border-rose-200 flex items-center justify-center">
+            <i data-lucide="tv" class="w-4 h-4"></i>
           </div>
-          <h3 class="font-bold text-white text-base">Đồng Bộ & Thiết Bị</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Học trên điện thoại, đồng bộ với máy tính tức thì. Hỗ trợ đầy đủ hàng đợi khi mất mạng.</p>
+          <h3 class="font-bold text-[#221c2b] text-sm">📺 Vietnam Today VTV4</h3>
+          <p class="text-xs text-[#5f5870] leading-relaxed">Bản tin thời sự tiếng Anh truyền hình quốc gia phát sóng hằng ngày.</p>
+        </div>
+
+        <div onclick="switchTab('profile')" class="ni-panel cursor-pointer hover:border-[#d9d2e3] transition space-y-2 p-4">
+          <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center">
+            <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
+          </div>
+          <h3 class="font-bold text-[#221c2b] text-sm">📊 Hồ Sơ & Thi Đua</h3>
+          <p class="text-xs text-[#5f5870] leading-relaxed">Theo dõi chuỗi ngày Streak liên tục, điểm thi đua và bảng xếp hạng.</p>
         </div>
       </div>
     </section>
@@ -2458,36 +2430,33 @@
   </main>
 
   <!-- ================= BOTTOM NAVIGATION BAR (MOBILE) ================= -->
-  <footer class="md:hidden fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-slate-800 px-2 py-1.5">
-    <div class="flex items-center justify-between gap-1 text-center overflow-x-auto no-scrollbar py-0.5">
-      <button onclick="switchTab('today')" id="mob-btn-today" class="mob-tab active shrink-0 min-w-[54px] flex flex-col items-center py-1 text-indigo-400">
+  <footer class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 border-t border-[#ece8f1] px-2 py-1.5 shadow-lg backdrop-blur-md">
+    <div class="flex items-center justify-around gap-1 text-center py-0.5">
+      <button type="button" onclick="switchTab('speaking')" id="mob-btn-speaking" class="mob-tab flex flex-col items-center py-1 text-[#d6336c]" title="Luyện Nói Speaking AI">
+        <i data-lucide="mic" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold mt-1">Luyện Nói</span>
+      </button>
+      <button type="button" onclick="switchTab('today')" id="mob-btn-today" class="mob-tab flex flex-col items-center py-1 text-[#5f5870]">
         <i data-lucide="calendar" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold mt-1">Hôm nay</span>
+        <span class="text-[10px] font-semibold mt-1">Hôm Nay</span>
       </button>
-      <button onclick="switchTab('flashcard')" id="mob-btn-flashcard" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
+      <button type="button" onclick="switchTab('flashcard')" id="mob-btn-flashcard" class="mob-tab flex flex-col items-center py-1 text-[#5f5870]">
         <i data-lucide="layers" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold mt-1">Thẻ từ</span>
+        <span class="text-[10px] font-semibold mt-1">Thẻ Từ</span>
       </button>
-      <button onclick="switchTab('video')" id="mob-btn-video" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400" title="Vietnam Today VTV4">
-        <i data-lucide="tv" class="w-5 h-5 text-rose-400"></i>
+      <button type="button" onclick="switchTab('video')" id="mob-btn-video" class="mob-tab flex flex-col items-center py-1 text-[#5f5870]" title="Vietnam Today VTV4">
+        <i data-lucide="tv" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold mt-1">VTV4 News</span>
       </button>
-      <button onclick="switchTab('review')" id="mob-btn-review" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
-        <i data-lucide="rotate-cw" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold mt-1">Ôn tập</span>
+      <button type="button" onclick="switchTab('conversation')" id="mob-btn-conversation" class="mob-tab flex flex-col items-center py-1 text-[#5f5870]">
+        <i data-lucide="message-square-quote" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Giao Tiếp</span>
       </button>
-      <button onclick="switchTab('conversation')" id="mob-btn-conversation" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
-        <i data-lucide="message-square-quote" class="w-5 h-5 text-emerald-400"></i>
-        <span class="text-[10px] font-semibold mt-1">Giao tiếp</span>
-      </button>
-      <button onclick="switchTab('speaking')" id="mob-btn-speaking" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400" title="Luyện Nói Speaking AI">
-        <i data-lucide="mic" class="w-5 h-5 text-purple-400"></i>
-        <span class="text-[10px] font-semibold mt-1">Luyện Nói</span>
-      </button>
-      <button onclick="switchTab('profile')" id="mob-btn-profile" class="mob-tab shrink-0 min-w-[54px] flex flex-col items-center py-1 text-slate-400">
+      <button type="button" onclick="switchTab('profile')" id="mob-btn-profile" class="mob-tab flex flex-col items-center py-1 text-[#5f5870]">
         <i data-lucide="user" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold mt-1">Hồ sơ</span>
+        <span class="text-[10px] font-semibold mt-1">Hồ Sơ</span>
       </button>
+      <button type="button" onclick="switchTab('review')" id="mob-btn-review" class="hidden"></button>
     </div>
   </footer>
 

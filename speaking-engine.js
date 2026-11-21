@@ -1193,6 +1193,19 @@ Please provide the rigorous evaluation and JSON response.`;
     loadIdeaForCurrentQuestion();
   }
 
+  function getKnowledgeBankData(cur) {
+    if (!window.SP_KNOWLEDGE_BANK) return null;
+    const t = (cur.topicTitle || '').trim();
+    if (window.SP_KNOWLEDGE_BANK[t]) return window.SP_KNOWLEDGE_BANK[t];
+    const lower = t.toLowerCase();
+    for (const k of Object.keys(window.SP_KNOWLEDGE_BANK)) {
+      if (k.toLowerCase() === lower || lower.includes(k.toLowerCase()) || k.toLowerCase().includes(lower)) {
+        return window.SP_KNOWLEDGE_BANK[k];
+      }
+    }
+    return null;
+  }
+
   async function loadIdeaForCurrentQuestion() {
     const key = getIdeaCacheKey();
     if (state.ideaCache[key]) {
@@ -1200,28 +1213,61 @@ Please provide the rigorous evaluation and JSON response.`;
       return;
     }
 
+    const cur = getCurrentItem();
+    const kbItem = getKnowledgeBankData(cur);
+
+    if (kbItem) {
+      const isHighBand = (state.ideaBand === '7.0+' || state.ideaBand === '8.0');
+      state.ideaCache[key] = {
+        ideas: kbItem.ideas || [],
+        vocabulary: kbItem.collocations || [],
+        sampleAnswer: isHighBand ? (kbItem.sample80 || kbItem.sample65) : (kbItem.sample65 || kbItem.sample80),
+        source: 'knowledge_bank'
+      };
+      state.isIdeaLoading = false;
+      renderIdeaBox();
+      return;
+    }
+
     state.isIdeaLoading = true;
     renderIdeaBox();
 
-    const cur = getCurrentItem();
-    let data = null;
-    const groqKey = getGroqKey();
-
-    if (groqKey) {
-      try {
-        data = await fetchIdeaFromGroq(groqKey, cur, state.ideaBand, state.currentPart);
-      } catch (err) {
-        console.warn('Groq idea generation failed, falling back to offline dictionary:', err);
-      }
-    }
-
-    if (!data) {
-      data = generateFallbackIdea(cur, state.ideaBand, state.currentPart);
-    }
-
+    let data = generateFallbackIdea(cur, state.ideaBand, state.currentPart);
     state.ideaCache[key] = data;
     state.isIdeaLoading = false;
     renderIdeaBox();
+  }
+
+  async function generateAiIdeaWithGroq() {
+    const cur = getCurrentItem();
+    const groqKey = getGroqKey();
+    if (!groqKey) {
+      openGroqModal();
+      return;
+    }
+
+    state.isIdeaLoading = true;
+    renderIdeaBox();
+
+    try {
+      const data = await fetchIdeaFromGroq(groqKey, cur, state.ideaBand, state.currentPart);
+      if (data) {
+        data.source = 'groq_ai';
+        const key = getIdeaCacheKey();
+        state.ideaCache[key] = data;
+        if (typeof window.showToast === 'function') {
+          window.showToast('✓ Groq Llama-3 đã tạo dàn ý & từ vựng mới!', 'success');
+        }
+      }
+    } catch (err) {
+      console.warn('Groq idea generation failed:', err);
+      if (typeof window.showToast === 'function') {
+        window.showToast('Không thể kết nối Groq. Đang dùng dữ liệu tủ.', 'info');
+      }
+    } finally {
+      state.isIdeaLoading = false;
+      renderIdeaBox();
+    }
   }
 
   async function fetchIdeaFromGroq(apiKey, item, band, part) {
@@ -1497,11 +1543,15 @@ Respond ONLY with a valid JSON object matching this schema:
             `).join('')}
           </div>
           <div class="flex items-center gap-2 text-xs">
-            <button type="button" onclick="SpeakingEngine.refreshIdea(true)" class="text-amber-700 hover:text-amber-800 font-semibold flex items-center gap-1">
-              <span>🔄 Làm mới gợi ý</span>
+            <button type="button" onclick="SpeakingEngine.generateAiIdeaWithGroq()" class="text-indigo-600 hover:text-indigo-800 font-bold flex items-center gap-1" title="Nhờ Groq Llama-3 tạo dàn ý và từ vựng mới">
+              <span>✨ AI Tạo Ý Mới</span>
             </button>
             <span class="text-slate-300">|</span>
-            <span class="text-[11px] font-medium text-slate-500">${hasGroq ? '⚡ Llama-3 AI' : '📚 Bộ Tủ IELTS'}</span>
+            <button type="button" onclick="SpeakingEngine.refreshIdea(true)" class="text-amber-700 hover:text-amber-800 font-semibold flex items-center gap-1" title="Khôi phục dữ liệu tủ chuẩn">
+              <span>🔄 Dữ Liệu Tủ</span>
+            </button>
+            <span class="text-slate-300">|</span>
+            <span class="text-[11px] font-medium text-slate-500">${ideaData && ideaData.source === 'groq_ai' ? '⚡ Llama-3 AI' : '📚 Bộ Tủ IELTS'}</span>
           </div>
         </div>
 
@@ -1713,6 +1763,7 @@ Respond ONLY with a valid JSON object matching this schema:
 
     // Idea & Vocabulary exports
     toggleIdeaAccordion: toggleIdeaAccordion,
+    generateAiIdeaWithGroq: generateAiIdeaWithGroq,
     setIdeaBand: setIdeaBand,
     refreshIdea: refreshIdea,
     speakPhrase: speakPhrase,

@@ -10687,6 +10687,22 @@ function saveSavedAccounts(list) {
   } catch (e) {}
 }
 
+window.addSpeakingXP = function(points = 50) {
+  try {
+    const list = getSavedAccounts();
+    const curEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "tonguyenvu@265.com").toLowerCase();
+    const acc = list.find(a => a && (a.email || "").toLowerCase() === curEmail);
+    if (acc) {
+      acc.xp = (acc.xp || 200) + points;
+      saveSavedAccounts(list);
+      if (typeof renderHomeLeaderboardPreview === "function") renderHomeLeaderboardPreview();
+      if (typeof showToast === "function") {
+        showToast(`🎉 +${points} XP Speaking Champion! Đã ghi nhận bài luyện nói vào bảng thi đua.`, "success");
+      }
+    }
+  } catch (e) {}
+};
+
 // Chỉnh sửa tên, email và mục tiêu của tài khoản thực hiện tại
 function editCurrentAccountProfile() {
   const curName = localStorage.getItem("EMH_USER_REAL_NAME") || "Tô Nguyễn Vũ";

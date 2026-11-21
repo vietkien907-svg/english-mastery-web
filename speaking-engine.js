@@ -87,11 +87,14 @@
     }
   }
 
-  function markQuestionDone(qText) {
+  function markQuestionDone(qText, band) {
     if (!qText) return;
     try {
       const done = getDoneQuestions();
-      done[qText.trim()] = Date.now();
+      done[qText.trim()] = {
+        date: Date.now(),
+        band: band || 6.5
+      };
       localStorage.setItem(STORAGE_DONE_QUESTIONS, JSON.stringify(done));
     } catch (e) {}
   }
@@ -396,10 +399,13 @@
       }
 
       state.currentEvaluation = evaluation;
-      markQuestionDone(cur.questionText);
+      markQuestionDone(cur.questionText, evaluation.overallBand);
       savePracticeHistory(cur, evaluation);
       renderEvaluationResult(evaluation);
       renderQuestionSelector(); // refresh progress dots
+      if (typeof window.addSpeakingXP === 'function') {
+        window.addSpeakingXP(50);
+      }
 
     } catch (err) {
       console.error('Scoring error:', err);
@@ -684,11 +690,13 @@ Please provide the rigorous evaluation and JSON response.`;
     if (state.currentPart === '2') {
       const cur = getCurrentItem();
       const doneMap = getDoneQuestions();
-      const isDone = cur && !!doneMap[cur.questionText.trim()];
+      const doneInfo = cur ? doneMap[cur.questionText.trim()] : null;
+      const isDone = !!doneInfo;
+      const band = doneInfo && typeof doneInfo === 'object' && doneInfo.band ? doneInfo.band : '';
       container.innerHTML = `
         <div class="flex items-center gap-2">
           <span class="q-nav-btn is-cue current">Cue Card</span>
-          ${isDone ? '<span class="text-xs font-bold text-[#2f855a] flex items-center gap-1">✓ Đã làm</span>' : ''}
+          ${isDone ? `<span class="text-xs font-bold text-[#16a34a] flex items-center gap-1">✓ Đã làm ${band ? `(Band ${band})` : ''}</span>` : ''}
         </div>
       `;
       return;
@@ -708,14 +716,16 @@ Please provide the rigorous evaluation and JSON response.`;
     let html = '';
     questions.forEach((q, idx) => {
       const isCurrent = idx === state.currentQuestionIndex;
-      const isDone = !!doneMap[q.trim()];
+      const doneInfo = doneMap[q.trim()];
+      const isDone = !!doneInfo;
+      const band = doneInfo && typeof doneInfo === 'object' && doneInfo.band ? doneInfo.band : '';
       let cls = 'q-nav-btn';
       if (isCurrent) cls += ' current';
       else if (isDone) cls += ' done';
 
       html += `
-        <button type="button" onclick="SpeakingEngine.selectQuestionIndex(${idx})" class="${cls}" title="Câu ${idx + 1}">
-          ${idx + 1}
+        <button type="button" onclick="SpeakingEngine.selectQuestionIndex(${idx})" class="${cls}" title="Câu ${idx + 1}${band ? ` · Band ${band}` : ''}">
+          ${idx + 1}${isDone ? '<span class="text-[9px] ml-0.5 font-bold">✓</span>' : ''}
         </button>
       `;
     });
@@ -925,8 +935,11 @@ Please provide the rigorous evaluation and JSON response.`;
 
         <!-- Upgraded Band 8.0+ Model Answer -->
         <div class="answer-card upgraded">
-          <div class="answer-card-title">
+          <div class="answer-card-title flex items-center justify-between gap-2">
             <span>✨ Bản Nâng Cấp Band 8.0+ Chuẩn Bản Xứ</span>
+            <button type="button" onclick="SpeakingEngine.speakText('${upg.replace(/'/g, "\\'")}')" class="ni-nav-btn text-xs py-1 px-2.5 flex items-center gap-1.5" title="Nghe giọng bản ngữ đọc mẫu để luyện Shadowing">
+              🔊 Nghe Giọng Mẫu
+            </button>
           </div>
           <p class="answer-card-text">${upg}</p>
         </div>

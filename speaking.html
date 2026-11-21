@@ -3047,6 +3047,9 @@
   <script src="./app.js?v=68.0"></script>
   <script>
     lucide.createIcons();
+    if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
+      window.SpeakingEngine.init();
+    }
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js?v=64.0').catch(err => console.log('SW reg failed:', err));

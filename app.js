@@ -557,6 +557,10 @@ function switchTab(tabId) {
     if (typeof updateFlashcardBanner === "function") updateFlashcardBanner(curDay);
     if (typeof updateFlashcardSessionToolbar === "function") updateFlashcardSessionToolbar();
     renderFlashcard();
+  } else if (tabId === "speaking") {
+    if (window.SpeakingEngine && typeof window.SpeakingEngine.init === "function") {
+      window.SpeakingEngine.init();
+    }
   }
 
   window.scrollTo({ top: 0, behavior: "smooth" });

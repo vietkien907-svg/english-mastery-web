@@ -1796,4 +1796,21 @@ Respond ONLY with a valid JSON object matching this schema:
     copyIdeaToScratchpad: copyIdeaToScratchpad
   };
 
+  // Auto-initialize Speaking Engine on load
+  function autoInit() {
+    try {
+      init();
+    } catch (e) {
+      console.warn('SpeakingEngine autoInit error:', e);
+    }
+  }
+
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', autoInit);
+    } else {
+      setTimeout(autoInit, 10);
+    }
+  }
+
 })(window);

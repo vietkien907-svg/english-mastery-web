@@ -1,7 +1,7 @@
 window.SP_FORECAST = {
-  "id": "fc2026_100topics",
-  "name": "IELTS Speaking Forecast Q3/2026 (100 Chủ Đề Thi Thật)",
-  "range": "Toàn Bộ 100 Chủ Đề Thi Thật · Part 1, 2, 3 Đầy Đủ",
+  "id": "fc2026_150topics",
+  "name": "IELTS Speaking Forecast Q3/2026 (150 Chủ Đề Thi Thật)",
+  "range": "Toàn Bộ 150 Chủ Đề Thi Thật · Part 1, 2, 3 Đầy Đủ",
   "p1": [
     {
       "t": "The area you live in",
@@ -1294,6 +1294,506 @@ window.SP_FORECAST = {
         "Do you wash your hands frequently before meals and after commuting?",
         "How clean are public restrooms and streets in your hometown?",
         "What chores do you enjoy doing to keep your house tidy?"
+      ]
+    },
+    {
+      "t": "101. People with Strong Opinions",
+      "q": [
+        "Do you consider yourself someone with strong opinions on most topics?",
+        "Do you like debating controversial issues with your friends?",
+        "How do you react when someone strongly disagrees with your perspective?",
+        "Are people in your culture generally outspoken or reserved about personal opinions?",
+        "Do you think having strong convictions is an admirable quality?"
+      ]
+    },
+    {
+      "t": "102. Impressive English Speakers",
+      "q": [
+        "How often do you listen to native English speakers (podcasts, YouTube, news)?",
+        "What qualities make someone an impressive or charismatic speaker in English?",
+        "Do you think having a native-like accent is essential for effective communication?",
+        "Have you ever attended an English speech contest or presentation?",
+        "Who is an English speaker whose delivery or pronunciation you admire?"
+      ]
+    },
+    {
+      "t": "103. Cooking for Others",
+      "q": [
+        "Do you enjoy cooking meals for your friends or family members?",
+        "Who does the majority of cooking in your household?",
+        "How do you feel when someone cooks a delicious meal specially for you?",
+        "Do you prefer preparing food at home or taking guests out to restaurants?",
+        "What dish are you best at preparing for other people?"
+      ]
+    },
+    {
+      "t": "104. Adventurous People",
+      "q": [
+        "Do you consider yourself an adventurous, risk-taking person?",
+        "What is the most daring or adventurous activity you have ever tried?",
+        "Would you try extreme sports like skydiving or bungee jumping?",
+        "Do you prefer spending holidays in safe resorts or exploring uncharted wilderness?",
+        "Why are some people naturally drawn to adrenaline-inducing thrills?"
+      ]
+    },
+    {
+      "t": "105. Creative Artists & Designers",
+      "q": [
+        "Do you consider yourself a creative person in your daily life or work?",
+        "What forms of artistic creativity do you appreciate most (painting, music, architecture)?",
+        "Did your school provide adequate encouragement for artistic and creative pursuits?",
+        "Do you enjoy visiting design exhibitions or artisan craft markets?",
+        "Can creative thinking be developed, or is it an innate biological talent?"
+      ]
+    },
+    {
+      "t": "106. Athletes & Sports Stars",
+      "q": [
+        "Do you follow any professional sports leagues or international competitions (Olympics, World Cup)?",
+        "Who is your favourite sports star or athletic champion?",
+        "Did you participate in school sports days or athletic teams when younger?",
+        "What athletic qualities do you respect most in professional competitors?",
+        "Do you think famous athletes earn disproportionately high incomes?"
+      ]
+    },
+    {
+      "t": "107. Stylish Dressing & Fashion",
+      "q": [
+        "Do you pay close attention to your personal fashion style and clothing choices?",
+        "Where do you usually purchase your clothes and shoes?",
+        "Do you prefer casual, comfortable attire or formal, polished clothing?",
+        "Do you follow fashion trends on social media or wear timeless basics?",
+        "What colors and silhouettes do you feel most confident wearing?"
+      ]
+    },
+    {
+      "t": "108. Polite Behaviour & Etiquette",
+      "q": [
+        "Do you consider politeness and courtesy important in everyday interactions?",
+        "Who taught you manners and polite etiquette when you were growing up?",
+        "In what everyday situations do people in your country say 'please' and 'thank you'?",
+        "What kind of behaviour in public transportation do you consider extremely impolite?",
+        "Do you think people in big cities are less polite than people in rural villages?"
+      ]
+    },
+    {
+      "t": "109. Energetic & Enthusiastic People",
+      "q": [
+        "Do you consider yourself an energetic person, or do you tire easily?",
+        "What activities or hobbies boost your physical and mental energy levels?",
+        "How do you feel when you are around enthusiastic, upbeat people?",
+        "What time of day do you typically feel most energetic and alert?",
+        "What do you do when your energy is completely drained after a long day?"
+      ]
+    },
+    {
+      "t": "110. Intelligent Minds & Intellectuals",
+      "q": [
+        "Do you know someone whom you consider exceptionally smart or intelligent?",
+        "In your opinion, what makes a person truly intelligent: academic grades or street smarts?",
+        "Do you enjoy solving intellectual puzzles, quizzes, or logic games?",
+        "Do you think intelligent people face unique social challenges when connecting with others?",
+        "How can someone expand their intellectual curiosity and analytical capabilities?"
+      ]
+    },
+    {
+      "t": "111. Childhood School Friends",
+      "q": [
+        "Do you still keep in regular touch with friends from your primary or secondary school?",
+        "What memories of school friendships do you cherish the most?",
+        "Do you find it easier to make close friends in childhood or as an adult?",
+        "How often do you organize reunions with your former classmates?",
+        "What qualities made childhood friendships so pure and memorable?"
+      ]
+    },
+    {
+      "t": "112. Foreign Friends & Cross-Cultural Encounters",
+      "q": [
+        "Have you ever had a friend or acquaintance from another country?",
+        "Do you enjoy learning about foreign cultural traditions and lifestyles?",
+        "What are the challenges of maintaining friendships across language and cultural barriers?",
+        "Are there many international tourists, expatriates, or foreign students in your city?",
+        "Would you like to live and work abroad for a few years to experience another culture?"
+      ]
+    },
+    {
+      "t": "113. Helpful Neighbours & Community Care",
+      "q": [
+        "Do you know the people who live next door to your house or apartment?",
+        "Are neighbours in your neighborhood friendly and helpful toward one another?",
+        "Have you ever asked a neighbour for assistance or borrowed household tools from them?",
+        "Do you prefer living in an anonymous modern apartment or a tight-knit community alley?",
+        "What makes someone an ideal and considerate neighbour?"
+      ]
+    },
+    {
+      "t": "114. Skill Mentors & Practical Teachers",
+      "q": [
+        "Have you ever learned a practical skill (driving, swimming, coding, instrument) from someone?",
+        "Who was the most patient person who ever taught you something new?",
+        "Do you prefer learning skills through personal one-on-one instruction or online video tutorials?",
+        "Have you ever taught a friend or family member how to do something practical?",
+        "What new skill are you currently eager to learn?"
+      ]
+    },
+    {
+      "t": "115. Gardening & Green Thumbs",
+      "q": [
+        "Do you know anyone who loves growing flowers, plants, or vegetables?",
+        "Do you have a garden or potted plants on your balcony?",
+        "Why do many people find tending plants and gardening deeply relaxing?",
+        "Did your grandparents grow vegetables or fruit trees around their home?",
+        "Would you like to have your own rooftop or backyard vegetable garden in the future?"
+      ]
+    },
+    {
+      "t": "116. Modern Architectural Marvels",
+      "q": [
+        "Are there impressive modern skyscrapers or futuristic buildings in your city?",
+        "Do you prefer contemporary glass-and-steel architecture or classical brick structures?",
+        "What is the most iconic building in your hometown, and what is it used for?",
+        "Do you think skyscrapers enhance a city's skyline or ruin its character?",
+        "Would you like to work inside a high-rise office tower with panoramic views?"
+      ]
+    },
+    {
+      "t": "117. Ancient Ruins & Historical Sites",
+      "q": [
+        "Have you ever visited an ancient temple, castle, or archaeological site?",
+        "Do you find studying historical ruins exciting or uninteresting?",
+        "Why do millions of international tourists travel to view ancient monuments?",
+        "What ancient historical site in your country are you most proud of?",
+        "Should governments spend public funds restoring ancient ruins or building new infrastructure?"
+      ]
+    },
+    {
+      "t": "118. Tourist Attractions to Recommend",
+      "q": [
+        "If a foreign visitor came to your country, where would you advise them to go first?",
+        "What natural or cultural sights make your country famous worldwide?",
+        "Do you prefer visiting well-known tourist landmarks or hidden local gems?",
+        "How has international tourism impacted local businesses in your region?",
+        "What hospitality qualities should local citizens exhibit toward visiting foreign travelers?"
+      ]
+    },
+    {
+      "t": "119. Vibrant Open-Air Markets",
+      "q": [
+        "Do you enjoy shopping at bustling open-air street markets or modern indoor malls?",
+        "What items are typically sold in traditional local markets in your city (fresh produce, street food, clothing)?",
+        "Are prices at street markets generally cheaper than in supermarkets?",
+        "Do you know how to bargain for lower prices when shopping at street stalls?",
+        "What is the atmosphere like at an evening night market in your country?"
+      ]
+    },
+    {
+      "t": "120. New Shops & Cafes",
+      "q": [
+        "Has a new store, supermarket, or cafe opened recently near where you live?",
+        "Do you enjoy checking out newly launched commercial venues when they open?",
+        "What kinds of shops does your neighborhood need more of (bookstores, bakeries, gyms)?",
+        "Why do some new cafes become viral sensations on social media overnight?",
+        "What factors determine whether a newly opened business survives in the long run?"
+      ]
+    },
+    {
+      "t": "121. Quiet Libraries & Study Spaces",
+      "q": [
+        "How often do you go to a library or designated quiet study room?",
+        "Do you study more productively in absolute silence or with ambient noise?",
+        "What facilities should a high-quality modern library provide (Wi-Fi, quiet pods, coffee)?",
+        "Did your school or university have an impressive library collection?",
+        "Do you think public libraries will still be necessary in fifty years?"
+      ]
+    },
+    {
+      "t": "122. Public Parks & Strolling Gardens",
+      "q": [
+        "How often do you visit a public park or botanical garden in your city?",
+        "What activities do people enjoy doing in city parks (jogging, yoga, picnics)?",
+        "Are there enough public green spaces within walking distance of your home?",
+        "Do you prefer natural wild forest parks or manicured ornamental flower gardens?",
+        "Why are municipal parks frequently called the 'lungs of the city'?"
+      ]
+    },
+    {
+      "t": "123. Majestic Natural Landscapes",
+      "q": [
+        "Do you prefer spending vacations exploring high mountains, tranquil lakes, or ocean beaches?",
+        "What is the most breathtaking natural scenery you have ever witnessed with your own eyes?",
+        "Have you ever climbed a high mountain peak or hiked through a virgin forest?",
+        "Why do natural landscapes evoke such a profound sense of wonder and humility in humans?",
+        "Are natural scenic areas in your country well protected from commercial pollution?"
+      ]
+    },
+    {
+      "t": "124. Holiday Destination Dreams",
+      "q": [
+        "If you had unlimited money and time, where would you choose to go on holiday?",
+        "Do you prefer holidaying in bustling cultural metropolises or tranquil island retreats?",
+        "What activities do you love doing when you arrive at a holiday destination?",
+        "Do you enjoy planning detailed holiday itineraries or traveling spontaneously?",
+        "What is your dream foreign vacation destination, and why?"
+      ]
+    },
+    {
+      "t": "125. Dream Homes & Future Living",
+      "q": [
+        "Do you currently live in a standalone house or a high-rise condominium apartment?",
+        "What is your favourite room or corner in your current home?",
+        "What features would your ideal future home possess (large kitchen, garden, balcony)?",
+        "Would you prefer to live in a bustling downtown penthouse or a quiet countryside villa?",
+        "How important is interior decoration and natural lighting to you?"
+      ]
+    },
+    {
+      "t": "126. Sanctuaries for Relaxation",
+      "q": [
+        "Where is your favourite quiet spot to unwind when you feel stressed out?",
+        "What do you typically do when you need thirty minutes of complete peace?",
+        "Do you prefer relaxing in your bedroom, in a park, or in a quiet cafe?",
+        "Does ambient lighting and background music help you unwind?",
+        "How often do you dedicate an afternoon purely to personal rest and rejuvenation?"
+      ]
+    },
+    {
+      "t": "127. Pollution & Environmental Woes",
+      "q": [
+        "Is environmental pollution a severe problem in your city (air pollution, traffic fumes, trash)?",
+        "Do you wear face masks to protect against fine dust when walking outside?",
+        "What causes the majority of air and water pollution in developing urban centers?",
+        "Do citizens in your city actively separate and recycle their household garbage?",
+        "What has your local government done to reduce environmental pollution recently?"
+      ]
+    },
+    {
+      "t": "128. Stadiums & Sports Arenas",
+      "q": [
+        "Have you ever watched a live football match, concert, or sports event inside a major stadium?",
+        "What is the largest sports arena or stadium in your city or country?",
+        "Do you prefer watching sporting events live in a stadium or on high-definition television at home?",
+        "What was the atmosphere like when thousands of fans cheered together in the stadium?",
+        "Are sports stadiums useful community assets or wasteful public expenditures?"
+      ]
+    },
+    {
+      "t": "129. Family Heirlooms & Antiques",
+      "q": [
+        "Does your family possess any old heirlooms, antique furniture, or vintage jewelry passed down across generations?",
+        "Do you appreciate vintage items from previous eras or prefer sleek modern designs?",
+        "Why do families preserve sentimental objects from grandparents and great-grandparents?",
+        "Have you ever visited an antique shop or flea market looking for vintage items?",
+        "What personal possession of yours would you like to pass down to your future children?"
+      ]
+    },
+    {
+      "t": "130. Special Clothes for Formal Occasions",
+      "q": [
+        "What do you typically wear when attending formal ceremonies (weddings, graduations, banquets)?",
+        "Do you own traditional ceremonial attire (such as an Ao Dai or formal suit)?",
+        "Do you feel confident or uncomfortable when dressed in formal business suits?",
+        "How much money do people in your country typically spend on wedding and gala outfits?",
+        "Do you think people should be judged by the formality of their clothing in official meetings?"
+      ]
+    },
+    {
+      "t": "131. Comfortable & Stylish Furniture",
+      "q": [
+        "What is the most comfortable piece of furniture in your home (sofa, armchair, ergonomic bed)?",
+        "Do you prefer buying flat-pack furniture (IKEA) or custom wooden handcrafted pieces?",
+        "How important is having an ergonomic desk chair for studying or working on a computer?",
+        "Do you like rearranging the furniture in your room to change the atmosphere?",
+        "What piece of furniture would you buy first if you moved into a new empty apartment?"
+      ]
+    },
+    {
+      "t": "132. High-Tech Gadgets that Exceeded Expectations",
+      "q": [
+        "What electronic gadget have you bought that turned out to be far better than expected?",
+        "Do you always research technology reviews on YouTube before buying new devices?",
+        "Are you an early adopter who buys the latest smartphone models as soon as they release?",
+        "What electronic gadget could you not live without for more than two days?",
+        "Do you think modern gadgets make humans smarter or more dependent?"
+      ]
+    },
+    {
+      "t": "133. Vehicles & Dream Rides",
+      "q": [
+        "Do you own a car, motorcycle, or electric scooter?",
+        "What means of personal transportation is most practical for getting around your city?",
+        "If money were no object, what kind of vehicle would you purchase?",
+        "Are electric vehicles (EVs) becoming popular among commuters in your country?",
+        "Do you prefer driving yourself or being driven as a passenger?"
+      ]
+    },
+    {
+      "t": "134. Handmade Gifts of Love",
+      "q": [
+        "Have you ever made a gift by hand (a knitted scarf, baked cookies, handmade card) for someone?",
+        "Do you prefer receiving expensive store-bought gifts or thoughtful handmade presents?",
+        "Why does a gift that took considerable time to create feel so special?",
+        "On what occasions do you traditionally exchange presents with friends and family?",
+        "What was the most meaningful birthday gift you have ever received?"
+      ]
+    },
+    {
+      "t": "135. Paintings, Sculptures & Fine Art",
+      "q": [
+        "Do you enjoy looking at paintings, sculptures, or contemporary art installations?",
+        "Did you draw or paint pictures when you were a child in school?",
+        "Have you ever bought an original painting or print to hang on your wall?",
+        "What famous works of art or legendary painters are you familiar with (Da Vinci, Van Gogh)?",
+        "Why do some contemporary abstract artworks sell for tens of millions of dollars?"
+      ]
+    },
+    {
+      "t": "136. Time-Saving Apps & Software",
+      "q": [
+        "What mobile apps do you open first thing every morning on your phone?",
+        "What app has saved you the most time in studying, working, or navigating?",
+        "Do you rely heavily on calendar, to-do list, or reminder apps to organize your schedule?",
+        "How much screen time do you spend across all mobile applications each day?",
+        "Do you think smartphones ultimately save humans time or steal our attention?"
+      ]
+    },
+    {
+      "t": "137. Cherished Childhood Toys",
+      "q": [
+        "What was your favourite toy when you were a little child (doll, car, Lego, teddy bear)?",
+        "Did your parents buy you many toys, or did you invent games using everyday objects?",
+        "Do you still keep any of your childhood toys as sentimental keepsakes?",
+        "How have children's toys changed today with tablets, screens, and robotic gadgets?",
+        "Do you think traditional physical toys are better for child development than electronic games?"
+      ]
+    },
+    {
+      "t": "138. Certificates, Honors & Awards",
+      "q": [
+        "Have you ever received an award, trophy, or certificate of achievement in school or work?",
+        "How did you feel when your hard work and achievements were publicly recognized?",
+        "Do you display certificates on your walls or keep them tucked away in folders?",
+        "Do you think competitive awards motivate students to work harder, or create toxic stress?",
+        "What academic or career goal are you currently striving to accomplish?"
+      ]
+    },
+    {
+      "t": "139. Helping Someone Solve a Problem",
+      "q": [
+        "Do your friends or classmates often turn to you when they encounter problems?",
+        "Are you good at analyzing complicated situations and proposing practical solutions?",
+        "How do you feel when your assistance genuinely helps someone overcome a hurdle?",
+        "What kind of problems do you find easiest to help with: technical, academic, or personal?",
+        "Have you ever received critical help from someone when you were completely stuck?"
+      ]
+    },
+    {
+      "t": "140. Unexpected Good News",
+      "q": [
+        "How do you usually receive exciting news: through phone calls, messages, or in person?",
+        "Who is the first person you share exciting or joyful news with?",
+        "What was the best piece of news you received over the past year?",
+        "Do you celebrate immediately when good news arrives, or keep it quiet?",
+        "Why does receiving sudden unexpected positive news create such intense euphoria?"
+      ]
+    },
+    {
+      "t": "141. Patience & Long Waits",
+      "q": [
+        "Are you a patient person, or do you get agitated when you have to wait in queues?",
+        "What do you usually do to pass the time when waiting in line (read, listen to music, scroll phone)?",
+        "What was the longest queue or wait you have ever experienced (airport, clinic, concert)?",
+        "Why has modern digital culture made people less tolerant of waiting for anything?",
+        "In what life situations is patience the most valuable virtue to possess?"
+      ]
+    },
+    {
+      "t": "142. Being Late & Punctuality",
+      "q": [
+        "Are you normally punctual, or do you have a reputation for arriving late?",
+        "What are the most frequent causes of you running late (traffic, sleeping in, misjudging time)?",
+        "How do you feel when someone is half an hour late for a scheduled meeting with you?",
+        "What should someone do immediately if they realize they are going to arrive late?",
+        "Is punctuality viewed strictly in your culture, or is time treated flexibly?"
+      ]
+    },
+    {
+      "t": "143. Memorable Encounters with Strangers",
+      "q": [
+        "Do you find it easy and comfortable to strike up conversations with strangers?",
+        "Where do you usually chat with strangers: on public transit, in queues, or at cafes?",
+        "Have you ever received unexpected kindness or assistance from a complete stranger?",
+        "Why are people often hesitant or suspicious about talking to strangers in big cities?",
+        "Can a brief conversation with a stranger brighten your entire day?"
+      ]
+    },
+    {
+      "t": "144. Adventures & Outdoor Excursions",
+      "q": [
+        "Do you enjoy spending your weekends on outdoor adventures or staying indoors?",
+        "Have you ever camped overnight in a tent under the stars?",
+        "What outdoor equipment (hiking boots, backpack, flashlight) is essential for wilderness trips?",
+        "What natural wilderness areas in your country are popular for trekking and camping?",
+        "How does immersing yourself in nature refresh your mental energy?"
+      ]
+    },
+    {
+      "t": "145. Communicating in a Foreign Tongue",
+      "q": [
+        "In what situations have you had to speak English with native or international speakers?",
+        "How do you feel when you have to speak a foreign language in front of an audience?",
+        "What do you do when you cannot remember a specific English vocabulary word mid-sentence?",
+        "Have you ever had an amusing misunderstanding while communicating in English?",
+        "What strategies help you speak English with greater fluency and confidence?"
+      ]
+    },
+    {
+      "t": "146. Apologizing & Making Amends",
+      "q": [
+        "Is it difficult for you to admit when you have made a mistake and apologize sincerely?",
+        "How do people in your culture traditionally express an apology to an elder or friend?",
+        "What makes an apology genuinely sincere rather than just a polite formality?",
+        "Have you ever forgiven someone who deeply apologized for hurting you?",
+        "Why is saying 'I am sorry' one of the hardest things for human beings to do?"
+      ]
+    },
+    {
+      "t": "147. Giving Helpful Advice",
+      "q": [
+        "Do your close friends frequently come to you seeking guidance on their personal dilemmas?",
+        "What kinds of situations are you best at giving advice on (relationships, studies, tech)?",
+        "Do you prefer listening quietly before offering thoughts, or immediately suggesting solutions?",
+        "Have you ever given advice that someone followed and achieved great results?",
+        "When should someone refrain from giving unsolicited advice to others?"
+      ]
+    },
+    {
+      "t": "148. Watching Live Sports Matches",
+      "q": [
+        "Do you enjoy watching sporting events (football, basketball, tennis) live at venues?",
+        "What is the most thrilling live match or tournament you have ever witnessed?",
+        "Do you scream and cheer enthusiastically when your favourite team scores a goal?",
+        "How does the atmosphere of a live stadium match compare to watching on television?",
+        "Do you think sports fandom unites communities across political and social boundaries?"
+      ]
+    },
+    {
+      "t": "149. Childhood Games & Pastimes",
+      "q": [
+        "What games did you love playing with neighborhood children when growing up (hide-and-seek, tag)?",
+        "Did you prefer playing outdoor physical games or tabletop board games (chess, Monopoly)?",
+        "Did you play video games on game consoles or computers when you were a teenager?",
+        "How have children's games changed today with touch screens and multiplayer internet gaming?",
+        "Do you think playing traditional playground games taught children important social rules?"
+      ]
+    },
+    {
+      "t": "150. Outdoor Hobbies & Leisure Recreation",
+      "q": [
+        "What outdoor hobbies do you enjoy doing during your free weekends (cycling, running, fishing)?",
+        "Have you taken up any new physical hobbies or recreational sports over the past year?",
+        "Do you prefer exercising outdoors in fresh air or indoors inside air-conditioned gyms?",
+        "How does having an active outdoor hobby benefit your physical cardiovascular health?",
+        "What outdoor hobby would you love to learn if you had more spare time and resources?"
       ]
     }
   ],
@@ -3297,6 +3797,909 @@ window.SP_FORECAST = {
         "Can artisanal handmade goods compete commercially against automated mass factories?",
         "Why should schools retain practical manual craft workshops in their curriculums?"
       ]
+    },
+    {
+      "t": "Describe a person who has strong opinions on things",
+      "cue": [
+        "Who this person is",
+        "How you know them",
+        "What topics they have strong opinions about",
+        "How they express their opinions"
+      ],
+      "ex": "And explain how you feel about this person.",
+      "card": "Describe a person who has strong opinions on things. You should say: who this person is, how you know them, what topics they have strong opinions about, how they express their opinions, and explain how you feel about this person.",
+      "q": [
+        "Why are some individuals much more opinionated than others?",
+        "Can strong opinions hinder someone from learning new perspectives?",
+        "How can people disagree politely in professional workplace settings?",
+        "Does social media amplify extreme viewpoints over nuanced discussions?",
+        "At what age do young people typically form firm personal ideologies?"
+      ],
+      "code": "101"
+    },
+    {
+      "t": "Describe an impressive English speaker you know or heard",
+      "cue": [
+        "Who this person is",
+        "Where and when you heard them speak English",
+        "What they were talking about"
+      ],
+      "ex": "And explain why you found their English speaking ability so impressive.",
+      "card": "Describe an impressive English speaker you know or heard. You should say: who this person is, where and when you heard them speak English, what they were talking about, and explain why you found their English speaking ability so impressive.",
+      "q": [
+        "What factors enable non-native speakers to achieve exceptional fluency in English?",
+        "Is vocabulary breadth or grammatical accuracy more crucial for persuasive speech?",
+        "How does public speaking anxiety affect language learners?",
+        "Should language schools emphasize spontaneous conversational agility over exam drills?",
+        "How has the global spread of English created regional varieties and idioms?"
+      ],
+      "code": "102"
+    },
+    {
+      "t": "Describe a person who enjoys cooking for others",
+      "cue": [
+        "Who this person is",
+        "What kinds of food they typically cook",
+        "Who they usually cook for"
+      ],
+      "ex": "And explain why this person enjoys cooking for other people.",
+      "card": "Describe a person who enjoys cooking for others. You should say: who this person is, what kinds of food they typically cook, who they usually cook for, and explain why this person enjoys cooking for other people.",
+      "q": [
+        "Why is preparing and sharing food considered a universal expression of love and care?",
+        "How has the busy pace of urban life affected home-cooking traditions?",
+        "Are men cooking more frequently in modern households compared to previous eras?",
+        "How does communal dining strengthen family relationships and mental well-being?",
+        "What cultural significance is attached to host hospitality in your country?"
+      ],
+      "code": "103"
+    },
+    {
+      "t": "Describe an adventurous person you know",
+      "cue": [
+        "Who this person is",
+        "How you know them",
+        "What adventurous things they have done"
+      ],
+      "ex": "And explain why you think this person is adventurous and how you feel about their lifestyle.",
+      "card": "Describe an adventurous person you know. You should say: who this person is, how you know them, what adventurous things they have done, and explain why you think this person is adventurous and how you feel about their lifestyle.",
+      "q": [
+        "Why do some individuals possess an innate appetite for physical risk and adventure?",
+        "Can calculated risk-taking in outdoor sports translate into entrepreneurial courage?",
+        "What safety precautions should extreme sports enthusiasts prioritize?",
+        "How does media coverage of extreme athletes inspire the general public?",
+        "Is living an adventurous life compatible with stable family responsibilities?"
+      ],
+      "code": "104"
+    },
+    {
+      "t": "Describe a creative person whose work you admire",
+      "cue": [
+        "Who this person is",
+        "What creative field they work in",
+        "What creative works or designs they have produced"
+      ],
+      "ex": "And explain why you admire their creativity and innovation.",
+      "card": "Describe a creative person whose work you admire. You should say: who this person is, what creative field they work in, what creative works or designs they have produced, and explain why you admire their creativity and innovation.",
+      "q": [
+        "How does creative thinking drive economic innovation in modern knowledge economies?",
+        "Can artificial intelligence tools replace human artistic imagination and emotional depth?",
+        "Why do many traditional societies undervalue creative careers compared to STEM fields?",
+        "What environmental conditions best nurture divergent thinking in children?",
+        "How do great artists translate personal suffering into universally resonant masterpieces?"
+      ],
+      "code": "105"
+    },
+    {
+      "t": "Describe an athlete or sports star you admire",
+      "cue": [
+        "Who this athlete is",
+        "What sport they compete in",
+        "What achievements they have accomplished"
+      ],
+      "ex": "And explain why you admire this athlete and what makes them extraordinary.",
+      "card": "Describe an athlete or sports star you admire. You should say: who this athlete is, what sport they compete in, what achievements they have accomplished, and explain why you admire this athlete and what makes them extraordinary.",
+      "q": [
+        "What mental stamina and discipline are required to maintain world-class athletic performance?",
+        "How do sports role models inspire youth participation in physical fitness?",
+        "Should national governments invest heavily in elite Olympic training over grassroots facilities?",
+        "How has commercial sponsorship and television broadcasting transformed professional athletics?",
+        "What career transition support should be provided to athletes when they retire young?"
+      ],
+      "code": "106"
+    },
+    {
+      "t": "Describe a person who dresses in a stylish or unique way",
+      "cue": [
+        "Who this person is",
+        "What their style of dressing is like",
+        "On what occasions you see them dressed this way"
+      ],
+      "ex": "And explain why you find their fashion sense so appealing or unique.",
+      "card": "Describe a person who dresses in a stylish or unique way. You should say: who this person is, what their style of dressing is like, on what occasions you see them dressed this way, and explain why you find their fashion sense so appealing or unique.",
+      "q": [
+        "How does a person's clothing communicate their personality and social identity?",
+        "What are the environmental and labor consequences of the fast-fashion apparel industry?",
+        "Should high schools and corporate offices enforce strict dress codes?",
+        "Why do traditional national costumes still hold deep cultural pride during ceremonies?",
+        "How has social media accelerated the turnover speed of micro-fashion trends?"
+      ],
+      "code": "107"
+    },
+    {
+      "t": "Describe a polite person you met",
+      "cue": [
+        "Who this person was",
+        "Where and when you met them",
+        "What they did that was polite or considerate"
+      ],
+      "ex": "And explain how their polite behaviour made you feel.",
+      "card": "Describe a polite person you met. You should say: who this person was, where and when you met them, what they did that was polite or considerate, and explain how their polite behaviour made you feel.",
+      "q": [
+        "How do cultural definitions of politeness differ dramatically between East and West?",
+        "Is formal courtesy declining among younger generations due to digital texting habits?",
+        "Why is professional etiquette essential for successful commercial transactions?",
+        "Can excessive formal politeness sometimes mask insincerity or emotional distance?",
+        "How can parents effectively model empathy and polite consideration for their children?"
+      ],
+      "code": "108"
+    },
+    {
+      "t": "Describe an energetic person you know",
+      "cue": [
+        "Who this person is",
+        "How you know them",
+        "What activities they are involved in",
+        "What makes them so energetic"
+      ],
+      "ex": "And explain how this person's energy influences you and others around them.",
+      "card": "Describe an energetic person you know. You should say: who this person is, how you know them, what activities they are involved in, what makes them so energetic, and explain how this person's energy influences you and others around them.",
+      "q": [
+        "What biological and lifestyle habits contribute to sustaining high daily energy?",
+        "How does an enthusiastic team leader boost collective morale during difficult projects?",
+        "Can being around excessively intense people sometimes feel exhausting for introverts?",
+        "Why is physical exercise paradoxically energizing rather than purely depleting?",
+        "How does modern chronic stress erode natural human vitality and zest for life?"
+      ],
+      "code": "109"
+    },
+    {
+      "t": "Describe an intelligent person you know",
+      "cue": [
+        "Who this person is",
+        "How you know them",
+        "What this person does or has achieved",
+        "Why you consider them intelligent"
+      ],
+      "ex": "And explain what you have learned from observing or interacting with them.",
+      "card": "Describe an intelligent person you know. You should say: who this person is, how you know them, what this person does or has achieved, why you consider them intelligent, and explain what you have learned from observing or interacting with them.",
+      "q": [
+        "How does modern cognitive science define multiple intelligences beyond traditional IQ?",
+        "Why is emotional intelligence (EQ) often more predictive of workplace success than pure IQ?",
+        "Should educational institutions prioritize rote memorization or critical inquiry?",
+        "How can society ensure intellectually gifted children receive adequate psychological support?",
+        "What moral responsibilities do scientific geniuses have regarding ethical applications?"
+      ],
+      "code": "110"
+    },
+    {
+      "t": "Describe a friend you had in primary or secondary school",
+      "cue": [
+        "Who this friend was",
+        "How you became friends",
+        "What activities you enjoyed doing together"
+      ],
+      "ex": "And explain why this friendship was so meaningful during your school days.",
+      "card": "Describe a friend you had in primary or secondary school. You should say: who this friend was, how you became friends, what activities you enjoyed doing together, and explain why this friendship was so meaningful during your school days.",
+      "q": [
+        "Why do childhood friendships often withstand decades of geographical separation?",
+        "How does navigating early peer conflicts help children develop social resilience?",
+        "What factors cause adult friendships to become more conditional and transactional?",
+        "How has social media facilitated reuniting with long-lost childhood peers?",
+        "Why do shared nostalgic memories evoke such profound emotional comfort?"
+      ],
+      "code": "111"
+    },
+    {
+      "t": "Describe a foreign person you met or heard about who interested you",
+      "cue": [
+        "Who this person was",
+        "Where they were from",
+        "Where and how you met or heard about them"
+      ],
+      "ex": "And explain what interested you about them and their cultural background.",
+      "card": "Describe a foreign person you met or heard about who interested you. You should say: who this person was, where they were from, where and how you met or heard about them, and explain what interested you about them and their cultural background.",
+      "q": [
+        "How does cross-cultural friendship dismantle xenophobia and nationalistic prejudice?",
+        "What common cultural misunderstandings arise when communicating across distinct social customs?",
+        "Why is cultural adaptability an essential competency for global professionals?",
+        "How can university campuses foster deeper integration between domestic and international students?",
+        "In what ways does globalization create a hybrid cosmopolitan identity among youth?"
+      ],
+      "code": "112"
+    },
+    {
+      "t": "Describe a neighbour who helped you or someone else",
+      "cue": [
+        "Who this neighbour was",
+        "When and where this happened",
+        "What problem occurred and how they helped"
+      ],
+      "ex": "And explain how you felt about this neighbour's kindness.",
+      "card": "Describe a neighbour who helped you or someone else. You should say: who this neighbour was, when and where this happened, what problem occurred and how they helped, and explain how you felt about this neighbour's kindness.",
+      "q": [
+        "Why has modern urban architecture contributed to the erosion of traditional neighborhood solidarity?",
+        "How do community neighborhood groups organize mutual aid during emergencies?",
+        "What mechanisms effectively resolve neighborhood disputes regarding noise and parking?",
+        "Why are safe, cohesive neighborhoods beneficial for the development of young children?",
+        "How can digital community apps (like local neighborhood forums) revive local connectivity?"
+      ],
+      "code": "113"
+    },
+    {
+      "t": "Describe a person who taught you something useful (a skill or hobby)",
+      "cue": [
+        "Who this person was",
+        "What skill or hobby they taught you",
+        "How they taught it to you"
+      ],
+      "ex": "And explain why this skill has been useful to you and how you felt about the teacher.",
+      "card": "Describe a person who taught you something useful. You should say: who this person was, what skill or hobby they taught you, how they taught it to you, and explain why this skill has been useful to you and how you felt about the teacher.",
+      "q": [
+        "What pedagogical qualities make someone an outstanding informal skill instructor?",
+        "Why is learning by practical doing far more effective than theoretical observation?",
+        "How can generational wisdom and vocational craft skills be transmitted in digital eras?",
+        "Does acquiring diverse practical skills enhance psychological self-efficacy?",
+        "Why do adult learners often experience greater frustration and embarrassment when learning new skills?"
+      ],
+      "code": "114"
+    },
+    {
+      "t": "Describe a person who loves to grow plants or do gardening",
+      "cue": [
+        "Who this person is",
+        "How you know them",
+        "What kinds of plants or vegetables they grow"
+      ],
+      "ex": "And explain why this person is so passionate about gardening and how you feel about it.",
+      "card": "Describe a person who loves to grow plants or do gardening. You should say: who this person is, how you know them, what kinds of plants or vegetables they grow, and explain why this person is so passionate about gardening and how you feel about it.",
+      "q": [
+        "How does engaging in soil cultivation reduce urban stress and cortisol levels?",
+        "Why are community urban gardens flourishing in dense international cities?",
+        "What food security benefits arise when households cultivate fresh organic produce?",
+        "How can horticultural therapy assist individuals recovering from trauma or cognitive decline?",
+        "What role do home gardeners play in supporting urban pollinator biodiversity?"
+      ],
+      "code": "115"
+    },
+    {
+      "t": "Describe an impressive modern building in your city",
+      "cue": [
+        "Where the building is located",
+        "What it looks like and what materials were used",
+        "What the building is used for"
+      ],
+      "ex": "And explain why you find this modern building impressive and architecturally striking.",
+      "card": "Describe an impressive modern building in your city. You should say: where the building is located, what it looks like and what materials were used, what the building is used for, and explain why you find this modern building impressive and architecturally striking.",
+      "q": [
+        "How should modern architectural design balance aesthetic grandeur with environmental sustainability?",
+        "What structural innovations allow supertall skyscrapers to withstand typhoons and earthquakes?",
+        "Why do global megacities compete to build ever-taller iconic towers?",
+        "How does the internal spatial layout of modern buildings affect employee collaboration?",
+        "Can futuristic architectural developments harmonize with historic neighborhood quarters?"
+      ],
+      "code": "116"
+    },
+    {
+      "t": "Describe a historical site or ancient ruin you visited",
+      "cue": [
+        "What site it was and where it is located",
+        "When you visited it and who accompanied you",
+        "What you saw and learned about history there"
+      ],
+      "ex": "And explain why this historical site made such a deep impression on you.",
+      "card": "Describe a historical site or ancient ruin you visited. You should say: what site it was and where it is located, when you visited it and who accompanied you, what you saw and learned about history there, and explain why this historical site made such a deep impression on you.",
+      "q": [
+        "Why is tangible heritage preservation essential for understanding human civilizational roots?",
+        "How does mass tourism threaten the physical integrity of ancient archaeological sites?",
+        "What innovative non-invasive technologies (3D laser scanning) aid modern restoration?",
+        "Should artifacts removed during colonial occupations be unconditionally returned?",
+        "How can historical tourism revenue be ethically reinvested into local communities?"
+      ],
+      "code": "117"
+    },
+    {
+      "t": "Describe a tourist attraction that you would recommend to foreign visitors",
+      "cue": [
+        "What the attraction is and where it is located",
+        "What visitors can see and experience there",
+        "When is the best time of year to visit"
+      ],
+      "ex": "And explain why you would strongly recommend this particular attraction.",
+      "card": "Describe a tourist attraction that you would recommend to foreign visitors. You should say: what the attraction is and where it is located, what visitors can see and experience there, when is the best time of year to visit, and explain why you would strongly recommend this particular attraction.",
+      "q": [
+        "What economic benefits and ecological challenges does international tourism bring to developing regions?",
+        "How can historic tourist cities manage overtourism without discouraging travelers?",
+        "Why are experiential cultural journeys becoming more popular than passive sightseeing?",
+        "How can local governments preserve the authentic cultural essence of heritage destinations?",
+        "What role does international tourism play in cultivating global mutual understanding?"
+      ],
+      "code": "118"
+    },
+    {
+      "t": "Describe an open-air street market you enjoyed visiting",
+      "cue": [
+        "Where the market was located",
+        "When you went there",
+        "What kinds of products and foods were sold"
+      ],
+      "ex": "And explain why you enjoyed the atmosphere and shopping at this market.",
+      "card": "Describe an open-air street market you enjoyed visiting. You should say: where the market was located, when you went there, what kinds of products and foods were sold, and explain why you enjoyed the atmosphere and shopping at this market.",
+      "q": [
+        "Why do traditional street markets remain culturally vibrant despite the dominance of e-commerce?",
+        "How do outdoor markets sustain small family farmers and local artisan producers?",
+        "What municipal hygiene and fire safety challenges must open-air markets resolve?",
+        "How does the sensory atmosphere of a street market differ from sterile supermarkets?",
+        "Can preserving street market traditions protect community cultural identity?"
+      ],
+      "code": "119"
+    },
+    {
+      "t": "Describe a newly opened shop, store or cafe in your hometown",
+      "cue": [
+        "Where the shop or cafe is located",
+        "What products or services it offers",
+        "When you visited it and what it was like"
+      ],
+      "ex": "And explain why this new business became popular and whether you liked it.",
+      "card": "Describe a newly opened shop, store or cafe in your hometown. You should say: where the shop or cafe is located, what products or services it offers, when you visited it and what it was like, and explain why this new business became popular and whether you liked it.",
+      "q": [
+        "Why do brick-and-mortar storefronts need to offer unique experiences to survive online shopping?",
+        "How does social media aesthetic marketing drive opening-week foot traffic for new cafes?",
+        "What financial and competitive obstacles cause high failure rates among independent retail startups?",
+        "How do new retail establishments impact the character of residential neighborhoods?",
+        "Why is building lasting customer loyalty more crucial than short-lived viral hype?"
+      ],
+      "code": "120"
+    },
+    {
+      "t": "Describe a library or study space you like to use",
+      "cue": [
+        "Where this library or study space is located",
+        "What facilities and books it offers",
+        "How often you go there to study or read"
+      ],
+      "ex": "And explain why this study space helps you focus and why you like it.",
+      "card": "Describe a library or study space you like to use. You should say: where this library or study space is located, what facilities and books it offers, how often you go there to study or read, and explain why this study space helps you focus and why you like it.",
+      "q": [
+        "How are modern public libraries transforming into community learning and digital innovation hubs?",
+        "Why is equal public access to physical books and internet databases essential for social equity?",
+        "How does creating quiet public sanctuaries improve mental health in hyper-connected cities?",
+        "What architectural acoustic strategies maintain quiet concentration in communal libraries?",
+        "Should public libraries loan electronic devices, tools, and board games alongside literature?"
+      ],
+      "code": "121"
+    },
+    {
+      "t": "Describe a public park or garden you enjoy walking in",
+      "cue": [
+        "Where the park or garden is located",
+        "What features it has (trees, lakes, walking tracks)",
+        "When and who you usually go there with"
+      ],
+      "ex": "And explain why you find spending time in this park so refreshing.",
+      "card": "Describe a public park or garden you enjoy walking in. You should say: where the park or garden is located, what features it has, when and who you usually go there with, and explain why you find spending time in this park so refreshing.",
+      "q": [
+        "How do accessible municipal parks combat urban heat island effects and clean metropolitan air?",
+        "Why is exposure to natural green vegetation scientifically proven to reduce human anxiety?",
+        "What amenities must city councils maintain to ensure public parks are safe and inclusive at night?",
+        "How can urban planners integrate green linear corridors into densely built downtowns?",
+        "Should commercial developments be legally mandated to dedicate rooftop space for communal gardens?"
+      ],
+      "code": "122"
+    },
+    {
+      "t": "Describe a natural landscape (mountain, lake, waterfall) that impressed you",
+      "cue": [
+        "What landscape it was and where it is located",
+        "When you went there and who was with you",
+        "What the scenery looked like"
+      ],
+      "ex": "And explain why this natural scenery left such an indelible impression on you.",
+      "card": "Describe a natural landscape that impressed you. You should say: what landscape it was and where it is located, when you went there and who was with you, what the scenery looked like, and explain why this natural scenery left such an indelible impression on you.",
+      "q": [
+        "Why is wilderness conservation essential for planetary ecological equilibrium?",
+        "How can eco-tourism generate sustainable revenue without degrading pristine natural reserves?",
+        "What psychological restorative effects does encountering sublime wild nature trigger in humans?",
+        "How does corporate resource extraction threaten ancient indigenous landscapes?",
+        "What international accords must be enforced to protect transboundary rivers and mountain ranges?"
+      ],
+      "code": "123"
+    },
+    {
+      "t": "Describe a city or town you would like to visit for a holiday",
+      "cue": [
+        "Where the city or town is located",
+        "What you know about this destination",
+        "What you would do and see there"
+      ],
+      "ex": "And explain why you would love to spend a holiday in this particular place.",
+      "card": "Describe a city or town you would like to visit for a holiday. You should say: where the city or town is located, what you know about this destination, what you would do and see there, and explain why you would love to spend a holiday in this particular place.",
+      "q": [
+        "How has low-cost airline accessibility transformed middle-class leisure travel globally?",
+        "What cultural etiquette research should responsible tourists undertake before visiting foreign destinations?",
+        "Why do some popular holiday destinations suffer catastrophic environmental degradation from tourism?",
+        "Can virtual reality travel ever replicate the authentic sensory experience of visiting a foreign city?",
+        "How does experiencing diverse global cultures expand human empathy and open-mindedness?"
+      ],
+      "code": "124"
+    },
+    {
+      "t": "Describe an ideal house or apartment you would like to live in",
+      "cue": [
+        "Where this house or apartment would be situated",
+        "What it would look like and what rooms it would have",
+        "What special features or amenities it would include"
+      ],
+      "ex": "And explain why living in this home would make you feel happy and fulfilled.",
+      "card": "Describe an ideal house or apartment you would like to live in. You should say: where this house or apartment would be situated, what it would look like and what rooms it would have, what special features or amenities it would include, and explain why living in this home would make you feel happy and fulfilled.",
+      "q": [
+        "Why has housing affordability become the defining crisis for young urban generations?",
+        "How will smart-home automation and solar power transform residential energy efficiency?",
+        "What are the sociological trade-offs between compact high-density apartments and sprawling suburban estates?",
+        "How does residential architecture influence family interaction and personal mental health?",
+        "What public policies can effectively stimulate affordable eco-friendly housing construction?"
+      ],
+      "code": "125"
+    },
+    {
+      "t": "Describe a quiet room or space where you like to relax",
+      "cue": [
+        "Where this room or space is located",
+        "What it looks like and what furniture or decor it has",
+        "What you usually do there to relax"
+      ],
+      "ex": "And explain why this space brings you so much comfort and calm.",
+      "card": "Describe a quiet room or space where you like to relax. You should say: where this room or space is located, what it looks like and what furniture or decor it has, what you usually do there to relax, and explain why this space brings you so much comfort and calm.",
+      "q": [
+        "Why is finding intentional downtime crucial in high-pressure modern knowledge work?",
+        "How does the constant sensory bombardment of digital notifications disrupt psychological equilibrium?",
+        "What design principles (minimalism, natural materials) foster tranquil living spaces?",
+        "Can communal urban meditation or wellness spaces improve public mental health?",
+        "Why is personal rest often mistakenly stigmatized as laziness in hyper-productive societies?"
+      ],
+      "code": "126"
+    },
+    {
+      "t": "Describe a polluted place you visited or know about",
+      "cue": [
+        "Where this place is located",
+        "What kind of pollution was severe there (air, water, noise, plastic)",
+        "What caused this pollution"
+      ],
+      "ex": "And explain how you felt when seeing this polluted environment and what should be done to fix it.",
+      "card": "Describe a polluted place you visited or know about. You should say: where this place is located, what kind of pollution was severe there, what caused this pollution, and explain how you felt when seeing this polluted environment and what should be done to fix it.",
+      "q": [
+        "What public health epidemics stem directly from chronic atmospheric particulate pollution?",
+        "How can municipal governments penalize industrial factories that illegally dump toxic waste?",
+        "Why is the global accumulation of non-biodegradable single-use plastic so difficult to halt?",
+        "Can economic growth decouple from carbon emissions and ecological devastation?",
+        "What role must grassroots community advocacy play in holding polluters accountable?"
+      ],
+      "code": "127"
+    },
+    {
+      "t": "Describe a stadium or sports arena you have been to",
+      "cue": [
+        "What stadium it was and where it is located",
+        "When you went there and what event you attended",
+        "What the arena and the crowd atmosphere were like"
+      ],
+      "ex": "And explain how you felt about attending an event in this stadium.",
+      "card": "Describe a stadium or sports arena you have been to. You should say: what stadium it was and where it is located, when you went there and what event you attended, what the arena and the crowd atmosphere were like, and explain how you felt about attending an event in this stadium.",
+      "q": [
+        "Why do mega-stadiums built for international tournaments (Olympics, World Cup) frequently become 'white elephants'?",
+        "What architectural engineering innovations facilitate rapid, safe evacuation of massive stadium crowds?",
+        "How does collective emotional resonance in live stadiums transcend everyday social divides?",
+        "How can multi-purpose stadiums generate year-round community and commercial utility?",
+        "Should public tax revenues subsidize the construction of stadiums for privately owned sports franchises?"
+      ],
+      "code": "128"
+    },
+    {
+      "t": "Describe an old family heirloom or antique in your family",
+      "cue": [
+        "What the heirloom or antique object is",
+        "How long your family has had it and who originally owned it",
+        "What it looks like and what it is made of"
+      ],
+      "ex": "And explain why this heirloom is cherished and historically important to your family.",
+      "card": "Describe an old family heirloom or antique in your family. You should say: what the heirloom or antique object is, how long your family has had it and who originally owned it, what it looks like and what it is made of, and explain why this heirloom is cherished and historically important to your family.",
+      "q": [
+        "Why do tangible physical objects hold far more sentimental weight than digital records?",
+        "How do family heirlooms connect younger generations with their ancestral heritage?",
+        "Why has the commercial antique trade and vintage collecting grown into a major industry?",
+        "What conservation methods are necessary to preserve fragile ancient papers and textiles?",
+        "In a throwaway consumer culture, how can society relearn the value of enduring material craftsmanship?"
+      ],
+      "code": "129"
+    },
+    {
+      "t": "Describe a piece of clothing you like wearing on special occasions",
+      "cue": [
+        "What the piece of clothing is",
+        "Where and when you obtained it",
+        "What it looks like and what colors/fabrics it has"
+      ],
+      "ex": "And explain why you like wearing this outfit on special occasions.",
+      "card": "Describe a piece of clothing you like wearing on special occasions. You should say: what the piece of clothing is, where and when you obtained it, what it looks like and what colors/fabrics it has, and explain why you like wearing this outfit on special occasions.",
+      "q": [
+        "Why do formal dress codes persist in modern corporate boardrooms and diplomatic state dinners?",
+        "How does wearing polished formal clothing subtly elevate someone's professional poise and focus?",
+        "What cultural symbolism is woven into traditional national ceremonial garments?",
+        "Why are younger corporate startups abandoning formal neckties in favor of casual hoodies?",
+        "How can the textile industry ensure formal celebratory clothing is manufactured sustainably?"
+      ],
+      "code": "130"
+    },
+    {
+      "t": "Describe a piece of furniture you find comfortable or stylish",
+      "cue": [
+        "What piece of furniture it is",
+        "Where it is located in your house",
+        "What it looks like and what material it is made of"
+      ],
+      "ex": "And explain why you find this furniture so comfortable and why you like it.",
+      "card": "Describe a piece of furniture you find comfortable or stylish. You should say: what piece of furniture it is, where it is located in your house, what it looks like and what material it is made of, and explain why you find this furniture so comfortable and why you like it.",
+      "q": [
+        "How does ergonomic furniture design protect office workers against chronic spinal ailments?",
+        "Why has minimalist mid-century Scandinavian furniture design maintained global popularity?",
+        "What sustainable timber and recycled composite materials are reshaping modern furniture manufacturing?",
+        "How does the arrangement of living room furniture influence family conversation and warmth?",
+        "Can compact multifunctional furniture solve space constraints in urban micro-apartments?"
+      ],
+      "code": "131"
+    },
+    {
+      "t": "Describe an electronic gadget you bought that exceeded your expectations",
+      "cue": [
+        "What gadget it was",
+        "When and why you purchased it",
+        "What features or functions it possesses"
+      ],
+      "ex": "And explain why this gadget exceeded your expectations and how it helps you daily.",
+      "card": "Describe an electronic gadget you bought that exceeded your expectations. You should say: what gadget it was, when and why you purchased it, what features or functions it possesses, and explain why this gadget exceeded your expectations and how it helps you daily.",
+      "q": [
+        "Why do high-tech products frequently suffer from planned obsolescence and unrepairability?",
+        "How has the integration of mobile processors revolutionized consumer electronics?",
+        "What digital security vulnerabilities arise as domestic households fill with smart IoT devices?",
+        "How can electronic manufacturers minimize rare-earth mineral exploitation and e-waste toxic runoff?",
+        "Will wearable biometric and AR glasses replace handheld smartphones in the coming decade?"
+      ],
+      "code": "132"
+    },
+    {
+      "t": "Describe a vehicle (car, motorcycle, bicycle) you would like to own",
+      "cue": [
+        "What vehicle it is and what brand/model",
+        "What it looks like and what special features it has",
+        "Why you are interested in owning it"
+      ],
+      "ex": "And explain how owning this vehicle would change your daily mobility and lifestyle.",
+      "card": "Describe a vehicle you would like to own. You should say: what vehicle it is, what it looks like and what special features it has, why you are interested in owning it, and explain how owning this vehicle would change your daily mobility and lifestyle.",
+      "q": [
+        "How rapidly will electric vehicles replace internal combustion engines across global transportation?",
+        "What charging infrastructure and electrical grid upgrades must governments build to support EVs?",
+        "Why do luxury sports cars command such immense prestige and status in contemporary culture?",
+        "Will autonomous driverless vehicles eliminate vehicular accidents caused by human fatigue?",
+        "How should megacities balance supporting personal vehicles with prioritizing pedestrian transit?"
+      ],
+      "code": "133"
+    },
+    {
+      "t": "Describe a gift you received that took someone a long time to make",
+      "cue": [
+        "What the gift was",
+        "Who made it and gave it to you",
+        "Why they decided to make it by hand"
+      ],
+      "ex": "And explain how you felt when receiving this gift and why you cherish it.",
+      "card": "Describe a gift you received that took someone a long time to make. You should say: what the gift was, who made it and gave it to you, why they decided to make it by hand, and explain how you felt when receiving this gift and why you cherish it.",
+      "q": [
+        "Why has the emotional authenticity of handmade gifts gained reverence in an era of mass consumption?",
+        "How does spending time on a personal gift communicate deep relational commitment?",
+        "Has commercial marketing turned festive gift-giving into a stressful financial obligation?",
+        "What handmade crafts or traditional culinary gifts are customary in your homeland?",
+        "How can parents teach children that gratitude matters far more than monetary price tags?"
+      ],
+      "code": "134"
+    },
+    {
+      "t": "Describe a painting, sculpture, or piece of art that impressed you",
+      "cue": [
+        "What piece of art it was",
+        "Where you saw it",
+        "What it depicts and what style it was made in"
+      ],
+      "ex": "And explain why this piece of art left such a deep emotional or visual impression on you.",
+      "card": "Describe a painting, sculpture, or piece of art that impressed you. You should say: what piece of art it was, where you saw it, what it depicts and what style it was made in, and explain why this piece of art left such a deep emotional or visual impression on you.",
+      "q": [
+        "What essential cultural role does fine art play in reflecting the political soul of an era?",
+        "Why is public art (outdoor murals, sculptures in plazas) important for civic urban life?",
+        "How does fine art collecting serve as an alternative financial investment asset class for the wealthy?",
+        "Should state funding sponsor unconventional and provocative contemporary artists?",
+        "Can generative digital AI art possess authentic human emotional and spiritual meaning?"
+      ],
+      "code": "135"
+    },
+    {
+      "t": "Describe a website or mobile application that saves you a lot of time",
+      "cue": [
+        "What website or app it is",
+        "How you discovered it",
+        "What functions and features it provides"
+      ],
+      "ex": "And explain how this application saves you time and increases your efficiency.",
+      "card": "Describe a website or mobile application that saves you a lot of time. You should say: what website or app it is, how you discovered it, what functions and features it provides, and explain how this application saves you time and increases your efficiency.",
+      "q": [
+        "How have ubiquitous cloud applications reshaped knowledge-work productivity?",
+        "Why are consumer mobile apps intentionally engineered to maximize addictive engagement?",
+        "What privacy trade-offs do consumers surrender in exchange for free time-saving digital services?",
+        "How can individuals practice digital minimalism to reclaim their focus from notification fatigue?",
+        "Will AI agent software soon autonomously manage administrative logistics without human input?"
+      ],
+      "code": "136"
+    },
+    {
+      "t": "Describe a memorable toy from your childhood",
+      "cue": [
+        "What the toy was",
+        "Who gave it to you and how old you were",
+        "What it looked like and how you played with it"
+      ],
+      "ex": "And explain why this toy was so special and memorable in your childhood.",
+      "card": "Describe a memorable toy from your childhood. You should say: what the toy was, who gave it to you and how old you were, what it looked like and how you played with it, and explain why this toy was so special and memorable in your childhood.",
+      "q": [
+        "How do physical construction toys (like building blocks) foster spatial intelligence and problem solving?",
+        "Why is imaginative, unscripted play vital for healthy emotional childhood development?",
+        "Has commercial toy advertising created materialistic entitlement among young children?",
+        "What are the cognitive risks of replacing tangible physical toys with touch-screen tablets?",
+        "How do childhood toys anchor foundational nostalgic memories of familial security?"
+      ],
+      "code": "137"
+    },
+    {
+      "t": "Describe a certificate, prize, or award you received",
+      "cue": [
+        "What award or certificate it was",
+        "When and where you received it",
+        "What you had to do to earn it"
+      ],
+      "ex": "And explain how you felt when you received it and why it was important to you.",
+      "card": "Describe a certificate, prize, or award you received. You should say: what award or certificate it was, when and where you received it, what you had to do to earn it, and explain how you felt when you received it and why it was important to you.",
+      "q": [
+        "How does external public recognition motivate individuals compared to intrinsic satisfaction?",
+        "Can hyper-competitive academic grading systems inadvertently crush genuine curiosity?",
+        "Why do professional certifications carry substantial weight in technical employment markets?",
+        "Should schools reward effort and progress alongside top performance?",
+        "How can individuals maintain humility and hunger for improvement after winning major accolades?"
+      ],
+      "code": "138"
+    },
+    {
+      "t": "Describe a time when you helped someone solve a difficult problem",
+      "cue": [
+        "Who you helped",
+        "What the difficult problem was",
+        "What you did to help them solve it"
+      ],
+      "ex": "And explain how the person felt and how you felt about helping them.",
+      "card": "Describe a time when you helped someone solve a difficult problem. You should say: who you helped, what the difficult problem was, what you did to help them solve it, and explain how the person felt and how you felt about helping them.",
+      "q": [
+        "Why is collaborative teamwork more effective than solitary problem-solving for complex issues?",
+        "How can someone offer constructive assistance without disempowering the recipient?",
+        "Why is active empathetic listening the first essential step in resolving personal dilemmas?",
+        "What problem-solving frameworks can educational systems teach to foster independent thinking?",
+        "How does helping others build profound social trust and mutual reciprocity in communities?"
+      ],
+      "code": "139"
+    },
+    {
+      "t": "Describe a time when you received unexpected good news",
+      "cue": [
+        "What the good news was",
+        "When and how you heard about it",
+        "Why it was unexpected"
+      ],
+      "ex": "And explain how you reacted and celebrated after hearing this news.",
+      "card": "Describe a time when you received unexpected good news. You should say: what the good news was, when and how you heard about it, why it was unexpected, and explain how you reacted and celebrated after hearing this news.",
+      "q": [
+        "How does psychological anticipation influence the emotional intensity of receiving news?",
+        "Why does mainstream media disproportionately broadcast negative catastrophes over uplifting breakthroughs?",
+        "How can sharing personal positive news strengthen bonds without coming across as boastful?",
+        "What psychological resilience benefits stem from celebrating small interim victories?",
+        "Can unexpected positive breakthroughs fundamentally shift someone's long-term optimism?"
+      ],
+      "code": "140"
+    },
+    {
+      "t": "Describe a time when you had to wait a long time for something or someone",
+      "cue": [
+        "What or who you were waiting for",
+        "Where and when this happened",
+        "How long the wait lasted"
+      ],
+      "ex": "And explain how you felt during the wait and what happened in the end.",
+      "card": "Describe a time when you had to wait a long time for something or someone. You should say: what or who you were waiting for, where and when this happened, how long the wait lasted, and explain how you felt during the wait and what happened in the end.",
+      "q": [
+        "How has on-demand streaming and same-day delivery eroded societal patience?",
+        "Why is delaying immediate gratification essential for achieving long-term professional mastery?",
+        "How can service businesses optimize queue management and customer wait experiences?",
+        "What psychological techniques help individuals maintain composure during unexpected delays?",
+        "Is patience an innate personality trait, or can it be systematically cultivated through mindfulness?"
+      ],
+      "code": "141"
+    },
+    {
+      "t": "Describe an occasion when you were late for an important appointment",
+      "cue": [
+        "What appointment or event you were late for",
+        "When this happened and why you were late",
+        "What obstacles you faced on the way"
+      ],
+      "ex": "And explain what happened when you arrived and how you dealt with the situation.",
+      "card": "Describe an occasion when you were late for an important appointment. You should say: what appointment or event you were late for, when this happened and why you were late, what obstacles you faced on the way, and explain what happened when you arrived and how you dealt with the situation.",
+      "q": [
+        "Why do certain international cultures perceive punctuality as fundamental respect while others view time elastically?",
+        "How does chronic unpunctuality damage professional credibility and client relationships?",
+        "What psychological factors (optimism bias about travel times) cause people to chronically underestimate duration?",
+        "How can individuals build buffer zones into daily schedules to eliminate late arrivals?",
+        "What consequences should educational institutions enforce for habitual student tardiness?"
+      ],
+      "code": "142"
+    },
+    {
+      "t": "Describe a memorable conversation you had with a total stranger",
+      "cue": [
+        "Who the stranger was and where you met them",
+        "How the conversation started",
+        "What interesting topics you talked about"
+      ],
+      "ex": "And explain why this encounter left such a lasting impression on your mind.",
+      "card": "Describe a memorable conversation you had with a total stranger. You should say: who the stranger was and where you met them, how the conversation started, what interesting topics you talked about, and explain why this encounter left such a lasting impression on your mind.",
+      "q": [
+        "Why do people sometimes find it easier to disclose intimate truths to empathetic strangers than to close family?",
+        "How does interacting warmly with strangers foster broader societal social trust?",
+        "What public architecture features (benches, shared tables, communal plazas) invite spontaneous conversation?",
+        "How can societies teach children about stranger safety without inducing generalized paranoia?",
+        "Why does experiencing unexpected kindness from strangers restore faith in human goodness?"
+      ],
+      "code": "143"
+    },
+    {
+      "t": "Describe an adventurous trip or outdoor excursion you took",
+      "cue": [
+        "Where you went and when this happened",
+        "Who joined you on this outdoor adventure",
+        "What activities you did (hiking, rafting, camping)"
+      ],
+      "ex": "And explain what challenges you faced and why this trip was memorable.",
+      "card": "Describe an adventurous trip or outdoor excursion you took. You should say: where you went and when this happened, who joined you on this outdoor adventure, what activities you did, and explain what challenges you faced and why this trip was memorable.",
+      "q": [
+        "Why are outdoor wilderness pursuits experiencing a major renaissance among urban tech workers?",
+        "What essential survival and navigation preparation must adventurers complete prior to remote treks?",
+        "How can outdoor education programs cultivate teamwork, grit, and leadership in youth?",
+        "What environmental ethics ('Leave No Trace') must outdoor enthusiasts strictly practice?",
+        "How does physical exertion in rugged nature dismantle urban anxiety and digital addiction?"
+      ],
+      "code": "144"
+    },
+    {
+      "t": "Describe a situation where you had to speak in a foreign language (English)",
+      "cue": [
+        "Where and when this happened",
+        "Who you were speaking to and why",
+        "What you talked about"
+      ],
+      "ex": "And explain how well you communicated and how you felt after the conversation.",
+      "card": "Describe a situation where you had to speak in a foreign language. You should say: where and when this happened, who you were speaking to and why, what you talked about, and explain how well you communicated and how you felt after the conversation.",
+      "q": [
+        "Why do many students experience severe affective filters and anxiety when speaking a foreign language?",
+        "How does linguistic immersion in authentic environments accelerate conversational competence?",
+        "Why is communicative effectiveness and message conveyance far more vital than grammatical perfection?",
+        "How do body language, hand gestures, and tone compensate for vocabulary gaps?",
+        "What psychological milestone occurs when someone begins thinking directly in their target language?"
+      ],
+      "code": "145"
+    },
+    {
+      "t": "Describe a time when you apologized to someone for a mistake",
+      "cue": [
+        "Who you apologized to",
+        "What mistake or misunderstanding occurred",
+        "Why you decided to apologize and how you did it"
+      ],
+      "ex": "And explain how the other person reacted and how you felt afterward.",
+      "card": "Describe a time when you apologized to someone for a mistake. You should say: who you apologized to, what mistake or misunderstanding occurred, why you decided to apologize and how you did it, and explain how the other person reacted and how you felt afterward.",
+      "q": [
+        "Why does human ego and pride make acknowledging personal fault so psychologically challenging?",
+        "What components (acknowledging harm, taking responsibility, offering restitution) comprise a complete apology?",
+        "How does apologizing promptly prevent minor interpersonal frictions from becoming toxic feuds?",
+        "Why are public corporate and political apologies often viewed cynically by citizens?",
+        "Can genuine forgiveness heal emotional wounds and restore damaged relationships?"
+      ],
+      "code": "146"
+    },
+    {
+      "t": "Describe an occasion when you gave advice that turned out to be helpful",
+      "cue": [
+        "Who you gave advice to",
+        "What dilemma or problem they were struggling with",
+        "What specific advice you offered them"
+      ],
+      "ex": "And explain how they followed your advice and what the positive outcome was.",
+      "card": "Describe an occasion when you gave advice that turned out to be helpful. You should say: who you gave advice to, what dilemma or problem they were struggling with, what specific advice you offered them, and explain how they followed your advice and what the positive outcome was.",
+      "q": [
+        "Why is listening with deep empathy often more helpful than prescribing rapid solutions?",
+        "How can someone deliver constructive advice without sounding patronizing or superior?",
+        "What legal and ethical boundaries separate friendly peer advice from licensed counseling?",
+        "Why do people sometimes resist sound advice even when they know it is objectively accurate?",
+        "How does guiding others through their life challenges clarify the advisor's own perspective?"
+      ],
+      "code": "147"
+    },
+    {
+      "t": "Describe a sports match or athletic game you watched live",
+      "cue": [
+        "What sport or match it was",
+        "Where and when you watched it",
+        "Who was competing and who was winning"
+      ],
+      "ex": "And explain why this sports match was thrilling and memorable to you.",
+      "card": "Describe a sports match or athletic game you watched live. You should say: what sport or match it was, where and when you watched it, who was competing and who was winning, and explain why this sports match was thrilling and memorable to you.",
+      "q": [
+        "Why does watching live competitive sports evoke such visceral tribal loyalty and passion?",
+        "How has video assistant refereeing (VAR) technology influenced fairness and emotional rhythm in sports?",
+        "What economic revenue does hosting regional and international sporting tournaments inject into cities?",
+        "How can sports leagues deter hooliganism and toxic fan aggression in stadium stands?",
+        "Why do underdog sporting victories create universal cinematic resonance across cultures?"
+      ],
+      "code": "148"
+    },
+    {
+      "t": "Describe a game (board game, video game, or sport) you played in childhood",
+      "cue": [
+        "What game it was and what the rules were",
+        "Who you typically played it with",
+        "Where and when you played it"
+      ],
+      "ex": "And explain why you loved playing this game and what memories it brings back.",
+      "card": "Describe a game you played in childhood. You should say: what game it was and what the rules were, who you typically played it with, where and when you played it, and explain why you loved playing this game and what memories it brings back.",
+      "q": [
+        "How do unstructured childhood games foster cooperative negotiation and conflict resolution?",
+        "What cognitive benefits (strategic thinking, anticipation) do strategic board games cultivate?",
+        "Why has electronic esports evolved into a massive global spectator industry?",
+        "What parental boundaries should regulate excessive video-game immersion among children?",
+        "How can traditional folk games be preserved as living cultural heritage in digital schools?"
+      ],
+      "code": "149"
+    },
+    {
+      "t": "Describe an outdoor hobby or recreational activity you took up recently",
+      "cue": [
+        "What the outdoor activity or hobby is",
+        "When and why you decided to start doing it",
+        "What equipment or gear is required for it"
+      ],
+      "ex": "And explain how often you participate in this hobby and why you enjoy it so much.",
+      "card": "Describe an outdoor hobby or recreational activity you took up recently. You should say: what the outdoor activity or hobby is, when and why you decided to start doing it, what equipment or gear is required for it, and explain how often you participate in this hobby and why you enjoy it so much.",
+      "q": [
+        "Why are desk-bound urban professionals gravitating heavily toward outdoor endurance hobbies?",
+        "How does engaging in outdoor hobbies combat sedentary lifestyle diseases and mental fatigue?",
+        "What public municipal investments (running tracks, outdoor gym equipment, parks) promote citizen fitness?",
+        "How can hobbyist sports clubs build cross-demographic social solidarity in diverse cities?",
+        "What psychological satisfaction comes from tracking personal endurance improvements over time?"
+      ],
+      "code": "150"
     }
   ]
 };

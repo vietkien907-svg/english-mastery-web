@@ -137,23 +137,24 @@ window.SPEAKOUT_SPEAKING_DATA = {
         {
           "code": "2B",
           "label": "Cue Card 2B: Lần Dũng Cảm Nói 'Không' (Từ Chối)",
-          "t": "Describe a time when you had to say 'no' to a request or invitation",
+          "t": "Describe a time when you had to say no to someone",
           "cue": [
-            "Who asked you and what they asked for",
-            "Why it was difficult or uncomfortable to decline",
-            "How you politely communicated your refusal",
-            "And explain how you felt afterwards about setting that boundary"
+            "Who you said no to",
+            "What the person asked you to do",
+            "Why you decided to refuse the request",
+            "How you said no to that person",
+            "And explain how you felt after saying no and what you learned from the experience"
           ]
         },
         {
           "code": "2C",
-          "label": "Cue Card 2C: Điều Gây Khó Chịu Nhất (Pet Peeve)",
-          "t": "Describe a behavior in public that really annoys you",
+          "label": "Cue Card 2C: Tình Huống Gây Bực Mình (Pet Peeve)",
+          "t": "Describe a situation when something really annoyed you",
           "cue": [
-            "What the annoying behavior is",
-            "Where and when you usually encounter it",
-            "Why it bothers you so much",
-            "And explain how you think people should handle that situation respectfully"
+            "When and where it happened",
+            "What the situation was and what annoyed you",
+            "Why you found it so annoying",
+            "And say how you felt and what you did about it"
           ]
         }
       ],
@@ -205,17 +206,17 @@ window.SPEAKOUT_SPEAKING_DATA = {
         }
       ],
       "ideas": [
-        "Mở bài: Xác định thói quen hoặc hành vi gây ấn tượng sâu sắc",
-        "Thân bài: Kể chi tiết tình huống, nguyên nhân tâm lý và nỗ lực điều chỉnh",
+        "Mở bài: Xác định rõ người yêu cầu hoặc tình huống gây bực bội",
+        "Thân bài: Nêu lý do chính đáng từ chối hoặc nguyên nhân gây khó chịu và cách ứng xử",
         "Kết luận: Bài học về việc thiết lập ranh giới cá nhân (setting healthy boundaries)"
       ],
-      "sample65": "I used to be a chronic people pleaser who found it impossible to say no. Whenever friends asked for favors, I would agree even when my schedule was packed. Eventually, it drove me up the wall, so I had to bite the bullet and learn assertive communication. It felt awkward at first, but setting boundaries has made my relationships much healthier.",
-      "sample80": "Confronting my habit of constantly appeasing others was undoubtedly a turning point. For years, failing to see eye to eye with someone felt like a personal failure, which drove me up the wall with unnecessary stress. I ultimately had to bite the bullet and master the art of setting constructive boundaries, realizing that self-respect is the cornerstone of genuine empathy."
+      "sample65": "I remember a time when a colleague asked me to take over their urgent task right before the weekend. Because my own schedule was already packed, agreeing would have driven me up the wall. So, I decided to bite the bullet and politely declined, explaining my constraints. Saying no felt uncomfortable initially, but it taught me that setting boundaries is essential for mutual respect.",
+      "sample80": "Confronting my habit of constantly appeasing others was undoubtedly a turning point. When a close acquaintance asked me to endorse a project that contradicted my principles, not seeing eye to eye with them was tough. However, I bit the bullet and delivered a respectful refusal. That decisive moment taught me that authentic integrity always trumps the superficial urge to please everyone."
     },
     {
       "id": "u3",
       "number": 3,
-      "title": "Unit 3: Working Life (Công Việc, Sự Nghiệp & Môi Trường Làm Việc)",
+      "title": "Unit 3: Working Life (Làm Việc Từ Xa, Gig Economy & Sự Nghiệp)",
       "p1": [
         "[3A] Do you prefer working or studying remotely from home, or in a physical workplace?",
         "[3A] What is the greatest benefit and the biggest downside of working from home?",
@@ -224,39 +225,61 @@ window.SPEAKOUT_SPEAKING_DATA = {
         "[3C] How do you typically navigate misunderstandings or conflicts with colleagues?",
         "[3C] Do you flourish more when working independently or when collaborating in a team?",
         "[3D] What would your dream vocation be if financial constraints were not an issue?",
-        "[3D] Would you ever consider leaving a corporate job to join the freelance gig economy?"
+        "[3D] Would you ever consider working in the freelance gig economy?"
       ],
       "cueCards": [
         {
-          "code": "3A",
-          "label": "Cue Card 3A: Không Gian Làm Việc / Học Tập Lý Tưởng",
-          "t": "Describe your ideal working or studying environment",
+          "code": "3A-1",
+          "label": "Cue Card 3A (1): Quản Lý Thời Gian Khi Làm Việc Tại Nhà",
+          "t": "Describe a way you organize your time when working or studying from home",
           "cue": [
-            "Where this workplace would be located (home or office)",
-            "What equipment, design, and atmosphere it would feature",
-            "What hours and flexibility you would have",
-            "And explain why this environment would maximize your productivity"
+            "What your usual schedule is",
+            "How you divide your time between different tasks",
+            "What helps you stay focused",
+            "And explain whether this way of organizing your time is effective"
+          ]
+        },
+        {
+          "code": "3A-2",
+          "label": "Cue Card 3A (2): Lịch Trình Sinh Hoạt Hàng Ngày Tại Nhà",
+          "t": "Describe a daily routine that helps you work or study effectively at home",
+          "cue": [
+            "What the routine is and when you usually follow it",
+            "What specific activities are included (breaks, exercise, focus blocks)",
+            "How this routine prevents procrastination",
+            "And explain why you think this routine is so effective for your productivity"
+          ]
+        },
+        {
+          "code": "3A-3",
+          "label": "Cue Card 3A (3): Thiết Bị Công Nghệ Hỗ Trợ Làm Việc Tại Nhà",
+          "t": "Describe a piece of technology that helps you work or study from home",
+          "cue": [
+            "What it is and how often you use it",
+            "What specific features you use it for (communication, file syncing, multitasking)",
+            "How it compares to traditional office tools",
+            "And explain why it is exceptionally useful for working or studying from home"
           ]
         },
         {
           "code": "3B",
-          "label": "Cue Card 3B: Nghề Nghiệp Đầy Thử Thách & Đáng Ngưỡng Mộ",
-          "t": "Describe a profession or career that you greatly admire",
+          "label": "Cue Card 3B: Công Việc Gig Economy Thú Vị / Hữu Ích",
+          "t": "Describe a type of gig work that you think is interesting or useful",
           "cue": [
-            "What the profession is and what duties it involves",
-            "What qualifications and skills are necessary",
-            "What major challenges practitioners face",
-            "And explain why you have such profound respect for people in that field"
+            "What kind of gig work it is",
+            "What people usually do in this job",
+            "What skills or qualities are needed",
+            "And explain why you think this type of gig work is interesting or useful"
           ]
         },
         {
           "code": "3C",
-          "label": "Cue Card 3C: Giải Quyết Khủng Hoảng Trong Công Việc",
-          "t": "Describe a challenging problem you solved at work or during a group project",
+          "label": "Cue Card 3C: Xử Lý Vấn Đề Khó Khăn Trong Công Việc",
+          "t": "Describe a challenging problem you solved at work or in a project",
           "cue": [
             "What project you were working on and what went wrong",
             "How you collaborated with your team to diagnose the issue",
-            "What decisive actions you took to fix it",
+            "What decisive actions you took to resolve it",
             "And explain what valuable lesson you learned about professional teamwork"
           ]
         }
@@ -273,22 +296,22 @@ window.SPEAKOUT_SPEAKING_DATA = {
         {
           "phrase": "remote collaboration",
           "ipa": "/rɪˈməʊt kəˌlæb.əˈreɪ.ʃən/",
-          "meaning": "làm việc và hợp tác từ xa"
+          "meaning": "hợp tác làm việc và học tập từ xa"
         },
         {
-          "phrase": "job satisfaction",
-          "ipa": "/ˈdʒɒb sæt.ɪsˌfæk.ʃən/",
-          "meaning": "sự thỏa mãn, yêu thích công việc"
+          "phrase": "time-blocking technique",
+          "ipa": "/ˈtaɪm blɒkɪŋ tekˈniːk/",
+          "meaning": "kỹ thuật phân bổ khối thời gian tập trung"
         },
         {
-          "phrase": "demanding workload",
-          "ipa": "/dɪˈmɑːn.dɪŋ ˈwɜːk.ləʊd/",
-          "meaning": "khối lượng công việc áp lực, nặng nề"
+          "phrase": "gig economy",
+          "ipa": "/ɡɪɡ ɪˈkɒn.ə.mi/",
+          "meaning": "nền kinh tế việc làm tự do / thời vụ"
         },
         {
-          "phrase": "career advancement",
-          "ipa": "/kəˈrɪər ədˈvɑːns.mənt/",
-          "meaning": "sự thăng tiến và phát triển sự nghiệp"
+          "phrase": "work-life balance",
+          "ipa": "/wɜːk laɪf ˈbæləns/",
+          "meaning": "sự cân bằng giữa công việc và đời sống"
         }
       ],
       "idioms": [
@@ -298,33 +321,33 @@ window.SPEAKOUT_SPEAKING_DATA = {
           "meaning": "thức khuya miệt mài làm việc, học tập [2000 Idioms]"
         },
         {
-          "phrase": "climb the corporate ladder",
-          "ipa": "/klaɪm ðə ˈkɔː.pər.ət ˈlæd.ər/",
-          "meaning": "thăng tiến trên nấc thang sự nghiệp công ty [2000 Idioms]"
-        },
-        {
           "phrase": "hit the ground running",
           "ipa": "/hɪt ðə ɡraʊnd ˈrʌn.ɪŋ/",
-          "meaning": "bắt nhịp làm việc hiệu quả ngay từ ngày đầu [2000 Idioms]"
+          "meaning": "bắt nhịp làm việc hiệu quả ngay từ đầu [2000 Idioms]"
+        },
+        {
+          "phrase": "climb the corporate ladder",
+          "ipa": "/klaɪm ðə ˈkɔː.pər.ət ˈlæd.ər/",
+          "meaning": "thăng tiến trên nấc thang sự nghiệp [2000 Idioms]"
         }
       ],
       "ideas": [
-        "Mở bài: Giới thiệu vai trò chuyên môn, môi trường làm việc ưa thích",
-        "Thân bài: Nêu các yếu tố then chốt (sự tự chủ, thu nhập, tinh thần đồng đội)",
-        "Kết luận: Đánh giá tầm nhìn lâu dài và cân bằng giữa sự nghiệp và cuộc sống"
+        "Mở bài: Giới thiệu phương pháp quản lý thời gian hoặc công việc gig economy",
+        "Thân bài: Trình bày chi tiết lịch trình, kỹ thuật tập trung và công cụ hỗ trợ",
+        "Kết luận: Đánh giá hiệu quả thực tế và tính linh hoạt trong thời đại số"
       ],
-      "sample65": "When working on a major corporate project last year, we faced a demanding workload and had to burn the midnight oil for two weeks straight. It was tough, but being able to hit the ground running alongside dedicated colleagues made all the difference. That experience taught me that genuine job satisfaction comes from overcoming real challenges together.",
-      "sample80": "In today's fast-evolving economic landscape, climbing the corporate ladder requires far more than mere technical competence; it demands relentless adaptability. When leading an urgent project last quarter, our team had to burn the midnight oil to meet an unforgiving deadline. We hit the ground running, and turning that precarious situation into a triumphant delivery was deeply gratifying."
+      "sample65": "When studying from home, I follow a strict time-blocking schedule that helps me stay disciplined. Instead of burning the midnight oil right before deadlines, I divide my day into 90-minute deep focus sprints. Utilizing cloud software and noise-cancelling headphones helps me hit the ground running every morning, proving that a structured routine is crucial for remote productivity.",
+      "sample80": "Operating remotely without direct supervision demands immense autonomy. To thrive in this environment, I adopt a disciplined morning routine combined with digital time-blocking. Rather than burning the midnight oil, I prioritize high-leverage tasks first thing in the morning, which enables me to hit the ground running while safeguarding my work-life balance."
     },
     {
       "id": "u4",
       "number": 4,
       "title": "Unit 4: Truth & Lies (Sự Thật, Tin Đồn & Sự Tin Cậy)",
       "p1": [
-        "[4A] Do you enjoy listening to mystery stories and urban legends?",
+        "[4A] Do you enjoy listening to mystery stories, urban legends, and documentaries?",
         "[4A] How can you discern whether someone is telling the absolute truth or exaggerating?",
-        "[4B] Have you ever fallen for an online story or viral rumor that turned out to be fake?",
-        "[4B] Why do you think fabricated hoaxes spread so rapidly across digital networks?",
+        "[4B] Have you ever fallen for an online story or viral hoax that turned out to be completely fake?",
+        "[4B] Why do you think fabricated rumors spread so rapidly across digital social networks?",
         "[4C] What personal traits make an individual genuinely trustworthy in your eyes?",
         "[4C] Do you believe it is ever justifiable to tell a 'white lie' to avoid hurting someone's feelings?",
         "[4D] Are you actively concerned about your digital privacy on social media platforms?",
@@ -333,30 +356,30 @@ window.SPEAKOUT_SPEAKING_DATA = {
       "cueCards": [
         {
           "code": "4A",
-          "label": "Cue Card 4A: Câu Chuyện Bí Ẩn / Truyền Thuyết Đô Thị",
-          "t": "Describe a fascinating story or urban legend that you heard",
+          "label": "Cue Card 4A: Ý Tưởng Làm Phim Tài Liệu",
+          "t": "Describe an idea for a documentary that you would like to make",
           "cue": [
-            "What the story was about and who told it to you",
-            "Whether you believed it when you first heard it",
-            "What elements of the tale made it so compelling or eerie",
-            "And explain why this story has remained memorable to you"
+            "What the documentary would be about",
+            "Where and when it would be filmed",
+            "Who you would like to interview",
+            "And explain why you think this would be an interesting documentary"
           ]
         },
         {
           "code": "4B",
-          "label": "Cue Card 4B: Lần Phát Hiện Ra Tin Giả / Lời Nói Dối",
-          "t": "Describe an occasion when you realized information you received was completely false",
+          "label": "Cue Card 4B: Một Trò Lừa Bịp / Vụ Hoax Từng Nghe",
+          "t": "Describe a hoax that you heard about",
           "cue": [
-            "What the information was and where you encountered it",
-            "How you uncovered the truth",
-            "How you felt upon discovering you had been misled",
-            "And explain what this taught you about verifying facts"
+            "What the hoax was about",
+            "Where and when you heard about it",
+            "Who believed it was true",
+            "And explain how you found out that it was a hoax"
           ]
         },
         {
           "code": "4D",
-          "label": "Cue Card 4D: Vấn Đề Quyền Riêng Tư Trên Mạng",
-          "t": "Describe an online security or privacy issue that affected you or someone you know",
+          "label": "Cue Card 4D: Vấn Đề Quyền Riêng Tư & An Toàn Mạng",
+          "t": "Describe an online privacy issue or security problem you encountered",
           "cue": [
             "What happened and how the breach occurred",
             "What personal information was compromised",
@@ -368,26 +391,26 @@ window.SPEAKOUT_SPEAKING_DATA = {
       "p3": [
         "Why has disinformation become one of the most destabilizing challenges of the digital age?",
         "What critical thinking strategies should ordinary citizens cultivate to detect synthetic fake news?",
-        "Do mainstream journalistic media have an ethical obligation to maintain complete objectivity?",
+        "Do mainstream documentary filmmakers have an ethical obligation to remain completely objective?",
         "Is absolute transparency and honesty always beneficial in diplomatic and personal relationships?",
         "Should governments impose stringent regulations on social media recommendation algorithms?",
         "How will artificial intelligence deepfakes undermine evidentiary standards in law and governance?"
       ],
       "vocabulary": [
         {
-          "phrase": "debunk a myth",
-          "ipa": "/dɪˈbʌŋk ə mɪθ/",
-          "meaning": "vạch trần lầm tưởng, bóc mẽ tin giả"
+          "phrase": "debunk a hoax",
+          "ipa": "/dɪˈbʌŋk ə həʊks/",
+          "meaning": "vạch trần một trò lừa bịp, tin giả"
         },
         {
-          "phrase": "digital footprint",
-          "ipa": "/ˈdɪdʒ.ɪ.təl ˈfʊt.prɪnt/",
-          "meaning": "dấu chân kỹ thuật số, dữ liệu cá nhân trên mạng"
+          "phrase": "investigative documentary",
+          "ipa": "/ɪnˈves.tɪ.ɡə.tɪv ˌdɒk.jəˈmen.tər.i/",
+          "meaning": "phim tài liệu điều tra phóng sự"
         },
         {
-          "phrase": "sensationalist headlines",
-          "ipa": "/senˈseɪ.ʃən.əl.ɪst ˈhed.laɪnz/",
-          "meaning": "tiêu đề giật gân, câu view"
+          "phrase": "sensationalist claims",
+          "ipa": "/senˈseɪ.ʃən.əl.ɪst kleɪmz/",
+          "meaning": "những tuyên bố giật gân câu view"
         },
         {
           "phrase": "breach of privacy",
@@ -404,68 +427,110 @@ window.SPEAKOUT_SPEAKING_DATA = {
         {
           "phrase": "let the cat out of the bag",
           "ipa": "/let ðə kæt aʊt əv ðə bæɡ/",
-          "meaning": "vô tình để lộ bí mật [2000 Idioms]"
+          "meaning": "vô tình để lộ bí mật, làm lộ chân tướng [2000 Idioms]"
         },
         {
           "phrase": "straight from the horse's mouth",
           "ipa": "/streɪt frəm ðə ˈhɔː.sɪz maʊθ/",
-          "meaning": "tin tức chính xác từ nguồn tin trực tiếp [2000 Idioms]"
+          "meaning": "nguồn tin chính xác trực tiếp từ người trong cuộc [2000 Idioms]"
         }
       ],
       "ideas": [
-        "Mở bài: Nêu tình huống tiếp nhận thông tin hoặc câu chuyện bí ẩn",
-        "Thân bài: Phân tích quá trình kiểm chứng, những mâu thuẫn lộ ra",
-        "Kết luận: Bài học về việc luôn giữ tinh thần phản biện (critical thinking)"
+        "Mở bài: Giới thiệu ý tưởng phim tài liệu hoặc vụ lừa bịp (hoax) đáng nhớ",
+        "Thân bài: Nêu diễn biến, những nhân chứng hoặc mâu thuẫn dẫn đến việc lật tẩy",
+        "Kết luận: Đúc kết bài học về việc luôn kiểm chứng sự thật và bảo vệ thông tin"
       ],
-      "sample65": "A while ago, a sensationalist article circulated on social media claiming a massive local event was cancelled. Initially, many classmates believed it, but I decided to take it with a grain of salt. When we contacted the organizers directly, we got the truth straight from the horse's mouth. That experience reinforced how vital it is to verify claims before sharing them.",
-      "sample80": "In an era saturated with sensationalist headlines and digital fabrications, I make it a cardinal rule to take viral rumors with a grain of salt. Recently, a convincing hoax spread across our university network until an official statement came straight from the horse's mouth to debunk the myth. Navigating the modern infosphere demands rigorous skepticism and constant vigilance."
+      "sample65": "I once heard about a viral hoax claiming that a famous historical monument was going to be demolished. Thousands of netizens believed it, but I decided to take it with a grain of salt. Soon afterwards, local authorities let the cat out of the bag by issuing an official denial straight from the horse's mouth, exposing the rumor as a complete fabrication.",
+      "sample80": "In our hyper-connected media ecosystem, viral hoaxes spread like wildfire because sensationalist claims exploit human gullibility. I vividly recall a deceptive story that misled millions until an investigative report let the cat out of the bag. This incident reinforced why society must take sensational claims with a grain of salt and demand verification straight from the horse's mouth."
     },
     {
       "id": "u5",
       "number": 5,
-      "title": "Unit 5: Consumer (Tiêu Dùng, Quảng Cáo & Quyết Định Mua Sắm)",
+      "title": "Unit 5: Consumer (Quảng Cáo, Thói Quen Mua Sắm & Khiếu Nại)",
       "p1": [
-        "[5A] Do you concur with the corporate adage that 'The customer is always right'?",
-        "[5A] When was the last time you received remarkably exceptional or dreadful customer service?",
-        "[5B] To what extent do digital marketing campaigns sway your day-to-day shopping habits?",
-        "[5B] Have you ever purchased an advertised item that proved to be 'too good to be true'?",
-        "[5C] What process do you follow when comparing competing products before an expensive purchase?",
-        "[5C] Do you place greater trust in verified online customer ratings or recommendations from close peers?",
-        "[5D] Do you derive satisfaction from fixing or crafting things yourself (DIY) around the home?",
-        "[5D] What distinct benefits does handcrafting an item offer compared to purchasing mass-produced goods?"
+        "[5-Adv] 1. Do advertisements influence what you buy? Why/ Why not?",
+        "[5-Adv] 2. Where do you usually see advertisements?",
+        "[5-Adv] 3. What kind of advertisements do you find interesting?",
+        "[5-Adv] 4. Do you prefer advertisements on TV or on social media? Why?",
+        "[5-Adv] 5. Have you ever bought something after seeing an advertisement?",
+        "[5-Adv] 6. What makes an advertisement attractive to you?",
+        "[5-Adv] 7. Do you often buy things because of advertisements? Why or why not?",
+        "[5-Adv] 8. What types of advertisements do you remember most easily?",
+        "[5-Adv] 9. Do you think advertisements influence people's shopping decisions? Why?",
+        "[5-Adv] 10. Have you ever bought something because you saw it in an advertisement?",
+        "[5-Shop] 1. Do you enjoy shopping? Why/ Why not?",
+        "[5-Shop] 2. Are you a careful shopper? Why/ Why not?",
+        "[5-Shop] 3. How often do you go shopping?",
+        "[5-Shop] 4. What kind of things do you usually buy?",
+        "[5-Shop] 5. Do you prefer shopping online or shopping in physical stores? Why?",
+        "[5-Shop] 6. Who do you usually go shopping with?",
+        "[5-Shop] 7. How would you describe yourself as a consumer?",
+        "[5-Shop] 8. Do you usually compare prices before buying something?",
+        "[5-Shop] 9. What do you look for when you buy a product?",
+        "[5-Shop] 10. Have you ever bought something that you didn't really need?",
+        "[5-Shop] 11. Do you often look for bargains?",
+        "[5-Shop] 12. What is more important to you: a low price or good quality?",
+        "[5-Shop] 13. What do you usually spend money on?",
+        "[5-Shop] 14. Is price or quality more important to you when you buy something?",
+        "[5-Shop] 15. Do you often look for a good deal when shopping?",
+        "[5-Shop] 16. Have you ever bought something because it was on offer?",
+        "[5-Shop] 17. Do you think online shopping is changing people's shopping habits? How?",
+        "[5-Shop] 18. When you are thinking about buying something, where do you get information about it?"
       ],
       "cueCards": [
         {
-          "code": "5A",
-          "label": "Cue Card 5A: Trải Nghiệm Dịch Vụ Khách Hàng",
-          "t": "Describe a problem you had with a product or customer service experience",
+          "code": "5A-1",
+          "label": "Cue Card 5A (1): Trải Nghiệm Mua Hàng Online Tệ",
+          "t": "Describe a bad experience you had with an online purchase",
           "cue": [
-            "What product or service was involved and when you purchased it",
-            "What specific defect or issue occurred",
-            "How the company's representatives reacted and addressed the problem",
-            "And explain whether you felt the dispute was handled fairly"
+            "What you ordered",
+            "Which website or app you used",
+            "What went wrong (defect, delay, wrong item)",
+            "How the problem was solved and explain what you learned from the experience"
+          ]
+        },
+        {
+          "code": "5A-2",
+          "label": "Cue Card 5A (2): Lần Khiếu Nại Về Sản Phẩm Đã Mua",
+          "t": "Describe a time when you complained about a product you bought",
+          "cue": [
+            "What the product was",
+            "Where and when you bought it",
+            "What was wrong with the product",
+            "What you did about the problem and explain how you felt about the way your complaint was handled"
           ]
         },
         {
           "code": "5B",
-          "label": "Cue Card 5B: Chiến Dịch Quảng Cáo Ấn Tượng",
-          "t": "Describe an advertisement that made a lasting impression on you",
+          "label": "Cue Card 5B: Sản Phẩm Bạn Muốn Tiếp Thị / Quảng Bá",
+          "t": "Describe a product that you would like to market",
           "cue": [
-            "Where and when you saw or heard this commercial",
-            "What product, service, or social message it was promoting",
-            "What visual or narrative elements made it memorable",
-            "And explain why this campaign was so remarkably effective"
+            "What the product is",
+            "Who the target customers are",
+            "How you would promote the product",
+            "What makes the product attractive and explain why you think your marketing plan would be successful"
+          ]
+        },
+        {
+          "code": "5C",
+          "label": "Cue Card 5C: Món Đồ Bạn Mới Mua Gần Đây",
+          "t": "Describe something you bought recently",
+          "cue": [
+            "What you bought",
+            "When and where you bought it",
+            "Why you decided to buy it",
+            "And explain how you feel about this purchase"
           ]
         },
         {
           "code": "5D",
-          "label": "Cue Card 5D: Dự Án Tự Làm / Sửa Chữa (DIY)",
-          "t": "Describe a DIY (Do-It-Yourself) project or item you crafted or repaired yourself",
+          "label": "Cue Card 5D: Sự Kiện Bạn Đã Lên Kế Hoạch Tổ Chức",
+          "t": "Describe an event you planned or helped to plan",
           "cue": [
-            "What you made or repaired and why you decided to do it yourself",
-            "What tools, materials, and techniques you utilized",
-            "What setbacks or hurdles you encountered during the process",
-            "And explain how satisfied you were with the finished outcome"
+            "What the event was",
+            "When and where it took place",
+            "Who you planned it with",
+            "What you did to prepare for the event and explain how you felt about planning this event"
           ]
         }
       ],
@@ -478,6 +543,11 @@ window.SPEAKOUT_SPEAKING_DATA = {
         "Will physical shopping centers disappear within the next few decades due to virtual reality commerce?"
       ],
       "vocabulary": [
+        {
+          "phrase": "bargain hunter",
+          "ipa": "/ˈbɑː.ɡɪn ˌhʌn.tər/",
+          "meaning": "người luôn săn lùng hàng giảm giá, khuyến mãi"
+        },
         {
           "phrase": "buyer's remorse",
           "ipa": "/ˈbaɪ.əz rɪˈmɔːs/",
@@ -492,17 +562,12 @@ window.SPEAKOUT_SPEAKING_DATA = {
           "phrase": "brand loyalty",
           "ipa": "/ˈbrænd ˌlɔɪ.əl.ti/",
           "meaning": "lòng trung thành với thương hiệu"
-        },
-        {
-          "phrase": "after-sales support",
-          "ipa": "/ˌɑːf.təˈseɪlz səˈpɔːt/",
-          "meaning": "dịch vụ chăm sóc và bảo hành sau bán hàng"
         }
       ],
       "idioms": [
         {
           "phrase": "pay through the nose",
-          "ipa": "/peɪ θruː ðə nəʊz/ ",
+          "ipa": "/peɪ θruː ðə nəʊz/",
           "meaning": "trả giá đắt cắt cổ, mua hớ [2000 Idioms]"
         },
         {
@@ -517,17 +582,17 @@ window.SPEAKOUT_SPEAKING_DATA = {
         }
       ],
       "ideas": [
-        "Mở bài: Giới thiệu sản phẩm hoặc dịch vụ gây ấn tượng",
-        "Thân bài: Nêu rõ quá trình trải nghiệm, sự chênh lệch giữa kỳ vọng và thực tế",
-        "Kết luận: Đúc kết lời khuyên về thói quen tiêu dùng thông minh và bền vững"
+        "Mở bài: Giới thiệu trải nghiệm mua hàng hoặc kế hoạch tổ chức sự kiện",
+        "Thân bài: Nêu chi tiết món đồ, vấn đề phát sinh và cách thức xử lý khiếu nại",
+        "Kết luận: Đúc kết lời khuyên về thói quen tiêu dùng thông minh và kiểm soát tài chính"
       ],
-      "sample65": "Last summer, I was seduced by an enticing online promotion and bought a wireless speaker on impulse. However, it turned out to be an absolute rip-off because the battery died within days. Having paid through the nose for shoddy craftsmanship, I felt immense buyer's remorse, which taught me to always scrutinize customer reviews before making purchases.",
-      "sample80": "Aggressive digital marketing often tricks consumers into impulse buying goods that promise the world but deliver very little. I recall paying through the nose for a gadget that was an utter rip-off. That painful episode cured my gullibility and prompted me to embrace mindful consumerism, focusing on longevity and after-sales support rather than superficial hype."
+      "sample65": "A few months ago, I ordered a winter coat online after seeing an attractive discount. When it arrived, the fabric was flimsy and looked like a total rip-off. Having paid through the nose for express shipping, I immediately contacted customer service to complain. They apologized and refunded my payment, which taught me to always inspect seller ratings before shopping till I drop.",
+      "sample80": "Deceptive online advertising often tricks unsuspecting consumers into impulse buying subpar merchandise. I once paid through the nose for an electronic device that turned out to be an outright rip-off. Lodging a formal complaint and demanding compensation tested my patience, but the ordeal taught me to thoroughly research product specifications rather than falling for glitzy promotional hype."
     },
     {
       "id": "u6",
       "number": 6,
-      "title": "Unit 6: Places (Đô Thị, Giao Thông & Những Chuyến Đi Lớn)",
+      "title": "Unit 6: Places (Đô Thị, Giao Thông & Những Trải Nghiệm Lớn)",
       "p1": [
         "[6A] What is your favorite neighborhood or quarter in your hometown or city?",
         "[6A] Do you lean towards living in a pulsating metropolitan hub or a tranquil rural setting?",
@@ -541,35 +606,72 @@ window.SPEAKOUT_SPEAKING_DATA = {
       "cueCards": [
         {
           "code": "6A",
-          "label": "Cue Card 6A: Khu Phố / Địa Điểm Đô Thị Yêu Thích",
-          "t": "Describe your favorite city neighborhood or urban district",
+          "label": "Cue Card 6A: Khu Phố Bạn Đặc Biệt Yêu Thích",
+          "t": "Describe a neighbourhood that you particularly like",
           "cue": [
-            "Where it is situated and what architectural character it possesses",
-            "What activities, cafes, and amenities can be found there",
-            "What kind of residents and visitors populate the area",
-            "And explain why you feel such a strong personal affinity for this district"
+            "Where it is",
+            "What it looks like",
+            "What you can see and do there",
+            "When you think the best time to visit is",
+            "And explain what makes this neighbourhood special to you"
           ]
         },
         {
           "code": "6B",
-          "label": "Cue Card 6B: Chuyến Hành Trình Lớn Đáng Nhớ",
-          "t": "Describe an epic or challenging journey you undertook",
+          "label": "Cue Card 6B: Một Trải Nghiệm Đầy Thử Thách",
+          "t": "Describe a challenging experience that you had",
           "cue": [
-            "Where you were traveling to and what modes of transport you used",
-            "Who accompanied you on the trip",
-            "What unexpected setbacks or memorable scenic encounters occurred",
-            "And explain why this voyage left an indelible impression on you"
+            "When and where it happened",
+            "Who was involved",
+            "What unexpected problems you faced",
+            "How you dealt with the situation",
+            "And explain how you felt about the experience and what you learned from it"
           ]
         },
         {
-          "code": "6C",
-          "label": "Cue Card 6C: Trải Nghiệm Giao Thông Công Cộng Đáng Nhớ",
-          "t": "Describe an interesting experience you had using public transport",
+          "code": "6C-1",
+          "label": "Cue Card 6C (1): Cách Tốt Nhất Để Đi Lại Trong Thành Phố",
+          "t": "Describe the best way to get around a city you know well",
           "cue": [
-            "What type of public transit you were riding and where you were going",
-            "What unexpected incident or conversation occurred during the commute",
-            "How the passengers and transit staff responded",
-            "And explain what that experience revealed about your city's culture"
+            "What form of transport it is",
+            "When and where you usually use it",
+            "Why it is convenient",
+            "What advantages and disadvantages it has",
+            "And explain why you think it is the best way to get around the city"
+          ]
+        },
+        {
+          "code": "6C-2",
+          "label": "Cue Card 6C (2): Phương Tiện Giao Thông Đô Thị Tốt Nhất",
+          "t": "Describe a means of transport that you think is the best for travelling around a city",
+          "cue": [
+            "What it is and how often you use it",
+            "What it is like to travel by this means of transport",
+            "What makes it better than other forms of transport",
+            "And explain why you would recommend it to other people"
+          ]
+        },
+        {
+          "code": "6D-1",
+          "label": "Cue Card 6D (1): Thành Phố Nổi Tiếng Vì Một Điểm Đặc Biệt",
+          "t": "Describe a city or town that is famous for something",
+          "cue": [
+            "Where the city or town is",
+            "What it is famous for",
+            "What visitors can see and do there",
+            "When you visited it or when you would like to visit it",
+            "And explain why you think this city or town is special"
+          ]
+        },
+        {
+          "code": "6D-2",
+          "label": "Cue Card 6D (2): Đô Thị Nổi Tiếng & Bản Sắc Độc Đáo",
+          "t": "Describe a city or town that you think is well-known for something special",
+          "cue": [
+            "Where it is and what it is famous for",
+            "What the place is like",
+            "What people can do there",
+            "And explain why this city or town is well-known"
           ]
         }
       ],
@@ -598,9 +700,9 @@ window.SPEAKOUT_SPEAKING_DATA = {
           "meaning": "tuyến phố đi bộ thân thiện"
         },
         {
-          "phrase": "urban sprawl",
-          "ipa": "/ˈɜː.bən sprɔːl/",
-          "meaning": "sự mở rộng đô thị thiếu quy hoạch"
+          "phrase": "rich cultural heritage",
+          "ipa": "/rɪtʃ ˈkʌl.tʃər.əl ˈher.ɪ.tɪdʒ/",
+          "meaning": "di sản văn hóa giàu bản sắc"
         }
       ],
       "idioms": [
@@ -621,17 +723,17 @@ window.SPEAKOUT_SPEAKING_DATA = {
         }
       ],
       "ideas": [
-        "Mở bài: Giới thiệu địa danh hoặc hành trình mang tính biểu tượng",
-        "Thân bài: Nêu vẻ đẹp kiến trúc, nhịp sống con người và trải nghiệm di chuyển",
-        "Kết luận: Cảm nhận về sự hòa quyện giữa di sản cổ kính và nhịp sống hiện đại"
+        "Mở bài: Giới thiệu khu phố hoặc phương tiện giao thông gắn liền với cuộc sống",
+        "Thân bài: Nêu đặc điểm nổi bật, sự tiện lợi vượt trội và trải nghiệm thực tế",
+        "Kết luận: Đúc kết lý do vì sao nơi chốn/phương tiện này lại để lại ấn tượng sâu sắc"
       ],
-      "sample65": "Last year, I took a train trip to an ancient mountain town off the beaten track. Traveling light allowed me to wander freely through cobblestone streets far away from the bustling metropolis. The journey passed in the blink of an eye, but the breathtaking natural scenery left an unforgettable impression on my mind.",
-      "sample80": "While living in a bustling metropolis has its thrills, nothing revitalizes the spirit like venturing off the beaten track. During an overland expedition last autumn, I made a point to travel light and immerse myself in secluded rural communities. Seeing how centuries-old traditions endure in the face of rampant urbanization gave me a profound appreciation for cultural resilience."
+      "sample65": "My favorite neighborhood is a charming historic quarter situated slightly off the beaten track. It features tree-lined avenues and vibrant open-air cafes. Whenever friends visit, I always recommend traveling light and taking the metro, which gets you there in the blink of an eye. What makes this area truly special is its harmonious blend of quiet heritage and modern energy.",
+      "sample80": "While navigating a bustling metropolis can often be daunting, discovering a serene neighborhood off the beaten track is an absolute delight. The urban metro remains, by far, the most effective way to traverse the city in the blink of an eye. Embracing integrated public transit not only bypasses gridlock but also connects residents with historic districts that preserve the city's authentic soul."
     },
     {
       "id": "u7",
       "number": 7,
-      "title": "Unit 7: Connect (Giao Tiếp, Hiểu Lầm & Kết Nối Con Người)",
+      "title": "Unit 7: Connect (Lời Khuyên, Bài Học Cuộc Đời & Người Thông Thái)",
       "p1": [
         "[7A] Have you ever been entangled in an amusing misunderstanding due to linguistic or cultural nuances?",
         "[7A] How do you handle clarifying your intent when a serious communication mix-up occurs?",
@@ -655,25 +757,47 @@ window.SPEAKOUT_SPEAKING_DATA = {
           ]
         },
         {
-          "code": "7C",
-          "label": "Cue Card 7C: Cuộc Trò Chuyện Bất Ngờ Với Người Lạ",
-          "t": "Describe an intriguing conversation you had with a complete stranger",
+          "code": "7D-1",
+          "label": "Cue Card 7D (1): Lời Khuyên Bạn Nhớ Mãi",
+          "t": "Describe a piece of advice that you remember well",
           "cue": [
-            "Where you encountered this stranger (on a journey, event, cafe)",
-            "How the conversation started and broke the ice",
-            "What topics, perspectives, or life stories you discussed",
-            "And explain what memorable impression that brief interaction left upon you"
+            "What the advice was",
+            "Who gave it to you",
+            "When you received this advice",
+            "And explain why you still remember it"
           ]
         },
         {
-          "code": "7D",
-          "label": "Cue Card 7D: Bài Nói / Lời Khuyên Truyền Cảm Hứng",
-          "t": "Describe an inspiring speech, lecture, or piece of advice you heard",
+          "code": "7D-2",
+          "label": "Cue Card 7D (2): Một Người Thông Thái Bạn Quen Biết",
+          "t": "Describe a wise person you know",
           "cue": [
-            "Who delivered the speech or provided the guidance",
-            "What the central thesis or advice was",
-            "Why it struck such a deep chord with your personal aspirations",
-            "And explain how that message altered your outlook or trajectory"
+            "Who this person is",
+            "How you know this person",
+            "What makes this person wise",
+            "And explain what you have learned from them"
+          ]
+        },
+        {
+          "code": "7D-3",
+          "label": "Cue Card 7D (3): Câu Châm Ngôn / Danh Ngôn Bạn Yêu Thích",
+          "t": "Describe a saying or quotation that you like",
+          "cue": [
+            "What the saying or quotation is",
+            "When you first heard or read it",
+            "What you think it means",
+            "And explain why it is meaningful to you"
+          ]
+        },
+        {
+          "code": "7D-4",
+          "label": "Cue Card 7D (4): Bài Học Cuộc Sống Quan Trọng Đã Học Được",
+          "t": "Describe an important life lesson you have learned",
+          "cue": [
+            "What the lesson was",
+            "When and how you learned it",
+            "Who or what taught you this lesson",
+            "And explain why this lesson is important to you"
           ]
         }
       ],
@@ -687,50 +811,50 @@ window.SPEAKOUT_SPEAKING_DATA = {
       ],
       "vocabulary": [
         {
+          "phrase": "pearl of wisdom",
+          "ipa": "/pɜːl əv ˈwɪz.dəm/",
+          "meaning": "lời khuyên khôn ngoan quý báu"
+        },
+        {
+          "phrase": "invaluable guidance",
+          "ipa": "/ɪnˈvæl.jə.bəl ˈɡaɪ.dəns/",
+          "meaning": "sự chỉ dẫn vô giá, sâu sắc"
+        },
+        {
           "phrase": "break the ice",
           "ipa": "/breɪk ðiː aɪs/",
           "meaning": "phá tan bầu không khí ngại ngùng ban đầu"
         },
         {
-          "phrase": "clear up a misunderstanding",
-          "ipa": "/klɪər ʌp ə ˌmɪs.ʌn.dəˈstæn.dɪŋ/",
-          "meaning": "hóa giải hiểu lầm nhanh chóng"
-        },
-        {
-          "phrase": "meaningful dialogue",
-          "ipa": "/ˈmiː.nɪŋ.fəl ˈdaɪ.ə.lɒɡ/",
-          "meaning": "cuộc trò chuyện sâu sắc, có ý nghĩa"
-        },
-        {
-          "phrase": "non-verbal cues",
-          "ipa": "/ˌnɒnˈvɜː.bəl kjuːz/",
-          "meaning": "các tín hiệu ngôn ngữ cơ thể phi ngôn ngữ"
+          "phrase": "active listening",
+          "ipa": "/ˈæk.tɪv ˈlɪs.ən.ɪŋ/",
+          "meaning": "lắng nghe tích cực, thấu cảm chân thành"
         }
       ],
       "idioms": [
         {
+          "phrase": "speak the same language",
+          "ipa": "/spiːk ðə seɪm ˈlæŋ.ɡwɪdʒ/",
+          "meaning": "đồng thanh tương ứng, thấu hiểu ý nhau [2000 Idioms]"
+        },
+        {
           "phrase": "beat around the bush",
           "ipa": "/biːt əˈraʊnd ðə bʊʃ/",
-          "meaning": "nói vòng vo tam quốc, không đi vào trọng tâm [2000 Idioms]"
+          "meaning": "nói vòng vo tam quốc [2000 Idioms]"
         },
         {
           "phrase": "get the wrong end of the stick",
           "ipa": "/ɡet ðə rɒŋ end əv ðə stɪk/",
-          "meaning": "hiểu sai bét câu chuyện, ngộ nhận hoàn toàn [2000 Idioms]"
-        },
-        {
-          "phrase": "speak the same language",
-          "ipa": "/spiːk ðə seɪm ˈlæŋ.ɡwɪdʒ/",
-          "meaning": "đồng thanh tương ứng, thấu hiểu ý nhau [2000 Idioms]"
+          "meaning": "hiểu sai bét câu chuyện [2000 Idioms]"
         }
       ],
       "ideas": [
-        "Mở bài: Giới thiệu cuộc trò chuyện hoặc bối cảnh dẫn đến sự hiểu lầm",
-        "Thân bài: Phân tích nguyên nhân (ngữ nghĩa, thành kiến, thiếu tín hiệu cơ thể)",
-        "Kết luận: Bài học về việc lắng nghe chân thành (active listening) thay vì vội vàng suy đoán"
+        "Mở bài: Giới thiệu người thông thái, lời khuyên hoặc câu danh ngôn tâm đắc",
+        "Thân bài: Nêu bối cảnh nhận được lời khuyên, ý nghĩa triết lý và thử thách vượt qua",
+        "Kết luận: Đúc kết tác động lâu dài đến kim chỉ nam cuộc sống và cách đối nhân xử thế"
       ],
-      "sample65": "When working on a cross-cultural project, one of my colleagues got the wrong end of the stick regarding our deadline. Instead of beating around the bush, we arranged a video call to clear up the misunderstanding. Once we broke the ice and aligned our goals, we realized we actually spoke the same language, and the project succeeded brilliantly.",
-      "sample80": "Digital text messaging is notorious for breeding misinterpretations because it strips away non-verbal cues. I once witnessed a team conflict erupt simply because someone got the wrong end of the stick over a casual email. Rather than beating around the bush, I initiated an open discussion where we broke the ice and discovered that beneath differing jargons, we spoke the same language."
+      "sample65": "A piece of advice that remains vivid in my mind was given by my high school mentor during exam season. Instead of beating around the bush, she told me: 'Perseverance always outperforms innate talent.' That simple pearl of wisdom prevented me from giving up whenever challenges arose, and it continues to guide my decisions whenever I tackle complex projects.",
+      "sample80": "The wisest person I have ever encountered is my former professor, whose pearls of wisdom fundamentally reshaped my intellectual trajectory. Rather than beating around the bush, he taught us that true communication is not about eloquence, but about active listening. That invaluable guidance taught me to always seek mutual understanding so that divergent minds can speak the same language."
     },
     {
       "id": "u8",

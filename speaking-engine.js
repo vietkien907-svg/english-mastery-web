@@ -141,9 +141,28 @@
       };
     }
 
-    if (window.SP_FORECAST && Array.isArray(window.SP_FORECAST.p1) && Array.isArray(window.SP_FORECAST.p2)) {
+    if (window.SP_FORECAST && Array.isArray(window.SP_FORECAST.p1) && window.SP_FORECAST.p1.length > 0) {
       return window.SP_FORECAST;
     }
+
+    if (window.SPEAKOUT_SPEAKING_DATA && Array.isArray(window.SPEAKOUT_SPEAKING_DATA.units) && window.SPEAKOUT_SPEAKING_DATA.units.length > 0) {
+      const units = window.SPEAKOUT_SPEAKING_DATA.units;
+      const p1 = units.map((u, i) => ({ t: u.title, q: u.p1 || [], unitData: u }));
+      const p2 = units.map((u, i) => {
+        const uId = u.id || ('u' + (i + 1));
+        const activeCueIndex = (state.selectedCueCardIndex && state.selectedCueCardIndex[uId]) || 0;
+        const curCue = (u.cueCards && u.cueCards[activeCueIndex]) || (u.cueCards && u.cueCards[0]) || { t: u.title, cue: [] };
+        return { t: u.title, card: curCue.t, cue: curCue.cue, ex: curCue.ex || '', q: u.p3, cueCards: u.cueCards, unitData: u };
+      });
+      return {
+        id: 'speakout_b1plus',
+        name: 'Giáo Trình Speakout B1+ (Unit 1–8)',
+        range: 'Toàn Bộ 8 Unit · Bài A, B, C, D · 2000 Idioms',
+        p1: p1,
+        p2: p2
+      };
+    }
+
     return { id: 'fallback', name: 'IELTS Speaking Forecast Q3/2026', range: 'Quý 3/2026', p1: [], p2: [] };
   }
 
@@ -1897,7 +1916,7 @@ Respond ONLY with a valid JSON object matching this schema:
     copyIdeaToScratchpad: copyIdeaToScratchpad
   };
 
-  // Auto-initialize Speaking Engine on load
+  // Auto-initialize Speaking Engine on load with safety retries
   function autoInit() {
     try {
       init();
@@ -1906,11 +1925,28 @@ Respond ONLY with a valid JSON object matching this schema:
     }
   }
 
+  function ensureInitialized() {
+    const select = document.getElementById('spTopicSelect');
+    if (select && select.options.length === 0) {
+      try {
+        init();
+      } catch (e) {
+        console.warn('ensureInitialized error:', e);
+      }
+    }
+  }
+
   if (typeof document !== 'undefined') {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', autoInit);
     } else {
       setTimeout(autoInit, 10);
+    }
+    if (typeof window !== 'undefined') {
+      window.addEventListener('load', () => {
+        setTimeout(ensureInitialized, 100);
+        setTimeout(ensureInitialized, 500);
+      });
     }
   }
 

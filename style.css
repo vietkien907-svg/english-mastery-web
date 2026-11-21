@@ -621,20 +621,75 @@ html, body {
 }
 
 /* ================= COMPREHENSIVE TAILWIND DARK OVERRIDES ================= */
-/* Override dark classes to keep entire app cleanly light, airy and serene like Night IELTS */
+/* Override all legacy dark classes to keep entire app cleanly light, airy and serene like Night IELTS & Bento Box */
+body [class*="bg-slate-8"],
+body [class*="bg-slate-9"],
+body [class*="bg-slate-7"],
+body [class*="bg-slate-950"],
+body [class*="bg-indigo-950"],
+body [class*="bg-purple-950"],
+body [class*="bg-amber-950"],
+body [class*="bg-rose-950"],
+body [class*="bg-red-950"],
 body .glass-panel,
-body .glass-card,
-body .bg-slate-900,
-body .bg-slate-900\/80,
-body .bg-slate-900\/90,
-body .bg-slate-900\/60,
-body .bg-slate-900\/70,
-body .bg-slate-950,
-body .bg-slate-950\/80 {
+body .glass-card {
   background-color: var(--sheet) !important;
   border-color: var(--rule) !important;
   color: var(--ink) !important;
   backdrop-filter: none !important;
+  background-image: none !important;
+}
+
+body [class*="border-slate-7"],
+body [class*="border-slate-8"],
+body [class*="border-slate-9"] {
+  border-color: var(--rule) !important;
+}
+
+/* Secondary & Action Buttons: Clean Slate/Paper buttons, never pitch black */
+body button[class*="bg-slate-8"],
+body button[class*="bg-slate-7"],
+body button[class*="bg-slate-9"] {
+  background-color: #f8fafc !important;
+  color: var(--ink-2) !important;
+  border: 1px solid var(--rule) !important;
+  transition: all 0.15s ease-in-out !important;
+}
+
+body button[class*="bg-slate-8"]:hover,
+body button[class*="bg-slate-7"]:hover,
+body button[class*="bg-slate-9"]:hover {
+  background-color: #f1f5f9 !important;
+  color: var(--ink) !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Primary Action Buttons */
+body button[class*="bg-indigo-600"],
+body button[class*="bg-purple-600"] {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: var(--accent) !important;
+}
+body button[class*="bg-indigo-600"]:hover,
+body button[class*="bg-purple-600"]:hover {
+  background-color: var(--accent-ink) !important;
+}
+
+#homeLeaderboardPreview > div {
+  background: var(--sheet) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+#homeLeaderboardPreview h4 {
+  color: var(--ink) !important;
+}
+#homeLeaderboardPreview .bg-slate-800 {
+  background-color: var(--accent-wash) !important;
+  color: var(--accent) !important;
+}
+#homeLeaderboardPreview .border-t {
+  border-top-color: var(--rule) !important;
 }
 
 body .text-slate-100,

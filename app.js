@@ -1909,24 +1909,24 @@ function updateDailyMissionUI() {
 
   if (titleV) titleV.innerText = `20 Từ Vựng Ngày ${curDay} - ${infoVocab.unitTitle}`;
   if (curStatus.vocabDone) {
-    if (cardV) cardV.className = "p-4 rounded-xl bg-gradient-to-br from-emerald-950/40 via-slate-900/95 to-slate-900 border-2 border-emerald-500/70 space-y-3 flex flex-col justify-between transition shadow-lg shadow-emerald-950/30 glow-card-emerald";
-    if (bannerV) bannerV.innerHTML = `<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-between border border-emerald-500/40 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[10px] bg-emerald-500/30 px-2 py-0.5 rounded text-white font-bold">20/20 Từ</span></div>`;
-    if (descV) descV.innerHTML = `<span class="text-xs text-emerald-300/90 font-medium">✓ Bạn đã học và ghi nhớ trọn vẹn 20 từ của ngày hôm nay. Tiến độ được bảo lưu vĩnh viễn!</span>`;
+    if (cardV) cardV.className = "pv-card p-5 space-y-4 flex flex-col justify-between transition-all border-emerald-300 bg-emerald-50/20";
+    if (bannerV) bannerV.innerHTML = `<div class="p-2.5 rounded-xl bg-emerald-50 text-emerald-800 font-bold text-xs flex items-center justify-between border border-emerald-200 mb-2"><span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> ĐÃ HOÀN THÀNH HÔM NAY</span><span class="text-[11px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md font-bold">20/20 Từ</span></div>`;
+    if (descV) descV.innerHTML = `<span class="text-xs text-emerald-700 font-medium">✓ Bạn đã học và ghi nhớ trọn vẹn 20 từ của ngày hôm nay. Tiến độ được bảo lưu vĩnh viễn!</span>`;
     if (badgeV) {
-      badgeV.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center gap-1 border border-emerald-500/40";
-      badgeV.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-400'></i> Đã xong (20/20)";
+      badgeV.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold flex items-center gap-1 border border-emerald-200";
+      badgeV.innerHTML = "<i data-lucide='check' class='w-3.5 h-3.5 text-emerald-600'></i> Đã xong (20/20)";
     }
-    if (btnWrapV) btnWrapV.className = "w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-emerald-300 border border-emerald-500/40 transition flex items-center justify-center gap-1.5 shadow-sm";
-    if (btnV) btnV.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-400'></i> <span>✓ Đã Xong (Bấm để ôn lại)</span>";
+    if (btnWrapV) btnWrapV.className = "ni-nav-btn w-full justify-center text-xs font-semibold py-2";
+    if (btnV) btnV.innerHTML = "<i data-lucide='check-circle-2' class='w-3.5 h-3.5 text-emerald-600'></i> <span>✓ Đã Xong (Bấm để ôn lại)</span>";
   } else {
-    if (cardV) cardV.className = "p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between transition hover:border-indigo-500/40 shadow-sm";
+    if (cardV) cardV.className = "pv-card p-5 space-y-4 flex flex-col justify-between transition-all hover:border-slate-300";
     if (bannerV) bannerV.innerHTML = "";
     if (descV) descV.innerHTML = `Lật thẻ học hết 20 từ vựng hôm nay. Hệ thống sẽ <strong>tự động tick hoàn thành</strong> khi bạn học xong thẻ thứ 20!`;
     if (badgeV) {
-      badgeV.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-amber-300 font-semibold border border-amber-500/20";
+      badgeV.className = "text-[11px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-semibold border border-slate-200";
       badgeV.innerText = `Tiến độ: ${curStatus.vocabCount}/20`;
     }
-    if (btnWrapV) btnWrapV.className = "w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-indigo-600/30";
+    if (btnWrapV) btnWrapV.className = "ni-submit-btn w-full justify-center text-xs py-2";
     if (btnV) btnV.innerHTML = `<i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i> <span>Bắt đầu học 20 từ Ngày ${curDay}</span>`;
   }
   // 3. Reading Task Card (3 Bài Đọc Mỗi Ngày)

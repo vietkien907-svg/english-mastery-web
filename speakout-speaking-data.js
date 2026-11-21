@@ -594,141 +594,270 @@ window.SPEAKOUT_SPEAKING_DATA = {
       "number": 6,
       "title": "Unit 6: Places (Đô Thị, Giao Thông & Những Trải Nghiệm Lớn)",
       "p1": [
-        "[6A] What is your favorite neighborhood or quarter in your hometown or city?",
-        "[6A] Do you lean towards living in a pulsating metropolitan hub or a tranquil rural setting?",
-        "[6B] What is the most memorable long-distance journey you have ever embarked on?",
-        "[6B] Do you prefer cross-country rail expeditions, scenic road trips, or high-speed flights?",
-        "[6C] How do you typically commute to your workplace or university on weekdays?",
-        "[6C] How punctual and comprehensive is public transport infrastructure in your region?",
-        "[6D] What architectural and technological innovations will define the 'cities of tomorrow'?",
-        "[6D] How can expanding urban centers incorporate more verdant parks and biodiversity corridors?"
+        "[6A] What is your favourite neighbourhood or quarter in your hometown or city?",
+        "[6A] Do you prefer living in a bustling city centre or a peaceful residential suburb?",
+        "[6B] Have you ever had a challenging or exhausting travel experience?",
+        "[6B] Do you prefer travelling alone or going on journeys with companions?",
+        "[6C] What means of transport do you rely on most frequently every day?",
+        "[6C] How dependable and convenient is the public transport network in your city?",
+        "[6D] What makes a city attractive to young professionals and international visitors?",
+        "[6D] Would you prefer living in a high-rise apartment or a traditional house?"
       ],
       "cueCards": [
         {
-          "code": "6A",
-          "label": "Cue Card 6A: Khu Phố Bạn Đặc Biệt Yêu Thích",
-          "t": "Describe a neighbourhood that you particularly like",
+          "code": "6A-1",
+          "label": "6A: Favourite Neighbourhood",
+          "t": "Describe a favourite neighbourhood in your city/town",
           "cue": [
-            "Where it is",
-            "What it looks like",
+            "Where it is and how you can get there",
+            "What it is known for",
             "What you can see and do there",
-            "When you think the best time to visit is",
-            "And explain what makes this neighbourhood special to you"
+            "What the atmosphere is like",
+            "And explain why you like this neighbourhood"
           ]
         },
         {
-          "code": "6B",
-          "label": "Cue Card 6B: Một Trải Nghiệm Đầy Thử Thách",
-          "t": "Describe a challenging experience that you had",
+          "code": "6A-2",
+          "label": "6A: City to Live in Future",
+          "t": "Describe a city or town you would like to live in the future",
           "cue": [
+            "Where it is",
+            "What it is like",
+            "What you can do there",
+            "And explain why you would like to live there"
+          ]
+        },
+        {
+          "code": "6A-3",
+          "label": "6A: Interesting Place in City",
+          "t": "Describe an interesting place in your city",
+          "cue": [
+            "What the place is",
+            "Where it is located",
+            "What people can do there",
+            "Why people like visiting this place",
+            "And explain why you think this place is special"
+          ]
+        },
+        {
+          "code": "6A-4",
+          "label": "6A: Place to Relax in City",
+          "t": "Describe a place where people go to relax in your city",
+          "cue": [
+            "What the place is",
+            "Where it is",
+            "What people usually do there",
+            "Who usually visits this place",
+            "And explain why this place is good for relaxation"
+          ]
+        },
+        {
+          "code": "6A-5",
+          "label": "6A: Historical Place to Visit",
+          "t": "Describe a historical place that people can visit in your city",
+          "cue": [
+            "What the place is",
+            "Where it is located",
+            "What people can learn about there",
+            "What makes it interesting",
+            "And explain why this place is important"
+          ]
+        },
+        {
+          "code": "6B-1",
+          "label": "6B: Challenging Journey/Experience",
+          "t": "Describe a challenging journey or experience you have had",
+          "cue": [
+            "What the journey or experience was",
             "When and where it happened",
             "Who was involved",
-            "What unexpected problems you faced",
-            "How you dealt with the situation",
-            "And explain how you felt about the experience and what you learned from it"
+            "What difficulties or unexpected things happened",
+            "And explain how this experience changed you or what you learned from it"
+          ]
+        },
+        {
+          "code": "6B-2",
+          "label": "6B: Journey Challenging for You",
+          "t": "Describe a journey that was challenging for you",
+          "cue": [
+            "Where you went and when it happened",
+            "Who you travelled with",
+            "What unexpected problems happened during the journey",
+            "How you felt during the journey",
+            "And explain how you solved the problems and what you learned from the experience"
+          ]
+        },
+        {
+          "code": "6B-3",
+          "label": "6B: Moved to New City & Faced Challenges",
+          "t": "Describe a time when you moved to a new town or city and faced challenges",
+          "cue": [
+            "Where you moved from and where you moved to",
+            "When you moved and why",
+            "What difficulties you had in the new place",
+            "How you adapted to your new life",
+            "And explain what helped you feel at home in the new city"
+          ]
+        },
+        {
+          "code": "6B-4",
+          "label": "6B: Challenging Project",
+          "t": "Describe a new project that was challenging for you",
+          "cue": [
+            "What the project was",
+            "When and where you did it",
+            "Who worked with you",
+            "What problems you experienced during the project",
+            "And explain how you managed to complete the project"
+          ]
+        },
+        {
+          "code": "6B-5",
+          "label": "6B: Starting University Challenge",
+          "t": "Describe a challenging experience when you started university",
+          "cue": [
+            "When you started university",
+            "What your first impression was",
+            "What difficulties you experienced",
+            "Who or what helped you overcome these difficulties",
+            "And explain how university life changed you"
           ]
         },
         {
           "code": "6C-1",
-          "label": "Cue Card 6C (1): Cách Tốt Nhất Để Đi Lại Trong Thành Phố",
-          "t": "Describe the best way to get around a city you know well",
+          "label": "6C: Transport Often Used",
+          "t": "Describe a type of transport that you often use in your city",
           "cue": [
-            "What form of transport it is",
+            "What type of transport it is",
             "When and where you usually use it",
-            "Why it is convenient",
-            "What advantages and disadvantages it has",
-            "And explain why you think it is the best way to get around the city"
+            "Who you usually travel with",
+            "What you like and dislike about it",
+            "And explain why this type of transport is important in your daily life"
           ]
         },
         {
           "code": "6C-2",
-          "label": "Cue Card 6C (2): Phương Tiện Giao Thông Đô Thị Tốt Nhất",
-          "t": "Describe a means of transport that you think is the best for travelling around a city",
+          "label": "6C: Time Used Public Transport",
+          "t": "Describe a time when you used public transport",
           "cue": [
-            "What it is and how often you use it",
-            "What it is like to travel by this means of transport",
-            "What makes it better than other forms of transport",
-            "And explain why you would recommend it to other people"
+            "What type of public transport you used",
+            "Where you travelled",
+            "Who you travelled with",
+            "What your experience was like",
+            "And explain whether you would recommend this type of transport to others"
           ]
         },
         {
-          "code": "6D-1",
-          "label": "Cue Card 6D (1): Thành Phố Nổi Tiếng Vì Một Điểm Đặc Biệt",
-          "t": "Describe a city or town that is famous for something",
+          "code": "6C-3",
+          "label": "6C: Means of Public Transport",
+          "t": "Describe a means of public transport in your city that you use or know about",
           "cue": [
-            "Where the city or town is",
-            "What it is famous for",
-            "What visitors can see and do there",
-            "When you visited it or when you would like to visit it",
-            "And explain why you think this city or town is special"
+            "What type of transport it is (e.g., bus, train, metro)",
+            "How often you use it",
+            "What it is used for",
+            "And explain why you like or dislike it"
           ]
         },
         {
-          "code": "6D-2",
-          "label": "Cue Card 6D (2): Đô Thị Nổi Tiếng & Bản Sắc Độc Đáo",
-          "t": "Describe a city or town that you think is well-known for something special",
+          "code": "6C-4",
+          "label": "6C: Transportation for Commuters",
+          "t": "Describe a common transportation system for commuters in your city",
           "cue": [
-            "Where it is and what it is famous for",
-            "What the place is like",
-            "What people can do there",
-            "And explain why this city or town is well-known"
+            "What kind of transport it is",
+            "What types of people use this transport",
+            "How convenient it is",
+            "And explain whether you like it or not"
           ]
         }
       ],
       "p3": [
-        "What sustainable infrastructure solutions can global megacities deploy to eradicate chronic gridlock?",
-        "What are the economic and health merits of converting downtown thoroughfares into pedestrian-only zones?",
-        "Does relentless urban gentrification inevitably destroy local cultural traditions and community heritage?",
-        "How can public transit networks be modernized to provide dignity and access for elderly and disabled citizens?",
-        "What transformative role will autonomous transit and electric micro-mobility play in tomorrow's smart cities?",
-        "How should historic tourist cities balance preserving ancient charm with accommodating swelling visitor numbers?"
+        "[6A. Places] Cities should protect historic buildings. Do you agree or disagree? Why (not)?",
+        "[6A. Places] Living in wealthy areas does not always give people a better quality of life. Do you agree or disagree? Why (not)?",
+        "[6A. Places] Living in a high-rise building is better than living in a house. Do you agree or disagree? Why (not)?",
+        "[6A. Places] Cities should have more tree-lined avenues, even if there is less space for cars. Do you agree or disagree? Why (not)?",
+        "[6A. Places] Shopping at a busy street market is more enjoyable than shopping in a mall. Do you agree or disagree? Why (not)?",
+        "[6A. Places] Lively nightlife makes a city a better place to live. Do you agree or disagree? Why (not)?",
+        "[6B. Challenges] A challenging journey is more memorable than an easy one. Do you agree or disagree? Why (not)?",
+        "[6B. Challenges] Taking risks while travelling can help people become more confident. Do you agree or disagree? Why (not)?",
+        "[6B. Challenges] Travelling alone is the best way to learn how to deal with tough situations. Do you agree or disagree? Why (not)?",
+        "[6B. Challenges] People should try challenging activities when they visit a new place. Do you agree or disagree? Why (not)?",
+        "[6B. Challenges] Good preparation is more important than physical strength on a tough journey. Do you agree or disagree? Why (not)?",
+        "[6C. Transport] Public transport is the best way to travel around a busy city. Do you agree or disagree? Why (not)?",
+        "[6C. Transport] City centres should have fewer cars and more space for cyclists and pedestrians. Do you agree or disagree? Why (not)?",
+        "[6C. Transport] Public transport should be free to encourage people to drive less. Do you agree or disagree? Why (not)?",
+        "[6C. Transport] Cheap fares are more important than comfortable seats on public transport. Do you agree or disagree? Why (not)?"
       ],
       "vocabulary": [
         {
-          "phrase": "bustling metropolis",
-          "ipa": "/ˈbʌs.lɪŋ məˈtrɒp.əl.ɪs/",
-          "meaning": "đại đô thị sầm uất, nhộn nhịp"
+          "phrase": "hustle and bustle",
+          "ipa": "/ˈhʌs.əl ænd ˈbʌs.əl/",
+          "meaning": "nhịp sống hối hả, nhộn nhịp nơi phố thị"
         },
         {
-          "phrase": "integrated public transport",
-          "ipa": "/ˈɪn.tɪ.ɡreɪ.tɪd ˈpʌb.lɪk ˈtræn.spɔːt/",
-          "meaning": "mạng lưới giao thông công cộng đồng bộ"
+          "phrase": "a stone's throw away",
+          "ipa": "/ə stəʊnz θrəʊ əˈweɪ/",
+          "meaning": "rất gần, cách một quãng ngắn"
         },
         {
-          "phrase": "pedestrian-friendly zone",
-          "ipa": "/pəˈdes.tri.ən ˈfrend.li zəʊn/",
-          "meaning": "tuyến phố đi bộ thân thiện"
+          "phrase": "tree-lined avenue",
+          "ipa": "/triː laɪnd ˈæv.ə.njuː/",
+          "meaning": "đại lộ rợp bóng cây xanh"
         },
         {
-          "phrase": "rich cultural heritage",
-          "ipa": "/rɪtʃ ˈkʌl.tʃər.əl ˈher.ɪ.tɪdʒ/",
-          "meaning": "di sản văn hóa giàu bản sắc"
+          "phrase": "pedestrianised zone",
+          "ipa": "/pəˈdes.tri.ə.naɪzd zəʊn/",
+          "meaning": "khu phố đi bộ không xe cộ"
+        },
+        {
+          "phrase": "steep learning curve",
+          "ipa": "/stiːp ˈlɜː.nɪŋ kɜːv/",
+          "meaning": "quãng thời gian đầu đầy khó khăn, học hỏi nhanh"
+        },
+        {
+          "phrase": "find one's feet",
+          "ipa": "/faɪnd wʌnz fiːt/",
+          "meaning": "dần làm quen và tự tin trong môi trường mới"
         }
       ],
       "idioms": [
         {
           "phrase": "off the beaten track",
           "ipa": "/ɒf ðə ˈbiː.tən træk/",
-          "meaning": "chốn hoang sơ ít người biết, xa lối mòn du lịch [2000 Idioms]"
+          "meaning": "chốn thanh bình, hoang sơ ít người biết [2000 Idioms]"
         },
         {
-          "phrase": "in the blink of an eye",
-          "ipa": "/ɪn ðə blɪŋk əv ən aɪ/",
-          "meaning": "trong chớp mắt, diễn ra chớp nhoáng [2000 Idioms]"
+          "phrase": "packed like sardines",
+          "ipa": "/pækt laɪk sɑːˈdiːnz/",
+          "meaning": "chen chúc chật ních như cá mòi trên xe buýt/tàu [2000 Idioms]"
         },
         {
-          "phrase": "travel light",
-          "ipa": "/ˈtræv.əl laɪt/",
-          "meaning": "du lịch mang hành lý gọn nhẹ [2000 Idioms]"
+          "phrase": "in the middle of nowhere",
+          "ipa": "/ɪn ðə ˈmɪd.əl əv ˈnəʊ.weər/",
+          "meaning": "ở một nơi xa xôi, hẻo lánh [2000 Idioms]"
+        },
+        {
+          "phrase": "smooth sailing",
+          "ipa": "/smuːð ˈseɪ.lɪŋ/",
+          "meaning": "thuận buồm xuôi gió, trôi chảy êm đẹp [2000 Idioms]"
+        },
+        {
+          "phrase": "at the crack of dawn",
+          "ipa": "/æt ðə kræk əv dɔːn/",
+          "meaning": "tờ mờ sáng, sáng sớm tinh mơ [2000 Idioms]"
+        },
+        {
+          "phrase": "hit the road",
+          "ipa": "/hɪt ðə rəʊd/",
+          "meaning": "khởi hành, lên đường đi du hành [2000 Idioms]"
         }
       ],
       "ideas": [
-        "Mở bài: Giới thiệu khu phố hoặc phương tiện giao thông gắn liền với cuộc sống",
-        "Thân bài: Nêu đặc điểm nổi bật, sự tiện lợi vượt trội và trải nghiệm thực tế",
-        "Kết luận: Đúc kết lý do vì sao nơi chốn/phương tiện này lại để lại ấn tượng sâu sắc"
+        "Mở bài: Xác định địa điểm/trải nghiệm/phương tiện và lý do bạn muốn chia sẻ",
+        "Thân bài: Nêu hoàn cảnh, khó khăn hoặc điểm đặc biệt vượt trội, so sánh trước và sau",
+        "Kết luận: Đúc kết bài học giá trị hoặc ý nghĩa lâu dài đối với cuộc sống hiện tại"
       ],
-      "sample65": "My favorite neighborhood is a charming historic quarter situated slightly off the beaten track. It features tree-lined avenues and vibrant open-air cafes. Whenever friends visit, I always recommend traveling light and taking the metro, which gets you there in the blink of an eye. What makes this area truly special is its harmonious blend of quiet heritage and modern energy.",
-      "sample80": "While navigating a bustling metropolis can often be daunting, discovering a serene neighborhood off the beaten track is an absolute delight. The urban metro remains, by far, the most effective way to traverse the city in the blink of an eye. Embracing integrated public transit not only bypasses gridlock but also connects residents with historic districts that preserve the city's authentic soul."
+      "sample65": "My favourite neighbourhood is a historic district located just a stone's throw away from the city centre. Although the main streets have plenty of hustle and bustle, taking a short turn brings you into quiet tree-lined avenues. When I first moved to the city for university, facing the rush-hour commute while packed like sardines on local buses was quite a challenge. However, discovering these charming pedestrian areas helped me find my feet quickly and feel at home.",
+      "sample80": "While modern metropolises are often synonymous with unrelenting hustle and bustle, escaping to a secluded neighbourhood slightly off the beaten track offers immense tranquility. Public transit, though occasionally packed like sardines during peak hours, remains the lifeline of commuter mobility. Looking back at my university years, adapting to urban life presented a steep learning curve; yet, learning to navigate challenging journeys taught me resourcefulness and independence that continue to shape my perspective today."
     },
     {
       "id": "u7",

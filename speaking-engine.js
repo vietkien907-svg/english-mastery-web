@@ -776,6 +776,31 @@ Please provide the rigorous evaluation and JSON response.`;
     if (state.currentPart === '2') {
       const cur = getCurrentItem();
       const doneMap = getDoneQuestions();
+      const cueCardsList = (cur && cur.topic && cur.topic.cueCards) || [];
+      const uId = (cur && cur.topic && cur.topic.unitData && cur.topic.unitData.id) || ('u' + (state.currentTopicIndex + 1));
+      const activeCueIdx = (state.selectedCueCardIndex && state.selectedCueCardIndex[uId]) || 0;
+
+      if (cueCardsList.length > 1) {
+        let pillsHtml = '<div class="flex items-center gap-1.5 flex-wrap">';
+        cueCardsList.forEach((c, cIdx) => {
+          const isCurrent = cIdx === activeCueIdx;
+          const doneInfo = doneMap[(c.t || '').trim()];
+          const isDone = !!doneInfo;
+          const band = doneInfo && typeof doneInfo === 'object' && doneInfo.band ? doneInfo.band : '';
+          let cls = 'q-nav-btn is-cue px-2 py-1 text-xs font-bold';
+          if (isCurrent) cls += ' current';
+          else if (isDone) cls += ' done';
+          pillsHtml += `
+            <button type="button" onclick="SpeakingEngine.selectCueCard('${uId}', ${cIdx})" class="${cls}" title="${c.t}${band ? ` · Band ${band}` : ''}">
+              ${c.code || (cIdx + 1)}
+            </button>
+          `;
+        });
+        pillsHtml += '</div>';
+        container.innerHTML = pillsHtml;
+        return;
+      }
+
       const doneInfo = cur ? doneMap[cur.questionText.trim()] : null;
       const isDone = !!doneInfo;
       const band = doneInfo && typeof doneInfo === 'object' && doneInfo.band ? doneInfo.band : '';

@@ -109,28 +109,84 @@
     } catch (e) {}
   }
 
+
+  function getEmbeddedFallbackForecast() {
+    return {
+      id: 'speakout_b1plus',
+      name: 'Giáo Trình Speakout B1+ (Unit 1–8)',
+      range: 'Toàn Bộ 8 Unit · Bài A, B, C, D · 2000 Idioms',
+      p1: [
+        { t: 'Unit 1: Me & Mine (Bản Thân, Sở Hữu & Đồ Vật)', q: ['Can you tell me about yourself?', 'What are some possessions that are important to you?', 'Do you prefer keeping things or giving them away?', 'How do you organize your personal belongings?'] },
+        { t: 'Unit 2: Behaviour (Thói Quen, Hành Vi & Giao Tiếp Ứng Xử)', q: ['Describe a time when you had to say no to someone.', 'Describe a situation when something really annoyed you.', 'How do people in your country usually express politeness?', 'What kind of behavior annoys you the most in public places?'] },
+        { t: 'Unit 3: Working Life (Làm Việc Từ Xa, Gig Economy & Sự Nghiệp)', q: ['Describe a type of gig work that you think is interesting or useful.', 'Describe a way you organize your time when working or studying from home.', 'Describe a daily routine that helps you work or study effectively at home.', 'Describe a piece of technology that helps you work or study from home.'] },
+        { t: 'Unit 4: Truth & Lies (Sự Thật, Tin Đồn & Sự Tin Cậy)', q: ['Describe a hoax that you heard about.', 'Describe an idea for a documentary that you would like to make.', 'Do you think it is ever acceptable to tell a white lie?', 'How can people identify fake news on social media?'] },
+        { t: 'Unit 5: Consumer (Quảng Cáo, Thói Quen Mua Sắm & Khiếu Nại)', q: ['Do advertisements influence what you buy? Why/ Why not?', 'Where do you usually see advertisements?', 'Do you prefer advertisements on TV or on social media? Why?', 'Do you enjoy shopping? Why/ Why not?', 'Are you a careful shopper? Why/ Why not?', 'Do you prefer shopping online or shopping in physical stores? Why?'] },
+        { t: 'Unit 6: Places (Đô Thị, Giao Thông & Những Trải Nghiệm Lớn)', q: ['Cities should protect historic buildings. Do you agree or disagree? Why (not)?', 'Living in wealthy areas does not always give people a better quality of life. Do you agree or disagree?', 'Living in a high-rise building is better than living in a house. Do you agree or disagree?', 'A challenging journey is more memorable than an easy one. Do you agree or disagree?'] },
+        { t: 'Unit 7: Connect (Giao Tiếp, Hiểu Lầm & Mạng Xã Hội)', q: ['How do you usually stay in touch with your friends?', 'Have you ever had a misunderstanding with someone online?', 'Do you prefer voice calls, video calls, or text messaging?', 'How has social media changed the way people form relationships?'] },
+        { t: 'Unit 8: Wisdom (Lời Khuyên, Người Thông Thái & Bài Học Cuộc Đời)', q: ['Who is the wisest person you know in your family or circle?', 'What is the best piece of advice you have ever received?', 'Do you think older people are always wiser than younger people?', 'How do people learn life lessons from difficult situations?'] }
+      ],
+      p2: [
+        { t: 'Unit 1: Me & Mine (Bản Thân & Đồ Vật)', card: 'Describe an important possession that you own and cherish', cue: ['What the item is', 'When and how you got it', 'What you use it for', 'And explain why it is so valuable or meaningful to you.'], ex: 'Why it is so meaningful to you' },
+        { t: 'Unit 2: Behaviour (Thói Quen & Hành Vi)', card: 'Describe a time when you had to say no to someone', cue: ['Who you said no to', 'What the person asked you to do', 'Why you decided to refuse the request', 'How you said no to that person', 'And explain how you felt after saying no and what you learned from the experience.'], ex: 'How you felt after saying no and what you learned' },
+        { t: 'Unit 3: Working Life (Làm Việc & Gig Economy)', card: 'Describe a type of gig work that you think is interesting or useful', cue: ['What kind of gig work it is', 'What people usually do in this job', 'What skills or qualities are needed', 'And explain why you think this type of gig work is interesting or useful.'], ex: 'Why you think this type of gig work is interesting or useful' },
+        { t: 'Unit 4: Truth & Lies (Sự Thật & Tin Đồn)', card: 'Describe a hoax that you heard about', cue: ['What the hoax was about', 'Where and when you heard about it', 'Who believed it was true', 'And explain how you found out that it was a hoax.'], ex: 'How you found out that it was a hoax' },
+        { t: 'Unit 5: Consumer (Quảng Cáo & Mua Sắm)', card: 'Describe a bad experience you had with an online purchase', cue: ['What you ordered', 'Which website or app you used', 'What went wrong', 'How the problem was solved', 'And explain what you learned from the experience.'], ex: 'What you learned from the experience' },
+        { t: 'Unit 6: Places (Đô Thị & Trải Nghiệm Lớn)', card: 'Describe a challenging journey or experience you have had', cue: ['What the journey or experience was', 'When and where it happened', 'Who was involved', 'What difficulties or unexpected things happened', 'And explain how this experience changed you or what you learned from it.'], ex: 'How this experience changed you or what you learned from it' },
+        { t: 'Unit 7: Connect (Giao Tiếp & Mạng Xã Hội)', card: 'Describe a memorable conversation you had with a friend or stranger', cue: ['Who you spoke with', 'Where and when it took place', 'What you discussed', 'And explain why this conversation was so memorable or insightful.'], ex: 'Why this conversation was memorable or insightful' },
+        { t: 'Unit 8: Wisdom (Bài Học Cuộc Đời)', card: 'Describe a wise person who gave you influential advice', cue: ['Who this person was', 'What relationship you have with them', 'What advice they gave you', 'And explain how this advice influenced your life decisions.'], ex: 'How this advice influenced your life decisions' }
+      ]
+    };
+  }
+
   // Helper: Get Forecast Data safely
   function getForecast() {
-    if (state.currentSource === 'speakout' && window.SPEAKOUT_SPEAKING_DATA) {
-      const units = window.SPEAKOUT_SPEAKING_DATA.units || [];
-      const p1 = units.map((u, i) => ({
-        t: u.title,
-        q: u.p1,
-        unitData: u
-      }));
+    if (state.currentSource === 'speakout') {
+      const speakoutData = window.SPEAKOUT_SPEAKING_DATA;
+      if (speakoutData && Array.isArray(speakoutData.units) && speakoutData.units.length > 0) {
+        const units = speakoutData.units;
+        const p1 = units.map((u, i) => ({
+          t: u.title,
+          q: Array.isArray(u.p1) ? u.p1 : [],
+          unitData: u
+        }));
+        const p2 = units.map((u, i) => {
+          const uId = u.id || ('u' + (i + 1));
+          const activeCueIndex = (state.selectedCueCardIndex && state.selectedCueCardIndex[uId]) || 0;
+          const curCue = (u.cueCards && u.cueCards[activeCueIndex]) || (u.cueCards && u.cueCards[0]) || { t: u.title, cue: [] };
+          return {
+            t: u.title,
+            card: curCue.t || u.title,
+            cue: curCue.cue || [],
+            ex: curCue.ex || '',
+            q: Array.isArray(u.p3) ? u.p3 : [],
+            cueCards: u.cueCards || [],
+            unitData: u
+          };
+        });
+        return {
+          id: 'speakout_b1plus',
+          name: 'Giáo Trình Speakout B1+ (Unit 1–8)',
+          range: 'Toàn Bộ 8 Unit · Bài A, B, C, D · 2000 Idioms',
+          p1: p1,
+          p2: p2
+        };
+      }
+    }
+
+    if (state.currentSource === 'forecast' || !window.SPEAKOUT_SPEAKING_DATA) {
+      if (window.SP_FORECAST && Array.isArray(window.SP_FORECAST.p1) && window.SP_FORECAST.p1.length > 0) {
+        return window.SP_FORECAST;
+      }
+    }
+
+    if (window.SPEAKOUT_SPEAKING_DATA && Array.isArray(window.SPEAKOUT_SPEAKING_DATA.units) && window.SPEAKOUT_SPEAKING_DATA.units.length > 0) {
+      const units = window.SPEAKOUT_SPEAKING_DATA.units;
+      const p1 = units.map((u, i) => ({ t: u.title, q: Array.isArray(u.p1) ? u.p1 : [], unitData: u }));
       const p2 = units.map((u, i) => {
         const uId = u.id || ('u' + (i + 1));
         const activeCueIndex = (state.selectedCueCardIndex && state.selectedCueCardIndex[uId]) || 0;
         const curCue = (u.cueCards && u.cueCards[activeCueIndex]) || (u.cueCards && u.cueCards[0]) || { t: u.title, cue: [] };
-        return {
-          t: u.title,
-          card: curCue.t,
-          cue: curCue.cue,
-          ex: curCue.ex || '',
-          q: u.p3,
-          cueCards: u.cueCards,
-          unitData: u
-        };
+        return { t: u.title, card: curCue.t || u.title, cue: curCue.cue || [], ex: curCue.ex || '', q: Array.isArray(u.p3) ? u.p3 : [], cueCards: u.cueCards || [], unitData: u };
       });
       return {
         id: 'speakout_b1plus',
@@ -145,25 +201,7 @@
       return window.SP_FORECAST;
     }
 
-    if (window.SPEAKOUT_SPEAKING_DATA && Array.isArray(window.SPEAKOUT_SPEAKING_DATA.units) && window.SPEAKOUT_SPEAKING_DATA.units.length > 0) {
-      const units = window.SPEAKOUT_SPEAKING_DATA.units;
-      const p1 = units.map((u, i) => ({ t: u.title, q: u.p1 || [], unitData: u }));
-      const p2 = units.map((u, i) => {
-        const uId = u.id || ('u' + (i + 1));
-        const activeCueIndex = (state.selectedCueCardIndex && state.selectedCueCardIndex[uId]) || 0;
-        const curCue = (u.cueCards && u.cueCards[activeCueIndex]) || (u.cueCards && u.cueCards[0]) || { t: u.title, cue: [] };
-        return { t: u.title, card: curCue.t, cue: curCue.cue, ex: curCue.ex || '', q: u.p3, cueCards: u.cueCards, unitData: u };
-      });
-      return {
-        id: 'speakout_b1plus',
-        name: 'Giáo Trình Speakout B1+ (Unit 1–8)',
-        range: 'Toàn Bộ 8 Unit · Bài A, B, C, D · 2000 Idioms',
-        p1: p1,
-        p2: p2
-      };
-    }
-
-    return { id: 'fallback', name: 'IELTS Speaking Forecast Q3/2026', range: 'Quý 3/2026', p1: [], p2: [] };
+    return getEmbeddedFallbackForecast();
   }
 
   // Get current active topic and question
@@ -455,10 +493,11 @@
   async function runAiEvaluation() {
     if (state.isScoring) return;
     const cur = getCurrentItem();
-    const transcript = (state.liveTranscript || '').trim();
+    const transcriptInput = document.getElementById('spLiveTranscriptText');
+    const transcript = (transcriptInput ? transcriptInput.value : state.liveTranscript || '').trim();
 
     if (!transcript && !state.audioBlob) {
-      alert('Vui lòng ghi âm câu trả lời của bạn trước khi chấm điểm AI!');
+      alert('Vui lòng ghi âm câu trả lời hoặc gõ / dán văn bản câu trả lời vào ô trước khi chấm điểm AI!');
       return;
     }
 
@@ -469,7 +508,7 @@
       const groqKey = getGroqKey();
       let evaluation = null;
 
-      if (groqKey && state.audioBlob) {
+      if (groqKey) {
         try {
           evaluation = await evaluateViaGroq(groqKey, cur, state.audioBlob, transcript);
         } catch (apiErr) {
@@ -479,9 +518,7 @@
         }
       } else {
         evaluation = evaluateLocally(cur, transcript, state.speakingDurationSec);
-        if (!groqKey) {
-          evaluation.source = 'Local Smart Engine (Chưa cấu hình Groq Key)';
-        }
+        evaluation.source = 'Local Smart Engine (Chưa cấu hình Groq Key)';
       }
 
       state.currentEvaluation = evaluation;
@@ -505,25 +542,34 @@
   // Groq Cloud Evaluation Flow
   async function evaluateViaGroq(apiKey, item, audioBlob, fallbackTranscript) {
     let transcriptText = fallbackTranscript;
-    try {
-      const ext = (audioBlob.type || '').includes('mp4') ? 'm4a' : 'webm';
-      const fd = new FormData();
-      fd.append('file', audioBlob, `speech.${ext}`);
-      fd.append('model', 'whisper-large-v3');
-      fd.append('language', 'en');
-      fd.append('temperature', '0');
+    if (audioBlob) {
+      try {
+        const ext = (audioBlob.type || '').includes('mp4') ? 'm4a' : 'webm';
+        const fd = new FormData();
+        fd.append('file', audioBlob, `speech.${ext}`);
+        fd.append('model', 'whisper-large-v3');
+        fd.append('language', 'en');
+        fd.append('temperature', '0');
 
-      const trResp = await fetch('https://api.groq.com/openai/v1/audio/transcriptions', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${apiKey}` },
-        body: fd
-      });
-      if (trResp.ok) {
-        const trData = await trResp.json();
-        if (trData.text) transcriptText = trData.text.trim();
+        const trResp = await fetch('https://api.groq.com/openai/v1/audio/transcriptions', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${apiKey}` },
+          body: fd
+        });
+        if (trResp.ok) {
+          const trData = await trResp.json();
+          if (trData.text) {
+            transcriptText = trData.text.trim();
+            const trBox = document.getElementById('spLiveTranscriptText');
+            if (trBox) {
+              trBox.value = transcriptText;
+              handleTranscriptInput(transcriptText);
+            }
+          }
+        }
+      } catch (e) {
+        console.warn('Whisper transcription failed, using fallback transcript:', e);
       }
-    } catch (e) {
-      console.warn('Whisper transcription failed, using live recognition text:', e);
     }
 
     if (!transcriptText) transcriptText = 'Candidate spoke for ' + (state.speakingDurationSec || 15) + ' seconds.';
@@ -943,15 +989,15 @@ Please provide the rigorous evaluation and JSON response.`;
     if (!btn) return;
 
     if (isRecording) {
-      btn.innerHTML = `<i data-lucide="square" class="w-7 h-7 text-white fill-white"></i>`;
-      btn.className = 'rec-btn recording w-20 h-20 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg shadow-rose-600/40 transition transform hover:scale-105';
-      if (statusText) statusText.innerHTML = '<span class="text-rose-400 font-bold flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span> Đang ghi âm... Nhấn nút vuông để hoàn thành</span>';
+      btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white fill-white" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/></svg>`;
+      btn.className = 'rec-btn recording w-20 h-20 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg shadow-rose-600/40 transition transform hover:scale-105 cursor-pointer';
+      if (statusText) statusText.innerHTML = '<span class="text-rose-600 font-bold flex items-center justify-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span> Đang ghi âm... Nhấn nút vuông để dừng</span>';
       if (timerEl) timerEl.classList.remove('text-slate-400');
       if (liveBox) liveBox.classList.remove('hidden');
     } else {
-      btn.innerHTML = `<i data-lucide="mic" class="w-8 h-8 text-white"></i>`;
-      btn.className = 'rec-btn w-20 h-20 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center shadow-lg shadow-indigo-600/40 transition transform hover:scale-105';
-      if (statusText) statusText.innerHTML = '<span class="text-slate-400">Nhấn micro để bắt đầu nói</span>';
+      btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>`;
+      btn.className = 'rec-btn w-20 h-20 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center shadow-lg shadow-indigo-600/40 transition transform hover:scale-105 cursor-pointer';
+      if (statusText) statusText.innerHTML = '<span class="text-slate-600 font-medium">Bấm micro để bắt đầu ghi âm câu trả lời</span>';
     }
     if (window.lucide) window.lucide.createIcons();
   }
@@ -1079,7 +1125,7 @@ Please provide the rigorous evaluation and JSON response.`;
       </div>
     `;
 
-    resultZone.scrollIntoView({ behavior: 'smooth' });
+    if (resultZone && typeof resultZone.scrollIntoView === 'function') { try { resultZone.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {} }
   }
 
   // Switch Speaking Part
@@ -1116,8 +1162,7 @@ Please provide the rigorous evaluation and JSON response.`;
     if (playerZone) playerZone.classList.add('hidden');
     const scoreBtn = document.getElementById('spBtnScoreNow');
     if (scoreBtn) scoreBtn.classList.add('hidden');
-    const liveBox = document.getElementById('spLiveTranscriptBox');
-    if (liveBox) liveBox.classList.add('hidden');
+    // liveBox remains open for user text entry
 
     if (part === 'mock') {
       startMockTestMode();
@@ -1300,6 +1345,23 @@ Please provide the rigorous evaluation and JSON response.`;
       navigator.clipboard.writeText(text);
       if (typeof window.showToast === 'function') window.showToast('📋 Đã sao chép câu mẫu Band 8.0+!', 'success');
       else alert('Đã sao chép câu mẫu!');
+    }
+  }
+
+
+  // Auto-rehydration logic
+  function rehydrate(force) {
+    try {
+      const select = document.getElementById('spTopicSelect');
+      const needRehydrate = force || !select || select.options.length === 0;
+      if (needRehydrate) {
+        renderTopicSelector();
+        renderQuestionSelector();
+        renderCurrentQuestionBoard();
+        updateGroqIndicator();
+      }
+    } catch (e) {
+      console.warn('[SpeakingEngine] rehydrate error:', e);
     }
   }
 
@@ -1964,8 +2026,40 @@ Respond ONLY with a valid JSON object matching this schema:
     saveAllIdeaVocabToDeck: saveAllIdeaVocabToDeck,
     speakIdeaModelAnswer: speakIdeaModelAnswer,
     copyIdeaModelAnswer: copyIdeaModelAnswer,
-    copyIdeaToScratchpad: copyIdeaToScratchpad
+    copyIdeaToScratchpad: copyIdeaToScratchpad,
+    handleTranscriptInput: handleTranscriptInput,
+    clearTranscript: clearTranscript,
+    discardRecording: discardRecording,
+    rehydrate: rehydrate
   };
+
+
+  function handleTranscriptInput(val) {
+    state.liveTranscript = val;
+    const words = (val || '').trim() ? (val || '').trim().split(/\s+/).length : 0;
+    const badge = document.getElementById('spWordCountBadge');
+    if (badge) badge.textContent = words + ' từ';
+  }
+
+  function clearTranscript() {
+    state.liveTranscript = '';
+    const input = document.getElementById('spLiveTranscriptText');
+    if (input) input.value = '';
+    const badge = document.getElementById('spWordCountBadge');
+    if (badge) badge.textContent = '0 từ';
+  }
+
+  function discardRecording() {
+    stopRecording();
+    state.audioChunks = [];
+    state.audioBlob = null;
+    state.audioUrl = null;
+    state.speakingDurationSec = 0;
+    const playerZone = document.getElementById('spAudioPlayerZone');
+    if (playerZone) playerZone.classList.add('hidden');
+    const audioEl = document.getElementById('spPlaybackAudio');
+    if (audioEl) audioEl.src = '';
+  }
 
   // Auto-initialize Speaking Engine on load with safety retries
   function autoInit() {
@@ -1978,7 +2072,7 @@ Respond ONLY with a valid JSON object matching this schema:
 
   function ensureInitialized() {
     const select = document.getElementById('spTopicSelect');
-    if (select && select.options.length === 0) {
+    if (!select || select.options.length === 0) {
       try {
         init();
       } catch (e) {
@@ -1995,10 +2089,22 @@ Respond ONLY with a valid JSON object matching this schema:
     }
     if (typeof window !== 'undefined') {
       window.addEventListener('load', () => {
-        setTimeout(ensureInitialized, 100);
-        setTimeout(ensureInitialized, 500);
+        setTimeout(ensureInitialized, 50);
+        setTimeout(ensureInitialized, 250);
+        setTimeout(ensureInitialized, 750);
+        setTimeout(ensureInitialized, 1500);
       });
     }
+    // Periodic watcher to guarantee data is hydrated
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts++;
+      const sel = document.getElementById('spTopicSelect');
+      if (sel && sel.options.length === 0) {
+        ensureInitialized();
+      }
+      if (attempts >= 20) clearInterval(interval);
+    }, 200);
   }
 
 })(window);

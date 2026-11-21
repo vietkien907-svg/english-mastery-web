@@ -137,7 +137,7 @@
         </div>
 
         <!-- BYOK Groq AI Config Gear -->
-        <button type="button" onclick="SpeakingEngine.openGroqModal()" class="ni-nav-btn" title="Cấu hình Groq API Key">
+        <button type="button" id="spGroqStatusBadge" onclick="SpeakingEngine.openGroqModal()" class="ni-nav-btn" title="Cấu hình Groq API Key">
           <i data-lucide="settings" class="w-3.5 h-3.5 text-[#5f5870]"></i>
           <span class="hidden sm:inline">Groq AI</span>
         </button>
@@ -1945,32 +1945,60 @@
           <!-- Accordion: 💡 Gợi Ý Ý Tưởng & Từ Vựng (Night IELTS) -->
           <div id="spIdeaBoxZone" class="pv-card" style="padding: 12px 14px;"></div>
 
+          <!-- Live & Editable Transcript / Text Answer Box (Night IELTS Studio) -->
+          <div id="spLiveTranscriptBox" class="pv-card p-3.5 space-y-2 border border-slate-200/90 shadow-sm bg-white">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                <i data-lucide="file-text" class="w-4 h-4 text-indigo-600"></i>
+                <span>Lời bạn đã nói / Nhập câu trả lời:</span>
+              </span>
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="SpeakingEngine.clearTranscript()" class="text-[11px] text-slate-400 hover:text-rose-600 font-semibold cursor-pointer">Xóa</button>
+                <span id="spWordCountBadge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">0 từ</span>
+              </div>
+            </div>
+            <textarea id="spLiveTranscriptText" oninput="SpeakingEngine.handleTranscriptInput(this.value)" rows="3" placeholder="Nhấn micro bên dưới để nói (lời nói sẽ tự động chuyển thành văn bản ở đây), hoặc bạn có thể gõ / dán câu trả lời trực tiếp vào đây để chấm điểm..." class="ni-input text-xs resize-none w-full leading-relaxed"></textarea>
+            <div class="flex items-center justify-between pt-1 text-slate-500">
+              <span class="text-[11px] italic text-slate-400">💡 Có thể chỉnh sửa câu từ trực tiếp trước khi chấm</span>
+              <button type="button" onclick="SpeakingEngine.runAiEvaluation()" class="py-1.5 px-3.5 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white transition flex items-center gap-1.5 cursor-pointer shadow-sm hover:shadow">
+                <span>✨ Chấm Điểm AI</span>
+              </button>
+            </div>
+          </div>
+
           <!-- Recording Studio Card -->
           <div class="pv-card text-center py-6">
             <div class="rec-zone">
-              <button type="button" id="spBtnRecord" onclick="SpeakingEngine.toggleRecording()" class="rec-btn mx-auto" aria-label="Ghi âm">
-                <i data-lucide="mic" class="w-7 h-7 text-white"></i>
+              <button type="button" id="spBtnRecord" onclick="SpeakingEngine.toggleRecording()" class="rec-btn w-20 h-20 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center shadow-lg shadow-indigo-600/40 transition transform hover:scale-105 mx-auto cursor-pointer" aria-label="Ghi âm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                  <line x1="12" x2="12" y1="19" y2="22"/>
+                </svg>
               </button>
-              <p id="spRecStatusText" class="mt-3 text-sm font-semibold text-[#5f5870]">Bấm nút tròn để bắt đầu ghi âm câu trả lời</p>
-              <p id="spLiveDuration" class="rec-timer hidden font-bold text-lg font-mono mt-1" style="color: var(--accent);">00:00</p>
+              <div id="spRecordingStatus" class="mt-3 text-sm font-semibold text-[#5f5870]">
+                <span>Bấm micro tròn để bắt đầu ghi âm câu trả lời</span>
+              </div>
+              <p id="spRecTimer" class="rec-timer hidden font-bold text-lg font-mono mt-1" style="color: var(--accent);">00:00</p>
             </div>
 
-            <!-- Audio Player & Action Buttons (Hidden until recorded) -->
-            <div id="spAudioPlaybackBox" class="hidden mt-3 max-w-sm mx-auto">
-              <audio id="spRecordedAudioPlayer" controls class="w-full mb-3"></audio>
+            <!-- Audio Player & Action Buttons (Shown after recorded) -->
+            <div id="spAudioPlayerZone" class="hidden mt-4 max-w-sm mx-auto p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
+              <audio id="spPlaybackAudio" controls class="w-full mb-3"></audio>
               <div class="flex gap-2">
-                <button type="button" onclick="SpeakingEngine.discardRecording()" class="ni-nav-btn flex-1 justify-center">
-                  Ghi lại
+                <button type="button" onclick="SpeakingEngine.discardRecording()" class="ni-nav-btn flex-1 justify-center text-xs py-2 font-semibold">
+                  <span>🔄 Ghi lại</span>
                 </button>
-                <button type="button" id="spBtnScoreNow" onclick="SpeakingEngine.runAiEvaluation()" class="ni-submit-btn flex-1">
-                  ✨ Chấm Điểm AI
+                <button type="button" id="spBtnScoreNow" onclick="SpeakingEngine.runAiEvaluation()" class="ni-submit-btn flex-1 text-xs py-2 font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm">
+                  <span>✨ Chấm Điểm AI</span>
                 </button>
               </div>
             </div>
 
-            <div id="spScoringSpinner" class="hidden py-4 text-center">
-              <div class="inline-block animate-spin mb-2 text-2xl" style="color: var(--accent);">⏳</div>
-              <p id="spScoringSpinnerText" class="text-xs font-semibold text-[#5f5870]">Đang phân tích phát âm và 4 tiêu chí IELTS...</p>
+            <!-- Loading Spinner during AI scoring -->
+            <div id="spScoringLoading" class="hidden py-4 text-center">
+              <div class="inline-block animate-spin mb-2 text-2xl text-indigo-600">⏳</div>
+              <p class="text-xs font-semibold text-slate-600">Đang phân tích phát âm và 4 tiêu chí IELTS chuẩn Band...</p>
             </div>
           </div>
         </div>
@@ -3049,19 +3077,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=88.0"></script>
-  <script src="./listening_data.js?v=88.0"></script>
-  <script src="./vietnam_today_data.js?v=88.0"></script>
-  <script src="./educational_channels_data.js?v=88.0"></script>
-  <script src="./international_news_videos.js?v=88.0"></script>
-  <script src="./bilingual_news_data.js?v=88.0"></script>
-  <script src="./reading_lexicon.js?v=88.0"></script>
-  <script src="./conversation_data.js?v=88.0"></script>
-    <script src="./speaking-forecast.js?v=88.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=88.0"></script>
-  <script src="./speakout-speaking-data.js?v=88.0"></script>
-  <script src="./speaking-engine.js?v=88.0"></script>
-  <script src="./app.js?v=88.0"></script>
+  <script src="./data.js?v=89.0"></script>
+  <script src="./listening_data.js?v=89.0"></script>
+  <script src="./vietnam_today_data.js?v=89.0"></script>
+  <script src="./educational_channels_data.js?v=89.0"></script>
+  <script src="./international_news_videos.js?v=89.0"></script>
+  <script src="./bilingual_news_data.js?v=89.0"></script>
+  <script src="./reading_lexicon.js?v=89.0"></script>
+  <script src="./conversation_data.js?v=89.0"></script>
+    <script src="./speaking-forecast.js?v=89.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=89.0"></script>
+  <script src="./speakout-speaking-data.js?v=89.0"></script>
+  <script src="./speaking-engine.js?v=89.0"></script>
+  <script src="./app.js?v=89.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3069,7 +3097,7 @@
     }
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=88.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=89.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

@@ -4703,3 +4703,8 @@ window.SP_FORECAST = {
     }
   ]
 };
+
+
+if (typeof window !== 'undefined' && window.SpeakingEngine && typeof window.SpeakingEngine.rehydrate === 'function') {
+  try { window.SpeakingEngine.rehydrate(); } catch(e) {}
+}

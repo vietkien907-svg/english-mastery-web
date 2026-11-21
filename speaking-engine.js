@@ -163,13 +163,40 @@
   }
 
   // TTS helper
+  function pickEnVoice() {
+    try {
+      if (!('speechSynthesis' in window)) return null;
+      const vs = window.speechSynthesis.getVoices().filter(v => /^en[-_]/i.test(v.lang));
+      if (!vs.length) return null;
+      return vs.find(v => /google us english|samantha|natural|jenny|guy|zira|david|aria/i.test(v.name)) || vs[0] || null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Pre-warm voices on load
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    try {
+      window.speechSynthesis.onvoiceschanged = () => {
+        window.speechSynthesis.getVoices();
+      };
+      window.speechSynthesis.getVoices();
+    } catch (e) {}
+  }
+
   function speakPrompt(text) {
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US';
-    u.rate = 0.95;
-    window.speechSynthesis.speak(u);
+    if (!text || !('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(String(text).replace(/\s+/g, ' ').trim());
+      const v = pickEnVoice();
+      if (v) u.voice = v;
+      u.lang = (v && v.lang) || 'en-US';
+      u.rate = 0.92;
+      window.speechSynthesis.speak(u);
+    } catch (e) {
+      console.warn('speakPrompt error:', e);
+    }
   }
 
   // Audio Recording System
@@ -1633,12 +1660,7 @@ Respond ONLY with a valid JSON object matching this schema:
   }
 
   function speakPhrase(text) {
-    if (!('speechSynthesis' in window) || !text) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US';
-    u.rate = 0.9;
-    window.speechSynthesis.speak(u);
+    speakPrompt(text);
   }
 
   function speakIdeaModelAnswer() {

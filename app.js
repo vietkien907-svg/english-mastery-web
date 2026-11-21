@@ -620,6 +620,7 @@ function showToast(message, type = "info") {
     toast.className = "fixed bottom-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-2xl text-xs font-semibold shadow-2xl backdrop-blur-md border transition-all duration-300 pointer-events-none opacity-0 translate-y-4";
   }, 2300);
 }
+window.showToast = showToast;
 
 // ================= WEEKLY REVIEW ENGINE (LẶP TỪ THEO TUẦN - ĐẦY ĐỦ 7 NGÀY QUA) =================
 const WEEKLY_REVIEW_BLOCKS = [
@@ -6819,6 +6820,7 @@ function saveCustomWordItem(item) {
   appState.activeInterleavedDeck = null;
   return entry;
 }
+window.saveCustomWordItem = saveCustomWordItem;
 
 function removeCustomWordItem(word) {
   let list = getSavedCustomWords();

@@ -1820,26 +1820,56 @@
 
         <!-- ================= TAB: IELTS SPEAKING STUDIO (AI EXAMINER 2-COLUMN) ================= -->
     <section id="tab-speaking" class="space-y-4">
-      <!-- Minimalist Part & Topic Bar (Night IELTS Style) -->
-      <div class="pv-card flex flex-col sm:flex-row sm:items-center justify-between gap-3" style="padding: 10px 14px;">
-        <!-- Part Switcher Pills -->
-        <div class="flex items-center gap-1.5 flex-wrap">
-          <button id="spPartTab_1" onclick="SpeakingEngine.setPart('1')" class="ni-nav-btn is-on" style="font-size: 13px; padding: 6px 14px;">Part 1</button>
-          <button id="spPartTab_2" onclick="SpeakingEngine.setPart('2')" class="ni-nav-btn" style="font-size: 13px; padding: 6px 14px;">Part 2 (Cue Card)</button>
-          <button id="spPartTab_3" onclick="SpeakingEngine.setPart('3')" class="ni-nav-btn" style="font-size: 13px; padding: 6px 14px;">Part 3</button>
-          <button id="spPartTab_mock" onclick="SpeakingEngine.setPart('mock')" class="ni-nav-btn" style="font-size: 13px; padding: 6px 14px; color: #8a5a14;">🏆 Thi Thử Full Test</button>
-        </div>
+      <!-- 3 IELTS Speaking Parts Bento Selector Bar -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <!-- Part 1 Button Card -->
+        <button type="button" id="spPartTab_1" onclick="SpeakingEngine.setPart('1')" class="pv-card text-left p-3.5 transition-all cursor-pointer border-2" style="border-color: var(--accent); background-color: var(--accent-wash);">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-extrabold uppercase tracking-wider" style="color: var(--accent);">Part 1</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-white/90 border border-slate-200">4–5 phút</span>
+          </div>
+          <h4 class="font-bold text-sm text-[#0f172a]">Phỏng Vấn Đời Sống</h4>
+          <p class="text-[11px] text-[#64748b] mt-0.5 leading-snug">Câu hỏi giao tiếp ngắn, phản xạ 15–30s/câu</p>
+        </button>
 
-        <!-- Topic Selector & Action Buttons -->
-        <div class="flex items-center gap-2 flex-wrap">
-          <select id="spTopicSelect" onchange="SpeakingEngine.selectTopicIndex(this.value)" class="ni-input text-xs font-semibold" style="padding: 6px 10px; width: auto; min-width: 200px;">
+        <!-- Part 2 Button Card -->
+        <button type="button" id="spPartTab_2" onclick="SpeakingEngine.setPart('2')" class="pv-card text-left p-3.5 transition-all cursor-pointer border hover:border-slate-300">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-600">Part 2</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-slate-100 text-slate-600 border border-slate-200">1–2 phút nói</span>
+          </div>
+          <h4 class="font-bold text-sm text-[#0f172a]">Thuyết Trình Cue Card</h4>
+          <p class="text-[11px] text-[#64748b] mt-0.5 leading-snug">1 phút lập dàn ý + độc thoại liên tục 2 phút</p>
+        </button>
+
+        <!-- Part 3 Button Card -->
+        <button type="button" id="spPartTab_3" onclick="SpeakingEngine.setPart('3')" class="pv-card text-left p-3.5 transition-all cursor-pointer border hover:border-slate-300">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-rose-600">Part 3</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-slate-100 text-slate-600 border border-slate-200">4–5 phút</span>
+          </div>
+          <h4 class="font-bold text-sm text-[#0f172a]">Thảo Luận Chuyên Sâu</h4>
+          <p class="text-[11px] text-[#64748b] mt-0.5 leading-snug">Lập luận phản biện đa chiều 45–60s/câu</p>
+        </button>
+
+        <!-- Hidden Mock Tab for JS compatibility -->
+        <button id="spPartTab_mock" onclick="SpeakingEngine.setPart('mock')" class="hidden"></button>
+      </div>
+
+      <!-- Topic Selector & Action Controls Bar -->
+      <div class="pv-card flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5">
+        <div class="flex items-center gap-2 flex-1 min-w-0">
+          <label class="text-xs font-bold text-[#64748b] shrink-0">Chủ đề:</label>
+          <select id="spTopicSelect" onchange="SpeakingEngine.selectTopicIndex(this.value)" class="ni-input text-xs font-bold py-1.5 px-3 flex-1">
             <!-- Rendered by JS -->
           </select>
-          <button type="button" onclick="SpeakingEngine.pickRandomQuestion()" class="ni-nav-btn" style="padding: 6px 11px;" title="Bốc đề ngẫu nhiên">
-            🎲 Bốc đề
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button type="button" onclick="SpeakingEngine.pickRandomQuestion()" class="ni-nav-btn text-xs font-semibold py-1.5 px-3" title="Bốc đề ngẫu nhiên">
+            <span>🎲 Bốc Đề</span>
           </button>
-          <button type="button" onclick="SpeakingEngine.openHistoryModal()" class="ni-nav-btn" style="padding: 6px 11px;" title="Lịch sử bài nói">
-            📜 Lịch sử
+          <button type="button" onclick="SpeakingEngine.openHistoryModal()" class="ni-nav-btn text-xs font-semibold py-1.5 px-3" title="Lịch sử bài nói">
+            <span>📜 Lịch Sử</span>
           </button>
           <input type="hidden" id="spSearchInput" value="">
         </div>
@@ -1892,6 +1922,9 @@
               <textarea id="spScratchpadEditor" rows="3" placeholder="Ghi dàn ý, từ khóa, ý tưởng trả lời..." class="ni-input text-xs resize-none"></textarea>
             </div>
           </div>
+
+          <!-- Accordion: 💡 Gợi Ý Ý Tưởng & Từ Vựng (Night IELTS) -->
+          <div id="spIdeaBoxZone" class="pv-card" style="padding: 12px 14px;"></div>
 
           <!-- Recording Studio Card -->
           <div class="pv-card text-center py-6">

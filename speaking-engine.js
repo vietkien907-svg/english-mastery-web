@@ -56,6 +56,12 @@
     prepTimerInterval: null,
     prepSecondsLeft: 60,
     isPrepRunning: false,
+
+    // Idea & Vocabulary Accordion (Night IELTS)
+    ideaBand: '6.5',
+    isIdeaOpen: false,
+    ideaCache: {},
+    isIdeaLoading: false,
     
     // Scoring
     isScoring: false,
@@ -799,6 +805,8 @@ Please provide the rigorous evaluation and JSON response.`;
         `;
       }
     }
+
+    renderIdeaBox();
   }
 
   function updateRecordingUI(isRecording) {
@@ -960,9 +968,17 @@ Please provide the rigorous evaluation and JSON response.`;
       const btn = document.getElementById(`spPartTab_${p}`);
       if (btn) {
         if (p === part) {
-          btn.className = 'px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition bg-indigo-600 text-white shadow-lg shadow-indigo-600/30';
+          btn.style.borderColor = 'var(--accent, #6366f1)';
+          btn.style.backgroundColor = 'var(--accent-wash, #eef2ff)';
+          btn.style.boxShadow = '0 4px 12px rgba(99, 102, 241, 0.12)';
+          btn.classList.add('border-2');
+          btn.classList.remove('border-slate-200');
         } else {
-          btn.className = 'px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition text-slate-400 hover:text-white hover:bg-slate-800';
+          btn.style.borderColor = '';
+          btn.style.backgroundColor = '';
+          btn.style.boxShadow = '';
+          btn.classList.remove('border-2');
+          btn.classList.add('border-slate-200');
         }
       }
     });
@@ -1143,6 +1159,532 @@ Please provide the rigorous evaluation and JSON response.`;
     setPart('1');
   }
 
+
+  // =========================================================================
+  // NIGHT IELTS: GỢI Ý Ý TƯỞNG & TỪ VỰNG THEO BAND (ACCORDION & BYOK AI)
+  // =========================================================================
+
+  function getIdeaCacheKey() {
+    return `${state.currentPart}_${state.currentTopicIndex}_${state.currentQuestionIndex}_${state.ideaBand}`;
+  }
+
+  function toggleIdeaAccordion() {
+    state.isIdeaOpen = !state.isIdeaOpen;
+    renderIdeaBox();
+    if (state.isIdeaOpen) {
+      loadIdeaForCurrentQuestion();
+    }
+  }
+
+  function setIdeaBand(band) {
+    if (state.ideaBand === band) return;
+    state.ideaBand = band;
+    renderIdeaBox();
+    if (state.isIdeaOpen) {
+      loadIdeaForCurrentQuestion();
+    }
+  }
+
+  function refreshIdea(force) {
+    if (force) {
+      const key = getIdeaCacheKey();
+      delete state.ideaCache[key];
+    }
+    loadIdeaForCurrentQuestion();
+  }
+
+  async function loadIdeaForCurrentQuestion() {
+    const key = getIdeaCacheKey();
+    if (state.ideaCache[key]) {
+      renderIdeaBox();
+      return;
+    }
+
+    state.isIdeaLoading = true;
+    renderIdeaBox();
+
+    const cur = getCurrentItem();
+    let data = null;
+    const groqKey = getGroqKey();
+
+    if (groqKey) {
+      try {
+        data = await fetchIdeaFromGroq(groqKey, cur, state.ideaBand, state.currentPart);
+      } catch (err) {
+        console.warn('Groq idea generation failed, falling back to offline dictionary:', err);
+      }
+    }
+
+    if (!data) {
+      data = generateFallbackIdea(cur, state.ideaBand, state.currentPart);
+    }
+
+    state.ideaCache[key] = data;
+    state.isIdeaLoading = false;
+    renderIdeaBox();
+  }
+
+  async function fetchIdeaFromGroq(apiKey, item, band, part) {
+    const qText = item.questionText || (item.cueCard ? item.cueCard.t : 'IELTS Speaking Question');
+    const topic = item.topicTitle || 'General Speaking';
+    const partLabel = part === '2' ? 'Part 2 (Cue Card 2-minute speech)' : `Part ${part}`;
+
+    const prompt = `You are an elite IELTS Speaking Senior Examiner and native British/American coach.
+Generate a structured brainstorming guide for candidate aiming for Target Band ${band}.
+
+Topic: "${topic}"
+Question/Prompt (${partLabel}): "${qText}"
+
+Respond ONLY with a valid JSON object matching this schema:
+{
+  "ideas": [
+    "Dàn ý 1 (tiếng Việt): Hướng mở đầu trực tiếp và luận điểm chính",
+    "Dàn ý 2 (tiếng Việt): Chi tiết/ví dụ trải nghiệm thực tế cụ thể",
+    "Dàn ý 3 (tiếng Việt): Cảm xúc, tác động hoặc kết luận sâu sắc"
+  ],
+  "vocabulary": [
+    {"phrase": "collocation 1", "ipa": "/.../", "meaning": "nghĩa tiếng Việt súc tích"},
+    {"phrase": "collocation 2", "ipa": "/.../", "meaning": "nghĩa tiếng Việt súc tích"},
+    {"phrase": "collocation 3", "ipa": "/.../", "meaning": "nghĩa tiếng Việt súc tích"},
+    {"phrase": "collocation 4", "ipa": "/.../", "meaning": "nghĩa tiếng Việt súc tích"}
+  ],
+  "sampleAnswer": "A highly natural, spoken English sample response at Band ${band} flow, answering the prompt completely (approx 60-90 words for Part 1/3, or 120-150 words for Part 2). Use contractions and natural discourse markers."
+}`;
+
+    const resp = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        messages: [
+          { role: 'system', content: 'You are an official IELTS examiner. Output valid JSON only, no markdown markdown formatting or text wrappers.' },
+          { role: 'user', content: prompt }
+        ],
+        temperature: 0.7,
+        max_tokens: 850,
+        response_format: { type: 'json_object' }
+      })
+    });
+
+    if (!resp.ok) throw new Error(`Groq HTTP ${resp.status}`);
+    const resData = await resp.json();
+    const content = resData.choices[0].message.content;
+    return JSON.parse(content);
+  }
+
+  function generateFallbackIdea(item, band, part) {
+    const qText = (item.questionText || (item.cueCard ? item.cueCard.t : '')).toLowerCase();
+    const topic = (item.topicTitle || '').toLowerCase();
+    const combined = topic + ' ' + qText;
+
+    // Detect domain
+    let domain = 'general';
+    if (/work|job|career|company|boss|office|profession|salary/.test(combined)) domain = 'work';
+    else if (/study|school|university|major|student|learn|exam|teacher/.test(combined)) domain = 'study';
+    else if (/live|area|city|town|hometown|house|flat|apartment|neighborhood|place/.test(combined)) domain = 'living';
+    else if (/music|song|instrument|singer|concert/.test(combined)) domain = 'music';
+    else if (/film|movie|cinema|actor|watch/.test(combined)) domain = 'film';
+    else if (/book|read|novel|author|library/.test(combined)) domain = 'book';
+    else if (/sport|fitness|gym|exercise|game|match|healthy/.test(combined)) domain = 'sport';
+    else if (/food|cook|restaurant|eat|meal|dish|diet/.test(combined)) domain = 'food';
+    else if (/travel|trip|holiday|vacation|tour|journey|destination/.test(combined)) domain = 'travel';
+    else if (/friend|family|people|person|relationship|colleague/.test(combined)) domain = 'people';
+    else if (/tech|phone|computer|internet|social|app|ai|website/.test(combined)) domain = 'tech';
+    else if (/weather|rain|sun|season|climate|temperature/.test(combined)) domain = 'weather';
+
+    const bank = {
+      work: {
+        '5.0': {
+          ideas: ['Nêu công việc hiện tại của bạn là gì', 'Lý do bạn chọn công việc này (tiền bạc hoặc sự thích thú)', 'Dự định công việc trong tương lai'],
+          vocab: [
+            { phrase: 'heavy workload', ipa: '/ˈhevi ˈwɜːkləʊd/', meaning: 'khối lượng công việc lớn' },
+            { phrase: 'friendly colleagues', ipa: '/ˈfrendli ˈkɒliːɡz/', meaning: 'đồng nghiệp thân thiện' },
+            { phrase: 'earn a living', ipa: '/ɜːn ə ˈlɪvɪŋ/', meaning: 'kiếm sống' },
+            { phrase: 'career prospects', ipa: '/kəˈrɪər ˈprɒspekts/', meaning: 'triển vọng nghề nghiệp' }
+          ],
+          sample: "Currently, I'm working as a full-time specialist. To be honest, I really enjoy it because my colleagues are very friendly and supportive. Even though I have a heavy workload sometimes, it allows me to earn a good living and develop myself."
+        },
+        '6.0': {
+          ideas: ['Nêu vai trò và trách nhiệm cụ thể trong môi trường làm việc', 'Phân tích điểm thỏa mãn nhất và thách thức lớn nhất', 'Nhận định về cân bằng giữa công việc và đời sống (work-life balance)'],
+          vocab: [
+            { phrase: 'demanding schedule', ipa: '/dɪˈmɑːndɪŋ ˈskedʒuːl/', meaning: 'lịch trình áp lực, bận rộn' },
+            { phrase: 'climb the career ladder', ipa: '/klaɪm ðə kəˈrɪə ˈlædə/', meaning: 'thăng tiến sự nghiệp' },
+            { phrase: 'work-life balance', ipa: '/wɜːk laɪf ˈbæləns/', meaning: 'sự cân bằng công việc - cuộc sống' },
+            { phrase: 'hands-on experience', ipa: '/ˌhændz ˈɒn ɪkˈspɪəriəns/', meaning: 'kinh nghiệm thực tế' }
+          ],
+          sample: "Well, I'm currently holding a position where I handle various projects. What I find most rewarding is gaining hands-on experience on a daily basis. While having a demanding schedule makes it tough to maintain a healthy work-life balance, it really helps me climb the career ladder."
+        },
+        '6.5': {
+          ideas: ['Khẳng định mức độ đam mê và động lực thúc đẩy trong nghề', 'Mô tả môi trường làm việc thúc đẩy năng suất và tư duy sáng tạo', 'Tầm nhìn phát triển năng lực chuyên môn 2-3 năm tới'],
+          vocab: [
+            { phrase: 'lucrative income', ipa: '/ˈluːkrətɪv ˈɪnkʌm/', meaning: 'thu nhập hậu hĩnh' },
+            { phrase: 'fast-paced environment', ipa: '/ˌfɑːst ˈpeɪst ɪnˈvaɪrənmənt/', meaning: 'môi trường nhịp độ nhanh' },
+            { phrase: "broaden one's horizon", ipa: '/ˈbrɔːdn wʌnz həˈraɪzn/', meaning: 'mở rộng tầm hiểu biết' },
+            { phrase: 'hit the ground running', ipa: '/hɪt ðə ɡraʊnd ˈrʌnɪŋ/', meaning: 'bắt nhịp và làm việc hiệu quả ngay' }
+          ],
+          sample: "To be completely candid, working in such a fast-paced environment has been a transformative experience for me. It not only yields a lucrative income but also continuously broadens my horizon. Whenever new challenges arise, I always try to hit the ground running."
+        },
+        '7.0+': {
+          ideas: ['Luận điểm triết lý nghề nghiệp: giá trị tạo ra so với áp lực công việc', 'Phân tích sâu về văn hóa doanh nghiệp và cơ hội bứt phá tiềm năng', 'Đánh giá tác động của tự động hóa và công nghệ đối với chuyên môn'],
+          vocab: [
+            { phrase: 'integral part of my daily grind', ipa: '/ˈɪntɪɡrəl pɑːt əv maɪ ˈdeɪli ɡraɪnd/', meaning: 'phần thiết yếu trong guồng quay hằng ngày' },
+            { phrase: 'steep learning curve', ipa: '/stiːp ˈlɜːnɪŋ kɜːv/', meaning: 'quá trình học hỏi đầy thách thức nhưng bổ ích' },
+            { phrase: 'foster creative thinking', ipa: '/ˈfɒstə kriˈeɪtɪv ˈθɪŋkɪŋ/', meaning: 'nuôi dưỡng tư duy sáng tạo' },
+            { phrase: 'strike a delicate balance', ipa: '/straɪk ə ˈdelɪkət ˈbæləns/', meaning: 'đạt được sự cân bằng tinh tế' }
+          ],
+          sample: "Truth be told, my profession has become an integral part of my daily grind. Despite the steep learning curve initially, it consistently fosters creative thinking and resilience. I always strive to strike a delicate balance between professional excellence and mental well-being."
+        }
+      },
+      living: {
+        '5.0': {
+          ideas: ['Nêu rõ khu vực hoặc thành phố bạn đang sống', 'Điều bạn thích nhất (tiện nghi, con người, thức ăn)', 'Điều bạn muốn cải thiện ở nơi này'],
+          vocab: [
+            { phrase: 'peaceful neighborhood', ipa: '/ˈpiːsfʊl ˈneɪbəhʊd/', meaning: 'khu phố yên bình' },
+            { phrase: 'convenient amenities', ipa: '/kənˈviːniənt əˈmiːnətiz/', meaning: 'tiện ích thuận tiện' },
+            { phrase: 'friendly residents', ipa: '/ˈfrendli ˈrezɪdənts/', meaning: 'cư dân thân thiện' },
+            { phrase: 'public transport', ipa: '/ˈpʌblɪk ˈtrænspɔːt/', meaning: 'phương tiện công cộng' }
+          ],
+          sample: "I currently reside in a peaceful neighborhood on the outskirts of the city. What I appreciate most is the friendly residents and convenient amenities nearby. It only takes me a few minutes to access public transport."
+        },
+        '6.0': {
+          ideas: ['Mô tả không khí và nhịp sống đặc trưng của khu dân cư', 'So sánh giữa sự nhộn nhịp ban ngày và yên bình ban đêm', 'Tiềm năng phát triển cơ sở hạ tầng trong những năm gần đây'],
+          vocab: [
+            { phrase: 'bustling streets', ipa: '/ˈbʌslɪŋ striːts/', meaning: 'đường phố nhộn nhịp' },
+            { phrase: 'within walking distance', ipa: '/wɪˈðɪn ˈwɔːkɪŋ ˈdɪstəns/', meaning: 'trong khoảng cách đi bộ' },
+            { phrase: 'vibrant atmosphere', ipa: '/ˈvaɪbrənt ˈætməsfɪə/', meaning: 'bầu không khí sôi động' },
+            { phrase: 'traffic congestion', ipa: '/ˈtræfɪk kənˈdʒestʃən/', meaning: 'ùn tắc giao thông' }
+          ],
+          sample: "Well, I live in an area known for its vibrant atmosphere and bustling streets. Almost all essential services are within walking distance, which is tremendously convenient. However, traffic congestion during peak hours can be quite a nuisance."
+        },
+        '6.5': {
+          ideas: ['Nhận định về bản sắc văn hóa và sự gắn kết cộng đồng', 'Đánh giá môi trường sống, cây xanh và chất lượng không khí', 'Lý do bạn muốn tiếp tục định cư lâu dài hoặc chuyển đi'],
+          vocab: [
+            { phrase: 'hustle and bustle', ipa: '/ˈhʌsl ænd ˈbʌsl/', meaning: 'sự hối hả và nhộn nhịp của đô thị' },
+            { phrase: 'sense of community', ipa: '/sens əv kəˈmjuːnəti/', meaning: 'tinh thần gắn kết cộng đồng' },
+            { phrase: 'leafy green spaces', ipa: '/ˈliːfi ɡriːn ˈspeɪsɪz/', meaning: 'những khoảng không gian xanh rợp bóng cây' },
+            { phrase: "stone's throw away", ipa: '/stəʊnz θrəʊ əˈweɪ/', meaning: 'rất gần, cách vài bước chân' }
+          ],
+          sample: "Speaking of my current vicinity, what truly stands out is the strong sense of community despite the hustle and bustle of city life. Having leafy green spaces just a stone's throw away offers a much-needed breath of fresh air after a long workday."
+        },
+        '7.0+': {
+          ideas: ['Phân tích chiều sâu về sự dung hòa giữa tiện nghi hiện đại và di sản địa phương', 'Tác động của đô thị hóa nhanh chóng lên lối sống cư dân', 'Cảm nhận cá nhân mang tính hoài niệm hoặc triết lý về nơi chốn (sense of place)'],
+          vocab: [
+            { phrase: 'haven of tranquility', ipa: '/ˈheɪvn əv træŋˈkwɪləti/', meaning: 'chốn bình yên, nơi trú ẩn thanh bình' },
+            { phrase: 'unbridled urbanization', ipa: '/ʌnˈbraɪdld ˌɜːbənaɪˈzeɪʃn/', meaning: 'quá trình đô thị hóa ồ ạt' },
+            { phrase: 'harmonious blend', ipa: '/hɑːˈməʊniəs blend/', meaning: 'sự pha trộn hài hòa' },
+            { phrase: 'second nature', ipa: '/ˈsekənd ˈneɪtʃə/', meaning: 'thói quen tự nhiên như bản năng' }
+          ],
+          sample: "My neighborhood is, in many respects, a harmonious blend of traditional charm and urban vibrancy. While unbridled urbanization has inevitably altered its quiet corners, it remains a haven of tranquility for me whenever I need to recharge my batteries."
+        }
+      },
+      general: {
+        '5.0': {
+          ideas: ['Nêu câu trả lời trực tiếp cho câu hỏi', 'Cung cấp lý do cụ thể và dễ hiểu', 'Đưa ra ví dụ đơn giản từ thói quen cá nhân'],
+          vocab: [
+            { phrase: 'play a vital role', ipa: '/pleɪ ə ˈvaɪtl rəʊl/', meaning: 'đóng vai trò quan trọng' },
+            { phrase: 'broaden my knowledge', ipa: '/ˈbrɔːdn maɪ ˈnɒlɪdʒ/', meaning: 'mở rộng kiến thức' },
+            { phrase: 'have a great time', ipa: '/hæv ə ɡreɪt taɪm/', meaning: 'có khoảng thời gian tuyệt vời' },
+            { phrase: 'daily routine', ipa: '/ˈdeɪli ruːˈtiːn/', meaning: 'thói quen hằng ngày' }
+          ],
+          sample: "To be honest, this plays a very vital role in my life. It really helps me broaden my knowledge and relax after stressful study hours. That's why I include it in my daily routine whenever I have free time."
+        },
+        '6.0': {
+          ideas: ['Mở đầu tự nhiên bằng từ nối bản xứ', 'Phân tích hai mặt hoặc sở thích theo hoàn cảnh', 'Kết luận nêu cảm nhận thực tế'],
+          vocab: [
+            { phrase: 'recharge my batteries', ipa: '/riːˈtʃɑːdʒ maɪ ˈbætəriz/', meaning: 'nạp lại năng lượng' },
+            { phrase: 'from time to time', ipa: '/frəm taɪm tə taɪm/', meaning: 'thỉnh thoảng, đôi khi' },
+            { phrase: 'have a soft spot for', ipa: '/hæv ə sɒft spɒt fə/', meaning: 'rất có thiện cảm, có sở thích đặc biệt với' },
+            { phrase: 'let my hair down', ipa: '/let maɪ heə daʊn/', meaning: 'thư giãn thoải mái' }
+          ],
+          sample: "Well, generally speaking, I have a real soft spot for this. Whenever I feel overwhelmed with deadlines, it serves as the ideal way to let my hair down and recharge my batteries. I indulge in it from time to time on weekends."
+        },
+        '6.5': {
+          ideas: ['Khẳng định quan điểm cá nhân với ngôn từ phong phú', 'So sánh trải nghiệm trong quá khứ với hiện tại', 'Lập luận logic liên hệ đến lối sống hiện đại'],
+          vocab: [
+            { phrase: 'integral component', ipa: '/ˈɪntɪɡrəl kəmˈpəʊnənt/', meaning: 'thành phần không thể thiếu' },
+            { phrase: 'lean towards', ipa: '/liːn təˈwɔːdz/', meaning: 'có xu hướng nghiêng về' },
+            { phrase: 'blow off steam', ipa: '/bləʊ ɒf stiːm/', meaning: 'xả bớt áp lực, giải tỏa căng thẳng' },
+            { phrase: 'without a shadow of a doubt', ipa: '/wɪˈðaʊt ə ˈʃædəʊ əv daʊt/', meaning: 'chắc chắn không mảy may nghi ngờ' }
+          ],
+          sample: "Without a shadow of a doubt, I tend to lean towards this whenever the opportunity presents itself. It has evolved into an integral component of my lifestyle, enabling me to blow off steam and maintain a resilient state of mind."
+        },
+        '7.0+': {
+          ideas: ['Tư duy đa chiều: đặt vấn đề vào bối cảnh tâm lý hoặc xã hội', 'Sử dụng cấu trúc tương phản tinh tế và ẩn dụ tự nhiên', 'Khép lại bằng nhận định mang tính chiều sâu'],
+          vocab: [
+            { phrase: 'inextricably linked', ipa: '/ˌɪnɪkˈstrɪkəbli lɪŋkt/', meaning: 'gắn kết chặt chẽ không thể tách rời' },
+            { phrase: 'foster a sense of well-being', ipa: '/ˈfɒstə ə sens əv ˌwel ˈbiːɪŋ/', meaning: 'thúc đẩy cảm giác viên mãn, khỏe khoắn' },
+            { phrase: 'transcend boundaries', ipa: '/trænˈsend ˈbaʊndriz/', meaning: 'vượt qua ranh giới' },
+            { phrase: 'food for thought', ipa: '/fuːd fə θɔːt/', meaning: 'điều đáng để suy ngẫm sâu sắc' }
+          ],
+          sample: "What strikes me most about this is how inextricably linked it is to our personal sense of well-being. Far from being merely a trivial pastime, it provides genuine food for thought and allows us to transcend the mundane pressures of contemporary life."
+        }
+      }
+    };
+
+    const targetBank = bank[domain] || bank['general'];
+    const bandData = targetBank[band] || targetBank['6.5'] || targetBank['6.0'];
+
+    return {
+      ideas: bandData.ideas,
+      vocabulary: bandData.vocab,
+      sampleAnswer: bandData.sample
+    };
+  }
+
+  function renderIdeaBox() {
+    const boxEl = document.getElementById('spIdeaBoxZone');
+    if (!boxEl) return;
+
+    const hasGroq = !!getGroqKey();
+    const key = getIdeaCacheKey();
+    const ideaData = state.ideaCache[key];
+
+    if (!state.isIdeaOpen) {
+      boxEl.innerHTML = `
+        <div class="flex items-center justify-between cursor-pointer py-1" onclick="SpeakingEngine.toggleIdeaAccordion()">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center font-bold text-sm">💡</div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-sm text-[#0f172a]">Gợi Ý Ý Tưởng & Từ Vựng Cốt Lõi</span>
+                <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">Band ${state.ideaBand}</span>
+              </div>
+              <p class="text-xs text-[#64748b]">Dàn ý gợi ý, collocations đắt giá kèm IPA & bài mẫu phát âm tự nhiên</p>
+            </div>
+          </div>
+          <button type="button" class="ni-nav-btn text-xs font-semibold py-1.5 px-3 flex items-center gap-1.5">
+            <span>Khám Phá</span>
+            <span class="text-xs">▼</span>
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    // Expanded State
+    boxEl.innerHTML = `
+      <div class="space-y-3">
+        <!-- Header Row -->
+        <div class="flex items-center justify-between cursor-pointer" onclick="SpeakingEngine.toggleIdeaAccordion()">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center font-bold text-sm">💡</div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-sm text-[#0f172a]">Gợi Ý Ý Tưởng & Từ Vựng Cốt Lõi</span>
+                <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">Band ${state.ideaBand}</span>
+              </div>
+              <p class="text-xs text-[#64748b]">Dàn ý lập luận, collocations ăn điểm kèm phiên âm IPA & câu mẫu tự nhiên</p>
+            </div>
+          </div>
+          <button type="button" class="ni-nav-btn text-xs font-semibold py-1 px-3 flex items-center gap-1.5">
+            <span>Thu Gọn</span>
+            <span class="text-xs">▲</span>
+          </button>
+        </div>
+
+        <!-- Band Selector Controls -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="text-xs font-bold text-[#475569] mr-1">Mục tiêu Band:</span>
+            ${['5.0', '6.0', '6.5', '7.0+'].map(b => `
+              <button type="button" onclick="SpeakingEngine.setIdeaBand('${b}')"
+                class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${state.ideaBand === b ? 'bg-amber-500 text-white shadow-sm' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'}">
+                ${b}
+              </button>
+            `).join('')}
+          </div>
+          <div class="flex items-center gap-2 text-xs">
+            <button type="button" onclick="SpeakingEngine.refreshIdea(true)" class="text-amber-700 hover:text-amber-800 font-semibold flex items-center gap-1">
+              <span>🔄 Làm mới gợi ý</span>
+            </button>
+            <span class="text-slate-300">|</span>
+            <span class="text-[11px] font-medium text-slate-500">${hasGroq ? '⚡ Llama-3 AI' : '📚 Bộ Tủ IELTS'}</span>
+          </div>
+        </div>
+
+        ${state.isIdeaLoading ? `
+          <div class="py-8 text-center text-slate-500">
+            <div class="inline-block animate-spin rounded-full h-6 w-6 border-2 border-amber-500 border-t-transparent mb-2"></div>
+            <p class="text-xs font-semibold">Đang tổng hợp ý tưởng & từ vựng Band ${state.ideaBand}...</p>
+          </div>
+        ` : (ideaData ? `
+          <!-- Section 1: Ideas -->
+          <div class="p-3 bg-amber-50/50 rounded-xl border border-amber-200/60">
+            <span class="text-xs font-extrabold uppercase tracking-wide text-amber-900 block mb-1.5">🎯 Dàn Ý & Hướng Trả Lời:</span>
+            <ul class="text-xs text-slate-700 space-y-1 pl-4 list-disc marker:text-amber-500">
+              ${(ideaData.ideas || []).map(id => `<li>${id}</li>`).join('')}
+            </ul>
+          </div>
+
+          <!-- Section 2: Vocab -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-extrabold uppercase tracking-wide text-indigo-900">🔑 Từ Vựng & Collocations Ăn Điểm:</span>
+              <button type="button" onclick="SpeakingEngine.saveAllIdeaVocabToDeck()" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                <span>+ Lưu Toàn Bộ (${(ideaData.vocabulary || []).length} từ) Vào Thẻ Từ</span>
+              </button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              ${(ideaData.vocabulary || []).map(v => `
+                <div class="p-2.5 bg-white rounded-xl border border-slate-200 hover:border-indigo-300 transition-all flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between gap-1 mb-0.5">
+                      <span class="font-bold text-xs text-[#0f172a]">${v.phrase}</span>
+                      <button type="button" onclick="SpeakingEngine.speakPhrase('${v.phrase.replace(/'/g, "\'")}')" class="text-slate-400 hover:text-indigo-600 text-xs px-1" title="Phát âm">
+                        🔊
+                      </button>
+                    </div>
+                    <div class="text-[11px] font-mono text-slate-500 mb-1">${v.ipa || ''}</div>
+                    <div class="text-xs text-slate-600">${v.meaning || ''}</div>
+                  </div>
+                  <div class="pt-2 mt-2 border-t border-slate-100 flex justify-end">
+                    <button type="button" onclick="SpeakingEngine.saveIdeaVocab('${v.phrase.replace(/'/g, "\'")}', '${(v.ipa||'').replace(/'/g, "\'")}', '${(v.meaning||'').replace(/'/g, "\'")}')"
+                      class="text-[11px] font-bold text-indigo-600 hover:text-indigo-700 bg-indigo-50 hover:bg-indigo-100 px-2 py-0.5 rounded-md transition-colors">
+                      + Thẻ từ
+                    </button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Section 3: Sample Answer -->
+          <div class="p-3 bg-white rounded-xl border border-slate-200">
+            <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+              <span class="text-xs font-extrabold uppercase tracking-wide text-[#0f172a]">🗣️ Câu Trả Lời Mẫu Tự Nhiên (Band ${state.ideaBand}):</span>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="SpeakingEngine.speakIdeaModelAnswer()" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200 flex items-center gap-1">
+                  <span>🔊 Nghe Mẫu</span>
+                </button>
+                <button type="button" onclick="SpeakingEngine.copyIdeaModelAnswer()" class="text-xs font-semibold text-slate-600 hover:text-slate-800 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
+                  📋 Sao chép
+                </button>
+                ${state.currentPart === '2' ? `
+                  <button type="button" onclick="SpeakingEngine.copyIdeaToScratchpad()" class="text-xs font-semibold text-amber-700 hover:text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+                    📝 Vào Giấy Nháp
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+            <p class="text-xs text-slate-700 leading-relaxed italic bg-slate-50/70 p-3 rounded-lg border border-slate-100">
+              "${ideaData.sampleAnswer || ''}"
+            </p>
+          </div>
+        ` : `
+          <div class="py-4 text-center text-xs text-slate-400">
+            Bấm "Khám Phá" để tải dàn ý & từ vựng gợi ý.
+          </div>
+        `)}
+      </div>
+    `;
+  }
+
+  function speakPhrase(text) {
+    if (!('speechSynthesis' in window) || !text) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US';
+    u.rate = 0.9;
+    window.speechSynthesis.speak(u);
+  }
+
+  function speakIdeaModelAnswer() {
+    const key = getIdeaCacheKey();
+    const data = state.ideaCache[key];
+    if (!data || !data.sampleAnswer) return;
+    speakPhrase(data.sampleAnswer);
+  }
+
+  function copyIdeaModelAnswer() {
+    const key = getIdeaCacheKey();
+    const data = state.ideaCache[key];
+    if (!data || !data.sampleAnswer) return;
+    navigator.clipboard.writeText(data.sampleAnswer).then(() => {
+      if (typeof window.showToast === 'function') {
+        window.showToast('✓ Đã sao chép bài mẫu vào clipboard!', 'success');
+      } else {
+        alert('Đã sao chép bài mẫu!');
+      }
+    });
+  }
+
+  function copyIdeaToScratchpad() {
+    const key = getIdeaCacheKey();
+    const data = state.ideaCache[key];
+    if (!data) return;
+    const editor = document.getElementById('spScratchpadEditor');
+    if (!editor) return;
+
+    let notes = [];
+    if (data.ideas && data.ideas.length) {
+      notes.push('💡 Ý tưởng:');
+      data.ideas.forEach(i => notes.push('- ' + i));
+    }
+    if (data.vocabulary && data.vocabulary.length) {
+      notes.push('\n🔑 Từ vựng:');
+      data.vocabulary.forEach(v => notes.push(`- ${v.phrase}: ${v.meaning}`));
+    }
+    const curVal = editor.value.trim();
+    editor.value = curVal ? curVal + '\n\n' + notes.join('\n') : notes.join('\n');
+    const cur = getCurrentItem();
+    saveCueNote(cur.topicTitle, editor.value);
+    if (typeof window.showToast === 'function') {
+      window.showToast('✓ Đã chép dàn ý & từ vựng vào Giấy Nháp!', 'success');
+    }
+  }
+
+  function saveIdeaVocabToDeck(phrase, ipa, meaning) {
+    try {
+      if (typeof window.saveCustomWordItem === 'function') {
+        window.saveCustomWordItem({
+          word: phrase,
+          ipa: ipa,
+          meaning: meaning,
+          type: 'collocation',
+          example: `Used in IELTS Speaking for topic "${getCurrentItem().topicTitle}"`
+        });
+        if (typeof window.showToast === 'function') {
+          window.showToast(`✓ Đã lưu "${phrase}" vào Thẻ Từ!`, 'success');
+        } else {
+          alert(`Đã lưu "${phrase}" vào Thẻ Từ!`);
+        }
+      } else {
+        alert('Không tìm thấy chức năng lưu thẻ từ.');
+      }
+    } catch (e) {
+      console.error('Error saving vocab to deck:', e);
+    }
+  }
+
+  function saveAllIdeaVocabToDeck() {
+    const key = getIdeaCacheKey();
+    const data = state.ideaCache[key];
+    if (!data || !data.vocabulary || !data.vocabulary.length) return;
+
+    let count = 0;
+    data.vocabulary.forEach(item => {
+      if (typeof window.saveCustomWordItem === 'function') {
+        window.saveCustomWordItem({
+          word: item.phrase,
+          ipa: item.ipa,
+          meaning: item.meaning,
+          type: 'collocation',
+          example: `Used in IELTS Speaking for topic "${getCurrentItem().topicTitle}"`
+        });
+        count++;
+      }
+    });
+
+    if (typeof window.showToast === 'function') {
+      window.showToast(`✓ Đã lưu toàn bộ ${count} từ vựng vào Thẻ Từ!`, 'success');
+    } else {
+      alert(`Đã lưu toàn bộ ${count} từ vựng vào Thẻ Từ!`);
+    }
+  }
+
   // Public API
   window.SpeakingEngine = {
     init: init,
@@ -1167,7 +1709,18 @@ Please provide the rigorous evaluation and JSON response.`;
     saveGroqKeyFromInput: saveGroqKeyFromInput,
     openHistoryModal: openHistoryModal,
     closeHistoryModal: closeHistoryModal,
-    copyToClipboard: copyToClipboard
+    copyToClipboard: copyToClipboard,
+
+    // Idea & Vocabulary exports
+    toggleIdeaAccordion: toggleIdeaAccordion,
+    setIdeaBand: setIdeaBand,
+    refreshIdea: refreshIdea,
+    speakPhrase: speakPhrase,
+    saveIdeaVocab: saveIdeaVocabToDeck,
+    saveAllIdeaVocabToDeck: saveAllIdeaVocabToDeck,
+    speakIdeaModelAnswer: speakIdeaModelAnswer,
+    copyIdeaModelAnswer: copyIdeaModelAnswer,
+    copyIdeaToScratchpad: copyIdeaToScratchpad
   };
 
 })(window);

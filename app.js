@@ -7309,7 +7309,14 @@ function setSyncPairKey(key) {
 }
 
 function buildFullSyncPayload() {
-  const curStreak = parseInt(localStorage.getItem("EMH_STREAK")) || (appState.currentUser?.streak_count || 1);
+  const curStreak = Math.max(15, parseInt(localStorage.getItem("EMH_STREAK")) || (appState.currentUser?.streak_count || 15));
+  let doneQuestions = {};
+  let practiceHistory = [];
+  let cueNotes = {};
+  try { doneQuestions = JSON.parse(localStorage.getItem("speaking_done_questions_v1") || "{}"); } catch(e) {}
+  try { practiceHistory = JSON.parse(localStorage.getItem("speaking_practice_history_v1") || "[]"); } catch(e) {}
+  try { cueNotes = JSON.parse(localStorage.getItem("speaking_cue_card_notes_v1") || "{}"); } catch(e) {}
+
   return {
     missionRegistry: missionRegistry,
     streak: {
@@ -7318,6 +7325,11 @@ function buildFullSyncPayload() {
     },
     customWords: getSavedCustomWords(),
     interleavedConfig: getInterleavedConfig(),
+    speakingDoneQuestions: doneQuestions,
+    speakingHistory: practiceHistory.slice(0, 50),
+    speakingCueNotes: cueNotes,
+    groqApiKey: localStorage.getItem("user_groq_api_key") || "",
+    activeTheme: localStorage.getItem("emh_active_theme_palette") || "default",
     device: navigator.userAgent.includes("Mobile") ? "Điện thoại" : "Máy tính",
     updatedAt: new Date().toISOString()
   };
@@ -7385,14 +7397,15 @@ function applyFullSyncPayload(payload) {
       }
     }
 
-    // 2. Merge streak
+    // 2. Merge streak (Bảo đảm tối thiểu 15 ngày streak)
     if (payload.streak && payload.streak.count) {
-      const curStreak = parseInt(localStorage.getItem("EMH_STREAK")) || 1;
-      const maxStreak = Math.max(curStreak, parseInt(payload.streak.count) || 1);
+      const curStreak = parseInt(localStorage.getItem("EMH_STREAK")) || 15;
+      const maxStreak = Math.max(curStreak, parseInt(payload.streak.count) || 15, 15);
       localStorage.setItem("EMH_STREAK", String(maxStreak));
       if (payload.streak.lastActiveDate) {
         localStorage.setItem("EMH_LAST_ACTIVE_DATE", payload.streak.lastActiveDate);
       }
+      if (typeof updateStreakUI === "function") updateStreakUI(maxStreak);
     }
 
     // 3. Merge customWords
@@ -7408,6 +7421,53 @@ function applyFullSyncPayload(payload) {
         }
       });
       localStorage.setItem(CUSTOM_SAVED_WORDS_KEY, JSON.stringify(Array.from(map.values())));
+    }
+
+    // 4. Merge Speaking Done Questions & Progress
+    if (payload.speakingDoneQuestions && typeof payload.speakingDoneQuestions === "object") {
+      try {
+        const localDone = JSON.parse(localStorage.getItem("speaking_done_questions_v1") || "{}");
+        const mergedDone = { ...localDone, ...payload.speakingDoneQuestions };
+        localStorage.setItem("speaking_done_questions_v1", JSON.stringify(mergedDone));
+      } catch (e) {}
+    }
+
+    // 5. Merge Speaking Practice History
+    if (Array.isArray(payload.speakingHistory) && payload.speakingHistory.length > 0) {
+      try {
+        const localHist = JSON.parse(localStorage.getItem("speaking_practice_history_v1") || "[]");
+        const existingIds = new Set(localHist.map(h => h.id || (h.date + "_" + h.question)));
+        const combined = [...localHist];
+        payload.speakingHistory.forEach(h => {
+          const id = h.id || (h.date + "_" + h.question);
+          if (!existingIds.has(id)) {
+            existingIds.add(id);
+            combined.push(h);
+          }
+        });
+        combined.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+        localStorage.setItem("speaking_practice_history_v1", JSON.stringify(combined.slice(0, 100)));
+      } catch (e) {}
+    }
+
+    // 6. Merge Speaking Cue Notes
+    if (payload.speakingCueNotes && typeof payload.speakingCueNotes === "object") {
+      try {
+        const localNotes = JSON.parse(localStorage.getItem("speaking_cue_card_notes_v1") || "{}");
+        const mergedNotes = { ...payload.speakingCueNotes, ...localNotes };
+        localStorage.setItem("speaking_cue_card_notes_v1", JSON.stringify(mergedNotes));
+      } catch (e) {}
+    }
+
+    // 7. Sync Groq API Key
+    if (payload.groqApiKey && typeof payload.groqApiKey === "string" && payload.groqApiKey.trim()) {
+      const localKey = localStorage.getItem("user_groq_api_key");
+      if (!localKey) {
+        localStorage.setItem("user_groq_api_key", payload.groqApiKey.trim());
+        if (window.SpeakingEngine && typeof window.SpeakingEngine.updateGroqIndicator === "function") {
+          window.SpeakingEngine.updateGroqIndicator();
+        }
+      }
     }
 
     if (hasChanges) {
@@ -7603,6 +7663,12 @@ function openSyncModal() {
   if (modal) {
     modal.classList.remove("hidden");
     updateSyncUIStatus();
+    const lanInput = document.getElementById("lanLinkInput");
+    if (lanInput) {
+      const host = window.location.hostname;
+      const ip = (host && host !== "localhost" && host !== "127.0.0.1") ? host : "192.168.1.19";
+      lanInput.value = `http://${ip}:8000`;
+    }
     if (typeof lucide !== "undefined") lucide.createIcons();
   }
 }

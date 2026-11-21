@@ -153,6 +153,30 @@ def serve_bilingual_news_data():
 def serve_reading_lexicon():
     return FileResponse(os.path.join(FRONTEND_DIR, "reading_lexicon.js"), media_type="application/javascript")
 
+@app.get("/speaking.html")
+def serve_speaking_html():
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
+
+@app.get("/speaking-forecast.js")
+def serve_speaking_forecast():
+    return FileResponse(os.path.join(FRONTEND_DIR, "speaking-forecast.js"), media_type="application/javascript")
+
+@app.get("/speaking-knowledge-bank.js")
+def serve_speaking_knowledge_bank():
+    return FileResponse(os.path.join(FRONTEND_DIR, "speaking-knowledge-bank.js"), media_type="application/javascript")
+
+@app.get("/speaking-engine.js")
+def serve_speaking_engine():
+    return FileResponse(os.path.join(FRONTEND_DIR, "speaking-engine.js"), media_type="application/javascript")
+
+@app.get("/conversation_data.js")
+def serve_conversation_data():
+    return FileResponse(os.path.join(FRONTEND_DIR, "conversation_data.js"), media_type="application/javascript")
+
+@app.get("/educational_channels_data.js")
+def serve_educational_channels_data():
+    return FileResponse(os.path.join(FRONTEND_DIR, "educational_channels_data.js"), media_type="application/javascript")
+
 @app.get("/mobile_qr.png")
 def serve_qr():
     qr_path = os.path.join(FRONTEND_DIR, "mobile_qr.png")
@@ -189,6 +213,21 @@ def healthcheck():
         "timestamp": os.path.getmtime(__file__),
         "service": "English Mastery Hub"
     }
+
+# Fallback static file and SPA route handler
+@app.get("/{file_name:path}")
+def serve_frontend_static(file_name: str):
+    file_path = os.path.join(FRONTEND_DIR, file_name)
+    if os.path.isfile(file_path):
+        media_type = "text/html"
+        if file_name.endswith(".js"): media_type = "application/javascript"
+        elif file_name.endswith(".css"): media_type = "text/css"
+        elif file_name.endswith(".json"): media_type = "application/json"
+        elif file_name.endswith(".png"): media_type = "image/png"
+        elif file_name.endswith(".jpg") or file_name.endswith(".jpeg"): media_type = "image/jpeg"
+        elif file_name.endswith(".ico"): media_type = "image/x-icon"
+        return FileResponse(file_path, media_type=media_type)
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
 
 if __name__ == "__main__":
     import uvicorn

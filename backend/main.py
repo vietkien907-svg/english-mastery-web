@@ -165,6 +165,10 @@ def serve_speaking_forecast():
 def serve_speaking_knowledge_bank():
     return FileResponse(os.path.join(FRONTEND_DIR, "speaking-knowledge-bank.js"), media_type="application/javascript")
 
+@app.get("/speakout-speaking-data.js")
+def serve_speakout_speaking_data():
+    return FileResponse(os.path.join(FRONTEND_DIR, "speakout-speaking-data.js"), media_type="application/javascript")
+
 @app.get("/speaking-engine.js")
 def serve_speaking_engine():
     return FileResponse(os.path.join(FRONTEND_DIR, "speaking-engine.js"), media_type="application/javascript")

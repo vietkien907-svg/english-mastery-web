@@ -1820,6 +1820,19 @@
 
         <!-- ================= TAB: IELTS SPEAKING STUDIO (AI EXAMINER 2-COLUMN) ================= -->
     <section id="tab-speaking" class="space-y-4">
+      <!-- Source Switcher Bar: Speakout B1+ vs Forecast Q3/2026 -->
+      <div class="pv-card p-2 flex items-center gap-2 bg-slate-50 border border-slate-200/80">
+        <span class="text-xs font-bold text-slate-500 shrink-0 ml-1">Kho đề:</span>
+        <div class="grid grid-cols-2 gap-2 flex-1">
+          <button type="button" id="spSourceTab_speakout" onclick="SpeakingEngine.setSource('speakout')" class="py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-white text-indigo-700 shadow-sm border-2 border-indigo-500">
+            <span>📚 Giáo Trình Speakout B1+ (Unit 1–8)</span>
+          </button>
+          <button type="button" id="spSourceTab_forecast" onclick="SpeakingEngine.setSource('forecast')" class="py-2 px-3 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-600 hover:text-slate-800 hover:bg-white/80 border border-slate-200">
+            <span>🔮 Đề Dự Đoán Thi Thật (IELTS Forecast Q3)</span>
+          </button>
+        </div>
+      </div>
+
       <!-- 3 IELTS Speaking Parts Bento Selector Bar -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <!-- Part 1 Button Card -->
@@ -3033,18 +3046,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=82.0"></script>
-  <script src="./listening_data.js?v=82.0"></script>
-  <script src="./vietnam_today_data.js?v=82.0"></script>
-  <script src="./educational_channels_data.js?v=82.0"></script>
-  <script src="./international_news_videos.js?v=82.0"></script>
-  <script src="./bilingual_news_data.js?v=82.0"></script>
-  <script src="./reading_lexicon.js?v=82.0"></script>
-  <script src="./conversation_data.js?v=82.0"></script>
-    <script src="./speaking-forecast.js?v=82.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=82.0"></script>
-  <script src="./speaking-engine.js?v=82.0"></script>
-  <script src="./app.js?v=82.0"></script>
+  <script src="./data.js?v=83.0"></script>
+  <script src="./listening_data.js?v=83.0"></script>
+  <script src="./vietnam_today_data.js?v=83.0"></script>
+  <script src="./educational_channels_data.js?v=83.0"></script>
+  <script src="./international_news_videos.js?v=83.0"></script>
+  <script src="./bilingual_news_data.js?v=83.0"></script>
+  <script src="./reading_lexicon.js?v=83.0"></script>
+  <script src="./conversation_data.js?v=83.0"></script>
+    <script src="./speaking-forecast.js?v=83.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=83.0"></script>
+  <script src="./speakout-speaking-data.js?v=83.0"></script>
+  <script src="./speaking-engine.js?v=83.0"></script>
+  <script src="./app.js?v=83.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3052,7 +3066,7 @@
     }
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=82.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=83.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

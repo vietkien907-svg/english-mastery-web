@@ -57,6 +57,10 @@
     prepSecondsLeft: 60,
     isPrepRunning: false,
 
+    // Source Switcher: 'speakout' (Speakout B1+ Unit 1-8) or 'forecast' (IELTS Forecast)
+    currentSource: 'speakout',
+    selectedCueCardIndex: {},
+
     // Idea & Vocabulary Accordion (Night IELTS)
     ideaBand: '6.5',
     isIdeaOpen: false,
@@ -107,6 +111,36 @@
 
   // Helper: Get Forecast Data safely
   function getForecast() {
+    if (state.currentSource === 'speakout' && window.SPEAKOUT_SPEAKING_DATA) {
+      const units = window.SPEAKOUT_SPEAKING_DATA.units || [];
+      const p1 = units.map((u, i) => ({
+        t: u.title,
+        q: u.p1,
+        unitData: u
+      }));
+      const p2 = units.map((u, i) => {
+        const uId = u.id || ('u' + (i + 1));
+        const activeCueIndex = (state.selectedCueCardIndex && state.selectedCueCardIndex[uId]) || 0;
+        const curCue = (u.cueCards && u.cueCards[activeCueIndex]) || (u.cueCards && u.cueCards[0]) || { t: u.title, cue: [] };
+        return {
+          t: u.title,
+          card: curCue.t,
+          cue: curCue.cue,
+          ex: curCue.ex || '',
+          q: u.p3,
+          cueCards: u.cueCards,
+          unitData: u
+        };
+      });
+      return {
+        id: 'speakout_b1plus',
+        name: 'Giáo Trình Speakout B1+ (Unit 1–8)',
+        range: 'Toàn Bộ 8 Unit · Bài A, B, C, D · 2000 Idioms',
+        p1: p1,
+        p2: p2
+      };
+    }
+
     if (window.SP_FORECAST && Array.isArray(window.SP_FORECAST.p1) && Array.isArray(window.SP_FORECAST.p2)) {
       return window.SP_FORECAST;
     }
@@ -780,11 +814,31 @@ Please provide the rigorous evaluation and JSON response.`;
         cueZone.classList.remove('hidden');
         const cue = cur.cueCard;
         const cuesHtml = (cue.cue || []).map(c => `<li class="my-1 font-medium">${c}</li>`).join('');
+
+        const cueCardsList = cur.topic && cur.topic.cueCards ? cur.topic.cueCards : null;
+        let cuePickerHtml = '';
+        if (cueCardsList && cueCardsList.length > 1) {
+          const uId = cur.topic.unitData ? cur.topic.unitData.id : 'default';
+          const activeCueIdx = (state.selectedCueCardIndex && state.selectedCueCardIndex[uId]) || 0;
+          cuePickerHtml = `
+            <div class="flex items-center gap-1.5 flex-wrap mb-3 p-1.5 bg-slate-100/80 rounded-xl border border-slate-200">
+              <span class="text-xs font-bold text-slate-500 mr-1 pl-1">Chọn bài Cue Card:</span>
+              ${cueCardsList.map((c, cIdx) => `
+                <button type="button" onclick="SpeakingEngine.selectCueCard('${uId}', ${cIdx})"
+                  class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${cIdx === activeCueIdx ? 'bg-indigo-600 text-white shadow-sm' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'}">
+                  ${c.label || ('Đề ' + (c.code || (cIdx + 1)))}
+                </button>
+              `).join('')}
+            </div>
+          `;
+        }
+
         cueZone.innerHTML = `
+          ${cuePickerHtml}
           <div class="cue-card-container">
             <div class="flex items-center justify-between mb-3 border-b border-[#ece8f1] pb-2">
               <span class="part-chip" style="font-size: 11px; font-weight: 800; color: var(--accent-ink); background: var(--accent-wash); padding: 2px 10px; border-radius: 999px;">
-                PART 2 · CUE CARD
+                PART 2 · CUE CARD ${cue.code ? '(' + cue.code + ')' : ''}
               </span>
               <button type="button" onclick="SpeakingEngine.speakCurrentQuestion()" class="ni-nav-btn" style="padding: 3px 8px; font-size: 12px;">
                 🔊 Nghe đề thi
@@ -1221,6 +1275,17 @@ Please provide the rigorous evaluation and JSON response.`;
   }
 
   function getKnowledgeBankData(cur) {
+    if (cur.topic && cur.topic.unitData) {
+      const u = cur.topic.unitData;
+      const combinedVocab = [...(u.vocabulary || []), ...(u.idioms || [])];
+      return {
+        ideas: u.ideas || [],
+        collocations: combinedVocab,
+        sample65: u.sample65 || '',
+        sample80: u.sample80 || ''
+      };
+    }
+
     if (!window.SP_KNOWLEDGE_BANK) return null;
     const t = (cur.topicTitle || '').trim();
     if (window.SP_KNOWLEDGE_BANK[t]) return window.SP_KNOWLEDGE_BANK[t];
@@ -1609,7 +1674,10 @@ Respond ONLY with a valid JSON object matching this schema:
                 <div class="p-2.5 bg-white rounded-xl border border-slate-200 hover:border-indigo-300 transition-all flex flex-col justify-between">
                   <div>
                     <div class="flex items-center justify-between gap-1 mb-0.5">
-                      <span class="font-bold text-xs text-[#0f172a]">${v.phrase}</span>
+                      <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="font-bold text-xs text-[#0f172a]">${v.phrase}</span>
+                        ${v.meaning && v.meaning.includes('[2000 Idioms]') ? '<span class="text-[10px] font-extrabold px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 border border-emerald-300">2000 Idioms</span>' : ''}
+                      </div>
                       <button type="button" onclick="SpeakingEngine.speakPhrase('${v.phrase.replace(/'/g, "\'")}')" class="text-slate-400 hover:text-indigo-600 text-xs px-1" title="Phát âm">
                         🔊
                       </button>
@@ -1757,6 +1825,37 @@ Respond ONLY with a valid JSON object matching this schema:
     }
   }
 
+
+  function setSource(source) {
+    state.currentSource = source || 'speakout';
+    state.currentTopicIndex = 0;
+    state.currentQuestionIndex = 0;
+
+    const btnSpeakout = document.getElementById('spSourceTab_speakout');
+    const btnForecast = document.getElementById('spSourceTab_forecast');
+
+    if (btnSpeakout && btnForecast) {
+      if (state.currentSource === 'speakout') {
+        btnSpeakout.className = 'py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-white text-indigo-700 shadow-sm border-2 border-indigo-500';
+        btnForecast.className = 'py-2 px-3 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-600 hover:text-slate-800 hover:bg-white/80 border border-slate-200';
+      } else {
+        btnForecast.className = 'py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-white text-indigo-700 shadow-sm border-2 border-indigo-500';
+        btnSpeakout.className = 'py-2 px-3 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-600 hover:text-slate-800 hover:bg-white/80 border border-slate-200';
+      }
+    }
+
+    setPart(state.currentPart || '1');
+  }
+
+  function selectCueCard(uId, cIdx) {
+    if (!state.selectedCueCardIndex) state.selectedCueCardIndex = {};
+    state.selectedCueCardIndex[uId] = cIdx;
+    renderCurrentQuestionBoard();
+    if (state.isIdeaOpen) {
+      loadIdeaForCurrentQuestion();
+    }
+  }
+
   // Public API
   window.SpeakingEngine = {
     init: init,
@@ -1785,6 +1884,8 @@ Respond ONLY with a valid JSON object matching this schema:
 
     // Idea & Vocabulary exports
     toggleIdeaAccordion: toggleIdeaAccordion,
+    setSource: setSource,
+    selectCueCard: selectCueCard,
     generateAiIdeaWithGroq: generateAiIdeaWithGroq,
     setIdeaBand: setIdeaBand,
     refreshIdea: refreshIdea,

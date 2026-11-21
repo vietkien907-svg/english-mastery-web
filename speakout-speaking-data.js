@@ -1,4 +1,3 @@
-/* SPEAKOUT B1+ SPEAKING CURRICULUM (UNITS 1–8) WITH 2000 IDIOMS */
 window.SPEAKOUT_SPEAKING_DATA = {
   "id": "speakout_b1plus",
   "name": "Giáo Trình Speakout B1+ (Unit 1–8)",
@@ -862,7 +861,7 @@ window.SPEAKOUT_SPEAKING_DATA = {
     {
       "id": "u7",
       "number": 7,
-      "title": "Unit 7: Connect (Lời Khuyên, Bài Học Cuộc Đời & Người Thông Thái)",
+      "title": "Unit 7: Connect (Giao Tiếp, Hiểu Lầm & Mạng Xã Hội)",
       "p1": [
         "[7A] Have you ever been entangled in an amusing misunderstanding due to linguistic or cultural nuances?",
         "[7A] How do you handle clarifying your intent when a serious communication mix-up occurs?",
@@ -876,57 +875,46 @@ window.SPEAKOUT_SPEAKING_DATA = {
       "cueCards": [
         {
           "code": "7A",
-          "label": "Cue Card 7A: Hiểu Lầm Giao Tiếp & Cách Tháo Gỡ",
+          "label": "7A: Communication Misunderstanding",
           "t": "Describe a communication misunderstanding or mix-up you experienced",
           "cue": [
-            "When and where the misunderstanding took place",
-            "Who was involved and what caused the breakdown in communication",
-            "How the confusion escalated or created an awkward moment",
-            "And explain how you successfully resolved the situation with the other person"
+            "When and where it happened",
+            "Who was involved in the situation",
+            "What the cause of the misunderstanding was",
+            "And explain how the issue was resolved"
           ]
         },
         {
-          "code": "7D-1",
-          "label": "Cue Card 7D (1): Lời Khuyên Bạn Nhớ Mãi",
-          "t": "Describe a piece of advice that you remember well",
+          "code": "7B",
+          "label": "7B: Online Privacy & Oversharing",
+          "t": "Describe a time when you saw someone overshare on social media",
           "cue": [
-            "What the advice was",
-            "Who gave it to you",
-            "When you received this advice",
-            "And explain why you still remember it"
+            "What platform it was on",
+            "What information was shared",
+            "Why you felt it was inappropriate or risky",
+            "And explain what you learned about online privacy"
           ]
         },
         {
-          "code": "7D-2",
-          "label": "Cue Card 7D (2): Một Người Thông Thái Bạn Quen Biết",
-          "t": "Describe a wise person you know",
+          "code": "7C",
+          "label": "7C: An Inspiring Conversation",
+          "t": "Describe an interesting conversation you had with a stranger or acquaintance",
+          "cue": [
+            "Who you spoke to and where you met",
+            "What you talked about",
+            "Why the conversation was memorable",
+            "And explain how it influenced your perspective"
+          ]
+        },
+        {
+          "code": "7D",
+          "label": "7D: A Great Communicator",
+          "t": "Describe a person you know who is an exceptional communicator",
           "cue": [
             "Who this person is",
-            "How you know this person",
-            "What makes this person wise",
-            "And explain what you have learned from them"
-          ]
-        },
-        {
-          "code": "7D-3",
-          "label": "Cue Card 7D (3): Câu Châm Ngôn / Danh Ngôn Bạn Yêu Thích",
-          "t": "Describe a saying or quotation that you like",
-          "cue": [
-            "What the saying or quotation is",
-            "When you first heard or read it",
-            "What you think it means",
-            "And explain why it is meaningful to you"
-          ]
-        },
-        {
-          "code": "7D-4",
-          "label": "Cue Card 7D (4): Bài Học Cuộc Sống Quan Trọng Đã Học Được",
-          "t": "Describe an important life lesson you have learned",
-          "cue": [
-            "What the lesson was",
-            "When and how you learned it",
-            "Who or what taught you this lesson",
-            "And explain why this lesson is important to you"
+            "How they communicate with others",
+            "What qualities make their communication so effective",
+            "And explain why you admire their communication style"
           ]
         }
       ],
@@ -988,106 +976,133 @@ window.SPEAKOUT_SPEAKING_DATA = {
     {
       "id": "u8",
       "number": 8,
-      "title": "Unit 8: Future & Global (Tương Lai, Thách Thức Toàn Cầu & Đổi Mới)",
+      "title": "Unit 8: Wisdom (Lời Khuyên, Người Thông Thái & Bài Học Cuộc Đời)",
       "p1": [
-        "[8A] Which scientific innovation do you believe will exert the most profound impact on society over the next decade?",
-        "[8A] Do you lean towards an optimistic or dystopian vision regarding humanity's technological trajectory?",
-        "[8B] What do you evaluate as the most urgent and perilous ecological threat facing our biosphere today?",
-        "[8B] What sustainable everyday conservation measures can ordinary households effortlessly incorporate?",
-        "[8C] Have you navigated any radical life transitions in recent memory, such as relocating or shifting careers?",
-        "[8C] How do you typically cultivate resilience when confronted with sudden, destabilizing life changes?",
-        "[8D] Have you encountered any pioneering clean-tech inventions or green energy breakthroughs recently?",
-        "[8D] Would you be eager to adopt an electric vehicle or solar microgrid in your personal lifestyle?"
+        "[8A] What is the most memorable piece of advice you have ever received?",
+        "[8A] Do you usually seek advice from elders or peers when making critical life decisions?",
+        "[8B] Who in your life has served as your most inspiring mentor or role model?",
+        "[8B] What is an important lesson you learned from a mistake you made in the past?",
+        "[8C] Is there a famous quotation, idiom, or saying that has guided your personal philosophy?",
+        "[8C] How comfortable are you with delivering public presentations or pitching ideas?",
+        "[8D] What essential entrepreneurial qualities do successful startup founders possess?",
+        "[8D] In your opinion, does true wisdom come with biological age or lived experience?"
       ],
       "cueCards": [
         {
-          "code": "8A",
-          "label": "Cue Card 8A: Phát Minh Đột Phá Trong Tương Lai",
-          "t": "Describe a future invention or scientific development that you would love to witness",
+          "code": "8A-1",
+          "label": "8A: Piece of Advice",
+          "t": "Describe a piece of advice that you remember well",
           "cue": [
-            "What this hypothetical invention would do and how it would function",
-            "What grand challenges or diseases it would solve",
-            "How it would transform everyday human life",
-            "And explain why you believe humanity urgently requires this breakthrough"
+            "What the advice was",
+            "Who gave it to you",
+            "When you received this advice",
+            "And explain why you still remember it"
           ]
         },
         {
-          "code": "8B",
-          "label": "Cue Card 8B: Dự Án / Sáng Kiến Bảo Vệ Môi Trường",
-          "t": "Describe an environmental initiative, policy, or project you strongly endorse",
+          "code": "8B-1",
+          "label": "8B: Wise Person You Know",
+          "t": "Describe a wise person you know",
           "cue": [
-            "What the environmental program entails and where it is operating",
-            "How it reduces pollution, conserves species, or restores habitats",
-            "What hurdles the organizers face in scaling the initiative",
-            "And explain why you believe this project offers genuine hope for our planet"
+            "Who this person is",
+            "How you know this person",
+            "What makes this person wise",
+            "And explain what you have learned from them"
           ]
         },
         {
-          "code": "8C",
-          "label": "Cue Card 8C: Bước Ngoặt Cuộc Đời Giúp Trưởng Thành",
-          "t": "Describe a major transition or turning point in your life that made you mature",
+          "code": "8B-2",
+          "label": "8B: Important Life Lesson",
+          "t": "Describe an important life lesson you have learned",
           "cue": [
-            "What momentous change took place and when it occurred",
-            "How you initially struggled to cope with the disruption",
-            "What inner strengths and mentors assisted your adjustment",
-            "And explain how that milestone fundamentally altered your worldview"
+            "What the lesson was",
+            "When and how you learned it",
+            "Who or what taught you this lesson",
+            "And explain why this lesson is important to you"
+          ]
+        },
+        {
+          "code": "8C-1",
+          "label": "8C: Saying or Quotation",
+          "t": "Describe a saying or quotation that you like",
+          "cue": [
+            "What the saying or quotation is",
+            "When you first heard or read it",
+            "What you think it means",
+            "And explain why it is meaningful to you"
+          ]
+        },
+        {
+          "code": "8D-1",
+          "label": "8D: Pitching a Business Idea",
+          "t": "Describe a business idea or presentation you would like to pitch",
+          "cue": [
+            "What the idea or product is",
+            "Who the target audience is",
+            "What makes your proposal unique",
+            "And explain why you believe it would succeed"
           ]
         }
       ],
       "p3": [
-        "Will generative artificial intelligence and autonomous robotics eliminate more livelihoods than they create?",
-        "How can developing industrial economies balance poverty eradication with strict carbon reduction quotas?",
-        "Should affluent high-emitting nations fund green technology transfers to climate-vulnerable societies?",
-        "Why is the human psyche often instinctively resistant to accepting transformative technological shifts?",
-        "Does commercial deep-space colonization represent a legitimate pursuit or an extravagant distraction?",
-        "What moral obligations does our contemporary civilization owe to unborn future generations?"
+        "At what age do people typically gain the maturity to give sound life advice?",
+        "How has social media changed the way younger generations seek advice and mentorship?",
+        "Can wisdom be systematically taught in school curriculums, or does it only stem from failure?",
+        "Why do ancient proverbs and cultural sayings remain deeply influential in modern society?",
+        "What ethical responsibilities do mentors and teachers have toward their students?",
+        "In an era dominated by artificial intelligence and big data, will human wisdom become more or less valuable?"
       ],
       "vocabulary": [
         {
-          "phrase": "game-changing innovation",
-          "ipa": "/ˌɡeɪm ˈtʃeɪn.dʒɪŋ ˌɪn.əˈveɪ.ʃən/",
-          "meaning": "cải tiến mang tính bước ngoặt lịch sử"
+          "phrase": "words of wisdom",
+          "ipa": "/wɜːdz əv ˈwɪz.dəm/",
+          "meaning": "lời vàng ý ngọc, lời khuyên thông thái"
         },
         {
-          "phrase": "ecological footprint",
-          "ipa": "/ˌiː.kəˈlɒdʒ.ɪ.kəl ˈfʊt.prɪnt/",
-          "meaning": "dấu chân sinh thái, tác động môi trường"
+          "phrase": "food for thought",
+          "ipa": "/fuːd fɔː θɔːt/",
+          "meaning": "điều đáng để suy ngẫm sâu sắc"
         },
         {
-          "phrase": "adapt to the new normal",
-          "ipa": "/əˈdæpt tə ðə njuː ˈnɔː.məl/",
-          "meaning": "thích ứng linh hoạt với tình hình mới"
+          "phrase": "lead by example",
+          "ipa": "/liːd baɪ ɪɡˈzɑːm.pəl/",
+          "meaning": "nêu gương, làm gương sáng cho người khác"
         },
         {
-          "phrase": "renewable energy transition",
-          "ipa": "/rɪˈnjuː.ə.bəl ˈen.ə.dʒi trænˈzɪʃ.ən/",
-          "meaning": "quá trình chuyển dịch sang năng lượng tái tạo"
+          "phrase": "invaluable guidance",
+          "ipa": "/ɪnˈvæl.jə.bəl ˈɡaɪ.dəns/",
+          "meaning": "sự chỉ dẫn vô giá"
         }
       ],
       "idioms": [
         {
-          "phrase": "ahead of its time",
-          "ipa": "/əˈhed əv ɪts taɪm/",
-          "meaning": "đi trước thời đại, tiên phong vượt bậc [2000 Idioms]"
+          "phrase": "learn the hard way",
+          "ipa": "/lɜːn ðə hɑːd weɪ/",
+          "meaning": "học được bài học đắt giá qua vấp ngã [2000 Idioms]"
         },
         {
-          "phrase": "tip of the iceberg",
-          "ipa": "/tɪp əv ðiː ˈaɪs.bɜːɡ/",
-          "meaning": "chỉ mới là phần nổi của tảng băng chìm [2000 Idioms]"
+          "phrase": "every cloud has a silver lining",
+          "ipa": "/ˈev.ri klaʊd hæz ə ˈsɪl.və ˈlaɪ.nɪŋ/",
+          "meaning": "trong cái rủi có cái may [2000 Idioms]"
         },
         {
-          "phrase": "turn over a new leaf",
-          "ipa": "/tɜːn ˈəʊ.vər ə njuː liːf/",
-          "meaning": "bước sang trang mới, thay đổi tích cực [2000 Idioms]"
+          "phrase": "take something with a pinch of salt",
+          "ipa": "/teɪk wɪð ə pɪntʃ əv sɒlt/",
+          "meaning": "tiếp nhận với sự hoài nghi tỉnh táo [2000 Idioms]"
+        },
+        {
+          "phrase": "practice what you preach",
+          "ipa": "/ˈpræk.tɪs wɒt juː priːtʃ/",
+          "meaning": "nói đi đôi với làm, gương mẫu [2000 Idioms]"
         }
       ],
       "ideas": [
-        "Mở bài: Đưa ra tầm nhìn về công nghệ hoặc thách thức môi trường tương lai",
-        "Thân bài: Nêu thực trạng hiện tại (chỉ mới là phần nổi của tảng băng) và giải pháp",
-        "Kết luận: Khẳng định trách nhiệm đạo đức của thế hệ hôm nay đối với tương lai"
+        "Mở bài: Giới thiệu lời khuyên, bài học đắt giá hoặc người thầy/người thông thái đã thay đổi nhận thức của bạn",
+        "Thân bài: Phân tích bối cảnh bạn nhận được bài học đó, cảm xúc ban đầu và sự thay đổi trong cách suy nghĩ/hành động",
+        "Kết luận: Khẳng định giá trị trường tồn của bài học này đối với con đường trưởng thành trong tương lai"
       ],
-      "sample65": "Addressing climate change is undoubtedly the defining challenge of our era, and our current green initiatives are merely the tip of the iceberg. However, seeing youth around the world embrace renewable energy gives me hope that society is ready to turn over a new leaf with game-changing innovations that are truly ahead of their time.",
-      "sample80": "What we currently witness in ecological disruptions is, frankly, just the tip of the iceberg. Confronting this existential emergency demands that civilization turns over a new leaf by championing game-changing innovations ahead of their time. The transition to renewable energy is not an optional luxury; it is the moral imperative of our century."
+      "sample65": "The most memorable piece of advice I ever received was from my high school teacher, who reminded me that every cloud has a silver lining. At that time, I had just failed a major examination and felt completely devastated. However, his words encouraged me to reflect and learn the hard way. That experience taught me resilience and showed me that setbacks are often hidden opportunities for growth.",
+      "sample80": "Throughout life, we encounter countless mentors, but the true words of wisdom that resonate most deeply are those lived by example. Receiving timely guidance during moments of crisis provides profound food for thought. While advice should occasionally be taken with a pinch of salt, embracing life's difficult lessons has fundamentally shaped my intellectual maturity and moral compass."
     }
   ]
 };

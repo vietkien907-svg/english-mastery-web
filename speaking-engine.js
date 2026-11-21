@@ -1172,7 +1172,27 @@ Please provide the rigorous evaluation and JSON response.`;
   }
 
   // Random Question Pick
-  function pickRandomQuestion() {
+  // Pick random question (supports same-source or cross-source mix)
+  function pickRandomQuestion(crossSource = false) {
+    if (crossSource) {
+      const sources = ['speakout', 'forecast'];
+      const chosen = sources[Math.floor(Math.random() * sources.length)];
+      if (state.currentSource !== chosen) {
+        state.currentSource = chosen;
+        const btnSp = document.getElementById('spSourceTab_speakout');
+        const btnFc = document.getElementById('spSourceTab_forecast');
+        if (btnSp && btnFc) {
+          if (chosen === 'speakout') {
+            btnSp.className = 'py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-white text-indigo-700 shadow-sm border-2 border-indigo-500';
+            btnFc.className = 'py-2 px-3 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-600 hover:text-slate-800 hover:bg-white/80 border border-slate-200';
+          } else {
+            btnFc.className = 'py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-white text-indigo-700 shadow-sm border-2 border-indigo-500';
+            btnSp.className = 'py-2 px-3 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-600 hover:text-slate-800 hover:bg-white/80 border border-slate-200';
+          }
+        }
+      }
+    }
+
     const f = getForecast();
     if (state.currentPart === '1' && f.p1.length) {
       state.currentTopicIndex = Math.floor(Math.random() * f.p1.length);
@@ -1180,6 +1200,11 @@ Please provide the rigorous evaluation and JSON response.`;
       state.currentQuestionIndex = Math.floor(Math.random() * top.q.length);
     } else if (state.currentPart === '2' && f.p2.length) {
       state.currentTopicIndex = Math.floor(Math.random() * f.p2.length);
+      const cue = f.p2[state.currentTopicIndex];
+      if (cue && cue.cueCards && cue.cueCards.length > 1) {
+        const uId = (cue.unitData && cue.unitData.id) || ('u' + (state.currentTopicIndex + 1));
+        state.selectedCueCardIndex[uId] = Math.floor(Math.random() * cue.cueCards.length);
+      }
       state.currentQuestionIndex = 0;
     } else if (state.currentPart === '3' && f.p2.length) {
       state.currentTopicIndex = Math.floor(Math.random() * f.p2.length);
@@ -1908,6 +1933,7 @@ Respond ONLY with a valid JSON object matching this schema:
     selectQuestionIndex: selectQuestionIndex,
     handleSearch: handleSearch,
     pickRandomQuestion: pickRandomQuestion,
+    pickRandomCrossSource: function () { pickRandomQuestion(true); },
     speakCurrentQuestion: function () {
       const cur = getCurrentItem();
       if (cur) speakPrompt(cur.questionText);

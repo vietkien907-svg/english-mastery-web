@@ -1878,8 +1878,11 @@
           </select>
         </div>
         <div class="flex items-center gap-2 shrink-0">
-          <button type="button" onclick="SpeakingEngine.pickRandomQuestion()" class="ni-nav-btn text-xs font-semibold py-1.5 px-3" title="Bốc đề ngẫu nhiên">
+          <button type="button" onclick="SpeakingEngine.pickRandomQuestion()" class="ni-nav-btn text-xs font-semibold py-1.5 px-3" title="Bốc ngẫu nhiên trong kho hiện tại">
             <span>🎲 Bốc Đề</span>
+          </button>
+          <button type="button" onclick="SpeakingEngine.pickRandomCrossSource()" class="ni-nav-btn text-xs font-semibold py-1.5 px-3 bg-indigo-50 text-indigo-700 border-indigo-200 hover:bg-indigo-100" title="Bốc ngẫu nhiên trộn cả Speakout B1+ và Forecast Q3">
+            <span>⚡ Bốc Liên Kho</span>
           </button>
           <button type="button" onclick="SpeakingEngine.openHistoryModal()" class="ni-nav-btn text-xs font-semibold py-1.5 px-3" title="Lịch sử bài nói">
             <span>📜 Lịch Sử</span>
@@ -3046,19 +3049,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=85.0"></script>
-  <script src="./listening_data.js?v=85.0"></script>
-  <script src="./vietnam_today_data.js?v=85.0"></script>
-  <script src="./educational_channels_data.js?v=85.0"></script>
-  <script src="./international_news_videos.js?v=85.0"></script>
-  <script src="./bilingual_news_data.js?v=85.0"></script>
-  <script src="./reading_lexicon.js?v=85.0"></script>
-  <script src="./conversation_data.js?v=85.0"></script>
-    <script src="./speaking-forecast.js?v=85.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=85.0"></script>
-  <script src="./speakout-speaking-data.js?v=85.0"></script>
-  <script src="./speaking-engine.js?v=85.0"></script>
-  <script src="./app.js?v=85.0"></script>
+  <script src="./data.js?v=86.0"></script>
+  <script src="./listening_data.js?v=86.0"></script>
+  <script src="./vietnam_today_data.js?v=86.0"></script>
+  <script src="./educational_channels_data.js?v=86.0"></script>
+  <script src="./international_news_videos.js?v=86.0"></script>
+  <script src="./bilingual_news_data.js?v=86.0"></script>
+  <script src="./reading_lexicon.js?v=86.0"></script>
+  <script src="./conversation_data.js?v=86.0"></script>
+    <script src="./speaking-forecast.js?v=86.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=86.0"></script>
+  <script src="./speakout-speaking-data.js?v=86.0"></script>
+  <script src="./speaking-engine.js?v=86.0"></script>
+  <script src="./app.js?v=86.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3066,7 +3069,7 @@
     }
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=85.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=86.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

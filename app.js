@@ -1270,7 +1270,7 @@ function initDailyMissionEngine() {
   // Khôi phục dữ liệu học tập và chuỗi Streak của học viên Tô Nguyên Vũ (tonguyenvu@265.com)
   const userStreak = Math.max(
     parseInt(localStorage.getItem("EMH_STREAK") || "0", 10),
-    6
+    15
   );
   localStorage.setItem("EMH_STREAK", String(userStreak));
   localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", "tonguyenvu@265.com");
@@ -11327,9 +11327,9 @@ function applyStreakLossBan(reason = "Làm mất chuỗi ngày học liên tục
 
   // Cập nhật chuỗi Streak về 0
   let data = (typeof getDeadlineStreakData === "function") ? getDeadlineStreakData() : { streakDays: 0, lastCompletedDate: "" };
-  data.streakDays = Math.max(6, parseInt(data.streakDays || "6", 10));
+  data.streakDays = Math.max(15, parseInt(data.streakDays || "15", 10));
   localStorage.setItem("EMH_DEADLINE_STREAK_V2", JSON.stringify(data));
-  localStorage.setItem("EMH_STREAK", String(Math.max(6, parseInt(localStorage.getItem("EMH_STREAK") || "6", 10))));
+  localStorage.setItem("EMH_STREAK", String(Math.max(15, parseInt(localStorage.getItem("EMH_STREAK") || "15", 10))));
 
   // Cập nhật trạng thái trong danh sách tài khoản
   let list = getSavedAccounts();

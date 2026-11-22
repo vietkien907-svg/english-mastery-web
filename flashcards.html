@@ -107,7 +107,7 @@
       <div class="flex items-center gap-2">
         <!-- Streak Badge Pill (Non-intrusive) -->
         <div class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-xs font-bold flex items-center gap-1 shadow-sm" title="Chuỗi ngày học liên tục (Streak)">
-          <span>🔥</span> <span id="streakCount">6 ngày</span>
+          <span>🔥</span> <span id="streakCount">14 ngày</span>
         </div>
 
                 <!-- Theme Switcher Dropdown -->
@@ -222,10 +222,10 @@
                 🎯 Lộ Trình Hôm Nay
               </span>
               <span id="dailyMissionBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
-                Ngày 6 / 60
+                Ngày 14 / 90
               </span>
               <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-semibold border border-emerald-200">
-                🔥 Streak Đã Khóa ≥ 6 Ngày
+                🔥 Streak Đã Khóa ≥ 14 Ngày
               </span>
             </div>
             <h2 class="text-xl sm:text-2xl font-extrabold text-[#0f172a] tracking-tight">
@@ -2254,7 +2254,7 @@
                 </div>
               </div>
               <div class="flex items-center gap-2">
-                <span id="statStreakDisplay" class="text-base font-extrabold text-amber-400">1 ngày 🔥</span>
+                <span id="statStreakDisplay" class="text-base font-extrabold text-amber-400">14 ngày 🔥</span>
                 <button onclick="triggerDailyCheckin()" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 transition shadow-sm">Điểm danh ngay</button>
               </div>
             </div>
@@ -3292,22 +3292,22 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=92.0"></script>
-  <script src="./listening_data.js?v=92.0"></script>
-  <script src="./vietnam_today_data.js?v=92.0"></script>
-  <script src="./educational_channels_data.js?v=92.0"></script>
-  <script src="./international_news_videos.js?v=92.0"></script>
-  <script src="./bilingual_news_data.js?v=92.0"></script>
-  <script src="./reading_lexicon.js?v=92.0"></script>
-  <script src="./conversation_data.js?v=92.0"></script>
-  <script src="./speaking-forecast.js?v=92.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=92.0"></script>
-  <script src="./speakout-speaking-data.js?v=92.0"></script>
-  <script src="./speaking-engine.js?v=92.0"></script>
-  <script src="./ocr-vocab-engine.js?v=92.0"></script>
-  <script src="./unit-review-engine.js?v=92.0"></script>
-  <script src="./focus-session-engine.js?v=92.0"></script>
-  <script src="./app.js?v=92.0"></script>
+  <script src="./data.js?v=93.0"></script>
+  <script src="./listening_data.js?v=93.0"></script>
+  <script src="./vietnam_today_data.js?v=93.0"></script>
+  <script src="./educational_channels_data.js?v=93.0"></script>
+  <script src="./international_news_videos.js?v=93.0"></script>
+  <script src="./bilingual_news_data.js?v=93.0"></script>
+  <script src="./reading_lexicon.js?v=93.0"></script>
+  <script src="./conversation_data.js?v=93.0"></script>
+  <script src="./speaking-forecast.js?v=93.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=93.0"></script>
+  <script src="./speakout-speaking-data.js?v=93.0"></script>
+  <script src="./speaking-engine.js?v=93.0"></script>
+  <script src="./ocr-vocab-engine.js?v=93.0"></script>
+  <script src="./unit-review-engine.js?v=93.0"></script>
+  <script src="./focus-session-engine.js?v=93.0"></script>
+  <script src="./app.js?v=93.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3315,7 +3315,7 @@
     }
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=92.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=93.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

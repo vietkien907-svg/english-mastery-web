@@ -1290,10 +1290,33 @@ function initDailyMissionEngine() {
       };
     }
   }
-  if (!missionRegistry.currentDay || missionRegistry.currentDay < 14) {
-    missionRegistry.currentDay = 14;
+  // Xóa các ngày ảo > 14 nếu có từ trước
+  for (let d = 15; d <= 90; d++) {
+    const dStr = String(d);
+    if (missionRegistry.history[dStr] && missionRegistry.history[dStr].vocabDone) {
+      delete missionRegistry.history[dStr];
+    }
   }
+  missionRegistry.currentDay = 14;
   saveMissionRegistry();
+
+  // Đặt lại đúng 14 ngày vào localStorage và danh sách tài khoản
+  localStorage.setItem("EMH_STREAK", "14");
+  try {
+    const rawSt = localStorage.getItem("EMH_DEADLINE_STREAK_V2");
+    let stData = rawSt ? JSON.parse(rawSt) : {};
+    stData.streakDays = 14;
+    localStorage.setItem("EMH_DEADLINE_STREAK_V2", JSON.stringify(stData));
+
+    let accs = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS_V2) || "[]");
+    accs = accs.map(a => {
+      if (a.email === "tonguyenvu@265.com" || a.isCurrent) {
+        return { ...a, streak: 14 };
+      }
+      return a;
+    });
+    localStorage.setItem(STORAGE_KEY_SAVED_ACCOUNTS_V2, JSON.stringify(accs));
+  } catch (e) {}
   if (typeof removeStreakLossBan === "function") removeStreakLossBan();
 
   const officialToday = getOfficialTodayDay();

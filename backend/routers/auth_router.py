@@ -20,6 +20,7 @@ class RegisterRequest(BaseModel):
     full_name: str = ""
     target_exam: str = "General" # General, IELTS, VSTEP
     daily_new_target: int = 20
+    referral_code: str = ""
 
 class LoginRequest(BaseModel):
     email: str
@@ -49,6 +50,26 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
         
     if len(req.password) < 6:
         raise HTTPException(status_code=400, detail="Mật khẩu phải có ít nhất 6 ký tự.")
+
+    # Kiểm tra mã giới thiệu (bắt buộc)
+    ref_code = (req.referral_code or "").strip().upper()
+    if not ref_code:
+        raise HTTPException(status_code=400, detail="Vui lòng nhập mã giới thiệu từ máy chủ (Tô Nguyên Vũ).")
+    
+    # Tìm người giới thiệu sở hữu mã này (hoặc mã hệ thống mặc định NGUYENVU265)
+    referrer = None
+    if ref_code == "NGUYENVU265":
+        referrer = db.query(models.User).filter(
+            (models.User.referral_code == "NGUYENVU265") | (models.User.email == "tonguyenvu@265.com")
+        ).first()
+    else:
+        referrer = db.query(models.User).filter(models.User.referral_code == ref_code).first()
+    
+    if not referrer and ref_code != "NGUYENVU265":
+        raise HTTPException(status_code=400, detail="Mã giới thiệu không chính xác hoặc chưa được kích hoạt bởi máy chủ/Tô Nguyên Vũ.")
+    
+    referrer_info = referrer.full_name if referrer else "Tô Nguyên Vũ"
+    referrer_email = referrer.email if referrer else "tonguyenvu@265.com"
         
     user = models.User(
         email=req.email.lower(),
@@ -57,7 +78,9 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
         target_exam=req.target_exam,
         daily_new_target=req.daily_new_target,
         streak_count=1,
-        last_active_date=datetime.date.today().isoformat()
+        longest_streak=1,
+        last_active_date=datetime.date.today().isoformat(),
+        referred_by=referrer_email
     )
     db.add(user)
     db.commit()
@@ -84,7 +107,10 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
             "full_name": user.full_name,
             "target_exam": user.target_exam,
             "daily_new_target": user.daily_new_target,
-            "streak": user.streak_count
+            "streak": user.streak_count,
+            "referral_code": user.referral_code or "",
+            "referred_by": user.referred_by or "",
+            "referrer_name": referrer_info
         }
     }
 
@@ -176,9 +202,76 @@ def logout(request: Request, response: Response, db: Session = Depends(get_db)):
     response.delete_cookie("session_token")
     return {"success": True, "message": "Đã đăng xuất thành công."}
 
+class UpdateReferralCodeRequest(BaseModel):
+    referral_code: str
+
+@router.get("/validate-referral")
+def validate_referral(code: str = "", db: Session = Depends(get_db)):
+    clean_code = (code or "").strip().upper()
+    if not clean_code:
+        return {"valid": False, "message": "Vui lòng nhập mã giới thiệu."}
+        
+    referrer = None
+    if clean_code == "NGUYENVU265":
+        referrer = db.query(models.User).filter(
+            (models.User.referral_code == "NGUYENVU265") | (models.User.email == "tonguyenvu@265.com")
+        ).first()
+    else:
+        referrer = db.query(models.User).filter(models.User.referral_code == clean_code).first()
+    
+    if referrer or clean_code == "NGUYENVU265":
+        name = referrer.full_name if referrer else "Tô Nguyên Vũ"
+        return {
+            "valid": True,
+            "code": clean_code,
+            "referrer_name": name,
+            "message": f"Mã hợp lệ! Người giới thiệu: {name}"
+        }
+    return {
+        "valid": False,
+        "code": clean_code,
+        "message": "Mã giới thiệu không tồn tại hoặc chưa được kích hoạt."
+    }
+
+@router.get("/referral-code")
+def get_user_referral_code(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
+    code = current_user.referral_code
+    if not code and current_user.email.lower() == "tonguyenvu@265.com":
+        code = "NGUYENVU265"
+        current_user.referral_code = code
+        db.commit()
+    return {
+        "referral_code": code or "NGUYENVU265",
+        "referred_by": current_user.referred_by or ""
+    }
+
+@router.put("/referral-code")
+def update_user_referral_code(req: UpdateReferralCodeRequest, current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
+    clean_code = (req.referral_code or "").strip().upper()
+    if len(clean_code) < 3 or len(clean_code) > 20:
+        raise HTTPException(status_code=400, detail="Mã giới thiệu phải có độ dài từ 3 đến 20 ký tự.")
+    
+    # Check if duplicate with another user
+    existing = db.query(models.User).filter(
+        models.User.referral_code == clean_code,
+        models.User.id != current_user.id
+    ).first()
+    if existing:
+        raise HTTPException(status_code=400, detail="Mã giới thiệu này đã có người sử dụng. Vui lòng chọn mã khác.")
+        
+    current_user.referral_code = clean_code
+    db.commit()
+    return {"success": True, "referral_code": clean_code, "message": "Đã cập nhật mã giới thiệu thành công!"}
+
 @router.get("/me")
 def get_profile(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
     streak_info = evaluate_daily_streak(current_user, db)
+    ref_code = current_user.referral_code
+    if not ref_code and current_user.email.lower() == "tonguyenvu@265.com":
+        ref_code = "NGUYENVU265"
+        current_user.referral_code = ref_code
+        db.commit()
+
     return {
         "id": current_user.id,
         "email": current_user.email,
@@ -189,7 +282,9 @@ def get_profile(current_user: models.User = Depends(auth.get_current_user), db: 
         "streak_count": streak_info["streak"],
         "longest_streak": streak_info["longest_streak"],
         "last_active_date": streak_info["last_active_date"],
-        "timezone": current_user.timezone
+        "timezone": current_user.timezone,
+        "referral_code": ref_code or "",
+        "referred_by": current_user.referred_by or ""
     }
 
 @router.post("/checkin")

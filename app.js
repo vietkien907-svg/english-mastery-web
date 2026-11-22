@@ -112,6 +112,15 @@ window.addEventListener("DOMContentLoaded", async () => {
   
   tickDeadlineCountdown();
   lucide.createIcons();
+
+  // Kiểm tra thiết bị mới: Nếu chưa từng đăng nhập tài khoản và chưa bỏ qua, hiển thị Onboarding
+  const activeEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  const guestDismissed = localStorage.getItem("EMH_GUEST_DISMISSED");
+  if (!activeEmail && !guestDismissed) {
+    setTimeout(() => {
+      openDeviceOnboardingModal();
+    }, 600);
+  }
 });
 
 // Helper for authenticated API calls with offline fallback
@@ -305,92 +314,208 @@ async function checkAuthStatus() {
 
 function updateAuthUI() {
   const nameEl = document.getElementById("userAuthName");
+  const headerNameEl = document.getElementById("headerAccountName");
   const badgeEl = document.getElementById("targetExamBadge");
   const streakEl = document.getElementById("streakCount");
   const statusEl = document.getElementById("userStatusText");
   const profileStreakEl = document.getElementById("statStreakDisplay");
 
-  const streakVal = localStorage.getItem("EMH_STREAK") || (appState.currentUser?.streak_count || 1);
-  if (streakEl) streakEl.innerText = `${streakVal} ngày`;
-  if (profileStreakEl) profileStreakEl.innerText = `${streakVal} ngày 🔥`;
+  const curEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  const streakVal = curEmail ? (localStorage.getItem("EMH_STREAK") || (appState.currentUser?.streak_count || 1)) : 0;
+  
+  if (streakEl) streakEl.innerText = curEmail ? `${streakVal} ngày` : "Chưa ĐN";
+  if (profileStreakEl) profileStreakEl.innerText = curEmail ? `${streakVal} ngày 🔥` : "0 ngày";
 
-  if (appState.currentUser) {
-    if (nameEl) nameEl.innerText = appState.currentUser.full_name || appState.currentUser.email.split("@")[0];
-    if (badgeEl) badgeEl.innerText = appState.currentUser.target_exam || "IELTS";
-    if (statusEl) statusEl.innerText = `Đã đồng bộ tài khoản: ${appState.currentUser.email}`;
+  if (appState.currentUser || curEmail) {
+    const dName = appState.currentUser?.full_name || localStorage.getItem("EMH_ACTIVE_ACCOUNT_NAME") || "Học Viên";
+    const dEmail = appState.currentUser?.email || curEmail;
+    const dTarget = appState.currentUser?.target_exam || localStorage.getItem("EMH_USER_REAL_TARGET") || "IELTS";
+    
+    if (nameEl) nameEl.innerText = dName;
+    if (headerNameEl) headerNameEl.innerText = dName.split(" ").slice(-1)[0] || dName;
+    if (badgeEl) badgeEl.innerText = dTarget;
+    if (statusEl) statusEl.innerText = `Đã đồng bộ tài khoản: ${dEmail}`;
   } else {
-    if (nameEl) nameEl.innerText = "Đăng nhập";
-    if (statusEl) statusEl.innerText = "Chế độ ngoại tuyến • Đăng nhập để đồng bộ";
+    if (nameEl) nameEl.innerText = "Đăng Nhập / Tạo TK";
+    if (headerNameEl) headerNameEl.innerText = "Đăng Nhập";
+    if (badgeEl) badgeEl.innerText = "Chế độ Khách";
+    if (statusEl) statusEl.innerText = "Chế độ khách • Đăng nhập bằng mã giới thiệu để lưu chuỗi";
   }
+
+  loadReferralCodeInfo();
 }
 
-function openAuthModal() {
-  if (appState.currentUser) {
-    switchTab("profile");
-    return;
-  }
-  document.getElementById("authModal").classList.remove("hidden");
+function openAuthModal(defaultMode = "login") {
+  appState.authMode = defaultMode;
+  toggleAuthMode(defaultMode);
+  const modal = document.getElementById("authModal");
+  if (modal) modal.classList.remove("hidden");
+  if (window.lucide) lucide.createIcons();
+}
+
+function openDeviceOnboardingModal() {
+  const curEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  if (curEmail || appState.currentUser) return; // Đã đăng nhập
+  const modal = document.getElementById("authModal");
+  if (!modal) return;
+  toggleAuthMode("register");
+  const title = document.getElementById("authModalTitle");
+  if (title) title.innerText = "👋 Chào Mừng Thiết Bị Mới";
+  modal.classList.remove("hidden");
+  if (window.lucide) lucide.createIcons();
 }
 
 function closeAuthModal() {
-  document.getElementById("authModal").classList.add("hidden");
+  const modal = document.getElementById("authModal");
+  if (modal) modal.classList.add("hidden");
 }
 
-function toggleAuthMode() {
-  appState.authMode = appState.authMode === "login" ? "register" : "login";
+function dismissAuthModalAsGuest() {
+  localStorage.setItem("EMH_GUEST_DISMISSED", "true");
+  closeAuthModal();
+  showToast("Bạn đang trải nghiệm ứng dụng ở chế độ Khách.", "info");
+}
+
+function toggleAuthMode(forceMode) {
+  if (forceMode) {
+    appState.authMode = forceMode;
+  } else {
+    appState.authMode = appState.authMode === "login" ? "register" : "login";
+  }
   const title = document.getElementById("authModalTitle");
   const submitBtn = document.getElementById("authSubmitBtn");
   const toggleBtn = document.getElementById("authToggleBtn");
   const nameField = document.getElementById("authNameField");
+  const refField = document.getElementById("authReferralField");
+  const targetField = document.getElementById("authTargetField");
 
   if (appState.authMode === "register") {
-    title.innerText = "Đăng Ký Tài Khoản";
-    submitBtn.innerText = "Đăng ký";
-    toggleBtn.innerText = "Đã có tài khoản? Nhấn để Đăng nhập";
-    nameField.classList.remove("hidden");
+    if (title) title.innerText = "Tạo Tài Khoản Học Viên Mới";
+    if (submitBtn) submitBtn.innerText = "Kích Hoạt & Đăng Ký";
+    if (toggleBtn) toggleBtn.innerText = "Đã có tài khoản? Nhấn để Đăng nhập";
+    if (nameField) nameField.classList.remove("hidden");
+    if (refField) refField.classList.remove("hidden");
+    if (targetField) targetField.classList.remove("hidden");
   } else {
-    title.innerText = "Đăng Nhập Đồng Bộ";
-    submitBtn.innerText = "Đăng nhập";
-    toggleBtn.innerText = "Chưa có tài khoản? Nhấn để Đăng ký";
-    nameField.classList.add("hidden");
+    if (title) title.innerText = "Đăng Nhập Đồng Bộ";
+    if (submitBtn) submitBtn.innerText = "Đăng nhập";
+    if (toggleBtn) toggleBtn.innerText = "Chưa có tài khoản? Nhấn để Đăng ký với Mã Giới Thiệu";
+    if (nameField) nameField.classList.add("hidden");
+    if (refField) refField.classList.add("hidden");
+    if (targetField) targetField.classList.add("hidden");
   }
 }
 
+let referralCheckTimer = null;
+function onReferralInputChanged() {
+  const input = document.getElementById("authReferralInput");
+  const statusEl = document.getElementById("referralValidationStatus");
+  if (!input || !statusEl) return;
+  
+  const code = (input.value || "").trim().toUpperCase();
+  input.value = code;
+  
+  if (!code) {
+    statusEl.innerText = "";
+    return;
+  }
+  
+  clearTimeout(referralCheckTimer);
+  statusEl.innerText = "Đang kiểm tra mã...";
+  statusEl.className = "text-[10px] text-cyan-400 font-semibold";
+
+  referralCheckTimer = setTimeout(async () => {
+    try {
+      const res = await apiCall(`/api/auth/validate-referral?code=${encodeURIComponent(code)}`);
+      if (res && res.valid) {
+        statusEl.innerText = `✓ Hợp lệ (${res.referrer_name || "Tô Nguyên Vũ"})`;
+        statusEl.className = "text-[10px] text-emerald-400 font-bold";
+      } else if (code === "NGUYENVU265") {
+        statusEl.innerText = "✓ Mã máy chủ hợp lệ (Tô Nguyên Vũ)";
+        statusEl.className = "text-[10px] text-emerald-400 font-bold";
+      } else {
+        statusEl.innerText = "✕ Mã không tồn tại / chưa kích hoạt";
+        statusEl.className = "text-[10px] text-rose-400 font-semibold";
+      }
+    } catch (e) {
+      if (code === "NGUYENVU265") {
+        statusEl.innerText = "✓ Mã hợp lệ (Tô Nguyên Vũ)";
+        statusEl.className = "text-[10px] text-emerald-400 font-bold";
+      } else {
+        statusEl.innerText = "✕ Cần mã từ Tô Nguyên Vũ";
+        statusEl.className = "text-[10px] text-amber-400 font-semibold";
+      }
+    }
+  }, 250);
+}
+
 async function handleAuthSubmit() {
-  const email = document.getElementById("authEmailInput").value.trim();
-  const password = document.getElementById("authPasswordInput").value.trim();
-  const name = document.getElementById("authNameInput").value.trim();
+  const email = (document.getElementById("authEmailInput")?.value || "").trim();
+  const password = (document.getElementById("authPasswordInput")?.value || "").trim();
+  const name = (document.getElementById("authNameInput")?.value || "").trim();
+  const targetExam = (document.getElementById("authTargetInput")?.value || "IELTS 7.5+").trim();
+  const referralCode = (document.getElementById("authReferralInput")?.value || "").trim().toUpperCase();
 
   if (!email || !password) {
-    alert("Vui lòng nhập email và mật khẩu.");
+    alert("Vui lòng nhập đầy đủ email và mật khẩu.");
     return;
   }
 
   const isRegister = (appState.authMode === "register");
   const displayName = name || email.split("@")[0];
 
+  if (isRegister) {
+    if (!referralCode) {
+      alert("⚠️ BẮT BUỘC MÃ GIỚI THIỆU:\nVui lòng nhập Mã giới thiệu từ máy chủ (Tô Nguyên Vũ) để tạo tài khoản trên thiết bị này.");
+      document.getElementById("authReferralInput")?.focus();
+      return;
+    }
+    if (password.length < 6) {
+      alert("Mật khẩu phải có ít nhất 6 ký tự.");
+      return;
+    }
+  }
+
   let token = "";
   let userObj = null;
 
   try {
     const endpoint = isRegister ? "/api/auth/register" : "/api/auth/login";
-    const payload = { email, password, full_name: displayName, target_exam: "IELTS 7.5+" };
+    const payload = isRegister 
+      ? { email, password, full_name: displayName, target_exam: targetExam, referral_code: referralCode }
+      : { email, password };
+    
     const res = await apiCall(endpoint, "POST", payload);
     if (res && res.token) {
       token = res.token;
       userObj = res.user;
+    } else if (res && res.detail) {
+      alert(`Lỗi: ${res.detail}`);
+      return;
     }
-  } catch (err) {}
+  } catch (err) {
+    if (isRegister) {
+      const errMsg = err.message || "";
+      if (errMsg.includes("mã giới thiệu") || errMsg.includes("400")) {
+        alert("❌ Mã giới thiệu không hợp lệ hoặc chưa được kích hoạt bởi máy chủ (Tô Nguyên Vũ). Vui lòng kiểm tra lại!");
+        return;
+      }
+    }
+  }
 
-  // Xử lý đăng ký / đăng nhập (Hỗ trợ cả online backend và offline client-side)
   let list = getSavedAccounts();
   const existingAcc = list.find(a => a.email.toLowerCase() === email.toLowerCase());
 
   if (isRegister) {
-    // Đăng ký mới
     if (existingAcc) {
       alert(`Tài khoản với email ${email} đã tồn tại trên thiết bị. Bạn có thể bấm Đăng Nhập.`);
-      toggleAuthMode();
+      toggleAuthMode("login");
+      return;
+    }
+
+    // Xác thực mã giới thiệu nếu chạy offline
+    if (!token && referralCode !== "NGUYENVU265") {
+      alert("❌ Mã giới thiệu không chính xác. Vui lòng liên hệ Tô Nguyên Vũ để nhận mã kích hoạt hợp lệ.");
       return;
     }
 
@@ -398,15 +523,17 @@ async function handleAuthSubmit() {
       id: "user_" + Date.now(),
       email: email,
       full_name: displayName,
-      target_exam: "IELTS 7.5+",
+      target_exam: targetExam,
       streak: 1,
-      mature_words: 20,
+      mature_words: 0,
       today_progress: 0,
-      xp: 350,
+      xp: 200,
       password_hash: btoa(password),
       token: token,
       isCurrent: true,
-      isReal: true
+      isReal: true,
+      referral_code: "",
+      referred_by: "Tô Nguyên Vũ (tonguyenvu@265.com)"
     };
 
     list = list.map(a => ({ ...a, isCurrent: false }));
@@ -415,11 +542,14 @@ async function handleAuthSubmit() {
 
     localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
     localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", displayName);
+    localStorage.setItem("EMH_STREAK", "1");
+    localStorage.removeItem("EMH_GUEST_DISMISSED");
+
     appState.currentUser = {
       id: newAcc.id,
       email: email,
       full_name: displayName,
-      target_exam: "IELTS 7.5+",
+      target_exam: targetExam,
       streak_count: 1
     };
 
@@ -435,14 +565,15 @@ async function handleAuthSubmit() {
     renderSavedAccounts();
     renderHomeLeaderboardPreview();
 
-    showToast(`🎉 Chúc mừng bạn ${displayName}! Đăng ký tài khoản thực thành công và đã tham gia thi đua.`, "success");
+    showToast(`🎉 Chúc mừng bạn ${displayName}! Đã tạo tài khoản thành công qua mã giới thiệu từ Tô Nguyên Vũ.`, "success");
     return;
   } else {
     // Đăng nhập
     if (token && userObj) {
-      // Backend xác nhận
       localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
       localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", userObj.full_name || displayName);
+      localStorage.setItem("EMH_STREAK", String(userObj.streak || userObj.streak_count || 1));
+      localStorage.removeItem("EMH_GUEST_DISMISSED");
       appState.authToken = token;
       localStorage.setItem(STORAGE_KEY_AUTH, token);
       appState.currentUser = userObj;
@@ -450,7 +581,7 @@ async function handleAuthSubmit() {
       list = list.map(a => ({ ...a, isCurrent: (a.email.toLowerCase() === email.toLowerCase()) }));
       saveSavedAccounts(list);
 
-      updateDailyStreak(userObj.streak || 1, userObj.last_active_date);
+      updateDailyStreak(userObj.streak || userObj.streak_count || 1, userObj.last_active_date);
       updateAuthUI();
       closeAuthModal();
       renderProfileAccountsCompetition();
@@ -458,11 +589,12 @@ async function handleAuthSubmit() {
       renderSavedAccounts();
       showToast(`Đăng nhập thành công! Chào mừng ${userObj.full_name || displayName} 🔥`, "success");
     } else if (existingAcc) {
-      // Offline xác thực mật khẩu
       const expectedHash = existingAcc.password_hash || "";
       if (!expectedHash || btoa(password) === expectedHash || password === "123456" || password.length >= 6) {
         localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", existingAcc.email);
         localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", existingAcc.full_name);
+        localStorage.setItem("EMH_STREAK", String(existingAcc.streak || 1));
+        localStorage.removeItem("EMH_GUEST_DISMISSED");
         appState.currentUser = {
           id: existingAcc.id,
           email: existingAcc.email,
@@ -484,19 +616,96 @@ async function handleAuthSubmit() {
         alert("❌ Mật khẩu không chính xác. Vui lòng kiểm tra lại!");
       }
     } else {
-      alert("❌ Tài khoản này chưa được đăng ký. Vui lòng nhấn 'Đăng ký' để tạo tài khoản mới!");
+      alert("❌ Tài khoản này chưa có trên thiết bị. Vui lòng nhấn 'Đăng ký với Mã Giới Thiệu' để tạo tài khoản mới!");
     }
   }
 }
 
 async function logoutUser() {
-  await apiCall("/api/auth/logout", "POST");
+  try {
+    await apiCall("/api/auth/logout", "POST");
+  } catch (e) {}
   appState.authToken = "";
   appState.currentUser = null;
   localStorage.removeItem(STORAGE_KEY_AUTH);
+  localStorage.removeItem("EMH_ACTIVE_ACCOUNT_EMAIL");
+  localStorage.removeItem("EMH_ACTIVE_ACCOUNT_NAME");
+  localStorage.removeItem("EMH_STREAK");
+  
+  let list = getSavedAccounts();
+  list = list.map(a => ({ ...a, isCurrent: false }));
+  saveSavedAccounts(list);
+
   updateAuthUI();
-  switchTab("today");
-  alert("Đã đăng xuất thành công.");
+  renderSavedAccounts();
+  renderProfileAccountsCompetition();
+  renderLeaderboard();
+  renderHomeLeaderboardPreview();
+  showToast("Đã đăng xuất tài khoản thành công.", "info");
+
+  setTimeout(() => {
+    openAuthModal("login");
+  }, 350);
+}
+
+// ================= REFERRAL CODE MANAGEMENT =================
+let cachedReferralCode = "NGUYENVU265";
+
+async function loadReferralCodeInfo() {
+  const displayEl = document.getElementById("activeReferralCodeDisplay");
+  try {
+    const res = await apiCall("/api/auth/referral-code");
+    if (res && res.referral_code) {
+      cachedReferralCode = res.referral_code;
+    }
+  } catch (e) {}
+  if (displayEl) displayEl.innerText = cachedReferralCode;
+}
+
+function copyMyReferralCode() {
+  const code = cachedReferralCode || "NGUYENVU265";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(code).then(() => {
+      const textEl = document.getElementById("copyReferralText");
+      if (textEl) {
+        textEl.innerText = "✓ Đã Sao Chép!";
+        setTimeout(() => { textEl.innerText = "Sao Chép Mã"; }, 2000);
+      }
+      showToast(`📋 Đã chép mã "${code}"! Hãy gửi mã này cho thiết bị khác để họ đăng ký.`, "success");
+    }).catch(() => {
+      prompt("Sao chép mã giới thiệu:", code);
+    });
+  } else {
+    prompt("Sao chép mã giới thiệu:", code);
+  }
+}
+
+async function promptEditMyReferralCode() {
+  const currentCode = cachedReferralCode || "NGUYENVU265";
+  const newCode = prompt("Nhập mã giới thiệu mới từ máy chủ của bạn (3 - 20 ký tự):", currentCode);
+  if (!newCode || !newCode.trim()) return;
+  const cleanCode = newCode.trim().toUpperCase();
+  if (cleanCode.length < 3 || cleanCode.length > 20) {
+    alert("Mã giới thiệu phải có từ 3 đến 20 ký tự.");
+    return;
+  }
+
+  try {
+    const res = await apiCall("/api/auth/referral-code", "PUT", { referral_code: cleanCode });
+    if (res && res.success) {
+      cachedReferralCode = cleanCode;
+      const displayEl = document.getElementById("activeReferralCodeDisplay");
+      if (displayEl) displayEl.innerText = cleanCode;
+      showToast(`✅ Đã đổi mã giới thiệu máy chủ thành: ${cleanCode}`, "success");
+    } else {
+      alert(res?.detail || "Không thể cập nhật mã giới thiệu.");
+    }
+  } catch (e) {
+    cachedReferralCode = cleanCode;
+    const displayEl = document.getElementById("activeReferralCodeDisplay");
+    if (displayEl) displayEl.innerText = cleanCode;
+    showToast(`✅ Đã lưu mã giới thiệu: ${cleanCode}`, "success");
+  }
 }
 
 // ================= TAB NAVIGATION =================
@@ -1267,56 +1476,67 @@ function getDailyAssignedGrammar(dayNum) {
 
 function initDailyMissionEngine() {
   loadMissionRegistry();
-  // Khôi phục dữ liệu học tập và chuỗi Streak của học viên Tô Nguyên Vũ (tonguyenvu@265.com)
-  const userStreak = 14;
-  localStorage.setItem("EMH_STREAK", "14");
-  localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", "tonguyenvu@265.com");
-  localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", "Tô Nguyên Vũ");
-  localStorage.setItem("EMH_USER_REAL_NAME", "Tô Nguyên Vũ");
-  localStorage.setItem("EMH_USER_REAL_EMAIL", "tonguyenvu@265.com");
-  localStorage.setItem("EMH_USER_REAL_TARGET", "IELTS 7.5+");
+  
+  const currentEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").toLowerCase();
+  const isPrimaryVu = (currentEmail === "tonguyenvu@265.com" || (!currentEmail && localStorage.getItem("EMH_PRIMARY_HOST_SETUP") === "true") || (!currentEmail && !localStorage.getItem("EMH_NEW_DEVICE_VISITED")));
 
-  // Đảm bảo dữ liệu các ngày 1 đến 14 được khôi phục nguyên vẹn 100%
-  for (let d = 1; d <= 14; d++) {
-    const dStr = String(d);
-    if (!missionRegistry.history[dStr] || !missionRegistry.history[dStr].vocabDone) {
-      missionRegistry.history[dStr] = {
-        vocabDone: true,
-        vocabCount: 20,
-        videoDone: true,
-        readingDone: true,
-        grammarDone: true,
-        studiedIndices: Array.from({length: 20}, (_, i) => i)
-      };
-    }
-  }
-  // Xóa các ngày ảo > 14 nếu có từ trước
-  for (let d = 15; d <= 90; d++) {
-    const dStr = String(d);
-    if (missionRegistry.history[dStr] && missionRegistry.history[dStr].vocabDone) {
-      delete missionRegistry.history[dStr];
-    }
-  }
-  missionRegistry.currentDay = 14;
-  saveMissionRegistry();
+  // Chỉ khôi phục tiến độ 14 ngày cho tài khoản Tô Nguyên Vũ trên thiết bị chủ
+  if (isPrimaryVu) {
+    localStorage.setItem("EMH_PRIMARY_HOST_SETUP", "true");
+    const userStreak = 14;
+    localStorage.setItem("EMH_STREAK", "14");
+    localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", "tonguyenvu@265.com");
+    localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", "Tô Nguyên Vũ");
+    localStorage.setItem("EMH_USER_REAL_NAME", "Tô Nguyên Vũ");
+    localStorage.setItem("EMH_USER_REAL_EMAIL", "tonguyenvu@265.com");
+    localStorage.setItem("EMH_USER_REAL_TARGET", "IELTS 7.5+");
 
-  // Đặt lại đúng 14 ngày vào localStorage và danh sách tài khoản
-  localStorage.setItem("EMH_STREAK", "14");
-  try {
-    const rawSt = localStorage.getItem("EMH_DEADLINE_STREAK_V2");
-    let stData = rawSt ? JSON.parse(rawSt) : {};
-    stData.streakDays = 14;
-    localStorage.setItem("EMH_DEADLINE_STREAK_V2", JSON.stringify(stData));
-
-    let accs = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS_V2) || "[]");
-    accs = accs.map(a => {
-      if (a.email === "tonguyenvu@265.com" || a.isCurrent) {
-        return { ...a, streak: 14 };
+    // Đảm bảo dữ liệu các ngày 1 đến 14 được khôi phục nguyên vẹn 100%
+    for (let d = 1; d <= 14; d++) {
+      const dStr = String(d);
+      if (!missionRegistry.history[dStr] || !missionRegistry.history[dStr].vocabDone) {
+        missionRegistry.history[dStr] = {
+          vocabDone: true,
+          vocabCount: 20,
+          videoDone: true,
+          readingDone: true,
+          grammarDone: true,
+          studiedIndices: Array.from({length: 20}, (_, i) => i)
+        };
       }
-      return a;
-    });
-    localStorage.setItem(STORAGE_KEY_SAVED_ACCOUNTS_V2, JSON.stringify(accs));
-  } catch (e) {}
+    }
+    // Xóa các ngày ảo > 14 nếu có từ trước
+    for (let d = 15; d <= 90; d++) {
+      const dStr = String(d);
+      if (missionRegistry.history[dStr] && missionRegistry.history[dStr].vocabDone) {
+        delete missionRegistry.history[dStr];
+      }
+    }
+    missionRegistry.currentDay = 14;
+    saveMissionRegistry();
+
+    // Đặt lại đúng 14 ngày vào localStorage và danh sách tài khoản
+    localStorage.setItem("EMH_STREAK", "14");
+    try {
+      const rawSt = localStorage.getItem("EMH_DEADLINE_STREAK_V2");
+      let stData = rawSt ? JSON.parse(rawSt) : {};
+      stData.streakDays = 14;
+      localStorage.setItem("EMH_DEADLINE_STREAK_V2", JSON.stringify(stData));
+
+      let accs = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS_V2) || "[]");
+      accs = accs.map(a => {
+        if (a.email === "tonguyenvu@265.com" || a.isCurrent) {
+          return { ...a, streak: 14, referral_code: "NGUYENVU265" };
+        }
+        return a;
+      });
+      localStorage.setItem(STORAGE_KEY_SAVED_ACCOUNTS_V2, JSON.stringify(accs));
+    } catch (e) {}
+  } else if (!currentEmail) {
+    // Thiết bị mới chưa đăng nhập: Không gán Tô Nguyên Vũ
+    localStorage.setItem("EMH_NEW_DEVICE_VISITED", "true");
+  }
+
   if (typeof removeStreakLossBan === "function") removeStreakLossBan();
 
   const officialToday = getOfficialTodayDay();
@@ -11147,18 +11367,24 @@ async function createNewAccountFromModal() {
   const targetInput = document.getElementById("newAccTarget");
   const emailInput = document.getElementById("newAccEmail");
   const passInput = document.getElementById("newAccPassword");
+  const refInput = document.getElementById("newAccReferral");
 
   const name = nameInput?.value.trim();
   const target = targetInput?.value || "VSTEP";
   const email = emailInput?.value.trim();
   const pass = passInput?.value.trim();
+  const referralCode = (refInput?.value || cachedReferralCode || "NGUYENVU265").trim().toUpperCase();
 
   if (!name || !email || !pass) {
     alert("Vui lòng nhập đầy đủ Tên, Email và Mật khẩu.");
     return;
   }
-  if (pass.length < 4) {
-    alert("Mật khẩu tối thiểu 4 ký tự.");
+  if (pass.length < 6) {
+    alert("Mật khẩu tối thiểu 6 ký tự.");
+    return;
+  }
+  if (!referralCode) {
+    alert("Vui lòng nhập Mã giới thiệu từ Tô Nguyên Vũ để cấp tài khoản mới.");
     return;
   }
 
@@ -11174,12 +11400,21 @@ async function createNewAccountFromModal() {
       email,
       password: pass,
       full_name: name,
-      target_exam: target
+      target_exam: target,
+      referral_code: referralCode
     });
     if (res && res.token) {
       token = res.token;
+    } else if (res && res.detail) {
+      alert(`Lỗi: ${res.detail}`);
+      return;
     }
-  } catch (e) {}
+  } catch (e) {
+    if (referralCode !== "NGUYENVU265") {
+      alert("Mã giới thiệu không chính xác hoặc chưa được kích hoạt bởi máy chủ/Tô Nguyên Vũ.");
+      return;
+    }
+  }
 
   const newAcc = {
     id: "user_" + Date.now(),
@@ -11187,13 +11422,15 @@ async function createNewAccountFromModal() {
     full_name: name,
     target_exam: target,
     streak: 1,
-    mature_words: 20,
+    mature_words: 0,
     today_progress: 0,
-    xp: 350,
+    xp: 200,
     password_hash: btoa(pass),
     token: token,
     isCurrent: true,
-    isReal: true
+    isReal: true,
+    referral_code: "",
+    referred_by: "Tô Nguyên Vũ (tonguyenvu@265.com)"
   };
 
   list = list.map(a => ({ ...a, isCurrent: false }));
@@ -11202,6 +11439,9 @@ async function createNewAccountFromModal() {
 
   localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
   localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", name);
+  localStorage.setItem("EMH_STREAK", "1");
+  localStorage.removeItem("EMH_GUEST_DISMISSED");
+
   appState.currentUser = {
     id: newAcc.id,
     email: email,
@@ -11212,6 +11452,18 @@ async function createNewAccountFromModal() {
 
   if (token) {
     appState.authToken = token;
+    localStorage.setItem(STORAGE_KEY_AUTH, token);
+  }
+
+  updateAuthUI();
+  closeMultiAccountModal();
+  renderProfileAccountsCompetition();
+  renderLeaderboard();
+  renderSavedAccounts();
+  renderHomeLeaderboardPreview();
+
+  showToast(`🎉 Cấp tài khoản mới cho "${name}" thành công qua mã giới thiệu Tô Nguyên Vũ!`, "success");
+}
     localStorage.setItem(STORAGE_KEY_AUTH, token);
   }
 
@@ -11618,6 +11870,8 @@ function renderProfileAccountsCompetition() {
             <div class="flex items-center gap-2 flex-wrap">
               <span class="font-extrabold text-white text-sm sm:text-base">${acc.full_name}</span>
               ${isMe ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-black text-[10px] border border-emerald-500/40">★ TÀI KHOẢN CỦA BẠN</span>' : '<span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-semibold text-[10px] border border-slate-700">Học viên thực tế</span>'}
+              ${acc.referred_by ? '<span class="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 font-medium text-[10px] border border-cyan-500/20">🏷️ Giới thiệu bởi Tô Nguyên Vũ</span>' : ''}
+              ${acc.email === 'tonguyenvu@265.com' ? '<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono font-bold text-[10px] border border-amber-500/40">⭐ Máy Chủ Host</span>' : ''}
               ${isThisAccBanned ? '<span class="px-2.5 py-0.5 rounded-full bg-rose-500/30 text-rose-300 font-extrabold text-[10px] border border-rose-500/50 flex items-center gap-1 animate-pulse"><i data-lucide="lock" class="w-3 h-3"></i> Bị Ban 1 tiếng (Mất Chuỗi)</span>' : ''}
               ${rank === 1 && !isThisAccBanned ? '<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[10px] border border-amber-500/40">👑 Quán Quân</span>' : ''}
             </div>

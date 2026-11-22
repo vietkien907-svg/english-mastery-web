@@ -2297,6 +2297,44 @@
             <button onclick="logoutUser()" class="py-2 px-4 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-bold border border-red-500/20 transition">Đăng xuất</button>
           </div>
         </div>
+
+        <!-- THẺ QUẢN LÝ MÃ GIỚI THIỆU TỪ MÁY CHỦ (TÔ NGUYÊN VŨ) -->
+        <div id="referralCodeManagerCard" class="glass-card rounded-2xl p-6 space-y-4 border border-amber-500/40 bg-gradient-to-br from-amber-950/20 via-slate-900 to-slate-950 shadow-xl col-span-full">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 shadow">
+                <i data-lucide="key" class="w-5 h-5 text-amber-400"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-base flex items-center gap-2">
+                  <span>Mã Giới Thiệu Của Tôi (Kích Hoạt Thiết Bị Mới)</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">Chính Thức</span>
+                </h3>
+                <p class="text-xs text-slate-400">Mã này cấp quyền cho thiết bị mới (điện thoại, máy tính khác) tạo tài khoản học viên tham gia hệ thống của bạn.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="activeReferralCodeDisplay" class="px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/40 text-amber-300 font-mono font-black text-sm tracking-widest shadow-inner">NGUYENVU265</span>
+              <button onclick="copyMyReferralCode()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow transition">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span id="copyReferralText">Sao Chép Mã</span>
+              </button>
+              <button onclick="promptEditMyReferralCode()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
+                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                <span>Đổi Mã</span>
+              </button>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-400 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+              <span>Thiết bị mới bắt buộc nhập mã này khi Đăng Ký. Các học viên tạo tài khoản sẽ tự động kết nối vào Bảng thi đua cùng bạn.</span>
+            </div>
+            <div class="text-emerald-400 font-bold shrink-0">
+              Trạng thái: <span class="text-white">Đang Hoạt Động (Máy Chủ)</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2388,7 +2426,7 @@
     </div>
   </div>
 
-  <div id="authModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+  <div id="authModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="glass-card max-w-sm w-full rounded-2xl p-6 border border-slate-700 shadow-2xl space-y-4">
       <div class="flex items-center justify-between border-b border-slate-800 pb-3">
         <h3 id="authModalTitle" class="font-bold text-lg text-white">Đăng Nhập Đồng Bộ</h3>
@@ -2408,11 +2446,32 @@
           <label class="block text-slate-400 mb-1">Mật khẩu</label>
           <input type="password" id="authPasswordInput" placeholder="••••••••" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 outline-none focus:border-indigo-500 text-white">
         </div>
+
+        <!-- MÃ GIỚI THIỆU BẮT BUỘC KHI ĐĂNG KÝ MỚI -->
+        <div id="authReferralField" class="hidden">
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-slate-300 font-semibold">Mã giới thiệu (Từ Tô Nguyên Vũ) <span class="text-rose-400">*</span></label>
+            <span id="referralValidationStatus" class="text-[10px] text-amber-400 font-semibold"></span>
+          </div>
+          <input type="text" id="authReferralInput" oninput="onReferralInputChanged()" placeholder="Ví dụ: NGUYENVU265" class="w-full bg-slate-800 border border-amber-500/50 rounded-xl p-2.5 uppercase font-mono tracking-wider outline-none focus:border-amber-400 text-amber-300">
+          <p class="text-[10px] text-slate-400 mt-1">💡 Bắt buộc nhập mã do Tô Nguyên Vũ cấp để kích hoạt tài khoản trên thiết bị của bạn.</p>
+        </div>
+
+        <div id="authTargetField" class="hidden">
+          <label class="block text-slate-400 mb-1">Mục tiêu chứng chỉ</label>
+          <select id="authTargetInput" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 outline-none focus:border-indigo-500 text-white">
+            <option value="IELTS 7.5+">IELTS 7.5+</option>
+            <option value="IELTS 6.5">IELTS 6.5</option>
+            <option value="TOEIC 800+">TOEIC 800+</option>
+            <option value="Tiếng Anh Giao Tiếp">Tiếng Anh Giao Tiếp</option>
+          </select>
+        </div>
       </div>
 
       <div class="space-y-2 pt-2">
         <button onclick="handleAuthSubmit()" id="authSubmitBtn" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-xs text-white shadow-lg shadow-indigo-600/30 transition">Đăng nhập</button>
-        <button onclick="toggleAuthMode()" id="authToggleBtn" class="w-full py-2 text-center text-xs text-slate-400 hover:text-indigo-300">Chưa có tài khoản? Nhấn để Đăng ký</button>
+        <button onclick="toggleAuthMode()" id="authToggleBtn" class="w-full py-2 text-center text-xs text-slate-400 hover:text-indigo-300">Chưa có tài khoản? Nhấn để Đăng ký với Mã Giới Thiệu</button>
+        <button onclick="dismissAuthModalAsGuest()" id="authGuestBtn" class="w-full py-1.5 text-center text-[11px] text-slate-500 hover:text-slate-400">Trải nghiệm nhanh dạng Khách</button>
       </div>
     </div>
   </div>
@@ -3292,22 +3351,22 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=93.0"></script>
-  <script src="./listening_data.js?v=93.0"></script>
-  <script src="./vietnam_today_data.js?v=93.0"></script>
-  <script src="./educational_channels_data.js?v=93.0"></script>
-  <script src="./international_news_videos.js?v=93.0"></script>
-  <script src="./bilingual_news_data.js?v=93.0"></script>
-  <script src="./reading_lexicon.js?v=93.0"></script>
-  <script src="./conversation_data.js?v=93.0"></script>
-  <script src="./speaking-forecast.js?v=93.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=93.0"></script>
-  <script src="./speakout-speaking-data.js?v=93.0"></script>
-  <script src="./speaking-engine.js?v=93.0"></script>
-  <script src="./ocr-vocab-engine.js?v=93.0"></script>
-  <script src="./unit-review-engine.js?v=93.0"></script>
-  <script src="./focus-session-engine.js?v=93.0"></script>
-  <script src="./app.js?v=93.0"></script>
+  <script src="./data.js?v=94.0"></script>
+  <script src="./listening_data.js?v=94.0"></script>
+  <script src="./vietnam_today_data.js?v=94.0"></script>
+  <script src="./educational_channels_data.js?v=94.0"></script>
+  <script src="./international_news_videos.js?v=94.0"></script>
+  <script src="./bilingual_news_data.js?v=94.0"></script>
+  <script src="./reading_lexicon.js?v=94.0"></script>
+  <script src="./conversation_data.js?v=94.0"></script>
+  <script src="./speaking-forecast.js?v=94.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=94.0"></script>
+  <script src="./speakout-speaking-data.js?v=94.0"></script>
+  <script src="./speaking-engine.js?v=94.0"></script>
+  <script src="./ocr-vocab-engine.js?v=94.0"></script>
+  <script src="./unit-review-engine.js?v=94.0"></script>
+  <script src="./focus-session-engine.js?v=94.0"></script>
+  <script src="./app.js?v=94.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3428,6 +3487,10 @@
             <div>
               <label class="block text-slate-400 mb-1">Mật khẩu:</label>
               <input type="password" id="newAccPassword" placeholder="Tối thiểu 6 ký tự..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white outline-none focus:border-indigo-500">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-slate-400 mb-1">Mã giới thiệu (Từ Tô Nguyên Vũ):</label>
+              <input type="text" id="newAccReferral" value="NGUYENVU265" placeholder="NGUYENVU265" class="w-full bg-slate-900 border border-amber-500/50 rounded-lg p-2 text-amber-300 font-mono uppercase tracking-wider outline-none focus:border-amber-400">
             </div>
           </div>
           <button onclick="createNewAccountFromModal()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-xs transition shadow-md shadow-indigo-600/25 flex items-center justify-center gap-2">

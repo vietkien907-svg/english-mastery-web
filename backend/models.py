@@ -19,6 +19,8 @@ class User(Base):
     longest_streak = Column(Integer, default=0)
     last_active_date = Column(String(10), default="") # YYYY-MM-DD
     timezone = Column(String(50), default="Asia/Ho_Chi_Minh")
+    referral_code = Column(String(50), index=True, default="")
+    referred_by = Column(String(255), default="")
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
     
     sessions = relationship("UserSession", back_populates="user", cascade="all, delete-orphan")

@@ -799,7 +799,7 @@ function countCompletedCurriculumDays() {
   const total = (typeof getTotalMissionDays === "function") ? getTotalMissionDays() : 90;
   for (let d = 1; d <= total; d++) {
     const st = getDayMissionStatus(d);
-    if (st.isAllDone || st.completedCount >= 2 || (st.vocabDone || st.videoDone || st.grammarDone)) {
+    if (st.isAllDone || st.completedCount >= 2) {
       count++;
     }
   }
@@ -815,7 +815,7 @@ function getMaxCompletedCurriculumDay() {
   const total = (typeof getTotalMissionDays === "function") ? getTotalMissionDays() : 90;
   for (let d = 1; d <= total; d++) {
     const st = getDayMissionStatus(d);
-    if (st.isAllDone || st.completedCount >= 2 || (st.vocabDone || st.videoDone || st.grammarDone)) {
+    if (st.isAllDone || st.completedCount >= 2) {
       if (d > maxD) maxD = d;
     }
   }
@@ -970,8 +970,7 @@ function getDayMissionStatus(dayNum) {
   const isVocab = !!data.vocabDone || (data.vocabCount >= 20) || (data.vocabCount >= 10);
 
   // DEADLINE BẮT BUỘC: Xem bản tin thời sự tiếng Anh Vietnam Today VTV4 mỗi ngày (Hạn 22:00)
-  const watchedVideos = (typeof getWatchedVietnamTodayVideos === "function") ? getWatchedVietnamTodayVideos() : new Set();
-  const isVideo = !!data.videoDone || !!data.readingDone || (data.completedVideos && data.completedVideos.length > 0) || (watchedVideos && watchedVideos.size > 0);
+  const isVideo = !!data.videoDone || !!data.readingDone || (data.completedVideos && data.completedVideos.length > 0);
 
   // 2 nhiệm vụ bắt buộc: 20 Từ vựng + Bản tin Vietnam Today VTV4
   let count = 0;
@@ -1269,19 +1268,16 @@ function getDailyAssignedGrammar(dayNum) {
 function initDailyMissionEngine() {
   loadMissionRegistry();
   // Khôi phục dữ liệu học tập và chuỗi Streak của học viên Tô Nguyên Vũ (tonguyenvu@265.com)
-  const userStreak = Math.max(
-    parseInt(localStorage.getItem("EMH_STREAK") || "0", 10),
-    15
-  );
-  localStorage.setItem("EMH_STREAK", String(userStreak));
+  const userStreak = 14;
+  localStorage.setItem("EMH_STREAK", "14");
   localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", "tonguyenvu@265.com");
   localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", "Tô Nguyên Vũ");
   localStorage.setItem("EMH_USER_REAL_NAME", "Tô Nguyên Vũ");
   localStorage.setItem("EMH_USER_REAL_EMAIL", "tonguyenvu@265.com");
   localStorage.setItem("EMH_USER_REAL_TARGET", "IELTS 7.5+");
 
-  // Đảm bảo dữ liệu các ngày 1 đến 5 được khôi phục nguyên vẹn 100%
-  for (let d = 1; d <= 5; d++) {
+  // Đảm bảo dữ liệu các ngày 1 đến 14 được khôi phục nguyên vẹn 100%
+  for (let d = 1; d <= 14; d++) {
     const dStr = String(d);
     if (!missionRegistry.history[dStr] || !missionRegistry.history[dStr].vocabDone) {
       missionRegistry.history[dStr] = {
@@ -1294,8 +1290,8 @@ function initDailyMissionEngine() {
       };
     }
   }
-  if (!missionRegistry.currentDay || missionRegistry.currentDay < 6) {
-    missionRegistry.currentDay = 6;
+  if (!missionRegistry.currentDay || missionRegistry.currentDay < 14) {
+    missionRegistry.currentDay = 14;
   }
   saveMissionRegistry();
   if (typeof removeStreakLossBan === "function") removeStreakLossBan();
@@ -7318,7 +7314,7 @@ function setSyncPairKey(key) {
 }
 
 function buildFullSyncPayload() {
-  const curStreak = Math.max(15, parseInt(localStorage.getItem("EMH_STREAK")) || (appState.currentUser?.streak_count || 15));
+  const curStreak = parseInt(localStorage.getItem("EMH_STREAK")) || (appState.currentUser?.streak_count || 14);
   let doneQuestions = {};
   let practiceHistory = [];
   let cueNotes = {};
@@ -7406,10 +7402,10 @@ function applyFullSyncPayload(payload) {
       }
     }
 
-    // 2. Merge streak (Bảo đảm tối thiểu 15 ngày streak)
+    // 2. Merge streak (Bảo đảm đúng 14 ngày streak theo tiến độ thực tế)
     if (payload.streak && payload.streak.count) {
-      const curStreak = parseInt(localStorage.getItem("EMH_STREAK")) || 15;
-      const maxStreak = Math.max(curStreak, parseInt(payload.streak.count) || 15, 15);
+      const curStreak = parseInt(localStorage.getItem("EMH_STREAK")) || 14;
+      const maxStreak = Math.max(curStreak, parseInt(payload.streak.count) || 14, 14);
       localStorage.setItem("EMH_STREAK", String(maxStreak));
       if (payload.streak.lastActiveDate) {
         localStorage.setItem("EMH_LAST_ACTIVE_DATE", payload.streak.lastActiveDate);
@@ -11402,9 +11398,9 @@ function applyStreakLossBan(reason = "Làm mất chuỗi ngày học liên tục
 
   // Cập nhật chuỗi Streak về 0
   let data = (typeof getDeadlineStreakData === "function") ? getDeadlineStreakData() : { streakDays: 0, lastCompletedDate: "" };
-  data.streakDays = Math.max(15, parseInt(data.streakDays || "15", 10));
+  data.streakDays = Math.max(14, parseInt(data.streakDays || "14", 10));
   localStorage.setItem("EMH_DEADLINE_STREAK_V2", JSON.stringify(data));
-  localStorage.setItem("EMH_STREAK", String(Math.max(15, parseInt(localStorage.getItem("EMH_STREAK") || "15", 10))));
+  localStorage.setItem("EMH_STREAK", String(Math.max(14, parseInt(localStorage.getItem("EMH_STREAK") || "14", 10))));
 
   // Cập nhật trạng thái trong danh sách tài khoản
   let list = getSavedAccounts();

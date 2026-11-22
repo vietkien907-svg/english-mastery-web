@@ -574,48 +574,70 @@
 
     if (!transcriptText) transcriptText = 'Candidate spoke for ' + (state.speakingDurationSec || 15) + ' seconds.';
 
-    const sysPrompt = `You are an official IELTS Speaking Senior Examiner and native English coach.
-Evaluate the candidate's spoken response according to the 4 official IELTS criteria:
-1. Fluency & Coherence (FC)
-2. Lexical Resource (LR)
-3. Grammatical Range & Accuracy (GRA)
-4. Pronunciation (PR)
+    const sysPrompt = `You are a Senior Official IELTS Speaking Examiner accredited by the British Council and IDP, and an elite native English pronunciation coach.
 
-Respond ONLY with a valid JSON object matching this exact structure:
+Evaluate the candidate's spoken response strictly according to the Official IELTS Speaking Band Descriptors (Public Version):
+1. Fluency & Coherence (FC):
+   - Speech rate, continuity, hesitation (content vs language search), repetition, self-correction.
+   - Use of cohesive devices, discourse markers, connectors, logical idea development.
+2. Lexical Resource (LR):
+   - Variety, precision, flexibility of vocabulary.
+   - Use of collocations, idioms, less common / topic-specific terms, awareness of style and collocation.
+   - Penalize overused basic words ("good", "bad", "like", "very", "think").
+3. Grammatical Range & Accuracy (GRA):
+   - Balance of simple and complex sentence structures (relative clauses, conditionals, passive, inversion, cleft sentences).
+   - Frequency of error-free sentences, systemic vs non-systemic errors (tense consistency, agreement, prepositions, articles).
+4. Pronunciation & Delivery (PR):
+   - Intelligibility, sentence stress, rhythm, chunking, and phonological clarity based on the spoken text and speech rate.
+
+STRICT PART-SPECIFIC RULES & LENGTH PENALTIES:
+- Part 1 (Short Interview): Expect 2–4 well-developed sentences (approx. 25–50 words). If candidate gives a monosyllabic or 1-sentence answer without development, CAP Overall Band at 4.5–5.0.
+- Part 2 (Long Turn / Cue Card): Candidate must address all prompts in the Cue Card and produce sustained speech for 1.5–2 minutes (approx. 130–220 words). If response is under 80 words, CAP Fluency at 4.5 and Overall at 5.0.
+- Part 3 (Two-way In-depth Discussion): Expect abstract, balanced reasoning, cause-effect logic, and formal discourse markers. Casual or purely personal anecdotes must be penalized on Coherence.
+- Off-topic Penalty: If the response fails to address the question prompt, severely penalize Fluency & Coherence (Band 4.0).
+
+OUTPUT REQUIREMENTS:
+Respond ONLY with a valid, clean JSON object matching this exact structure:
 {
-  "overallBand": 7.0,
+  "overallBand": 6.5,
   "criteria": {
     "fluency": {
-      "band": 7.0,
-      "feedback": "Nhận xét tiếng Việt về độ trôi chảy, tốc độ, quãng ngắt và từ nối.",
+      "band": 6.5,
+      "feedback": "Nhận xét tiếng Việt chi tiết về tốc độ nói, độ trôi chảy, cách phát triển ý và các liên từ đã dùng.",
       "strengths": ["Điểm mạnh 1", "Điểm mạnh 2"],
       "improvements": ["Điểm cần khắc phục"]
     },
     "lexical": {
-      "band": 6.5,
-      "feedback": "Nhận xét tiếng Việt về độ đa dạng từ vựng, collocations.",
-      "collocationsUsed": ["cụm từ 1", "cụm từ 2"],
-      "suggestedUpgrades": ["từ/cụm nâng cấp 1", "từ/cụm nâng cấp 2"]
+      "band": 6.0,
+      "feedback": "Nhận xét tiếng Việt chi tiết về độ đa dạng từ vựng, các từ lặp và mức độ học thuật.",
+      "collocationsUsed": ["collocation 1", "collocation 2"],
+      "suggestedUpgrades": [
+        {
+          "original": "từ/cụm từ cơ bản trong bài",
+          "upgrade": "cụm từ Band 8.0+ tương đương",
+          "reason": "Giải thích vì sao cụm từ nâng cấp này tự nhiên và đắt giá hơn"
+        }
+      ]
     },
     "grammar": {
-      "band": 7.0,
-      "feedback": "Nhận xét tiếng Việt về độ chính xác và đa dạng thì/mệnh đề.",
+      "band": 6.5,
+      "feedback": "Nhận xét tiếng Việt chi tiết về cấu trúc câu đơn/phức, thì động từ và độ chính xác.",
       "errors": [
         {
-          "original": "câu sai của thí sinh",
-          "correction": "câu đã sửa chuẩn xác",
-          "reason": "Giải thích ngắn gọn lý do sai bằng tiếng Việt"
+          "original": "trích dẫn chính xác câu hoặc cụm sai của thí sinh",
+          "correction": "câu đã được sửa chuẩn ngữ pháp",
+          "reason": "Giải thích lỗi sai ngữ pháp bằng tiếng Việt một cách dễ hiểu"
         }
       ]
     },
     "pronunciation": {
-      "band": 7.0,
-      "feedback": "Nhận xét tiếng Việt về độ rõ ràng, trọng âm từ và ngữ điệu."
+      "band": 6.5,
+      "feedback": "Nhận xét tiếng Việt về tốc độ phát âm (WPM), ngữ điệu, trọng âm câu và độ mượt mà khi nối âm."
     }
   },
-  "upgradedAnswer": "A complete, native-level Band 8.5 sample answer that preserves the candidate's original ideas but elevates it with advanced idioms, natural connectors, and rich academic or natural expressions.",
+  "upgradedAnswer": "Một bài nói mẫu hoàn chỉnh đạt Band 8.5 viết lại DỰA TRÊN ĐÚNG 100% Ý TƯỞNG VÀ NỘI DUNG GỐC của thí sinh (giữ nguyên câu chuyện, cảm xúc và thông tin), nâng tầm bằng từ vựng học thuật, liên từ tự nhiên và cấu trúc câu phức đắt giá.",
   "topicVocabulary": [
-    { "phrase": "high-end collocation", "ipa": "/.../", "meaning": "Nghĩa tiếng Việt" }
+    { "phrase": "high-level collocation", "ipa": "/.../", "meaning": "Nghĩa tiếng Việt" }
   ]
 }`;
 
@@ -659,64 +681,195 @@ Please provide the rigorous evaluation and JSON response.`;
   }
 
   // Built-in Smart Local Evaluator
+    // Built-in Smart Local Evaluator (Strictly Calibrated to IELTS Band Descriptors)
   function evaluateLocally(item, transcript, durationSec) {
     const text = transcript.trim();
     const words = text ? text.split(/\s+/) : [];
     const wordCount = words.length;
-    const dur = Math.max(5, durationSec || 15);
+    const dur = Math.max(5, durationSec || (wordCount > 0 ? Math.round(wordCount / 2.1) : 15));
     const wpm = Math.round((wordCount / dur) * 60);
+    const part = item.part || '1';
 
+    // 1. Fluency & Coherence (FC)
     let fc = 6.0;
-    if (wpm >= 110 && wpm <= 150 && wordCount >= 30) fc = 7.0;
-    else if (wpm >= 90 && wordCount >= 20) fc = 6.5;
-    else if (wordCount < 15) fc = 5.0;
+    let fcFeedback = '';
+    const fcStrengths = [];
+    const fcImprovements = [];
 
-    const unique = new Set(words.map(w => w.toLowerCase().replace(/[^a-z]/g, ''))).size;
-    const ttr = wordCount > 0 ? unique / wordCount : 0;
+    // Part-specific length checks
+    if (part === '1') {
+      if (wordCount < 15) {
+        fc = 4.5;
+        fcFeedback = `Câu trả lời quá ngắn (${wordCount} từ). Trong Part 1, bạn cần phát triển tối thiểu 2–4 câu (khoảng 25–45 từ) gồm câu trả lời trực tiếp + lý do / ví dụ cụ thể.`;
+        fcImprovements.push('Mở rộng câu trả lời bằng cấu trúc [Direct Answer + Explanation + Example]');
+      } else if (wordCount < 25) {
+        fc = 5.5;
+        fcFeedback = `Độ dài đạt ${wordCount} từ. Tốc độ nói xấp xỉ ${wpm} từ/phút. Cần liên kết ý mượt mà hơn và tránh ngắt quãng.`;
+        fcStrengths.push('Trả lời trực diện trọng tâm');
+        fcImprovements.push('Sử dụng thêm liên từ tự nhiên như "to be honest", "as a matter of fact"');
+      } else {
+        fc = (wpm >= 105 && wpm <= 150) ? 7.0 : 6.5;
+        fcFeedback = `Độ dài rất tốt (${wordCount} từ), duy trì mạch nói ổn định ở mức ${wpm} từ/phút. Các ý phát triển có sự liên kết tự nhiên.`;
+        fcStrengths.push(`Tốc độ nói lý tưởng (${wpm} từ/phút)`, `Độ dài đầy đủ (${wordCount} từ)`);
+        fcImprovements.push('Đa dạng hóa các discourse markers để bứt phá lên Band 8.0+');
+      }
+    } else if (part === '2') {
+      if (wordCount < 60) {
+        fc = 4.0;
+        fcFeedback = `Bài nói quá ngắn (${wordCount} từ), chưa đáp ứng yêu cầu thuyết trình liên tục 1.5–2 phút của Part 2 (cần tối thiểu 130–200 từ).`;
+        fcImprovements.push('Phải triển khai đầy đủ cả 4 gợi ý trong Cue Card để nói đủ 2 phút');
+      } else if (wordCount < 110) {
+        fc = 5.0;
+        fcFeedback = `Bài nói dài ${wordCount} từ. Bạn đã bao quát được ý chính nhưng chưa đào sâu chi tiết cảm xúc và bài học kinh nghiệm.`;
+        fcStrengths.push('Bám sát chủ đề Cue Card');
+        fcImprovements.push('Mở rộng thêm chi tiết cụ thể và ví dụ minh họa sinh động');
+      } else {
+        fc = (wpm >= 110 && wpm <= 150) ? 7.0 : 6.5;
+        fcFeedback = `Độ dài bài thuyết trình xuất sắc (${wordCount} từ trong ${dur}s), cấu trúc mở - thân - kết rõ ràng, mạch lạc.`;
+        fcStrengths.push('Duy trì độc thoại liên tục mạch lạc', `Độ dài bài nói chuẩn mực (${wordCount} từ)`);
+      }
+    } else { // Part 3
+      if (wordCount < 25) {
+        fc = 4.5;
+        fcFeedback = `Câu trả lời Part 3 quá ngắn (${wordCount} từ). Part 3 đòi hỏi tư duy phản biện đa chiều, phân tích nguyên nhân - hệ quả của vấn đề xã hội.`;
+        fcImprovements.push('Lập luận theo phương pháp đa chiều: "On the one hand... On the other hand..."');
+      } else if (wordCount < 45) {
+        fc = 6.0;
+        fcFeedback = `Độ dài ${wordCount} từ. Phản hồi hợp lý nhưng cần thêm luận cứ mang tính khái quát xã hội thay vì chỉ nhìn nhận góc độ cá nhân.`;
+        fcStrengths.push('Đưa ra quan điểm rõ ràng');
+        fcImprovements.push('Đưa thêm ví dụ thực tế trong đời sống để lập luận thuyết phục hơn');
+      } else {
+        fc = (wpm >= 110 && wpm <= 150) ? 7.0 : 6.5;
+        fcFeedback = `Lập luận logic, tư duy phản biện sắc sảo, liên kết các mệnh đề chặt chẽ (${wordCount} từ).`;
+        fcStrengths.push('Lập luận đa chiều sâu sắc', 'Liên kết ý thuyết phục');
+      }
+    }
+
+    // 2. Lexical Resource (LR)
+    const uniqueWords = new Set(words.map(w => w.toLowerCase().replace(/[^a-z]/g, ''))).size;
+    const ttr = wordCount > 0 ? uniqueWords / wordCount : 0;
     let lr = 6.0;
-    if (ttr > 0.7 && wordCount >= 30) lr = 7.0;
+    if (ttr > 0.72 && wordCount >= 30) lr = 7.0;
     else if (ttr > 0.6) lr = 6.5;
-    else if (wordCount < 15) lr = 5.0;
+    else if (wordCount < 20) lr = 5.0;
 
-    const clauses = (text.match(/\b(because|although|though|even if|which|that|when|while|whereas|since|if)\b/gi) || []).length;
+    // Detect repeated basic words & suggest upgrades
+    const suggestedUpgrades = [];
+    const lowerText = text.toLowerCase();
+    
+    if (/\bvery\s+good\b/.test(lowerText) || /\bgood\b/.test(lowerText)) {
+      suggestedUpgrades.push({ original: "good / very good", upgrade: "exceptional / commendable / of superior quality", reason: "Thay thế tính từ đơn giản bằng từ học thuật thể hiện sự tinh tế" });
+    }
+    if (/\bi\s+think\b/.test(lowerText)) {
+      suggestedUpgrades.push({ original: "I think", upgrade: "From my standpoint / I am strongly inclined to believe", reason: "Tránh lặp cụm từ quen thuộc, tăng tính học thuật và trang trọng" });
+    }
+    if (/\ba\s+lot\s+of\b/.test(lowerText) || /\bmany\b/.test(lowerText)) {
+      suggestedUpgrades.push({ original: "a lot of / many", upgrade: "a myriad of / a substantial quantity of / a multitude of", reason: "Dùng từ định lượng học thuật cho bài thi Speaking" });
+    }
+    if (/\bhappy\b/.test(lowerText)) {
+      suggestedUpgrades.push({ original: "happy", upgrade: "elated / walking on air / utterly exhilarated", reason: "Idiom và tính từ biểu cảm mạnh giúp đạt điểm Lexical Band 7.5+" });
+    }
+    if (/\bimportant\b/.test(lowerText)) {
+      suggestedUpgrades.push({ original: "important", upgrade: "of paramount importance / pivotal / integral", reason: "Nâng cấp cụm collocation mang tính học thuật cao" });
+    }
+    if (/\bdifficult\b/.test(lowerText) || /\bhard\b/.test(lowerText)) {
+      suggestedUpgrades.push({ original: "difficult / hard", upgrade: "exceedingly challenging / posed formidable hurdles", reason: "Diễn đạt sắc thái thử thách một cách tinh tế" });
+    }
+
+    if (suggestedUpgrades.length === 0) {
+      suggestedUpgrades.push(
+        { original: "like", upgrade: "have a keen affinity for / be captivated by", reason: "Nâng cấp động từ chỉ sở thích" },
+        { original: "because", upgrade: "given that / on the grounds that", reason: "Liên từ nguyên nhân học thuật" }
+      );
+    }
+
+    // 3. Grammatical Range & Accuracy (GRA)
+    const clauses = (text.match(/\b(because|although|though|even if|which|that|when|while|whereas|since|if|as soon as|in order that)\b/gi) || []).length;
     let gra = 6.0;
     if (clauses >= 3 && wordCount >= 30) gra = 7.0;
     else if (clauses >= 1) gra = 6.5;
-    else if (wordCount < 15) gra = 5.0;
+    else if (wordCount < 20) gra = 5.0;
 
+    // Advanced Grammar Error Detection
+    const errors = [];
+    if (/\b(he|she|it)\s+(don't|have|go|want|make|need|say|like)\b/i.test(text)) {
+      const match = text.match(/\b(he|she|it)\s+(don't|have|go|want|make|need|say|like)\b/i)[0];
+      errors.push({
+        original: match,
+        correction: match.replace(/don't/i, "doesn't").replace(/have/i, "has").replace(/go/i, "goes").replace(/want/i, "wants").replace(/make/i, "makes").replace(/need/i, "needs").replace(/say/i, "says").replace(/like/i, "likes"),
+        reason: "Hòa hợp chủ vị: Chủ ngữ ngôi thứ ba số ít (he/she/it) phải dùng động từ chia số ít (-s/-es) hoặc trợ động từ 'doesn't'."
+      });
+    }
+    if (/\b(everybody|everyone|nobody|someone)\s+(are|were|have)\b/i.test(text)) {
+      const match = text.match(/\b(everybody|everyone|nobody|someone)\s+(are|were|have)\b/i)[0];
+      errors.push({
+        original: match,
+        correction: match.replace(/are/i, "is").replace(/were/i, "was").replace(/have/i, "has"),
+        reason: "Đại từ bất định (everyone, everybody,...) luôn được tính là số ít và đi kèm động từ số ít (is, was, has)."
+      });
+    }
+    if (/\bin\s+(the\s+)?(yesterday|tomorrow)\b/i.test(text)) {
+      errors.push({
+        original: "in yesterday / in tomorrow",
+        correction: "yesterday / tomorrow",
+        reason: "Trạng từ chỉ thời gian 'yesterday', 'tomorrow' không đi kèm giới từ 'in'."
+      });
+    }
+    if (/\b(listen|listening)\s+([a-z]+)/i.test(text) && !/\b(listen|listening)\s+to\b/i.test(text) && /\b(listen|listening)\s+(music|songs|radio|podcast)/i.test(text)) {
+      errors.push({
+        original: "listen music",
+        correction: "listen to music",
+        reason: "Động từ 'listen' là nội động từ, bắt buộc phải có giới từ 'to' trước tân ngữ (listen to something)."
+      });
+    }
+    if (/\bvery\s+(delicious|exhausted|freezing|furious|impossible|vital|essential)\b/i.test(text)) {
+      const match = text.match(/\bvery\s+(delicious|exhausted|freezing|furious|impossible|vital|essential)\b/i)[0];
+      errors.push({
+        original: match,
+        correction: match.replace(/very/i, "absolutely / completely"),
+        reason: "Tính từ tuyệt đối (Extreme Adjectives) không đi với 'very'. Hãy dùng 'absolutely' hoặc 'completely'."
+      });
+    }
+    if (/\b(can\s+able\s+to|could\s+able\s+to)\b/i.test(text)) {
+      errors.push({
+        original: "can able to",
+        correction: "am able to / can",
+        reason: "Lỗi thừa modal verb: Không dùng 'can able to'. Chỉ dùng 'can' hoặc 'be able to'."
+      });
+    }
+    if (/\b(did\s+went|did\s+saw|did\s+bought)\b/i.test(text)) {
+      const match = text.match(/\b(did\s+went|did\s+saw|did\s+bought)\b/i)[0];
+      errors.push({
+        original: match,
+        correction: match.replace(/went/i, "go").replace(/saw/i, "see").replace(/bought/i, "buy"),
+        reason: "Sau trợ động từ 'did/didn't', động từ chính phải giữ ở dạng nguyên thể không to (bare infinitive)."
+      });
+    }
+
+    // 4. Pronunciation & Delivery (PR)
     let pr = 6.5;
+    if (wpm < 85 || wpm > 175) pr = 5.5;
+    else if (wpm >= 115 && wpm <= 145) pr = 7.0;
 
-    const rawOverall = (fc + lr + gra + pr) / 4;
+    // Cap Overall Band if answer was under-length
+    let rawOverall = (fc + lr + gra + pr) / 4;
+    if (part === '1' && wordCount < 15) rawOverall = Math.min(rawOverall, 5.0);
+    if (part === '2' && wordCount < 60) rawOverall = Math.min(rawOverall, 4.5);
+    if (part === '2' && wordCount < 100) rawOverall = Math.min(rawOverall, 5.5);
+    if (part === '3' && wordCount < 25) rawOverall = Math.min(rawOverall, 5.0);
     const overallBand = Math.round(rawOverall * 2) / 2;
 
-    const errors = [];
-    if (/\b(he|she|it)\s+(don't|have|go|want|make)\b/i.test(text)) {
-      errors.push({
-        original: text.match(/\b(he|she|it)\s+(don't|have|go|want|make)\b/i)[0],
-        correction: "Chia ngôi thứ ba số ít (doesn't / has / goes / wants / makes)",
-        reason: "Chủ ngữ ngôi thứ 3 số ít cần chia động từ thêm -s/-es hoặc dùng trợ động từ 'doesn't'."
-      });
-    }
-    if (/\bin\s+(the\s+)?yesterday\b/i.test(text)) {
-      errors.push({
-        original: "in yesterday",
-        correction: "yesterday",
-        reason: "'Yesterday' là trạng từ chỉ thời gian, không dùng giới từ 'in' phía trước."
-      });
-    }
-    if (/\bvery\s+(delicious|exhausted|freezing|furious)\b/i.test(text)) {
-      errors.push({
-        original: text.match(/\bvery\s+(delicious|exhausted|freezing|furious)\b/i)[0],
-        correction: "Dùng 'absolutely / completely' thay cho 'very'",
-        reason: "Các tính từ mang nghĩa tuyệt đối (extreme adjectives) không đi kèm với 'very'."
-      });
-    }
-
+    // Native Rewrite preserving candidate's ideas
     let upgradedAnswer = '';
-    if (item.part === '2') {
-      upgradedAnswer = `To be completely candid, when it comes to ${item.topicTitle.toLowerCase()}, I would definitely single out a pivotal experience that left an indelible impression on me. What made it particularly extraordinary was the steep learning curve involved and the sheer perseverance required. Looking back in hindsight, it not only broadened my horizons but also fundamentally reshaped how I tackle multifaceted challenges in day-to-day life.`;
+    const safeTopic = (item.topicTitle || 'this topic').toLowerCase();
+    const cleanQ = (item.questionText || '').replace(/\?$/, '');
+
+    if (part === '2') {
+      upgradedAnswer = `To be completely candid, when reflect upon ${safeTopic}, the very first experience that springs vividly to mind is ${text.slice(0, 80).replace(/^[a-z]/, c => c.toUpperCase())}... What made this experience singularly memorable was not merely the steep learning curve involved, but also the profound resilience it instilled in me. Looking back in hindsight, having to navigate through unexpected complications fundamentally reshaped my perspective and equipped me with invaluable problem-solving skills for the long haul.`;
+    } else if (part === '3') {
+      upgradedAnswer = `From an analytical standpoint, regarding the question of whether ${cleanQ.toLowerCase()}, I am strongly inclined to believe that there is no singular black-or-white answer. On the one hand, ${text.slice(0, 60)}... On the other hand, from a broader societal perspective, striking a delicate equilibrium remains of paramount importance. Ultimately, adopting a proactive and adaptable mindset makes an immense difference in tackling such multifaceted challenges.`;
     } else {
-      upgradedAnswer = `From a personal standpoint, I'd argue that ${item.questionText.toLowerCase().replace(/\?$/, '')} has become increasingly prominent nowadays. On the one hand, it offers remarkable practical convenience; on the other hand, it demands a deliberate balance so as not to overwhelm one's daily routine. Ultimately, having a proactive mindset makes an enormous difference.`;
+      upgradedAnswer = `Well, frankly speaking, when it comes to ${cleanQ.toLowerCase()}, I would definitely argue that ${text.slice(0, 50).toLowerCase()}... More specifically, it has played an indispensable role in shaping my personal routine. In addition, I find that allocating deliberate attention to this area not only broadens my horizon but also yields tremendous practical benefits in the long run.`;
     }
 
     return {
@@ -724,15 +877,15 @@ Please provide the rigorous evaluation and JSON response.`;
       criteria: {
         fluency: {
           band: fc,
-          feedback: `Tốc độ nói trung bình đạt khoảng ${wpm} từ/phút. Bạn duy trì được mạch nói cơ bản, phản hồi trực diện câu hỏi. Để đạt Band 7.5+, hãy sử dụng thêm các từ nối tự nhiên như 'frankly speaking', 'as a matter of fact'.`,
-          strengths: [`Độ dài câu trả lời hợp lý (${wordCount} từ)`, `Phản hồi bám sát chủ đề`],
-          improvements: ['Hạn chế ngập ngừng lặp từ', 'Tăng tính linh hoạt của các cụm liên kết câu']
+          feedback: fcFeedback,
+          strengths: fcStrengths.length ? fcStrengths : ['Duy trì được nhịp độ nói tương đối ổn định'],
+          improvements: fcImprovements.length ? fcImprovements : ['Sử dụng thêm các liên từ kết nối tự nhiên để bài nói mượt mà hơn']
         },
         lexical: {
           band: lr,
-          feedback: `Độ đa dạng từ vựng đạt ${(ttr * 100).toFixed(0)}%. Bạn đã sử dụng được một số từ vựng đúng ngữ cảnh. Cần bổ sung thêm các Collocation học thuật và Idioms đặc thù theo đề thi.`,
+          feedback: `Độ đa dạng từ vựng đạt ${(ttr * 100).toFixed(0)}%. Bạn đã sử dụng được một số từ vựng đúng ngữ cảnh. Hãy bổ sung thêm các Collocation học thuật và Idioms đặc thù theo đề thi.`,
           collocationsUsed: words.slice(0, 3),
-          suggestedUpgrades: ['an indelible impression', 'broaden one\'s horizons', 'a pivotal role', 'steep learning curve']
+          suggestedUpgrades: suggestedUpgrades
         },
         grammar: {
           band: gra,
@@ -741,17 +894,19 @@ Please provide the rigorous evaluation and JSON response.`;
         },
         pronunciation: {
           band: pr,
-          feedback: `Phát âm tương đối dễ nghe, không gây hiểu lầm cho người nghe. Cần chú ý nhấn đúng trọng âm câu (sentence stress) và nối âm cuối (linking sounds) mượt mà hơn.`
+          feedback: `Tốc độ nói trung bình đạt ${wpm} từ/phút (chuẩn IELTS: 110–140 WPM). Phát âm tương đối rõ ràng. Cần chú ý nhấn đúng trọng âm câu (sentence stress) và nối âm cuối (linking sounds) mượt mà hơn.`
         }
       },
       upgradedAnswer: upgradedAnswer,
       topicVocabulary: [
-        { phrase: "broaden one's horizons", ipa: "/ˈbrɔːdn wʌnz həˈraɪznz/", meaning: "Mở rộng tầm nhìn, hiểu biết" },
+        { phrase: "of paramount importance", ipa: "/əv ˈpærəmaʊnt ɪmˈpɔːtns/", meaning: "Có tầm quan trọng tối cao, cốt lõi" },
         { phrase: "leave an indelible impression", ipa: "/liːv ən ɪnˈdelɪbl ɪmˈpreʃn/", meaning: "Để lại ấn tượng sâu đậm khó phai" },
-        { phrase: "steep learning curve", ipa: "/stiːp ˈlɜːrnɪŋ kɜːrv/", meaning: "Quá trình học hỏi nhiều thách thức ban đầu" }
+        { phrase: "strike a delicate balance", ipa: "/straɪk ə ˈdelɪkət ˈbæləns/", meaning: "Tạo sự cân bằng tinh tế giữa các yếu tố" },
+        { phrase: "steep learning curve", ipa: "/stiːp ˈlɜːrnɪŋ kɜːrv/", meaning: "Quá trình học hỏi nhiều thử thách ban đầu" }
       ],
       transcript: text || '(Ghi âm trực tiếp - không có văn bản live)',
-      speakingDurationSec: dur
+      speakingDurationSec: dur,
+      source: 'Local Smart Heuristic (Chưa có Groq Key)'
     };
   }
 
@@ -1026,7 +1181,7 @@ Please provide the rigorous evaluation and JSON response.`;
     }
   }
 
-  function renderEvaluationResult(res) {
+    function renderEvaluationResult(res) {
     const resultZone = document.getElementById('spResultZone');
     if (!resultZone || !res) return;
 
@@ -1035,37 +1190,72 @@ Please provide the rigorous evaluation and JSON response.`;
 
     const ob = res.overallBand || 6.5;
     const crits = res.criteria || {};
-    const fc = crits.fluency || { band: 6.0, feedback: '' };
-    const lr = crits.lexical || { band: 6.0, feedback: '' };
+    const fc = crits.fluency || { band: 6.0, feedback: '', strengths: [], improvements: [] };
+    const lr = crits.lexical || { band: 6.0, feedback: '', suggestedUpgrades: [] };
     const gra = crits.grammar || { band: 6.0, feedback: '', errors: [] };
     const pr = crits.pronunciation || { band: 6.0, feedback: '' };
 
+    // Format errors table
     let errorsHtml = '';
     if (gra.errors && gra.errors.length) {
-      errorsHtml = gra.errors.map(err => `
-        <div class="err-box mb-2 text-xs">
-          <div class="flex items-center gap-2 mb-1 flex-wrap">
-            <del class="text-[#9a93a8]">${err.original || ''}</del>
-            <span class="text-[#5f5870]">→</span>
-            <ins class="text-[#2f855a] font-bold no-underline">${err.correction || ''}</ins>
+      errorsHtml = gra.errors.map((err, i) => `
+        <div class="err-box p-3 rounded-xl bg-rose-50/70 border border-rose-200/80 mb-2.5 text-xs space-y-1.5">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-1.5 py-0.5 rounded font-bold bg-rose-200/70 text-rose-800 text-[10px]">Lỗi ${i + 1}</span>
+            <del class="text-rose-600 font-semibold line-through">"${err.original || ''}"</del>
+            <span class="text-slate-400 font-bold">→</span>
+            <ins class="text-emerald-700 font-bold no-underline bg-emerald-100/70 px-1.5 py-0.5 rounded">"${err.correction || ''}"</ins>
           </div>
-          <p class="text-[#5f5870] leading-relaxed">${err.reason || ''}</p>
+          <p class="text-slate-600 leading-relaxed font-medium"><strong class="text-slate-800">Giải thích:</strong> ${err.reason || err.rule || 'Cần chỉnh sửa cho đúng ngữ pháp chuẩn.'}</p>
         </div>
       `).join('');
     } else {
-      errorsHtml = `<p class="text-xs text-[#2f855a] font-medium italic">✓ Không phát hiện lỗi sai thô thiển. Diễn đạt chính xác!</p>`;
+      errorsHtml = `<div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-700 font-medium flex items-center gap-2">
+        <span class="text-base">✓</span> <span>Không phát hiện lỗi ngữ pháp nghiêm trọng. Diễn đạt tương đối chính xác và tự nhiên!</span>
+      </div>`;
     }
 
+    // Format Vocabulary Upgrade Table
+    let vocabUpgradesHtml = '';
+    const upgradesList = lr.suggestedUpgrades || [];
+    if (upgradesList.length) {
+      vocabUpgradesHtml = `
+        <div class="pv-card p-3.5 space-y-2">
+          <h5 class="font-bold text-xs uppercase tracking-wider text-indigo-700 flex items-center gap-1.5">
+            <span>🚀 Nâng Cấp Từ Vựng & Collocation Band 8.0+</span>
+          </h5>
+          <div class="grid grid-cols-1 gap-2 pt-1">
+            ${upgradesList.map(u => {
+              if (typeof u === 'string') {
+                return `<div class="p-2 rounded-lg bg-indigo-50/60 border border-indigo-100 text-xs text-indigo-900 font-semibold">• ${u}</div>`;
+              }
+              return `
+                <div class="p-2.5 rounded-xl bg-indigo-50/50 border border-indigo-100/80 text-xs space-y-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-slate-500 font-medium">Từ cơ bản: <code class="text-rose-600 bg-rose-50 px-1 py-0.5 rounded font-mono">${u.original || ''}</code></span>
+                    <span class="text-slate-400">→</span>
+                    <span class="text-indigo-700 font-bold bg-white px-2 py-0.5 rounded border border-indigo-200 shadow-sm">✨ ${u.upgrade || ''}</span>
+                  </div>
+                  ${u.reason ? `<p class="text-[11px] text-slate-500 italic mt-0.5">${u.reason}</p>` : ''}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    const isLocalEngine = (res.source || '').includes('Local');
     const upg = res.upgradedAnswer || '';
 
     resultZone.innerHTML = `
       <div class="space-y-3.5">
         <!-- Top Overall Band Score Card -->
-        <div class="pv-card">
+        <div class="pv-card p-4">
           <div class="score-line">
             <div class="score-main">
-              <b>${ob}</b>
-              <span>Overall Band ước tính</span>
+              <b class="text-3xl text-indigo-600">${ob}</b>
+              <span class="text-xs font-semibold text-slate-500">Overall Band ước tính</span>
             </div>
             <div class="mini-bands">
               <div class="mini-band">
@@ -1086,46 +1276,142 @@ Please provide the rigorous evaluation and JSON response.`;
               </div>
             </div>
           </div>
-          <div class="flex items-center justify-between text-xs text-[#5f5870] pt-3 mt-3 border-t border-[#ece8f1]">
-            <span>Động cơ: <strong class="text-[#221c2b]">${res.source || 'AI Engine'}</strong> · Thời gian: <strong>${res.speakingDurationSec || state.speakingDurationSec}s</strong></span>
-            <button type="button" onclick="SpeakingEngine.speakText('${upg.replace(/'/g, "\'")}')" class="ni-nav-btn" style="padding: 4px 10px; font-size: 12px;">
+
+          <div class="flex items-center justify-between text-xs text-slate-500 pt-3 mt-3 border-t border-slate-200/80">
+            <span class="flex items-center gap-1.5">
+              <span>Động cơ:</span>
+              <strong class="${isLocalEngine ? 'text-amber-700 font-bold' : 'text-emerald-700 font-bold'}">${res.source || 'AI Engine'}</strong>
+              <span>· Thời gian: <strong>${res.speakingDurationSec || state.speakingDurationSec}s</strong></span>
+            </span>
+            <button type="button" onclick="SpeakingEngine.speakText('${upg.replace(/'/g, "\\'")}')" class="ni-nav-btn text-xs py-1 px-2.5 flex items-center gap-1" title="Nghe bài mẫu giọng bản xứ">
               🔊 Nghe bài mẫu
             </button>
+          </div>
+
+          ${isLocalEngine ? `
+          <div class="mt-3 p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-800 flex items-center justify-between gap-2">
+            <span>💡 Bạn đang dùng bộ chấm Local. Gắn <strong>Groq API Key</strong> miễn phí để mở khóa Llama 3.3 70B chấm sâu chuẩn giám khảo IDP!</span>
+            <button type="button" onclick="SpeakingEngine.openGroqModal()" class="px-2.5 py-1 rounded-lg bg-amber-600 text-white font-bold text-[11px] shrink-0 hover:bg-amber-700 transition">
+              Cài Key Ngay
+            </button>
+          </div>
+          ` : ''}
+        </div>
+
+        <!-- 4 Criteria Detailed Assessment Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- FC Card -->
+          <div class="pv-card p-3 space-y-1.5 text-xs border-l-4" style="border-left-color: var(--fluency);">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-700">🗣️ Fluency & Coherence</span>
+              <span class="font-extrabold text-xs px-2 py-0.5 rounded bg-slate-100" style="color: var(--fluency);">Band ${fc.band || 6.0}</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">${fc.feedback || ''}</p>
+            ${(fc.strengths && fc.strengths.length) ? `
+              <div class="text-[11px] text-emerald-700 pt-1">
+                <strong>✓ Điểm cộng:</strong> ${fc.strengths.join(', ')}
+              </div>` : ''}
+            ${(fc.improvements && fc.improvements.length) ? `
+              <div class="text-[11px] text-rose-700">
+                <strong>⚠ Cần khắc phục:</strong> ${fc.improvements.join(', ')}
+              </div>` : ''}
+          </div>
+
+          <!-- LR Card -->
+          <div class="pv-card p-3 space-y-1.5 text-xs border-l-4" style="border-left-color: var(--lexical);">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-700">📚 Lexical Resource</span>
+              <span class="font-extrabold text-xs px-2 py-0.5 rounded bg-slate-100" style="color: var(--lexical);">Band ${lr.band || 6.0}</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">${lr.feedback || ''}</p>
+          </div>
+
+          <!-- GRA Card -->
+          <div class="pv-card p-3 space-y-1.5 text-xs border-l-4" style="border-left-color: var(--grammar);">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-700">✍️ Grammatical Range</span>
+              <span class="font-extrabold text-xs px-2 py-0.5 rounded bg-slate-100" style="color: var(--grammar);">Band ${gra.band || 6.0}</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">${gra.feedback || ''}</p>
+          </div>
+
+          <!-- PR Card -->
+          <div class="pv-card p-3 space-y-1.5 text-xs border-l-4" style="border-left-color: var(--pronunciation);">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-700">🎯 Pronunciation & Delivery</span>
+              <span class="font-extrabold text-xs px-2 py-0.5 rounded bg-slate-100" style="color: var(--pronunciation);">Band ${pr.band || 6.0}</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">${pr.feedback || ''}</p>
           </div>
         </div>
 
         <!-- Transcript -->
         ${res.transcript ? `
-        <div class="pv-card text-xs">
-          <span class="font-bold text-[#5f5870] uppercase tracking-wider block mb-1">📝 Lời Bạn Đã Nói (Transcript)</span>
-          <p class="text-xs text-[#221c2b] bg-[#f5f3f8] p-2.5 rounded-lg leading-relaxed">"${res.transcript}"</p>
+        <div class="pv-card p-3.5 text-xs space-y-1">
+          <span class="font-bold text-slate-500 uppercase tracking-wider block">📝 Lời Bạn Đã Nói (Transcript)</span>
+          <p class="text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 leading-relaxed font-mono text-[12px]">"${res.transcript}"</p>
         </div>` : ''}
 
-        <!-- Detailed Error Correction -->
-        <div class="pv-card">
-          <h5 class="font-bold text-sm text-[#221c2b] mb-1.5 flex items-center justify-between">
-            <span>Chữa Lỗi Chi Tiết</span>
-            <span class="legend"><del>chữ sai</del> <ins>chữ đúng</ins></span>
-          </h5>
-          <div class="space-y-1.5 mt-2">
+        <!-- Detailed Error Correction Table -->
+        <div class="pv-card p-3.5 space-y-2">
+          <div class="flex items-center justify-between">
+            <h5 class="font-bold text-xs uppercase tracking-wider text-rose-700 flex items-center gap-1.5">
+              <span>🔍 Chữa Lỗi Ngữ Pháp & Dùng Từ Chi Tiết</span>
+            </h5>
+            <span class="text-[11px] text-slate-400 font-medium"><del class="text-rose-500">chữ sai</del> → <ins class="text-emerald-600 font-bold no-underline">chữ đúng</ins></span>
+          </div>
+          <div class="space-y-1.5 pt-1">
             ${errorsHtml}
           </div>
         </div>
 
-        <!-- Upgraded Band 8.0+ Model Answer -->
-        <div class="answer-card upgraded">
-          <div class="answer-card-title flex items-center justify-between gap-2">
-            <span>✨ Bản Nâng Cấp Band 8.0+ Chuẩn Bản Xứ</span>
-            <button type="button" onclick="SpeakingEngine.speakText('${upg.replace(/'/g, "\\'")}')" class="ni-nav-btn text-xs py-1 px-2.5 flex items-center gap-1.5" title="Nghe giọng bản ngữ đọc mẫu để luyện Shadowing">
-              🔊 Nghe Giọng Mẫu
-            </button>
+        <!-- Vocabulary Upgrades -->
+        ${vocabUpgradesHtml}
+
+        <!-- Upgraded Band 8.5+ Model Answer -->
+        <div class="pv-card p-4 space-y-2 bg-gradient-to-br from-indigo-50/80 via-white to-purple-50/60 border border-indigo-200/90 shadow-sm">
+          <div class="flex items-center justify-between gap-2 border-b border-indigo-100 pb-2.5">
+            <span class="font-extrabold text-xs uppercase tracking-wider text-indigo-700 flex items-center gap-1.5">
+              <span>✨ Bản Nâng Cấp Band 8.5+ Chuẩn Bản Xứ</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 font-bold border border-indigo-200">100% Giữ Ý Gốc</span>
+            </span>
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="SpeakingEngine.copyText('${upg.replace(/'/g, "\\'")}')" class="ni-nav-btn text-[11px] py-1 px-2.5 flex items-center gap-1 cursor-pointer hover:bg-indigo-50" title="Sao chép bài mẫu">
+                📋 Sao Chép
+              </button>
+              <button type="button" onclick="SpeakingEngine.speakText('${upg.replace(/'/g, "\\'")}')" class="py-1 px-2.5 rounded-xl text-[11px] font-bold bg-indigo-600 hover:bg-indigo-700 text-white transition flex items-center gap-1 cursor-pointer shadow-sm" title="Nghe giọng bản ngữ đọc mẫu để luyện Shadowing">
+                🔊 Nghe Giọng Mẫu
+              </button>
+            </div>
           </div>
-          <p class="answer-card-text">${upg}</p>
+          <p class="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal pt-1">${upg}</p>
         </div>
+
+        <!-- Topic Collocations -->
+        ${(res.topicVocabulary && res.topicVocabulary.length) ? `
+        <div class="pv-card p-3.5 space-y-2">
+          <span class="font-bold text-xs uppercase tracking-wider text-slate-600 block">📚 Collocations Hay Cho Đề Thi Này</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+            ${res.topicVocabulary.map(v => `
+              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs flex flex-col justify-between">
+                <div>
+                  <span class="font-bold text-indigo-700 block">${v.phrase || ''}</span>
+                  <span class="text-[11px] font-mono text-slate-400 block">${v.ipa || ''}</span>
+                  <span class="text-slate-600 text-[11px] mt-0.5 block">${v.meaning || ''}</span>
+                </div>
+                <button type="button" onclick="SpeakingEngine.speakText('${(v.phrase || '').replace(/'/g, "\\'")}')" class="text-left text-[11px] text-indigo-600 hover:underline mt-1 font-semibold">
+                  🔊 Nghe phát âm
+                </button>
+              </div>
+            `).join('')}
+          </div>
+        </div>` : ''}
       </div>
     `;
 
-    if (resultZone && typeof resultZone.scrollIntoView === 'function') { try { resultZone.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {} }
+    if (resultZone && typeof resultZone.scrollIntoView === 'function') {
+      try { resultZone.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
+    }
   }
 
   // Switch Speaking Part
@@ -2030,7 +2316,8 @@ Respond ONLY with a valid JSON object matching this schema:
     handleTranscriptInput: handleTranscriptInput,
     clearTranscript: clearTranscript,
     discardRecording: discardRecording,
-    rehydrate: rehydrate
+    rehydrate: rehydrate,
+    copyText: copyText
   };
 
 
@@ -2059,6 +2346,29 @@ Respond ONLY with a valid JSON object matching this schema:
     if (playerZone) playerZone.classList.add('hidden');
     const audioEl = document.getElementById('spPlaybackAudio');
     if (audioEl) audioEl.src = '';
+  }
+
+
+  function copyText(str) {
+    if (!str) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(str).then(() => {
+        alert('Đã sao chép vào bộ nhớ tạm!');
+      }).catch(() => {
+        fallbackCopy(str);
+      });
+    } else {
+      fallbackCopy(str);
+    }
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); alert('Đã sao chép vào bộ nhớ tạm!'); } catch(e) {}
+    document.body.removeChild(ta);
   }
 
   // Auto-initialize Speaking Engine on load with safety retries

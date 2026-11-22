@@ -212,7 +212,7 @@
     </div>
 
     <!-- ================= TAB: HÔM NAY (TODAY OVERVIEW & AUTOMATIC DEADLINE MISSIONS) ================= -->
-    <section id="tab-today" class="space-y-5">
+    <section id="tab-today" class="hidden space-y-5">
       <!-- 1. DAILY HERO HEADER CARD (Bento Header) -->
       <div class="pv-card p-5 sm:p-6 space-y-4">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#e2e8f0]">
@@ -1170,7 +1170,7 @@
     </section>
 
     <!-- ================= TAB: 25 CHUYÊN ĐỀ NGỮ PHÁP TỔNG ÔN CÔ TRANG ANH ================= -->
-    <section id="tab-grammar" class="hidden" class="hidden space-y-6">
+    <section id="tab-grammar" class="hidden space-y-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="glass-card rounded-2xl p-4 space-y-3 h-[600px] overflow-y-auto md:sticky md:top-20">
           <div class="flex items-center justify-between px-1">
@@ -1820,77 +1820,58 @@
 
         <!-- ================= TAB: IELTS SPEAKING STUDIO (AI EXAMINER 2-COLUMN) ================= -->
     <section id="tab-speaking" class="space-y-4">
-      <!-- Source Switcher Bar: Speakout B1+ vs Forecast Q3/2026 -->
-      <div class="pv-card p-2 flex items-center gap-2 bg-slate-50 border border-slate-200/80">
-        <span class="text-xs font-bold text-slate-500 shrink-0 ml-1">Kho đề:</span>
-        <div class="grid grid-cols-2 gap-2 flex-1">
-          <button type="button" id="spSourceTab_speakout" onclick="SpeakingEngine.setSource('speakout')" class="py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-white text-indigo-700 shadow-sm border-2 border-indigo-500">
-            <span>📚 Giáo Trình Speakout B1+ (Unit 1–8)</span>
-          </button>
-          <button type="button" id="spSourceTab_forecast" onclick="SpeakingEngine.setSource('forecast')" class="py-2 px-3 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-600 hover:text-slate-800 hover:bg-white/80 border border-slate-200">
-            <span>🔮 Đề Dự Đoán Thi Thật (IELTS Forecast 150 Chủ Đề)</span>
-          </button>
+      <!-- Unified Compact Speaking Studio Control Bar -->
+      <div class="pv-card p-3 space-y-2.5 bg-white border border-slate-200/80 shadow-xs">
+        <!-- Row 1: Part Mini-Pills + Source Selector Mini-Pills -->
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <!-- Parts Selector Mini-Pills -->
+          <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200/60">
+            <button type="button" id="spPartTab_1" onclick="SpeakingEngine.setPart('1')" class="py-1 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white text-indigo-700 shadow-xs border border-indigo-200">
+              Part 1 (Phỏng Vấn)
+            </button>
+            <button type="button" id="spPartTab_2" onclick="SpeakingEngine.setPart('2')" class="py-1 px-3 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all cursor-pointer border border-transparent">
+              Part 2 (Cue Card)
+            </button>
+            <button type="button" id="spPartTab_3" onclick="SpeakingEngine.setPart('3')" class="py-1 px-3 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all cursor-pointer border border-transparent">
+              Part 3 (Thảo Luận)
+            </button>
+            <button id="spPartTab_mock" onclick="SpeakingEngine.setPart('mock')" class="hidden"></button>
+          </div>
+
+          <!-- Sources Selector Mini-Pills -->
+          <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200/60">
+            <button type="button" id="spSourceTab_speakout" onclick="SpeakingEngine.setSource('speakout')" class="py-1 px-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white text-indigo-700 shadow-xs border border-indigo-200 flex items-center gap-1">
+              <span>📚 Speakout B1+</span>
+            </button>
+            <button type="button" id="spSourceTab_forecast" onclick="SpeakingEngine.setSource('forecast')" class="py-1 px-2.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all cursor-pointer border border-transparent flex items-center gap-1">
+              <span>🔮 Forecast Q3</span>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <!-- 3 IELTS Speaking Parts Bento Selector Bar -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <!-- Part 1 Button Card -->
-        <button type="button" id="spPartTab_1" onclick="SpeakingEngine.setPart('1')" class="pv-card text-left p-3.5 transition-all cursor-pointer border-2" style="border-color: var(--accent); background-color: var(--accent-wash);">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-extrabold uppercase tracking-wider" style="color: var(--accent);">Part 1</span>
-            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-white/90 border border-slate-200">4–5 phút</span>
+        <!-- Row 2: Topic Dropdown + Action Buttons -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 border-t border-slate-100">
+          <div class="flex items-center gap-2 flex-1 min-w-0">
+            <label class="text-xs font-bold text-slate-500 shrink-0">Chủ đề:</label>
+            <select id="spTopicSelect" onchange="SpeakingEngine.selectTopicIndex(this.value)" class="ni-input text-xs font-semibold py-1.5 px-2.5 flex-1 bg-slate-50 border border-slate-200 rounded-lg">
+              <!-- Rendered by JS -->
+            </select>
           </div>
-          <h4 class="font-bold text-sm text-[#0f172a]">Phỏng Vấn Đời Sống</h4>
-          <p class="text-[11px] text-[#64748b] mt-0.5 leading-snug">Câu hỏi giao tiếp ngắn, phản xạ 15–30s/câu</p>
-        </button>
-
-        <!-- Part 2 Button Card -->
-        <button type="button" id="spPartTab_2" onclick="SpeakingEngine.setPart('2')" class="pv-card text-left p-3.5 transition-all cursor-pointer border hover:border-slate-300">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-600">Part 2</span>
-            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-slate-100 text-slate-600 border border-slate-200">1–2 phút nói</span>
+          <div class="flex items-center gap-1.5 shrink-0 flex-wrap">
+            <button type="button" onclick="SpeakingEngine.pickRandomQuestion()" class="ni-nav-btn text-xs font-semibold py-1.5 px-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer" title="Bốc ngẫu nhiên trong kho hiện tại">
+              <span>🎲 Bốc Đề</span>
+            </button>
+            <button type="button" onclick="SpeakingEngine.pickRandomCrossSource()" class="ni-nav-btn text-xs font-semibold py-1.5 px-2.5 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100 cursor-pointer" title="Bốc ngẫu nhiên trộn cả Speakout B1+ và Forecast Q3">
+              <span>⚡ Liên Kho</span>
+            </button>
+            <button type="button" onclick="SpeakingEngine.openHistoryModal()" class="ni-nav-btn text-xs font-semibold py-1.5 px-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer" title="Lịch sử bài nói">
+              <span>📜 Lịch Sử</span>
+            </button>
+            <button type="button" onclick="switchTab('tab-listening')" class="ni-nav-btn text-xs font-semibold py-1.5 px-2.5 rounded-lg border border-slate-200 text-cyan-700 hover:bg-slate-50 cursor-pointer" title="Mở kho 100 bộ đề Luyện Nghe IELTS">
+              <span>🎧 Luyện Nghe</span>
+            </button>
+            <input type="hidden" id="spSearchInput" value="">
           </div>
-          <h4 class="font-bold text-sm text-[#0f172a]">Thuyết Trình Cue Card</h4>
-          <p class="text-[11px] text-[#64748b] mt-0.5 leading-snug">1 phút lập dàn ý + độc thoại liên tục 2 phút</p>
-        </button>
-
-        <!-- Part 3 Button Card -->
-        <button type="button" id="spPartTab_3" onclick="SpeakingEngine.setPart('3')" class="pv-card text-left p-3.5 transition-all cursor-pointer border hover:border-slate-300">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-extrabold uppercase tracking-wider text-rose-600">Part 3</span>
-            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-slate-100 text-slate-600 border border-slate-200">4–5 phút</span>
-          </div>
-          <h4 class="font-bold text-sm text-[#0f172a]">Thảo Luận Chuyên Sâu</h4>
-          <p class="text-[11px] text-[#64748b] mt-0.5 leading-snug">Lập luận phản biện đa chiều 45–60s/câu</p>
-        </button>
-
-        <!-- Hidden Mock Tab for JS compatibility -->
-        <button id="spPartTab_mock" onclick="SpeakingEngine.setPart('mock')" class="hidden"></button>
-      </div>
-
-      <!-- Topic Selector & Action Controls Bar -->
-      <div class="pv-card flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5">
-        <div class="flex items-center gap-2 flex-1 min-w-0">
-          <label class="text-xs font-bold text-[#64748b] shrink-0">Chủ đề:</label>
-          <select id="spTopicSelect" onchange="SpeakingEngine.selectTopicIndex(this.value)" class="ni-input text-xs font-bold py-1.5 px-3 flex-1">
-            <!-- Rendered by JS -->
-          </select>
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <button type="button" onclick="SpeakingEngine.pickRandomQuestion()" class="ni-nav-btn text-xs font-semibold py-1.5 px-3" title="Bốc ngẫu nhiên trong kho hiện tại">
-            <span>🎲 Bốc Đề</span>
-          </button>
-          <button type="button" onclick="SpeakingEngine.pickRandomCrossSource()" class="ni-nav-btn text-xs font-semibold py-1.5 px-3 bg-indigo-50 text-indigo-700 border-indigo-200 hover:bg-indigo-100" title="Bốc ngẫu nhiên trộn cả Speakout B1+ và Forecast Q3">
-            <span>⚡ Bốc Liên Kho</span>
-          </button>
-          <button type="button" onclick="SpeakingEngine.openHistoryModal()" class="ni-nav-btn text-xs font-semibold py-1.5 px-3" title="Lịch sử bài nói">
-            <span>📜 Lịch Sử</span>
-          </button>
-          <button type="button" onclick="switchTab('tab-listening')" class="ni-nav-btn text-xs font-semibold py-1.5 px-3 text-cyan-700 hover:text-cyan-800" title="Mở kho 100 bộ đề Luyện Nghe IELTS">
-            <span>🎧 Luyện Nghe</span>
-          </button>
-          <input type="hidden" id="spSearchInput" value="">
         </div>
       </div>
 
@@ -3077,19 +3058,19 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=90.0"></script>
-  <script src="./listening_data.js?v=90.0"></script>
-  <script src="./vietnam_today_data.js?v=90.0"></script>
-  <script src="./educational_channels_data.js?v=90.0"></script>
-  <script src="./international_news_videos.js?v=90.0"></script>
-  <script src="./bilingual_news_data.js?v=90.0"></script>
-  <script src="./reading_lexicon.js?v=90.0"></script>
-  <script src="./conversation_data.js?v=90.0"></script>
-    <script src="./speaking-forecast.js?v=90.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=90.0"></script>
-  <script src="./speakout-speaking-data.js?v=90.0"></script>
-  <script src="./speaking-engine.js?v=90.0"></script>
-  <script src="./app.js?v=90.0"></script>
+  <script src="./data.js?v=91.0"></script>
+  <script src="./listening_data.js?v=91.0"></script>
+  <script src="./vietnam_today_data.js?v=91.0"></script>
+  <script src="./educational_channels_data.js?v=91.0"></script>
+  <script src="./international_news_videos.js?v=91.0"></script>
+  <script src="./bilingual_news_data.js?v=91.0"></script>
+  <script src="./reading_lexicon.js?v=91.0"></script>
+  <script src="./conversation_data.js?v=91.0"></script>
+    <script src="./speaking-forecast.js?v=91.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=91.0"></script>
+  <script src="./speakout-speaking-data.js?v=91.0"></script>
+  <script src="./speaking-engine.js?v=91.0"></script>
+  <script src="./app.js?v=91.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3097,7 +3078,7 @@
     }
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=90.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=91.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

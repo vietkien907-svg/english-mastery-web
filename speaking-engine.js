@@ -1425,17 +1425,19 @@ Please provide the rigorous evaluation and JSON response.`;
       const btn = document.getElementById(`spPartTab_${p}`);
       if (btn) {
         if (p === part) {
-          btn.style.borderColor = 'var(--accent, #6366f1)';
-          btn.style.backgroundColor = 'var(--accent-wash, #eef2ff)';
-          btn.style.boxShadow = '0 4px 12px rgba(99, 102, 241, 0.12)';
-          btn.classList.add('border-2');
-          btn.classList.remove('border-slate-200');
+          btn.className = 'py-1 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white text-indigo-700 shadow-xs border border-indigo-200';
+          if (btn.style) {
+            btn.style.borderColor = '';
+            btn.style.backgroundColor = '';
+            btn.style.boxShadow = '';
+          }
         } else {
-          btn.style.borderColor = '';
-          btn.style.backgroundColor = '';
-          btn.style.boxShadow = '';
-          btn.classList.remove('border-2');
-          btn.classList.add('border-slate-200');
+          btn.className = 'py-1 px-3 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all cursor-pointer border border-transparent';
+          if (btn.style) {
+            btn.style.borderColor = '';
+            btn.style.backgroundColor = '';
+            btn.style.boxShadow = '';
+          }
         }
       }
     });
@@ -1510,17 +1512,7 @@ Please provide the rigorous evaluation and JSON response.`;
       const chosen = sources[Math.floor(Math.random() * sources.length)];
       if (state.currentSource !== chosen) {
         state.currentSource = chosen;
-        const btnSp = document.getElementById('spSourceTab_speakout');
-        const btnFc = document.getElementById('spSourceTab_forecast');
-        if (btnSp && btnFc) {
-          if (chosen === 'speakout') {
-            btnSp.className = 'py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-white text-indigo-700 shadow-sm border-2 border-indigo-500';
-            btnFc.className = 'py-2 px-3 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-600 hover:text-slate-800 hover:bg-white/80 border border-slate-200';
-          } else {
-            btnFc.className = 'py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-white text-indigo-700 shadow-sm border-2 border-indigo-500';
-            btnSp.className = 'py-2 px-3 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-600 hover:text-slate-800 hover:bg-white/80 border border-slate-200';
-          }
-        }
+        updateSourceTabUI();
       }
     }
 
@@ -2243,24 +2235,25 @@ Respond ONLY with a valid JSON object matching this schema:
   }
 
 
+  function updateSourceTabUI() {
+    const btnSpeakout = document.getElementById('spSourceTab_speakout');
+    const btnForecast = document.getElementById('spSourceTab_forecast');
+    if (!btnSpeakout || !btnForecast) return;
+    const isSpeakout = (state.currentSource === 'speakout');
+    btnSpeakout.className = isSpeakout
+      ? 'py-1 px-2.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer bg-white text-indigo-700 shadow-xs border border-indigo-200'
+      : 'py-1 px-2.5 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1 cursor-pointer text-slate-600 hover:text-slate-900 border border-transparent';
+    btnForecast.className = !isSpeakout
+      ? 'py-1 px-2.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer bg-white text-indigo-700 shadow-xs border border-indigo-200'
+      : 'py-1 px-2.5 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1 cursor-pointer text-slate-600 hover:text-slate-900 border border-transparent';
+  }
+
   function setSource(source) {
     state.currentSource = source || 'speakout';
     state.currentTopicIndex = 0;
     state.currentQuestionIndex = 0;
 
-    const btnSpeakout = document.getElementById('spSourceTab_speakout');
-    const btnForecast = document.getElementById('spSourceTab_forecast');
-
-    if (btnSpeakout && btnForecast) {
-      if (state.currentSource === 'speakout') {
-        btnSpeakout.className = 'py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-white text-indigo-700 shadow-sm border-2 border-indigo-500';
-        btnForecast.className = 'py-2 px-3 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-600 hover:text-slate-800 hover:bg-white/80 border border-slate-200';
-      } else {
-        btnForecast.className = 'py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-white text-indigo-700 shadow-sm border-2 border-indigo-500';
-        btnSpeakout.className = 'py-2 px-3 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-600 hover:text-slate-800 hover:bg-white/80 border border-slate-200';
-      }
-    }
-
+    updateSourceTabUI();
     setPart(state.currentPart || '1');
   }
 

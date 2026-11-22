@@ -524,6 +524,7 @@ function switchTab(tabId) {
 
     const navBtn = document.getElementById(`nav-btn-${id}`) || (id === "reader" ? document.getElementById("nav-btn-reading") : null);
     if (navBtn) {
+      navBtn.classList.toggle("active", id === tabId);
       if (id === tabId) {
         navBtn.classList.add("bg-indigo-600", "text-white");
         navBtn.classList.remove("text-slate-300", "hover:text-white", "hover:bg-slate-800");

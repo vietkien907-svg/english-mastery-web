@@ -524,6 +524,14 @@
             <div id="returnTodayBtnContainer_flashcard" class="flex items-center"></div>
           </div>
 
+          <button onclick="openOcrWordModal()" class="px-3 py-2 rounded-xl bg-purple-600/30 hover:bg-purple-600 text-purple-300 hover:text-white text-xs font-bold border border-purple-500/40 transition flex items-center gap-1.5 shadow active:scale-95" title="Tải/chụp ảnh sách để AI tự bóc tách từ vựng">
+            <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+            <span>📸 Quét Từ Ảnh</span>
+          </button>
+          <button onclick="openUnitReviewModal()" class="px-3 py-2 rounded-xl bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/40 transition flex items-center gap-1.5 shadow active:scale-95" title="Ôn tập toàn diện cả Unit và đếm giờ 1h/2h">
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+            <span>📚 Ôn Tổng Thể Unit</span>
+          </button>
           <button onclick="openAddWordModal()" class="px-3 py-2 rounded-xl bg-emerald-600/30 hover:bg-emerald-600 text-emerald-300 hover:text-white text-xs font-bold border border-emerald-500/40 transition flex items-center gap-1.5 shadow active:scale-95" title="Tra cứu từ điển và thêm từ mới vào ngày này">
             <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
             <span>+ Tra & Thêm Từ</span>
@@ -532,6 +540,43 @@
             <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
             <span class="hidden sm:inline">Ôn Tập Tự Do</span>
           </button>
+        </div>
+      </div>
+
+      <!-- FOCUS SESSION ACTIVE CONTROL BAR (1H / 2H UNIT REVIEW TIMER) -->
+      <div id="focusSessionStickyBar" class="hidden glass-card rounded-2xl p-3.5 border border-amber-500/50 bg-gradient-to-r from-amber-950/60 via-slate-900/90 to-amber-950/60 shadow-xl space-y-2.5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-amber-500/20">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30 flex items-center gap-1">
+              <span>⏱️ Phiên Tập Trung:</span>
+              <strong id="focusSessionUnitName">Unit 1</strong>
+            </span>
+            <span id="focusSessionCardCountBadge" class="text-xs text-slate-300 font-medium">0 / 0 thẻ</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1.5 bg-slate-900 px-3 py-1 rounded-xl border border-amber-500/40 font-mono text-sm sm:text-base font-extrabold text-amber-400">
+              <i data-lucide="clock" class="w-4 h-4 text-amber-400 animate-pulse"></i>
+              <span id="focusSessionTimerDisplay">01:00:00</span>
+            </div>
+            <button type="button" onclick="endFocusSessionEarly()" class="px-3 py-1 rounded-lg bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white text-xs font-bold border border-rose-500/30 transition active:scale-95" title="Kết thúc sớm phiên học">
+              ⏹️ Dừng
+            </button>
+          </div>
+        </div>
+        <!-- Live session metrics -->
+        <div class="grid grid-cols-3 gap-2 text-center text-xs">
+          <div class="p-1.5 rounded-lg bg-slate-900/80 border border-slate-800">
+            <span class="text-[10px] text-slate-400 block">Đã lật</span>
+            <strong id="focusSessionStatReviewed" class="text-white font-bold text-sm">0</strong>
+          </div>
+          <div class="p-1.5 rounded-lg bg-emerald-950/40 border border-emerald-800/40">
+            <span class="text-[10px] text-emerald-400 block">Nhớ tốt (Level 4-5)</span>
+            <strong id="focusSessionStatRemembered" class="text-emerald-300 font-bold text-sm">0</strong>
+          </div>
+          <div class="p-1.5 rounded-lg bg-indigo-950/40 border border-indigo-800/40">
+            <span class="text-[10px] text-indigo-400 block">Độ chính xác</span>
+            <strong id="focusSessionStatAccuracy" class="text-indigo-300 font-bold text-sm">100%</strong>
+          </div>
         </div>
       </div>
 
@@ -2542,6 +2587,189 @@
     </div>
   </div>
 
+  <!-- ================= MODAL: OCR AI VISION VOCABULARY SCANNER ================= -->
+  <div id="ocrWordModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto" onclick="closeOcrWordModal()">
+    <div class="glass-card max-w-2xl w-full rounded-2xl p-5 sm:p-6 border border-purple-500/40 bg-slate-900 shadow-2xl relative space-y-4 my-auto max-h-[92vh] overflow-y-auto" onclick="event.stopPropagation()">
+      <!-- Header -->
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div>
+          <h3 class="font-bold text-base sm:text-lg text-white flex items-center gap-2">
+            <i data-lucide="camera" class="w-5 h-5 text-purple-400"></i>
+            <span>Quét Từ Vựng Bằng Ảnh AI (Groq Vision OCR)</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Tải ảnh chụp sách/vở, dán ảnh từ clipboard (Ctrl+V) hoặc chụp camera</p>
+        </div>
+        <button onclick="closeOcrWordModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Upload Zone -->
+      <div id="ocrDropZone" class="border-2 border-dashed border-purple-500/40 hover:border-purple-400 rounded-2xl p-6 text-center cursor-pointer transition bg-purple-950/10 hover:bg-purple-950/20 space-y-2" onclick="document.getElementById('ocrFileInput').click()">
+        <input type="file" id="ocrFileInput" accept="image/*" class="hidden" onchange="handleOcrFileSelect(event)">
+        <div id="ocrUploadPrompt" class="space-y-1">
+          <i data-lucide="image-plus" class="w-8 h-8 text-purple-400 mx-auto"></i>
+          <p class="text-xs sm:text-sm font-bold text-slate-200">Kéo thả ảnh vào đây, bấm để chọn ảnh hoặc ấn <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-purple-300 font-mono text-xs">Ctrl + V</kbd> dán ảnh</p>
+          <p class="text-[11px] text-slate-400">Hỗ trợ JPG, PNG, WEBP từ sách giáo trình, ghi chú viết tay</p>
+        </div>
+        <!-- Thumbnail preview when file selected -->
+        <div id="ocrPreviewContainer" class="hidden space-y-2">
+          <img id="ocrImagePreview" src="" alt="OCR Preview" class="max-h-48 mx-auto rounded-xl border border-slate-700 shadow-md">
+          <div class="flex items-center justify-center gap-2">
+            <button type="button" onclick="event.stopPropagation(); resetOcrImage();" class="text-xs text-rose-400 hover:text-rose-300 underline font-semibold">Chọn ảnh khác</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action: Scan Button & Groq API Key Indicator -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+        <div class="flex items-center gap-2">
+          <label class="text-xs text-slate-400">Lưu vào:</label>
+          <select id="ocrDestinationSelect" class="bg-slate-800 border border-slate-700 text-xs text-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-purple-500">
+            <option value="notebook">📚 Sổ tay từ vựng tích lũy</option>
+            <option value="day">🎯 Ngày học hiện tại</option>
+          </select>
+        </div>
+        <button type="button" id="btnScanOcrNow" onclick="startOcrVisionScan()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-purple-950/40 active:scale-95 disabled:opacity-50">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>🔍 AI Bóc Tách Từ Vựng</span>
+        </button>
+      </div>
+
+      <!-- Loading Spinner -->
+      <div id="ocrLoadingSpinner" class="hidden text-center py-6 space-y-2">
+        <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-purple-500 border-t-transparent"></div>
+        <p class="text-xs text-purple-300 font-semibold">AI đang phân tích ảnh, nhận diện chữ & tra cứu nghĩa...</p>
+      </div>
+
+      <!-- Extracted Words Result Container -->
+      <div id="ocrResultsContainer" class="hidden space-y-3 pt-2 border-t border-slate-800">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+            <span>Đã bóc tách:</span>
+            <span id="ocrWordsFoundBadge" class="px-2 py-0.5 rounded-md bg-purple-500/20 text-purple-300 font-bold border border-purple-500/30">0 từ</span>
+          </span>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="toggleSelectAllOcrWords(true)" class="text-xs text-indigo-400 hover:underline">Chọn hết</button>
+            <span class="text-slate-600">|</span>
+            <button type="button" onclick="toggleSelectAllOcrWords(false)" class="text-xs text-slate-400 hover:underline">Bỏ chọn</button>
+          </div>
+        </div>
+
+        <div id="ocrWordsTable" class="max-h-60 overflow-y-auto space-y-2 pr-1">
+          <!-- Populated dynamically -->
+        </div>
+
+        <button type="button" id="btnImportOcrWords" onclick="confirmImportOcrWords()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm transition shadow-lg shadow-emerald-950/40 flex items-center justify-center gap-2 active:scale-95">
+          <i data-lucide="check-circle" class="w-4 h-4"></i>
+          <span>➕ Lưu Các Từ Đã Chọn Vào Bộ Thẻ</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: UNIT COMPREHENSIVE REVIEW SETUP ================= -->
+  <div id="unitReviewSetupModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto" onclick="closeUnitReviewModal()">
+    <div class="glass-card max-w-lg w-full rounded-2xl p-5 sm:p-6 border border-indigo-500/40 bg-slate-900 shadow-2xl relative space-y-4 my-auto max-h-[92vh] overflow-y-auto" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div>
+          <h3 class="font-bold text-base sm:text-lg text-white flex items-center gap-2">
+            <i data-lucide="layers" class="w-5 h-5 text-indigo-400"></i>
+            <span>Ôn Tập Tổng Thể Unit & Phiên Đếm Giờ</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Học tập trung Smart SRS: Ưu tiên từ Quên/Khó lên đầu</p>
+        </div>
+        <button onclick="closeUnitReviewModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3.5 text-xs">
+        <div>
+          <label class="block text-slate-200 font-bold mb-1.5">Chọn Unit cần ôn tập:</label>
+          <select id="unitReviewSelect" onchange="updateUnitReviewPreviewStats(this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white outline-none focus:border-indigo-500 font-medium text-xs sm:text-sm">
+            <option value="all">🌟 Toàn Bộ Các Từ Đã Học (Tất cả Unit gộp lại)</option>
+            <!-- Populated dynamically by JS -->
+          </select>
+        </div>
+
+        <!-- Word count preview -->
+        <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+          <span class="text-slate-300">Tổng số thẻ từ trong Unit:</span>
+          <span id="unitReviewTotalWordsBadge" class="font-bold text-amber-300 bg-amber-500/10 px-2.5 py-0.5 rounded-lg border border-amber-500/20">0 từ</span>
+        </div>
+
+        <!-- Duration Picker -->
+        <div>
+          <label class="block text-slate-200 font-bold mb-1.5">Thời lượng phiên tập trung:</label>
+          <div class="grid grid-cols-4 gap-2">
+            <button type="button" onclick="selectFocusDuration(30)" class="focus-duration-btn py-2 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 font-bold hover:border-amber-500 active:scale-95" data-duration="30">
+              30 Phút
+            </button>
+            <button type="button" onclick="selectFocusDuration(60)" class="focus-duration-btn py-2 rounded-xl border-2 border-amber-500 bg-amber-500/20 text-amber-300 font-bold active:scale-95" data-duration="60">
+              1 Giờ
+            </button>
+            <button type="button" onclick="selectFocusDuration(120)" class="focus-duration-btn py-2 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 font-bold hover:border-amber-500 active:scale-95" data-duration="120">
+              2 Giờ
+            </button>
+            <button type="button" onclick="selectFocusDuration(0)" class="focus-duration-btn py-2 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 font-bold hover:border-amber-500 active:scale-95" data-duration="0">
+              Tự Do
+            </button>
+          </div>
+        </div>
+
+        <!-- Algorithm notice -->
+        <div class="p-2.5 rounded-xl bg-indigo-950/30 border border-indigo-500/30 flex items-start gap-2 text-indigo-300 text-[11px]">
+          <i data-lucide="sparkles" class="w-4 h-4 shrink-0 text-amber-400 mt-0.5"></i>
+          <span><strong>Thuật toán Smart SRS:</strong> Tự động xếp các thẻ từ bạn từng đánh giá "Quên" hoặc "Khó" lên đầu phiên để luyện tập củng cố ngay.</span>
+        </div>
+
+        <button type="button" onclick="startUnitReviewFocusSession()" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-amber-600 hover:from-indigo-500 hover:to-amber-500 text-white font-bold text-sm transition shadow-lg shadow-indigo-950/40 flex items-center justify-center gap-2 active:scale-95">
+          <i data-lucide="play" class="w-4 h-4"></i>
+          <span>🚀 Bắt Đầu Phiên Học Ngay</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: FOCUS SESSION SUMMARY ================= -->
+  <div id="focusSessionSummaryModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto" onclick="closeFocusSessionSummaryModal()">
+    <div class="glass-card max-w-md w-full rounded-2xl p-5 sm:p-6 border border-emerald-500/50 bg-slate-900 shadow-2xl relative space-y-4 my-auto" onclick="event.stopPropagation()">
+      <div class="text-center space-y-2">
+        <div class="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mx-auto flex items-center justify-center text-2xl shadow-lg shadow-emerald-950/50">
+          🎉
+        </div>
+        <h3 class="font-extrabold text-lg text-white">Hoàn Thành Phiên Học Tập Trung!</h3>
+        <p id="focusSummarySubtitle" class="text-xs text-slate-400">Bạn đã hoàn thành phiên ôn tập Unit 1 xuất sắc!</p>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2 text-center text-xs py-2">
+        <div class="p-2 rounded-xl bg-slate-800 border border-slate-700">
+          <span class="text-[10px] text-slate-400 block">Thời gian</span>
+          <strong id="focusSummaryTime" class="text-amber-400 font-bold text-sm">60 phút</strong>
+        </div>
+        <div class="p-2 rounded-xl bg-slate-800 border border-slate-700">
+          <span class="text-[10px] text-slate-400 block">Thẻ đã lật</span>
+          <strong id="focusSummaryCards" class="text-white font-bold text-sm">45 thẻ</strong>
+        </div>
+        <div class="p-2 rounded-xl bg-emerald-950/40 border border-emerald-800/40">
+          <span class="text-[10px] text-emerald-400 block">Chính xác</span>
+          <strong id="focusSummaryAccuracy" class="text-emerald-300 font-bold text-sm">92%</strong>
+        </div>
+      </div>
+
+      <!-- Difficult words section if any -->
+      <div id="focusSummaryDifficultSection" class="hidden space-y-1.5 text-xs">
+        <span class="text-amber-400 font-bold block">⚠️ Các từ cần lưu ý củng cố thêm:</span>
+        <div id="focusSummaryDifficultList" class="max-h-28 overflow-y-auto p-2 rounded-xl bg-slate-800/80 border border-slate-700 space-y-1 text-slate-300"></div>
+      </div>
+
+      <button type="button" onclick="closeFocusSessionSummaryModal()" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm transition">
+        Tiếp Tục Lộ Trình
+      </button>
+    </div>
+  </div>
+
   <!-- ================= MODAL: DICTIONARY LOOKUP & CUSTOM VOCAB CREATOR ================= -->
   <div id="addWordModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto" onclick="closeAddWordModal()">
     <div class="glass-card max-w-lg w-full rounded-2xl p-5 sm:p-6 border border-slate-700 bg-slate-900 shadow-2xl relative space-y-4 my-auto max-h-[92vh] overflow-y-auto" onclick="event.stopPropagation()">
@@ -2554,9 +2782,15 @@
           </h3>
           <p class="text-xs text-slate-400 mt-0.5">Tra cứu nghĩa, phát âm IPA, nghe giọng US và thêm vào bộ ôn tập</p>
         </div>
-        <button onclick="closeAddWordModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
+        <div class="flex items-center gap-1.5">
+          <button type="button" onclick="openOcrWordModal()" class="px-2.5 py-1 rounded-lg bg-purple-600/30 text-purple-300 hover:bg-purple-600 hover:text-white border border-purple-500/40 text-xs font-semibold flex items-center gap-1 transition" title="Quét từ vựng từ ảnh chụp hoặc clipboard">
+            <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+            <span class="hidden sm:inline">Quét Ảnh</span>
+          </button>
+          <button onclick="closeAddWordModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Main Form -->
@@ -3058,19 +3292,22 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=91.0"></script>
-  <script src="./listening_data.js?v=91.0"></script>
-  <script src="./vietnam_today_data.js?v=91.0"></script>
-  <script src="./educational_channels_data.js?v=91.0"></script>
-  <script src="./international_news_videos.js?v=91.0"></script>
-  <script src="./bilingual_news_data.js?v=91.0"></script>
-  <script src="./reading_lexicon.js?v=91.0"></script>
-  <script src="./conversation_data.js?v=91.0"></script>
-    <script src="./speaking-forecast.js?v=91.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=91.0"></script>
-  <script src="./speakout-speaking-data.js?v=91.0"></script>
-  <script src="./speaking-engine.js?v=91.0"></script>
-  <script src="./app.js?v=91.0"></script>
+  <script src="./data.js?v=92.0"></script>
+  <script src="./listening_data.js?v=92.0"></script>
+  <script src="./vietnam_today_data.js?v=92.0"></script>
+  <script src="./educational_channels_data.js?v=92.0"></script>
+  <script src="./international_news_videos.js?v=92.0"></script>
+  <script src="./bilingual_news_data.js?v=92.0"></script>
+  <script src="./reading_lexicon.js?v=92.0"></script>
+  <script src="./conversation_data.js?v=92.0"></script>
+  <script src="./speaking-forecast.js?v=92.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=92.0"></script>
+  <script src="./speakout-speaking-data.js?v=92.0"></script>
+  <script src="./speaking-engine.js?v=92.0"></script>
+  <script src="./ocr-vocab-engine.js?v=92.0"></script>
+  <script src="./unit-review-engine.js?v=92.0"></script>
+  <script src="./focus-session-engine.js?v=92.0"></script>
+  <script src="./app.js?v=92.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3078,7 +3315,7 @@
     }
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=91.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=92.0').catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

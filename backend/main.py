@@ -173,6 +173,18 @@ def serve_speakout_speaking_data():
 def serve_speaking_engine():
     return FileResponse(os.path.join(FRONTEND_DIR, "speaking-engine.js"), media_type="application/javascript")
 
+@app.get("/ocr-vocab-engine.js")
+def serve_ocr_vocab_engine():
+    return FileResponse(os.path.join(FRONTEND_DIR, "ocr-vocab-engine.js"), media_type="application/javascript")
+
+@app.get("/unit-review-engine.js")
+def serve_unit_review_engine():
+    return FileResponse(os.path.join(FRONTEND_DIR, "unit-review-engine.js"), media_type="application/javascript")
+
+@app.get("/focus-session-engine.js")
+def serve_focus_session_engine():
+    return FileResponse(os.path.join(FRONTEND_DIR, "focus-session-engine.js"), media_type="application/javascript")
+
 @app.get("/conversation_data.js")
 def serve_conversation_data():
     return FileResponse(os.path.join(FRONTEND_DIR, "conversation_data.js"), media_type="application/javascript")

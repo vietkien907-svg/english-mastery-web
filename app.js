@@ -2742,6 +2742,9 @@ function toggleSRSExplanationModal() {
 }
 
 function getCurrentDayWords() {
+  if (appState.studyMode === "unit_review" && appState.unitReviewWords) {
+    return appState.unitReviewWords;
+  }
   if (appState.studyMode === "custom") {
     return appState.customNotebook || [];
   }
@@ -3121,6 +3124,11 @@ async function rateSRS(score) {
   srs.reps = (srs.reps || 0) + 1;
   srs.history = srs.history || [];
   srs.history.push(score);
+
+  if (appState.studyMode === "unit_review" && window.FocusSessionEngine && window.FocusSessionEngine.state && window.FocusSessionEngine.state.active) {
+    window.FocusSessionEngine.recordCardReview(score, curWord.word);
+    if (typeof updateFocusSessionBarUI === "function") updateFocusSessionBarUI();
+  }
 
   if (score === 1) {
     // [1] QUÊN (Cường độ cao): Reset Level 1, lặp lại ngay sau chỉ 2 thẻ (Active Recall Loop)
@@ -12302,4 +12310,418 @@ function resetFlashcardCustomPron() {
     if (typeof renderFlashcard === "function") renderFlashcard();
     if (typeof showToast === "function") showToast(`Đã khôi phục phát âm mặc định cho "${word}".`, "info");
   }
+}
+
+// ================= OCR AI VISION CONTROLLER =================
+let ocrSelectedFile = null;
+let ocrExtractedWordsList = [];
+
+function openOcrWordModal() {
+  const modal = document.getElementById("ocrWordModal");
+  if (modal) {
+    modal.classList.remove("hidden");
+    resetOcrImage();
+    lucide.createIcons();
+  }
+}
+
+function closeOcrWordModal() {
+  const modal = document.getElementById("ocrWordModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function resetOcrImage() {
+  ocrSelectedFile = null;
+  ocrExtractedWordsList = [];
+  const preview = document.getElementById("ocrImagePreview");
+  if (preview) preview.src = "";
+  const prevContainer = document.getElementById("ocrPreviewContainer");
+  if (prevContainer) prevContainer.classList.add("hidden");
+  const uploadPrompt = document.getElementById("ocrUploadPrompt");
+  if (uploadPrompt) uploadPrompt.classList.remove("hidden");
+  const resultsContainer = document.getElementById("ocrResultsContainer");
+  if (resultsContainer) resultsContainer.classList.add("hidden");
+  const fileInput = document.getElementById("ocrFileInput");
+  if (fileInput) fileInput.value = "";
+}
+
+function handleOcrFileSelect(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+  loadOcrImageFile(file);
+}
+
+function loadOcrImageFile(file) {
+  if (!file.type || !file.type.startsWith("image/")) {
+    showToast("Vui lòng chọn file hình ảnh (JPG, PNG, WEBP)!", "warning");
+    return;
+  }
+  ocrSelectedFile = file;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const dataUrl = e.target.result;
+    const preview = document.getElementById("ocrImagePreview");
+    if (preview) preview.src = dataUrl;
+    const prevContainer = document.getElementById("ocrPreviewContainer");
+    if (prevContainer) prevContainer.classList.remove("hidden");
+    const uploadPrompt = document.getElementById("ocrUploadPrompt");
+    if (uploadPrompt) uploadPrompt.classList.add("hidden");
+    lucide.createIcons();
+  };
+  reader.readAsDataURL(file);
+}
+
+// Global clipboard paste listener for OCR modal
+window.addEventListener("paste", (e) => {
+  const modal = document.getElementById("ocrWordModal");
+  if (!modal || modal.classList.contains("hidden")) return;
+  const items = e.clipboardData?.items;
+  if (!items) return;
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].type && items[i].type.indexOf("image") !== -1) {
+      const blob = items[i].getAsFile();
+      if (blob) {
+        loadOcrImageFile(blob);
+        showToast("📸 Đã dán ảnh từ clipboard!", "info");
+      }
+      break;
+    }
+  }
+});
+
+async function startOcrVisionScan() {
+  if (!ocrSelectedFile) {
+    showToast("Vui lòng chọn hoặc dán một ảnh tài liệu trước khi quét!", "warning");
+    return;
+  }
+
+  const spinner = document.getElementById("ocrLoadingSpinner");
+  const scanBtn = document.getElementById("btnScanOcrNow");
+  if (spinner) spinner.classList.remove("hidden");
+  if (scanBtn) scanBtn.disabled = true;
+
+  try {
+    const base64Data = await fileToBase64Pure(ocrSelectedFile);
+    const mimeType = ocrSelectedFile.type || "image/jpeg";
+
+    if (!window.OcrVocabEngine || typeof window.OcrVocabEngine.scanImageWithGroqVision !== "function") {
+      throw new Error("Module OCR Vocab Engine chưa được tải.");
+    }
+
+    const words = await window.OcrVocabEngine.scanImageWithGroqVision(base64Data, mimeType);
+    if (!words || words.length === 0) {
+      showToast("Không tìm thấy từ vựng rõ ràng trong ảnh. Vui lòng chụp góc gần và rõ chữ hơn!", "warning");
+    } else {
+      ocrExtractedWordsList = words;
+      renderOcrExtractedWordsTable(words);
+      showToast(`✨ AI đã bóc tách thành công ${words.length} từ vựng từ ảnh!`, "success");
+    }
+  } catch (err) {
+    console.error("OCR scan error:", err);
+    if (err.message && err.message.includes("API Key")) {
+      if (typeof openGroqApiKeyModal === "function") {
+        openGroqApiKeyModal();
+      } else {
+        alert(err.message);
+      }
+    } else {
+      showToast(`Lỗi quét ảnh: ${err.message}`, "error");
+    }
+  } finally {
+    if (spinner) spinner.classList.add("hidden");
+    if (scanBtn) scanBtn.disabled = false;
+  }
+}
+
+function fileToBase64Pure(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const res = reader.result;
+      const base64 = res.split(",")[1];
+      resolve(base64);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderOcrExtractedWordsTable(words) {
+  const container = document.getElementById("ocrResultsContainer");
+  const table = document.getElementById("ocrWordsTable");
+  const badge = document.getElementById("ocrWordsFoundBadge");
+  if (!container || !table) return;
+
+  container.classList.remove("hidden");
+  if (badge) badge.innerText = `${words.length} từ`;
+
+  table.innerHTML = words.map((w, idx) => `
+    <div class="p-2.5 rounded-xl bg-slate-800/90 border border-slate-700 flex items-start gap-2.5">
+      <input type="checkbox" id="ocr_chk_${idx}" ${w.selected ? "checked" : ""} onchange="ocrExtractedWordsList[${idx}].selected = this.checked" class="mt-1 rounded text-purple-600 focus:ring-0 cursor-pointer">
+      <div class="flex-1 min-w-0 space-y-1">
+        <div class="flex items-center gap-2 flex-wrap">
+          <strong class="text-white text-sm font-bold">${escapeHtml(w.word)}</strong>
+          <span class="text-cyan-400 font-mono text-xs">${escapeHtml(w.ipa || "")}</span>
+          <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-700 text-slate-300">${escapeHtml(w.pos || "")}</span>
+          <button type="button" onclick="speakWord('${escapeHtml(w.word)}')" class="p-1 rounded-full text-slate-400 hover:text-white hover:bg-slate-700" title="Phát âm">
+            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+        <input type="text" value="${escapeHtml(w.meaning_vi)}" onchange="ocrExtractedWordsList[${idx}].meaning_vi = this.value" class="w-full px-2 py-1 rounded-lg bg-slate-900 border border-slate-700 text-amber-300 font-semibold text-xs outline-none focus:border-purple-400" placeholder="Nghĩa tiếng Việt">
+        ${w.example ? `<p class="text-[11px] text-slate-400 italic">${escapeHtml(w.example)}</p>` : ""}
+      </div>
+    </div>
+  `).join("");
+
+  lucide.createIcons();
+}
+
+function toggleSelectAllOcrWords(selectAll) {
+  ocrExtractedWordsList.forEach((w, idx) => {
+    w.selected = selectAll;
+    const chk = document.getElementById(`ocr_chk_${idx}`);
+    if (chk) chk.checked = selectAll;
+  });
+}
+
+function confirmImportOcrWords() {
+  const selected = ocrExtractedWordsList.filter(w => w.selected);
+  if (selected.length === 0) {
+    showToast("Vui lòng chọn ít nhất 1 từ để thêm!", "warning");
+    return;
+  }
+
+  const destSelect = document.getElementById("ocrDestinationSelect");
+  const dest = destSelect ? destSelect.value : "notebook";
+
+  if (dest === "day") {
+    const curDay = missionRegistry.currentDay || 1;
+    selected.forEach(w => {
+      saveCustomWordToCurrentDay(curDay, {
+        word: w.word,
+        pron: w.ipa,
+        type: w.pos,
+        meaning: w.meaning_vi,
+        example: w.example,
+        example_vn: w.example_vi
+      });
+    });
+    showToast(`🎉 Đã thêm ${selected.length} từ từ ảnh vào Flashcard Ngày ${curDay}!`, "success");
+    if (typeof renderFlashcard === "function") renderFlashcard();
+  } else {
+    const res = window.OcrVocabEngine.importExtractedWords(selected, { destination: "notebook" });
+    if (Array.isArray(appState.customNotebook)) {
+      appState.customNotebook = JSON.parse(localStorage.getItem("EMH_CUSTOM_NOTEBOOK_V1") || "[]");
+    }
+    showToast(`🎉 Đã lưu ${res.importedCount} từ từ ảnh vào Sổ tay từ vựng tích lũy!`, "success");
+  }
+
+  closeOcrWordModal();
+}
+
+// ================= UNIT REVIEW & FOCUS SESSION CONTROLLER =================
+let selectedFocusDurationMins = 60;
+let focusSessionTimerInterval = null;
+
+function openUnitReviewModal() {
+  populateUnitReviewDropdown();
+  const modal = document.getElementById("unitReviewSetupModal");
+  if (modal) {
+    modal.classList.remove("hidden");
+    lucide.createIcons();
+  }
+}
+
+function closeUnitReviewModal() {
+  const modal = document.getElementById("unitReviewSetupModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function populateUnitReviewDropdown() {
+  const sel = document.getElementById("unitReviewSelect");
+  if (!sel || !window.APP_DATA || !Array.isArray(window.APP_DATA.units)) return;
+
+  const curVal = sel.value;
+  sel.innerHTML = `
+    <option value="all">🌟 Toàn Bộ Các Từ Đã Học (Tất cả Unit gộp lại)</option>
+    ${window.APP_DATA.units.map(u => `
+      <option value="${u.unitId}">${u.unitTitle} (${u.wordsCount || u.totalWords || '100+'} từ)</option>
+    `).join("")}
+  `;
+  if (curVal) sel.value = curVal;
+  updateUnitReviewPreviewStats(sel.value);
+}
+
+function updateUnitReviewPreviewStats(unitId) {
+  const badge = document.getElementById("unitReviewTotalWordsBadge");
+  if (!badge || !window.UnitReviewEngine) return;
+  const words = window.UnitReviewEngine.getUnitWords(unitId);
+  badge.innerText = `${words.length} từ`;
+}
+
+function selectFocusDuration(mins) {
+  selectedFocusDurationMins = Number(mins);
+  document.querySelectorAll(".focus-duration-btn").forEach(btn => {
+    const d = Number(btn.getAttribute("data-duration"));
+    if (d === selectedFocusDurationMins) {
+      btn.className = "focus-duration-btn py-2 rounded-xl border-2 border-amber-500 bg-amber-500/20 text-amber-300 font-bold active:scale-95";
+    } else {
+      btn.className = "focus-duration-btn py-2 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 font-bold hover:border-amber-500 active:scale-95";
+    }
+  });
+}
+
+function startUnitReviewFocusSession() {
+  const sel = document.getElementById("unitReviewSelect");
+  const unitId = sel ? sel.value : "all";
+  const rawWords = window.UnitReviewEngine.getUnitWords(unitId);
+
+  if (!rawWords || rawWords.length === 0) {
+    showToast("Unit này chưa có dữ liệu từ vựng!", "warning");
+    return;
+  }
+
+  // Apply Smart SRS Sorter: Level 1 (Quên) & Level 2 (Khó) first
+  const sortedWords = window.UnitReviewEngine.sortWordsBySmartSRS(rawWords, (w) => getWordSRSState(w));
+
+  appState.studyMode = "unit_review";
+  appState.unitReviewWords = sortedWords;
+  appState.currentCardIndex = 0;
+
+  const unitTitle = unitId === "all"
+    ? "Toàn Bộ Unit"
+    : (window.APP_DATA.units.find(u => u.unitId === unitId)?.unitTitle || "Unit Review");
+
+  window.FocusSessionEngine.startSession(selectedFocusDurationMins, sortedWords.length, { unitTitle });
+
+  closeUnitReviewModal();
+
+  const stickyBar = document.getElementById("focusSessionStickyBar");
+  if (stickyBar) stickyBar.classList.remove("hidden");
+
+  const nameEl = document.getElementById("focusSessionUnitName");
+  if (nameEl) nameEl.innerText = unitTitle;
+
+  updateFocusSessionBarUI();
+
+  if (focusSessionTimerInterval) clearInterval(focusSessionTimerInterval);
+  if (selectedFocusDurationMins > 0) {
+    focusSessionTimerInterval = setInterval(tickFocusSessionTimer, 1000);
+  } else {
+    const timerDisp = document.getElementById("focusSessionTimerDisplay");
+    if (timerDisp) timerDisp.innerText = "Tự do";
+  }
+
+  switchTab("flashcard");
+  renderFlashcard();
+  lucide.createIcons();
+  showToast(`🚀 Bắt đầu phiên ôn tập tập trung ${unitTitle} (${selectedFocusDurationMins > 0 ? selectedFocusDurationMins + " phút" : "Tự do"})!`, "success");
+}
+
+function tickFocusSessionTimer() {
+  const stats = window.FocusSessionEngine.getStats();
+  const timerDisp = document.getElementById("focusSessionTimerDisplay");
+  if (timerDisp) {
+    timerDisp.innerText = window.FocusSessionEngine.formatTime(stats.remainingSeconds);
+  }
+
+  if (stats.remainingSeconds <= 0) {
+    clearInterval(focusSessionTimerInterval);
+    focusSessionTimerInterval = null;
+    finishFocusSession();
+  }
+}
+
+function updateFocusSessionBarUI() {
+  const stats = window.FocusSessionEngine.getStats();
+  const countBadge = document.getElementById("focusSessionCardCountBadge");
+  if (countBadge) countBadge.innerText = `${appState.currentCardIndex + 1} / ${stats.totalCards} thẻ`;
+
+  const reviewedEl = document.getElementById("focusSessionStatReviewed");
+  if (reviewedEl) reviewedEl.innerText = stats.reviewedCount;
+
+  const remEl = document.getElementById("focusSessionStatRemembered");
+  if (remEl) remEl.innerText = stats.rememberedCount;
+
+  const accEl = document.getElementById("focusSessionStatAccuracy");
+  if (accEl) accEl.innerText = `${stats.accuracy}%`;
+}
+
+function endFocusSessionEarly() {
+  if (confirm("Bạn có chắc chắn muốn kết thúc phiên học tập trung này sớm không?")) {
+    finishFocusSession();
+  }
+}
+
+function finishFocusSession() {
+  if (focusSessionTimerInterval) {
+    clearInterval(focusSessionTimerInterval);
+    focusSessionTimerInterval = null;
+  }
+
+  const summary = window.FocusSessionEngine.endSession();
+
+  const stickyBar = document.getElementById("focusSessionStickyBar");
+  if (stickyBar) stickyBar.classList.add("hidden");
+
+  playFocusCelebrationSound();
+  showFocusSessionSummary(summary);
+}
+
+function playFocusCelebrationSound() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+    notes.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      const startTime = ctx.currentTime + idx * 0.15;
+      gain.gain.setValueAtTime(0.2, startTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.6);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(startTime);
+      osc.stop(startTime + 0.6);
+    });
+  } catch (e) {}
+}
+
+function showFocusSessionSummary(summary) {
+  const modal = document.getElementById("focusSessionSummaryModal");
+  if (!modal) return;
+
+  const sub = document.getElementById("focusSummarySubtitle");
+  if (sub) sub.innerText = `Bạn đã hoàn thành phiên ôn tập ${summary.unitTitle} xuất sắc!`;
+
+  const timeEl = document.getElementById("focusSummaryTime");
+  if (timeEl) timeEl.innerText = `${summary.durationMinutes > 0 ? summary.durationMinutes + " phút" : "Tự do"}`;
+
+  const cardsEl = document.getElementById("focusSummaryCards");
+  if (cardsEl) cardsEl.innerText = `${summary.reviewedCount} thẻ`;
+
+  const accEl = document.getElementById("focusSummaryAccuracy");
+  if (accEl) accEl.innerText = `${summary.accuracy}%`;
+
+  const diffSection = document.getElementById("focusSummaryDifficultSection");
+  const diffList = document.getElementById("focusSummaryDifficultList");
+  if (diffSection && diffList) {
+    if (summary.forgottenWords && summary.forgottenWords.length > 0) {
+      diffSection.classList.remove("hidden");
+      diffList.innerHTML = summary.forgottenWords.map(w => `<span class="inline-block px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-amber-300 font-medium mr-1.5 mb-1">${escapeHtml(w)}</span>`).join("");
+    } else {
+      diffSection.classList.add("hidden");
+    }
+  }
+
+  modal.classList.remove("hidden");
+  lucide.createIcons();
+}
+
+function closeFocusSessionSummaryModal() {
+  const modal = document.getElementById("focusSessionSummaryModal");
+  if (modal) modal.classList.add("hidden");
+  appState.studyMode = "daily_locked";
+  renderFlashcard();
 }

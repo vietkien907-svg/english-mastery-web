@@ -11455,6 +11455,10 @@ async function createNewAccountFromModal() {
     localStorage.setItem(STORAGE_KEY_AUTH, token);
   }
 
+  if (nameInput) nameInput.value = "";
+  if (emailInput) emailInput.value = "";
+  if (passInput) passInput.value = "";
+
   updateAuthUI();
   closeMultiAccountModal();
   renderProfileAccountsCompetition();
@@ -11463,22 +11467,6 @@ async function createNewAccountFromModal() {
   renderHomeLeaderboardPreview();
 
   showToast(`🎉 Cấp tài khoản mới cho "${name}" thành công qua mã giới thiệu Tô Nguyên Vũ!`, "success");
-}
-    localStorage.setItem(STORAGE_KEY_AUTH, token);
-  }
-
-  if (nameInput) nameInput.value = "";
-  if (emailInput) emailInput.value = "";
-  if (passInput) passInput.value = "";
-
-  renderSavedAccounts();
-  renderProfileAccountsCompetition();
-  renderLeaderboard();
-  renderHomeLeaderboardPreview();
-  if (typeof updateAuthUI === "function") updateAuthUI();
-  closeMultiAccountModal();
-
-  showToast(`🎉 Chúc mừng bạn ${name}! Đã đăng ký tài khoản thực thành công.`, "success");
 }
 
 

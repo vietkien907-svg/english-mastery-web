@@ -113,13 +113,12 @@ window.addEventListener("DOMContentLoaded", async () => {
   tickDeadlineCountdown();
   lucide.createIcons();
 
-  // Kiểm tra thiết bị mới: Nếu chưa từng đăng nhập tài khoản và chưa bỏ qua, hiển thị Onboarding
-  const activeEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
-  const guestDismissed = localStorage.getItem("EMH_GUEST_DISMISSED");
-  if (!activeEmail && !guestDismissed) {
-    setTimeout(() => {
-      openDeviceOnboardingModal();
-    }, 600);
+  // Kiểm tra cổng xác thực thiết bị bắt buộc (DeviceAuthGate)
+  const access = (window.DeviceAuthGate && typeof window.DeviceAuthGate.evaluateDeviceAccess === "function")
+    ? window.DeviceAuthGate.evaluateDeviceAccess(localStorage)
+    : { allowed: !!(localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim(), canDismiss: true };
+  if (!access.allowed) {
+    openDeviceOnboardingModal(true);
   }
 });
 
@@ -349,31 +348,41 @@ function openAuthModal(defaultMode = "login") {
   appState.authMode = defaultMode;
   toggleAuthMode(defaultMode);
   const modal = document.getElementById("authModal");
+  const closeBtn = document.getElementById("authModalCloseBtn");
+  const access = (window.DeviceAuthGate && typeof window.DeviceAuthGate.evaluateDeviceAccess === "function")
+    ? window.DeviceAuthGate.evaluateDeviceAccess(localStorage)
+    : { allowed: true, canDismiss: true };
+  if (closeBtn) closeBtn.classList.toggle("hidden", !access.canDismiss);
   if (modal) modal.classList.remove("hidden");
   if (window.lucide) lucide.createIcons();
 }
 
-function openDeviceOnboardingModal() {
-  const curEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
-  if (curEmail || appState.currentUser) return; // Đã đăng nhập
+function openDeviceOnboardingModal(strictLock = true) {
+  const access = (window.DeviceAuthGate && typeof window.DeviceAuthGate.evaluateDeviceAccess === "function")
+    ? window.DeviceAuthGate.evaluateDeviceAccess(localStorage)
+    : { allowed: !!(localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim(), canDismiss: true };
+  if (access.allowed) return;
   const modal = document.getElementById("authModal");
   if (!modal) return;
   toggleAuthMode("register");
   const title = document.getElementById("authModalTitle");
-  if (title) title.innerText = "👋 Chào Mừng Thiết Bị Mới";
+  if (title) title.innerText = "🔐 Xác Thực Thiết Bị Mới";
+  const closeBtn = document.getElementById("authModalCloseBtn");
+  if (closeBtn) closeBtn.classList.toggle("hidden", strictLock || !access.canDismiss);
   modal.classList.remove("hidden");
   if (window.lucide) lucide.createIcons();
 }
 
 function closeAuthModal() {
+  const access = (window.DeviceAuthGate && typeof window.DeviceAuthGate.evaluateDeviceAccess === "function")
+    ? window.DeviceAuthGate.evaluateDeviceAccess(localStorage)
+    : { allowed: true, canDismiss: true };
+  if (!access.canDismiss) {
+    showToast("🔒 Thiết bị mới bắt buộc đăng ký tài khoản kèm Mã giới thiệu từ máy chủ để sử dụng.", "error");
+    return;
+  }
   const modal = document.getElementById("authModal");
   if (modal) modal.classList.add("hidden");
-}
-
-function dismissAuthModalAsGuest() {
-  localStorage.setItem("EMH_GUEST_DISMISSED", "true");
-  closeAuthModal();
-  showToast("Bạn đang trải nghiệm ứng dụng ở chế độ Khách.", "info");
 }
 
 function toggleAuthMode(forceMode) {
@@ -388,6 +397,8 @@ function toggleAuthMode(forceMode) {
   const nameField = document.getElementById("authNameField");
   const refField = document.getElementById("authReferralField");
   const targetField = document.getElementById("authTargetField");
+  const tabReg = document.getElementById("authTabRegisterBtn");
+  const tabLog = document.getElementById("authTabLoginBtn");
 
   if (appState.authMode === "register") {
     if (title) title.innerText = "Tạo Tài Khoản Học Viên Mới";
@@ -396,6 +407,8 @@ function toggleAuthMode(forceMode) {
     if (nameField) nameField.classList.remove("hidden");
     if (refField) refField.classList.remove("hidden");
     if (targetField) targetField.classList.remove("hidden");
+    if (tabReg) tabReg.className = "py-2 rounded-lg bg-indigo-600 text-white shadow transition";
+    if (tabLog) tabLog.className = "py-2 rounded-lg text-slate-400 hover:text-white transition";
   } else {
     if (title) title.innerText = "Đăng Nhập Đồng Bộ";
     if (submitBtn) submitBtn.innerText = "Đăng nhập";
@@ -403,6 +416,8 @@ function toggleAuthMode(forceMode) {
     if (nameField) nameField.classList.add("hidden");
     if (refField) refField.classList.add("hidden");
     if (targetField) targetField.classList.add("hidden");
+    if (tabLog) tabLog.className = "py-2 rounded-lg bg-indigo-600 text-white shadow transition";
+    if (tabReg) tabReg.className = "py-2 rounded-lg text-slate-400 hover:text-white transition";
   }
 }
 
@@ -465,13 +480,20 @@ async function handleAuthSubmit() {
   const displayName = name || email.split("@")[0];
 
   if (isRegister) {
-    if (!referralCode) {
+    if (window.DeviceAuthGate && typeof window.DeviceAuthGate.validateRegistrationInput === "function") {
+      const check = window.DeviceAuthGate.validateRegistrationInput({
+        fullName: name,
+        email,
+        password,
+        referralCode
+      });
+      if (!check.valid) {
+        alert(`⚠️ ${check.error}`);
+        return;
+      }
+    } else if (!referralCode) {
       alert("⚠️ BẮT BUỘC MÃ GIỚI THIỆU:\nVui lòng nhập Mã giới thiệu từ máy chủ (Tô Nguyên Vũ) để tạo tài khoản trên thiết bị này.");
       document.getElementById("authReferralInput")?.focus();
-      return;
-    }
-    if (password.length < 6) {
-      alert("Mật khẩu phải có ít nhất 6 ký tự.");
       return;
     }
   }
@@ -556,6 +578,13 @@ async function handleAuthSubmit() {
     if (token) {
       appState.authToken = token;
       localStorage.setItem(STORAGE_KEY_AUTH, token);
+      localStorage.setItem("EMH_AUTH_TOKEN", token);
+    } else {
+      // Đã xác thực mã giới thiệu offline hợp lệ -> cấp phiên local hợp lệ
+      const localTok = "local_ref_" + Date.now();
+      appState.authToken = localTok;
+      localStorage.setItem(STORAGE_KEY_AUTH, localTok);
+      localStorage.setItem("EMH_AUTH_TOKEN", localTok);
     }
 
     updateAuthUI();
@@ -576,6 +605,7 @@ async function handleAuthSubmit() {
       localStorage.removeItem("EMH_GUEST_DISMISSED");
       appState.authToken = token;
       localStorage.setItem(STORAGE_KEY_AUTH, token);
+      localStorage.setItem("EMH_AUTH_TOKEN", token);
       appState.currentUser = userObj;
 
       list = list.map(a => ({ ...a, isCurrent: (a.email.toLowerCase() === email.toLowerCase()) }));
@@ -590,10 +620,13 @@ async function handleAuthSubmit() {
       showToast(`Đăng nhập thành công! Chào mừng ${userObj.full_name || displayName} 🔥`, "success");
     } else if (existingAcc) {
       const expectedHash = existingAcc.password_hash || "";
-      if (!expectedHash || btoa(password) === expectedHash || password === "123456" || password.length >= 6) {
+      if (expectedHash && btoa(password) === expectedHash) {
+        const localTok = existingAcc.token || ("local_auth_" + Date.now());
         localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", existingAcc.email);
         localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", existingAcc.full_name);
         localStorage.setItem("EMH_STREAK", String(existingAcc.streak || 1));
+        localStorage.setItem(STORAGE_KEY_AUTH, localTok);
+        localStorage.setItem("EMH_AUTH_TOKEN", localTok);
         localStorage.removeItem("EMH_GUEST_DISMISSED");
         appState.currentUser = {
           id: existingAcc.id,
@@ -628,6 +661,8 @@ async function logoutUser() {
   appState.authToken = "";
   appState.currentUser = null;
   localStorage.removeItem(STORAGE_KEY_AUTH);
+  localStorage.removeItem("EMH_AUTH_TOKEN");
+  localStorage.removeItem("EMH_PRIMARY_HOST_SETUP");
   localStorage.removeItem("EMH_ACTIVE_ACCOUNT_EMAIL");
   localStorage.removeItem("EMH_ACTIVE_ACCOUNT_NAME");
   localStorage.removeItem("EMH_STREAK");
@@ -1478,7 +1513,7 @@ function initDailyMissionEngine() {
   loadMissionRegistry();
   
   const currentEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").toLowerCase();
-  const isPrimaryVu = (currentEmail === "tonguyenvu@265.com" || (!currentEmail && localStorage.getItem("EMH_PRIMARY_HOST_SETUP") === "true") || (!currentEmail && !localStorage.getItem("EMH_NEW_DEVICE_VISITED")));
+  const isPrimaryVu = (currentEmail === "tonguyenvu@265.com" || localStorage.getItem("EMH_PRIMARY_HOST_SETUP") === "true");
 
   // Chỉ khôi phục tiến độ 14 ngày cho tài khoản Tô Nguyên Vũ trên thiết bị chủ
   if (isPrimaryVu) {

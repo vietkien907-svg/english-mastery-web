@@ -1795,6 +1795,36 @@ window.SP_FORECAST = {
         "How does having an active outdoor hobby benefit your physical cardiovascular health?",
         "What outdoor hobby would you love to learn if you had more spare time and resources?"
       ]
+    },
+    {
+      "t": "Artificial Intelligence in daily life",
+      "q": [
+        "How often do you use AI tools or smart assistants in your daily study or work?",
+        "What tasks do you find AI most helpful for?",
+        "Do you think people are becoming too reliant on artificial intelligence?",
+        "Would you trust an AI system to give you health or financial advice?",
+        "How do you think AI will change the way students learn languages in the next five years?"
+      ]
+    },
+    {
+      "t": "Digital Detox & Screen Time",
+      "q": [
+        "How many hours a day do you usually spend looking at screens?",
+        "Have you ever tried taking a break from your smartphone or social media?",
+        "What activities do you enjoy doing when you disconnect from the internet?",
+        "Do you think notifications make it harder for people to concentrate deeply?",
+        "How do you manage your screen time before going to sleep?"
+      ]
+    },
+    {
+      "t": "Sustainable Living",
+      "q": [
+        "What small habits do you practice to reduce waste in your daily life?",
+        "Do you usually bring your own reusable bag or bottle when going out?",
+        "Is recycling convenient and widely practiced in your neighborhood?",
+        "Would you be willing to pay more for eco-friendly products?",
+        "How can young people encourage their families to live more sustainably?"
+      ]
     }
   ],
   "p2": [
@@ -4700,6 +4730,176 @@ window.SP_FORECAST = {
         "What psychological satisfaction comes from tracking personal endurance improvements over time?"
       ],
       "code": "150"
+    },
+    {
+      "t": "Describe an AI tool or smart app that improved your productivity",
+      "cue": [
+        "What the AI tool or application is",
+        "How you first discovered it and started using it",
+        "What specific tasks it helps you accomplish faster"
+      ],
+      "ex": "And explain how this tool has transformed your daily study or work efficiency.",
+      "card": "Describe an AI tool or smart app that improved your productivity. You should say: what the AI tool or application is, how you first discovered it and started using it, what specific tasks it helps you accomplish faster, and explain how this tool has transformed your daily study or work efficiency.",
+      "q": [
+        "How is artificial intelligence reshaping traditional white-collar jobs and required skills?",
+        "What ethical concerns arise when students rely heavily on AI for academic writing?",
+        "Should governments regulate generative AI tools to protect creative professions?",
+        "How can schools teach students to collaborate with AI critically rather than passively?"
+      ],
+      "code": "151"
+    },
+    {
+      "t": "Describe an eco-friendly habit you adopted to protect the environment",
+      "cue": [
+        "What the eco-friendly habit is",
+        "When and why you decided to adopt it",
+        "How difficult it was to maintain at the beginning"
+      ],
+      "ex": "And explain what positive impact you believe this habit creates.",
+      "card": "Describe an eco-friendly habit you adopted to protect the environment. You should say: what the eco-friendly habit is, when and why you decided to adopt it, how difficult it was to maintain at the beginning, and explain what positive impact you believe this habit creates.",
+      "q": [
+        "Do individual lifestyle changes make a meaningful difference compared to corporate regulations?",
+        "Why do some consumers hesitate to switch to sustainable alternatives?",
+        "How can urban planners design cities that naturally encourage low-carbon habits?",
+        "What role should environmental education play in primary school curricula?"
+      ],
+      "code": "152"
+    },
+    {
+      "t": "Describe an inspiring entrepreneur or innovator you admire",
+      "cue": [
+        "Who this entrepreneur or innovator is",
+        "What product, service, or company they created",
+        "What challenges they had to overcome to succeed"
+      ],
+      "ex": "And explain why their story and mindset inspire you.",
+      "card": "Describe an inspiring entrepreneur or innovator you admire. You should say: who this entrepreneur or innovator is, what product, service, or company they created, what challenges they had to overcome to succeed, and explain why their story and mindset inspire you.",
+      "q": [
+        "What personal qualities distinguish resilient entrepreneurs from those who give up early?",
+        "How can governments support young startups without stifling free-market competition?",
+        "Why is failure often viewed as a valuable stepping stone in startup ecosystems?",
+        "Do you think modern entrepreneurs care enough about social responsibility?"
+      ],
+      "code": "153"
+    },
+    {
+      "t": "Describe a quiet cafe or workspace where you enjoy studying or working",
+      "cue": [
+        "Where this place is located",
+        "What the interior design and atmosphere are like",
+        "What kind of work or study you usually do there"
+      ],
+      "ex": "And explain why you feel more focused and creative in this environment.",
+      "card": "Describe a quiet cafe or workspace where you enjoy studying or working. You should say: where this place is located, what the interior design and atmosphere are like, what kind of work or study you usually do there, and explain why you feel more focused and creative in this environment.",
+      "q": [
+        "Why have co-working spaces and study cafes surged in popularity among young adults?",
+        "How does the physical environment influence human concentration and creativity?",
+        "Will remote and hybrid work permanently replace traditional corporate offices?",
+        "What challenges do remote workers face in maintaining work-life boundaries?"
+      ],
+      "code": "154"
+    },
+    {
+      "t": "Describe a podcast or documentary that taught you something eye-opening",
+      "cue": [
+        "What the podcast or documentary was about",
+        "When and where you watched or listened to it",
+        "What surprising facts or perspectives you learned"
+      ],
+      "ex": "And explain why you would recommend it to others.",
+      "card": "Describe a podcast or documentary that taught you something eye-opening. You should say: what the podcast or documentary was about, when and where you watched or listened to it, what surprising facts or perspectives you learned, and explain why you would recommend it to others.",
+      "q": [
+        "Why are podcasts becoming a preferred medium for lifelong learning among commuters?",
+        "How can viewers verify whether a documentary presents balanced, objective facts?",
+        "Do long-form audio and video formats help counteract shrinking attention spans?",
+        "Should public broadcasters invest more in free educational documentaries?"
+      ],
+      "code": "155"
+    },
+    {
+      "t": "Describe a time you overcame procrastination to finish an important task",
+      "cue": [
+        "What the important task or deadline was",
+        "Why you kept putting it off initially",
+        "What strategy you used to finally get started and finish it"
+      ],
+      "ex": "And explain how you felt once the task was completed.",
+      "card": "Describe a time you overcame procrastination to finish an important task. You should say: what the important task or deadline was, why you kept putting it off initially, what strategy you used to finally get started and finish it, and explain how you felt once the task was completed.",
+      "q": [
+        "What psychological factors cause people to procrastinate even on goals they care about?",
+        "How do modern digital distractions worsen time-management struggles?",
+        "Are strict deadlines helpful or harmful to high-quality creative output?",
+        "What practical time-management techniques should universities teach freshmen?"
+      ],
+      "code": "156"
+    },
+    {
+      "t": "Describe a smart-city innovation you have seen or read about",
+      "cue": [
+        "What the smart-city technology or service is",
+        "Which city implemented it and how it works",
+        "What urban problem it was designed to solve"
+      ],
+      "ex": "And explain whether you think your own city should adopt this innovation.",
+      "card": "Describe a smart-city innovation you have seen or read about. You should say: what the smart-city technology or service is, which city implemented it and how it works, what urban problem it was designed to solve, and explain whether you think your own city should adopt this innovation.",
+      "q": [
+        "How can data analytics and sensors reduce traffic congestion in megacities?",
+        "What privacy risks come with deploying smart surveillance and connected infrastructure?",
+        "How can cities ensure elderly citizens are not left behind by digital public services?",
+        "Should developing nations prioritize basic infrastructure over high-tech smart projects?"
+      ],
+      "code": "157"
+    },
+    {
+      "t": "Describe a time you mentored or helped someone learn a practical skill",
+      "cue": [
+        "Who you helped and what skill you taught them",
+        "How you explained or demonstrated the skill step by step",
+        "What difficulties they encountered while learning"
+      ],
+      "ex": "And explain what you personally learned from the experience of teaching someone else.",
+      "card": "Describe a time you mentored or helped someone learn a practical skill. You should say: who you helped and what skill you taught them, how you explained or demonstrated the skill step by step, what difficulties they encountered while learning, and explain what you personally learned from the experience of teaching someone else.",
+      "q": [
+        "Why does teaching a concept to someone else deepen your own mastery of it?",
+        "What makes a great mentor different from a strict instructor?",
+        "How can companies cultivate a strong peer-mentoring culture in the workplace?",
+        "Are online tutorials replacing the human value of one-on-one mentorship?"
+      ],
+      "code": "158"
+    },
+    {
+      "t": "Describe a memorable solo trip or independent outing you took",
+      "cue": [
+        "Where you went and how you planned the trip",
+        "What activities you did by yourself",
+        "Whether you met any interesting people along the way"
+      ],
+      "ex": "And explain how this solo experience boosted your confidence and independence.",
+      "card": "Describe a memorable solo trip or independent outing you took. You should say: where you went and how you planned the trip, what activities you did by yourself, whether you met any interesting people along the way, and explain how this solo experience boosted your confidence and independence.",
+      "q": [
+        "Why is solo travel growing rapidly among young professionals worldwide?",
+        "What safety precautions should solo travelers take when visiting unfamiliar destinations?",
+        "How does traveling alone change the way people reflect on their own lives?",
+        "Do people tend to prefer group tours or independent travel as they get older?"
+      ],
+      "code": "159"
+    },
+    {
+      "t": "Describe a traditional cultural festival in your country you would show a foreign friend",
+      "cue": [
+        "What the festival is and when it takes place",
+        "What traditional customs, food, and performances are part of it",
+        "Why this festival holds deep meaning for local people"
+      ],
+      "ex": "And explain why you think a foreign visitor would find it unforgettable.",
+      "card": "Describe a traditional cultural festival in your country you would show a foreign friend. You should say: what the festival is and when it takes place, what traditional customs, food, and performances are part of it, why this festival holds deep meaning for local people, and explain why you think a foreign visitor would find it unforgettable.",
+      "q": [
+        "How does globalization affect the authenticity of traditional local festivals?",
+        "What economic and cultural benefits does cultural tourism bring to rural communities?",
+        "Why is it important for younger generations to actively participate in heritage events?",
+        "How can festival organizers balance preserving tradition with modern environmental standards?"
+      ],
+      "code": "160"
     }
   ]
 };

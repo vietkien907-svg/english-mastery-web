@@ -4406,5 +4406,95 @@ window.SP_KNOWLEDGE_BANK = {
     ],
     "sample65": "To be honest, pursuing this subject has been an eye-opening journey. Although there was a steep learning curve at first, it has truly helped broaden my horizons and improved my problem-solving skills for future career challenges.",
     "sample80": "Without a doubt, immersing myself in this field has profoundly shaped my analytical perspective. It consistently fosters critical thinking and demands an inquisitive mindset, enabling me to acquire invaluable hands-on experience rather than mere rote learning."
+  },
+  "Artificial Intelligence in daily life": {
+    "part": "1",
+    "topic": "Artificial Intelligence in daily life",
+    "domain": "technology_ai",
+    "ideas": [
+      "Sử dụng AI như trợ lý học tập và tối ưu hóa các tác vụ lặp lại hàng ngày",
+      "Nhấn mạnh tầm quan trọng của tư duy phản biện để không lệ thuộc thụ động",
+      "Dự đoán AI sẽ cá nhân hóa lộ trình học ngoại ngữ vượt trội trong tương lai"
+    ],
+    "collocations": [
+      { "phrase": "streamline repetitive workflows", "ipa": "/ˈstriːmlaɪn rɪˈpetətɪv ˈwɜːkfləʊz/", "meaning": "tối ưu hóa các quy trình lặp đi lặp lại" },
+      { "phrase": "double-edged sword", "ipa": "/ˌdʌbl edʒd ˈsɔːd/", "meaning": "con dao hai lưỡi" },
+      { "phrase": "augment human capability", "ipa": "/ɔːɡˈment ˈhjuːmən ˌkeɪpəˈbɪləti/", "meaning": "nâng tầm năng lực của con người" },
+      { "phrase": "over-reliance on algorithms", "ipa": "/ˌəʊvə rɪˈlaɪəns ɒn ˈælɡərɪðəmz/", "meaning": "sự phụ thuộc quá mức vào thuật toán" }
+    ],
+    "sample65": "I use AI tools almost every day, mainly to organize my study notes and practice English pronunciation. While they save me a great deal of time, I always double-check the output so I don't become overly reliant on them.",
+    "sample80": "Artificial intelligence has seamlessly integrated into my daily routine, helping me streamline repetitive workflows and obtain instant feedback on my speaking practice. That said, it's a double-edged sword: it works best when used to augment human capability rather than replace critical thinking."
+  },
+  "Digital Detox & Screen Time": {
+    "part": "1",
+    "topic": "Digital Detox & Screen Time",
+    "domain": "wellbeing_digital",
+    "ideas": [
+      "Thừa nhận thời lượng dùng màn hình cao do học tập và làm việc",
+      "Áp dụng quy tắc tắt thông báo và không dùng điện thoại trước khi ngủ",
+      "Tận hưởng các hoạt động ngoài trời hoặc đọc sách giấy để tái tạo năng lượng"
+    ],
+    "collocations": [
+      { "phrase": "unplug from the digital world", "ipa": "/ˌʌnˈplʌɡ frəm ðə ˈdɪdʒɪtl wɜːld/", "meaning": "ngắt kết nối khỏi thế giới số" },
+      { "phrase": "constant barrage of notifications", "ipa": "/ˈkɒnstənt ˈbærɑːʒ əv ˌnəʊtɪfɪˈkeɪʃnz/", "meaning": "cơn mưa thông báo liên tục" },
+      { "phrase": "mental clarity", "ipa": "/ˈmentl ˈklærəti/", "meaning": "sự minh mẫn, tỉnh táo về tinh thần" },
+      { "phrase": "reclaim deep focus", "ipa": "/rɪˈkleɪm diːp ˈfəʊkəs/", "meaning": "lấy lại sự tập trung sâu" }
+    ],
+    "sample65": "Because of my studies, I probably spend seven to eight hours a day on screens. On weekends, I try to put my phone on silent for a few hours and go for a walk, which really helps me relax.",
+    "sample80": "Admittedly, my screen time is quite high during the week, so I make a conscious effort to unplug from the digital world every Sunday morning. Stepping away from the constant barrage of notifications restores my mental clarity and helps me reclaim deep focus."
+  },
+  "Sustainable Living": {
+    "part": "1",
+    "topic": "Sustainable Living",
+    "domain": "environment",
+    "ideas": [
+      "Bắt đầu từ những thói quen nhỏ như mang bình nước cá nhân và túi vải",
+      "Ưu tiên sản phẩm bền vững và giảm thiểu đồ nhựa dùng một lần",
+      "Lan tỏa lối sống xanh trong gia đình và cộng đồng trẻ"
+    ],
+    "collocations": [
+      { "phrase": "shrink one's carbon footprint", "ipa": "/ʃrɪŋk wʌnz ˈkɑːbən ˈfʊtprɪnt/", "meaning": "giảm lượng khí thải carbon cá nhân" },
+      { "phrase": "single-use plastics", "ipa": "/ˌsɪŋɡl juːs ˈplæstɪks/", "meaning": "nhựa dùng một lần" },
+      { "phrase": "eco-conscious consumer", "ipa": "/ˌiːkəʊ ˈkɒnʃəs kənˈsjuːmə/", "meaning": "người tiêu dùng có ý thức bảo vệ môi trường" },
+      { "phrase": "collective ripple effect", "ipa": "/kəˈlektɪv ˈrɪpl ɪˈfekt/", "meaning": "hiệu ứng lan tỏa tích cực trong cộng đồng" }
+    ],
+    "sample65": "I always carry a reusable water bottle and a cloth tote bag when I go shopping so I can avoid single-use plastics. Even though these habits seem small, I think they add up when everyone participates.",
+    "sample80": "I strive to be an eco-conscious consumer by cutting down on single-use plastics and opting for locally sourced goods. While one individual cannot solve climate change alone, consistent daily choices shrink one's carbon footprint and trigger a collective ripple effect."
+  },
+  "Describe an AI tool or smart app that improved your productivity": {
+    "part": "2",
+    "topic": "Describe an AI tool or smart app that improved your productivity",
+    "domain": "technology_ai",
+    "ideas": [
+      "Giới thiệu công cụ AI học tiếng Anh / quản lý thời gian thực tế bạn đang dùng",
+      "Mô tả tình huống cụ thể trước và sau khi áp dụng công cụ",
+      "Phân tích lợi ích dài hạn: tiết kiệm thời gian, nâng cao độ chính xác và sự tự tin"
+    ],
+    "collocations": [
+      { "phrase": "game-changer for productivity", "ipa": "/ˈɡeɪm ˌtʃeɪndʒə fɔː ˌprɒdʌkˈtɪvəti/", "meaning": "bước ngoặt thay đổi hiệu suất làm việc" },
+      { "phrase": "tailored feedback", "ipa": "/ˈteɪləd ˈfiːdbæk/", "meaning": "phản hồi được cá nhân hóa" },
+      { "phrase": "eliminate administrative friction", "ipa": "/ɪˈlɪmɪneɪt ədˈmɪnɪstrətɪv ˈfrɪkʃn/", "meaning": "loại bỏ các thao tác thủ công rườm rà" },
+      { "phrase": "accelerate mastery", "ipa": "/əkˈseləreɪt ˈmɑːstəri/", "meaning": "đẩy nhanh quá trình thành thạo kỹ năng" }
+    ],
+    "sample65": "I'd like to talk about an AI language-learning web app I started using a few months ago. It automatically extracts vocabulary from photos, schedules spaced-repetition reviews, and gives instant feedback on my IELTS Speaking answers. It has saved me hours every week and made my study routine much more consistent.",
+    "sample80": "One application that has genuinely been a game-changer for my productivity is an intelligent English mastery platform I adopted earlier this year. Not only does it eliminate administrative friction by turning textbook snapshots into flashcards, but it also delivers tailored feedback on pronunciation and lexical resource, allowing me to accelerate mastery with remarkable discipline."
+  },
+  "Describe an eco-friendly habit you adopted to protect the environment": {
+    "part": "2",
+    "topic": "Describe an eco-friendly habit you adopted to protect the environment",
+    "domain": "environment",
+    "ideas": [
+      "Nêu thói quen cụ thể: nói không với ly/túi nhựa dùng một lần và phân loại rác tại nguồn",
+      "Kể lại bước ngoặt khiến bạn quyết định thay đổi (xem phim tài liệu hoặc chứng kiến ô nhiễm)",
+      "Chia sẻ khó khăn ban đầu khi quên mang đồ và cảm giác tự hào khi duy trì thành nếp sống"
+    ],
+    "collocations": [
+      { "phrase": "zero-waste lifestyle", "ipa": "/ˌzɪərəʊ weɪst ˈlaɪfstaɪl/", "meaning": "lối sống không rác thải" },
+      { "phrase": "environmental stewardship", "ipa": "/ɪnˌvaɪrənˈmentl ˈstjuːədʃɪp/", "meaning": "tinh thần trách nhiệm gìn giữ môi trường" },
+      { "phrase": "break a deeply ingrained habit", "ipa": "/breɪk ə ˈdiːpli ɪnˈɡreɪnd ˈhæbɪt/", "meaning": "phá bỏ một thói quen đã ăn sâu" },
+      { "phrase": "tangible reduction in waste", "ipa": "/ˈtændʒəbl rɪˈdʌkʃn ɪn weɪst/", "meaning": "sự cắt giảm rác thải rõ rệt" }
+    ],
+    "sample65": "About a year ago, I decided to stop using disposable plastic cups and bags whenever I buy coffee or groceries. At first, I kept forgetting my reusable tumbler at home, so it took a few weeks to build the routine. Now it feels completely natural, and I'm proud to see how much plastic waste I've avoided.",
+    "sample80": "A sustainable habit I've wholeheartedly embraced over the past year is eliminating single-use takeaway packaging from my daily routine. Trying to break a deeply ingrained habit of convenience was awkward initially, yet keeping a collapsible cup in my backpack quickly paid off. Beyond the tangible reduction in waste, it has instilled a genuine sense of environmental stewardship in me."
   }
 };

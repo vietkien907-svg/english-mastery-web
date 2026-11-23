@@ -37,7 +37,7 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v=95.1">
   <script>
     // Immediate Theme Initialization (Zero flicker)
     (function() {
@@ -49,13 +49,25 @@
       } catch (e) {}
     })();
 
+    function syncDarkModeToggleUI(themeName) {
+      var iconEl = document.getElementById('darkModeToggleIcon');
+      var labelEl = document.getElementById('darkModeToggleLabel');
+      var isDark = (themeName === 'dark');
+      if (iconEl) iconEl.textContent = isDark ? '☀️' : '🌙';
+      if (labelEl) labelEl.textContent = isDark ? 'Sáng' : 'Tối';
+    }
+
     function setAppTheme(themeName) {
       if (!themeName || themeName === 'ocean') {
         document.documentElement.removeAttribute('data-theme');
         localStorage.setItem('em_theme', 'ocean');
+        localStorage.setItem('em_last_light_theme', 'ocean');
       } else {
         document.documentElement.setAttribute('data-theme', themeName);
         localStorage.setItem('em_theme', themeName);
+        if (themeName !== 'dark') {
+          localStorage.setItem('em_last_light_theme', themeName);
+        }
       }
       var menu = document.getElementById('themeDropdownMenu');
       if (menu) menu.classList.add('hidden');
@@ -66,11 +78,27 @@
           teal: '#0d9488',
           emerald: '#059669',
           indigo: '#4f46e5',
-          slate: '#0f172a'
+          slate: '#0f172a',
+          dark: '#6366f1'
         };
         dot.style.background = colors[themeName] || '#2563eb';
       }
+      syncDarkModeToggleUI(themeName);
     }
+
+    function toggleDarkMode() {
+      var cur = localStorage.getItem('em_theme') || 'ocean';
+      if (cur === 'dark') {
+        var lastLight = localStorage.getItem('em_last_light_theme') || 'ocean';
+        setAppTheme(lastLight);
+      } else {
+        setAppTheme('dark');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      syncDarkModeToggleUI(localStorage.getItem('em_theme') || 'ocean');
+    });
 
     function toggleThemeDropdown() {
       var menu = document.getElementById('themeDropdownMenu');
@@ -110,13 +138,19 @@
           <span>🔥</span> <span id="streakCount">14 ngày</span>
         </div>
 
+        <!-- 1-Click Dark / Light Mode Toggle -->
+        <button type="button" id="darkModeToggleBtn" onclick="toggleDarkMode()" class="ni-nav-btn flex items-center gap-1" title="Chuyển nhanh chế độ Sáng / Tối">
+          <span id="darkModeToggleIcon" class="text-xs leading-none">🌙</span>
+          <span id="darkModeToggleLabel" class="hidden sm:inline">Tối</span>
+        </button>
+
                 <!-- Theme Switcher Dropdown -->
         <div class="relative inline-block text-left" id="themePickerContainer">
           <button type="button" onclick="toggleThemeDropdown()" class="ni-nav-btn flex items-center gap-1.5" title="Chọn màu sắc giao diện">
             <span id="currentThemeDot" class="w-3 h-3 rounded-full inline-block shadow-xs" style="background: var(--accent);"></span>
             <span class="hidden sm:inline">Màu Sắc</span>
           </button>
-          <div id="themeDropdownMenu" class="hidden absolute right-0 mt-1.5 w-48 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 text-xs">
+          <div id="themeDropdownMenu" class="hidden absolute right-0 mt-1.5 w-52 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 text-xs">
             <div class="px-3 py-1 font-bold text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-100">Bảng Màu Giao Diện</div>
             <button type="button" onclick="setAppTheme('ocean')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700 font-medium">
               <span class="w-3.5 h-3.5 rounded-full bg-blue-600 shadow-sm"></span> Ocean Blue (Xanh biển)
@@ -132,6 +166,10 @@
             </button>
             <button type="button" onclick="setAppTheme('slate')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700 font-medium">
               <span class="w-3.5 h-3.5 rounded-full bg-slate-800 shadow-sm"></span> Minimalist Slate (Xám than)
+            </button>
+            <div class="my-1 border-t border-slate-200"></div>
+            <button type="button" onclick="setAppTheme('dark')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-indigo-700 font-bold">
+              <span class="w-3.5 h-3.5 rounded-full bg-slate-900 border border-indigo-400 shadow-sm flex items-center justify-center text-[9px]">🌙</span> Dark Mode (Nền tối dịu mắt)
             </button>
           </div>
         </div>

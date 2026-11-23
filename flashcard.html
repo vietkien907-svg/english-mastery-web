@@ -37,13 +37,13 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="./style.css?v=95.1">
+  <link rel="stylesheet" href="./style.css?v=95.2">
   <script>
-    // Immediate Theme Initialization (Zero flicker)
+    // Immediate Theme Initialization (Zero flicker — Default: Warm Paper Eye-Care)
     (function() {
       try {
-        var savedTheme = localStorage.getItem('em_theme');
-        if (savedTheme && savedTheme !== 'ocean') {
+        var savedTheme = localStorage.getItem('em_theme') || 'paper';
+        if (savedTheme && savedTheme !== 'paper') {
           document.documentElement.setAttribute('data-theme', savedTheme);
         }
       } catch (e) {}
@@ -58,10 +58,10 @@
     }
 
     function setAppTheme(themeName) {
-      if (!themeName || themeName === 'ocean') {
+      if (!themeName || themeName === 'paper') {
         document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('em_theme', 'ocean');
-        localStorage.setItem('em_last_light_theme', 'ocean');
+        localStorage.setItem('em_theme', 'paper');
+        localStorage.setItem('em_last_light_theme', 'paper');
       } else {
         document.documentElement.setAttribute('data-theme', themeName);
         localStorage.setItem('em_theme', themeName);
@@ -74,22 +74,23 @@
       var dot = document.getElementById('currentThemeDot');
       if (dot) {
         var colors = {
+          paper: '#2f6f5e',
           ocean: '#2563eb',
           teal: '#0d9488',
           emerald: '#059669',
           indigo: '#4f46e5',
           slate: '#0f172a',
-          dark: '#6366f1'
+          dark: '#4fa387'
         };
-        dot.style.background = colors[themeName] || '#2563eb';
+        dot.style.background = colors[themeName] || '#2f6f5e';
       }
       syncDarkModeToggleUI(themeName);
     }
 
     function toggleDarkMode() {
-      var cur = localStorage.getItem('em_theme') || 'ocean';
+      var cur = localStorage.getItem('em_theme') || 'paper';
       if (cur === 'dark') {
-        var lastLight = localStorage.getItem('em_last_light_theme') || 'ocean';
+        var lastLight = localStorage.getItem('em_last_light_theme') || 'paper';
         setAppTheme(lastLight);
       } else {
         setAppTheme('dark');
@@ -97,7 +98,14 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      syncDarkModeToggleUI(localStorage.getItem('em_theme') || 'ocean');
+      var saved = localStorage.getItem('em_theme') || 'paper';
+      // Nâng cấp người dùng cũ từ 'ocean' chói trắng sang 'paper' dịu mắt 1 lần duy nhất
+      if (!localStorage.getItem('em_eyecare_v952_migrated') && saved === 'ocean') {
+        localStorage.setItem('em_eyecare_v952_migrated', '1');
+        setAppTheme('paper');
+      } else {
+        syncDarkModeToggleUI(saved);
+      }
     });
 
     function toggleThemeDropdown() {
@@ -152,6 +160,9 @@
           </button>
           <div id="themeDropdownMenu" class="hidden absolute right-0 mt-1.5 w-52 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 text-xs">
             <div class="px-3 py-1 font-bold text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-100">Bảng Màu Giao Diện</div>
+            <button type="button" onclick="setAppTheme('paper')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-emerald-800 font-bold">
+              <span class="w-3.5 h-3.5 rounded-full shadow-sm border border-stone-300" style="background: #2f6f5e;"></span> Warm Paper (Dịu mắt · Mặc định)
+            </button>
             <button type="button" onclick="setAppTheme('ocean')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700 font-medium">
               <span class="w-3.5 h-3.5 rounded-full bg-blue-600 shadow-sm"></span> Ocean Blue (Xanh biển)
             </button>

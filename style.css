@@ -6,30 +6,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --page: #f8fafc;
-  --sheet: #ffffff;
-  --ink: #0f172a;
-  --ink-2: #475569;
-  --ink-3: #94a3b8;
-  --rule: #e2e8f0;
-  --accent: #2563eb;
-  --accent-ink: #1d4ed8;
-  --accent-wash: #eff6ff;
-  --good: #16a34a;
-  --good-wash: #f0fdf4;
-  --hover-bg: #f1f5f9;
+  /* DEFAULT EYE-CARE PALETTE: Warm Paper & Deep Forest Sage (Chống chói, đỡ mỏi mắt) */
+  --page: #f5f2eb;
+  --sheet: #fcfbf7;
+  --ink: #1f2937;
+  --ink-2: #4b5563;
+  --ink-3: #6b7280;
+  --rule: #e5dfd3;
+  --accent: #2f6f5e;
+  --accent-ink: #1e4d40;
+  --accent-wash: #eaf3ef;
+  --good: #1f7a5c;
+  --good-wash: #ecf6f1;
+  --hover-bg: #eeeae0;
   --correct-color: var(--good);
-  --incorrect-color: #dc2626;
+  --incorrect-color: #b91c1c;
 
-  /* 4 IELTS Speaking Criteria Colors */
-  --fluency: #0d9488;
-  --fluency-w: #f0fdfa;
-  --lexical: #d97706;
-  --lexical-w: #fffbeb;
-  --grammar: #e11d48;
-  --grammar-w: #fff1f2;
-  --pronunciation: #7c3aed;
-  --pronunciation-w: #f5f3ff;
+  /* 4 IELTS Speaking Criteria Colors (Soft Botanical / Editorial) */
+  --fluency: #1f6f68;
+  --fluency-w: #edf7f5;
+  --lexical: #9a5b13;
+  --lexical-w: #fbf5ea;
+  --grammar: #9f2d47;
+  --grammar-w: #fcf0f2;
+  --pronunciation: #5b4b8a;
+  --pronunciation-w: #f3f1f9;
 
   /* Compatibility bindings */
   --bg-color: var(--page);
@@ -39,6 +40,20 @@
   --muted: var(--ink-3);
   --line: var(--rule);
   --primary-button: var(--accent);
+}
+
+/* THEME: Ocean Blue (Xanh biển nhẹ) */
+[data-theme="ocean"] {
+  --page: #f4f7fb;
+  --sheet: #fbfcfe;
+  --ink: #1e293b;
+  --ink-2: #475569;
+  --ink-3: #64748b;
+  --rule: #dce4ef;
+  --accent: #2563eb;
+  --accent-ink: #1d4ed8;
+  --accent-wash: #eff6ff;
+  --hover-bg: #edf2f8;
 }
 
 /* THEME: Emerald Green (Xanh lục bảo thanh mát, tập trung) */
@@ -97,21 +112,21 @@
   --hover-bg: #e2e8f0;
 }
 
-/* THEME: Dark Mode (Nền tối dịu mắt ban đêm) */
+/* THEME: Dark Mode (Than chì ấm dịu mắt ban đêm - không chói xanh) */
 [data-theme="dark"] {
-  --page: #0b1120;
-  --sheet: #111827;
-  --ink: #f1f5f9;
-  --ink-2: #cbd5e1;
-  --ink-3: #94a3b8;
-  --rule: #1e293b;
-  --accent: #6366f1;
-  --accent-ink: #a5b4fc;
-  --accent-wash: rgba(99, 102, 241, 0.16);
-  --good: #34d399;
-  --good-wash: rgba(16, 185, 129, 0.14);
-  --hover-bg: #1e293b;
-  --incorrect-color: #fb7185;
+  --page: #141619;
+  --sheet: #1c1f24;
+  --ink: #e8e4dc;
+  --ink-2: #b8b3a8;
+  --ink-3: #8c877c;
+  --rule: #2c313a;
+  --accent: #4fa387;
+  --accent-ink: #86d4b8;
+  --accent-wash: rgba(79, 163, 135, 0.16);
+  --good: #52b788;
+  --good-wash: rgba(82, 183, 136, 0.14);
+  --hover-bg: #252932;
+  --incorrect-color: #e57373;
 }
 
 * {
@@ -898,9 +913,26 @@ html:not([data-theme="dark"]) main .text-teal-400 {
   color: #047857 !important; /* Xanh lục đậm sắc nét */
 }
 
-/* Nghĩa Tiếng Việt trên thẻ Flashcard: Xanh Chàm Đậm (Deep Navy/Indigo) chuẩn học thuật */
+/* ============================================================================
+   EYE-CARE WARM PAPER SURFACE HARMONY (Chống chói trắng gắt toàn giao diện)
+   ============================================================================ */
+html:not([data-theme="dark"]) header,
+html:not([data-theme="dark"]) nav,
+html:not([data-theme="dark"]) footer {
+  background-color: var(--sheet) !important;
+  border-color: var(--rule) !important;
+}
+
+html:not([data-theme="dark"]) .glass-card,
+html:not([data-theme="dark"]) .bg-white,
+html:not([data-theme="dark"]) .bg-white\/95 {
+  background-color: var(--sheet) !important;
+  border-color: var(--rule) !important;
+}
+
+/* Nghĩa Tiếng Việt trên thẻ Flashcard: Xanh Rừng Đậm (Deep Forest) dịu mắt & rõ nét */
 html:not([data-theme="dark"]) #cardMeaningVi {
-  color: #1e3a8a !important;
+  color: #1e4d40 !important;
   font-weight: 800 !important;
 }
 

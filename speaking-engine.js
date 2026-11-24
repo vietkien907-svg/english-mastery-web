@@ -253,16 +253,95 @@
     }
   }
 
-  // TTS helper
-  function pickEnVoice() {
+  // Multi-Accent IELTS Examiner Voice & Speed Settings
+  const STORAGE_SP_ACCENT = 'sp_examiner_accent_v1';
+  const STORAGE_SP_RATE = 'sp_examiner_rate_v1';
+  let spExaminerAccent = (typeof localStorage !== 'undefined' && localStorage.getItem(STORAGE_SP_ACCENT)) || 'auto';
+  let spExaminerRate = parseFloat((typeof localStorage !== 'undefined' && localStorage.getItem(STORAGE_SP_RATE)) || '0.95') || 0.95;
+  let lastAutoVoiceIdx = -1;
+
+  const ACCENT_META = {
+    'auto': { label: '🎲 Auto-Mix IELTS', lang: 'en-GB' },
+    'en-GB': { label: '🇬🇧 Anh-Anh (UK)', lang: 'en-GB', nameRx: /google uk|daniel|sonia|libby|ryan|george|hazel|serena|kate|martha|british/i },
+    'en-US': { label: '🇺🇸 Anh-Mỹ (US)', lang: 'en-US', nameRx: /google us|aria|jenny|guy|samantha|david|zira|alex|natural/i },
+    'en-AU': { label: '🇦🇺 Anh-Úc (AU)', lang: 'en-AU', nameRx: /karen|catherine|natasha|william|gordon|australian/i },
+    'en-CA': { label: '🇨🇦 Anh-Canada (CA)', lang: 'en-CA', nameRx: /clara|liam|linda|richard|canadian/i },
+    'en-IN': { label: '🇮🇳 Anh-Ấn (IN)', lang: 'en-IN', nameRx: /neerja|prabhat|rishi|veena|heera|ravi|indian/i }
+  };
+
+  function pickEnVoice(overrideAccent) {
     try {
-      if (!('speechSynthesis' in window)) return null;
-      const vs = window.speechSynthesis.getVoices().filter(v => /^en[-_]/i.test(v.lang));
-      if (!vs.length) return null;
-      return vs.find(v => /google us english|samantha|natural|jenny|guy|zira|david|aria/i.test(v.name)) || vs[0] || null;
+      if (!('speechSynthesis' in window)) return { voice: null, lang: 'en-GB', label: 'Mặc định' };
+      const allEn = window.speechSynthesis.getVoices().filter(v => /^en[-_]/i.test(v.lang));
+      if (!allEn.length) return { voice: null, lang: 'en-US', label: 'Mặc định' };
+
+      const targetAccent = overrideAccent || spExaminerAccent || 'auto';
+
+      if (targetAccent === 'auto') {
+        // Rotate across distinct accents/voices so user adapts to diverse IELTS examiners
+        const preferredPool = [];
+        ['en-GB', 'en-US', 'en-AU', 'en-CA', 'en-IN'].forEach(code => {
+          const rx = ACCENT_META[code].nameRx;
+          const exact = allEn.filter(v => v.lang.replace('_', '-').toLowerCase().startsWith(code.toLowerCase()));
+          if (exact.length) {
+            const best = exact.find(v => rx && rx.test(v.name)) || exact[0];
+            preferredPool.push({ voice: best, lang: best.lang, label: ACCENT_META[code].label + ' · ' + best.name.split(' ')[0] });
+          }
+        });
+        const pool = preferredPool.length > 0 ? preferredPool : allEn.map(v => ({ voice: v, lang: v.lang, label: v.lang + ' · ' + v.name.split(' ')[0] }));
+        let idx = Math.floor(Math.random() * pool.length);
+        if (pool.length > 1 && idx === lastAutoVoiceIdx) {
+          idx = (idx + 1) % pool.length;
+        }
+        lastAutoVoiceIdx = idx;
+        return pool[idx];
+      }
+
+      const meta = ACCENT_META[targetAccent] || ACCENT_META['en-US'];
+      const langMatches = allEn.filter(v => v.lang.replace('_', '-').toLowerCase().startsWith(targetAccent.toLowerCase()));
+      let chosen = null;
+      if (langMatches.length) {
+        chosen = langMatches.find(v => meta.nameRx && meta.nameRx.test(v.name)) || langMatches[0];
+      } else {
+        chosen = allEn.find(v => meta.nameRx && meta.nameRx.test(v.name)) || allEn[0];
+      }
+      return {
+        voice: chosen,
+        lang: (chosen && chosen.lang) || targetAccent,
+        label: meta.label + (chosen ? ' · ' + chosen.name.split(' ')[0] : '')
+      };
     } catch (e) {
-      return null;
+      return { voice: null, lang: 'en-US', label: 'Mặc định' };
     }
+  }
+
+  function syncVoiceControlsUI() {
+    const accentSel = document.getElementById('spExaminerAccentSelect');
+    const rateSel = document.getElementById('spExaminerRateSelect');
+    if (accentSel && accentSel.value !== spExaminerAccent) accentSel.value = spExaminerAccent;
+    if (rateSel && Math.abs(parseFloat(rateSel.value) - spExaminerRate) > 0.01) rateSel.value = String(spExaminerRate);
+  }
+
+  function setAccent(accent) {
+    spExaminerAccent = accent || 'auto';
+    try { localStorage.setItem(STORAGE_SP_ACCENT, spExaminerAccent); } catch (e) {}
+    syncVoiceControlsUI();
+    const badge = document.getElementById('spActiveVoiceBadge');
+    if (badge) badge.textContent = (ACCENT_META[spExaminerAccent] && ACCENT_META[spExaminerAccent].label) || spExaminerAccent;
+  }
+
+  function setRate(rate) {
+    const parsed = parseFloat(rate);
+    if (!isNaN(parsed) && parsed >= 0.6 && parsed <= 1.5) {
+      spExaminerRate = parsed;
+      try { localStorage.setItem(STORAGE_SP_RATE, String(spExaminerRate)); } catch (e) {}
+    }
+    syncVoiceControlsUI();
+  }
+
+  function testVoice() {
+    const sample = 'Good evening. In this part of the IELTS Speaking test, I would like to ask you a few questions about your daily routine and future plans.';
+    speakPrompt(sample);
   }
 
   // Pre-warm voices on load
@@ -280,10 +359,14 @@
     try {
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(String(text).replace(/\s+/g, ' ').trim());
-      const v = pickEnVoice();
-      if (v) u.voice = v;
-      u.lang = (v && v.lang) || 'en-US';
-      u.rate = 0.92;
+      const picked = pickEnVoice();
+      if (picked && picked.voice) u.voice = picked.voice;
+      u.lang = (picked && picked.lang) || 'en-US';
+      u.rate = spExaminerRate || 0.95;
+      const badge = document.getElementById('spActiveVoiceBadge');
+      if (badge && picked && picked.label) {
+        badge.textContent = picked.label;
+      }
       window.speechSynthesis.speak(u);
     } catch (e) {
       console.warn('speakPrompt error:', e);
@@ -528,6 +611,9 @@
       renderQuestionSelector(); // refresh progress dots
       if (typeof window.addSpeakingXP === 'function') {
         window.addSpeakingXP(50);
+      }
+      if (typeof window.markDailyStreakTaskCompleted === 'function') {
+        window.markDailyStreakTaskCompleted('speaking');
       }
 
     } catch (err) {
@@ -2310,7 +2396,11 @@ Respond ONLY with a valid JSON object matching this schema:
     clearTranscript: clearTranscript,
     discardRecording: discardRecording,
     rehydrate: rehydrate,
-    copyText: copyText
+    copyText: copyText,
+    setAccent: setAccent,
+    setRate: setRate,
+    testVoice: testVoice,
+    syncVoiceControlsUI: syncVoiceControlsUI
   };
 
 
@@ -2368,6 +2458,7 @@ Respond ONLY with a valid JSON object matching this schema:
   function autoInit() {
     try {
       init();
+      syncVoiceControlsUI();
     } catch (e) {
       console.warn('SpeakingEngine autoInit error:', e);
     }

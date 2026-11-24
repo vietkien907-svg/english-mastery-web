@@ -1251,6 +1251,12 @@ function setDayMissionStatus(dayNum, updates) {
   if (typeof syncDeadlineStreak === "function") {
     syncDeadlineStreak();
   }
+  if (updates && (updates.vocabDone === true || updates.readingDone === true || updates.grammarDone === true || updates.videoDone === true)) {
+    const taskType = updates.vocabDone ? "flashcard" : (updates.readingDone ? "reading" : (updates.grammarDone ? "grammar" : "video"));
+    if (typeof window.markDailyStreakTaskCompleted === "function") {
+      window.markDailyStreakTaskCompleted(taskType);
+    }
+  }
 }
 
 function toggleMissionDone(type) {
@@ -1509,74 +1515,190 @@ function getDailyAssignedGrammar(dayNum) {
   return topics[0] || { id: 0, index: 0, title: "Chuyên đề 1: Thì Động Từ", topic_title: "Chuyên đề 1: Thì Động Từ", summary: "Học ngữ pháp trọng tâm" };
 }
 
+// ================= REAL DAILY DEADLINE STREAK & 3/MONTH RECOVERY =================
+function getStreakStorageKey() {
+  const email = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "guest").trim().toLowerCase();
+  return `EMH_REAL_STREAK_V96_${email}`;
+}
+
+function getStreakDeadlineState() {
+  const key = getStreakStorageKey();
+  const email = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
+  try {
+    const raw = localStorage.getItem(key);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+
+  // Seed initial real state without auto-marking today:
+  // Tô Nguyên Vũ starts with his real 14-day streak completed yesterday, so TODAY's deadline is ACTIVE.
+  const now = new Date();
+  const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+  const yStr = (window.StreakDeadlineEngine && window.StreakDeadlineEngine.toLocalDateStr)
+    ? window.StreakDeadlineEngine.toLocalDateStr(yesterday)
+    : yesterday.toISOString().split("T")[0];
+
+  const isVu = (email === "tonguyenvu@265.com");
+  const initial = {
+    streak: isVu ? 14 : (parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0),
+    longestStreak: isVu ? 14 : (parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0),
+    lastCompletedDate: isVu ? yStr : "",
+    todayCompletedTasks: [],
+    todayDate: (window.StreakDeadlineEngine && window.StreakDeadlineEngine.toLocalDateStr)
+      ? window.StreakDeadlineEngine.toLocalDateStr(now)
+      : now.toISOString().split("T")[0],
+    missedPreviousStreak: 0,
+    recoveryMonth: now.toISOString().slice(0, 7),
+    recoveriesUsedThisMonth: 0,
+    lastEvaluatedDate: now.toISOString().split("T")[0]
+  };
+  saveStreakDeadlineState(initial);
+  return initial;
+}
+
+function saveStreakDeadlineState(st) {
+  try {
+    localStorage.setItem(getStreakStorageKey(), JSON.stringify(st));
+    localStorage.setItem("EMH_STREAK", String(st.streak || 0));
+  } catch (e) {}
+}
+
+function refreshDailyStreakDeadlineUI() {
+  if (!window.StreakDeadlineEngine) return;
+  const rawState = getStreakDeadlineState();
+  const ev = window.StreakDeadlineEngine.evaluateDeadline(rawState, new Date());
+  saveStreakDeadlineState(ev.state);
+
+  const curEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  const streakNum = ev.state.streak || 0;
+
+  // Update Header & Profile streak displays
+  const streakEl = document.getElementById("streakCount");
+  if (streakEl && curEmail) streakEl.innerText = `${streakNum} ngày`;
+  const profileStreakEl = document.getElementById("statStreakDisplay");
+  if (profileStreakEl && curEmail) profileStreakEl.innerText = `${streakNum} ngày 🔥`;
+
+  // Update Today / Profile Deadline & Recovery Bar
+  const countdownEl = document.getElementById("realDeadlineCountdown");
+  const statusEl = document.getElementById("realDeadlineStatusText");
+  const pillEl = document.getElementById("todayRealStreakPill");
+  const creditsEl = document.getElementById("realRecoveryCreditsBadge");
+  const profileCreditsEl = document.getElementById("profileRecoveryCreditsText");
+  const recoverBtn = document.getElementById("btnRecoverStreakNow");
+  const profileRecoverBtn = document.getElementById("btnProfileRecoverStreak");
+
+  if (countdownEl) countdownEl.innerText = ev.countdown.formatted;
+  if (creditsEl) creditsEl.innerText = `🛡️ Khôi phục: ${ev.recoveriesRemaining}/${ev.maxMonthlyRecoveries} lượt tháng này`;
+  if (profileCreditsEl) profileCreditsEl.innerText = `Còn ${ev.recoveriesRemaining}/${ev.maxMonthlyRecoveries} lượt khôi phục chuỗi trong tháng ${ev.state.recoveryMonth}`;
+
+  if (ev.status === "COMPLETED_TODAY") {
+    if (pillEl) {
+      pillEl.innerText = `✅ Đã giữ chuỗi hôm nay · ${streakNum} ngày 🔥`;
+      pillEl.className = "px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-bold border border-emerald-300";
+    }
+    if (statusEl) {
+      statusEl.innerText = `Tuyệt vời! Bạn đã hoàn thành nhiệm vụ hôm nay (${ev.state.todayCompletedTasks.join(", ")}) và bảo vệ thành công chuỗi ${streakNum} ngày.`;
+    }
+  } else if (ev.status === "MISSED_RECOVERABLE") {
+    if (pillEl) {
+      pillEl.innerText = `⚠️ Lỡ Deadline hôm qua · Chuỗi tạm về 0`;
+      pillEl.className = "px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-800 text-[11px] font-bold border border-rose-300";
+    }
+    if (statusEl) {
+      statusEl.innerText = `Bạn đã bỏ lỡ Deadline hôm qua (mất chuỗi ${ev.state.missedPreviousStreak} ngày). Bấm "Khôi Phục Chuỗi" ngay (còn ${ev.recoveriesRemaining}/${ev.maxMonthlyRecoveries} lượt tháng này)!`;
+    }
+  } else if (ev.status === "LOST_NO_RECOVERY") {
+    if (pillEl) {
+      pillEl.innerText = `❌ Mất chuỗi (Hết 3/3 lượt khôi phục tháng này)`;
+      pillEl.className = "px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-800 text-[11px] font-bold border border-rose-300";
+    }
+    if (statusEl) {
+      statusEl.innerText = `Bạn đã dùng hết 3 lượt khôi phục trong tháng. Hãy hoàn thành 1 bài học hôm nay trước 23:59 để bắt đầu lại chuỗi mới!`;
+    }
+  } else {
+    if (pillEl) {
+      pillEl.innerText = `⏳ Chưa hoàn thành hôm nay · Chuỗi ${streakNum} ngày 🔥`;
+      pillEl.className = "px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 text-[11px] font-bold border border-amber-300";
+    }
+    if (statusEl) {
+      statusEl.innerText = `Hoàn thành ít nhất 1 nhiệm vụ (Flashcard ngày, Speaking, Đọc hiểu hoặc Ngữ pháp) trước 23:59 để giữ & tăng lên ${streakNum + 1} ngày!`;
+    }
+  }
+
+  const showRecover = ev.canRecover;
+  if (recoverBtn) recoverBtn.classList.toggle("hidden", !showRecover);
+  if (profileRecoverBtn) profileRecoverBtn.classList.toggle("hidden", !showRecover);
+}
+
+window.markDailyStreakTaskCompleted = function (taskType) {
+  if (!window.StreakDeadlineEngine) return;
+  const st = getStreakDeadlineState();
+  const res = window.StreakDeadlineEngine.recordCoreTaskCompletion(st, taskType, new Date());
+  saveStreakDeadlineState(res.state);
+  refreshDailyStreakDeadlineUI();
+
+  if (res.streakIncremented) {
+    if (typeof showToast === "function") {
+      showToast(`🔥 Hoàn thành Deadline hôm nay! Chuỗi Streak tăng lên ${res.newStreak} ngày liên tiếp!`, "success");
+    }
+    // Sync with backend if logged in
+    if (appState && appState.authToken) {
+      apiCall("/api/auth/checkin", "POST").catch(() => {});
+    }
+  }
+};
+
+window.triggerMonthlyStreakRecovery = function () {
+  if (!window.StreakDeadlineEngine) return;
+  const st = getStreakDeadlineState();
+  const res = window.StreakDeadlineEngine.recoverMissedStreak(st, new Date());
+  saveStreakDeadlineState(res.state);
+  refreshDailyStreakDeadlineUI();
+  if (typeof showToast === "function") {
+    showToast(res.message, res.success ? "success" : "error");
+  } else {
+    alert(res.message);
+  }
+};
+
+let realDeadlineIntervalStarted = false;
 function initDailyMissionEngine() {
   loadMissionRegistry();
-  
+
   const currentEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").toLowerCase();
   const isPrimaryVu = (currentEmail === "tonguyenvu@265.com" || localStorage.getItem("EMH_PRIMARY_HOST_SETUP") === "true");
 
-  // Chỉ khôi phục tiến độ 14 ngày cho tài khoản Tô Nguyên Vũ trên thiết bị chủ
   if (isPrimaryVu) {
     localStorage.setItem("EMH_PRIMARY_HOST_SETUP", "true");
-    const userStreak = 14;
-    localStorage.setItem("EMH_STREAK", "14");
     localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", "tonguyenvu@265.com");
     localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", "Tô Nguyên Vũ");
     localStorage.setItem("EMH_USER_REAL_NAME", "Tô Nguyên Vũ");
     localStorage.setItem("EMH_USER_REAL_EMAIL", "tonguyenvu@265.com");
     localStorage.setItem("EMH_USER_REAL_TARGET", "IELTS 7.5+");
 
-    // Đảm bảo dữ liệu các ngày 1 đến 14 được khôi phục nguyên vẹn 100%
-    for (let d = 1; d <= 14; d++) {
-      const dStr = String(d);
-      if (!missionRegistry.history[dStr] || !missionRegistry.history[dStr].vocabDone) {
-        missionRegistry.history[dStr] = {
-          vocabDone: true,
-          vocabCount: 20,
-          videoDone: true,
-          readingDone: true,
-          grammarDone: true,
-          studiedIndices: Array.from({length: 20}, (_, i) => i)
-        };
-      }
+    // Xóa sạch các dấu tích giả tự động đánh dấu từ phiên bản cũ (chỉ chạy 1 lần)
+    if (!localStorage.getItem("EMH_REAL_MISSIONS_CLEAN_V96")) {
+      missionRegistry.history = {};
+      missionRegistry.currentDay = 1;
+      saveMissionRegistry();
+      localStorage.setItem("EMH_REAL_MISSIONS_CLEAN_V96", "true");
     }
-    // Xóa các ngày ảo > 14 nếu có từ trước
-    for (let d = 15; d <= 90; d++) {
-      const dStr = String(d);
-      if (missionRegistry.history[dStr] && missionRegistry.history[dStr].vocabDone) {
-        delete missionRegistry.history[dStr];
-      }
-    }
-    missionRegistry.currentDay = 14;
-    saveMissionRegistry();
-
-    // Đặt lại đúng 14 ngày vào localStorage và danh sách tài khoản
-    localStorage.setItem("EMH_STREAK", "14");
-    try {
-      const rawSt = localStorage.getItem("EMH_DEADLINE_STREAK_V2");
-      let stData = rawSt ? JSON.parse(rawSt) : {};
-      stData.streakDays = 14;
-      localStorage.setItem("EMH_DEADLINE_STREAK_V2", JSON.stringify(stData));
-
-      let accs = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS_V2) || "[]");
-      accs = accs.map(a => {
-        if (a.email === "tonguyenvu@265.com" || a.isCurrent) {
-          return { ...a, streak: 14, referral_code: "NGUYENVU265" };
-        }
-        return a;
-      });
-      localStorage.setItem(STORAGE_KEY_SAVED_ACCOUNTS_V2, JSON.stringify(accs));
-    } catch (e) {}
   } else if (!currentEmail) {
-    // Thiết bị mới chưa đăng nhập: Không gán Tô Nguyên Vũ
     localStorage.setItem("EMH_NEW_DEVICE_VISITED", "true");
   }
 
+  // Không còn tự động khóa/ban 1 tiếng để người dùng học lại hoặc dùng lượt khôi phục chuỗi
   if (typeof removeStreakLossBan === "function") removeStreakLossBan();
 
   const officialToday = getOfficialTodayDay();
   if (!missionRegistry.currentDay || missionRegistry.currentDay < 1) {
     missionRegistry.currentDay = officialToday;
+  }
+
+  // Kích hoạt đánh giá Deadline & bộ đếm ngược thực tế hằng ngày
+  refreshDailyStreakDeadlineUI();
+  if (!realDeadlineIntervalStarted) {
+    realDeadlineIntervalStarted = true;
+    setInterval(refreshDailyStreakDeadlineUI, 1000);
   }
   setupReviewSelectors();
   updateDailyMissionUI();

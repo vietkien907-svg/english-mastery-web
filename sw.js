@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-mastery-v95.2';
+const CACHE_NAME = 'english-mastery-v96.0';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -14,6 +14,7 @@ const ASSETS_TO_CACHE = [
   './unit-review-engine.js',
   './focus-session-engine.js',
   './auth-gate-engine.js',
+  './streak-deadline-engine.js',
   './app.js',
   './speaking-forecast.js',
   './speaking-knowledge-bank.js',

@@ -388,9 +388,11 @@ function updateAuthUI() {
     if (statusEl) statusEl.innerText = `🟢 Đang đăng nhập: ${dName} (${curEmail})`;
 
     if (isHost) {
+      if (typeof ensureHostVuProgressRestored === "function") ensureHostVuProgressRestored();
       loadReferralCodeInfo();
       if (typeof loadHostAlertAndLogsUI === "function") loadHostAlertAndLogsUI();
     }
+    if (typeof syncClientWordsToServer === "function") syncClientWordsToServer();
   } else {
     if (nameEl) nameEl.innerText = "Chưa đăng nhập";
     if (headerNameEl) headerNameEl.innerText = "🔐 Chưa đăng nhập";
@@ -2048,6 +2050,74 @@ window.triggerMonthlyStreakRecovery = function () {
   }
 };
 
+function ensureHostVuProgressRestored() {
+  const curEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
+  if (curEmail !== "tonguyenvu@265.com") return;
+
+  if (typeof loadMissionRegistry === "function" && (!missionRegistry || !missionRegistry.history)) {
+    loadMissionRegistry();
+  }
+  let restoredAny = false;
+  for (let d = 1; d <= 14; d++) {
+    const dStr = String(d);
+    if (!missionRegistry.history[dStr] || !missionRegistry.history[dStr].vocabDone) {
+      missionRegistry.history[dStr] = {
+        vocabDone: true,
+        vocabCount: 20,
+        videoDone: true,
+        readingDone: true,
+        grammarDone: true,
+        studiedIndices: Array.from({ length: 20 }, (_, i) => i)
+      };
+      restoredAny = true;
+    }
+  }
+  if ((missionRegistry.currentDay || 1) < 15) {
+    missionRegistry.currentDay = 15;
+    restoredAny = true;
+  }
+  if (restoredAny) {
+    saveMissionRegistry();
+    if (typeof updateDailyMissionUI === "function") updateDailyMissionUI();
+    if (typeof setupReviewSelectors === "function") setupReviewSelectors();
+  }
+  refreshProfileVocabularyStatsUI();
+}
+
+function refreshProfileVocabularyStatsUI() {
+  const learned = (typeof getRealLearnedWordsCount === "function") ? getRealLearnedWordsCount() : 0;
+  let srsTotal = 0;
+  let srsLearning = 0;
+  try {
+    const srsMap = JSON.parse(localStorage.getItem("EMH_SRS_MAP_V3") || "{}");
+    const vals = Object.values(srsMap);
+    srsTotal = vals.length;
+    srsLearning = vals.filter(v => v && (v.level || 1) < 4).length;
+  } catch (e) {}
+
+  const totalStarted = Math.max(learned, srsTotal);
+  const statStartedEl = document.getElementById("statTotalStarted");
+  const statMatureEl = document.getElementById("statMature");
+  const statLearningEl = document.getElementById("statLearning");
+  if (statStartedEl) statStartedEl.innerText = String(totalStarted);
+  if (statMatureEl) statMatureEl.innerText = String(learned);
+  if (statLearningEl) statLearningEl.innerText = String(srsLearning);
+}
+
+async function syncClientWordsToServer() {
+  refreshProfileVocabularyStatsUI();
+  if (!appState || !appState.authToken) return;
+  try {
+    const learned = (typeof getRealLearnedWordsCount === "function") ? getRealLearnedWordsCount() : 0;
+    const streak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+    await apiCall("/api/stats/sync-client-summary", "POST", {
+      learned_words_count: learned,
+      total_started_count: learned,
+      streak_count: streak
+    });
+  } catch (e) {}
+}
+
 let realDeadlineIntervalStarted = false;
 function initDailyMissionEngine() {
   // One-time cleanup v99: remove any legacy auto-seeded Tô Nguyên Vũ state if browser has NO real server auth token
@@ -2067,13 +2137,7 @@ function initDailyMissionEngine() {
   }
 
   loadMissionRegistry();
-
-  if (!localStorage.getItem("EMH_REAL_MISSIONS_CLEAN_V96")) {
-    missionRegistry.history = {};
-    missionRegistry.currentDay = 1;
-    saveMissionRegistry();
-    localStorage.setItem("EMH_REAL_MISSIONS_CLEAN_V96", "true");
-  }
+  ensureHostVuProgressRestored();
 
   // Không còn tự động khóa/ban 1 tiếng để người dùng học lại hoặc dùng lượt khôi phục chuỗi
   if (typeof removeStreakLossBan === "function") removeStreakLossBan();
@@ -11438,25 +11502,29 @@ setInterval(updateSessionRoutineUI, 30000);
 const STORAGE_KEY_SAVED_ACCOUNTS_V2 = "EMH_REAL_ACCOUNTS_V3";
 let currentLeaderboardFilterMode = "all"; // 'all', 'streak', 'vocab'
 
-// Đếm số từ vựng thực tế đã học từ các ngày hoàn thành trong lộ trình & sổ tay
+// Đếm số từ vựng thực tế đã học từ lộ trình ngày hoàn thành, thẻ SRS & sổ tay cá nhân
 function getRealLearnedWordsCount() {
-  let count = 0;
+  let curriculumCount = 0;
   if (typeof missionRegistry !== "undefined" && missionRegistry.history) {
     Object.keys(missionRegistry.history).forEach(d => {
       const dayData = missionRegistry.history[d];
       if (dayData) {
         if (dayData.vocabDone) {
-          count += 20;
+          curriculumCount += 20;
         } else if (dayData.vocabCount) {
-          count += Math.min(20, parseInt(dayData.vocabCount) || 0);
+          curriculumCount += Math.min(20, parseInt(dayData.vocabCount) || 0);
         }
       }
     });
   }
-  if (Array.isArray(appState.customNotebook)) {
-    count += appState.customNotebook.length;
-  }
-  return Math.max(count, 20);
+  let srsMatureCount = 0;
+  try {
+    const srsMap = JSON.parse(localStorage.getItem("EMH_SRS_MAP_V3") || "{}");
+    srsMatureCount = Object.values(srsMap).filter(v => v && (v.level || 0) >= 3).length;
+  } catch (e) {}
+
+  let notebookCount = Array.isArray(appState.customNotebook) ? appState.customNotebook.length : 0;
+  return Math.max(curriculumCount, srsMatureCount) + notebookCount;
 }
 
 let serverLeaderboardCache = [];
@@ -11514,6 +11582,19 @@ function getCombinedLeaderboardAccounts() {
     if (!byEmail.has(em)) {
       byEmail.set(em, {
         ...localAcc,
+        isCurrent: em === curEmail
+      });
+    } else {
+      // Never let server overwrite local learned words / XP downward!
+      const srv = byEmail.get(em);
+      const mergedWords = Math.max(srv.mature_words || 0, localAcc.mature_words || 0);
+      const mergedStreak = Math.max(srv.streak || 0, localAcc.streak || 0);
+      const mergedXp = Math.max(srv.xp || 0, localAcc.xp || 0, (mergedStreak * 120) + (mergedWords * 20) + 150);
+      byEmail.set(em, {
+        ...srv,
+        mature_words: mergedWords,
+        streak: mergedStreak,
+        xp: mergedXp,
         isCurrent: em === curEmail
       });
     }

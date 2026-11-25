@@ -572,16 +572,105 @@
     } catch (e) {}
   }
 
+  // Strict Pre-Evaluation Input Validator (Blocks numbers, gibberish, Vietnamese & <5 English words)
+  const VIETNAMESE_DIACRITIC_RX = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+  const COMMON_EN_ANCHORS = new Set([
+    'i', 'a', 'an', 'the', 'is', 'am', 'are', 'was', 'were', 'be', 'been', 'being',
+    'to', 'of', 'in', 'on', 'at', 'for', 'with', 'from', 'by', 'about', 'as', 'into',
+    'my', 'me', 'you', 'your', 'we', 'our', 'they', 'their', 'he', 'she', 'it', 'this', 'that', 'these', 'those',
+    'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'can', 'could', 'should', 'may', 'might', 'must',
+    'and', 'or', 'but', 'so', 'because', 'although', 'if', 'when', 'while', 'where', 'who', 'which', 'what', 'how',
+    'not', 'no', 'yes', 'very', 'really', 'quite', 'more', 'most', 'much', 'many', 'some', 'any', 'all', 'every',
+    'like', 'love', 'enjoy', 'prefer', 'think', 'believe', 'feel', 'know', 'want', 'need', 'use', 'make', 'take', 'get', 'go', 'see', 'time', 'people', 'life', 'work', 'study', 'day', 'year', 'way', 'thing', 'place', 'world'
+  ]);
+
+  function isPlausibleEnglishWord(rawToken) {
+    const clean = String(rawToken || '').toLowerCase().replace(/^[^a-z]+|[^a-z]+$/g, '');
+    if (!clean) return false;
+    if (clean === 'i' || clean === 'a') return true;
+    if (clean.length < 2 || clean.length > 22) return false;
+    if (!/^[a-z'-]+$/.test(clean)) return false;
+    // Must contain at least one English vowel
+    if (!/[aeiouy]/.test(clean)) return false;
+    // Reject keyboard mashing: >= 5 consecutive consonants or >= 4 identical letters in a row
+    if (/[bcdfghjklmnpqrstvwxz]{5,}/.test(clean)) return false;
+    if (/(.)\1{3,}/.test(clean)) return false;
+    return true;
+  }
+
+  function validateSpokenResponse(rawText, part) {
+    const text = String(rawText || '').trim();
+    const minWords = String(part || '1') === '2' ? 12 : 5;
+
+    if (!text) {
+      return {
+        valid: false,
+        reason: 'EMPTY',
+        message: 'Câu trả lời đang trống. Vui lòng nói vào micro hoặc nhập câu trả lời tiếng Anh trước khi chấm điểm!'
+      };
+    }
+
+    // Reject Vietnamese diacritics
+    const vnMatches = text.match(new RegExp(VIETNAMESE_DIACRITIC_RX.source, 'gi')) || [];
+    if (vnMatches.length >= 2) {
+      return {
+        valid: false,
+        reason: 'VIETNAMESE_TEXT',
+        message: 'Câu trả lời không hợp lệ (phát hiện tiếng Việt có dấu). Vui lòng trả lời hoàn toàn bằng tiếng Anh!'
+      };
+    }
+
+    const rawTokens = text.split(/\s+/).filter(Boolean);
+    const validEnWords = rawTokens.filter(isPlausibleEnglishWord);
+    const anchorHits = validEnWords.filter(w => COMMON_EN_ANCHORS.has(w.toLowerCase().replace(/[^a-z]/g, ''))).length;
+    const uniqueValid = new Set(validEnWords.map(w => w.toLowerCase().replace(/[^a-z]/g, ''))).size;
+
+    if (validEnWords.length < minWords) {
+      return {
+        valid: false,
+        reason: 'TOO_FEW_ENGLISH_WORDS',
+        validWordCount: validEnWords.length,
+        message: `Câu trả lời không hợp lệ (chỉ có ${validEnWords.length} từ tiếng Anh hợp lệ; số hoặc ký tự vô nghĩa như "${text.slice(0, 24)}" không được chấm). Vui lòng trả lời tối thiểu ${minWords} từ tiếng Anh thực sự!`
+      };
+    }
+
+    // Prevent pure random English-looking nonsense (e.g. "asdf qwer zxcv poiu lkjh") with zero real English anchor words
+    if (anchorHits === 0 || uniqueValid < Math.min(3, minWords)) {
+      return {
+        valid: false,
+        reason: 'GIBBERISH_OR_SPAM',
+        validWordCount: validEnWords.length,
+        message: 'Câu trả lời không hợp lệ (chuỗi từ lặp lại hoặc ký tự gõ ngẫu nhiên vô nghĩa). Vui lòng nói hoặc viết câu tiếng Anh hoàn chỉnh!'
+      };
+    }
+
+    return {
+      valid: true,
+      validWordCount: validEnWords.length,
+      uniqueValidCount: uniqueValid,
+      validWords: validEnWords
+    };
+  }
+
   // AI Evaluation Engine
   async function runAiEvaluation() {
     if (state.isScoring) return;
     const cur = getCurrentItem();
     const transcriptInput = document.getElementById('spLiveTranscriptText');
-    const transcript = (transcriptInput ? transcriptInput.value : state.liveTranscript || '').trim();
+    let transcript = (transcriptInput ? transcriptInput.value : state.liveTranscript || '').trim();
 
     if (!transcript && !state.audioBlob) {
-      alert('Vui lòng ghi âm câu trả lời hoặc gõ / dán văn bản câu trả lời vào ô trước khi chấm điểm AI!');
+      alert('Vui lòng ghi âm câu trả lời hoặc gõ / dán văn bản câu trả lời tiếng Anh vào ô trước khi chấm điểm AI!');
       return;
+    }
+
+    // If user typed text (without fresh audio blob), strictly validate BEFORE scoring!
+    if (!state.audioBlob) {
+      const check = validateSpokenResponse(transcript, cur.part);
+      if (!check.valid) {
+        alert('⚠️ KHÔNG THỂ CHẤM ĐIỂM:\n' + check.message);
+        return;
+      }
     }
 
     state.isScoring = true;
@@ -595,27 +684,44 @@
         try {
           evaluation = await evaluateViaGroq(groqKey, cur, state.audioBlob, transcript);
         } catch (apiErr) {
-          console.warn('Groq API failed, falling back to smart local evaluation:', apiErr);
+          if (apiErr && apiErr.isInvalidTranscript) {
+            alert('⚠️ KHÔNG THỂ CHẤM ĐIỂM:\n' + apiErr.message);
+            return;
+          }
+          console.warn('Groq API failed, falling back to calibrated local evaluation:', apiErr);
+          const checkFallback = validateSpokenResponse(transcript, cur.part);
+          if (!checkFallback.valid) {
+            alert('⚠️ KHÔNG THỂ CHẤM ĐIỂM:\n' + checkFallback.message);
+            return;
+          }
           evaluation = evaluateLocally(cur, transcript, state.speakingDurationSec);
-          evaluation.source = 'Local Smart Engine (Groq gặp lỗi hoặc hết hạn ngạch)';
+          evaluation.source = 'Local Calibrated Examiner (' + (apiErr.shortReason || 'Groq tạm quá tải') + ')';
         }
       } else {
+        const checkLocal = validateSpokenResponse(transcript, cur.part);
+        if (!checkLocal.valid) {
+          alert('⚠️ KHÔNG THỂ CHẤM ĐIỂM:\n' + checkLocal.message);
+          return;
+        }
         evaluation = evaluateLocally(cur, transcript, state.speakingDurationSec);
-        evaluation.source = 'Local Smart Engine (Chưa cấu hình Groq Key)';
+        evaluation.source = 'Local Calibrated Examiner (Chưa cấu hình Groq Key)';
       }
 
       state.currentEvaluation = evaluation;
-      markQuestionDone(cur.questionText, evaluation.overallBand);
-      savePracticeHistory(cur, evaluation);
       renderEvaluationResult(evaluation);
-      renderQuestionSelector(); // refresh progress dots
-      if (typeof window.addSpeakingXP === 'function') {
-        window.addSpeakingXP(50);
-      }
-      if (typeof window.markDailyStreakTaskCompleted === 'function') {
-        window.markDailyStreakTaskCompleted('speaking');
-      }
 
+      // Only mark done & award XP/Streak if candidate produced a legitimate >= Band 4.0 answer
+      if (evaluation && evaluation.overallBand >= 4.0) {
+        markQuestionDone(cur.questionText, evaluation.overallBand);
+        savePracticeHistory(cur, evaluation);
+        renderQuestionSelector();
+        if (typeof window.addSpeakingXP === 'function') {
+          window.addSpeakingXP(50);
+        }
+        if (typeof window.markDailyStreakTaskCompleted === 'function') {
+          window.markDailyStreakTaskCompleted('speaking');
+        }
+      }
     } catch (err) {
       console.error('Scoring error:', err);
       alert('Có lỗi xảy ra trong quá trình chấm điểm: ' + (err.message || 'Vui lòng thử lại.'));
@@ -658,7 +764,13 @@
       }
     }
 
-    if (!transcriptText) transcriptText = 'Candidate spoke for ' + (state.speakingDurationSec || 15) + ' seconds.';
+    // Validate transcribed speech strictly (reject silent audio / background noise / numbers)
+    const trCheck = validateSpokenResponse(transcriptText, item.part);
+    if (!trCheck.valid) {
+      const invalidErr = new Error(trCheck.message);
+      invalidErr.isInvalidTranscript = true;
+      throw invalidErr;
+    }
 
     const sysPrompt = `You are a Senior Official IELTS Speaking Examiner accredited by the British Council and IDP, and an elite native English pronunciation coach.
 
@@ -737,107 +849,189 @@ Candidate's Spoken Transcript:
 Speaking Duration: ${state.speakingDurationSec} seconds.
 Please provide the rigorous evaluation and JSON response.`;
 
-    const chatResp = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-      },
-      body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
-        messages: [
-          { role: 'system', content: sysPrompt },
-          { role: 'user', content: userPrompt }
-        ],
-        temperature: 0.3,
-        response_format: { type: 'json_object' }
-      })
-    });
+    const candidateModels = [
+      'llama-3.3-70b-versatile',
+      'llama-3.1-8b-instant',
+      'gemma2-9b-it'
+    ];
+    let lastHttpStatus = 0;
+    let chatData = null;
+    let usedModel = candidateModels[0];
 
-    if (!chatResp.ok) {
-      throw new Error(`Groq Chat API HTTP ${chatResp.status}`);
+    for (const modelName of candidateModels) {
+      const chatResp = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: modelName,
+          messages: [
+            { role: 'system', content: sysPrompt },
+            { role: 'user', content: userPrompt }
+          ],
+          temperature: 0.2,
+          response_format: { type: 'json_object' }
+        })
+      });
+
+      if (chatResp.ok) {
+        chatData = await chatResp.json();
+        usedModel = modelName;
+        break;
+      }
+      lastHttpStatus = chatResp.status;
+      // If API key itself is invalid (401), no point retrying other models
+      if (chatResp.status === 401) {
+        const keyErr = new Error('Groq API Key không hợp lệ hoặc đã hết hạn (HTTP 401)');
+        keyErr.shortReason = 'Groq Key sai / hết hạn';
+        throw keyErr;
+      }
     }
 
-    const chatData = await chatResp.json();
+    if (!chatData) {
+      const rateErr = new Error(`Groq Chat API HTTP ${lastHttpStatus}`);
+      rateErr.shortReason = `Groq HTTP ${lastHttpStatus}`;
+      throw rateErr;
+    }
+
     const rawContent = chatData.choices?.[0]?.message?.content;
     const parsed = JSON.parse(rawContent);
     parsed.transcript = transcriptText;
-    parsed.source = 'Groq Cloud (Llama 3.3 + Whisper Large v3)';
+    parsed.source = `Groq Cloud (${usedModel})`;
     return parsed;
   }
 
-  // Built-in Smart Local Evaluator
-    // Built-in Smart Local Evaluator (Strictly Calibrated to IELTS Band Descriptors)
+  // Strictly Calibrated Local IELTS Speaking Evaluator (IDP / BC Band Descriptors)
   function evaluateLocally(item, transcript, durationSec) {
-    const text = transcript.trim();
-    const words = text ? text.split(/\s+/) : [];
-    const wordCount = words.length;
-    const dur = Math.max(5, durationSec || (wordCount > 0 ? Math.round(wordCount / 2.1) : 15));
+    const part = String((item && item.part) || '1');
+    const validation = validateSpokenResponse(transcript, part);
+    if (!validation.valid) {
+      return {
+        overallBand: 0,
+        invalid: true,
+        invalidMessage: validation.message,
+        criteria: {
+          fluency: { band: 0, feedback: validation.message, strengths: [], improvements: ['Trả lời bằng câu tiếng Anh hoàn chỉnh'] },
+          lexical: { band: 0, feedback: 'Không có từ vựng tiếng Anh hợp lệ để chấm.', collocationsUsed: [], suggestedUpgrades: [] },
+          grammar: { band: 0, feedback: 'Không có cấu trúc câu tiếng Anh hợp lệ.', errors: [] },
+          pronunciation: { band: 0, feedback: 'Không đủ dữ liệu giọng nói tiếng Anh.' }
+        },
+        upgradedAnswer: '',
+        topicVocabulary: [],
+        transcript: String(transcript || ''),
+        speakingDurationSec: 0,
+        source: 'Input Validator'
+      };
+    }
+
+    const text = String(transcript || '').trim();
+    const cleanWords = validation.validWords.map(w => w.toLowerCase().replace(/^[^a-z]+|[^a-z]+$/g, '')).filter(Boolean);
+    const wordCount = cleanWords.length;
+    const dur = Math.max(4, durationSec || Math.round(wordCount / 2.0));
     const wpm = Math.round((wordCount / dur) * 60);
-    const part = item.part || '1';
+
+    // Check Topic Relevance against Question & Topic keywords
+    const stopWords = COMMON_EN_ANCHORS;
+    const promptTokens = `${(item && item.questionText) || ''} ${(item && item.topicTitle) || ''}`
+      .toLowerCase()
+      .replace(/[^a-z\s]/g, ' ')
+      .split(/\s+/)
+      .filter(w => w.length >= 4 && !stopWords.has(w));
+    const promptRoots = promptTokens.map(w => w.slice(0, 4));
+    let topicHits = 0;
+    cleanWords.forEach(cw => {
+      if (cw.length >= 4 && promptRoots.some(r => cw.startsWith(r) || r.startsWith(cw.slice(0, 4)))) {
+        topicHits++;
+      }
+    });
+    const isOffTopic = promptRoots.length >= 2 && topicHits === 0 && wordCount < 35;
 
     // 1. Fluency & Coherence (FC)
-    let fc = 6.0;
+    let fc = 5.0;
     let fcFeedback = '';
     const fcStrengths = [];
     const fcImprovements = [];
+    const discourseCount = (text.match(/\b(however|moreover|furthermore|therefore|consequently|for instance|for example|personally|honestly|frankly|in addition|on the other hand|actually|specifically)\b/gi) || []).length;
 
-    // Part-specific length checks
     if (part === '1') {
-      if (wordCount < 15) {
+      if (wordCount < 10) {
+        fc = 3.5;
+        fcFeedback = `Câu trả lời quá cụt (${wordCount} từ tiếng Anh). Trong Part 1, trả lời 1 câu ngắn dưới 10 từ bị giới hạn ở mức Band 3.5–4.0.`;
+        fcImprovements.push('Phát triển tối thiểu 2–4 câu (25–45 từ): Trả lời trực tiếp + Giải thích lý do + Ví dụ thực tế');
+      } else if (wordCount < 18) {
         fc = 4.5;
-        fcFeedback = `Câu trả lời quá ngắn (${wordCount} từ). Trong Part 1, bạn cần phát triển tối thiểu 2–4 câu (khoảng 25–45 từ) gồm câu trả lời trực tiếp + lý do / ví dụ cụ thể.`;
-        fcImprovements.push('Mở rộng câu trả lời bằng cấu trúc [Direct Answer + Explanation + Example]');
-      } else if (wordCount < 25) {
-        fc = 5.5;
-        fcFeedback = `Độ dài đạt ${wordCount} từ. Tốc độ nói xấp xỉ ${wpm} từ/phút. Cần liên kết ý mượt mà hơn và tránh ngắt quãng.`;
-        fcStrengths.push('Trả lời trực diện trọng tâm');
-        fcImprovements.push('Sử dụng thêm liên từ tự nhiên như "to be honest", "as a matter of fact"');
+        fcFeedback = `Câu trả lời còn ngắn (${wordCount} từ). Bạn mới nêu ý chính nhưng thiếu phần mở rộng lý do và chi tiết minh họa.`;
+        fcImprovements.push('Thêm liên từ giải thích (because, for instance) để kéo dài lên 25–45 từ');
+      } else if (wordCount < 28) {
+        fc = 5.5 + (discourseCount >= 1 ? 0.5 : 0);
+        fcFeedback = `Độ dài khá (${wordCount} từ, ~${wpm} từ/phút). Ý tưởng có triển khai cơ bản.`;
+        fcStrengths.push('Độ dài câu trả lời đạt ngưỡng giao tiếp cơ bản');
+        fcImprovements.push('Bổ sung từ nối tự nhiên (actually, to be honest) để tăng độ mạch lạc');
       } else {
-        fc = (wpm >= 105 && wpm <= 150) ? 7.0 : 6.5;
-        fcFeedback = `Độ dài rất tốt (${wordCount} từ), duy trì mạch nói ổn định ở mức ${wpm} từ/phút. Các ý phát triển có sự liên kết tự nhiên.`;
-        fcStrengths.push(`Tốc độ nói lý tưởng (${wpm} từ/phút)`, `Độ dài đầy đủ (${wordCount} từ)`);
-        fcImprovements.push('Đa dạng hóa các discourse markers để bứt phá lên Band 8.0+');
+        fc = (wpm >= 100 && wpm <= 155) ? (6.5 + (discourseCount >= 2 ? 0.5 : 0)) : 6.0;
+        fcFeedback = `Độ dài tốt (${wordCount} từ, nhịp độ ~${wpm} từ/phút), phát triển ý đầy đủ và mạch lạc.`;
+        fcStrengths.push(`Độ dài đạt chuẩn Part 1 (${wordCount} từ)`, `Có sử dụng từ nối liên kết ý`);
       }
     } else if (part === '2') {
-      if (wordCount < 60) {
+      if (wordCount < 30) {
+        fc = 3.0;
+        fcFeedback = `Bài nói quá ngắn (${wordCount} từ) so với yêu cầu độc thoại 1.5–2 phút của Part 2 (cần 130–200 từ).`;
+        fcImprovements.push('Cần triển khai đầy đủ cả 4 gợi ý trong Cue Card');
+      } else if (wordCount < 65) {
         fc = 4.0;
-        fcFeedback = `Bài nói quá ngắn (${wordCount} từ), chưa đáp ứng yêu cầu thuyết trình liên tục 1.5–2 phút của Part 2 (cần tối thiểu 130–200 từ).`;
-        fcImprovements.push('Phải triển khai đầy đủ cả 4 gợi ý trong Cue Card để nói đủ 2 phút');
-      } else if (wordCount < 110) {
-        fc = 5.0;
-        fcFeedback = `Bài nói dài ${wordCount} từ. Bạn đã bao quát được ý chính nhưng chưa đào sâu chi tiết cảm xúc và bài học kinh nghiệm.`;
-        fcStrengths.push('Bám sát chủ đề Cue Card');
-        fcImprovements.push('Mở rộng thêm chi tiết cụ thể và ví dụ minh họa sinh động');
+        fcFeedback = `Bài nói mới đạt ${wordCount} từ, dừng quá sớm trước mốc 1 phút của Part 2.`;
+        fcImprovements.push('Bổ sung bối cảnh, diễn biến câu chuyện và cảm nhận cá nhân');
+      } else if (wordCount < 120) {
+        fc = 5.0 + (discourseCount >= 2 ? 0.5 : 0);
+        fcFeedback = `Bài nói đạt ${wordCount} từ. Đã nêu được các ý chính nhưng cần mở rộng thêm chi tiết để lấp đầy 2 phút.`;
+        fcStrengths.push('Có cấu trúc triển khai ý theo Cue Card');
       } else {
-        fc = (wpm >= 110 && wpm <= 150) ? 7.0 : 6.5;
-        fcFeedback = `Độ dài bài thuyết trình xuất sắc (${wordCount} từ trong ${dur}s), cấu trúc mở - thân - kết rõ ràng, mạch lạc.`;
-        fcStrengths.push('Duy trì độc thoại liên tục mạch lạc', `Độ dài bài nói chuẩn mực (${wordCount} từ)`);
+        fc = (wpm >= 105 && wpm <= 155) ? (6.5 + (discourseCount >= 3 ? 0.5 : 0)) : 6.0;
+        fcFeedback = `Bài độc thoại đầy đặn (${wordCount} từ), mạch nói liên tục và phân bổ ý rõ ràng.`;
+        fcStrengths.push(`Độ dài bài nói tốt (${wordCount} từ)`);
       }
-    } else { // Part 3
-      if (wordCount < 25) {
-        fc = 4.5;
-        fcFeedback = `Câu trả lời Part 3 quá ngắn (${wordCount} từ). Part 3 đòi hỏi tư duy phản biện đa chiều, phân tích nguyên nhân - hệ quả của vấn đề xã hội.`;
-        fcImprovements.push('Lập luận theo phương pháp đa chiều: "On the one hand... On the other hand..."');
-      } else if (wordCount < 45) {
-        fc = 6.0;
-        fcFeedback = `Độ dài ${wordCount} từ. Phản hồi hợp lý nhưng cần thêm luận cứ mang tính khái quát xã hội thay vì chỉ nhìn nhận góc độ cá nhân.`;
-        fcStrengths.push('Đưa ra quan điểm rõ ràng');
-        fcImprovements.push('Đưa thêm ví dụ thực tế trong đời sống để lập luận thuyết phục hơn');
+    } else {
+      if (wordCount < 15) {
+        fc = 3.5;
+        fcFeedback = `Câu trả lời Part 3 quá sơ sài (${wordCount} từ), chưa thể hiện được lập luận phân tích.`;
+        fcImprovements.push('Part 3 cần tối thiểu 35–60 từ: Nêu luận điểm + Phân tích nguyên nhân/hệ quả + Ví dụ xã hội');
+      } else if (wordCount < 30) {
+        fc = 4.5 + (discourseCount >= 1 ? 0.5 : 0);
+        fcFeedback = `Độ dài ${wordCount} từ còn ngắn cho câu hỏi thảo luận học thuật Part 3.`;
+        fcImprovements.push('Mở rộng góc nhìn khách quan thay vì chỉ nêu ý kiến ngắn');
       } else {
-        fc = (wpm >= 110 && wpm <= 150) ? 7.0 : 6.5;
-        fcFeedback = `Lập luận logic, tư duy phản biện sắc sảo, liên kết các mệnh đề chặt chẽ (${wordCount} từ).`;
-        fcStrengths.push('Lập luận đa chiều sâu sắc', 'Liên kết ý thuyết phục');
+        fc = 6.0 + (discourseCount >= 2 ? 0.5 : 0) + (wordCount >= 50 ? 0.5 : 0);
+        fcFeedback = `Lập luận có chiều sâu (${wordCount} từ), liên kết các luận điểm tương đối chặt chẽ.`;
+        fcStrengths.push('Phát triển lập luận phù hợp với Part 3');
       }
     }
 
-    // 2. Lexical Resource (LR)
-    const uniqueWords = new Set(words.map(w => w.toLowerCase().replace(/[^a-z]/g, ''))).size;
-    const ttr = wordCount > 0 ? uniqueWords / wordCount : 0;
-    let lr = 6.0;
-    if (ttr > 0.72 && wordCount >= 30) lr = 7.0;
-    else if (ttr > 0.6) lr = 6.5;
-    else if (wordCount < 20) lr = 5.0;
+    if (isOffTopic) {
+      fc = Math.min(fc, 3.5);
+      fcFeedback = `⚠️ Cảnh báo lạc đề: Câu trả lời chưa chứa từ khóa liên quan trực tiếp tới câu hỏi "${(item && item.questionText) || ''}". ` + fcFeedback;
+      fcImprovements.unshift('Đọc kỹ từ khóa đề bài và trả lời thẳng vào trọng tâm câu hỏi');
+    }
+
+    // 2. Lexical Resource (LR) - Never inflate short answers!
+    const uniqueWordsSet = new Set(cleanWords);
+    const ttr = wordCount > 0 ? uniqueWordsSet.size / wordCount : 0;
+    const advancedWords = Array.from(uniqueWordsSet).filter(w => w.length >= 7 && !stopWords.has(w));
+    const basicRepeats = (text.match(/\b(good|bad|very|nice|big|small|thing|things|stuff)\b/gi) || []).length;
+
+    let lr = 4.0;
+    if (wordCount < 10) {
+      lr = 3.5;
+    } else if (wordCount < 18) {
+      lr = 4.5 + (advancedWords.length >= 2 ? 0.5 : 0);
+    } else if (wordCount < 32) {
+      lr = 5.0 + (advancedWords.length >= 3 ? 0.5 : 0) + (advancedWords.length >= 5 ? 0.5 : 0);
+    } else {
+      lr = 5.5 + (advancedWords.length >= 4 ? 0.5 : 0) + (advancedWords.length >= 8 ? 0.5 : 0) + (ttr >= 0.62 ? 0.5 : 0);
+    }
+    if (basicRepeats >= 3) lr = Math.max(3.5, lr - 0.5);
+    lr = Math.min(8.0, lr);
 
     // Detect repeated basic words & suggest upgrades
     const suggestedUpgrades = [];
@@ -871,10 +1065,11 @@ Please provide the rigorous evaluation and JSON response.`;
 
     // 3. Grammatical Range & Accuracy (GRA)
     const clauses = (text.match(/\b(because|although|though|even if|which|that|when|while|whereas|since|if|as soon as|in order that)\b/gi) || []).length;
-    let gra = 6.0;
-    if (clauses >= 3 && wordCount >= 30) gra = 7.0;
-    else if (clauses >= 1) gra = 6.5;
-    else if (wordCount < 20) gra = 5.0;
+    let gra = 4.0;
+    if (wordCount < 10) gra = 3.5;
+    else if (wordCount < 18) gra = 4.5 + (clauses >= 1 ? 0.5 : 0);
+    else if (wordCount < 32) gra = 5.0 + (clauses >= 1 ? 0.5 : 0) + (clauses >= 2 ? 0.5 : 0);
+    else gra = 5.5 + (clauses >= 2 ? 0.5 : 0) + (clauses >= 4 ? 1.0 : 0);
 
     // Advanced Grammar Error Detection
     const errors = [];
@@ -932,17 +1127,23 @@ Please provide the rigorous evaluation and JSON response.`;
       });
     }
 
-    // 4. Pronunciation & Delivery (PR)
-    let pr = 6.5;
-    if (wpm < 85 || wpm > 175) pr = 5.5;
-    else if (wpm >= 115 && wpm <= 145) pr = 7.0;
+    if (errors.length >= 1) gra = Math.max(3.5, gra - 0.5 * Math.min(2, errors.length));
 
-    // Cap Overall Band if answer was under-length
+    // 4. Pronunciation & Delivery (PR)
+    let pr = wordCount < 12 ? 4.0 : 5.5;
+    if (wordCount >= 20 && wpm >= 100 && wpm <= 150) pr = 6.5;
+    else if (wordCount >= 12 && (wpm < 80 || wpm > 180)) pr = 5.0;
+
+    // Strict IDP/BC Overall Band Ceilings
     let rawOverall = (fc + lr + gra + pr) / 4;
-    if (part === '1' && wordCount < 15) rawOverall = Math.min(rawOverall, 5.0);
-    if (part === '2' && wordCount < 60) rawOverall = Math.min(rawOverall, 4.5);
-    if (part === '2' && wordCount < 100) rawOverall = Math.min(rawOverall, 5.5);
-    if (part === '3' && wordCount < 25) rawOverall = Math.min(rawOverall, 5.0);
+    if (isOffTopic) rawOverall = Math.min(rawOverall, 4.0);
+    if (part === '1' && wordCount < 15) rawOverall = Math.min(rawOverall, 4.0);
+    else if (part === '1' && wordCount < 25) rawOverall = Math.min(rawOverall, 5.5);
+    if (part === '2' && wordCount < 25) rawOverall = Math.min(rawOverall, 3.5);
+    else if (part === '2' && wordCount < 50) rawOverall = Math.min(rawOverall, 4.0);
+    else if (part === '2' && wordCount < 100) rawOverall = Math.min(rawOverall, 5.0);
+    if (part === '3' && wordCount < 20) rawOverall = Math.min(rawOverall, 4.0);
+    else if (part === '3' && wordCount < 35) rawOverall = Math.min(rawOverall, 5.5);
     const overallBand = Math.round(rawOverall * 2) / 2;
 
     // Native Rewrite preserving candidate's ideas
@@ -969,8 +1170,8 @@ Please provide the rigorous evaluation and JSON response.`;
         },
         lexical: {
           band: lr,
-          feedback: `Độ đa dạng từ vựng đạt ${(ttr * 100).toFixed(0)}%. Bạn đã sử dụng được một số từ vựng đúng ngữ cảnh. Hãy bổ sung thêm các Collocation học thuật và Idioms đặc thù theo đề thi.`,
-          collocationsUsed: words.slice(0, 3),
+          feedback: ` Ghi nhận ${wordCount} từ tiếng Anh hợp lệ (${advancedWords.length} từ vựng học thuật/dài). ${wordCount < 18 ? 'Câu quá ngắn nên chưa đủ cơ sở đánh giá vốn từ phong phú.' : 'Hãy bổ sung thêm Collocations và Idioms sát chủ đề để nâng Band.'}`,
+          collocationsUsed: advancedWords.slice(0, 4),
           suggestedUpgrades: suggestedUpgrades
         },
         grammar: {
@@ -2400,7 +2601,9 @@ Respond ONLY with a valid JSON object matching this schema:
     setAccent: setAccent,
     setRate: setRate,
     testVoice: testVoice,
-    syncVoiceControlsUI: syncVoiceControlsUI
+    syncVoiceControlsUI: syncVoiceControlsUI,
+    validateSpokenResponse: validateSpokenResponse,
+    evaluateLocally: evaluateLocally
   };
 
 

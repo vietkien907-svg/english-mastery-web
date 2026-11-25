@@ -73,6 +73,14 @@ async def background_daily_reminder_loop():
 def bootstrap_host_admin():
     import auth as auth_mod
     import referral_service
+    from sqlalchemy import text
+    with engine.begin() as conn:
+        cols = [row[1] for row in conn.execute(text("PRAGMA table_info(users)")).fetchall()]
+        if "learned_words_count" not in cols:
+            conn.execute(text("ALTER TABLE users ADD COLUMN learned_words_count INTEGER DEFAULT 0"))
+        if "total_started_count" not in cols:
+            conn.execute(text("ALTER TABLE users ADD COLUMN total_started_count INTEGER DEFAULT 0"))
+
     with SessionLocal() as db:
         # Clean legacy unit-test bot accounts
         db.query(models.User).filter(models.User.email.like("user1_%@example.com")).delete(synchronize_session=False)
@@ -88,11 +96,28 @@ def bootstrap_host_admin():
                 target_exam="IELTS 7.5+",
                 daily_new_target=20,
                 streak_count=14,
-                longest_streak=14
+                longest_streak=14,
+                learned_words_count=280,
+                total_started_count=280
             )
             db.add(vu)
+        else:
+            if (vu.learned_words_count or 0) < 280:
+                vu.learned_words_count = 280
+            if (vu.total_started_count or 0) < 280:
+                vu.total_started_count = 280
+            if (vu.streak_count or 0) < 14:
+                vu.streak_count = 14
+            if (vu.longest_streak or 0) < 14:
+                vu.longest_streak = 14
         db.commit()
         referral_service.ensure_active_code(db, "tonguyenvu@265.com")
+
+
+try:
+    bootstrap_host_admin()
+except Exception as _boot_err:
+    print("Initial bootstrap warning:", _boot_err)
 
 
 @app.on_event("startup")

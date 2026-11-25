@@ -17,6 +17,8 @@ class User(Base):
     study_mode = Column(String(50), default="manual") # manual, time_budget, adaptive
     streak_count = Column(Integer, default=0)
     longest_streak = Column(Integer, default=0)
+    learned_words_count = Column(Integer, default=0)
+    total_started_count = Column(Integer, default=0)
     last_active_date = Column(String(10), default="") # YYYY-MM-DD
     timezone = Column(String(50), default="Asia/Ho_Chi_Minh")
     referral_code = Column(String(50), index=True, default="")

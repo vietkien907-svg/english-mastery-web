@@ -1,11 +1,42 @@
 import datetime
 from fastapi import APIRouter, Depends
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from database import get_db
 import models
 import auth
 
 router = APIRouter(prefix="/api/stats", tags=["Analytics & Streak"])
+
+
+class ClientSummarySyncRequest(BaseModel):
+    learned_words_count: int = 0
+    total_started_count: int = 0
+    streak_count: int = 0
+
+
+@router.post("/sync-client-summary")
+def sync_client_summary(
+    req: ClientSummarySyncRequest,
+    current_user: models.User = Depends(auth.get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Preserves monotonic high-water marks of user's learned words & streak across devices."""
+    if req.learned_words_count > (current_user.learned_words_count or 0):
+        current_user.learned_words_count = req.learned_words_count
+    if req.total_started_count > (current_user.total_started_count or 0):
+        current_user.total_started_count = req.total_started_count
+    if req.streak_count > (current_user.streak_count or 0):
+        current_user.streak_count = req.streak_count
+        if req.streak_count > (current_user.longest_streak or 0):
+            current_user.longest_streak = req.streak_count
+    db.commit()
+    return {
+        "success": True,
+        "learned_words_count": current_user.learned_words_count or 0,
+        "total_started_count": current_user.total_started_count or 0,
+        "streak_count": current_user.streak_count or 0
+    }
 
 def classify_competition_tier(xp: int, streak: int) -> dict:
     if xp >= 2000 or streak >= 21:
@@ -30,10 +61,11 @@ def get_leaderboard(db: Session = Depends(get_db)):
 
     entries = []
     for u in users:
-        mature_count = db.query(models.UserItemProgress).filter(
+        db_mature = db.query(models.UserItemProgress).filter(
             models.UserItemProgress.user_id == u.id,
             models.UserItemProgress.repetitions >= 2
         ).count()
+        mature_count = max(db_mature, u.learned_words_count or 0)
 
         total_reviews = db.query(models.ReviewEvent).filter(
             models.ReviewEvent.user_id == u.id
@@ -152,8 +184,8 @@ def get_user_analytics(current_user: models.User = Depends(auth.get_current_user
             "last_active": current_user.last_active_date
         },
         "cards": {
-            "total_started": total_started,
-            "mature": mature_count,
+            "total_started": max(total_started, current_user.total_started_count or 0, current_user.learned_words_count or 0),
+            "mature": max(mature_count, current_user.learned_words_count or 0),
             "learning": learning_count,
             "due_today": due_today_count
         },

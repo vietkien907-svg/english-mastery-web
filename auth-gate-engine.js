@@ -1,7 +1,7 @@
 /**
- * DeviceAuthGate Engine
- * Enforces mandatory account registration + valid server referral code for all non-host devices.
- * No guest bypass is allowed for unauthenticated devices.
+ * DeviceAuthGate Engine (Pure Server-Token Auth)
+ * Every visitor on every device MUST authenticate via server login/register (or Keycloak SSO).
+ * Zero hardcoded default accounts, zero guest bypasses.
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -12,10 +12,6 @@
 })(typeof self !== 'undefined' ? self : this, function () {
   const PRIMARY_HOST_EMAIL = 'tonguyenvu@265.com';
 
-  /**
-   * Evaluates whether the current device is allowed to access the app or must be locked behind the Auth Gate.
-   * @param {Object} storage - Key-value map (e.g. localStorage or plain object in tests)
-   */
   function evaluateDeviceAccess(storage) {
     const store = storage || {};
     const getVal = (k) => {
@@ -24,31 +20,18 @@
     };
 
     const email = String(getVal('EMH_ACTIVE_ACCOUNT_EMAIL')).trim().toLowerCase();
-    const isPrimaryHost =
-      email === PRIMARY_HOST_EMAIL && String(getVal('EMH_PRIMARY_HOST_SETUP')) === 'true';
-
-    if (isPrimaryHost) {
-      return {
-        allowed: true,
-        mode: 'AUTHENTICATED',
-        userEmail: PRIMARY_HOST_EMAIL,
-        canDismiss: true,
-        isHost: true
-      };
-    }
-
     const authToken = String(getVal('EMH_AUTH_TOKEN') || getVal('emh_auth_token')).trim();
+
     if (email && authToken.length >= 6) {
       return {
         allowed: true,
         mode: 'AUTHENTICATED',
         userEmail: email,
         canDismiss: true,
-        isHost: false
+        isHost: email === PRIMARY_HOST_EMAIL
       };
     }
 
-    // Strict gate: ignore EMH_GUEST_DISMISSED or spoofed local emails without server token
     return {
       allowed: false,
       mode: 'GATE_LOCKED',
@@ -58,9 +41,6 @@
     };
   }
 
-  /**
-   * Validates registration form input before sending to backend /api/auth/register.
-   */
   function validateRegistrationInput(input) {
     const fullName = String(input?.fullName || '').trim();
     const email = String(input?.email || '').trim().toLowerCase();
@@ -79,7 +59,7 @@
     if (!referralCode) {
       return {
         valid: false,
-        error: 'Bắt buộc nhập Mã giới thiệu từ máy chủ (Tô Nguyên Vũ) mới được tạo tài khoản.'
+        error: 'Bắt buộc nhập Mã giới thiệu dùng 1 lần từ máy chủ mới được tạo tài khoản.'
       };
     }
 

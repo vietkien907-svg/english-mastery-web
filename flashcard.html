@@ -37,7 +37,7 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="./style.css?v=98.0">
+  <link rel="stylesheet" href="./style.css?v=99.0">
   <script>
     // Immediate Theme Initialization (Zero flicker — Default: Warm Paper Eye-Care)
     (function() {
@@ -143,7 +143,7 @@
       <div class="flex items-center gap-2">
         <!-- Streak Badge Pill (Non-intrusive) -->
         <div class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-xs font-bold flex items-center gap-1 shadow-sm" title="Chuỗi ngày học liên tục (Streak)">
-          <span>🔥</span> <span id="streakCount">14 ngày</span>
+          <span>🔥</span> <span id="streakCount">0 ngày</span>
         </div>
 
         <!-- 1-Click Dark / Light Mode Toggle -->
@@ -197,17 +197,21 @@
           <span class="hidden sm:inline">Thi Đua</span>
         </button>
 
-        <!-- Profile / Multi-Account -->
-        <button type="button" onclick="openMultiAccountModal()" class="ni-nav-btn" title="Hồ sơ tài khoản">
-          <i data-lucide="user" class="w-3.5 h-3.5 text-indigo-500"></i>
-          <span id="headerAccountName" class="hidden sm:inline">Tô Nguyên Vũ</span>
+        <!-- Live Login Status / Account Button -->
+        <button type="button" id="headerAuthStatusBtn" onclick="handleHeaderAuthClick()" class="ni-nav-btn flex items-center gap-1.5" title="Trạng thái đăng nhập tài khoản">
+          <span id="headerAuthDot" class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span id="headerAccountName">Chưa đăng nhập</span>
+        </button>
+        <button type="button" id="headerQuickLogoutBtn" onclick="logoutUser()" class="hidden ni-nav-btn text-rose-700 hover:bg-rose-50 border border-rose-200 text-xs font-bold" title="Đăng xuất tài khoản">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+          <span class="hidden md:inline">Thoát</span>
         </button>
 
         <!-- Preserved hidden triggers for background JS -->
         <div class="hidden">
           <button id="btnManualSyncHeader" onclick="manualSyncNow(true)"><i id="manualSyncIcon"></i></button>
           <button onclick="openSyncModal()"></button>
-          <button onclick="openAuthModal()" id="userAuthBtn"><span id="userAuthName">Tô Nguyên Vũ</span></button>
+          <button onclick="openAuthModal()" id="userAuthBtn"><span id="userAuthName">Chưa đăng nhập</span></button>
           <button id="pwaInstallBtn"></button>
           <button onclick="openQrModal()"></button>
           <button onclick="openAddWordModal()"></button>
@@ -2476,6 +2480,81 @@
             </button>
           </div>
         </div>
+
+        <!-- THẺ ĐỔI MẬT KHẨU TÀI KHOẢN CÁ NHÂN (MỌI HỌC VIÊN ĐANG ĐĂNG NHẬP) -->
+        <div id="changePasswordCard" class="glass-card rounded-2xl p-6 space-y-4 border border-slate-200 shadow-sm col-span-full">
+          <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-700">
+              <i data-lucide="lock" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-base">Đổi Mật Khẩu Tài Khoản Cá Nhân</h3>
+              <p class="text-xs text-slate-500">Đặt mật khẩu bí mật riêng cho tài khoản đang đăng nhập của bạn.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block text-slate-600 font-semibold mb-1">Mật khẩu hiện tại</label>
+              <input type="password" id="cpOldPassword" placeholder="Nhập mật khẩu hiện tại..." class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs outline-none focus:border-emerald-600">
+            </div>
+            <div>
+              <label class="block text-slate-600 font-semibold mb-1">Mật khẩu mới (≥ 6 ký tự)</label>
+              <input type="password" id="cpNewPassword" placeholder="Nhập mật khẩu mới..." class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs outline-none focus:border-emerald-600">
+            </div>
+            <div class="flex items-end">
+              <button type="button" onclick="submitChangePassword()" class="w-full py-2 px-4 rounded-xl bg-indigo-700 hover:bg-indigo-600 text-white font-bold text-xs shadow transition cursor-pointer">
+                🔑 Cập Nhật Mật Khẩu Mới
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- THẺ CẢNH BÁO GMAIL (vietkien907@gmail.com) & NHẬT KÝ THIẾT BỊ ĐĂNG NHẬP (CHỈ QUẢN TRỊ VIÊN MÁY CHỦ) -->
+        <div id="hostEmailAlertCard" class="hidden glass-card rounded-2xl p-6 space-y-4 border border-emerald-500/40 shadow-xl col-span-full">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-700">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-base flex items-center gap-2 flex-wrap">
+                  <span>Cảnh Báo Thiết Bị Đăng Nhập Về Gmail</span>
+                  <span id="alertPasswordStatusBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 font-bold border border-amber-300">Chưa nhập App Password</span>
+                </h3>
+                <p class="text-xs text-slate-500">Mỗi khi có bất kỳ thiết bị nào đăng ký hoặc đăng nhập, hệ thống ghi nhật ký và gửi email cảnh báo về <strong>vietkien907@gmail.com</strong>.</p>
+              </div>
+            </div>
+            <button type="button" onclick="sendTestAlertEmail()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow transition cursor-pointer">
+              📨 Gửi Email Thử Nghiệm
+            </button>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block text-slate-600 font-semibold mb-1">Gmail nhận cảnh báo</label>
+              <input type="email" id="alertTargetEmailInput" value="vietkien907@gmail.com" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs outline-none focus:border-emerald-600">
+            </div>
+            <div>
+              <label class="block text-slate-600 font-semibold mb-1">Gmail gửi (SMTP User)</label>
+              <input type="email" id="alertSmtpUserInput" value="vietkien907@gmail.com" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs outline-none focus:border-emerald-600">
+            </div>
+            <div>
+              <label class="block text-slate-600 font-semibold mb-1">Mật khẩu ứng dụng Google (16 ký tự)</label>
+              <input type="password" id="alertSmtpPassInput" placeholder="xxxx xxxx xxxx xxxx" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs outline-none focus:border-emerald-600">
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <span class="text-[11px] text-slate-500">💡 Vào Google Account → Bảo mật → Xác minh 2 bước → Mật khẩu ứng dụng để lấy mã 16 ký tự.</span>
+            <button type="button" onclick="saveHostAlertConfig()" class="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs shadow transition cursor-pointer">
+              💾 Lưu Cấu Hình Cảnh Báo Gmail
+            </button>
+          </div>
+          <div class="space-y-2 pt-2 border-t border-slate-200">
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-600">📱💻 Nhật ký toàn bộ thiết bị đăng nhập / đăng ký gần nhất:</div>
+            <div id="loginAuditLogsContainer" class="space-y-1.5 max-h-60 overflow-y-auto pr-1 text-xs">
+              <div class="italic text-[11px] text-slate-500">Đang tải nhật ký thiết bị...</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -3532,25 +3611,25 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=98.0"></script>
-  <script src="./listening_data.js?v=98.0"></script>
-  <script src="./vietnam_today_data.js?v=98.0"></script>
-  <script src="./educational_channels_data.js?v=98.0"></script>
-  <script src="./international_news_videos.js?v=98.0"></script>
-  <script src="./bilingual_news_data.js?v=98.0"></script>
-  <script src="./reading_lexicon.js?v=98.0"></script>
-  <script src="./conversation_data.js?v=98.0"></script>
-  <script src="./speaking-forecast.js?v=98.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=98.0"></script>
-  <script src="./speakout-speaking-data.js?v=98.0"></script>
-  <script src="./speaking-engine.js?v=98.0"></script>
-  <script src="./ocr-vocab-engine.js?v=98.0"></script>
-  <script src="./unit-review-engine.js?v=98.0"></script>
-  <script src="./focus-session-engine.js?v=98.0"></script>
-  <script src="./security-guard-engine.js?v=98.0"></script>
-  <script src="./auth-gate-engine.js?v=98.0"></script>
-  <script src="./streak-deadline-engine.js?v=98.0"></script>
-  <script src="./app.js?v=98.0"></script>
+  <script src="./data.js?v=99.0"></script>
+  <script src="./listening_data.js?v=99.0"></script>
+  <script src="./vietnam_today_data.js?v=99.0"></script>
+  <script src="./educational_channels_data.js?v=99.0"></script>
+  <script src="./international_news_videos.js?v=99.0"></script>
+  <script src="./bilingual_news_data.js?v=99.0"></script>
+  <script src="./reading_lexicon.js?v=99.0"></script>
+  <script src="./conversation_data.js?v=99.0"></script>
+  <script src="./speaking-forecast.js?v=99.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=99.0"></script>
+  <script src="./speakout-speaking-data.js?v=99.0"></script>
+  <script src="./speaking-engine.js?v=99.0"></script>
+  <script src="./ocr-vocab-engine.js?v=99.0"></script>
+  <script src="./unit-review-engine.js?v=99.0"></script>
+  <script src="./focus-session-engine.js?v=99.0"></script>
+  <script src="./security-guard-engine.js?v=99.0"></script>
+  <script src="./auth-gate-engine.js?v=99.0"></script>
+  <script src="./streak-deadline-engine.js?v=99.0"></script>
+  <script src="./app.js?v=99.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {

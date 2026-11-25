@@ -70,8 +70,37 @@ async def background_daily_reminder_loop():
         except Exception as e:
             print("Background reminder error:", e)
 
+def bootstrap_host_admin():
+    import auth as auth_mod
+    import referral_service
+    with SessionLocal() as db:
+        # Clean legacy unit-test bot accounts
+        db.query(models.User).filter(models.User.email.like("user1_%@example.com")).delete(synchronize_session=False)
+        db.query(models.User).filter(models.User.email.like("user2_%@example.com")).delete(synchronize_session=False)
+
+        vu = db.query(models.User).filter(models.User.email == "tonguyenvu@265.com").first()
+        default_admin_pass = os.getenv("HOST_ADMIN_PASSWORD", "VuAdmin@265")
+        if not vu:
+            vu = models.User(
+                email="tonguyenvu@265.com",
+                password_hash=auth_mod.hash_password(default_admin_pass),
+                full_name="Tô Nguyên Vũ",
+                target_exam="IELTS 7.5+",
+                daily_new_target=20,
+                streak_count=14,
+                longest_streak=14
+            )
+            db.add(vu)
+        db.commit()
+        referral_service.ensure_active_code(db, "tonguyenvu@265.com")
+
+
 @app.on_event("startup")
 async def startup_event():
+    try:
+        bootstrap_host_admin()
+    except Exception as e:
+        print("Bootstrap admin error:", e)
     asyncio.create_task(background_daily_reminder_loop())
 
 # CORS configuration

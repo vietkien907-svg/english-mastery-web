@@ -336,37 +336,71 @@ async function checkAuthStatus() {
   flushOfflineQueue();
 }
 
+function handleHeaderAuthClick() {
+  const access = (window.DeviceAuthGate && typeof window.DeviceAuthGate.evaluateDeviceAccess === "function")
+    ? window.DeviceAuthGate.evaluateDeviceAccess(localStorage)
+    : { allowed: false };
+  if (access.allowed) {
+    switchTab("profile");
+  } else {
+    openAuthModal("login");
+  }
+}
+
 function updateAuthUI() {
   const nameEl = document.getElementById("userAuthName");
   const headerNameEl = document.getElementById("headerAccountName");
+  const headerDotEl = document.getElementById("headerAuthDot");
+  const quickLogoutBtn = document.getElementById("headerQuickLogoutBtn");
   const badgeEl = document.getElementById("targetExamBadge");
   const streakEl = document.getElementById("streakCount");
   const statusEl = document.getElementById("userStatusText");
   const profileStreakEl = document.getElementById("statStreakDisplay");
 
-  const curEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  const access = (window.DeviceAuthGate && typeof window.DeviceAuthGate.evaluateDeviceAccess === "function")
+    ? window.DeviceAuthGate.evaluateDeviceAccess(localStorage)
+    : { allowed: false, userEmail: "", isHost: false };
+
+  const curEmail = access.allowed ? (appState.currentUser?.email || access.userEmail || "").trim() : "";
+  const isHost = curEmail.toLowerCase() === "tonguyenvu@265.com";
   const streakVal = curEmail ? (localStorage.getItem("EMH_STREAK") || (appState.currentUser?.streak_count || 1)) : 0;
-  
-  if (streakEl) streakEl.innerText = curEmail ? `${streakVal} ngày` : "Chưa ĐN";
+
+  if (streakEl) streakEl.innerText = curEmail ? `${streakVal} ngày` : "0 ngày";
   if (profileStreakEl) profileStreakEl.innerText = curEmail ? `${streakVal} ngày 🔥` : "0 ngày";
 
-  if (appState.currentUser || curEmail) {
-    const dName = appState.currentUser?.full_name || localStorage.getItem("EMH_ACTIVE_ACCOUNT_NAME") || "Học Viên";
-    const dEmail = appState.currentUser?.email || curEmail;
+  // Toggle host-only admin cards strictly
+  const refCard = document.getElementById("referralCodeManagerCard");
+  const kcCard = document.getElementById("keycloakConfigCard");
+  const alertCard = document.getElementById("hostEmailAlertCard");
+  if (refCard) refCard.classList.toggle("hidden", !isHost);
+  if (kcCard) kcCard.classList.toggle("hidden", !isHost);
+  if (alertCard) alertCard.classList.toggle("hidden", !isHost);
+
+  if (curEmail) {
+    const dName = appState.currentUser?.full_name || localStorage.getItem("EMH_ACTIVE_ACCOUNT_NAME") || curEmail.split("@")[0];
     const dTarget = appState.currentUser?.target_exam || localStorage.getItem("EMH_USER_REAL_TARGET") || "IELTS";
-    
+
     if (nameEl) nameEl.innerText = dName;
-    if (headerNameEl) headerNameEl.innerText = dName.split(" ").slice(-1)[0] || dName;
+    if (headerNameEl) headerNameEl.innerText = dName;
+    if (headerDotEl) headerDotEl.className = "w-2 h-2 rounded-full bg-emerald-500 shadow-xs";
+    if (quickLogoutBtn) quickLogoutBtn.classList.remove("hidden");
     if (badgeEl) badgeEl.innerText = dTarget;
-    if (statusEl) statusEl.innerText = `Đã đồng bộ tài khoản: ${dEmail}`;
+    if (statusEl) statusEl.innerText = `🟢 Đang đăng nhập: ${dName} (${curEmail})`;
+
+    if (isHost) {
+      loadReferralCodeInfo();
+      if (typeof loadHostAlertAndLogsUI === "function") loadHostAlertAndLogsUI();
+    }
   } else {
-    if (nameEl) nameEl.innerText = "Đăng Nhập / Tạo TK";
-    if (headerNameEl) headerNameEl.innerText = "Đăng Nhập";
-    if (badgeEl) badgeEl.innerText = "Chế độ Khách";
-    if (statusEl) statusEl.innerText = "Chế độ khách • Đăng nhập bằng mã giới thiệu để lưu chuỗi";
+    if (nameEl) nameEl.innerText = "Chưa đăng nhập";
+    if (headerNameEl) headerNameEl.innerText = "🔐 Chưa đăng nhập";
+    if (headerDotEl) headerDotEl.className = "w-2 h-2 rounded-full bg-amber-500";
+    if (quickLogoutBtn) quickLogoutBtn.classList.add("hidden");
+    if (badgeEl) badgeEl.innerText = "Yêu cầu đăng nhập";
+    if (statusEl) statusEl.innerText = "Chưa đăng nhập • Vui lòng đăng nhập hoặc đăng ký bằng mã giới thiệu";
   }
 
-  loadReferralCodeInfo();
+  if (typeof fetchServerLeaderboard === "function") fetchServerLeaderboard();
 }
 
 function openAuthModal(defaultMode = "login") {
@@ -806,6 +840,119 @@ async function rotateMyReferralCodeNow() {
 
 async function promptEditMyReferralCode() {
   await rotateMyReferralCodeNow();
+}
+
+// ================= CHANGE PASSWORD & HOST GMAIL ALERT / AUDIT LOGS =================
+async function submitChangePassword() {
+  const old_password = (document.getElementById("cpOldPassword")?.value || "").trim();
+  const new_password = (document.getElementById("cpNewPassword")?.value || "").trim();
+  if (!old_password || !new_password) {
+    alert("Vui lòng nhập đầy đủ Mật khẩu hiện tại và Mật khẩu mới.");
+    return;
+  }
+  if (new_password.length < 6) {
+    alert("Mật khẩu mới phải có ít nhất 6 ký tự.");
+    return;
+  }
+  try {
+    const res = await apiCall("/api/auth/change-password", "POST", { old_password, new_password });
+    if (res && res.success) {
+      document.getElementById("cpOldPassword").value = "";
+      document.getElementById("cpNewPassword").value = "";
+      showToast("✅ Đã cập nhật mật khẩu mới thành công!", "success");
+    } else {
+      alert(res?.detail || "Mật khẩu hiện tại không đúng hoặc chưa đăng nhập máy chủ.");
+    }
+  } catch (e) {
+    alert("Không thể đổi mật khẩu: " + (e.message || e));
+  }
+}
+
+async function loadHostAlertAndLogsUI() {
+  try {
+    const cfg = await apiCall("/api/auth/alert-config");
+    if (cfg) {
+      const targetEl = document.getElementById("alertTargetEmailInput");
+      const userEl = document.getElementById("alertSmtpUserInput");
+      const badgeEl = document.getElementById("alertPasswordStatusBadge");
+      if (targetEl && cfg.target_email) targetEl.value = cfg.target_email;
+      if (userEl && cfg.smtp_user) userEl.value = cfg.smtp_user;
+      if (badgeEl) {
+        badgeEl.innerText = cfg.has_app_password ? "✅ Đã cấu hình Gmail SMTP" : "⚠️ Chưa nhập App Password";
+        badgeEl.className = cfg.has_app_password
+          ? "text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-bold border border-emerald-300"
+          : "text-[10px] px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 font-bold border border-amber-300";
+      }
+    }
+    const logRes = await apiCall("/api/auth/login-logs");
+    const container = document.getElementById("loginAuditLogsContainer");
+    if (container && logRes && Array.isArray(logRes.logs)) {
+      if (logRes.logs.length === 0) {
+        container.innerHTML = `<div class="italic text-[11px] text-slate-500">Chưa có thiết bị nào đăng nhập.</div>`;
+      } else {
+        const badgeMap = {
+          register: `<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[10px]">Đăng ký mới</span>`,
+          login: `<span class="px-1.5 py-0.5 rounded bg-indigo-100 text-indigo-800 font-bold text-[10px]">Đăng nhập</span>`,
+          keycloak_sso: `<span class="px-1.5 py-0.5 rounded bg-cyan-100 text-cyan-800 font-bold text-[10px]">Keycloak SSO</span>`
+        };
+        container.innerHTML = logRes.logs.map(row => {
+          const dt = row.created_at ? new Date(row.created_at).toLocaleString("vi-VN") : "";
+          const mailTag = row.email_alert_sent ? "📧 Đã báo Gmail" : "📝 Đã ghi sổ";
+          return `
+            <div class="flex flex-wrap items-center justify-between gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-[11px]">
+              <div class="flex items-center gap-2 flex-wrap">
+                ${badgeMap[row.event_type] || row.event_type}
+                <span class="font-bold text-slate-800">${row.full_name}</span>
+                <span class="font-mono text-slate-500">(${row.user_email})</span>
+                <span class="px-2 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700">📱 ${row.device_summary}</span>
+                <span class="font-mono text-slate-400">IP: ${row.ip_address}</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-500">
+                <span>${mailTag}</span>
+                <span>• ${dt}</span>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+    }
+  } catch (e) {}
+}
+
+async function saveHostAlertConfig() {
+  const target_email = (document.getElementById("alertTargetEmailInput")?.value || "vietkien907@gmail.com").trim();
+  const smtp_user = (document.getElementById("alertSmtpUserInput")?.value || "vietkien907@gmail.com").trim();
+  const smtp_app_password = (document.getElementById("alertSmtpPassInput")?.value || "").trim();
+  try {
+    const res = await apiCall("/api/auth/alert-config", "PUT", {
+      target_email,
+      smtp_user,
+      smtp_app_password,
+      enabled: true
+    });
+    if (res && res.success) {
+      document.getElementById("alertSmtpPassInput").value = "";
+      await loadHostAlertAndLogsUI();
+      showToast(`✅ ${res.message}`, "success");
+    } else {
+      alert(res?.detail || "Không thể lưu cấu hình cảnh báo Gmail.");
+    }
+  } catch (e) {
+    alert("Không thể kết nối máy chủ để lưu cấu hình Gmail.");
+  }
+}
+
+async function sendTestAlertEmail() {
+  try {
+    const res = await apiCall("/api/auth/alert-test", "POST");
+    if (res && res.success) {
+      showToast(`📨 ${res.message}`, "success");
+    } else {
+      alert(`❌ ${res?.detail || "Chưa gửi được email. Hãy kiểm tra Mật khẩu ứng dụng Google 16 ký tự."}`);
+    }
+  } catch (e) {
+    alert("Lỗi gửi email thử nghiệm: " + (e.message || e));
+  }
 }
 
 // ================= KEYCLOAK OIDC SSO (PKCE + MANDATORY REFERRAL) =================
@@ -1903,28 +2050,29 @@ window.triggerMonthlyStreakRecovery = function () {
 
 let realDeadlineIntervalStarted = false;
 function initDailyMissionEngine() {
+  // One-time cleanup v99: remove any legacy auto-seeded Tô Nguyên Vũ state if browser has NO real server auth token
+  if (!localStorage.getItem("EMH_PURE_AUTH_V99")) {
+    const realTok = (localStorage.getItem(STORAGE_KEY_AUTH) || localStorage.getItem("EMH_AUTH_TOKEN") || "").trim();
+    localStorage.removeItem("EMH_PRIMARY_HOST_SETUP");
+    if (!realTok || realTok.startsWith("local_")) {
+      localStorage.removeItem("EMH_ACTIVE_ACCOUNT_EMAIL");
+      localStorage.removeItem("EMH_ACTIVE_ACCOUNT_NAME");
+      localStorage.removeItem("EMH_USER_REAL_NAME");
+      localStorage.removeItem("EMH_USER_REAL_EMAIL");
+      localStorage.removeItem("EMH_AUTH_TOKEN");
+      localStorage.removeItem(STORAGE_KEY_AUTH);
+      localStorage.removeItem(STORAGE_KEY_SAVED_ACCOUNTS_V2);
+    }
+    localStorage.setItem("EMH_PURE_AUTH_V99", "true");
+  }
+
   loadMissionRegistry();
 
-  const currentEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").toLowerCase();
-  const isPrimaryVu = (currentEmail === "tonguyenvu@265.com" || localStorage.getItem("EMH_PRIMARY_HOST_SETUP") === "true");
-
-  if (isPrimaryVu) {
-    localStorage.setItem("EMH_PRIMARY_HOST_SETUP", "true");
-    localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", "tonguyenvu@265.com");
-    localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", "Tô Nguyên Vũ");
-    localStorage.setItem("EMH_USER_REAL_NAME", "Tô Nguyên Vũ");
-    localStorage.setItem("EMH_USER_REAL_EMAIL", "tonguyenvu@265.com");
-    localStorage.setItem("EMH_USER_REAL_TARGET", "IELTS 7.5+");
-
-    // Xóa sạch các dấu tích giả tự động đánh dấu từ phiên bản cũ (chỉ chạy 1 lần)
-    if (!localStorage.getItem("EMH_REAL_MISSIONS_CLEAN_V96")) {
-      missionRegistry.history = {};
-      missionRegistry.currentDay = 1;
-      saveMissionRegistry();
-      localStorage.setItem("EMH_REAL_MISSIONS_CLEAN_V96", "true");
-    }
-  } else if (!currentEmail) {
-    localStorage.setItem("EMH_NEW_DEVICE_VISITED", "true");
+  if (!localStorage.getItem("EMH_REAL_MISSIONS_CLEAN_V96")) {
+    missionRegistry.history = {};
+    missionRegistry.currentDay = 1;
+    saveMissionRegistry();
+    localStorage.setItem("EMH_REAL_MISSIONS_CLEAN_V96", "true");
   }
 
   // Không còn tự động khóa/ban 1 tiếng để người dùng học lại hoặc dùng lượt khôi phục chuỗi
@@ -11311,6 +11459,69 @@ function getRealLearnedWordsCount() {
   return Math.max(count, 20);
 }
 
+let serverLeaderboardCache = [];
+
+function getTierBadgeHtml(acc) {
+  if (acc.tier_label) {
+    const colorMap = {
+      diamond: "bg-cyan-500/20 text-cyan-200 border-cyan-400/50",
+      gold: "bg-amber-500/20 text-amber-200 border-amber-400/50",
+      silver: "bg-slate-400/20 text-slate-200 border-slate-400/50",
+      bronze: "bg-orange-600/20 text-orange-200 border-orange-500/40"
+    };
+    const cls = colorMap[acc.tier_code] || colorMap.bronze;
+    return `<span class="px-2 py-0.5 rounded-full font-bold text-[10px] border ${cls}">${acc.tier_label}</span>`;
+  }
+  const xp = acc.xp || 0;
+  const st = acc.streak || 0;
+  if (xp >= 2000 || st >= 21) return `<span class="px-2 py-0.5 rounded-full font-bold text-[10px] border bg-cyan-500/20 text-cyan-200 border-cyan-400/50">💎 Cao Thủ Kim Cương</span>`;
+  if (xp >= 1200 || st >= 10) return `<span class="px-2 py-0.5 rounded-full font-bold text-[10px] border bg-amber-500/20 text-amber-200 border-amber-400/50">🏆 Tinh Anh Vàng</span>`;
+  if (xp >= 500 || st >= 4) return `<span class="px-2 py-0.5 rounded-full font-bold text-[10px] border bg-slate-400/20 text-slate-200 border-slate-400/50">🥈 Chiến Binh Bạc</span>`;
+  return `<span class="px-2 py-0.5 rounded-full font-bold text-[10px] border bg-orange-600/20 text-orange-200 border-orange-500/40">🥉 Tân Binh Đồng</span>`;
+}
+
+async function fetchServerLeaderboard() {
+  try {
+    const rows = await apiCall("/api/stats/leaderboard");
+    if (Array.isArray(rows)) {
+      serverLeaderboardCache = rows;
+      renderLeaderboard();
+      renderProfileAccountsCompetition();
+      if (typeof renderHomeLeaderboardPreview === "function") renderHomeLeaderboardPreview();
+    }
+  } catch (e) {}
+}
+
+function getCombinedLeaderboardAccounts() {
+  const curEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").toLowerCase();
+  const byEmail = new Map();
+
+  if (Array.isArray(serverLeaderboardCache)) {
+    serverLeaderboardCache.forEach(row => {
+      if (!row || !row.email) return;
+      const em = row.email.toLowerCase();
+      byEmail.set(em, {
+        ...row,
+        full_name: row.full_name || row.name || row.email.split("@")[0],
+        isCurrent: em === curEmail
+      });
+    });
+  }
+
+  getSavedAccounts().forEach(localAcc => {
+    if (!localAcc || !localAcc.email) return;
+    const em = localAcc.email.toLowerCase();
+    if (!byEmail.has(em)) {
+      byEmail.set(em, {
+        ...localAcc,
+        isCurrent: em === curEmail
+      });
+    }
+  });
+
+  return Array.from(byEmail.values());
+}
+
 function getSavedAccounts() {
   let list = [];
   try {
@@ -11322,9 +11533,12 @@ function getSavedAccounts() {
   // Lọc sạch 100% mọi tài khoản ảo, bot, mock peer cũ
   list = list.filter(a => a && a.email && !a.id?.startsWith("peer_") && !a.email.includes("studygroup.vn") && a.email !== "hocvien.chinh@emh.edu.vn");
 
-  // Xác định tài khoản đang hoạt động của thiết bị này
-  const activeEmail = (appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "tonguyenvu@265.com";
-  const activeName = (appState.currentUser && appState.currentUser.full_name) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_NAME") || "Tô Nguyễn Vũ";
+  // Chỉ xác định tài khoản khi thực sự đã đăng nhập (KHÔNG gán mặc định Tô Nguyên Vũ!)
+  const activeEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  if (!activeEmail) {
+    return list.map(a => ({ ...a, isCurrent: false }));
+  }
+  const activeName = (appState.currentUser && appState.currentUser.full_name) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_NAME") || activeEmail.split("@")[0];
   const activeTarget = (appState.currentUser && appState.currentUser.target_exam) || "IELTS 7.5+";
 
   const realStreak = (typeof countCompletedCurriculumDays === "function") 
@@ -11517,7 +11731,7 @@ function renderLeaderboard() {
   const listContainer = document.getElementById("leaderboardListContainer");
   if (!podium && !listContainer) return;
 
-  const accounts = [...getSavedAccounts()];
+  const accounts = getCombinedLeaderboardAccounts();
 
   // Sort based on current filter
   if (currentLeaderboardFilterMode === "streak") {
@@ -11599,9 +11813,10 @@ function renderLeaderboard() {
             <div class="min-w-0">
               <div class="flex items-center gap-1.5 flex-wrap">
                 <span class="font-bold text-white text-xs truncate">${acc.full_name}</span>
+                ${getTierBadgeHtml(acc)}
                 ${isMe ? '<span class="px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 text-[10px] font-extrabold border border-amber-500/40">👉 Bạn</span>' : ''}
               </div>
-              <p class="text-[11px] text-slate-400 truncate">${acc.target_exam || "VSTEP B2"}</p>
+              <p class="text-[11px] text-slate-400 truncate">${acc.target_exam || "IELTS"} ${Array.isArray(acc.devices) && acc.devices.length ? `• 📱 ${acc.devices[0]}` : ''}</p>
             </div>
           </div>
 
@@ -11620,7 +11835,7 @@ function renderHomeLeaderboardPreview() {
   const container = document.getElementById("homeLeaderboardPreview");
   if (!container) return;
 
-  const accounts = [...getSavedAccounts()];
+  const accounts = getCombinedLeaderboardAccounts();
   accounts.sort((a, b) => (b.xp || 0) - (a.xp || 0));
 
   let html = "";
@@ -11677,9 +11892,9 @@ function renderSavedAccounts() {
   const accounts = getSavedAccounts();
   if (countBadge) countBadge.innerText = `${accounts.length} tài khoản thực`;
 
-  const activeAcc = accounts.find(a => a.isCurrent) || accounts[0];
-  if (headerName && activeAcc) {
-    headerName.innerText = activeAcc.full_name.split(" ").slice(-1)[0] || "Đổi TK";
+  const activeAcc = accounts.find(a => a.isCurrent);
+  if (headerName) {
+    headerName.innerText = activeAcc ? activeAcc.full_name : "🔐 Chưa đăng nhập";
   }
 
   let html = "";
@@ -12194,7 +12409,7 @@ function renderProfileAccountsCompetition() {
   const countBadge = document.getElementById("profileAccountsCountBadge");
   if (!container) return;
 
-  const accounts = [...getSavedAccounts()];
+  const accounts = getCombinedLeaderboardAccounts();
   if (countBadge) countBadge.innerText = `${accounts.length} Học Viên Đang Đua Top`;
 
   // Sắp xếp xếp hạng theo chế độ
@@ -12255,7 +12470,9 @@ function renderProfileAccountsCompetition() {
           <div class="min-w-0 space-y-0.5">
             <div class="flex items-center gap-2 flex-wrap">
               <span class="font-extrabold text-white text-sm sm:text-base">${acc.full_name}</span>
-              ${isMe ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-black text-[10px] border border-emerald-500/40">★ TÀI KHOẢN CỦA BẠN</span>' : '<span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-semibold text-[10px] border border-slate-700">Học viên thực tế</span>'}
+              ${getTierBadgeHtml(acc)}
+              ${isMe ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-black text-[10px] border border-emerald-500/40">★ ĐANG HỌC TRÊN MÁY NÀY</span>' : '<span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-semibold text-[10px] border border-slate-700">Thiết bị học viên</span>'}
+              ${Array.isArray(acc.devices) && acc.devices.length ? `<span class="px-2 py-0.5 rounded-full bg-indigo-500/15 text-indigo-200 font-medium text-[10px] border border-indigo-400/30">📱 ${acc.devices.join(' · ')}</span>` : ''}
               ${acc.referred_by ? '<span class="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 font-medium text-[10px] border border-cyan-500/20">🏷️ Giới thiệu bởi Tô Nguyên Vũ</span>' : ''}
               ${acc.email === 'tonguyenvu@265.com' ? '<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono font-bold text-[10px] border border-amber-500/40">⭐ Máy Chủ Host</span>' : ''}
               ${isThisAccBanned ? '<span class="px-2.5 py-0.5 rounded-full bg-rose-500/30 text-rose-300 font-extrabold text-[10px] border border-rose-500/50 flex items-center gap-1 animate-pulse"><i data-lucide="lock" class="w-3 h-3"></i> Bị Ban 1 tiếng (Mất Chuỗi)</span>' : ''}

@@ -106,6 +106,45 @@ class TestSecurityAndKeycloak(unittest.TestCase):
             next_code = referral_service.ensure_active_code(db).code
             self.assertNotEqual(live_code, next_code)
 
+    def test_05_admin_login_audit_logs_change_password_and_global_leaderboard(self):
+        # 1. Host admin login with VuAdmin@265
+        login_res = client.post(
+            "/api/auth/login",
+            json={"email": "tonguyenvu@265.com", "password": "VuAdmin@265"},
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0"}
+        )
+        self.assertEqual(login_res.status_code, 200)
+        host_token = login_res.json()["token"]
+
+        # 2. Verify LoginAuditLog recorded device summary
+        logs_res = client.get("/api/auth/login-logs", headers={"Authorization": f"Bearer {host_token}"})
+        self.assertEqual(logs_res.status_code, 200)
+        logs = logs_res.json()["logs"]
+        self.assertGreaterEqual(len(logs), 1)
+        self.assertIn("Windows", logs[0]["device_summary"])
+
+        # 3. Verify change-password works & restore VuAdmin@265
+        cp1 = client.post(
+            "/api/auth/change-password",
+            json={"old_password": "VuAdmin@265", "new_password": "TempPass@999"},
+            headers={"Authorization": f"Bearer {host_token}"}
+        )
+        self.assertEqual(cp1.status_code, 200)
+        cp2 = client.post(
+            "/api/auth/change-password",
+            json={"old_password": "TempPass@999", "new_password": "VuAdmin@265"},
+            headers={"Authorization": f"Bearer {host_token}"}
+        )
+        self.assertEqual(cp2.status_code, 200)
+
+        # 4. Verify Global Server Leaderboard includes tier_label & devices
+        lb_res = client.get("/api/stats/leaderboard")
+        self.assertEqual(lb_res.status_code, 200)
+        lb = lb_res.json()
+        self.assertGreaterEqual(len(lb), 1)
+        self.assertIn("tier_label", lb[0])
+        self.assertIn("devices", lb[0])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -66,6 +66,18 @@ class ReferralCode(Base):
     used_by_email = Column(String(255), default="")
     used_at = Column(DateTime, nullable=True)
 
+class LoginAuditLog(Base):
+    __tablename__ = "login_audit_logs"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_email = Column(String(255), index=True, nullable=False)
+    full_name = Column(String(255), default="")
+    event_type = Column(String(50), default="login")  # login, register, keycloak_sso
+    device_summary = Column(String(255), default="Unknown Device")
+    ip_address = Column(String(64), default="")
+    email_alert_sent = Column(Boolean, default=False)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow, nullable=False)
+
 class SourceDocument(Base):
     __tablename__ = "source_documents"
     

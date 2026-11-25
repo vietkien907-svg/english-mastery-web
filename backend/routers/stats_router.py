@@ -7,50 +7,86 @@ import auth
 
 router = APIRouter(prefix="/api/stats", tags=["Analytics & Streak"])
 
+def classify_competition_tier(xp: int, streak: int) -> dict:
+    if xp >= 2000 or streak >= 21:
+        return {"code": "diamond", "label": "💎 Cao Thủ Kim Cương"}
+    if xp >= 1200 or streak >= 10:
+        return {"code": "gold", "label": "🏆 Tinh Anh Vàng"}
+    if xp >= 500 or streak >= 4:
+        return {"code": "silver", "label": "🥈 Chiến Binh Bạc"}
+    return {"code": "bronze", "label": "🥉 Tân Binh Đồng"}
+
+
 @router.get("/leaderboard")
 def get_leaderboard(db: Session = Depends(get_db)):
     """
-    Public leaderboard of learners for friendly study competition.
-    Ranks users by streak count, mature words, and XP points.
+    Live server-wide leaderboard of ALL real learners and their active learning devices.
+    Excludes automated @example.com unit-test accounts.
     """
     now = datetime.datetime.utcnow()
-    users = db.query(models.User).order_by(models.User.streak_count.desc(), models.User.longest_streak.desc()).limit(20).all()
-    
-    result = []
-    for rank, u in enumerate(users, start=1):
-        # Count mature words (repetitions >= 2)
+    users = db.query(models.User).filter(
+        ~models.User.email.like("%@example.com")
+    ).all()
+
+    entries = []
+    for u in users:
         mature_count = db.query(models.UserItemProgress).filter(
             models.UserItemProgress.user_id == u.id,
             models.UserItemProgress.repetitions >= 2
         ).count()
-        
-        # Calculate XP: streak * 100 + mature * 15 + reviews
+
         total_reviews = db.query(models.ReviewEvent).filter(
             models.ReviewEvent.user_id == u.id
         ).count()
-        
-        xp = (u.streak_count * 100) + (mature_count * 15) + (total_reviews * 5) + 120
-        
-        # Format name or fallback
-        display_name = u.full_name or u.email.split("@")[0].title()
-        if "user" in display_name.lower() and len(display_name) > 15:
-            display_name = f"Học Viên #{u.id}"
-            
-        result.append({
-            "rank": rank,
+
+        streak_val = max(0, u.streak_count or 0)
+        xp = (streak_val * 120) + (mature_count * 20) + (total_reviews * 5) + 150
+        tier = classify_competition_tier(xp, streak_val)
+
+        # Fetch active devices for this learner
+        active_sessions = db.query(models.UserSession).filter(
+            models.UserSession.user_id == u.id,
+            models.UserSession.revoked == False
+        ).order_by(models.UserSession.last_active_at.desc()).limit(5).all()
+
+        device_names = []
+        for s in active_sessions:
+            dname = (s.device_name or "").strip()
+            if dname and dname not in device_names:
+                device_names.append(dname)
+        if not device_names:
+            last_log = db.query(models.LoginAuditLog).filter(
+                models.LoginAuditLog.user_email == u.email
+            ).order_by(models.LoginAuditLog.id.desc()).first()
+            if last_log and last_log.device_summary:
+                device_names.append(last_log.device_summary)
+
+        display_name = (u.full_name or u.email.split("@")[0]).strip()
+        entries.append({
             "user_id": u.id,
             "name": display_name,
+            "full_name": display_name,
             "email": u.email,
-            "target_exam": u.target_exam or "B1+",
-            "streak": u.streak_count or 1,
-            "longest_streak": u.longest_streak or 1,
+            "target_exam": u.target_exam or "IELTS",
+            "streak": streak_val,
+            "longest_streak": max(streak_val, u.longest_streak or 0),
             "mature_words": mature_count,
             "xp": xp,
-            "today_done_pct": min(100, max(40, (u.streak_count % 3 + 1) * 25)),
+            "tier_code": tier["code"],
+            "tier_label": tier["label"],
+            "devices": device_names,
+            "active_devices_count": max(1, len(active_sessions)),
+            "referred_by": u.referred_by or "",
+            "is_host": u.email.lower() == "tonguyenvu@265.com",
+            "today_done_pct": 100 if u.last_active_date == now.strftime("%Y-%m-%d") else 40,
             "last_active": u.last_active_date or now.strftime("%Y-%m-%d")
         })
-        
-    return result
+
+    entries.sort(key=lambda x: (x["xp"], x["streak"], x["mature_words"]), reverse=True)
+    for idx, item in enumerate(entries, start=1):
+        item["rank"] = idx
+
+    return entries
 
 @router.get("/summary")
 def get_user_analytics(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):

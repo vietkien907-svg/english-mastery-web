@@ -7,6 +7,7 @@ from database import get_db
 import models
 import auth
 import referral_service
+import login_alert_service
 import re
 
 router = APIRouter(prefix="/api/auth", tags=["Authentication"])
@@ -73,8 +74,10 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
     db.commit()
     db.refresh(user)
     
-    # Auto-login: Create session
-    raw_token = auth.create_user_session(db, user, request, "Thiết bị khởi tạo")
+    # Auto-login: Create session & record/notify device access to vietkien907@gmail.com
+    device_label = login_alert_service.summarize_device_from_ua(request.headers.get("user-agent", ""))
+    raw_token = auth.create_user_session(db, user, request, device_label)
+    login_alert_service.record_and_notify_login_event(db, user, "register", request)
     response.set_cookie(
         key="session_token",
         value=raw_token,
@@ -144,7 +147,9 @@ def login(req: LoginRequest, request: Request, response: Response, db: Session =
     if not user or not auth.verify_password(req.password, user.password_hash):
         raise HTTPException(status_code=401, detail="Email hoặc mật khẩu không chính xác.")
         
-    raw_token = auth.create_user_session(db, user, request, req.device_name)
+    device_label = req.device_name or login_alert_service.summarize_device_from_ua(request.headers.get("user-agent", ""))
+    raw_token = auth.create_user_session(db, user, request, device_label)
+    login_alert_service.record_and_notify_login_event(db, user, "login", request)
     response.set_cookie(
         key="session_token",
         value=raw_token,
@@ -249,6 +254,89 @@ def update_user_referral_code(req: UpdateReferralCodeRequest, current_user: mode
         "referral_code": new_row.code,
         "expires_at": new_row.expires_at.isoformat() + "Z",
         "message": f"Đã tạo mã dùng 1 lần mới an toàn: {new_row.code}"
+    }
+
+class ChangePasswordRequest(BaseModel):
+    old_password: str
+    new_password: str
+
+class AlertConfigUpdateRequest(BaseModel):
+    target_email: str = "vietkien907@gmail.com"
+    smtp_user: str = "vietkien907@gmail.com"
+    smtp_app_password: str = ""
+    enabled: bool = True
+
+@router.post("/change-password")
+def change_password(req: ChangePasswordRequest, current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
+    if not auth.verify_password(req.old_password, current_user.password_hash):
+        raise HTTPException(status_code=400, detail="Mật khẩu hiện tại không chính xác.")
+    if len(req.new_password) < 6:
+        raise HTTPException(status_code=400, detail="Mật khẩu mới phải có ít nhất 6 ký tự.")
+    current_user.password_hash = auth.hash_password(req.new_password)
+    db.commit()
+    return {"success": True, "message": "Đã đổi mật khẩu tài khoản thành công!"}
+
+@router.get("/alert-config")
+def get_alert_config(current_user: models.User = Depends(auth.get_current_user)):
+    if current_user.email.lower() != referral_service.HOST_EMAIL:
+        raise HTTPException(status_code=403, detail="Chỉ quản trị viên máy chủ mới xem được cấu hình cảnh báo.")
+    cfg = login_alert_service.load_alert_config()
+    return {
+        "target_email": cfg.get("target_email", "vietkien907@gmail.com"),
+        "smtp_user": cfg.get("smtp_user", "vietkien907@gmail.com"),
+        "has_app_password": bool(cfg.get("smtp_app_password")),
+        "enabled": bool(cfg.get("enabled", True))
+    }
+
+@router.put("/alert-config")
+def update_alert_config(req: AlertConfigUpdateRequest, current_user: models.User = Depends(auth.get_current_user)):
+    if current_user.email.lower() != referral_service.HOST_EMAIL:
+        raise HTTPException(status_code=403, detail="Chỉ quản trị viên máy chủ mới được phép cấu hình cảnh báo Gmail.")
+    existing = login_alert_service.load_alert_config()
+    new_pass = req.smtp_app_password.replace(" ", "").strip() if req.smtp_app_password else existing.get("smtp_app_password", "")
+    cfg = {
+        "target_email": (req.target_email or "vietkien907@gmail.com").strip(),
+        "smtp_user": (req.smtp_user or "vietkien907@gmail.com").strip(),
+        "smtp_app_password": new_pass,
+        "enabled": bool(req.enabled)
+    }
+    login_alert_service.save_alert_config(cfg)
+    return {"success": True, "message": f"Đã lưu cấu hình gửi cảnh báo tới {cfg['target_email']}!", "has_app_password": bool(new_pass)}
+
+@router.post("/alert-test")
+def test_alert_email(current_user: models.User = Depends(auth.get_current_user)):
+    if current_user.email.lower() != referral_service.HOST_EMAIL:
+        raise HTTPException(status_code=403, detail="Chỉ quản trị viên máy chủ mới được gửi email thử nghiệm.")
+    cfg = login_alert_service.load_alert_config()
+    ok, msg = login_alert_service.send_gmail_smtp(
+        subject="[English Mastery] ✅ Thử nghiệm cảnh báo thiết bị đăng nhập thành công",
+        html_body=f"<div style='font-family:sans-serif;padding:16px;'><h3>✅ Kết nối Gmail Cảnh Báo Thành Công!</h3><p>Từ nay mọi thiết bị đăng ký hoặc đăng nhập vào English Mastery Hub sẽ gửi thông báo trực tiếp về <b>{cfg.get('target_email')}</b>.</p></div>",
+        text_body=f"Kết nối Gmail cảnh báo thành công! Mọi thiết bị đăng nhập sẽ báo về {cfg.get('target_email')}.",
+        cfg=cfg
+    )
+    if not ok:
+        raise HTTPException(status_code=400, detail=msg)
+    return {"success": True, "message": msg}
+
+@router.get("/login-logs")
+def get_login_audit_logs(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
+    if current_user.email.lower() != referral_service.HOST_EMAIL:
+        return {"logs": []}
+    rows = db.query(models.LoginAuditLog).order_by(models.LoginAuditLog.id.desc()).limit(30).all()
+    return {
+        "logs": [
+            {
+                "id": r.id,
+                "user_email": r.user_email,
+                "full_name": r.full_name,
+                "event_type": r.event_type,
+                "device_summary": r.device_summary,
+                "ip_address": r.ip_address,
+                "email_alert_sent": bool(r.email_alert_sent),
+                "created_at": r.created_at.isoformat() + "Z" if r.created_at else ""
+            }
+            for r in rows
+        ]
     }
 
 @router.get("/me")

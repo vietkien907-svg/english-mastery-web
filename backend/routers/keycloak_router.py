@@ -12,6 +12,7 @@ from database import get_db
 import models
 import auth
 import referral_service
+import login_alert_service
 
 router = APIRouter(prefix="/api/auth/keycloak", tags=["Keycloak OIDC SSO"])
 
@@ -183,7 +184,9 @@ def keycloak_oidc_callback(
         db.commit()
         db.refresh(user)
 
-    raw_token = auth.create_user_session(db, user, request, "Keycloak SSO Device")
+    device_label = login_alert_service.summarize_device_from_ua(request.headers.get("user-agent", ""))
+    raw_token = auth.create_user_session(db, user, request, f"Keycloak · {device_label}")
+    login_alert_service.record_and_notify_login_event(db, user, "keycloak_sso", request)
     response.set_cookie(
         key="session_token",
         value=raw_token,

@@ -98,18 +98,21 @@ def bootstrap_host_admin():
                 full_name="Tô Nguyên Vũ",
                 target_exam="IELTS 7.5+",
                 daily_new_target=20,
-                streak_count=0,
-                longest_streak=0,
-                last_active_date="",
+                streak_count=15,
+                longest_streak=15,
                 learned_words_count=280,
-                total_started_count=280
+                total_started_count=367
             )
             db.add(vu)
         else:
             if (vu.learned_words_count or 0) < 280:
                 vu.learned_words_count = 280
-            if (vu.total_started_count or 0) < 280:
-                vu.total_started_count = 280
+            if (vu.total_started_count or 0) < 367:
+                vu.total_started_count = 367
+            if (vu.streak_count or 0) < 15:
+                vu.streak_count = 15
+            if (vu.longest_streak or 0) < 15:
+                vu.longest_streak = 15
         db.commit()
         referral_service.ensure_active_code(db, "tonguyenvu@265.com")
 
@@ -183,21 +186,6 @@ if os.path.exists(AUDIO_DIR):
     app.mount("/audio", StaticFiles(directory=AUDIO_DIR), name="audio")
 
 NO_CACHE_HEADERS = {"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache", "Expires": "0"}
-APP_VERSION = "103.0"
-APP_BUILD_ID = os.getenv("RENDER_GIT_COMMIT", "v103.0-20261125-unslop")[:16]
-APP_UPDATED_AT = "22:05 25/11/2026"
-
-@app.get("/api/version")
-def get_server_version():
-    return JSONResponse(
-        content={
-            "version": APP_VERSION,
-            "build_id": f"{APP_VERSION}-{APP_BUILD_ID}",
-            "updated_at": APP_UPDATED_AT,
-            "note": "Giao diện Unslop, thông báo cập nhật máy chủ & chuỗi Streak thực học"
-        },
-        headers=NO_CACHE_HEADERS
-    )
 
 @app.get("/")
 def serve_index():

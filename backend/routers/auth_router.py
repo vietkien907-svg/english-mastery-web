@@ -65,9 +65,9 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
         full_name=req.full_name or req.email.split("@")[0],
         target_exam=req.target_exam,
         daily_new_target=req.daily_new_target,
-        streak_count=0,
-        longest_streak=0,
-        last_active_date="",
+        streak_count=1,
+        longest_streak=1,
+        last_active_date=datetime.date.today().isoformat(),
         referred_by=referrer_email
     )
     db.add(user)
@@ -105,78 +105,40 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
     }
 
 def evaluate_daily_streak(user: models.User, db: Session) -> dict:
-    """
-    Evaluates real study streak WITHOUT auto-incrementing on login or page open.
-    Only resets streak to 0 if the user missed >= 1 full calendar day since last completed study.
-    """
     today = datetime.date.today()
     today_str = today.isoformat()
+    old_streak = user.streak_count or 0
     updated = False
-
+    
     if not user.last_active_date:
-        if (user.streak_count or 0) != 0:
-            user.streak_count = 0
-            updated = True
+        user.streak_count = 1
+        user.last_active_date = today_str
+        updated = True
     elif user.last_active_date != today_str:
         try:
             last = datetime.date.fromisoformat(user.last_active_date)
             diff = (today - last).days
-            if diff > 1 and (user.streak_count or 0) > 0:
-                user.streak_count = 0
-                updated = True
-        except Exception:
-            user.streak_count = 0
-            updated = True
-
-    if updated:
-        db.commit()
-        db.refresh(user)
-
-    return {
-        "streak": user.streak_count or 0,
-        "longest_streak": user.longest_streak or 0,
-        "last_active_date": user.last_active_date or "",
-        "completed_today": (user.last_active_date == today_str),
-        "updated": updated
-    }
-
-
-def record_real_study_streak(user: models.User, db: Session, task_type: str = "study") -> dict:
-    """
-    Increments streak by +1 ONCE per calendar day ONLY when the user genuinely completes a lesson.
-    """
-    today = datetime.date.today()
-    today_str = today.isoformat()
-    evaluate_daily_streak(user, db)
-
-    incremented = False
-    if user.last_active_date != today_str:
-        if user.last_active_date:
-            try:
-                last = datetime.date.fromisoformat(user.last_active_date)
-                if (today - last).days == 1:
-                    user.streak_count = (user.streak_count or 0) + 1
-                else:
-                    user.streak_count = 1
-            except Exception:
+            if diff == 1:
+                user.streak_count = old_streak + 1
+            elif diff > 1:
                 user.streak_count = 1
-        else:
+            else:
+                pass
+        except Exception:
             user.streak_count = 1
-
         user.last_active_date = today_str
-        if user.streak_count > (user.longest_streak or 0):
-            user.longest_streak = user.streak_count
-        db.commit()
-        db.refresh(user)
-        incremented = True
-
+        updated = True
+        
+    if user.streak_count > (user.longest_streak or 0):
+        user.longest_streak = user.streak_count
+        
+    db.commit()
+    db.refresh(user)
     return {
-        "streak": user.streak_count or 0,
-        "longest_streak": user.longest_streak or 0,
-        "last_active_date": user.last_active_date or "",
-        "completed_today": True,
-        "incremented": incremented,
-        "task_type": task_type
+        "streak": user.streak_count,
+        "longest_streak": user.longest_streak,
+        "last_active_date": user.last_active_date,
+        "updated": updated
     }
 
 @router.post("/login")
@@ -417,21 +379,6 @@ def get_profile(current_user: models.User = Depends(auth.get_current_user), db: 
         "referred_by": current_user.referred_by or ""
     }
 
-class CompleteStudyDayRequest(BaseModel):
-    task_type: str = "study"
-
-@router.post("/complete-study-day")
-def complete_study_day(req: CompleteStudyDayRequest, current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
-    info = record_real_study_streak(current_user, db, req.task_type)
-    return {
-        "success": True,
-        "streak": info["streak"],
-        "longest_streak": info["longest_streak"],
-        "last_active_date": info["last_active_date"],
-        "incremented": info["incremented"],
-        "message": f"Đã ghi nhận hoàn thành bài học hôm nay · Chuỗi {info['streak']} ngày"
-    }
-
 @router.post("/checkin")
 def daily_checkin(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
     streak_info = evaluate_daily_streak(current_user, db)
@@ -440,12 +387,7 @@ def daily_checkin(current_user: models.User = Depends(auth.get_current_user), db
         "streak": streak_info["streak"],
         "longest_streak": streak_info["longest_streak"],
         "last_active_date": streak_info["last_active_date"],
-        "completed_today": streak_info.get("completed_today", False),
-        "message": (
-            f"Đã hoàn thành bài học hôm nay · Chuỗi {streak_info['streak']} ngày"
-            if streak_info.get("completed_today")
-            else f"Chuỗi hiện tại: {streak_info['streak']} ngày · Hãy hoàn thành 1 bài học (Thẻ từ, Luyện nói, Đọc hoặc Ngữ pháp) để tính ngày hôm nay"
-        )
+        "message": f"Điểm danh thành công! Chuỗi học tập: {streak_info['streak']} ngày liên tiếp."
     }
 
 @router.put("/profile")

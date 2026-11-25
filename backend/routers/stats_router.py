@@ -13,7 +13,6 @@ class ClientSummarySyncRequest(BaseModel):
     learned_words_count: int = 0
     total_started_count: int = 0
     streak_count: int = 0
-    completed_today: bool = False
 
 
 @router.post("/sync-client-summary")
@@ -22,12 +21,12 @@ def sync_client_summary(
     current_user: models.User = Depends(auth.get_current_user),
     db: Session = Depends(get_db)
 ):
-    """Preserves monotonic high-water marks of user's learned words; streak only updates on real study."""
+    """Preserves monotonic high-water marks of user's learned words & streak across devices."""
     if req.learned_words_count > (current_user.learned_words_count or 0):
         current_user.learned_words_count = req.learned_words_count
     if req.total_started_count > (current_user.total_started_count or 0):
         current_user.total_started_count = req.total_started_count
-    if req.completed_today and req.streak_count > (current_user.streak_count or 0):
+    if req.streak_count > (current_user.streak_count or 0):
         current_user.streak_count = req.streak_count
         if req.streak_count > (current_user.longest_streak or 0):
             current_user.longest_streak = req.streak_count
@@ -41,12 +40,12 @@ def sync_client_summary(
 
 def classify_competition_tier(xp: int, streak: int) -> dict:
     if xp >= 2000 or streak >= 21:
-        return {"code": "diamond", "label": "Hạng Kim Cương"}
+        return {"code": "diamond", "label": "💎 Cao Thủ Kim Cương"}
     if xp >= 1200 or streak >= 10:
-        return {"code": "gold", "label": "Hạng Vàng"}
+        return {"code": "gold", "label": "🏆 Tinh Anh Vàng"}
     if xp >= 500 or streak >= 4:
-        return {"code": "silver", "label": "Hạng Bạc"}
-    return {"code": "bronze", "label": "Hạng Đồng"}
+        return {"code": "silver", "label": "🥈 Chiến Binh Bạc"}
+    return {"code": "bronze", "label": "🥉 Tân Binh Đồng"}
 
 
 @router.get("/leaderboard")

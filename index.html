@@ -37,7 +37,7 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="./style.css?v=96.0">
+  <link rel="stylesheet" href="./style.css?v=97.0">
   <script>
     // Immediate Theme Initialization (Zero flicker — Default: Warm Paper Eye-Care)
     (function() {
@@ -2427,6 +2427,48 @@
             </div>
           </div>
         </div>
+
+        <!-- THẺ CẤU HÌNH KEYCLOAK OIDC SSO (DÀNH CHO MÁY CHỦ) -->
+        <div id="keycloakConfigCard" class="glass-card rounded-2xl p-6 space-y-4 border border-cyan-500/30 shadow-xl col-span-full">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/30 pb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-600 shadow-xs">
+                <i data-lucide="shield" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-base flex items-center gap-2">
+                  <span>Cấu Hình Đăng Nhập Keycloak SSO (OIDC + PKCE)</span>
+                  <span id="kcStatusBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold border border-slate-200">Chưa bật</span>
+                </h3>
+                <p class="text-xs text-slate-500">Kết nối máy chủ Keycloak của bạn (hoặc chạy cục bộ bằng file docker-compose.keycloak.yml). Mọi tài khoản Keycloak vẫn bắt buộc nhập Mã giới thiệu lần đầu.</p>
+              </div>
+            </div>
+            <label class="inline-flex items-center gap-2 text-xs font-bold cursor-pointer">
+              <input type="checkbox" id="kcEnabledToggle" class="w-4 h-4 accent-emerald-600 rounded">
+              <span>Bật Keycloak SSO</span>
+            </label>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block text-slate-500 font-semibold mb-1">Keycloak Server URL</label>
+              <input type="url" id="kcServerUrlInput" placeholder="http://localhost:8080" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs outline-none focus:border-emerald-600">
+            </div>
+            <div>
+              <label class="block text-slate-500 font-semibold mb-1">Realm Name</label>
+              <input type="text" id="kcRealmInput" placeholder="english-mastery" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs outline-none focus:border-emerald-600">
+            </div>
+            <div>
+              <label class="block text-slate-500 font-semibold mb-1">Client ID (Public + PKCE)</label>
+              <input type="text" id="kcClientIdInput" placeholder="english-mastery-web" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs outline-none focus:border-emerald-600">
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <span class="text-[11px] text-slate-500">🔒 Bảo vệ cấu trúc web: Đã bật URL Guard + DOM Guard + Security Headers.</span>
+            <button type="button" onclick="saveKeycloakHostConfig()" class="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs shadow transition cursor-pointer">
+              💾 Lưu Cấu Hình Keycloak
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2581,6 +2623,28 @@
 
       <div class="space-y-2 pt-2">
         <button onclick="handleAuthSubmit()" id="authSubmitBtn" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 font-extrabold text-xs sm:text-sm text-white shadow-lg shadow-indigo-600/30 transition">Đăng nhập</button>
+
+        <!-- Keycloak OIDC SSO Button -->
+        <div class="relative flex items-center py-1">
+          <div class="flex-grow border-t border-slate-700/80"></div>
+          <span class="shrink-0 mx-2 text-[10px] uppercase tracking-wider text-slate-400 font-semibold">hoặc đăng nhập SSO</span>
+          <div class="flex-grow border-t border-slate-700/80"></div>
+        </div>
+        <button type="button" id="btnKeycloakSSOLogin" onclick="startKeycloakSSOLogin()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-cyan-500/40 text-cyan-300 font-bold text-xs flex items-center justify-center gap-2 transition shadow">
+          <i data-lucide="key-round" class="w-4 h-4"></i>
+          <span>Đăng nhập bằng tài khoản Keycloak SSO</span>
+        </button>
+
+        <!-- Step 2 for Keycloak First-Time Users: Mandatory Referral Activation -->
+        <div id="keycloakReferralStepBox" class="hidden p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/40 space-y-2.5 mt-2">
+          <div class="text-xs font-bold text-amber-300">🔑 Xác thực lần đầu tài khoản Keycloak</div>
+          <p class="text-[11px] text-slate-300 leading-relaxed">Tài khoản Keycloak của bạn đã đăng nhập thành công. Vui lòng nhập <strong>Mã giới thiệu từ Tô Nguyên Vũ</strong> để kích hoạt thiết bị này:</p>
+          <input type="text" id="kcActivateReferralInput" placeholder="Nhập mã giới thiệu (VD: NGUYENVU265)" class="w-full bg-slate-900 border border-amber-500/50 rounded-xl p-2.5 uppercase font-mono tracking-widest text-amber-300 text-xs outline-none focus:border-amber-400">
+          <button type="button" onclick="submitKeycloakReferralActivation()" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs transition shadow">
+            ✅ Kích Hoạt Tài Khoản Keycloak
+          </button>
+        </div>
+
         <button onclick="toggleAuthMode()" id="authToggleBtn" class="w-full py-1.5 text-center text-xs text-slate-400 hover:text-indigo-300 transition">Chưa có tài khoản? Nhấn để Đăng ký với Mã Giới Thiệu</button>
       </div>
     </div>
@@ -3461,24 +3525,25 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=96.0"></script>
-  <script src="./listening_data.js?v=96.0"></script>
-  <script src="./vietnam_today_data.js?v=96.0"></script>
-  <script src="./educational_channels_data.js?v=96.0"></script>
-  <script src="./international_news_videos.js?v=96.0"></script>
-  <script src="./bilingual_news_data.js?v=96.0"></script>
-  <script src="./reading_lexicon.js?v=96.0"></script>
-  <script src="./conversation_data.js?v=96.0"></script>
-  <script src="./speaking-forecast.js?v=96.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=96.0"></script>
-  <script src="./speakout-speaking-data.js?v=96.0"></script>
-  <script src="./speaking-engine.js?v=96.0"></script>
-  <script src="./ocr-vocab-engine.js?v=96.0"></script>
-  <script src="./unit-review-engine.js?v=96.0"></script>
-  <script src="./focus-session-engine.js?v=96.0"></script>
-  <script src="./auth-gate-engine.js?v=96.0"></script>
-  <script src="./streak-deadline-engine.js?v=96.0"></script>
-  <script src="./app.js?v=96.0"></script>
+  <script src="./data.js?v=97.0"></script>
+  <script src="./listening_data.js?v=97.0"></script>
+  <script src="./vietnam_today_data.js?v=97.0"></script>
+  <script src="./educational_channels_data.js?v=97.0"></script>
+  <script src="./international_news_videos.js?v=97.0"></script>
+  <script src="./bilingual_news_data.js?v=97.0"></script>
+  <script src="./reading_lexicon.js?v=97.0"></script>
+  <script src="./conversation_data.js?v=97.0"></script>
+  <script src="./speaking-forecast.js?v=97.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=97.0"></script>
+  <script src="./speakout-speaking-data.js?v=97.0"></script>
+  <script src="./speaking-engine.js?v=97.0"></script>
+  <script src="./ocr-vocab-engine.js?v=97.0"></script>
+  <script src="./unit-review-engine.js?v=97.0"></script>
+  <script src="./focus-session-engine.js?v=97.0"></script>
+  <script src="./security-guard-engine.js?v=97.0"></script>
+  <script src="./auth-gate-engine.js?v=97.0"></script>
+  <script src="./streak-deadline-engine.js?v=97.0"></script>
+  <script src="./app.js?v=97.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {

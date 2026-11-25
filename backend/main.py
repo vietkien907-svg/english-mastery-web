@@ -3,14 +3,16 @@ import sys
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
+import re
+from urllib.parse import unquote
 
 # Add backend directory to sys.path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from database import engine, Base, SessionLocal
 import models
-from routers import auth_router, study_router, reading_router, grammar_router, sync_router, stats_router, telegram_router
+from routers import auth_router, keycloak_router, study_router, reading_router, grammar_router, sync_router, stats_router, telegram_router
 import asyncio
 from datetime import datetime, timezone, timedelta
 
@@ -81,8 +83,38 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Security Middleware: Block URL-based structure tampering & attach strict Security Headers
+DANGEROUS_URL_RX = re.compile(r"(\.\./|%2e%2e|<script|javascript:|__proto__|onerror=|onload=)", re.IGNORECASE)
+
+@app.middleware("http")
+async def security_and_integrity_middleware(request: Request, call_next):
+    raw_path = unquote(request.url.path or "")
+    raw_query = unquote(request.url.query or "")
+
+    # 1. Block path traversal & script injection in URL (both raw and URL-encoded)
+    if DANGEROUS_URL_RX.search(raw_path) or DANGEROUS_URL_RX.search(raw_query):
+        return JSONResponse(
+            status_code=403,
+            content={"detail": "Truy cập bị từ chối: Phát hiện đường dẫn hoặc tham số cố can thiệp cấu trúc website."}
+        )
+
+    # 2. Website structure/files are strictly read-only outside /api/*
+    if not raw_path.startswith("/api/") and request.method.upper() not in ("GET", "HEAD", "OPTIONS"):
+        return JSONResponse(
+            status_code=405,
+            content={"detail": "Không cho phép chỉnh sửa cấu trúc website qua đường dẫn."}
+        )
+
+    response = await call_next(request)
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Permissions-Policy"] = "camera=(), geolocation=()"
+    return response
+
 # Include API Routers
 app.include_router(auth_router.router)
+app.include_router(keycloak_router.router)
 app.include_router(study_router.router)
 app.include_router(reading_router.router)
 app.include_router(grammar_router.router)
@@ -184,6 +216,18 @@ def serve_unit_review_engine():
 @app.get("/focus-session-engine.js")
 def serve_focus_session_engine():
     return FileResponse(os.path.join(FRONTEND_DIR, "focus-session-engine.js"), media_type="application/javascript")
+
+@app.get("/auth-gate-engine.js")
+def serve_auth_gate_engine():
+    return FileResponse(os.path.join(FRONTEND_DIR, "auth-gate-engine.js"), media_type="application/javascript")
+
+@app.get("/streak-deadline-engine.js")
+def serve_streak_deadline_engine():
+    return FileResponse(os.path.join(FRONTEND_DIR, "streak-deadline-engine.js"), media_type="application/javascript")
+
+@app.get("/security-guard-engine.js")
+def serve_security_guard_engine():
+    return FileResponse(os.path.join(FRONTEND_DIR, "security-guard-engine.js"), media_type="application/javascript")
 
 @app.get("/conversation_data.js")
 def serve_conversation_data():

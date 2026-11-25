@@ -113,12 +113,37 @@ window.addEventListener("DOMContentLoaded", async () => {
   tickDeadlineCountdown();
   lucide.createIcons();
 
-  // Kiểm tra cổng xác thực thiết bị bắt buộc (DeviceAuthGate)
+  // Lớp bảo vệ 1: URL Guard chặn & dọn sạch mọi tham số link lạ (chỉ giữ callback Keycloak OIDC hợp lệ)
+  let urlGuardResult = null;
+  if (window.SecurityGuardEngine && typeof window.SecurityGuardEngine.enforceBrowserUrlGuard === "function") {
+    urlGuardResult = window.SecurityGuardEngine.enforceBrowserUrlGuard();
+    if (urlGuardResult && urlGuardResult.isOidcCallback) {
+      await handleKeycloakOidcCallback(urlGuardResult.oidcParams);
+      if (window.history && typeof window.history.replaceState === "function") {
+        try { window.history.replaceState(null, document.title, window.location.pathname); } catch (e) {}
+      }
+    }
+  }
+
+  // Nạp cấu hình Keycloak SSO vào giao diện Hồ Sơ
+  if (typeof loadKeycloakHostConfigUI === "function") loadKeycloakHostConfigUI();
+
+  // Lớp bảo vệ 2: Cổng xác thực thiết bị bắt buộc (DeviceAuthGate) + DOM Integrity Guard
   const access = (window.DeviceAuthGate && typeof window.DeviceAuthGate.evaluateDeviceAccess === "function")
     ? window.DeviceAuthGate.evaluateDeviceAccess(localStorage)
     : { allowed: !!(localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim(), canDismiss: true };
   if (!access.allowed) {
     openDeviceOnboardingModal(true);
+  }
+
+  if (window.SecurityGuardEngine && typeof window.SecurityGuardEngine.startAuthGateDomGuard === "function") {
+    window.SecurityGuardEngine.startAuthGateDomGuard(
+      () => {
+        const a = (window.DeviceAuthGate && window.DeviceAuthGate.evaluateDeviceAccess(localStorage)) || { allowed: false };
+        return a.allowed && localStorage.getItem("EMH_KC_NEEDS_REFERRAL") !== "true";
+      },
+      () => openDeviceOnboardingModal(true)
+    );
   }
 });
 
@@ -740,6 +765,182 @@ async function promptEditMyReferralCode() {
     const displayEl = document.getElementById("activeReferralCodeDisplay");
     if (displayEl) displayEl.innerText = cleanCode;
     showToast(`✅ Đã lưu mã giới thiệu: ${cleanCode}`, "success");
+  }
+}
+
+// ================= KEYCLOAK OIDC SSO (PKCE + MANDATORY REFERRAL) =================
+let cachedKeycloakConfig = null;
+
+function base64UrlEncode(bytes) {
+  let str = "";
+  bytes.forEach(b => { str += String.fromCharCode(b); });
+  return btoa(str).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+function generatePkceVerifier() {
+  const arr = new Uint8Array(32);
+  crypto.getRandomValues(arr);
+  return base64UrlEncode(arr);
+}
+
+async function generatePkceChallenge(verifier) {
+  const data = new TextEncoder().encode(verifier);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return base64UrlEncode(new Uint8Array(digest));
+}
+
+async function loadKeycloakHostConfigUI() {
+  try {
+    const cfg = await apiCall("/api/auth/keycloak/config");
+    if (!cfg) return;
+    cachedKeycloakConfig = cfg;
+    const urlEl = document.getElementById("kcServerUrlInput");
+    const realmEl = document.getElementById("kcRealmInput");
+    const clientEl = document.getElementById("kcClientIdInput");
+    const toggleEl = document.getElementById("kcEnabledToggle");
+    const badgeEl = document.getElementById("kcStatusBadge");
+    if (urlEl) urlEl.value = cfg.server_url || "http://localhost:8080";
+    if (realmEl) realmEl.value = cfg.realm || "english-mastery";
+    if (clientEl) clientEl.value = cfg.client_id || "english-mastery-web";
+    if (toggleEl) toggleEl.checked = !!cfg.enabled;
+    if (badgeEl) {
+      badgeEl.innerText = cfg.enabled ? "Đang Bật (OIDC)" : "Chưa bật";
+      badgeEl.className = cfg.enabled
+        ? "text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-300"
+        : "text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold border border-slate-200";
+    }
+  } catch (e) {}
+}
+
+async function saveKeycloakHostConfig() {
+  const server_url = (document.getElementById("kcServerUrlInput")?.value || "").trim();
+  const realm = (document.getElementById("kcRealmInput")?.value || "").trim();
+  const client_id = (document.getElementById("kcClientIdInput")?.value || "").trim();
+  const enabled = !!document.getElementById("kcEnabledToggle")?.checked;
+
+  if (enabled && (!server_url || !realm || !client_id)) {
+    alert("Vui lòng nhập đầy đủ Server URL, Realm và Client ID của Keycloak.");
+    return;
+  }
+
+  try {
+    const res = await apiCall("/api/auth/keycloak/config", "PUT", {
+      enabled,
+      server_url,
+      realm,
+      client_id,
+      require_referral: true
+    });
+    if (res && res.success) {
+      await loadKeycloakHostConfigUI();
+      showToast("✅ Đã lưu cấu hình Keycloak SSO thành công!", "success");
+    } else {
+      alert(res?.detail || "Không thể lưu cấu hình Keycloak (cần đăng nhập tài khoản máy chủ Tô Nguyên Vũ).");
+    }
+  } catch (e) {
+    alert("Không thể kết nối Backend để lưu cấu hình Keycloak.");
+  }
+}
+
+async function startKeycloakSSOLogin() {
+  try {
+    const cfg = cachedKeycloakConfig || (await apiCall("/api/auth/keycloak/config"));
+    if (!cfg || !cfg.enabled || !cfg.auth_endpoint) {
+      alert("⚙️ Máy chủ Keycloak SSO chưa được bật.\n\nQuản trị viên (Tô Nguyên Vũ) có thể vào tab Hồ Sơ → mục 'Cấu Hình Đăng Nhập Keycloak SSO' để nhập Server URL, Realm, Client ID (hoặc chạy file docker-compose.keycloak.yml).");
+      return;
+    }
+    const verifier = generatePkceVerifier();
+    const challenge = await generatePkceChallenge(verifier);
+    const state = generatePkceVerifier().slice(0, 24);
+    const redirectUri = window.location.origin + window.location.pathname;
+
+    sessionStorage.setItem("emh_kc_verifier", verifier);
+    sessionStorage.setItem("emh_kc_state", state);
+
+    const params = new URLSearchParams({
+      client_id: cfg.client_id,
+      redirect_uri: redirectUri,
+      response_type: "code",
+      scope: "openid profile email",
+      code_challenge: challenge,
+      code_challenge_method: "S256",
+      state: state
+    });
+
+    window.location.href = `${cfg.auth_endpoint}?${params.toString()}`;
+  } catch (e) {
+    alert("Không thể khởi tạo phiên đăng nhập Keycloak SSO: " + (e.message || e));
+  }
+}
+
+async function handleKeycloakOidcCallback(oidcParams) {
+  const savedState = sessionStorage.getItem("emh_kc_state");
+  const verifier = sessionStorage.getItem("emh_kc_verifier");
+  if (!oidcParams || !oidcParams.code || !verifier || (savedState && savedState !== oidcParams.state)) {
+    showToast("❌ Phiên xác thực Keycloak không hợp lệ hoặc đã hết hạn.", "error");
+    return;
+  }
+
+  sessionStorage.removeItem("emh_kc_state");
+  sessionStorage.removeItem("emh_kc_verifier");
+
+  try {
+    const redirectUri = window.location.origin + window.location.pathname;
+    const res = await apiCall("/api/auth/keycloak/callback", "POST", {
+      code: oidcParams.code,
+      code_verifier: verifier,
+      redirect_uri: redirectUri
+    });
+
+    if (!res || !res.token || !res.user) {
+      showToast("❌ Đăng nhập Keycloak thất bại: " + (res?.detail || "Lỗi máy chủ"), "error");
+      return;
+    }
+
+    appState.authToken = res.token;
+    appState.currentUser = res.user;
+    localStorage.setItem(STORAGE_KEY_AUTH, res.token);
+    localStorage.setItem("EMH_AUTH_TOKEN", res.token);
+    localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", res.user.email);
+    localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", res.user.full_name || res.user.email);
+
+    if (res.needs_referral_activation) {
+      localStorage.setItem("EMH_KC_NEEDS_REFERRAL", "true");
+      openDeviceOnboardingModal(true);
+      const box = document.getElementById("keycloakReferralStepBox");
+      if (box) box.classList.remove("hidden");
+      showToast("🔑 Tài khoản Keycloak đã đăng nhập! Hãy nhập Mã giới thiệu của Tô Nguyên Vũ để mở khóa.", "info");
+    } else {
+      localStorage.removeItem("EMH_KC_NEEDS_REFERRAL");
+      updateAuthUI();
+      closeAuthModal();
+      showToast(`🎉 Đăng nhập Keycloak SSO thành công! Chào mừng ${res.user.full_name}`, "success");
+    }
+  } catch (e) {
+    showToast("❌ Lỗi xác thực callback Keycloak.", "error");
+  }
+}
+
+async function submitKeycloakReferralActivation() {
+  const code = (document.getElementById("kcActivateReferralInput")?.value || "").trim().toUpperCase();
+  if (!code) {
+    alert("Vui lòng nhập Mã giới thiệu từ Tô Nguyên Vũ.");
+    return;
+  }
+  try {
+    const res = await apiCall("/api/auth/keycloak/activate-referral", "POST", { referral_code: code });
+    if (res && res.activated) {
+      localStorage.removeItem("EMH_KC_NEEDS_REFERRAL");
+      const box = document.getElementById("keycloakReferralStepBox");
+      if (box) box.classList.add("hidden");
+      updateAuthUI();
+      closeAuthModal();
+      showToast(`✅ ${res.message}`, "success");
+    } else {
+      alert(`❌ ${res?.detail || "Mã giới thiệu không chính xác."}`);
+    }
+  } catch (e) {
+    alert("❌ Không thể xác thực mã giới thiệu. Vui lòng kiểm tra lại!");
   }
 }
 

@@ -1,0 +1,102 @@
+import sys
+import os
+import unittest
+from unittest.mock import patch
+from fastapi.testclient import TestClient
+
+backend_dir = os.path.dirname(os.path.abspath(__file__))
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
+
+from main import app
+from database import get_db, Base, engine
+import models
+
+client = TestClient(app)
+
+
+class TestSecurityAndKeycloak(unittest.TestCase):
+    def setUp(self):
+        Base.metadata.create_all(bind=engine)
+        db = next(get_db())
+        u = db.query(models.User).filter(models.User.email == "kc_student_test@example.com").first()
+        if u:
+            db.delete(u)
+            db.commit()
+
+    def test_01_security_headers_present(self):
+        res = client.get("/api/health")
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.headers.get("X-Frame-Options"), "DENY")
+        self.assertEqual(res.headers.get("X-Content-Type-Options"), "nosniff")
+
+    def test_02_block_url_injection_and_write_methods_on_website_structure(self):
+        # Block XSS in query param
+        res1 = client.get("/?x=<script>alert(1)</script>")
+        self.assertEqual(res1.status_code, 403)
+
+        # Block path traversal
+        res2 = client.get("/?file=../../etc/passwd")
+        self.assertEqual(res2.status_code, 403)
+
+        # Block PUT/DELETE attempts on website files
+        res3 = client.put("/index.html", content="hacked")
+        self.assertEqual(res3.status_code, 405)
+
+    def test_03_keycloak_config_endpoint(self):
+        res = client.get("/api/auth/keycloak/config")
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertIn("enabled", data)
+        self.assertIn("realm", data)
+        self.assertIn("client_id", data)
+
+    def test_04_keycloak_callback_requires_referral_activation_on_first_login(self):
+        from routers import keycloak_router
+
+        fake_cfg = {
+            "enabled": True,
+            "server_url": "http://localhost:8080",
+            "realm": "english-mastery",
+            "client_id": "english-mastery-web",
+            "require_referral": True
+        }
+
+        with patch.object(keycloak_router, "load_keycloak_config", return_value=fake_cfg), \
+             patch.object(keycloak_router, "exchange_keycloak_code", return_value={"access_token": "kc_mock_token"}), \
+             patch.object(keycloak_router, "fetch_keycloak_userinfo", return_value={
+                 "email": "kc_student_test@example.com",
+                 "name": "Học Viên Keycloak"
+             }):
+            res = client.post("/api/auth/keycloak/callback", json={
+                "code": "mock_code_123",
+                "code_verifier": "mock_verifier_123",
+                "redirect_uri": "http://localhost:8000/"
+            })
+            self.assertEqual(res.status_code, 200)
+            data = res.json()
+            self.assertTrue(data["success"])
+            self.assertTrue(data["needs_referral_activation"])
+            token = data["token"]
+
+            # Trying wrong referral code MUST fail
+            bad_ref = client.post(
+                "/api/auth/keycloak/activate-referral",
+                json={"referral_code": "WRONG999"},
+                headers={"Authorization": f"Bearer {token}"}
+            )
+            self.assertEqual(bad_ref.status_code, 400)
+
+            # Valid referral code NGUYENVU265 activates account
+            ok_ref = client.post(
+                "/api/auth/keycloak/activate-referral",
+                json={"referral_code": "NGUYENVU265"},
+                headers={"Authorization": f"Bearer {token}"}
+            )
+            self.assertEqual(ok_ref.status_code, 200)
+            self.assertTrue(ok_ref.json()["activated"])
+            self.assertEqual(ok_ref.json()["referred_by"], "tonguyenvu@265.com")
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -468,23 +468,15 @@ function onReferralInputChanged() {
     try {
       const res = await apiCall(`/api/auth/validate-referral?code=${encodeURIComponent(code)}`);
       if (res && res.valid) {
-        statusEl.innerText = `✓ Hợp lệ (${res.referrer_name || "Tô Nguyên Vũ"})`;
-        statusEl.className = "text-[10px] text-emerald-400 font-bold";
-      } else if (code === "NGUYENVU265") {
-        statusEl.innerText = "✓ Mã máy chủ hợp lệ (Tô Nguyên Vũ)";
+        statusEl.innerText = `✓ Mã 1 lần hợp lệ (${res.referrer_name || "Tô Nguyên Vũ"})`;
         statusEl.className = "text-[10px] text-emerald-400 font-bold";
       } else {
-        statusEl.innerText = "✕ Mã không tồn tại / chưa kích hoạt";
+        statusEl.innerText = `✕ ${(res && res.message) || "Mã không tồn tại hoặc đã được dùng"}`;
         statusEl.className = "text-[10px] text-rose-400 font-semibold";
       }
     } catch (e) {
-      if (code === "NGUYENVU265") {
-        statusEl.innerText = "✓ Mã hợp lệ (Tô Nguyên Vũ)";
-        statusEl.className = "text-[10px] text-emerald-400 font-bold";
-      } else {
-        statusEl.innerText = "✕ Cần mã từ Tô Nguyên Vũ";
-        statusEl.className = "text-[10px] text-amber-400 font-semibold";
-      }
+      statusEl.innerText = "✕ Cần kết nối máy chủ để xác thực mã dùng 1 lần";
+      statusEl.className = "text-[10px] text-amber-400 font-semibold";
     }
   }, 250);
 }
@@ -560,9 +552,9 @@ async function handleAuthSubmit() {
       return;
     }
 
-    // Xác thực mã giới thiệu nếu chạy offline
-    if (!token && referralCode !== "NGUYENVU265") {
-      alert("❌ Mã giới thiệu không chính xác. Vui lòng liên hệ Tô Nguyên Vũ để nhận mã kích hoạt hợp lệ.");
+    // Bắt buộc xác thực mã dùng 1 lần trực tiếp từ máy chủ (không cho phép mã tĩnh offline)
+    if (!token) {
+      alert("❌ Mã giới thiệu không hợp lệ, đã được sử dụng hoặc máy chủ chưa phản hồi. Vui lòng xin mã dùng 1 lần mới nhất từ Tô Nguyên Vũ!");
       return;
     }
 
@@ -708,22 +700,71 @@ async function logoutUser() {
   }, 350);
 }
 
-// ================= REFERRAL CODE MANAGEMENT =================
-let cachedReferralCode = "NGUYENVU265";
+// ================= REFERRAL CODE MANAGEMENT (1-TIME AUTO-ROTATING) =================
+let cachedReferralCode = "";
+let cachedReferralExpiresAt = "";
+
+function renderReferralUsageHistory(history) {
+  const container = document.getElementById("referralUsageHistoryList");
+  if (!container) return;
+  if (!Array.isArray(history) || history.length === 0) {
+    container.innerHTML = `<div class="italic text-[11px] text-slate-500">Chưa có lượt sử dụng hay thu hồi mã nào.</div>`;
+    return;
+  }
+  const statusMap = {
+    used: `<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px]">Đã dùng</span>`,
+    revoked: `<span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold text-[10px]">Đã hủy</span>`,
+    expired: `<span class="px-1.5 py-0.5 rounded bg-slate-700 text-slate-300 font-bold text-[10px]">Hết hạn 24h</span>`
+  };
+  container.innerHTML = history.map(item => {
+    const timeStr = item.used_at || item.created_at || "";
+    const formattedTime = timeStr ? new Date(timeStr).toLocaleString("vi-VN") : "";
+    const who = item.used_by_email ? `<span class="text-cyan-300 font-semibold">${item.used_by_email}</span>` : `<span class="text-slate-500">—</span>`;
+    return `
+      <div class="flex flex-wrap items-center justify-between gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-[11px]">
+        <div class="flex items-center gap-2">
+          <span class="font-mono font-bold text-amber-300">${item.code}</span>
+          ${statusMap[item.status] || item.status}
+          <span>• Người dùng: ${who}</span>
+        </div>
+        <span class="text-slate-500">${formattedTime}</span>
+      </div>
+    `;
+  }).join("");
+}
 
 async function loadReferralCodeInfo() {
   const displayEl = document.getElementById("activeReferralCodeDisplay");
+  const expiryEl = document.getElementById("referralExpiryBadge");
+  const cardEl = document.getElementById("referralCodeManagerCard");
   try {
     const res = await apiCall("/api/auth/referral-code");
+    if (res && res.is_host === false) {
+      if (cardEl) cardEl.classList.add("hidden");
+      return;
+    }
+    if (cardEl) cardEl.classList.remove("hidden");
     if (res && res.referral_code) {
       cachedReferralCode = res.referral_code;
+      cachedReferralExpiresAt = res.expires_at || "";
+      if (displayEl) displayEl.innerText = cachedReferralCode;
+      if (expiryEl && cachedReferralExpiresAt) {
+        const expDate = new Date(cachedReferralExpiresAt);
+        expiryEl.innerText = `⏳ Hết hạn: ${expDate.toLocaleString("vi-VN")}`;
+      }
+      renderReferralUsageHistory(res.history || []);
+      return;
     }
   } catch (e) {}
-  if (displayEl) displayEl.innerText = cachedReferralCode;
+  if (displayEl && !cachedReferralCode) displayEl.innerText = "Cần kết nối server";
 }
 
 function copyMyReferralCode() {
-  const code = cachedReferralCode || "NGUYENVU265";
+  if (!cachedReferralCode) {
+    alert("Chưa tải được mã giới thiệu từ máy chủ. Hãy kiểm tra server Backend đang chạy.");
+    return;
+  }
+  const code = cachedReferralCode;
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(code).then(() => {
       const textEl = document.getElementById("copyReferralText");
@@ -731,41 +772,40 @@ function copyMyReferralCode() {
         textEl.innerText = "✓ Đã Sao Chép!";
         setTimeout(() => { textEl.innerText = "Sao Chép Mã"; }, 2000);
       }
-      showToast(`📋 Đã chép mã "${code}"! Hãy gửi mã này cho thiết bị khác để họ đăng ký.`, "success");
+      showToast(`📋 Đã chép mã dùng 1 lần "${code}"! Mã sẽ tự hủy ngay sau khi có 1 người đăng ký.`, "success");
     }).catch(() => {
-      prompt("Sao chép mã giới thiệu:", code);
+      prompt("Sao chép mã giới thiệu dùng 1 lần:", code);
     });
   } else {
-    prompt("Sao chép mã giới thiệu:", code);
+    prompt("Sao chép mã giới thiệu dùng 1 lần:", code);
+  }
+}
+
+async function rotateMyReferralCodeNow() {
+  if (!confirm("Bạn muốn HỦY mã hiện tại ngay lập tức và tạo 1 mã dùng 1 lần hoàn toàn mới?")) return;
+  try {
+    const res = await apiCall("/api/auth/referral-code/rotate", "POST");
+    if (res && res.success && res.referral_code) {
+      cachedReferralCode = res.referral_code;
+      cachedReferralExpiresAt = res.expires_at || "";
+      const displayEl = document.getElementById("activeReferralCodeDisplay");
+      const expiryEl = document.getElementById("referralExpiryBadge");
+      if (displayEl) displayEl.innerText = cachedReferralCode;
+      if (expiryEl && cachedReferralExpiresAt) {
+        expiryEl.innerText = `⏳ Hết hạn: ${new Date(cachedReferralExpiresAt).toLocaleString("vi-VN")}`;
+      }
+      renderReferralUsageHistory(res.history || []);
+      showToast(`🔄 ${res.message}`, "success");
+    } else {
+      alert(res?.detail || "Không thể xoay vòng mã giới thiệu.");
+    }
+  } catch (e) {
+    alert("Không thể kết nối máy chủ để xoay vòng mã giới thiệu.");
   }
 }
 
 async function promptEditMyReferralCode() {
-  const currentCode = cachedReferralCode || "NGUYENVU265";
-  const newCode = prompt("Nhập mã giới thiệu mới từ máy chủ của bạn (3 - 20 ký tự):", currentCode);
-  if (!newCode || !newCode.trim()) return;
-  const cleanCode = newCode.trim().toUpperCase();
-  if (cleanCode.length < 3 || cleanCode.length > 20) {
-    alert("Mã giới thiệu phải có từ 3 đến 20 ký tự.");
-    return;
-  }
-
-  try {
-    const res = await apiCall("/api/auth/referral-code", "PUT", { referral_code: cleanCode });
-    if (res && res.success) {
-      cachedReferralCode = cleanCode;
-      const displayEl = document.getElementById("activeReferralCodeDisplay");
-      if (displayEl) displayEl.innerText = cleanCode;
-      showToast(`✅ Đã đổi mã giới thiệu máy chủ thành: ${cleanCode}`, "success");
-    } else {
-      alert(res?.detail || "Không thể cập nhật mã giới thiệu.");
-    }
-  } catch (e) {
-    cachedReferralCode = cleanCode;
-    const displayEl = document.getElementById("activeReferralCodeDisplay");
-    if (displayEl) displayEl.innerText = cleanCode;
-    showToast(`✅ Đã lưu mã giới thiệu: ${cleanCode}`, "success");
-  }
+  await rotateMyReferralCodeNow();
 }
 
 // ================= KEYCLOAK OIDC SSO (PKCE + MANDATORY REFERRAL) =================

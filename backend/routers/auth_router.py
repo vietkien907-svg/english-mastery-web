@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from database import get_db
 import models
 import auth
+import referral_service
 import re
 
 router = APIRouter(prefix="/api/auth", tags=["Authentication"])
@@ -51,25 +52,11 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
     if len(req.password) < 6:
         raise HTTPException(status_code=400, detail="Mật khẩu phải có ít nhất 6 ký tự.")
 
-    # Kiểm tra mã giới thiệu (bắt buộc)
-    ref_code = (req.referral_code or "").strip().upper()
-    if not ref_code:
-        raise HTTPException(status_code=400, detail="Vui lòng nhập mã giới thiệu từ máy chủ (Tô Nguyên Vũ).")
-    
-    # Tìm người giới thiệu sở hữu mã này (hoặc mã hệ thống mặc định NGUYENVU265)
-    referrer = None
-    if ref_code == "NGUYENVU265":
-        referrer = db.query(models.User).filter(
-            (models.User.referral_code == "NGUYENVU265") | (models.User.email == "tonguyenvu@265.com")
-        ).first()
-    else:
-        referrer = db.query(models.User).filter(models.User.referral_code == ref_code).first()
-    
-    if not referrer and ref_code != "NGUYENVU265":
-        raise HTTPException(status_code=400, detail="Mã giới thiệu không chính xác hoặc chưa được kích hoạt bởi máy chủ/Tô Nguyên Vũ.")
-    
-    referrer_info = referrer.full_name if referrer else "Tô Nguyên Vũ"
-    referrer_email = referrer.email if referrer else "tonguyenvu@265.com"
+    # Kiểm tra & tiêu hủy mã giới thiệu dùng 1 lần (tự động xoay vòng sinh mã mới ngay lập tức)
+    client_ip = request.client.host if request.client else ""
+    ref_result = referral_service.consume_code_and_rotate(db, req.referral_code, req.email.lower(), client_ip)
+    referrer_info = ref_result["referrer_name"]
+    referrer_email = ref_result["owner_email"]
         
     user = models.User(
         email=req.email.lower(),
@@ -206,71 +193,71 @@ class UpdateReferralCodeRequest(BaseModel):
     referral_code: str
 
 @router.get("/validate-referral")
-def validate_referral(code: str = "", db: Session = Depends(get_db)):
-    clean_code = (code or "").strip().upper()
-    if not clean_code:
-        return {"valid": False, "message": "Vui lòng nhập mã giới thiệu."}
-        
-    referrer = None
-    if clean_code == "NGUYENVU265":
-        referrer = db.query(models.User).filter(
-            (models.User.referral_code == "NGUYENVU265") | (models.User.email == "tonguyenvu@265.com")
-        ).first()
-    else:
-        referrer = db.query(models.User).filter(models.User.referral_code == clean_code).first()
-    
-    if referrer or clean_code == "NGUYENVU265":
-        name = referrer.full_name if referrer else "Tô Nguyên Vũ"
-        return {
-            "valid": True,
-            "code": clean_code,
-            "referrer_name": name,
-            "message": f"Mã hợp lệ! Người giới thiệu: {name}"
-        }
-    return {
-        "valid": False,
-        "code": clean_code,
-        "message": "Mã giới thiệu không tồn tại hoặc chưa được kích hoạt."
-    }
+def validate_referral(request: Request, code: str = "", db: Session = Depends(get_db)):
+    client_ip = request.client.host if request.client else ""
+    return referral_service.validate_active_code(db, code, client_ip)
 
 @router.get("/referral-code")
 def get_user_referral_code(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
-    code = current_user.referral_code
-    if not code and current_user.email.lower() == "tonguyenvu@265.com":
-        code = "NGUYENVU265"
-        current_user.referral_code = code
-        db.commit()
+    owner_email = current_user.email.lower()
+    if owner_email != referral_service.HOST_EMAIL:
+        return {
+            "referral_code": "",
+            "expires_at": "",
+            "referred_by": current_user.referred_by or "",
+            "is_host": False,
+            "history": []
+        }
+    active = referral_service.ensure_active_code(db, owner_email)
+    history = referral_service.get_referral_history(db, owner_email, limit=10)
     return {
-        "referral_code": code or "NGUYENVU265",
-        "referred_by": current_user.referred_by or ""
+        "referral_code": active.code,
+        "expires_at": active.expires_at.isoformat() + "Z",
+        "referred_by": current_user.referred_by or "",
+        "is_host": True,
+        "history": history
     }
+
+@router.post("/referral-code/rotate")
+def rotate_user_referral_code(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
+    if current_user.email.lower() != referral_service.HOST_EMAIL:
+        raise HTTPException(status_code=403, detail="Chỉ quản trị viên máy chủ (Tô Nguyên Vũ) mới được xoay vòng mã giới thiệu.")
+    new_row = referral_service.rotate_active_code(db, current_user.email.lower(), reason="revoked")
+    history = referral_service.get_referral_history(db, current_user.email.lower(), limit=10)
+    return {
+        "success": True,
+        "referral_code": new_row.code,
+        "expires_at": new_row.expires_at.isoformat() + "Z",
+        "history": history,
+        "message": f"Đã hủy mã cũ và tạo mã dùng 1 lần mới: {new_row.code}"
+    }
+
+@router.get("/referral-code/history")
+def get_user_referral_history(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
+    if current_user.email.lower() != referral_service.HOST_EMAIL:
+        return {"history": []}
+    return {"history": referral_service.get_referral_history(db, current_user.email.lower(), limit=10)}
 
 @router.put("/referral-code")
 def update_user_referral_code(req: UpdateReferralCodeRequest, current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
-    clean_code = (req.referral_code or "").strip().upper()
-    if len(clean_code) < 3 or len(clean_code) > 20:
-        raise HTTPException(status_code=400, detail="Mã giới thiệu phải có độ dài từ 3 đến 20 ký tự.")
-    
-    # Check if duplicate with another user
-    existing = db.query(models.User).filter(
-        models.User.referral_code == clean_code,
-        models.User.id != current_user.id
-    ).first()
-    if existing:
-        raise HTTPException(status_code=400, detail="Mã giới thiệu này đã có người sử dụng. Vui lòng chọn mã khác.")
-        
-    current_user.referral_code = clean_code
-    db.commit()
-    return {"success": True, "referral_code": clean_code, "message": "Đã cập nhật mã giới thiệu thành công!"}
+    # Redirect manual updates to secure single-use rotation so static guessable codes cannot be set
+    if current_user.email.lower() != referral_service.HOST_EMAIL:
+        raise HTTPException(status_code=403, detail="Chỉ quản trị viên máy chủ mới được phép đổi mã.")
+    new_row = referral_service.rotate_active_code(db, current_user.email.lower(), reason="revoked")
+    return {
+        "success": True,
+        "referral_code": new_row.code,
+        "expires_at": new_row.expires_at.isoformat() + "Z",
+        "message": f"Đã tạo mã dùng 1 lần mới an toàn: {new_row.code}"
+    }
 
 @router.get("/me")
 def get_profile(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
     streak_info = evaluate_daily_streak(current_user, db)
-    ref_code = current_user.referral_code
-    if not ref_code and current_user.email.lower() == "tonguyenvu@265.com":
-        ref_code = "NGUYENVU265"
-        current_user.referral_code = ref_code
-        db.commit()
+    ref_code = ""
+    if current_user.email.lower() == referral_service.HOST_EMAIL:
+        active = referral_service.ensure_active_code(db, current_user.email.lower())
+        ref_code = active.code
 
     return {
         "id": current_user.id,
@@ -283,7 +270,7 @@ def get_profile(current_user: models.User = Depends(auth.get_current_user), db: 
         "longest_streak": streak_info["longest_streak"],
         "last_active_date": streak_info["last_active_date"],
         "timezone": current_user.timezone,
-        "referral_code": ref_code or "",
+        "referral_code": ref_code,
         "referred_by": current_user.referred_by or ""
     }
 

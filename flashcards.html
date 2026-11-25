@@ -37,7 +37,7 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="./style.css?v=97.0">
+  <link rel="stylesheet" href="./style.css?v=98.0">
   <script>
     // Immediate Theme Initialization (Zero flicker — Default: Warm Paper Eye-Care)
     (function() {
@@ -2390,7 +2390,7 @@
           </div>
         </div>
 
-        <!-- THẺ QUẢN LÝ MÃ GIỚI THIỆU TỪ MÁY CHỦ (TÔ NGUYÊN VŨ) -->
+        <!-- THẺ QUẢN LÝ MÃ GIỚI THIỆU DÙNG 1 LẦN TỰ ĐỘNG XOAY VÒNG -->
         <div id="referralCodeManagerCard" class="glass-card rounded-2xl p-6 space-y-4 border border-amber-500/40 bg-gradient-to-br from-amber-950/20 via-slate-900 to-slate-950 shadow-xl col-span-full">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
             <div class="flex items-center gap-3">
@@ -2398,32 +2398,39 @@
                 <i data-lucide="key" class="w-5 h-5 text-amber-400"></i>
               </div>
               <div>
-                <h3 class="font-bold text-white text-base flex items-center gap-2">
-                  <span>Mã Giới Thiệu Của Tôi (Kích Hoạt Thiết Bị Mới)</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">Chính Thức</span>
+                <h3 class="font-bold text-white text-base flex items-center gap-2 flex-wrap">
+                  <span>Mã Giới Thiệu Dùng 1 Lần (Tự Xoay Vòng)</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">Chống dùng lại</span>
                 </h3>
-                <p class="text-xs text-slate-400">Mã này cấp quyền cho thiết bị mới (điện thoại, máy tính khác) tạo tài khoản học viên tham gia hệ thống của bạn.</p>
+                <p class="text-xs text-slate-400">Mỗi mã chỉ có hiệu lực cho <strong>1 lượt đăng ký duy nhất</strong> (hết hạn sau 24h). Ngay khi có người dùng, mã cũ tự hủy và máy chủ tự sinh mã mới.</p>
               </div>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
-              <span id="activeReferralCodeDisplay" class="px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/40 text-amber-300 font-mono font-black text-sm tracking-widest shadow-inner">NGUYENVU265</span>
-              <button onclick="copyMyReferralCode()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow transition">
+              <span id="activeReferralCodeDisplay" class="px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/40 text-amber-300 font-mono font-black text-sm tracking-widest shadow-inner">Đang tải...</span>
+              <button onclick="copyMyReferralCode()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow transition cursor-pointer">
                 <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                 <span id="copyReferralText">Sao Chép Mã</span>
               </button>
-              <button onclick="promptEditMyReferralCode()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
-                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                <span>Đổi Mã</span>
+              <button onclick="rotateMyReferralCodeNow()" class="px-3 py-2 rounded-xl bg-rose-600/20 hover:bg-rose-600/40 text-rose-300 text-xs font-bold border border-rose-500/40 transition flex items-center gap-1 cursor-pointer" title="Hủy mã hiện tại ngay lập tức và tạo mã mới">
+                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                <span>🔄 Hủy & Tạo Mã Mới</span>
               </button>
             </div>
           </div>
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-400 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
             <div class="flex items-center gap-2">
               <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span>Thiết bị mới bắt buộc nhập mã này khi Đăng Ký. Các học viên tạo tài khoản sẽ tự động kết nối vào Bảng thi đua cùng bạn.</span>
+              <span>Chống dò mã: Tự động khóa tạm 15 phút nếu IP nhập sai quá 5 lần liên tiếp.</span>
             </div>
-            <div class="text-emerald-400 font-bold shrink-0">
-              Trạng thái: <span class="text-white">Đang Hoạt Động (Máy Chủ)</span>
+            <div id="referralExpiryBadge" class="text-amber-300 font-bold shrink-0">
+              ⏳ Hiệu lực 24h
+            </div>
+          </div>
+          <!-- Nhật ký 10 lượt sử dụng gần nhất -->
+          <div class="space-y-1.5">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400">📜 Nhật ký mã giới thiệu gần nhất (đã dùng / đã hủy):</div>
+            <div id="referralUsageHistoryList" class="space-y-1.5 text-xs text-slate-400">
+              <div class="italic text-[11px] text-slate-500">Chưa có lượt sử dụng nào.</div>
             </div>
           </div>
         </div>
@@ -2639,7 +2646,7 @@
         <div id="keycloakReferralStepBox" class="hidden p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/40 space-y-2.5 mt-2">
           <div class="text-xs font-bold text-amber-300">🔑 Xác thực lần đầu tài khoản Keycloak</div>
           <p class="text-[11px] text-slate-300 leading-relaxed">Tài khoản Keycloak của bạn đã đăng nhập thành công. Vui lòng nhập <strong>Mã giới thiệu từ Tô Nguyên Vũ</strong> để kích hoạt thiết bị này:</p>
-          <input type="text" id="kcActivateReferralInput" placeholder="Nhập mã giới thiệu (VD: NGUYENVU265)" class="w-full bg-slate-900 border border-amber-500/50 rounded-xl p-2.5 uppercase font-mono tracking-widest text-amber-300 text-xs outline-none focus:border-amber-400">
+          <input type="text" id="kcActivateReferralInput" placeholder="Nhập mã dùng 1 lần (VD: VU-XXXXXX)" class="w-full bg-slate-900 border border-amber-500/50 rounded-xl p-2.5 uppercase font-mono tracking-widest text-amber-300 text-xs outline-none focus:border-amber-400">
           <button type="button" onclick="submitKeycloakReferralActivation()" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs transition shadow">
             ✅ Kích Hoạt Tài Khoản Keycloak
           </button>
@@ -3525,25 +3532,25 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=97.0"></script>
-  <script src="./listening_data.js?v=97.0"></script>
-  <script src="./vietnam_today_data.js?v=97.0"></script>
-  <script src="./educational_channels_data.js?v=97.0"></script>
-  <script src="./international_news_videos.js?v=97.0"></script>
-  <script src="./bilingual_news_data.js?v=97.0"></script>
-  <script src="./reading_lexicon.js?v=97.0"></script>
-  <script src="./conversation_data.js?v=97.0"></script>
-  <script src="./speaking-forecast.js?v=97.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=97.0"></script>
-  <script src="./speakout-speaking-data.js?v=97.0"></script>
-  <script src="./speaking-engine.js?v=97.0"></script>
-  <script src="./ocr-vocab-engine.js?v=97.0"></script>
-  <script src="./unit-review-engine.js?v=97.0"></script>
-  <script src="./focus-session-engine.js?v=97.0"></script>
-  <script src="./security-guard-engine.js?v=97.0"></script>
-  <script src="./auth-gate-engine.js?v=97.0"></script>
-  <script src="./streak-deadline-engine.js?v=97.0"></script>
-  <script src="./app.js?v=97.0"></script>
+  <script src="./data.js?v=98.0"></script>
+  <script src="./listening_data.js?v=98.0"></script>
+  <script src="./vietnam_today_data.js?v=98.0"></script>
+  <script src="./educational_channels_data.js?v=98.0"></script>
+  <script src="./international_news_videos.js?v=98.0"></script>
+  <script src="./bilingual_news_data.js?v=98.0"></script>
+  <script src="./reading_lexicon.js?v=98.0"></script>
+  <script src="./conversation_data.js?v=98.0"></script>
+  <script src="./speaking-forecast.js?v=98.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=98.0"></script>
+  <script src="./speakout-speaking-data.js?v=98.0"></script>
+  <script src="./speaking-engine.js?v=98.0"></script>
+  <script src="./ocr-vocab-engine.js?v=98.0"></script>
+  <script src="./unit-review-engine.js?v=98.0"></script>
+  <script src="./focus-session-engine.js?v=98.0"></script>
+  <script src="./security-guard-engine.js?v=98.0"></script>
+  <script src="./auth-gate-engine.js?v=98.0"></script>
+  <script src="./streak-deadline-engine.js?v=98.0"></script>
+  <script src="./app.js?v=98.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3666,8 +3673,8 @@
               <input type="password" id="newAccPassword" placeholder="Tối thiểu 6 ký tự..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white outline-none focus:border-indigo-500">
             </div>
             <div class="sm:col-span-2">
-              <label class="block text-slate-400 mb-1">Mã giới thiệu (Từ Tô Nguyên Vũ):</label>
-              <input type="text" id="newAccReferral" value="NGUYENVU265" placeholder="NGUYENVU265" class="w-full bg-slate-900 border border-amber-500/50 rounded-lg p-2 text-amber-300 font-mono uppercase tracking-wider outline-none focus:border-amber-400">
+              <label class="block text-slate-400 mb-1">Mã giới thiệu dùng 1 lần (Từ Tô Nguyên Vũ):</label>
+              <input type="text" id="newAccReferral" value="" placeholder="VD: VU-XXXXXX" class="w-full bg-slate-900 border border-amber-500/50 rounded-lg p-2 text-amber-300 font-mono uppercase tracking-wider outline-none focus:border-amber-400">
             </div>
           </div>
           <button onclick="createNewAccountFromModal()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-xs transition shadow-md shadow-indigo-600/25 flex items-center justify-center gap-2">

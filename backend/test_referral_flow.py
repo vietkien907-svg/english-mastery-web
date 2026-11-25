@@ -3,7 +3,6 @@ import os
 import unittest
 from fastapi.testclient import TestClient
 
-# Add backend directory to sys.path
 backend_dir = os.path.dirname(os.path.abspath(__file__))
 if backend_dir not in sys.path:
     sys.path.insert(0, backend_dir)
@@ -11,94 +10,93 @@ if backend_dir not in sys.path:
 from main import app
 from database import get_db, Base, engine
 import models
+import referral_service
 
 client = TestClient(app)
 
-class TestReferralAndMultiAccount(unittest.TestCase):
+
+class TestRotatingOneTimeReferralFlow(unittest.TestCase):
     def setUp(self):
-        # Ensure tables exist
         Base.metadata.create_all(bind=engine)
+        referral_service.reset_rate_limiter()
         db = next(get_db())
-        # Clean up any test users
-        for email in ["student_no_ref@example.com", "student_wrong_ref@example.com", "student_valid_ref_device@example.com"]:
+        for email in [
+            "student_no_ref@example.com",
+            "student_wrong_ref@example.com",
+            "student_one_time_1@example.com",
+            "student_one_time_2@example.com"
+        ]:
             u = db.query(models.User).filter(models.User.email == email).first()
             if u:
                 db.delete(u)
-        # Ensure Tô Nguyên Vũ exists with referral_code = 'NGUYENVU265' and streak = 14
-        vu = db.query(models.User).filter(models.User.email == "tonguyenvu@265.com").first()
-        if vu:
-            vu.referral_code = "NGUYENVU265"
-            vu.streak_count = 14
-            vu.longest_streak = 14
         db.commit()
 
-    def test_01_validate_referral_code(self):
-        # Invalid code
-        res = client.get("/api/auth/validate-referral?code=INVALID_CODE_999")
-        self.assertEqual(res.status_code, 200)
-        data = res.json()
-        self.assertFalse(data.get("valid"))
-
-        # Valid default code NGUYENVU265
-        res = client.get("/api/auth/validate-referral?code=NGUYENVU265")
-        self.assertEqual(res.status_code, 200)
-        data = res.json()
-        self.assertTrue(data.get("valid"))
-        self.assertEqual(data.get("referrer_name"), "Tô Nguyên Vũ")
-
-    def test_02_register_without_referral_fails(self):
-        res = client.post("/api/auth/register", json={
-            "email": "student_no_ref@example.com",
-            "password": "password123",
-            "full_name": "No Ref Student",
-            "referral_code": ""
-        })
-        self.assertEqual(res.status_code, 400)
-        self.assertIn("mã giới thiệu", res.json().get("detail", "").lower())
-
-    def test_03_register_with_wrong_referral_fails(self):
-        res = client.post("/api/auth/register", json={
-            "email": "student_wrong_ref@example.com",
-            "password": "password123",
-            "full_name": "Wrong Ref Student",
-            "referral_code": "WRONG_CODE_XYZ"
-        })
-        self.assertEqual(res.status_code, 400)
-        self.assertIn("mã giới thiệu", res.json().get("detail", "").lower())
-
-    def test_04_register_with_valid_referral_succeeds(self):
-        test_email = "student_valid_ref_device@example.com"
-        # Clean up if existed
+    def test_01_static_old_code_rejected_and_active_code_format(self):
         db = next(get_db())
-        existing = db.query(models.User).filter(models.User.email == test_email).first()
-        if existing:
-            db.delete(existing)
-            db.commit()
+        active = referral_service.ensure_active_code(db)
+        self.assertTrue(active.code.startswith("VU-"))
+        self.assertEqual(len(active.code), 9)
 
-        res = client.post("/api/auth/register", json={
-            "email": test_email,
-            "password": "password123",
-            "full_name": "Thiết Bị Học Viên Mới",
-            "target_exam": "IELTS",
-            "referral_code": "NGUYENVU265"
-        })
-        self.assertEqual(res.status_code, 200)
-        data = res.json()
-        self.assertTrue(data.get("success"))
-        self.assertEqual(data["user"]["streak"], 1) # Fresh streak for new user
-        self.assertEqual(data["user"]["referred_by"], "tonguyenvu@265.com")
+        # Static old code NGUYENVU265 must be REJECTED
+        res_old = client.get("/api/auth/validate-referral?code=NGUYENVU265")
+        self.assertEqual(res_old.status_code, 200)
+        self.assertFalse(res_old.json()["valid"])
 
-    def test_05_update_and_validate_custom_referral_code(self):
+        # Live active code must be VALID
+        res_ok = client.get(f"/api/auth/validate-referral?code={active.code}")
+        self.assertEqual(res_ok.status_code, 200)
+        self.assertTrue(res_ok.json()["valid"])
+        self.assertEqual(res_ok.json()["referrer_name"], "Tô Nguyên Vũ")
+
+    def test_02_code_burns_on_first_use_and_auto_rotates(self):
         db = next(get_db())
-        vu = db.query(models.User).filter(models.User.email == "tonguyenvu@265.com").first()
-        vu.referral_code = "VUVIP88"
-        db.commit()
+        code_1 = referral_service.ensure_active_code(db).code
 
-        res = client.get("/api/auth/validate-referral?code=VUVIP88")
-        self.assertEqual(res.status_code, 200)
-        data = res.json()
-        self.assertTrue(data.get("valid"))
-        self.assertEqual(data.get("referrer_name"), "Tô Nguyên Vũ")
+        # First student uses code_1 -> SUCCEEDS
+        res1 = client.post("/api/auth/register", json={
+            "email": "student_one_time_1@example.com",
+            "password": "password123",
+            "full_name": "Học Viên 1",
+            "referral_code": code_1
+        })
+        self.assertEqual(res1.status_code, 200)
+        self.assertTrue(res1.json()["success"])
+        self.assertEqual(res1.json()["user"]["referred_by"], "tonguyenvu@265.com")
+
+        # Second student trying to reuse code_1 -> REJECTED!
+        res_reuse = client.post("/api/auth/register", json={
+            "email": "student_one_time_2@example.com",
+            "password": "password123",
+            "full_name": "Học Viên 2",
+            "referral_code": code_1
+        })
+        self.assertEqual(res_reuse.status_code, 400)
+        self.assertIn("1 lần", res_reuse.json().get("detail", "").lower())
+
+        # Verify server auto-rotated to a NEW different code_2
+        code_2 = referral_service.ensure_active_code(db).code
+        self.assertNotEqual(code_1, code_2)
+
+        # Second student using code_2 -> SUCCEEDS!
+        res2 = client.post("/api/auth/register", json={
+            "email": "student_one_time_2@example.com",
+            "password": "password123",
+            "full_name": "Học Viên 2",
+            "referral_code": code_2
+        })
+        self.assertEqual(res2.status_code, 200)
+        self.assertTrue(res2.json()["success"])
+
+    def test_03_brute_force_rate_limit_locks_after_5_wrong_attempts(self):
+        for i in range(5):
+            r = client.get(f"/api/auth/validate-referral?code=WRONG{i}")
+            self.assertEqual(r.status_code, 200)
+            self.assertFalse(r.json()["valid"])
+
+        # 6th attempt from same IP must return 429 Too Many Requests
+        r6 = client.get("/api/auth/validate-referral?code=WRONG6")
+        self.assertEqual(r6.status_code, 429)
+
 
 if __name__ == "__main__":
     unittest.main()

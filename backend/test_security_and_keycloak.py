@@ -87,15 +87,24 @@ class TestSecurityAndKeycloak(unittest.TestCase):
             )
             self.assertEqual(bad_ref.status_code, 400)
 
-            # Valid referral code NGUYENVU265 activates account
+            # Active 1-time rotating code activates account and immediately burns it
+            import referral_service
+            referral_service.reset_rate_limiter()
+            db = next(get_db())
+            live_code = referral_service.ensure_active_code(db).code
+
             ok_ref = client.post(
                 "/api/auth/keycloak/activate-referral",
-                json={"referral_code": "NGUYENVU265"},
+                json={"referral_code": live_code},
                 headers={"Authorization": f"Bearer {token}"}
             )
             self.assertEqual(ok_ref.status_code, 200)
             self.assertTrue(ok_ref.json()["activated"])
             self.assertEqual(ok_ref.json()["referred_by"], "tonguyenvu@265.com")
+
+            # Live code must have rotated to a brand-new code
+            next_code = referral_service.ensure_active_code(db).code
+            self.assertNotEqual(live_code, next_code)
 
 
 if __name__ == "__main__":

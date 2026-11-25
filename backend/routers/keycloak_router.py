@@ -11,6 +11,7 @@ from sqlalchemy.orm import Session
 from database import get_db
 import models
 import auth
+import referral_service
 
 router = APIRouter(prefix="/api/auth/keycloak", tags=["Keycloak OIDC SSO"])
 
@@ -214,26 +215,14 @@ def keycloak_oidc_callback(
 @router.post("/activate-referral")
 def activate_keycloak_referral(
     req: KeycloakReferralActivationRequest,
+    request: Request,
     current_user: models.User = Depends(auth.get_current_user),
     db: Session = Depends(get_db)
 ):
-    ref_code = (req.referral_code or "").strip().upper()
-    if not ref_code:
-        raise HTTPException(status_code=400, detail="Vui lòng nhập mã giới thiệu từ máy chủ (Tô Nguyên Vũ).")
-
-    referrer = None
-    if ref_code == "NGUYENVU265":
-        referrer = db.query(models.User).filter(
-            (models.User.referral_code == "NGUYENVU265") | (models.User.email == "tonguyenvu@265.com")
-        ).first()
-    else:
-        referrer = db.query(models.User).filter(models.User.referral_code == ref_code).first()
-
-    if not referrer and ref_code != "NGUYENVU265":
-        raise HTTPException(status_code=400, detail="Mã giới thiệu không chính xác hoặc chưa được kích hoạt bởi máy chủ/Tô Nguyên Vũ.")
-
-    referrer_email = referrer.email if referrer else "tonguyenvu@265.com"
-    referrer_name = referrer.full_name if referrer else "Tô Nguyên Vũ"
+    client_ip = request.client.host if request.client else ""
+    ref_result = referral_service.consume_code_and_rotate(db, req.referral_code, current_user.email.lower(), client_ip)
+    referrer_email = ref_result["owner_email"]
+    referrer_name = ref_result["referrer_name"]
 
     current_user.referred_by = referrer_email
     if (current_user.streak_count or 0) == 0:
@@ -247,5 +236,5 @@ def activate_keycloak_referral(
         "activated": True,
         "referred_by": referrer_email,
         "referrer_name": referrer_name,
-        "message": f"Kích hoạt tài khoản Keycloak thành công qua mã giới thiệu của {referrer_name}!"
+        "message": f"Kích hoạt tài khoản Keycloak thành công qua mã dùng 1 lần của {referrer_name}!"
     }

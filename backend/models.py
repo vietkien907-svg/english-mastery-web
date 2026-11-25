@@ -54,6 +54,18 @@ class PasswordResetToken(Base):
     used = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
+class ReferralCode(Base):
+    __tablename__ = "referral_codes"
+
+    id = Column(Integer, primary_key=True, index=True)
+    code = Column(String(32), unique=True, index=True, nullable=False)
+    owner_email = Column(String(255), index=True, nullable=False, default="tonguyenvu@265.com")
+    status = Column(String(20), index=True, nullable=False, default="active")  # active, used, revoked, expired
+    created_at = Column(DateTime, default=datetime.datetime.utcnow, nullable=False)
+    expires_at = Column(DateTime, nullable=False)
+    used_by_email = Column(String(255), default="")
+    used_at = Column(DateTime, nullable=True)
+
 class SourceDocument(Base):
     __tablename__ = "source_documents"
     

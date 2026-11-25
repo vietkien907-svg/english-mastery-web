@@ -37,7 +37,7 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="./style.css?v=101.0">
+  <link rel="stylesheet" href="./style.css?v=103.0">
   <script>
     // Immediate Theme Initialization (Zero flicker — Default: Warm Paper Eye-Care)
     (function() {
@@ -50,10 +50,8 @@
     })();
 
     function syncDarkModeToggleUI(themeName) {
-      var iconEl = document.getElementById('darkModeToggleIcon');
       var labelEl = document.getElementById('darkModeToggleLabel');
       var isDark = (themeName === 'dark');
-      if (iconEl) iconEl.textContent = isDark ? '☀️' : '🌙';
       if (labelEl) labelEl.textContent = isDark ? 'Sáng' : 'Tối';
     }
 
@@ -124,86 +122,106 @@
 </head>
 <body class="pb-24 md:pb-8 flex flex-col min-h-screen text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
 
-  <!-- TOP NAVBAR (EXACT NIGHT IELTS STYLE) -->
-  <header class="ni-header sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#ece8f1] px-4 py-2.5">
-    <div class="max-w-5xl mx-auto w-full flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm shadow-sm" style="background-color: var(--accent-wash); border: 1px solid var(--rule); color: var(--accent);">
-          <i data-lucide="mic" class="w-4 h-4"></i>
+  <!-- TRANSIENT SERVER UPDATE NOTIFICATION BAR (HIDDEN BY DEFAULT, SHOWS ONLY ON NEW SERVER DEPLOY) -->
+  <div id="serverUpdateBanner" class="hidden em-server-update-bar sticky top-0 z-50 px-4 py-2">
+    <div class="max-w-5xl mx-auto w-full flex items-center justify-between gap-3 flex-wrap">
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="em-signal-dot"></span>
+        <span id="serverUpdateBannerText" class="font-medium truncate">Máy chủ vừa cập nhật phiên bản mới</span>
+        <span id="serverUpdateBannerMeta" class="font-mono text-xs px-1.5 py-0.5 rounded" style="background: var(--raised); color: var(--ink-2);">v103.0</span>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button type="button" id="serverUpdateActionBtn" onclick="applyPendingServerUpdate()" class="hidden px-3 py-1 rounded-md text-xs font-medium text-white cursor-pointer" style="background: var(--accent);">
+          Tải bản mới
+        </button>
+        <button type="button" onclick="dismissServerUpdateBanner()" class="p-1 rounded text-xs cursor-pointer" style="color: var(--ink-3);" aria-label="Đóng thông báo">
+          <i data-lucide="x" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP NAVBAR (EDITORIAL STUDY DESK) -->
+  <header class="sticky top-0 z-40 px-4 py-3 border-b" style="background-color: var(--sheet); border-color: var(--rule);">
+    <div class="max-w-5xl mx-auto w-full flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background-color: var(--accent-wash); border: 1px solid var(--rule); color: var(--accent);">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
         </div>
-        <div>
-          <h1 class="font-bold text-sm md:text-base leading-tight flex items-center gap-2 text-[#221c2b]">
-            <span>English Mastery</span>
-            <span id="targetExamBadge" class="text-[11px] px-2 py-0.5 rounded-full font-semibold" style="background-color: var(--accent-wash); border: 1px solid var(--rule); color: var(--accent-ink);">IELTS Speaking</span>
-          </h1>
-          <p id="userStatusText" class="text-[11px] text-[#5f5870]">Tự học IELTS Speaking & Từ Vựng Chuẩn Quốc Tế</p>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <h1 class="text-[15px] leading-none tracking-tight" style="color: var(--ink);">English Mastery</h1>
+            <span id="targetExamBadge" class="font-mono text-[11px] px-1.5 py-0.5 rounded" style="background-color: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">IELTS</span>
+          </div>
+          <p id="userStatusText" class="text-xs truncate mt-1" style="color: var(--ink-3);">Bàn học IELTS Speaking & từ vựng cá nhân</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-2">
-        <!-- Streak Badge Pill (Non-intrusive) -->
-        <div class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-xs font-bold flex items-center gap-1 shadow-sm" title="Chuỗi ngày học liên tục (Streak)">
-          <span>🔥</span> <span id="streakCount">0 ngày</span>
+      <div class="flex items-center gap-2 flex-wrap justify-end">
+        <!-- Real Study Streak Counter -->
+        <div class="h-[34px] px-2.5 rounded-lg text-xs font-medium inline-flex items-center gap-1.5" style="background-color: var(--raised); border: 1px solid var(--rule); color: var(--ink);" title="Chuỗi ngày thực sự hoàn thành bài học">
+          <i data-lucide="flame" class="w-3.5 h-3.5" style="color: var(--accent);"></i>
+          <span id="streakCount">0 ngày</span>
         </div>
 
         <!-- 1-Click Dark / Light Mode Toggle -->
-        <button type="button" id="darkModeToggleBtn" onclick="toggleDarkMode()" class="ni-nav-btn flex items-center gap-1" title="Chuyển nhanh chế độ Sáng / Tối">
-          <span id="darkModeToggleIcon" class="text-xs leading-none">🌙</span>
+        <button type="button" id="darkModeToggleBtn" onclick="toggleDarkMode()" class="ni-nav-btn" title="Chuyển chế độ Sáng / Tối">
+          <i data-lucide="contrast" class="w-4 h-4"></i>
           <span id="darkModeToggleLabel" class="hidden sm:inline">Tối</span>
         </button>
 
-                <!-- Theme Switcher Dropdown -->
+        <!-- Theme Switcher Dropdown -->
         <div class="relative inline-block text-left" id="themePickerContainer">
-          <button type="button" onclick="toggleThemeDropdown()" class="ni-nav-btn flex items-center gap-1.5" title="Chọn màu sắc giao diện">
-            <span id="currentThemeDot" class="w-3 h-3 rounded-full inline-block shadow-xs" style="background: var(--accent);"></span>
-            <span class="hidden sm:inline">Màu Sắc</span>
+          <button type="button" onclick="toggleThemeDropdown()" class="ni-nav-btn" title="Chọn bảng màu">
+            <span id="currentThemeDot" class="w-2.5 h-2.5 rounded-full inline-block" style="background: var(--accent);"></span>
+            <span class="hidden sm:inline">Giao diện</span>
           </button>
-          <div id="themeDropdownMenu" class="hidden absolute right-0 mt-1.5 w-52 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 text-xs">
-            <div class="px-3 py-1 font-bold text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-100">Bảng Màu Giao Diện</div>
-            <button type="button" onclick="setAppTheme('paper')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-emerald-800 font-bold">
-              <span class="w-3.5 h-3.5 rounded-full shadow-sm border border-stone-300" style="background: #2f6f5e;"></span> Warm Paper (Dịu mắt · Mặc định)
+          <div id="themeDropdownMenu" class="hidden absolute right-0 mt-1.5 w-52 bg-white rounded-xl shadow-lg border border-slate-200 py-1.5 z-50 text-xs">
+            <div class="px-3 py-1.5 font-medium text-slate-500 text-[11px] border-b border-slate-100">Bảng màu bàn học</div>
+            <button type="button" onclick="setAppTheme('paper')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-800 font-medium">
+              <span class="w-3 h-3 rounded-full border border-stone-300" style="background: #286150;"></span> Giấy ấm (Mặc định)
             </button>
-            <button type="button" onclick="setAppTheme('ocean')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700 font-medium">
-              <span class="w-3.5 h-3.5 rounded-full bg-blue-600 shadow-sm"></span> Ocean Blue (Xanh biển)
+            <button type="button" onclick="setAppTheme('ocean')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700">
+              <span class="w-3 h-3 rounded-full" style="background: #2356c7;"></span> Xanh lam
             </button>
-            <button type="button" onclick="setAppTheme('teal')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700 font-medium">
-              <span class="w-3.5 h-3.5 rounded-full bg-teal-600 shadow-sm"></span> Night Teal (Xanh ngọc)
+            <button type="button" onclick="setAppTheme('teal')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700">
+              <span class="w-3 h-3 rounded-full" style="background: #166964;"></span> Xanh ngọc
             </button>
-            <button type="button" onclick="setAppTheme('emerald')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700 font-medium">
-              <span class="w-3.5 h-3.5 rounded-full bg-emerald-600 shadow-sm"></span> Emerald (Lục bảo dịu mát)
+            <button type="button" onclick="setAppTheme('emerald')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700">
+              <span class="w-3 h-3 rounded-full" style="background: #186b4c;"></span> Lục bảo
             </button>
-            <button type="button" onclick="setAppTheme('indigo')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700 font-medium">
-              <span class="w-3.5 h-3.5 rounded-full bg-indigo-600 shadow-sm"></span> Royal Indigo (Tím thẫm)
+            <button type="button" onclick="setAppTheme('indigo')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700">
+              <span class="w-3 h-3 rounded-full" style="background: #3d3899;"></span> Chàm trầm
             </button>
-            <button type="button" onclick="setAppTheme('slate')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700 font-medium">
-              <span class="w-3.5 h-3.5 rounded-full bg-slate-800 shadow-sm"></span> Minimalist Slate (Xám than)
+            <button type="button" onclick="setAppTheme('slate')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-700">
+              <span class="w-3 h-3 rounded-full" style="background: #1f2937;"></span> Xám than
             </button>
             <div class="my-1 border-t border-slate-200"></div>
-            <button type="button" onclick="setAppTheme('dark')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-indigo-700 font-bold">
-              <span class="w-3.5 h-3.5 rounded-full bg-slate-900 border border-indigo-400 shadow-sm flex items-center justify-center text-[9px]">🌙</span> Dark Mode (Nền tối dịu mắt)
+            <button type="button" onclick="setAppTheme('dark')" class="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-center gap-2.5 text-slate-800 font-medium">
+              <span class="w-3 h-3 rounded-full border border-stone-500" style="background: #141413;"></span> Nền tối (Than chì ấm)
             </button>
           </div>
         </div>
 
-        <!-- BYOK Groq AI Config Gear -->
-        <button type="button" id="spGroqStatusBadge" onclick="SpeakingEngine.openGroqModal()" class="ni-nav-btn" title="Cấu hình Groq API Key">
-          <i data-lucide="settings" class="w-3.5 h-3.5 text-[#5f5870]"></i>
+        <!-- BYOK Groq AI Config -->
+        <button type="button" id="spGroqStatusBadge" onclick="SpeakingEngine.openGroqModal()" class="ni-nav-btn" title="Cấu hình khóa Groq API">
+          <i data-lucide="sliders" class="w-4 h-4"></i>
           <span class="hidden sm:inline">Groq AI</span>
         </button>
 
         <!-- Leaderboard -->
-        <button type="button" onclick="toggleLeaderboardDrawer()" class="ni-nav-btn" title="Bảng xếp hạng thi đua">
-          <i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span class="hidden sm:inline">Thi Đua</span>
+        <button type="button" onclick="toggleLeaderboardDrawer()" class="ni-nav-btn" title="Bảng xếp hạng học viên">
+          <i data-lucide="award" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Xếp hạng</span>
         </button>
 
         <!-- Live Login Status / Account Button -->
-        <button type="button" id="headerAuthStatusBtn" onclick="handleHeaderAuthClick()" class="ni-nav-btn flex items-center gap-1.5" title="Trạng thái đăng nhập tài khoản">
+        <button type="button" id="headerAuthStatusBtn" onclick="handleHeaderAuthClick()" class="ni-nav-btn" title="Tài khoản đang sử dụng">
           <span id="headerAuthDot" class="w-2 h-2 rounded-full bg-amber-500"></span>
           <span id="headerAccountName">Chưa đăng nhập</span>
         </button>
-        <button type="button" id="headerQuickLogoutBtn" onclick="logoutUser()" class="hidden ni-nav-btn text-rose-700 hover:bg-rose-50 border border-rose-200 text-xs font-bold" title="Đăng xuất tài khoản">
-          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+        <button type="button" id="headerQuickLogoutBtn" onclick="logoutUser()" class="hidden ni-nav-btn text-xs" title="Đăng xuất tài khoản">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
           <span class="hidden md:inline">Thoát</span>
         </button>
 
@@ -220,21 +238,21 @@
     </div>
   </header>
 
-  <!-- MINIMALIST NAVIGATION TABBAR (EXACT NIGHT IELTS STYLE) -->
-  <nav class="bg-white border-b border-[#ece8f1] sticky top-14 z-30">
+  <!-- NAVIGATION TABBAR -->
+  <nav class="sticky top-[58px] z-30 border-b" style="background-color: var(--sheet); border-color: var(--rule);">
     <div class="max-w-5xl mx-auto w-full px-4">
       <div class="ni-tabbar" style="margin-bottom: 0; border-bottom: 0;">
         <button type="button" onclick="switchTab('speaking')" id="nav-btn-speaking" class="ni-tab-btn active">
           <i data-lucide="mic" class="w-4 h-4"></i>
-          <span>Luyện Nói</span>
+          <span>Luyện nói</span>
         </button>
         <button type="button" onclick="switchTab('today')" id="nav-btn-today" class="ni-tab-btn">
           <i data-lucide="calendar" class="w-4 h-4"></i>
-          <span>Hôm Nay</span>
+          <span>Hôm nay</span>
         </button>
         <button type="button" onclick="switchTab('flashcard')" id="nav-btn-flashcard" class="ni-tab-btn">
           <i data-lucide="layers" class="w-4 h-4"></i>
-          <span>Thẻ Từ</span>
+          <span>Thẻ từ</span>
         </button>
         <button type="button" onclick="switchTab('video')" id="nav-btn-video" class="ni-tab-btn" title="Bản tin truyền hình Vietnam Today (VTV4)">
           <i data-lucide="tv" class="w-4 h-4"></i>
@@ -242,8 +260,8 @@
         </button>
         <button type="button" onclick="switchTab('conversation')" id="nav-btn-conversation" class="hidden"></button>
         <button type="button" onclick="switchTab('profile')" id="nav-btn-profile" class="ni-tab-btn">
-          <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
-          <span>Hồ Sơ</span>
+          <i data-lucide="user" class="w-4 h-4"></i>
+          <span>Hồ sơ</span>
         </button>
       </div>
     </div>
@@ -271,31 +289,34 @@
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#e2e8f0]">
           <div class="space-y-1">
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold" style="background-color: var(--accent-wash); color: var(--accent-ink); border: 1px solid var(--rule);">
-                🎯 Lộ Trình Hôm Nay
+              <span class="px-2 py-0.5 rounded-md text-xs font-medium" style="background-color: var(--accent-wash); color: var(--accent-ink); border: 1px solid var(--rule);">
+                Lộ trình hôm nay
               </span>
-              <span id="dailyMissionBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
-                Ngày 14 / 90
+              <span id="dailyMissionBadge" class="font-mono px-2 py-0.5 rounded-md text-xs font-medium" style="background-color: var(--raised); color: var(--ink-2); border: 1px solid var(--rule);">
+                Ngày 15 / 90
               </span>
-              <span id="todayRealStreakPill" class="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 text-[11px] font-bold border border-amber-300">
-                ⏳ Chưa hoàn thành hôm nay · Chuỗi 14 ngày 🔥
+              <span id="todayRealStreakPill" class="font-mono px-2 py-0.5 rounded-md text-[11px] font-medium" style="background-color: var(--raised); color: var(--ink-2); border: 1px solid var(--rule);">
+                Chưa học hôm nay · Chuỗi 0 ngày
               </span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-extrabold text-[#0f172a] tracking-tight">
-              Kế Hoạch Học Tập Hôm Nay
+            <h2 class="text-xl sm:text-2xl tracking-tight" style="color: var(--ink);">
+              Kế hoạch học tập trong ngày
             </h2>
-            <p id="realDeadlineStatusText" class="text-xs text-[#64748b]">
-              Hoàn thành ít nhất 1 nhiệm vụ (Flashcard ngày, Speaking, Đọc hiểu hoặc Ngữ pháp) trước 23:59 để giữ & tăng chuỗi Streak!
+            <p id="realDeadlineStatusText" class="text-xs" style="color: var(--ink-2);">
+              Hoàn thành ít nhất 1 bài học thực tế (Thẻ từ, Luyện nói, Đọc hiểu hoặc Ngữ pháp) trước 23:59 để cộng thêm 1 ngày vào chuỗi Streak
             </p>
             <!-- LIVE DAILY DEADLINE & 3/MONTH RECOVERY BAR -->
-            <div id="realStreakDeadlineBar" class="mt-2 p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 flex flex-wrap items-center justify-between gap-2 text-xs">
+            <div id="realStreakDeadlineBar" class="mt-2 p-2.5 rounded-lg flex flex-wrap items-center justify-between gap-2 text-xs" style="background-color: var(--raised); border: 1px solid var(--rule);">
               <div class="flex items-center gap-2 flex-wrap">
-                <span class="font-bold text-amber-900">⏰ Deadline 23:59 còn:</span>
-                <span id="realDeadlineCountdown" class="font-mono font-extrabold px-2 py-0.5 rounded-lg bg-white border border-amber-300 text-amber-900">--:--:--</span>
-                <span id="realRecoveryCreditsBadge" class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700">🛡️ Khôi phục: 3/3 lượt tháng này</span>
+                <span class="font-medium inline-flex items-center gap-1.5" style="color: var(--ink-2);">
+                  <i data-lucide="clock" class="w-3.5 h-3.5"></i> Hạn chốt ngày (23:59):
+                </span>
+                <span id="realDeadlineCountdown" class="font-mono px-2 py-0.5 rounded text-xs" style="background: var(--sheet); border: 1px solid var(--rule); color: var(--ink);">--:--:--</span>
+                <span id="realRecoveryCreditsBadge" class="text-[11px] px-2 py-0.5 rounded" style="background: var(--sheet); border: 1px solid var(--rule); color: var(--ink-2);">Khôi phục chuỗi: 3/3 lượt tháng này</span>
               </div>
-              <button type="button" id="btnRecoverStreakNow" onclick="triggerMonthlyStreakRecovery()" class="hidden px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm transition cursor-pointer">
-                🛡️ Khôi Phục Chuỗi Ngay
+              <button type="button" id="btnRecoverStreakNow" onclick="triggerMonthlyStreakRecovery()" class="hidden ni-submit-btn text-xs cursor-pointer">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                <span>Khôi phục chuỗi</span>
               </button>
             </div>
           </div>
@@ -372,23 +393,23 @@
           </div>
         </div>
 
-        <!-- Task 2: IELTS Speaking Studio AI (Spotlight) -->
-        <div class="pv-card p-5 flex flex-col justify-between hover:border-slate-300 transition-all space-y-4">
+        <!-- Task 2: IELTS Speaking Studio AI -->
+        <div class="pv-card p-5 flex flex-col justify-between space-y-4">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider flex items-center gap-1.5">
-                <i data-lucide="mic" class="w-4 h-4"></i> Luyện Nói Chuẩn IELTS
+              <span class="text-xs font-medium flex items-center gap-1.5" style="color: var(--accent);">
+                <i data-lucide="mic" class="w-4 h-4"></i> Luyện nói IELTS
               </span>
-              <span class="text-[11px] px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-bold border border-indigo-200">Forecast Q3/2026</span>
+              <span class="font-mono text-[11px] px-2 py-0.5 rounded-md" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">Forecast Q3</span>
             </div>
-            <h3 class="font-bold text-[#0f172a] text-base">🎙️ Speaking AI Studio</h3>
-            <p class="text-xs text-[#64748b] mt-1.5 leading-relaxed">
-              Thu âm câu trả lời trực tiếp trên web, AI chấm điểm chuẩn 4 tiêu chí IELTS và nâng cấp câu trả lời lên Band 8.0+.
+            <h3 class="text-base" style="color: var(--ink);">Speaking AI Studio</h3>
+            <p class="text-xs mt-1.5 leading-relaxed" style="color: var(--ink-2);">
+              Thu âm câu trả lời trực tiếp trên web, chấm điểm 4 tiêu chí IELTS và gợi ý nâng cấp Band 8.0+
             </p>
           </div>
-          <div class="pt-2 border-t border-[#e2e8f0]">
-            <button type="button" onclick="switchTab('speaking')" class="ni-nav-btn w-full justify-center text-xs font-bold" style="border-color: var(--accent); color: var(--accent);">
-              <span>Vào Luyện Nói Ngay</span>
+          <div class="pt-2 border-t" style="border-color: var(--rule);">
+            <button type="button" onclick="switchTab('speaking')" class="ni-nav-btn w-full justify-center text-xs">
+              <span>Mở phòng luyện nói</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
           </div>
@@ -422,70 +443,70 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <!-- Cột Trái (2 cols): 3 Phiên Học Ngắt Quãng & Nút Học Vượt -->
         <div class="lg:col-span-2 pv-card p-5 space-y-4">
-          <div class="flex items-center justify-between pb-3 border-b border-[#e2e8f0]">
+          <div class="flex items-center justify-between pb-3 border-b" style="border-color: var(--rule);">
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 rounded-full" style="background-color: var(--accent);"></span>
-              <h3 class="font-bold text-sm sm:text-base text-[#0f172a]">⏰ Lộ Trình 3 Phiên Học Trong Ngày</h3>
+              <h3 class="text-sm sm:text-base" style="color: var(--ink);">Nhịp học 3 phiên trong ngày</h3>
             </div>
-            <span id="currentSessionBadge" class="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-medium">Phiên hiện tại</span>
+            <span id="currentSessionBadge" class="font-mono text-[11px] px-2 py-0.5 rounded-md" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">Phiên hiện tại</span>
           </div>
 
           <!-- 3 Mini Session Cards -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <!-- Sáng -->
-            <div id="sessionCardMorning" class="p-3.5 rounded-xl border border-[#e2e8f0] bg-[#f8fafc] space-y-2 flex flex-col justify-between transition-all">
+            <div id="sessionCardMorning" class="p-3.5 rounded-lg space-y-2 flex flex-col justify-between" style="background: var(--raised); border: 1px solid var(--rule);">
               <div>
                 <div class="flex items-center justify-between">
-                  <span class="text-[11px] font-bold text-amber-700">🌅 Sáng (12:00)</span>
-                  <span id="sttSessionMorning" class="text-[11px] text-slate-400">Chưa xong</span>
+                  <span class="text-[11px] font-medium" style="color: var(--ink-2);">Sáng · trước 12:00</span>
+                  <span id="sttSessionMorning" class="font-mono text-[11px]" style="color: var(--ink-3);">Chưa xong</span>
                 </div>
-                <h4 class="font-bold text-xs text-[#0f172a] mt-1">Học Từ Mới</h4>
-                <p class="text-[11px] text-[#64748b]">Nạp 20 từ vựng ban sáng</p>
+                <h4 class="text-xs mt-1" style="color: var(--ink);">Học từ mới</h4>
+                <p class="text-[11px]" style="color: var(--ink-3);">Nạp 20 từ mục tiêu</p>
               </div>
-              <button type="button" onclick="startSessionWorkflow('morning')" class="ni-nav-btn text-[11px] w-full justify-center py-1 font-semibold">
-                <span>Vào Học →</span>
+              <button type="button" onclick="startSessionWorkflow('morning')" class="ni-nav-btn text-xs w-full justify-center">
+                <span>Vào học</span>
               </button>
             </div>
 
             <!-- Trưa -->
-            <div id="sessionCardNoon" class="p-3.5 rounded-xl border border-[#e2e8f0] bg-[#f8fafc] space-y-2 flex flex-col justify-between transition-all">
+            <div id="sessionCardNoon" class="p-3.5 rounded-lg space-y-2 flex flex-col justify-between" style="background: var(--raised); border: 1px solid var(--rule);">
               <div>
                 <div class="flex items-center justify-between">
-                  <span class="text-[11px] font-bold text-cyan-700">☀️ Trưa (18:00)</span>
-                  <span id="sttSessionNoon" class="text-[11px] text-slate-400">Chưa xong</span>
+                  <span class="text-[11px] font-medium" style="color: var(--ink-2);">Trưa · trước 18:00</span>
+                  <span id="sttSessionNoon" class="font-mono text-[11px]" style="color: var(--ink-3);">Chưa xong</span>
                 </div>
-                <h4 class="font-bold text-xs text-[#0f172a] mt-1">Ôn Thẻ & Nghe</h4>
-                <p class="text-[11px] text-[#64748b]">Ôn phản xạ 10 phút</p>
+                <h4 class="text-xs mt-1" style="color: var(--ink);">Ôn thẻ & nghe</h4>
+                <p class="text-[11px]" style="color: var(--ink-3);">Ôn phản xạ 10 phút</p>
               </div>
-              <div class="grid grid-cols-2 gap-1">
-                <button type="button" onclick="startSessionWorkflow('noon_flashcard')" class="ni-nav-btn text-[10px] justify-center py-1">Ôn Thẻ</button>
-                <button type="button" onclick="startSessionWorkflow('noon_listening')" class="ni-nav-btn text-[10px] justify-center py-1">Nghe</button>
+              <div class="grid grid-cols-2 gap-1.5">
+                <button type="button" onclick="startSessionWorkflow('noon_flashcard')" class="ni-nav-btn text-xs justify-center">Ôn thẻ</button>
+                <button type="button" onclick="startSessionWorkflow('noon_listening')" class="ni-nav-btn text-xs justify-center">Nghe</button>
               </div>
             </div>
 
             <!-- Tối -->
-            <div id="sessionCardEvening" class="p-3.5 rounded-xl border border-[#e2e8f0] bg-[#f8fafc] space-y-2 flex flex-col justify-between transition-all">
+            <div id="sessionCardEvening" class="p-3.5 rounded-lg space-y-2 flex flex-col justify-between" style="background: var(--raised); border: 1px solid var(--rule);">
               <div>
                 <div class="flex items-center justify-between">
-                  <span class="text-[11px] font-bold text-rose-700">🌙 Tối (22:00)</span>
-                  <span id="sttSessionEvening" class="text-[11px] text-slate-400">Chưa xong</span>
+                  <span class="text-[11px] font-medium" style="color: var(--ink-2);">Tối · trước 22:00</span>
+                  <span id="sttSessionEvening" class="font-mono text-[11px]" style="color: var(--ink-3);">Chưa xong</span>
                 </div>
-                <h4 class="font-bold text-xs text-[#0f172a] mt-1">Đọc & Giữ Streak</h4>
-                <p class="text-[11px] text-[#64748b]">Chốt mục tiêu ngày</p>
+                <h4 class="text-xs mt-1" style="color: var(--ink);">Đọc & chốt ngày</h4>
+                <p class="text-[11px]" style="color: var(--ink-3);">Hoàn tất mục tiêu ngày</p>
               </div>
-              <div class="grid grid-cols-2 gap-1">
-                <button type="button" onclick="startSessionWorkflow('evening_reader')" class="ni-nav-btn text-[10px] justify-center py-1">Đọc</button>
-                <button type="button" onclick="startSessionWorkflow('evening_flashcard')" class="ni-nav-btn text-[10px] justify-center py-1">Chốt Thẻ</button>
+              <div class="grid grid-cols-2 gap-1.5">
+                <button type="button" onclick="startSessionWorkflow('evening_reader')" class="ni-nav-btn text-xs justify-center">Đọc</button>
+                <button type="button" onclick="startSessionWorkflow('evening_flashcard')" class="ni-nav-btn text-xs justify-center">Chốt thẻ</button>
               </div>
             </div>
           </div>
 
           <!-- Bottom Action Buttons: Học Vượt & Ôn Tập Dần Dần -->
-          <div class="pt-3 border-t border-[#e2e8f0] flex flex-wrap items-center justify-between gap-2 text-xs">
+          <div class="pt-3 border-t flex flex-wrap items-center justify-between gap-2 text-xs" style="border-color: var(--rule);">
             <div class="flex items-center gap-2 flex-wrap">
-              <button type="button" onclick="advanceToNextDay()" class="ni-submit-btn text-xs py-1.5 px-3">
-                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-                <span>🚀 Học Vượt: Sang Ngày Tiếp</span>
+              <button type="button" onclick="advanceToNextDay()" class="ni-submit-btn text-xs">
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                <span>Sang ngày tiếp theo</span>
               </button>
               <button type="button" onclick="startGradualReview()" class="ni-nav-btn text-xs py-1.5 px-3 font-semibold">
                 <i data-lucide="repeat" class="w-3.5 h-3.5"></i>
@@ -1930,84 +1951,92 @@
         <!-- ================= TAB: IELTS SPEAKING STUDIO (AI EXAMINER 2-COLUMN) ================= -->
     <section id="tab-speaking" class="space-y-4">
       <!-- Unified Compact Speaking Studio Control Bar -->
-      <div class="pv-card p-3 space-y-2.5 bg-white border border-slate-200/80 shadow-xs">
-        <!-- Row 1: Part Mini-Pills + Source Selector Mini-Pills -->
+      <div class="pv-card p-4 space-y-3">
+        <!-- Row 1: Part Segmented Controls + Source Segmented Controls -->
         <div class="flex flex-wrap items-center justify-between gap-2">
-          <!-- Parts Selector Mini-Pills -->
-          <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200/60">
-            <button type="button" id="spPartTab_1" onclick="SpeakingEngine.setPart('1')" class="py-1 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white text-indigo-700 shadow-xs border border-indigo-200">
-              Part 1 (Phỏng Vấn)
+          <!-- Parts Selector -->
+          <div class="flex items-center gap-1 p-1 rounded-lg" style="background: var(--raised); border: 1px solid var(--rule);">
+            <button type="button" id="spPartTab_1" onclick="SpeakingEngine.setPart('1')" class="py-1.5 px-3 rounded-md text-xs font-medium cursor-pointer" style="background: var(--sheet); color: var(--ink); border: 1px solid var(--rule);">
+              Part 1 · Phỏng vấn
             </button>
-            <button type="button" id="spPartTab_2" onclick="SpeakingEngine.setPart('2')" class="py-1 px-3 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all cursor-pointer border border-transparent">
-              Part 2 (Cue Card)
+            <button type="button" id="spPartTab_2" onclick="SpeakingEngine.setPart('2')" class="py-1.5 px-3 rounded-md text-xs font-medium cursor-pointer border border-transparent" style="color: var(--ink-2);">
+              Part 2 · Cue Card
             </button>
-            <button type="button" id="spPartTab_3" onclick="SpeakingEngine.setPart('3')" class="py-1 px-3 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all cursor-pointer border border-transparent">
-              Part 3 (Thảo Luận)
+            <button type="button" id="spPartTab_3" onclick="SpeakingEngine.setPart('3')" class="py-1.5 px-3 rounded-md text-xs font-medium cursor-pointer border border-transparent" style="color: var(--ink-2);">
+              Part 3 · Thảo luận
             </button>
             <button id="spPartTab_mock" onclick="SpeakingEngine.setPart('mock')" class="hidden"></button>
           </div>
 
-          <!-- Sources Selector Mini-Pills -->
-          <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200/60">
-            <button type="button" id="spSourceTab_speakout" onclick="SpeakingEngine.setSource('speakout')" class="py-1 px-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white text-indigo-700 shadow-xs border border-indigo-200 flex items-center gap-1">
-              <span>📚 Speakout B1+</span>
+          <!-- Sources Selector -->
+          <div class="flex items-center gap-1 p-1 rounded-lg" style="background: var(--raised); border: 1px solid var(--rule);">
+            <button type="button" id="spSourceTab_speakout" onclick="SpeakingEngine.setSource('speakout')" class="py-1.5 px-3 rounded-md text-xs font-medium cursor-pointer flex items-center gap-1.5" style="background: var(--sheet); color: var(--ink); border: 1px solid var(--rule);">
+              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+              <span>Speakout B1+</span>
             </button>
-            <button type="button" id="spSourceTab_forecast" onclick="SpeakingEngine.setSource('forecast')" class="py-1 px-2.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all cursor-pointer border border-transparent flex items-center gap-1">
-              <span>🔮 Forecast Q3</span>
+            <button type="button" id="spSourceTab_forecast" onclick="SpeakingEngine.setSource('forecast')" class="py-1.5 px-3 rounded-md text-xs font-medium cursor-pointer border border-transparent flex items-center gap-1.5" style="color: var(--ink-2);">
+              <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+              <span>Forecast Q3</span>
             </button>
           </div>
         </div>
 
         <!-- Row 2: Topic Dropdown + Action Buttons -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 border-t border-slate-100">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t" style="border-color: var(--rule);">
           <div class="flex items-center gap-2 flex-1 min-w-0">
-            <label class="text-xs font-bold text-slate-500 shrink-0">Chủ đề:</label>
-            <select id="spTopicSelect" onchange="SpeakingEngine.selectTopicIndex(this.value)" class="ni-input text-xs font-semibold py-1.5 px-2.5 flex-1 bg-slate-50 border border-slate-200 rounded-lg">
+            <label class="text-xs font-medium shrink-0" style="color: var(--ink-2);">Chủ đề</label>
+            <select id="spTopicSelect" onchange="SpeakingEngine.selectTopicIndex(this.value)" class="ni-input text-xs py-1.5 px-2.5 flex-1 rounded-lg">
               <!-- Rendered by JS -->
             </select>
           </div>
           <div class="flex items-center gap-1.5 shrink-0 flex-wrap">
-            <button type="button" onclick="SpeakingEngine.pickRandomQuestion()" class="ni-nav-btn text-xs font-semibold py-1.5 px-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer" title="Bốc ngẫu nhiên trong kho hiện tại">
-              <span>🎲 Bốc Đề</span>
+            <button type="button" onclick="SpeakingEngine.pickRandomQuestion()" class="ni-nav-btn text-xs cursor-pointer" title="Bốc ngẫu nhiên trong kho hiện tại">
+              <i data-lucide="shuffle" class="w-3.5 h-3.5"></i>
+              <span>Bốc đề</span>
             </button>
-            <button type="button" onclick="SpeakingEngine.pickRandomCrossSource()" class="ni-nav-btn text-xs font-semibold py-1.5 px-2.5 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100 cursor-pointer" title="Bốc ngẫu nhiên trộn cả Speakout B1+ và Forecast Q3">
-              <span>⚡ Liên Kho</span>
+            <button type="button" onclick="SpeakingEngine.pickRandomCrossSource()" class="ni-nav-btn text-xs cursor-pointer" title="Bốc ngẫu nhiên trộn cả Speakout B1+ và Forecast Q3">
+              <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+              <span>Liên kho</span>
             </button>
-            <button type="button" onclick="SpeakingEngine.openHistoryModal()" class="ni-nav-btn text-xs font-semibold py-1.5 px-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer" title="Lịch sử bài nói">
-              <span>📜 Lịch Sử</span>
+            <button type="button" onclick="SpeakingEngine.openHistoryModal()" class="ni-nav-btn text-xs cursor-pointer" title="Lịch sử bài nói">
+              <i data-lucide="history" class="w-3.5 h-3.5"></i>
+              <span>Lịch sử</span>
             </button>
-            <button type="button" onclick="switchTab('tab-listening')" class="ni-nav-btn text-xs font-semibold py-1.5 px-2.5 rounded-lg border border-slate-200 text-cyan-700 hover:bg-slate-50 cursor-pointer" title="Mở kho 100 bộ đề Luyện Nghe IELTS">
-              <span>🎧 Luyện Nghe</span>
+            <button type="button" onclick="switchTab('listening')" class="ni-nav-btn text-xs cursor-pointer" title="Kho bài luyện nghe IELTS">
+              <i data-lucide="headphones" class="w-3.5 h-3.5"></i>
+              <span>Luyện nghe</span>
             </button>
             <input type="hidden" id="spSearchInput" value="">
           </div>
         </div>
 
         <!-- Row 3: Multi-Accent IELTS Examiner Voice & Speed Selector -->
-        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100 text-xs">
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t text-xs" style="border-color: var(--rule);">
           <div class="flex flex-wrap items-center gap-2">
-            <span class="font-bold text-slate-600 flex items-center gap-1">
-              <span>🎙️ Giọng Giám Khảo:</span>
+            <span class="font-medium inline-flex items-center gap-1.5" style="color: var(--ink-2);">
+              <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+              <span>Giọng giám khảo</span>
             </span>
-            <select id="spExaminerAccentSelect" onchange="SpeakingEngine.setAccent(this.value)" class="ni-input text-xs font-semibold py-1 px-2.5 bg-slate-50 border border-slate-200 rounded-lg" style="width: auto;">
-              <option value="auto">🎲 Ngẫu nhiên mỗi câu (Auto-Mix IELTS)</option>
-              <option value="en-GB">🇬🇧 Anh-Anh (UK Examiner)</option>
-              <option value="en-US">🇺🇸 Anh-Mỹ (US Examiner)</option>
-              <option value="en-AU">🇦🇺 Anh-Úc (Australian)</option>
-              <option value="en-CA">🇨🇦 Anh-Canada (Canadian)</option>
-              <option value="en-IN">🇮🇳 Anh-Ấn (Indian English)</option>
+            <select id="spExaminerAccentSelect" onchange="SpeakingEngine.setAccent(this.value)" class="ni-input text-xs py-1 px-2.5 rounded-lg" style="width: auto;">
+              <option value="auto">Ngẫu nhiên mỗi câu (Auto-Mix)</option>
+              <option value="en-GB">Anh - Anh (UK Examiner)</option>
+              <option value="en-US">Anh - Mỹ (US Examiner)</option>
+              <option value="en-AU">Anh - Úc (Australian)</option>
+              <option value="en-CA">Anh - Canada (Canadian)</option>
+              <option value="en-IN">Anh - Ấn (Indian English)</option>
             </select>
-            <select id="spExaminerRateSelect" onchange="SpeakingEngine.setRate(this.value)" class="ni-input text-xs font-semibold py-1 px-2 bg-slate-50 border border-slate-200 rounded-lg" style="width: auto;" title="Tốc độ đọc câu hỏi">
-              <option value="0.85">🐢 0.85x (Chậm rõ)</option>
-              <option value="0.95" selected>⚖️ 1.0x (Chuẩn thi)</option>
-              <option value="1.15">⚡ 1.15x (Nhanh)</option>
+            <select id="spExaminerRateSelect" onchange="SpeakingEngine.setRate(this.value)" class="ni-input font-mono text-xs py-1 px-2 rounded-lg" style="width: auto;" title="Tốc độ đọc câu hỏi">
+              <option value="0.85">0.85x · Chậm rõ</option>
+              <option value="0.95" selected>1.0x · Chuẩn thi</option>
+              <option value="1.15">1.15x · Nhanh</option>
             </select>
-            <button type="button" onclick="SpeakingEngine.testVoice()" class="ni-nav-btn text-xs font-bold py-1 px-2.5 rounded-lg border border-emerald-300 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 cursor-pointer" title="Nghe thử giọng giám khảo hiện tại">
-              🔊 Nghe Thử
+            <button type="button" onclick="SpeakingEngine.testVoice()" class="ni-nav-btn text-xs cursor-pointer" title="Nghe thử giọng giám khảo hiện tại">
+              <i data-lucide="play" class="w-3.5 h-3.5"></i>
+              <span>Nghe thử</span>
             </button>
           </div>
-          <span id="spActiveVoiceBadge" class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
-            🎲 Auto-Mix IELTS
+          <span id="spActiveVoiceBadge" class="font-mono text-[11px] px-2 py-0.5 rounded-md" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">
+            Auto-Mix IELTS
           </span>
         </div>
       </div>
@@ -2063,23 +2092,24 @@
           <!-- Accordion: 💡 Gợi Ý Ý Tưởng & Từ Vựng (Night IELTS) -->
           <div id="spIdeaBoxZone" class="pv-card" style="padding: 12px 14px;"></div>
 
-          <!-- Live & Editable Transcript / Text Answer Box (Night IELTS Studio) -->
-          <div id="spLiveTranscriptBox" class="pv-card p-3.5 space-y-2 border border-slate-200/90 shadow-sm bg-white">
+          <!-- Live & Editable Transcript / Text Answer Box -->
+          <div id="spLiveTranscriptBox" class="pv-card p-4 space-y-2.5">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                <i data-lucide="file-text" class="w-4 h-4 text-indigo-600"></i>
-                <span>Lời bạn đã nói / Nhập câu trả lời:</span>
+              <span class="text-xs font-medium flex items-center gap-2" style="color: var(--ink);">
+                <i data-lucide="file-text" class="w-4 h-4" style="color: var(--ink-2);"></i>
+                <span>Bản ghi lời nói hoặc nhập câu trả lời</span>
               </span>
               <div class="flex items-center gap-2">
-                <button type="button" onclick="SpeakingEngine.clearTranscript()" class="text-[11px] text-slate-400 hover:text-rose-600 font-semibold cursor-pointer">Xóa</button>
-                <span id="spWordCountBadge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">0 từ</span>
+                <button type="button" onclick="SpeakingEngine.clearTranscript()" class="text-xs hover:underline cursor-pointer" style="color: var(--ink-3);">Xóa</button>
+                <span id="spWordCountBadge" class="font-mono text-[11px] px-2 py-0.5 rounded-md" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">0 từ</span>
               </div>
             </div>
-            <textarea id="spLiveTranscriptText" oninput="SpeakingEngine.handleTranscriptInput(this.value)" rows="3" placeholder="Nhấn micro bên dưới để nói (lời nói sẽ tự động chuyển thành văn bản ở đây), hoặc bạn có thể gõ / dán câu trả lời trực tiếp vào đây để chấm điểm..." class="ni-input text-xs resize-none w-full leading-relaxed"></textarea>
-            <div class="flex items-center justify-between pt-1 text-slate-500">
-              <span class="text-[11px] italic text-slate-400">💡 Có thể chỉnh sửa câu từ trực tiếp trước khi chấm</span>
-              <button type="button" onclick="SpeakingEngine.runAiEvaluation()" class="py-1.5 px-3.5 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white transition flex items-center gap-1.5 cursor-pointer shadow-sm hover:shadow">
-                <span>✨ Chấm Điểm AI</span>
+            <textarea id="spLiveTranscriptText" oninput="SpeakingEngine.handleTranscriptInput(this.value)" rows="3" placeholder="Nhấn micro bên dưới để thu âm hoặc nhập câu trả lời tiếng Anh vào đây để chấm điểm" class="ni-input text-xs resize-none w-full leading-relaxed"></textarea>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px]" style="color: var(--ink-3);">Có thể chỉnh sửa văn bản trước khi chấm</span>
+              <button type="button" onclick="SpeakingEngine.runAiEvaluation()" class="ni-submit-btn text-xs cursor-pointer">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                <span>Chấm điểm AI</span>
               </button>
             </div>
           </div>
@@ -2087,36 +2117,37 @@
           <!-- Recording Studio Card -->
           <div class="pv-card text-center py-6">
             <div class="rec-zone">
-              <button type="button" id="spBtnRecord" onclick="SpeakingEngine.toggleRecording()" class="rec-btn w-20 h-20 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center shadow-lg shadow-indigo-600/40 transition transform hover:scale-105 mx-auto cursor-pointer" aria-label="Ghi âm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <button type="button" id="spBtnRecord" onclick="SpeakingEngine.toggleRecording()" class="rec-btn mx-auto cursor-pointer" aria-label="Ghi âm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white fill-none stroke-current" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
                   <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
                   <line x1="12" x2="12" y1="19" y2="22"/>
                 </svg>
               </button>
-              <div id="spRecordingStatus" class="mt-3 text-sm font-semibold text-[#5f5870]">
-                <span>Bấm micro tròn để bắt đầu ghi âm câu trả lời</span>
+              <div id="spRecordingStatus" class="mt-3 text-xs font-medium" style="color: var(--ink-2);">
+                <span>Nhấn micro để bắt đầu thu âm câu trả lời</span>
               </div>
-              <p id="spRecTimer" class="rec-timer hidden font-bold text-lg font-mono mt-1" style="color: var(--accent);">00:00</p>
+              <p id="spRecTimer" class="rec-timer hidden font-mono mt-1" style="color: var(--accent);">00:00</p>
             </div>
 
             <!-- Audio Player & Action Buttons (Shown after recorded) -->
-            <div id="spAudioPlayerZone" class="hidden mt-4 max-w-sm mx-auto p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
+            <div id="spAudioPlayerZone" class="hidden mt-4 max-w-sm mx-auto p-3.5 rounded-xl" style="background: var(--raised); border: 1px solid var(--rule);">
               <audio id="spPlaybackAudio" controls class="w-full mb-3"></audio>
               <div class="flex gap-2">
-                <button type="button" onclick="SpeakingEngine.discardRecording()" class="ni-nav-btn flex-1 justify-center text-xs py-2 font-semibold">
-                  <span>🔄 Ghi lại</span>
+                <button type="button" onclick="SpeakingEngine.discardRecording()" class="ni-nav-btn flex-1 justify-center text-xs">
+                  <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                  <span>Ghi lại</span>
                 </button>
-                <button type="button" id="spBtnScoreNow" onclick="SpeakingEngine.runAiEvaluation()" class="ni-submit-btn flex-1 text-xs py-2 font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm">
-                  <span>✨ Chấm Điểm AI</span>
+                <button type="button" id="spBtnScoreNow" onclick="SpeakingEngine.runAiEvaluation()" class="ni-submit-btn flex-1 text-xs">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                  <span>Chấm điểm AI</span>
                 </button>
               </div>
             </div>
 
             <!-- Loading Spinner during AI scoring -->
             <div id="spScoringLoading" class="hidden py-4 text-center">
-              <div class="inline-block animate-spin mb-2 text-2xl text-indigo-600">⏳</div>
-              <p class="text-xs font-semibold text-slate-600">Đang phân tích phát âm và 4 tiêu chí IELTS chuẩn Band...</p>
+              <p class="text-xs font-medium" style="color: var(--ink-2);">Đang chấm điểm theo 4 tiêu chí IELTS...</p>
             </div>
           </div>
         </div>
@@ -2124,11 +2155,13 @@
         <!-- CỘT PHẢI: Bảng Kết Quả Chấm Điểm AI -->
         <div class="pv-right">
           <!-- Placeholder when no result yet -->
-          <div id="spResultPlaceholder" class="pv-card text-center py-16 text-[#9a93a8]">
-            <div class="text-4xl mb-3">🎙️</div>
-            <h4 class="font-bold text-base text-[#221c2b]">Khu Vực Phân Tích & Chữa Bài AI</h4>
-            <p class="text-xs text-[#5f5870] max-w-xs mx-auto mt-1 leading-relaxed">
-              Thu âm câu trả lời của bạn ở cột bên trái và bấm <strong>"Chấm Điểm AI"</strong> để xem điểm số 4 tiêu chí chuẩn IELTS và bản nâng cấp Band 8.0+.
+          <div id="spResultPlaceholder" class="pv-card text-center py-14">
+            <div class="w-10 h-10 rounded-lg mx-auto mb-3 flex items-center justify-center" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">
+              <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+            </div>
+            <h4 class="text-sm font-medium" style="color: var(--ink);">Bảng phân tích & chấm điểm IELTS</h4>
+            <p class="text-xs max-w-xs mx-auto mt-1.5 leading-relaxed" style="color: var(--ink-3);">
+              Thu âm hoặc nhập câu trả lời ở cột bên trái và chọn Chấm điểm AI để xem điểm chi tiết 4 tiêu chí cùng bài mẫu nâng cấp Band 8.0+
             </p>
           </div>
 
@@ -2297,69 +2330,68 @@
 
     <section id="tab-profile" class="hidden space-y-6">
         <!-- BẢNG XẾP HẠNG & THI ĐUA TẤT CẢ TÀI KHOẢN ĐANG SỬ DỤNG -->
-        <div id="profileAccountsCompetitionContainer" class="glass-card rounded-2xl p-6 space-y-4 col-span-full border border-amber-500/40 bg-gradient-to-br from-amber-950/20 via-slate-900 to-slate-950 shadow-xl">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+        <div id="profileAccountsCompetitionContainer" class="pv-card p-6 space-y-4 col-span-full">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b pb-3" style="border-color: var(--rule);">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 shadow">
-                <i data-lucide="trophy" class="w-5 h-5 text-amber-400"></i>
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: var(--raised); border: 1px solid var(--rule); color: var(--accent);">
+                <i data-lucide="award" class="w-4 h-4"></i>
               </div>
               <div>
                 <div class="flex items-center gap-2">
-                  <h3 class="font-bold text-white text-base">Bảng Xếp Hạng & Thi Đua Tất Cả Tài Khoản Học Viên</h3>
-                  <span id="profileAccountsCountBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">4 Học Viên</span>
+                  <h3 class="text-base" style="color: var(--ink);">Bảng xếp hạng học viên & thiết bị đang học</h3>
+                  <span id="profileAccountsCountBadge" class="font-mono text-[11px] px-2 py-0.5 rounded-md" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">1 học viên</span>
                 </div>
-                <p class="text-xs text-slate-400">Bảng xếp hạng 100% người dùng thực đang sử dụng web. Tài khoản của ai người đó dùng, bảo mật riêng biệt.</p>
+                <p class="text-xs mt-0.5" style="color: var(--ink-3);">Xếp hạng trực tiếp theo điểm tích lũy, chuỗi ngày thực học và số từ đã thuộc</p>
               </div>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
-              <div class="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800">
-                <button id="p-comp-tab-all" onclick="filterProfileCompetitionMode('all')" class="px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-black text-xs shadow-md transition">🏆 Điểm XP</button>
-                <button id="p-comp-tab-streak" onclick="filterProfileCompetitionMode('streak')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white font-semibold text-xs transition">🔥 Streak</button>
-                <button id="p-comp-tab-vocab" onclick="filterProfileCompetitionMode('vocab')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white font-semibold text-xs transition">📚 Từ Thuộc</button>
+              <div class="flex items-center gap-1 p-1 rounded-lg" style="background: var(--raised); border: 1px solid var(--rule);">
+                <button id="p-comp-tab-all" onclick="filterProfileCompetitionMode('all')" class="px-3 py-1 rounded-md text-xs font-medium" style="background: var(--sheet); color: var(--ink);">Điểm XP</button>
+                <button id="p-comp-tab-streak" onclick="filterProfileCompetitionMode('streak')" class="px-3 py-1 rounded-md text-xs font-medium" style="color: var(--ink-2);">Streak thực học</button>
+                <button id="p-comp-tab-vocab" onclick="filterProfileCompetitionMode('vocab')" class="px-3 py-1 rounded-md text-xs font-medium" style="color: var(--ink-2);">Từ đã thuộc</button>
               </div>
-              <button onclick="openMultiAccountModal()" class="px-3 py-2 rounded-xl bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/40 transition flex items-center gap-1.5 shadow">
+              <button onclick="openMultiAccountModal()" class="ni-nav-btn text-xs">
                 <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
-                <span>Thêm Học Viên</span>
+                <span>Đổi tài khoản</span>
               </button>
             </div>
           </div>
 
           <!-- Accounts Competitive Ranking List -->
-          <div id="profileAccountsListContainer" class="space-y-2.5">
+          <div id="profileAccountsListContainer" class="space-y-2">
             <!-- Rendered dynamically by renderProfileAccountsCompetition() -->
           </div>
         </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="glass-card rounded-2xl p-6 space-y-4">
-          <h3 class="font-bold text-lg text-white flex items-center gap-2">
-            <i data-lucide="activity" class="w-5 h-5 text-indigo-400"></i> Tiến Độ & Thống Kê Học Tập
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="pv-card p-6 space-y-4">
+          <h3 class="text-base flex items-center gap-2" style="color: var(--ink);">
+            <i data-lucide="activity" class="w-4 h-4" style="color: var(--accent);"></i> Tiến độ & thống kê học tập
           </h3>
-          <div class="space-y-3 text-xs sm:text-sm">
+          <div class="space-y-2.5 text-xs sm:text-sm">
             <!-- Streak Tracker Box -->
-            <div class="flex justify-between items-center p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30">
+            <div class="flex justify-between items-center p-3 rounded-lg" style="background: var(--raised); border: 1px solid var(--rule);">
               <div class="flex items-center gap-2.5">
-                <i data-lucide="flame" class="w-6 h-6 text-amber-400 fill-amber-400"></i>
+                <i data-lucide="flame" class="w-4 h-4" style="color: var(--accent);"></i>
                 <div>
-                  <div class="text-xs font-bold text-amber-300">Chuỗi ngày học liên tục (Streak)</div>
-                  <div class="text-[11px] text-amber-400/80" id="streakSubtext">Đăng nhập mỗi ngày để tích lũy chuỗi liên tục</div>
+                  <div class="text-xs font-medium" style="color: var(--ink);">Chuỗi ngày thực sự học (Streak)</div>
+                  <div class="text-[11px]" style="color: var(--ink-3);" id="streakSubtext">Tự động +1 khi bạn hoàn thành ít nhất 1 bài học trong ngày</div>
                 </div>
               </div>
               <div class="flex items-center gap-2">
-                <span id="statStreakDisplay" class="text-base font-extrabold text-amber-400">14 ngày 🔥</span>
-                <button onclick="triggerDailyCheckin()" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 transition shadow-sm">Điểm danh ngay</button>
+                <span id="statStreakDisplay" class="font-mono text-sm font-medium" style="color: var(--ink);">0 ngày</span>
               </div>
             </div>
-            <div class="p-3 rounded-xl bg-emerald-50/60 border border-emerald-200 flex items-center justify-between gap-2 flex-wrap text-xs">
+            <div class="p-3 rounded-lg flex items-center justify-between gap-2 flex-wrap text-xs" style="background: var(--raised); border: 1px solid var(--rule);">
               <div class="flex items-center gap-2">
-                <span class="text-base">🛡️</span>
+                <i data-lucide="shield" class="w-4 h-4" style="color: var(--ink-2);"></i>
                 <div>
-                  <div class="font-bold text-emerald-900">Bảo Hiểm Khôi Phục Chuỗi (3 lượt / tháng)</div>
-                  <div id="profileRecoveryCreditsText" class="text-[11px] text-emerald-800">Còn 3/3 lượt khôi phục chuỗi trong tháng này</div>
+                  <div class="font-medium" style="color: var(--ink);">Khôi phục chuỗi (3 lượt / tháng)</div>
+                  <div id="profileRecoveryCreditsText" class="text-[11px]" style="color: var(--ink-3);">Còn 3/3 lượt khôi phục chuỗi trong tháng này</div>
                 </div>
               </div>
-              <button type="button" id="btnProfileRecoverStreak" onclick="triggerMonthlyStreakRecovery()" class="hidden px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm transition">
-                🛡️ Khôi Phục Chuỗi
+              <button type="button" id="btnProfileRecoverStreak" onclick="triggerMonthlyStreakRecovery()" class="hidden ni-submit-btn text-xs">
+                <span>Khôi phục chuỗi</span>
               </button>
             </div>
 
@@ -2395,46 +2427,46 @@
         </div>
 
         <!-- THẺ QUẢN LÝ MÃ GIỚI THIỆU DÙNG 1 LẦN TỰ ĐỘNG XOAY VÒNG -->
-        <div id="referralCodeManagerCard" class="glass-card rounded-2xl p-6 space-y-4 border border-amber-500/40 bg-gradient-to-br from-amber-950/20 via-slate-900 to-slate-950 shadow-xl col-span-full">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+        <div id="referralCodeManagerCard" class="pv-card p-6 space-y-4 col-span-full">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b pb-3" style="border-color: var(--rule);">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 shadow">
-                <i data-lucide="key" class="w-5 h-5 text-amber-400"></i>
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: var(--raised); border: 1px solid var(--rule); color: var(--accent);">
+                <i data-lucide="key" class="w-4 h-4"></i>
               </div>
               <div>
-                <h3 class="font-bold text-white text-base flex items-center gap-2 flex-wrap">
-                  <span>Mã Giới Thiệu Dùng 1 Lần (Tự Xoay Vòng)</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">Chống dùng lại</span>
+                <h3 class="text-base flex items-center gap-2 flex-wrap" style="color: var(--ink);">
+                  <span>Mã giới thiệu dùng 1 lần (tự xoay vòng)</span>
+                  <span class="font-mono text-[10px] px-2 py-0.5 rounded-md" style="background: var(--accent-wash); color: var(--accent-ink); border: 1px solid var(--rule);">Chống dùng lại</span>
                 </h3>
-                <p class="text-xs text-slate-400">Mỗi mã chỉ có hiệu lực cho <strong>1 lượt đăng ký duy nhất</strong> (hết hạn sau 24h). Ngay khi có người dùng, mã cũ tự hủy và máy chủ tự sinh mã mới.</p>
+                <p class="text-xs mt-0.5" style="color: var(--ink-3);">Mỗi mã có hiệu lực cho 1 lượt đăng ký duy nhất trong 24h; dùng xong tự hủy và sinh mã mới</p>
               </div>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
-              <span id="activeReferralCodeDisplay" class="px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/40 text-amber-300 font-mono font-black text-sm tracking-widest shadow-inner">Đang tải...</span>
-              <button onclick="copyMyReferralCode()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow transition cursor-pointer">
+              <span id="activeReferralCodeDisplay" class="px-3.5 py-2 rounded-lg font-mono text-sm tracking-wider" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink);">Đang tải...</span>
+              <button onclick="copyMyReferralCode()" class="ni-submit-btn text-xs cursor-pointer">
                 <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                <span id="copyReferralText">Sao Chép Mã</span>
+                <span id="copyReferralText">Sao chép mã</span>
               </button>
-              <button onclick="rotateMyReferralCodeNow()" class="px-3 py-2 rounded-xl bg-rose-600/20 hover:bg-rose-600/40 text-rose-300 text-xs font-bold border border-rose-500/40 transition flex items-center gap-1 cursor-pointer" title="Hủy mã hiện tại ngay lập tức và tạo mã mới">
+              <button onclick="rotateMyReferralCodeNow()" class="ni-nav-btn text-xs cursor-pointer" title="Hủy mã hiện tại và tạo mã mới">
                 <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
-                <span>🔄 Hủy & Tạo Mã Mới</span>
+                <span>Hủy & tạo mã mới</span>
               </button>
             </div>
           </div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-400 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs p-3 rounded-lg" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">
             <div class="flex items-center gap-2">
-              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span>Chống dò mã: Tự động khóa tạm 15 phút nếu IP nhập sai quá 5 lần liên tiếp.</span>
+              <i data-lucide="shield-check" class="w-4 h-4 shrink-0" style="color: var(--accent);"></i>
+              <span>Tự động khóa tạm 15 phút nếu một địa chỉ IP nhập sai quá 5 lần liên tiếp</span>
             </div>
-            <div id="referralExpiryBadge" class="text-amber-300 font-bold shrink-0">
-              ⏳ Hiệu lực 24h
+            <div id="referralExpiryBadge" class="font-mono text-xs shrink-0" style="color: var(--ink);">
+              Hiệu lực 24h
             </div>
           </div>
           <!-- Nhật ký 10 lượt sử dụng gần nhất -->
           <div class="space-y-1.5">
-            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400">📜 Nhật ký mã giới thiệu gần nhất (đã dùng / đã hủy):</div>
-            <div id="referralUsageHistoryList" class="space-y-1.5 text-xs text-slate-400">
-              <div class="italic text-[11px] text-slate-500">Chưa có lượt sử dụng nào.</div>
+            <div class="text-xs font-medium" style="color: var(--ink-2);">Nhật ký mã giới thiệu gần nhất</div>
+            <div id="referralUsageHistoryList" class="space-y-1.5 text-xs" style="color: var(--ink-3);">
+              <div class="text-[11px]">Chưa có lượt sử dụng nào</div>
             </div>
           </div>
         </div>
@@ -2510,40 +2542,42 @@
         </div>
 
         <!-- THẺ CẢNH BÁO GMAIL TỰ ĐỘNG (vietkien907@gmail.com) & NHẬT KÝ THIẾT BỊ ĐĂNG NHẬP -->
-        <div id="hostEmailAlertCard" class="hidden glass-card rounded-2xl p-6 space-y-4 border border-emerald-500/40 shadow-xl col-span-full">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
+        <div id="hostEmailAlertCard" class="hidden pv-card p-6 space-y-4 col-span-full">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b pb-3" style="border-color: var(--rule);">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-700">
-                <i data-lucide="mail" class="w-5 h-5"></i>
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: var(--raised); border: 1px solid var(--rule); color: var(--accent);">
+                <i data-lucide="mail" class="w-4 h-4"></i>
               </div>
               <div>
-                <h3 class="font-bold text-base flex items-center gap-2 flex-wrap">
-                  <span>Cảnh Báo Thiết Bị Đăng Nhập Về Gmail</span>
-                  <span id="alertPasswordStatusBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-bold border border-emerald-300">🟢 Tự động qua HTTPS (Không cần mật khẩu)</span>
+                <h3 class="text-base flex items-center gap-2 flex-wrap" style="color: var(--ink);">
+                  <span>Cảnh báo thiết bị đăng nhập về Gmail</span>
+                  <span id="alertPasswordStatusBadge" class="font-mono text-[10px] px-2 py-0.5 rounded-md" style="background: var(--accent-wash); color: var(--accent-ink); border: 1px solid var(--rule);">Tự động qua HTTPS</span>
                 </h3>
-                <p class="text-xs text-slate-500">Tự động bắn email cảnh báo về <strong>vietkien907@gmail.com</strong> mỗi khi có thiết bị đăng ký hoặc đăng nhập (không cần Mật khẩu ứng dụng Google).</p>
+                <p class="text-xs mt-0.5" style="color: var(--ink-3);">Gửi thông báo về <strong>vietkien907@gmail.com</strong> khi có thiết bị đăng ký hoặc đăng nhập mới</p>
               </div>
             </div>
-            <button type="button" onclick="sendTestAlertEmail()" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs shadow transition cursor-pointer">
-              📨 Kích Hoạt 1 Chạm / Gửi Thử Nghiệm
+            <button type="button" onclick="sendTestAlertEmail()" class="ni-submit-btn text-xs cursor-pointer">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              <span>Kích hoạt 1 chạm / Gửi thử</span>
             </button>
           </div>
           <div class="flex flex-col sm:flex-row items-stretch sm:items-end gap-3 text-xs">
             <div class="flex-1">
-              <label class="block text-slate-600 font-semibold mb-1">Gmail nhận cảnh báo tự động</label>
-              <input type="email" id="alertTargetEmailInput" value="vietkien907@gmail.com" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs outline-none focus:border-emerald-600">
+              <label class="block font-medium mb-1" style="color: var(--ink-2);">Gmail nhận cảnh báo tự động</label>
+              <input type="email" id="alertTargetEmailInput" value="vietkien907@gmail.com" class="ni-input text-xs">
             </div>
-            <button type="button" onclick="saveHostAlertConfig()" class="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs shadow transition cursor-pointer">
-              💾 Lưu Gmail Nhận
+            <button type="button" onclick="saveHostAlertConfig()" class="ni-nav-btn text-xs cursor-pointer">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              <span>Lưu địa chỉ Gmail</span>
             </button>
           </div>
-          <p class="text-[11px] text-emerald-800 bg-emerald-50/80 border border-emerald-200 rounded-xl px-3 py-2">
-            ✨ <strong>Hướng dẫn 1 lần duy nhất (5 giây):</strong> Bấm nút vàng <strong>"📨 Kích Hoạt 1 Chạm / Gửi Thử Nghiệm"</strong> ở trên → mở hộp thư <strong>vietkien907@gmail.com</strong> (kiểm tra cả mục Quảng cáo/Spam nếu cần) → bấm nút xanh <strong>"Activate Form"</strong> là từ nay mọi thiết bị đăng nhập sẽ tự động gửi thẳng về Gmail của bạn!
+          <p class="text-xs rounded-lg px-3 py-2" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">
+            Kích hoạt lần đầu: chọn <strong>Kích hoạt 1 chạm / Gửi thử</strong> ở trên, sau đó mở hộp thư <strong>vietkien907@gmail.com</strong> và nhấn <strong>Activate Form</strong> trong thư xác nhận để bật gửi tự động
           </p>
-          <div class="space-y-2 pt-2 border-t border-slate-200">
-            <div class="text-xs font-bold uppercase tracking-wider text-slate-600">📱💻 Nhật ký toàn bộ thiết bị đăng nhập / đăng ký thực tế:</div>
+          <div class="space-y-2 pt-2 border-t" style="border-color: var(--rule);">
+            <div class="text-xs font-medium" style="color: var(--ink-2);">Nhật ký thiết bị đăng nhập & đăng ký thực tế</div>
             <div id="loginAuditLogsContainer" class="space-y-1.5 max-h-60 overflow-y-auto pr-1 text-xs">
-              <div class="italic text-[11px] text-slate-500">Đang tải nhật ký thiết bị...</div>
+              <div class="text-[11px]" style="color: var(--ink-3);">Đang tải nhật ký thiết bị...</div>
             </div>
           </div>
         </div>
@@ -3603,25 +3637,25 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=102.0"></script>
-  <script src="./listening_data.js?v=102.0"></script>
-  <script src="./vietnam_today_data.js?v=102.0"></script>
-  <script src="./educational_channels_data.js?v=102.0"></script>
-  <script src="./international_news_videos.js?v=102.0"></script>
-  <script src="./bilingual_news_data.js?v=102.0"></script>
-  <script src="./reading_lexicon.js?v=102.0"></script>
-  <script src="./conversation_data.js?v=102.0"></script>
-  <script src="./speaking-forecast.js?v=102.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=102.0"></script>
-  <script src="./speakout-speaking-data.js?v=102.0"></script>
-  <script src="./speaking-engine.js?v=102.0"></script>
-  <script src="./ocr-vocab-engine.js?v=102.0"></script>
-  <script src="./unit-review-engine.js?v=102.0"></script>
-  <script src="./focus-session-engine.js?v=102.0"></script>
-  <script src="./security-guard-engine.js?v=102.0"></script>
-  <script src="./auth-gate-engine.js?v=102.0"></script>
-  <script src="./streak-deadline-engine.js?v=102.0"></script>
-  <script src="./app.js?v=102.0"></script>
+  <script src="./data.js?v=103.0"></script>
+  <script src="./listening_data.js?v=103.0"></script>
+  <script src="./vietnam_today_data.js?v=103.0"></script>
+  <script src="./educational_channels_data.js?v=103.0"></script>
+  <script src="./international_news_videos.js?v=103.0"></script>
+  <script src="./bilingual_news_data.js?v=103.0"></script>
+  <script src="./reading_lexicon.js?v=103.0"></script>
+  <script src="./conversation_data.js?v=103.0"></script>
+  <script src="./speaking-forecast.js?v=103.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=103.0"></script>
+  <script src="./speakout-speaking-data.js?v=103.0"></script>
+  <script src="./speaking-engine.js?v=103.0"></script>
+  <script src="./ocr-vocab-engine.js?v=103.0"></script>
+  <script src="./unit-review-engine.js?v=103.0"></script>
+  <script src="./focus-session-engine.js?v=103.0"></script>
+  <script src="./security-guard-engine.js?v=103.0"></script>
+  <script src="./auth-gate-engine.js?v=103.0"></script>
+  <script src="./streak-deadline-engine.js?v=103.0"></script>
+  <script src="./app.js?v=103.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3629,7 +3663,7 @@
     }
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=102.0', { updateViaCache: 'none' })
+        navigator.serviceWorker.register('/sw.js?v=103.0', { updateViaCache: 'none' })
           .then(reg => { try { reg.update(); } catch (e) {} })
           .catch(err => console.log('SW reg failed:', err));
       });

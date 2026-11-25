@@ -129,6 +129,54 @@ class TestRotatingOneTimeReferralFlow(unittest.TestCase):
         after_out = client.get("/api/auth/referral-code", headers={"Authorization": f"Bearer {token}"})
         self.assertEqual(after_out.status_code, 401)
 
+    def test_05_server_version_and_real_study_streak_logic(self):
+        # 1. Check /api/version endpoint
+        v_res = client.get("/api/version")
+        self.assertEqual(v_res.status_code, 200)
+        self.assertEqual(v_res.json()["version"], "103.0")
+        self.assertIn("build_id", v_res.json())
+
+        # Reset host streak to 0 (no study today yet) while keeping 280 words
+        db = next(get_db())
+        vu = db.query(models.User).filter(models.User.email == "tonguyenvu@265.com").first()
+        vu.streak_count = 0
+        vu.longest_streak = 0
+        vu.last_active_date = ""
+        db.commit()
+        db.close()
+
+        # 2. Login alone MUST NOT auto-increment streak!
+        login_res = client.post("/api/auth/login", json={
+            "email": "tonguyenvu@265.com",
+            "password": "VuAdmin@265"
+        })
+        self.assertEqual(login_res.status_code, 200)
+        self.assertEqual(login_res.json()["user"]["streak"], 0)
+        token = login_res.json()["token"]
+
+        me_res = client.get("/api/auth/me", headers={"Authorization": f"Bearer {token}"})
+        self.assertEqual(me_res.status_code, 200)
+        self.assertEqual(me_res.json()["streak_count"], 0)
+
+        # 3. Completing a real study task increments streak to 1 (once per day)
+        st1 = client.post(
+            "/api/auth/complete-study-day",
+            json={"task_type": "speaking"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+        self.assertEqual(st1.status_code, 200)
+        self.assertEqual(st1.json()["streak"], 1)
+        self.assertTrue(st1.json()["incremented"])
+
+        st2 = client.post(
+            "/api/auth/complete-study-day",
+            json={"task_type": "flashcard"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+        self.assertEqual(st2.status_code, 200)
+        self.assertEqual(st2.json()["streak"], 1)
+        self.assertFalse(st2.json()["incremented"])
+
 
 if __name__ == "__main__":
     unittest.main()

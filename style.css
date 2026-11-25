@@ -1,36 +1,38 @@
 /* ============================================================
-   NIGHT IELTS MINIMALIST DESIGN SYSTEM
-   GIAO DIỆN TỐI GIẢN: Tờ giấy trắng duy nhất, ngăn bằng đường kẻ mảnh #ece8f1
-   Màu nền nhẹ dịu: #f8fafc, Màu chữ đen mực: #0f172a, Điểm nhấn: Royal Ocean Blue #2563eb
+   ENGLISH MASTERY — EDITORIAL STUDY DESK DESIGN SYSTEM
+   unslop craft pass (credit: unslop by Damir Sokolovsky @heydamir, CC BY 4.0)
+   World: Uncoated study paper, fountain-pen ink, deep forest sage
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  /* DEFAULT EYE-CARE PALETTE: Warm Paper & Deep Forest Sage (Chống chói, đỡ mỏi mắt) */
-  --page: #f5f2eb;
-  --sheet: #fcfbf7;
-  --ink: #1f2937;
-  --ink-2: #4b5563;
-  --ink-3: #6b7280;
-  --rule: #e5dfd3;
-  --accent: #2f6f5e;
-  --accent-ink: #1e4d40;
-  --accent-wash: #eaf3ef;
-  --good: #1f7a5c;
-  --good-wash: #ecf6f1;
-  --hover-bg: #eeeae0;
+  /* DEFAULT EYE-CARE PALETTE: Warm Paper & Deep Forest Sage */
+  --page: #f6f3ec;
+  --sheet: #fcfaf5;
+  --raised: #efebe1;
+  --ink: #1c1a17;
+  --ink-2: #575249;
+  --ink-3: #767065;
+  --rule: #e3ded2;
+  --accent: #286150;
+  --accent-ink: #1d493c;
+  --accent-wash: #e7f0ed;
+  --good: #1d6f52;
+  --good-wash: #e8f3ee;
+  --hover-bg: #ede8dc;
   --correct-color: var(--good);
   --incorrect-color: #b91c1c;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* 4 IELTS Speaking Criteria Colors (Soft Botanical / Editorial) */
-  --fluency: #1f6f68;
-  --fluency-w: #edf7f5;
-  --lexical: #9a5b13;
-  --lexical-w: #fbf5ea;
-  --grammar: #9f2d47;
-  --grammar-w: #fcf0f2;
-  --pronunciation: #5b4b8a;
-  --pronunciation-w: #f3f1f9;
+  /* 4 IELTS Speaking Criteria Colors (Toned Editorial Palette) */
+  --fluency: #236860;
+  --fluency-w: #ebf4f2;
+  --lexical: #8f5414;
+  --lexical-w: #f8f1e5;
+  --grammar: #962d44;
+  --grammar-w: #f9eef0;
+  --pronunciation: #52467d;
+  --pronunciation-w: #f0eef6;
 
   /* Compatibility bindings */
   --bg-color: var(--page);
@@ -42,101 +44,126 @@
   --primary-button: var(--accent);
 }
 
-/* THEME: Ocean Blue (Xanh biển nhẹ) */
+/* THEME: Ocean Blue */
 [data-theme="ocean"] {
-  --page: #f4f7fb;
-  --sheet: #fbfcfe;
-  --ink: #1e293b;
-  --ink-2: #475569;
-  --ink-3: #64748b;
-  --rule: #dce4ef;
-  --accent: #2563eb;
-  --accent-ink: #1d4ed8;
-  --accent-wash: #eff6ff;
-  --hover-bg: #edf2f8;
+  --page: #f4f6f9;
+  --sheet: #fbfcfd;
+  --raised: #ebeef4;
+  --ink: #18202c;
+  --ink-2: #4b5565;
+  --ink-3: #6b7485;
+  --rule: #dde2ec;
+  --accent: #2356c7;
+  --accent-ink: #1b439e;
+  --accent-wash: #eaf0fb;
+  --hover-bg: #e9eef6;
 }
 
-/* THEME: Emerald Green (Xanh lục bảo thanh mát, tập trung) */
+/* THEME: Emerald Green */
 [data-theme="emerald"] {
-  --page: #f6faf7;
-  --sheet: #ffffff;
-  --ink: #062b1b;
-  --ink-2: #335948;
-  --ink-3: #759a89;
-  --rule: #dbebe2;
-  --accent: #059669;
-  --accent-ink: #047857;
-  --accent-wash: #ecfdf5;
-  --hover-bg: #eef7f2;
+  --page: #f4f7f5;
+  --sheet: #fbfcfb;
+  --raised: #e9efec;
+  --ink: #14241c;
+  --ink-2: #3d574b;
+  --ink-3: #657f73;
+  --rule: #dae5de;
+  --accent: #186b4c;
+  --accent-ink: #11523a;
+  --accent-wash: #e6f2ed;
+  --hover-bg: #e7f0eb;
 }
 
-/* THEME: Night Teal (Xanh ngọc chuẩn Night IELTS) */
+/* THEME: Night Teal */
 [data-theme="teal"] {
-  --page: #f0fdfa;
-  --sheet: #ffffff;
-  --ink: #042f2e;
-  --ink-2: #115e59;
-  --ink-3: #5eead4;
-  --rule: #ccfbf1;
-  --accent: #0d9488;
-  --accent-ink: #0f766e;
-  --accent-wash: #f0fdfa;
-  --hover-bg: #e6fffa;
+  --page: #f3f7f7;
+  --sheet: #fafcfc;
+  --raised: #e7efef;
+  --ink: #132626;
+  --ink-2: #3b5858;
+  --ink-3: #637d7d;
+  --rule: #d8e5e5;
+  --accent: #166964;
+  --accent-ink: #0f4f4b;
+  --accent-wash: #e5f2f1;
+  --hover-bg: #e6f0ef;
 }
 
-/* THEME: Royal Indigo (Tím hoàng gia sang trọng) */
+/* THEME: Royal Indigo */
 [data-theme="indigo"] {
-  --page: #f8f8fc;
-  --sheet: #ffffff;
-  --ink: #1e1b4b;
-  --ink-2: #4338ca;
-  --ink-3: #818cf8;
-  --rule: #e0e7ff;
-  --accent: #4f46e5;
-  --accent-ink: #3730a3;
-  --accent-wash: #eef2ff;
-  --hover-bg: #f5f6ff;
+  --page: #f5f5f8;
+  --sheet: #fbfbfd;
+  --raised: #ececf2;
+  --ink: #1b1a29;
+  --ink-2: #4e4c63;
+  --ink-3: #706e85;
+  --rule: #dfdfe8;
+  --accent: #3d3899;
+  --accent-ink: #2d2978;
+  --accent-wash: #ededf8;
+  --hover-bg: #eaeaf2;
 }
 
-/* THEME: Minimalist Slate (Xám than tối giản chuẩn Notion) */
+/* THEME: Minimalist Slate (Graphite) */
 [data-theme="slate"] {
-  --page: #f8fafc;
+  --page: #f6f6f7;
   --sheet: #ffffff;
-  --ink: #0f172a;
-  --ink-2: #334155;
-  --ink-3: #64748b;
-  --rule: #cbd5e1;
-  --accent: #0f172a;
-  --accent-ink: #1e293b;
-  --accent-wash: #f1f5f9;
-  --hover-bg: #e2e8f0;
+  --raised: #ededf0;
+  --ink: #171717;
+  --ink-2: #525252;
+  --ink-3: #737373;
+  --rule: #e4e4e7;
+  --accent: #1f2937;
+  --accent-ink: #111827;
+  --accent-wash: #f1f2f4;
+  --hover-bg: #ececef;
 }
 
-/* THEME: Dark Mode (Than chì ấm dịu mắt ban đêm - không chói xanh) */
+/* THEME: Dark Mode (Warm Graphite — eye-care, zero blue glare) */
 [data-theme="dark"] {
-  --page: #141619;
-  --sheet: #1c1f24;
-  --ink: #e8e4dc;
-  --ink-2: #b8b3a8;
-  --ink-3: #8c877c;
-  --rule: #2c313a;
-  --accent: #4fa387;
-  --accent-ink: #86d4b8;
-  --accent-wash: rgba(79, 163, 135, 0.16);
-  --good: #52b788;
-  --good-wash: rgba(82, 183, 136, 0.14);
-  --hover-bg: #252932;
-  --incorrect-color: #e57373;
+  --page: #141413;
+  --sheet: #1c1b19;
+  --raised: #252320;
+  --ink: #efe9de;
+  --ink-2: #aaa398;
+  --ink-3: #878176;
+  --rule: #2c2a26;
+  --accent: #4da184;
+  --accent-ink: #88d4b9;
+  --accent-wash: rgba(77, 161, 132, 0.14);
+  --good: #4cc38a;
+  --good-wash: rgba(76, 195, 138, 0.14);
+  --hover-bg: #262421;
+  --incorrect-color: #e5484d;
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 
-h1, h2, h3, h4, .font-extrabold, .font-bold {
-  letter-spacing: -0.025em;
+.font-mono, code, kbd, pre,
+#streakCount, #statStreakDisplay, #statTotalStarted, #statMature, #statLearning,
+#spWordCountBadge, #spPrepTimerDisplay, #realDeadlineCountdown, #missionProgressRatio,
+#activeReferralCodeDisplay {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hierarchy via size & tone, weights 400–600, zero negative tracking on small text */
+.font-bold, .font-extrabold, .font-black, b, strong {
+  font-weight: 600 !important;
+}
+
+h1, h2 {
+  letter-spacing: -0.018em;
+  font-weight: 600;
+}
+
+h3, h4 {
+  letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
 html, body {
@@ -178,25 +205,27 @@ html, body {
 .ni-nav-btn {
   background: var(--sheet) !important;
   border: 1px solid var(--rule) !important;
-  border-radius: 10px !important;
-  padding: 7px 12px !important;
-  font-weight: 600 !important;
+  border-radius: 8px !important;
+  height: 34px;
+  padding: 0 12px !important;
+  font-weight: 500 !important;
   cursor: pointer;
-  color: var(--ink) !important;
+  color: var(--ink-2) !important;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   font-size: 13px !important;
   white-space: nowrap;
   font-family: inherit;
-  transition: background .15s, border-color .15s, transform .1s;
-  box-shadow: 0 1px 2px rgba(34, 28, 43, 0.04);
+  transition: background-color 150ms var(--ease-out), border-color 150ms var(--ease-out), color 150ms var(--ease-out), transform 120ms var(--ease-out);
+  box-shadow: none;
 }
 
 .ni-nav-btn:hover {
   background: var(--hover-bg) !important;
-  border-color: #ddd7e5 !important;
+  color: var(--ink) !important;
+  border-color: var(--rule) !important;
 }
 
 .ni-nav-btn:active {
@@ -205,26 +234,27 @@ html, body {
 
 .ni-nav-btn.is-on {
   color: var(--accent-ink) !important;
-  border-color: #f0c5d5 !important;
+  border-color: var(--accent) !important;
   background: var(--accent-wash) !important;
 }
 
 .ni-submit-btn {
   background: var(--accent) !important;
-  color: #fff !important;
-  border: 0 !important;
-  border-radius: 10px !important;
-  padding: 10px 18px !important;
-  font-weight: 700 !important;
+  color: #ffffff !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 8px !important;
+  height: 36px;
+  padding: 0 16px !important;
+  font-weight: 500 !important;
   cursor: pointer;
   font-family: inherit;
-  font-size: 13.5px !important;
-  transition: background .15s, transform .1s;
+  font-size: 13px !important;
+  transition: background-color 150ms var(--ease-out), transform 120ms var(--ease-out);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+  gap: 8px;
+  box-shadow: 0 1px 2px rgba(28, 26, 23, 0.08);
 }
 
 .ni-submit-btn:hover {
@@ -232,7 +262,7 @@ html, body {
 }
 
 .ni-submit-btn:active {
-  transform: scale(0.985);
+  transform: scale(0.98);
 }
 
 /* ================= MINIMALIST TABS (NI-TABBAR) ================= */
@@ -301,23 +331,23 @@ html, body {
   font-weight: 700 !important;
 }
 
-/* ================= PANELS & CARDS (BENTO BOX GRID) ================= */
+/* ================= PANELS & CARDS (EDITORIAL STUDY DESK) ================= */
 .ni-panel,
 .pv-card,
 .ni-card {
   background: var(--sheet) !important;
   border: 1px solid var(--rule) !important;
-  border-radius: 16px !important;
-  padding: 18px 20px;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02) !important;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease !important;
+  border-radius: 14px !important;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(28, 26, 23, 0.04) !important;
+  transition: border-color 160ms var(--ease-out), background-color 160ms var(--ease-out) !important;
 }
 
 .ni-panel:hover,
 .pv-card:hover,
 .ni-card:hover {
-  border-color: #cbd5e1 !important;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04) !important;
+  border-color: var(--rule) !important;
+  box-shadow: 0 1px 2px rgba(28, 26, 23, 0.04) !important;
 }
 
 /* Touch Targets & Micro-interactions (UI/UX Pro Max) */
@@ -473,35 +503,39 @@ html, body {
 }
 
 .rec-btn {
-  width: 72px;
-  height: 72px;
-  border-radius: 999px;
-  border: 0;
+  width: 68px;
+  height: 68px;
+  border-radius: 34px;
+  border: 1px solid var(--accent);
   background: var(--accent) !important;
-  color: #fff !important;
-  font-size: 24px;
+  color: #ffffff !important;
+  font-size: 22px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform .12s, background .15s;
-  box-shadow: 0 4px 14px rgba(214, 51, 108, 0.3);
+  transition: transform 150ms var(--ease-out), background-color 150ms var(--ease-out);
+  box-shadow: 0 2px 6px rgba(28, 26, 23, 0.12) !important;
 }
 
 .rec-btn:hover {
   background: var(--accent-ink) !important;
-  transform: scale(1.03);
+}
+
+.rec-btn:active {
+  transform: scale(0.97);
 }
 
 .rec-btn.recording {
   animation: recPulse 1.4s infinite !important;
-  background: #e11d48 !important;
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
 }
 
 @keyframes recPulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, .4); }
-  70% { box-shadow: 0 0 0 16px rgba(37, 99, 235, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.35); }
+  70% { box-shadow: 0 0 0 14px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
 }
 
 .rec-timer {
@@ -951,35 +985,48 @@ html:not([data-theme="dark"]) main button[class*="from-emerald-600"] * {
 }
 
 /* ============================================================================
-   DARK MODE SURFACE & TEXT HARMONY ([data-theme="dark"])
+   DARK MODE SURFACE & TEXT HARMONY ([data-theme="dark"] — Warm Graphite)
    ============================================================================ */
 [data-theme="dark"] header,
 [data-theme="dark"] nav,
 [data-theme="dark"] footer {
-  background-color: rgba(15, 23, 42, 0.94) !important;
-  border-color: #1e293b !important;
-  color: #f1f5f9 !important;
+  background-color: var(--sheet) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
 }
 
 [data-theme="dark"] .glass-card,
+[data-theme="dark"] .pv-card,
 [data-theme="dark"] .bg-white,
-[data-theme="dark"] .bg-white\/95 {
-  background-color: #111827 !important;
-  border-color: #1e293b !important;
-  color: #f1f5f9 !important;
+[data-theme="dark"] .bg-white\/95,
+[data-theme="dark"] .bg-slate-50,
+[data-theme="dark"] .bg-slate-100,
+[data-theme="dark"] .bg-slate-100\/90 {
+  background-color: var(--sheet) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
 }
 
-[data-theme="dark"] .ni-nav-btn,
+[data-theme="dark"] .ni-nav-btn {
+  background-color: var(--raised) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink-2) !important;
+}
+
+[data-theme="dark"] .ni-nav-btn:hover {
+  color: var(--ink) !important;
+}
+
 [data-theme="dark"] .ni-tab-btn {
-  background-color: #1e293b !important;
-  border-color: #334155 !important;
-  color: #e2e8f0 !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--ink-3) !important;
 }
 
 [data-theme="dark"] .ni-tab-btn.active {
-  background-color: #4f46e5 !important;
-  border-color: #6366f1 !important;
-  color: #ffffff !important;
+  background: transparent !important;
+  border-bottom-color: var(--accent) !important;
+  color: var(--ink) !important;
 }
 
 [data-theme="dark"] h1,
@@ -987,34 +1034,72 @@ html:not([data-theme="dark"]) main button[class*="from-emerald-600"] * {
 [data-theme="dark"] h3,
 [data-theme="dark"] h4,
 [data-theme="dark"] .text-\[\#221c2b\],
+[data-theme="dark"] .text-\[\#0f172a\],
 [data-theme="dark"] .text-slate-900,
 [data-theme="dark"] .text-slate-800 {
-  color: #f8fafc !important;
+  color: var(--ink) !important;
 }
 
 [data-theme="dark"] .text-\[\#5f5870\],
+[data-theme="dark"] .text-\[\#64748b\],
 [data-theme="dark"] .text-slate-600,
 [data-theme="dark"] .text-slate-700 {
-  color: #cbd5e1 !important;
+  color: var(--ink-2) !important;
 }
 
 [data-theme="dark"] #themeDropdownMenu {
-  background-color: #0f172a !important;
-  border-color: #334155 !important;
+  background-color: var(--sheet) !important;
+  border-color: var(--rule) !important;
 }
 
 [data-theme="dark"] #themeDropdownMenu button {
-  color: #e2e8f0 !important;
+  color: var(--ink-2) !important;
 }
 
 [data-theme="dark"] #themeDropdownMenu button:hover {
-  background-color: #1e293b !important;
+  background-color: var(--raised) !important;
+  color: var(--ink) !important;
 }
 
 [data-theme="dark"] input,
 [data-theme="dark"] select,
 [data-theme="dark"] textarea {
-  background-color: #0f172a !important;
-  border-color: #334155 !important;
-  color: #f8fafc !important;
+  background-color: var(--raised) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+
+/* Strip leftover AI-slop gradients & colored glows globally */
+[class*="bg-gradient-to-"] {
+  background-image: none !important;
+}
+
+[class*="shadow-indigo-"],
+[class*="shadow-purple-"],
+[class*="shadow-amber-"],
+[class*="shadow-emerald-"] {
+  --tw-shadow-color: transparent !important;
+  box-shadow: 0 1px 2px rgba(28, 26, 23, 0.06) !important;
+}
+
+/* Lucide icon uniform stroke 1.5 */
+svg.lucide {
+  stroke-width: 1.5;
+}
+
+/* Transient Server Update Notification Bar (Hidden by default) */
+.em-server-update-bar {
+  background: var(--sheet);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-size: 12.5px;
+  transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
+}
+.em-signal-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  background: var(--good);
+  display: inline-block;
+  flex-shrink: 0;
 }

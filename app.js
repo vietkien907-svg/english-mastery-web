@@ -111,6 +111,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
   
   tickDeadlineCountdown();
+  initServerUpdateMonitor();
   lucide.createIcons();
 
   // Lớp bảo vệ 1: URL Guard chặn & dọn sạch mọi tham số link lạ (chỉ giữ callback Keycloak OIDC hợp lệ)
@@ -146,6 +147,113 @@ window.addEventListener("DOMContentLoaded", async () => {
     );
   }
 });
+
+// ================= TRANSIENT SERVER UPDATE MONITOR (HIDDEN BY DEFAULT) =================
+let _bootServerBuildId = "";
+let _pendingServerBuildId = "";
+let _serverBannerAutoHideTimer = null;
+
+function showTransientServerBanner(message, versionText, showActionBtn = false, autoHideMs = 0) {
+  const banner = document.getElementById("serverUpdateBanner");
+  const textEl = document.getElementById("serverUpdateBannerText");
+  const metaEl = document.getElementById("serverUpdateBannerMeta");
+  const btnEl = document.getElementById("serverUpdateActionBtn");
+  if (!banner) return;
+
+  if (textEl) textEl.innerText = message;
+  if (metaEl) metaEl.innerText = versionText || "v103.0";
+  if (btnEl) btnEl.classList.toggle("hidden", !showActionBtn);
+  banner.classList.remove("hidden");
+  if (window.lucide) {
+    try { lucide.createIcons(); } catch (e) {}
+  }
+
+  if (_serverBannerAutoHideTimer) {
+    clearTimeout(_serverBannerAutoHideTimer);
+    _serverBannerAutoHideTimer = null;
+  }
+  if (autoHideMs > 0) {
+    _serverBannerAutoHideTimer = setTimeout(() => {
+      banner.classList.add("hidden");
+    }, autoHideMs);
+  }
+}
+
+function dismissServerUpdateBanner() {
+  const banner = document.getElementById("serverUpdateBanner");
+  if (banner) banner.classList.add("hidden");
+  if (_pendingServerBuildId) {
+    localStorage.setItem("EMH_LAST_SEEN_BUILD_ID", _pendingServerBuildId);
+  }
+}
+
+async function applyPendingServerUpdate() {
+  try {
+    if (_pendingServerBuildId) {
+      localStorage.setItem("EMH_LAST_SEEN_BUILD_ID", _pendingServerBuildId);
+      localStorage.setItem("EMH_JUST_APPLIED_BUILD_ID", _pendingServerBuildId);
+    }
+    if ("serviceWorker" in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(r => r.update().catch(() => {})));
+    }
+    if ("caches" in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k).catch(() => {})));
+    }
+  } catch (e) {}
+  window.location.reload();
+}
+
+async function checkServerVersionOnce(isInitialBoot = false) {
+  try {
+    const resp = await fetch(`${API_BASE}/api/version?t=${Date.now()}`, { cache: "no-store" });
+    if (!resp.ok) return;
+    const data = await resp.json();
+    if (!data || !data.build_id) return;
+
+    const srvBuild = String(data.build_id);
+    const verLabel = data.version ? `v${data.version}` : srvBuild;
+    const timeSuffix = data.updated_at ? ` · ${data.updated_at}` : "";
+
+    if (isInitialBoot) {
+      _bootServerBuildId = srvBuild;
+      const lastSeen = localStorage.getItem("EMH_LAST_SEEN_BUILD_ID") || "";
+      const justApplied = localStorage.getItem("EMH_JUST_APPLIED_BUILD_ID") || "";
+      if (justApplied === srvBuild || (lastSeen && lastSeen !== srvBuild) || !lastSeen) {
+        localStorage.setItem("EMH_LAST_SEEN_BUILD_ID", srvBuild);
+        localStorage.removeItem("EMH_JUST_APPLIED_BUILD_ID");
+        showTransientServerBanner(
+          `Đã cập nhật máy chủ lên phiên bản mới${timeSuffix}`,
+          verLabel,
+          false,
+          7500
+        );
+      }
+      return;
+    }
+
+    if (_bootServerBuildId && srvBuild !== _bootServerBuildId) {
+      _pendingServerBuildId = srvBuild;
+      showTransientServerBanner(
+        `Máy chủ vừa cập nhật bản chỉnh sửa mới${timeSuffix}`,
+        verLabel,
+        true,
+        0
+      );
+    }
+  } catch (e) {}
+}
+
+function initServerUpdateMonitor() {
+  checkServerVersionOnce(true);
+  setInterval(() => checkServerVersionOnce(false), 20000);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      checkServerVersionOnce(false);
+    }
+  });
+}
 
 // Helper for authenticated API calls with silent HMAC session auto-heal & zero 401 recursion
 let _isHandling401 = false;
@@ -432,10 +540,12 @@ function updateAuthUI() {
 
   const curEmail = access.allowed ? (appState.currentUser?.email || access.userEmail || "").trim() : "";
   const isHost = curEmail.toLowerCase() === "tonguyenvu@265.com";
-  const streakVal = curEmail ? (localStorage.getItem("EMH_STREAK") || (appState.currentUser?.streak_count || 1)) : 0;
+  const rawStreak = curEmail
+    ? parseInt(localStorage.getItem("EMH_STREAK") ?? String(appState.currentUser?.streak_count ?? 0), 10) || 0
+    : 0;
 
-  if (streakEl) streakEl.innerText = curEmail ? `${streakVal} ngày` : "0 ngày";
-  if (profileStreakEl) profileStreakEl.innerText = curEmail ? `${streakVal} ngày 🔥` : "0 ngày";
+  if (streakEl) streakEl.innerText = curEmail ? `${rawStreak} ngày` : "0 ngày";
+  if (profileStreakEl) profileStreakEl.innerText = curEmail ? `${rawStreak} ngày` : "0 ngày";
 
   // Toggle host-only admin cards strictly
   const refCard = document.getElementById("referralCodeManagerCard");
@@ -451,10 +561,10 @@ function updateAuthUI() {
 
     if (nameEl) nameEl.innerText = dName;
     if (headerNameEl) headerNameEl.innerText = dName;
-    if (headerDotEl) headerDotEl.className = "w-2 h-2 rounded-full bg-emerald-500 shadow-xs";
+    if (headerDotEl) headerDotEl.className = "w-2 h-2 rounded-full bg-emerald-600";
     if (quickLogoutBtn) quickLogoutBtn.classList.remove("hidden");
     if (badgeEl) badgeEl.innerText = dTarget;
-    if (statusEl) statusEl.innerText = `🟢 Đang đăng nhập: ${dName} (${curEmail})`;
+    if (statusEl) statusEl.innerText = `Đang đăng nhập: ${dName} (${curEmail})`;
 
     if (isHost) {
       if (typeof ensureHostVuProgressRestored === "function") ensureHostVuProgressRestored();
@@ -464,11 +574,11 @@ function updateAuthUI() {
     if (typeof syncClientWordsToServer === "function") syncClientWordsToServer();
   } else {
     if (nameEl) nameEl.innerText = "Chưa đăng nhập";
-    if (headerNameEl) headerNameEl.innerText = "🔐 Chưa đăng nhập";
+    if (headerNameEl) headerNameEl.innerText = "Chưa đăng nhập";
     if (headerDotEl) headerDotEl.className = "w-2 h-2 rounded-full bg-amber-500";
     if (quickLogoutBtn) quickLogoutBtn.classList.add("hidden");
     if (badgeEl) badgeEl.innerText = "Yêu cầu đăng nhập";
-    if (statusEl) statusEl.innerText = "Chưa đăng nhập • Vui lòng đăng nhập hoặc đăng ký bằng mã giới thiệu";
+    if (statusEl) statusEl.innerText = "Chưa đăng nhập · Vui lòng đăng nhập hoặc đăng ký bằng mã giới thiệu";
   }
 
   if (typeof fetchServerLeaderboard === "function") fetchServerLeaderboard();
@@ -668,10 +778,10 @@ async function handleAuthSubmit() {
       email: email,
       full_name: displayName,
       target_exam: targetExam,
-      streak: 1,
+      streak: 0,
       mature_words: 0,
       today_progress: 0,
-      xp: 200,
+      xp: 150,
       password_hash: btoa(password),
       token: token,
       isCurrent: true,
@@ -686,7 +796,7 @@ async function handleAuthSubmit() {
 
     localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
     localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", displayName);
-    localStorage.setItem("EMH_STREAK", "1");
+    localStorage.setItem("EMH_STREAK", "0");
     localStorage.removeItem("EMH_GUEST_DISMISSED");
 
     appState.currentUser = {
@@ -694,7 +804,7 @@ async function handleAuthSubmit() {
       email: email,
       full_name: displayName,
       target_exam: targetExam,
-      streak_count: 1
+      streak_count: 0
     };
 
     if (token) {
@@ -722,9 +832,10 @@ async function handleAuthSubmit() {
   } else {
     // Đăng nhập
     if (token && userObj) {
+      const srvStreak = Math.max(0, parseInt(userObj.streak ?? userObj.streak_count ?? 0, 10) || 0);
       localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
       localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", userObj.full_name || displayName);
-      localStorage.setItem("EMH_STREAK", String(userObj.streak || userObj.streak_count || 1));
+      localStorage.setItem("EMH_STREAK", String(srvStreak));
       localStorage.removeItem("EMH_GUEST_DISMISSED");
       appState.authToken = token;
       localStorage.setItem(STORAGE_KEY_AUTH, token);
@@ -733,7 +844,7 @@ async function handleAuthSubmit() {
 
       list = list.map(a => {
         const isCur = a.email.toLowerCase() === email.toLowerCase();
-        return isCur ? { ...a, isCurrent: true, token: token, password_hash: btoa(password) } : { ...a, isCurrent: false };
+        return isCur ? { ...a, isCurrent: true, streak: srvStreak, token: token, password_hash: btoa(password) } : { ...a, isCurrent: false };
       });
       if (!list.some(a => a.email.toLowerCase() === email.toLowerCase())) {
         list.unshift({
@@ -741,7 +852,7 @@ async function handleAuthSubmit() {
           email: email,
           full_name: userObj.full_name || displayName,
           target_exam: userObj.target_exam || targetExam,
-          streak: userObj.streak || userObj.streak_count || 1,
+          streak: srvStreak,
           mature_words: getRealLearnedWordsCount(),
           today_progress: 100,
           xp: 1500,
@@ -753,13 +864,13 @@ async function handleAuthSubmit() {
       }
       saveSavedAccounts(list);
 
-      updateDailyStreak(userObj.streak || userObj.streak_count || 1, userObj.last_active_date);
+      updateDailyStreak(srvStreak, userObj.last_active_date);
       updateAuthUI();
       closeAuthModal();
       renderProfileAccountsCompetition();
       renderLeaderboard();
       renderSavedAccounts();
-      showToast(`Đăng nhập thành công! Chào mừng ${userObj.full_name || displayName} 🔥`, "success");
+      showToast(`Đăng nhập thành công · ${userObj.full_name || displayName}`, "success");
       notifyBrowserGmailRelay("ĐĂNG NHẬP THIẾT BỊ", userObj.full_name || displayName, email);
     } else if (existingAcc) {
       const expectedHash = existingAcc.password_hash || "";
@@ -1684,46 +1795,26 @@ function renderAllStreakUI(streakCount, isMaintainedToday) {
 }
 
 function syncDeadlineStreak(serverStreak, serverLastDate) {
-  const officialToday = (typeof getOfficialTodayDay === "function") ? getOfficialTodayDay() : 1;
-  const todayStatus = getDayMissionStatus(officialToday);
-  const curDay = (missionRegistry && missionRegistry.currentDay) ? missionRegistry.currentDay : officialToday;
-  const curStatus = getDayMissionStatus(curDay);
-
-  const completedCurriculumDays = countCompletedCurriculumDays();
-  const maxCompletedDay = getMaxCompletedCurriculumDay();
-  const curriculumBase = Math.max(completedCurriculumDays, maxCompletedDay);
-
-  let data = getDeadlineStreakData();
-  let currentStreak = Math.max(data.streakDays, curriculumBase, 1);
-
+  let st = getStreakDeadlineState();
   if (serverStreak !== undefined && serverStreak !== null) {
-    currentStreak = Math.max(currentStreak, parseInt(serverStreak) || 1, curriculumBase);
-  }
-
-  const now = new Date();
-  const todayStr = now.toISOString().split("T")[0];
-  const yesterday = new Date(now);
-  yesterday.setDate(now.getDate() - 1);
-  const yesterdayStr = yesterday.toISOString().split("T")[0];
-
-  const isCompletedFull = todayStatus.isAllDone || curStatus.isAllDone;
-  const isStudyActive = isTodayStudyActive() || isCompletedFull;
-
-  if (isCompletedFull && data.lastCompletedDate !== todayStr) {
-    if (data.lastCompletedDate === yesterdayStr) {
-      currentStreak += 1;
-    } else {
-      currentStreak = Math.max(currentStreak, curriculumBase);
-    }
-    data.lastCompletedDate = todayStr;
-    localStorage.setItem("EMH_LAST_COMPLETED_DATE", todayStr);
-    if (typeof showToast === "function") {
-      showToast(`🔥 CHUỖI STREAK ĐƯỢC DUY TRÌ: ${currentStreak} NGÀY LIÊN TIẾP! (Đã xong deadline hôm nay)`, "success");
+    const srvVal = Math.max(0, parseInt(serverStreak, 10) || 0);
+    if (serverLastDate && serverLastDate >= (st.lastCompletedDate || "")) {
+      st.streak = Math.max(st.streak || 0, srvVal);
+      st.lastCompletedDate = serverLastDate;
+      saveStreakDeadlineState(st);
+    } else if (!st.lastCompletedDate && srvVal === 0) {
+      st.streak = 0;
+      saveStreakDeadlineState(st);
     }
   }
-
-  renderAllStreakUI(currentStreak, isCompletedFull || (data.lastCompletedDate === todayStr));
-  return currentStreak;
+  if (typeof refreshDailyStreakDeadlineUI === "function") {
+    refreshDailyStreakDeadlineUI();
+  }
+  const todayStr = (window.StreakDeadlineEngine && window.StreakDeadlineEngine.toLocalDateStr)
+    ? window.StreakDeadlineEngine.toLocalDateStr(new Date())
+    : new Date().toISOString().split("T")[0];
+  renderAllStreakUI(st.streak || 0, st.lastCompletedDate === todayStr);
+  return st.streak || 0;
 }
 
 function getDayMissionStatus(dayNum) {
@@ -2044,25 +2135,18 @@ function getStreakStorageKey() {
 
 function getStreakDeadlineState() {
   const key = getStreakStorageKey();
-  const email = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
   try {
     const raw = localStorage.getItem(key);
     if (raw) return JSON.parse(raw);
   } catch (e) {}
 
-  // Seed initial real state without auto-marking today:
-  // Tô Nguyên Vũ starts with his real 14-day streak completed yesterday, so TODAY's deadline is ACTIVE.
   const now = new Date();
-  const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
-  const yStr = (window.StreakDeadlineEngine && window.StreakDeadlineEngine.toLocalDateStr)
-    ? window.StreakDeadlineEngine.toLocalDateStr(yesterday)
-    : yesterday.toISOString().split("T")[0];
-
-  const isVu = (email === "tonguyenvu@265.com");
+  const srvStreak = Math.max(0, parseInt(appState?.currentUser?.streak_count ?? 0, 10) || 0);
+  const srvLastDate = String(appState?.currentUser?.last_active_date || "");
   const initial = {
-    streak: isVu ? 14 : (parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0),
-    longestStreak: isVu ? 14 : (parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0),
-    lastCompletedDate: isVu ? yStr : "",
+    streak: srvStreak,
+    longestStreak: srvStreak,
+    lastCompletedDate: srvStreak > 0 ? srvLastDate : "",
     todayCompletedTasks: [],
     todayDate: (window.StreakDeadlineEngine && window.StreakDeadlineEngine.toLocalDateStr)
       ? window.StreakDeadlineEngine.toLocalDateStr(now)
@@ -2094,9 +2178,9 @@ function refreshDailyStreakDeadlineUI() {
 
   // Update Header & Profile streak displays
   const streakEl = document.getElementById("streakCount");
-  if (streakEl && curEmail) streakEl.innerText = `${streakNum} ngày`;
+  if (streakEl) streakEl.innerText = curEmail ? `${streakNum} ngày` : "0 ngày";
   const profileStreakEl = document.getElementById("statStreakDisplay");
-  if (profileStreakEl && curEmail) profileStreakEl.innerText = `${streakNum} ngày 🔥`;
+  if (profileStreakEl) profileStreakEl.innerText = curEmail ? `${streakNum} ngày` : "0 ngày";
 
   // Update Today / Profile Deadline & Recovery Bar
   const countdownEl = document.getElementById("realDeadlineCountdown");
@@ -2108,40 +2192,42 @@ function refreshDailyStreakDeadlineUI() {
   const profileRecoverBtn = document.getElementById("btnProfileRecoverStreak");
 
   if (countdownEl) countdownEl.innerText = ev.countdown.formatted;
-  if (creditsEl) creditsEl.innerText = `🛡️ Khôi phục: ${ev.recoveriesRemaining}/${ev.maxMonthlyRecoveries} lượt tháng này`;
+  if (creditsEl) creditsEl.innerText = `Khôi phục chuỗi: ${ev.recoveriesRemaining}/${ev.maxMonthlyRecoveries} lượt tháng này`;
   if (profileCreditsEl) profileCreditsEl.innerText = `Còn ${ev.recoveriesRemaining}/${ev.maxMonthlyRecoveries} lượt khôi phục chuỗi trong tháng ${ev.state.recoveryMonth}`;
 
   if (ev.status === "COMPLETED_TODAY") {
     if (pillEl) {
-      pillEl.innerText = `✅ Đã giữ chuỗi hôm nay · ${streakNum} ngày 🔥`;
-      pillEl.className = "px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-bold border border-emerald-300";
+      pillEl.innerText = `Đã học hôm nay · Chuỗi ${streakNum} ngày`;
+      pillEl.className = "font-mono px-2 py-0.5 rounded-md text-[11px] font-medium";
+      pillEl.style.backgroundColor = "var(--accent-wash)";
+      pillEl.style.color = "var(--accent-ink)";
     }
     if (statusEl) {
-      statusEl.innerText = `Tuyệt vời! Bạn đã hoàn thành nhiệm vụ hôm nay (${ev.state.todayCompletedTasks.join(", ")}) và bảo vệ thành công chuỗi ${streakNum} ngày.`;
+      statusEl.innerText = `Đã ghi nhận bài học hôm nay (${ev.state.todayCompletedTasks.join(", ")}) · Chuỗi hiện tại: ${streakNum} ngày`;
     }
   } else if (ev.status === "MISSED_RECOVERABLE") {
     if (pillEl) {
-      pillEl.innerText = `⚠️ Lỡ Deadline hôm qua · Chuỗi tạm về 0`;
-      pillEl.className = "px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-800 text-[11px] font-bold border border-rose-300";
+      pillEl.innerText = `Lỡ hạn hôm qua · Chuỗi tạm về 0`;
+      pillEl.className = "font-mono px-2 py-0.5 rounded-md text-[11px] font-medium";
     }
     if (statusEl) {
-      statusEl.innerText = `Bạn đã bỏ lỡ Deadline hôm qua (mất chuỗi ${ev.state.missedPreviousStreak} ngày). Bấm "Khôi Phục Chuỗi" ngay (còn ${ev.recoveriesRemaining}/${ev.maxMonthlyRecoveries} lượt tháng này)!`;
+      statusEl.innerText = `Bạn đã bỏ lỡ hạn học hôm qua (chuỗi trước đó: ${ev.state.missedPreviousStreak} ngày). Có thể dùng lượt khôi phục tháng (${ev.recoveriesRemaining}/${ev.maxMonthlyRecoveries} lượt còn lại)`;
     }
   } else if (ev.status === "LOST_NO_RECOVERY") {
     if (pillEl) {
-      pillEl.innerText = `❌ Mất chuỗi (Hết 3/3 lượt khôi phục tháng này)`;
-      pillEl.className = "px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-800 text-[11px] font-bold border border-rose-300";
+      pillEl.innerText = `Đã hết lượt khôi phục tháng này · Chuỗi 0 ngày`;
+      pillEl.className = "font-mono px-2 py-0.5 rounded-md text-[11px] font-medium";
     }
     if (statusEl) {
-      statusEl.innerText = `Bạn đã dùng hết 3 lượt khôi phục trong tháng. Hãy hoàn thành 1 bài học hôm nay trước 23:59 để bắt đầu lại chuỗi mới!`;
+      statusEl.innerText = `Hoàn thành 1 bài học trước 23:59 để bắt đầu lại chuỗi ngày học mới`;
     }
   } else {
     if (pillEl) {
-      pillEl.innerText = `⏳ Chưa hoàn thành hôm nay · Chuỗi ${streakNum} ngày 🔥`;
-      pillEl.className = "px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 text-[11px] font-bold border border-amber-300";
+      pillEl.innerText = `Chưa học hôm nay · Chuỗi ${streakNum} ngày`;
+      pillEl.className = "font-mono px-2 py-0.5 rounded-md text-[11px] font-medium";
     }
     if (statusEl) {
-      statusEl.innerText = `Hoàn thành ít nhất 1 nhiệm vụ (Flashcard ngày, Speaking, Đọc hiểu hoặc Ngữ pháp) trước 23:59 để giữ & tăng lên ${streakNum + 1} ngày!`;
+      statusEl.innerText = `Hoàn thành ít nhất 1 bài học thực tế (Thẻ từ, Luyện nói, Đọc hiểu hoặc Ngữ pháp) trước 23:59 để tăng lên ${streakNum + 1} ngày`;
     }
   }
 
@@ -2150,21 +2236,28 @@ function refreshDailyStreakDeadlineUI() {
   if (profileRecoverBtn) profileRecoverBtn.classList.toggle("hidden", !showRecover);
 }
 
-window.markDailyStreakTaskCompleted = function (taskType) {
+window.markDailyStreakTaskCompleted = async function (taskType) {
   if (!window.StreakDeadlineEngine) return;
   const st = getStreakDeadlineState();
   const res = window.StreakDeadlineEngine.recordCoreTaskCompletion(st, taskType, new Date());
   saveStreakDeadlineState(res.state);
   refreshDailyStreakDeadlineUI();
 
-  if (res.streakIncremented) {
-    if (typeof showToast === "function") {
-      showToast(`🔥 Hoàn thành Deadline hôm nay! Chuỗi Streak tăng lên ${res.newStreak} ngày liên tiếp!`, "success");
-    }
-    // Sync with backend if logged in
-    if (appState && appState.authToken) {
-      apiCall("/api/auth/checkin", "POST").catch(() => {});
-    }
+  if (appState && appState.authToken) {
+    try {
+      const srv = await apiCall("/api/auth/complete-study-day", "POST", { task_type: String(taskType || "study") });
+      if (srv && typeof srv.streak === "number") {
+        res.state.streak = Math.max(res.state.streak || 0, srv.streak);
+        res.state.longestStreak = Math.max(res.state.longestStreak || 0, srv.longest_streak || srv.streak);
+        saveStreakDeadlineState(res.state);
+        refreshDailyStreakDeadlineUI();
+        if (typeof fetchServerLeaderboard === "function") fetchServerLeaderboard();
+      }
+    } catch (e) {}
+  }
+
+  if (res.streakIncremented && typeof showToast === "function") {
+    showToast(`Đã hoàn thành bài học hôm nay · Chuỗi Streak tăng lên ${res.state.streak} ngày`, "success");
   }
 };
 
@@ -2240,11 +2333,15 @@ async function syncClientWordsToServer() {
   if (!appState || !appState.authToken) return;
   try {
     const learned = (typeof getRealLearnedWordsCount === "function") ? getRealLearnedWordsCount() : 0;
-    const streak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+    const st = getStreakDeadlineState();
+    const todayStr = (window.StreakDeadlineEngine && window.StreakDeadlineEngine.toLocalDateStr)
+      ? window.StreakDeadlineEngine.toLocalDateStr(new Date())
+      : new Date().toISOString().split("T")[0];
     await apiCall("/api/stats/sync-client-summary", "POST", {
       learned_words_count: learned,
       total_started_count: learned,
-      streak_count: streak
+      streak_count: st.streak || 0,
+      completed_today: st.lastCompletedDate === todayStr
     });
   } catch (e) {}
 }
@@ -2265,6 +2362,28 @@ function initDailyMissionEngine() {
       localStorage.removeItem(STORAGE_KEY_SAVED_ACCOUNTS_V2);
     }
     localStorage.setItem("EMH_PURE_AUTH_V99", "true");
+  }
+
+  // One-time v103 migration: reset legacy auto-inflated 14/15 streak keys so streak strictly reflects real study days (preserving 280 learned words)
+  if (!localStorage.getItem("EMH_TRUE_STREAK_RESET_V103")) {
+    localStorage.setItem("EMH_STREAK", "0");
+    localStorage.removeItem("EMH_LAST_COMPLETED_DATE");
+    localStorage.removeItem(STORAGE_KEY_DEADLINE_STREAK_V2);
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith("EMH_REAL_STREAK_V96_")) {
+        localStorage.removeItem(k);
+      }
+    });
+    try {
+      const savedAccs = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS_V2) || "[]");
+      if (Array.isArray(savedAccs) && savedAccs.length > 0) {
+        localStorage.setItem(
+          STORAGE_KEY_SAVED_ACCOUNTS_V2,
+          JSON.stringify(savedAccs.map(a => ({ ...a, streak: 0 })))
+        );
+      }
+    } catch (e) {}
+    localStorage.setItem("EMH_TRUE_STREAK_RESET_V103", "true");
   }
 
   loadMissionRegistry();
@@ -11662,21 +11781,15 @@ let serverLeaderboardCache = [];
 
 function getTierBadgeHtml(acc) {
   if (acc.tier_label) {
-    const colorMap = {
-      diamond: "bg-cyan-500/20 text-cyan-200 border-cyan-400/50",
-      gold: "bg-amber-500/20 text-amber-200 border-amber-400/50",
-      silver: "bg-slate-400/20 text-slate-200 border-slate-400/50",
-      bronze: "bg-orange-600/20 text-orange-200 border-orange-500/40"
-    };
-    const cls = colorMap[acc.tier_code] || colorMap.bronze;
-    return `<span class="px-2 py-0.5 rounded-full font-bold text-[10px] border ${cls}">${acc.tier_label}</span>`;
+    return `<span class="font-mono px-2 py-0.5 rounded-md font-medium text-[10px]" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">${acc.tier_label}</span>`;
   }
   const xp = acc.xp || 0;
   const st = acc.streak || 0;
-  if (xp >= 2000 || st >= 21) return `<span class="px-2 py-0.5 rounded-full font-bold text-[10px] border bg-cyan-500/20 text-cyan-200 border-cyan-400/50">💎 Cao Thủ Kim Cương</span>`;
-  if (xp >= 1200 || st >= 10) return `<span class="px-2 py-0.5 rounded-full font-bold text-[10px] border bg-amber-500/20 text-amber-200 border-amber-400/50">🏆 Tinh Anh Vàng</span>`;
-  if (xp >= 500 || st >= 4) return `<span class="px-2 py-0.5 rounded-full font-bold text-[10px] border bg-slate-400/20 text-slate-200 border-slate-400/50">🥈 Chiến Binh Bạc</span>`;
-  return `<span class="px-2 py-0.5 rounded-full font-bold text-[10px] border bg-orange-600/20 text-orange-200 border-orange-500/40">🥉 Tân Binh Đồng</span>`;
+  let lbl = "Hạng Đồng";
+  if (xp >= 2000 || st >= 21) lbl = "Hạng Kim Cương";
+  else if (xp >= 1200 || st >= 10) lbl = "Hạng Vàng";
+  else if (xp >= 500 || st >= 4) lbl = "Hạng Bạc";
+  return `<span class="font-mono px-2 py-0.5 rounded-md font-medium text-[10px]" style="background: var(--raised); border: 1px solid var(--rule); color: var(--ink-2);">${lbl}</span>`;
 }
 
 async function fetchServerLeaderboard() {
@@ -11753,11 +11866,10 @@ function getSavedAccounts() {
   const activeName = (appState.currentUser && appState.currentUser.full_name) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_NAME") || activeEmail.split("@")[0];
   const activeTarget = (appState.currentUser && appState.currentUser.target_exam) || "IELTS 7.5+";
 
-  const realStreak = (typeof countCompletedCurriculumDays === "function") 
-    ? Math.max(1, countCompletedCurriculumDays()) 
-    : parseInt(localStorage.getItem("EMH_STREAK") || "1", 10);
-  const realWords = (typeof getRealLearnedWordsCount === "function") ? getRealLearnedWordsCount() : 20;
-  const completedDays = (typeof countCompletedCurriculumDays === "function") ? countCompletedCurriculumDays() : 1;
+  const stObj = (typeof getStreakDeadlineState === "function") ? getStreakDeadlineState() : { streak: 0 };
+  const realStreak = Math.max(0, parseInt(stObj.streak ?? localStorage.getItem("EMH_STREAK") ?? "0", 10) || 0);
+  const realWords = (typeof getRealLearnedWordsCount === "function") ? getRealLearnedWordsCount() : 0;
+  const completedDays = (typeof countCompletedCurriculumDays === "function") ? countCompletedCurriculumDays() : 0;
   const realXP = (realStreak * 150) + (realWords * 20) + (completedDays * 100);
 
   const curDay = (typeof missionRegistry !== "undefined" && missionRegistry.currentDay) ? missionRegistry.currentDay : 1;
@@ -11792,10 +11904,10 @@ function getSavedAccounts() {
           ...acc,
           full_name: acc.full_name || activeName,
           target_exam: acc.target_exam || activeTarget,
-          streak: Math.max(acc.streak || 1, realStreak),
-          mature_words: Math.max(acc.mature_words || 20, realWords),
+          streak: realStreak,
+          mature_words: Math.max(acc.mature_words || 0, realWords),
           today_progress: missionDonePct,
-          xp: Math.max(acc.xp || 200, realXP),
+          xp: Math.max(acc.xp || 0, realXP),
           token: appState.authToken || acc.token || "",
           isCurrent: true,
           isReal: true

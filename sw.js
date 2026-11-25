@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-mastery-v101.0';
+const CACHE_NAME = 'english-mastery-v102.0';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -51,6 +51,11 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
+
+  // Never cache dynamic backend API endpoints
+  if (url.pathname.startsWith('/api/')) {
+    return;
+  }
 
   // Skip external APIs or chrome extensions from strict caching
   if (url.origin !== location.origin) {

@@ -2368,7 +2368,7 @@
               <span id="statTotalStarted" class="font-bold text-white">0</span>
             </div>
             <div class="flex justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span class="text-slate-400">Thẻ đã ghi nhớ vững vàng (Mature $\ge 21$ ngày):</span>
+              <span class="text-slate-400">Thẻ đã ghi nhớ vững vàng (Mature ≥ 21 ngày):</span>
               <span id="statMature" class="font-bold text-emerald-400">0</span>
             </div>
             <div class="flex justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
@@ -3603,25 +3603,25 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=101.0"></script>
-  <script src="./listening_data.js?v=101.0"></script>
-  <script src="./vietnam_today_data.js?v=101.0"></script>
-  <script src="./educational_channels_data.js?v=101.0"></script>
-  <script src="./international_news_videos.js?v=101.0"></script>
-  <script src="./bilingual_news_data.js?v=101.0"></script>
-  <script src="./reading_lexicon.js?v=101.0"></script>
-  <script src="./conversation_data.js?v=101.0"></script>
-  <script src="./speaking-forecast.js?v=101.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=101.0"></script>
-  <script src="./speakout-speaking-data.js?v=101.0"></script>
-  <script src="./speaking-engine.js?v=101.0"></script>
-  <script src="./ocr-vocab-engine.js?v=101.0"></script>
-  <script src="./unit-review-engine.js?v=101.0"></script>
-  <script src="./focus-session-engine.js?v=101.0"></script>
-  <script src="./security-guard-engine.js?v=101.0"></script>
-  <script src="./auth-gate-engine.js?v=101.0"></script>
-  <script src="./streak-deadline-engine.js?v=101.0"></script>
-  <script src="./app.js?v=101.0"></script>
+  <script src="./data.js?v=102.0"></script>
+  <script src="./listening_data.js?v=102.0"></script>
+  <script src="./vietnam_today_data.js?v=102.0"></script>
+  <script src="./educational_channels_data.js?v=102.0"></script>
+  <script src="./international_news_videos.js?v=102.0"></script>
+  <script src="./bilingual_news_data.js?v=102.0"></script>
+  <script src="./reading_lexicon.js?v=102.0"></script>
+  <script src="./conversation_data.js?v=102.0"></script>
+  <script src="./speaking-forecast.js?v=102.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=102.0"></script>
+  <script src="./speakout-speaking-data.js?v=102.0"></script>
+  <script src="./speaking-engine.js?v=102.0"></script>
+  <script src="./ocr-vocab-engine.js?v=102.0"></script>
+  <script src="./unit-review-engine.js?v=102.0"></script>
+  <script src="./focus-session-engine.js?v=102.0"></script>
+  <script src="./security-guard-engine.js?v=102.0"></script>
+  <script src="./auth-gate-engine.js?v=102.0"></script>
+  <script src="./streak-deadline-engine.js?v=102.0"></script>
+  <script src="./app.js?v=102.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3629,7 +3629,9 @@
     }
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=93.0').catch(err => console.log('SW reg failed:', err));
+        navigator.serviceWorker.register('/sw.js?v=102.0', { updateViaCache: 'none' })
+          .then(reg => { try { reg.update(); } catch (e) {} })
+          .catch(err => console.log('SW reg failed:', err));
       });
     }
   </script>

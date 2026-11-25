@@ -103,6 +103,32 @@ class TestRotatingOneTimeReferralFlow(unittest.TestCase):
         r6 = client.get("/api/auth/validate-referral?code=WRONG6")
         self.assertEqual(r6.status_code, 429)
 
+    def test_04_hmac_session_survives_render_container_restart(self):
+        login_res = client.post("/api/auth/login", json={
+            "email": "tonguyenvu@265.com",
+            "password": "VuAdmin@265"
+        })
+        self.assertEqual(login_res.status_code, 200)
+        token = login_res.json()["token"]
+        self.assertTrue(token.startswith("emhs1."))
+
+        # Simulate Render container restart wiping UserSession table
+        db = next(get_db())
+        db.query(models.UserSession).delete()
+        db.commit()
+        db.close()
+
+        # Token must STILL work seamlessly without 401!
+        ref_res = client.get("/api/auth/referral-code", headers={"Authorization": f"Bearer {token}"})
+        self.assertEqual(ref_res.status_code, 200)
+        self.assertTrue(ref_res.json()["referral_code"].startswith("VU-"))
+
+        # Explicit logout must permanently revoke the token
+        out_res = client.post("/api/auth/logout", headers={"Authorization": f"Bearer {token}"})
+        self.assertEqual(out_res.status_code, 200)
+        after_out = client.get("/api/auth/referral-code", headers={"Authorization": f"Bearer {token}"})
+        self.assertEqual(after_out.status_code, 401)
+
 
 if __name__ == "__main__":
     unittest.main()

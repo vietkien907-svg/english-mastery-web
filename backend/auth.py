@@ -1,4 +1,7 @@
 import os
+import json
+import hmac
+import base64
 import hashlib
 import secrets
 import datetime
@@ -9,12 +12,27 @@ import models
 
 SESSION_EXPIRATION_DAYS = 30
 RESET_TOKEN_EXPIRATION_HOURS = 2
+SESSION_SIGNING_SECRET = os.environ.get(
+    "EMH_SESSION_SECRET",
+    "emh-hmac-session-secret-vu265-v102-resilient"
+).encode("utf-8")
+
+
+def _b64url_encode(data: bytes) -> str:
+    return base64.urlsafe_b64encode(data).rstrip(b"=").decode("ascii")
+
+
+def _b64url_decode(text: str) -> bytes:
+    pad = "=" * (-len(text) % 4)
+    return base64.urlsafe_b64decode((text + pad).encode("ascii"))
+
 
 # Password Hashing with PBKDF2-HMAC-SHA256 and 100,000 iterations
 def hash_password(password: str) -> str:
     salt = secrets.token_hex(16)
     key = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt.encode("utf-8"), 100000)
     return f"{salt}:{key.hex()}"
+
 
 def verify_password(plain_password: str, stored_hash: str) -> bool:
     try:
@@ -24,20 +42,66 @@ def verify_password(plain_password: str, stored_hash: str) -> bool:
     except Exception:
         return False
 
-# Session token generator and hasher
+
+# Session token generator and HMAC-SHA256 stateless signer (survives Render container restarts)
 def create_session_token() -> str:
     return secrets.token_urlsafe(32)
+
+
+def create_signed_session_token(
+    user: models.User,
+    expires_at: datetime.datetime,
+    device_name: str = "Personal Device",
+    device_type: str = "desktop"
+) -> str:
+    payload = {
+        "e": (user.email or "").strip().lower(),
+        "n": (user.full_name or "")[:80],
+        "t": (user.target_exam or "IELTS")[:30],
+        "dn": (device_name or "Personal Device")[:60],
+        "dt": (device_type or "desktop")[:20],
+        "exp": int(expires_at.replace(tzinfo=datetime.timezone.utc).timestamp()) if expires_at.tzinfo is None else int(expires_at.timestamp()),
+        "jti": secrets.token_hex(8)
+    }
+    raw_json = json.dumps(payload, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    b64_payload = _b64url_encode(raw_json)
+    sig = hmac.new(SESSION_SIGNING_SECRET, b64_payload.encode("ascii"), hashlib.sha256).digest()
+    b64_sig = _b64url_encode(sig)
+    return f"emhs1.{b64_payload}.{b64_sig}"
+
+
+def verify_signed_session_token(token: str) -> dict | None:
+    try:
+        if not token or not token.startswith("emhs1."):
+            return None
+        parts = token.split(".")
+        if len(parts) != 3:
+            return None
+        _, b64_payload, b64_sig = parts
+        expected_sig = _b64url_encode(
+            hmac.new(SESSION_SIGNING_SECRET, b64_payload.encode("ascii"), hashlib.sha256).digest()
+        )
+        if not hmac.compare_digest(b64_sig, expected_sig):
+            return None
+        data = json.loads(_b64url_decode(b64_payload).decode("utf-8"))
+        now_ts = int(datetime.datetime.now(datetime.timezone.utc).timestamp())
+        if int(data.get("exp", 0)) <= now_ts:
+            return None
+        if not data.get("e"):
+            return None
+        return data
+    except Exception:
+        return None
+
 
 def hash_token(token: str) -> str:
     return hashlib.sha256(token.encode("utf-8")).hexdigest()
 
+
 def create_user_session(db: Session, user: models.User, request: Request, device_name: str = "") -> str:
-    raw_token = create_session_token()
-    token_hash = hash_token(raw_token)
-    
     user_agent = request.headers.get("user-agent", "Unknown Device") if request else "Unknown"
     ip = request.client.host if request and request.client else "127.0.0.1"
-    
+
     device_type = "desktop"
     ua_lower = user_agent.lower()
     if "mobile" in ua_lower or "android" in ua_lower or "iphone" in ua_lower:
@@ -53,7 +117,14 @@ def create_user_session(db: Session, user: models.User, request: Request, device
     )
 
     expires = datetime.datetime.utcnow() + datetime.timedelta(days=SESSION_EXPIRATION_DAYS)
-    
+    raw_token = create_signed_session_token(
+        user=user,
+        expires_at=expires,
+        device_name=assigned_device_name,
+        device_type=device_type
+    )
+    token_hash = hash_token(raw_token)
+
     sess = models.UserSession(
         id=token_hash,
         user_id=user.id,
@@ -67,44 +138,79 @@ def create_user_session(db: Session, user: models.User, request: Request, device
     db.commit()
     return raw_token
 
+
 # Extract and authenticate user from Header (preferred) or Cookie
 def get_current_user(request: Request, db: Session = Depends(get_db)) -> models.User:
     token = None
     auth_header = request.headers.get("authorization", "")
     if auth_header.startswith("Bearer "):
         token = auth_header.split(" ", 1)[1].strip()
-        
+
     if not token:
         token = request.cookies.get("session_token")
-            
+
     if not token:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Chưa đăng nhập. Vui lòng đăng nhập để tiếp tục."
         )
-        
+
+    now = datetime.datetime.utcnow()
     token_hash = hash_token(token)
-    sess = db.query(models.UserSession).filter(
-        models.UserSession.id == token_hash,
-        models.UserSession.revoked == False,
-        models.UserSession.expires_at > datetime.datetime.utcnow()
-    ).first()
-    
-    if not sess:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Phiên đăng nhập đã hết hạn hoặc bị thu hồi."
+    sess = db.query(models.UserSession).filter(models.UserSession.id == token_hash).first()
+
+    if sess is not None:
+        if sess.revoked or sess.expires_at <= now:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Phiên đăng nhập đã hết hạn hoặc bị thu hồi."
+            )
+        sess.last_active_at = now
+        db.commit()
+        user = db.query(models.User).filter(models.User.id == sess.user_id).first()
+        if not user:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Người dùng không tồn tại.")
+        return user
+
+    # Stateless HMAC recovery when Render container restarts / redeploys
+    claims = verify_signed_session_token(token)
+    if claims:
+        email = claims["e"].strip().lower()
+        user = db.query(models.User).filter(models.User.email == email).first()
+        if not user:
+            user = models.User(
+                email=email,
+                password_hash=hash_password(secrets.token_urlsafe(24)),
+                full_name=claims.get("n") or email.split("@")[0],
+                target_exam=claims.get("t") or "IELTS",
+                streak_count=1,
+                longest_streak=1,
+                referred_by="Tô Nguyên Vũ (tonguyenvu@265.com)"
+            )
+            db.add(user)
+            db.commit()
+            db.refresh(user)
+
+        ip = request.client.host if request and request.client else "127.0.0.1"
+        exp_dt = datetime.datetime.utcfromtimestamp(int(claims["exp"]))
+        rehydrated = models.UserSession(
+            id=token_hash,
+            user_id=user.id,
+            device_name=claims.get("dn") or "Personal Device",
+            device_type=claims.get("dt") or "desktop",
+            ip_address=ip,
+            last_active_at=now,
+            expires_at=exp_dt,
+            revoked=False
         )
-        
-    # Update last active timestamp
-    sess.last_active_at = datetime.datetime.utcnow()
-    db.commit()
-    
-    user = db.query(models.User).filter(models.User.id == sess.user_id).first()
-    if not user:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Người dùng không tồn tại.")
-        
-    return user
+        db.add(rehydrated)
+        db.commit()
+        return user
+
+    raise HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Phiên đăng nhập đã hết hạn hoặc bị thu hồi."
+    )
 
 # Optional user for endpoints that can work anonymously or logged in
 def get_optional_user(request: Request, db: Session = Depends(get_db)):

@@ -190,6 +190,20 @@ def logout(request: Request, response: Response, db: Session = Depends(get_db)):
         if sess:
             sess.revoked = True
             db.commit()
+        else:
+            claims = auth.verify_signed_session_token(token)
+            if claims:
+                u = db.query(models.User).filter(models.User.email == claims["e"].lower()).first()
+                if u:
+                    db.add(models.UserSession(
+                        id=token_hash,
+                        user_id=u.id,
+                        device_name=claims.get("dn") or "Revoked Device",
+                        device_type=claims.get("dt") or "desktop",
+                        expires_at=datetime.datetime.utcfromtimestamp(int(claims["exp"])),
+                        revoked=True
+                    ))
+                    db.commit()
             
     response.delete_cookie("session_token")
     return {"success": True, "message": "Đã đăng xuất thành công."}

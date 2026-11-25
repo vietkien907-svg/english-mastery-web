@@ -185,34 +185,36 @@ AUDIO_DIR = os.path.join(FRONTEND_DIR, "audio")
 if os.path.exists(AUDIO_DIR):
     app.mount("/audio", StaticFiles(directory=AUDIO_DIR), name="audio")
 
+NO_CACHE_HEADERS = {"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache", "Expires": "0"}
+
 @app.get("/")
 def serve_index():
     index_path = os.path.join(FRONTEND_DIR, "index.html")
     if os.path.exists(index_path):
-        return FileResponse(index_path)
+        return FileResponse(index_path, headers=NO_CACHE_HEADERS)
     return {"message": "English Mastery Hub API is running."}
 
 @app.get("/flashcards.html")
 @app.get("/flashcard.html")
 @app.get("/index.html")
 def serve_flashcards():
-    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"), headers=NO_CACHE_HEADERS)
 
 @app.get("/manifest.json")
 def serve_manifest():
-    return FileResponse(os.path.join(FRONTEND_DIR, "manifest.json"))
+    return FileResponse(os.path.join(FRONTEND_DIR, "manifest.json"), headers=NO_CACHE_HEADERS)
 
 @app.get("/sw.js")
 def serve_sw():
-    return FileResponse(os.path.join(FRONTEND_DIR, "sw.js"), media_type="application/javascript")
+    return FileResponse(os.path.join(FRONTEND_DIR, "sw.js"), media_type="application/javascript", headers=NO_CACHE_HEADERS)
 
 @app.get("/style.css")
 def serve_css():
-    return FileResponse(os.path.join(FRONTEND_DIR, "style.css"), media_type="text/css")
+    return FileResponse(os.path.join(FRONTEND_DIR, "style.css"), media_type="text/css", headers=NO_CACHE_HEADERS)
 
 @app.get("/app.js")
 def serve_app_js():
-    return FileResponse(os.path.join(FRONTEND_DIR, "app.js"), media_type="application/javascript")
+    return FileResponse(os.path.join(FRONTEND_DIR, "app.js"), media_type="application/javascript", headers=NO_CACHE_HEADERS)
 
 @app.get("/data.js")
 def serve_data_js():

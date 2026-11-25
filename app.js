@@ -60,7 +60,7 @@ function getVideoSourceSearchUrl(item, preferVietnamese = false) {
 
 let appState = {
   activeTab: "speaking",
-  authToken: localStorage.getItem(STORAGE_KEY_AUTH) || "",
+  authToken: localStorage.getItem(STORAGE_KEY_AUTH) || localStorage.getItem("EMH_AUTH_TOKEN") || "",
   currentUser: null,
   studyMode: "unit", // "unit", "shuffle_1_4", "shuffle_4_8"
   currentUnitIndex: 0,
@@ -147,25 +147,94 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Helper for authenticated API calls with offline fallback
-async function apiCall(endpoint, method = "GET", body = null) {
+// Helper for authenticated API calls with silent HMAC session auto-heal & zero 401 recursion
+let _isHandling401 = false;
+let _silentRefreshPromise = null;
+
+async function trySilentSessionUpgrade() {
+  if (_silentRefreshPromise) return _silentRefreshPromise;
+  _silentRefreshPromise = (async () => {
+    try {
+      const activeEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+      if (!activeEmail) return false;
+      const savedList = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS_V2) || "[]");
+      const acc = savedList.find(a => a && a.email && a.email.toLowerCase() === activeEmail.toLowerCase());
+      if (!acc || !acc.password_hash) return false;
+      let plainPass = "";
+      try { plainPass = atob(acc.password_hash); } catch (e) { plainPass = ""; }
+      if (!plainPass) return false;
+
+      const resp = await fetch(`${API_BASE}/api/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: activeEmail, password: plainPass })
+      });
+      if (!resp.ok) return false;
+      const data = await resp.json();
+      if (data && data.token) {
+        appState.authToken = data.token;
+        localStorage.setItem(STORAGE_KEY_AUTH, data.token);
+        localStorage.setItem("EMH_AUTH_TOKEN", data.token);
+        if (data.user) appState.currentUser = data.user;
+        return true;
+      }
+      return false;
+    } catch (e) {
+      return false;
+    } finally {
+      _silentRefreshPromise = null;
+    }
+  })();
+  return _silentRefreshPromise;
+}
+
+async function apiCall(endpoint, method = "GET", body = null, _retried = false) {
   const headers = { "Content-Type": "application/json" };
-  if (appState.authToken) {
-    headers["Authorization"] = `Bearer ${appState.authToken}`;
+  const activeTok = appState.authToken || localStorage.getItem(STORAGE_KEY_AUTH) || localStorage.getItem("EMH_AUTH_TOKEN") || "";
+  if (activeTok) {
+    appState.authToken = activeTok;
+    headers["Authorization"] = `Bearer ${activeTok}`;
   }
 
   try {
     const res = await fetch(`${API_BASE}${endpoint}`, {
       method,
       headers,
+      cache: "no-store",
       body: body ? JSON.stringify(body) : null
     });
 
-    if (res.status === 401) {
-      // Session expired
-      appState.authToken = "";
-      localStorage.removeItem(STORAGE_KEY_AUTH);
-      updateAuthUI();
+    if (res.status === 401 && endpoint !== "/api/auth/login" && endpoint !== "/api/auth/register") {
+      if (!_retried) {
+        const upgraded = await trySilentSessionUpgrade();
+        if (upgraded) {
+          return await apiCall(endpoint, method, body, true);
+        }
+      }
+      if (!_isHandling401) {
+        _isHandling401 = true;
+        try {
+          const prevEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+          appState.authToken = "";
+          appState.currentUser = null;
+          localStorage.removeItem(STORAGE_KEY_AUTH);
+          localStorage.removeItem("EMH_AUTH_TOKEN");
+          localStorage.removeItem("EMH_ACTIVE_ACCOUNT_EMAIL");
+          localStorage.removeItem("EMH_ACTIVE_ACCOUNT_NAME");
+          updateAuthUI();
+          if (prevEmail) {
+            setTimeout(() => {
+              openAuthModal("login");
+              const emailInput = document.getElementById("authEmailInput");
+              if (emailInput && !emailInput.value) emailInput.value = prevEmail;
+              showToast("🔄 Đã nâng cấp chuẩn phiên 30 ngày. Vui lòng đăng nhập lại 1 lần duy nhất!", "info");
+            }, 150);
+          }
+        } finally {
+          setTimeout(() => { _isHandling401 = false; }, 1200);
+        }
+      }
+      return null;
     }
 
     if (!res.ok) {
@@ -662,7 +731,26 @@ async function handleAuthSubmit() {
       localStorage.setItem("EMH_AUTH_TOKEN", token);
       appState.currentUser = userObj;
 
-      list = list.map(a => ({ ...a, isCurrent: (a.email.toLowerCase() === email.toLowerCase()) }));
+      list = list.map(a => {
+        const isCur = a.email.toLowerCase() === email.toLowerCase();
+        return isCur ? { ...a, isCurrent: true, token: token, password_hash: btoa(password) } : { ...a, isCurrent: false };
+      });
+      if (!list.some(a => a.email.toLowerCase() === email.toLowerCase())) {
+        list.unshift({
+          id: "user_" + Date.now(),
+          email: email,
+          full_name: userObj.full_name || displayName,
+          target_exam: userObj.target_exam || targetExam,
+          streak: userObj.streak || userObj.streak_count || 1,
+          mature_words: getRealLearnedWordsCount(),
+          today_progress: 100,
+          xp: 1500,
+          password_hash: btoa(password),
+          token: token,
+          isCurrent: true,
+          isReal: true
+        });
+      }
       saveSavedAccounts(list);
 
       updateDailyStreak(userObj.streak || userObj.streak_count || 1, userObj.last_active_date);
@@ -794,12 +882,15 @@ async function loadReferralCodeInfo() {
       return;
     }
   } catch (e) {}
-  if (displayEl && !cachedReferralCode) displayEl.innerText = "Cần kết nối server";
+  if (displayEl) {
+    displayEl.innerText = cachedReferralCode || "Đăng nhập lại để tải mã";
+  }
 }
 
 function copyMyReferralCode() {
   if (!cachedReferralCode) {
-    alert("Chưa tải được mã giới thiệu từ máy chủ. Hãy kiểm tra server Backend đang chạy.");
+    openAuthModal("login");
+    showToast("Vui lòng đăng nhập lại tài khoản máy chủ để lấy mã giới thiệu mới nhất!", "info");
     return;
   }
   const code = cachedReferralCode;
@@ -1215,6 +1306,12 @@ function switchTab(tabId) {
 
   if (tabId === "profile") {
     loadProfileAnalytics();
+    const curEm = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
+    if (curEm === "tonguyenvu@265.com") {
+      loadReferralCodeInfo();
+      if (typeof loadHostAlertAndLogsUI === "function") loadHostAlertAndLogsUI();
+      if (typeof loadKeycloakHostConfigUI === "function") loadKeycloakHostConfigUI();
+    }
   } else if (tabId === "listening") {
     if (typeof initListeningModule === "function") initListeningModule();
   } else if (tabId === "video") {

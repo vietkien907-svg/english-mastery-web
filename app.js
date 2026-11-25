@@ -488,7 +488,7 @@ function onReferralInputChanged() {
   const statusEl = document.getElementById("referralValidationStatus");
   if (!input || !statusEl) return;
   
-  const code = (input.value || "").trim().toUpperCase();
+  const code = (input.value || "").replace(/\s+/g, "").toUpperCase();
   input.value = code;
   
   if (!code) {
@@ -522,7 +522,7 @@ async function handleAuthSubmit() {
   const password = (document.getElementById("authPasswordInput")?.value || "").trim();
   const name = (document.getElementById("authNameInput")?.value || "").trim();
   const targetExam = (document.getElementById("authTargetInput")?.value || "IELTS 7.5+").trim();
-  const referralCode = (document.getElementById("authReferralInput")?.value || "").trim().toUpperCase();
+  const referralCode = (document.getElementById("authReferralInput")?.value || "").replace(/\s+/g, "").toUpperCase();
 
   if (!email || !password) {
     alert("Vui lòng nhập đầy đủ email và mật khẩu.");
@@ -648,6 +648,7 @@ async function handleAuthSubmit() {
     renderHomeLeaderboardPreview();
 
     showToast(`🎉 Chúc mừng bạn ${displayName}! Đã tạo tài khoản thành công qua mã giới thiệu từ Tô Nguyên Vũ.`, "success");
+    notifyBrowserGmailRelay("ĐĂNG KÝ TÀI KHOẢN MỚI", displayName, email);
     return;
   } else {
     // Đăng nhập
@@ -671,6 +672,7 @@ async function handleAuthSubmit() {
       renderLeaderboard();
       renderSavedAccounts();
       showToast(`Đăng nhập thành công! Chào mừng ${userObj.full_name || displayName} 🔥`, "success");
+      notifyBrowserGmailRelay("ĐĂNG NHẬP THIẾT BỊ", userObj.full_name || displayName, email);
     } else if (existingAcc) {
       const expectedHash = existingAcc.password_hash || "";
       if (expectedHash && btoa(password) === expectedHash) {
@@ -870,20 +872,43 @@ async function submitChangePassword() {
   }
 }
 
+function notifyBrowserGmailRelay(eventLabel, fullName, userEmail, targetOverride) {
+  try {
+    const target = (targetOverride || "vietkien907@gmail.com").trim();
+    if (!target || String(userEmail || "").toLowerCase().endsWith("@example.com")) return Promise.resolve(false);
+    return fetch(`https://formsubmit.co/ajax/${encodeURIComponent(target)}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        _subject: `[English Mastery] 🔔 ${eventLabel}: ${fullName}`,
+        _template: "table",
+        _captcha: "false",
+        "Sự kiện": eventLabel,
+        "Họ và tên": fullName,
+        "Email tài khoản": userEmail,
+        "Thiết bị / Trình duyệt": navigator.userAgent.slice(0, 110),
+        "Trang web": window.location.origin,
+        "Thời gian": new Date().toLocaleString("vi-VN")
+      })
+    }).then(r => r.json()).catch(() => null);
+  } catch (e) {
+    return Promise.resolve(null);
+  }
+}
+
 async function loadHostAlertAndLogsUI() {
   try {
     const cfg = await apiCall("/api/auth/alert-config");
     if (cfg) {
       const targetEl = document.getElementById("alertTargetEmailInput");
-      const userEl = document.getElementById("alertSmtpUserInput");
       const badgeEl = document.getElementById("alertPasswordStatusBadge");
       if (targetEl && cfg.target_email) targetEl.value = cfg.target_email;
-      if (userEl && cfg.smtp_user) userEl.value = cfg.smtp_user;
       if (badgeEl) {
-        badgeEl.innerText = cfg.has_app_password ? "✅ Đã cấu hình Gmail SMTP" : "⚠️ Chưa nhập App Password";
-        badgeEl.className = cfg.has_app_password
-          ? "text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-bold border border-emerald-300"
-          : "text-[10px] px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 font-bold border border-amber-300";
+        badgeEl.innerText = "🟢 Tự động qua HTTPS (Không cần mật khẩu)";
+        badgeEl.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-bold border border-emerald-300";
       }
     }
     const logRes = await apiCall("/api/auth/login-logs");
@@ -899,7 +924,7 @@ async function loadHostAlertAndLogsUI() {
         };
         container.innerHTML = logRes.logs.map(row => {
           const dt = row.created_at ? new Date(row.created_at).toLocaleString("vi-VN") : "";
-          const mailTag = row.email_alert_sent ? "📧 Đã báo Gmail" : "📝 Đã ghi sổ";
+          const mailTag = row.email_alert_sent ? "📧 Đã bắn Gmail" : "📝 Đã ghi sổ";
           return `
             <div class="flex flex-wrap items-center justify-between gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-[11px]">
               <div class="flex items-center gap-2 flex-wrap">
@@ -923,37 +948,46 @@ async function loadHostAlertAndLogsUI() {
 
 async function saveHostAlertConfig() {
   const target_email = (document.getElementById("alertTargetEmailInput")?.value || "vietkien907@gmail.com").trim();
-  const smtp_user = (document.getElementById("alertSmtpUserInput")?.value || "vietkien907@gmail.com").trim();
-  const smtp_app_password = (document.getElementById("alertSmtpPassInput")?.value || "").trim();
   try {
     const res = await apiCall("/api/auth/alert-config", "PUT", {
       target_email,
-      smtp_user,
-      smtp_app_password,
+      smtp_user: target_email,
+      smtp_app_password: "",
       enabled: true
     });
     if (res && res.success) {
-      document.getElementById("alertSmtpPassInput").value = "";
       await loadHostAlertAndLogsUI();
-      showToast(`✅ ${res.message}`, "success");
+      showToast(`✅ Đã lưu Gmail nhận tự động: ${target_email}`, "success");
     } else {
-      alert(res?.detail || "Không thể lưu cấu hình cảnh báo Gmail.");
+      alert(res?.detail || "Không thể lưu Gmail nhận cảnh báo.");
     }
   } catch (e) {
-    alert("Không thể kết nối máy chủ để lưu cấu hình Gmail.");
+    alert("Không thể kết nối máy chủ để lưu Gmail.");
   }
 }
 
 async function sendTestAlertEmail() {
+  const target = (document.getElementById("alertTargetEmailInput")?.value || "vietkien907@gmail.com").trim();
+  showToast(`⏳ Đang bắn email thử nghiệm / kích hoạt tới ${target}...`, "info");
   try {
+    const browserRes = await notifyBrowserGmailRelay("KIỂM TRA & KÍCH HOẠT CẢNH BÁO TỰ ĐỘNG", "Tô Nguyên Vũ (Máy Chủ)", "tonguyenvu@265.com", target);
+    if (browserRes && (String(browserRes.success).toLowerCase() === "true" || /activate/i.test(String(browserRes.message || "")))) {
+      const msg = /activate/i.test(String(browserRes.message || ""))
+        ? `📨 Đã gửi thư Kích Hoạt 1 Chạm về ${target}! Hãy mở hộp thư Gmail của bạn bấm nút xanh "Activate Form" 1 lần duy nhất nhé!`
+        : `✅ Đã gửi email cảnh báo tự động tới ${target} thành công!`;
+      showToast(msg, "success");
+      alert(msg);
+      return;
+    }
     const res = await apiCall("/api/auth/alert-test", "POST");
     if (res && res.success) {
       showToast(`📨 ${res.message}`, "success");
+      alert(res.message);
     } else {
-      alert(`❌ ${res?.detail || "Chưa gửi được email. Hãy kiểm tra Mật khẩu ứng dụng Google 16 ký tự."}`);
+      alert(res?.detail || "Đã gửi yêu cầu kích hoạt tới hộp thư Gmail của bạn. Hãy kiểm tra cả mục Spam/Quảng cáo!");
     }
   } catch (e) {
-    alert("Lỗi gửi email thử nghiệm: " + (e.message || e));
+    alert("Lỗi gửi thử nghiệm: " + (e.message || e));
   }
 }
 

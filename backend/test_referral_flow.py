@@ -35,18 +35,24 @@ class TestRotatingOneTimeReferralFlow(unittest.TestCase):
         db = next(get_db())
         active = referral_service.ensure_active_code(db)
         self.assertTrue(active.code.startswith("VU-"))
-        self.assertEqual(len(active.code), 9)
+        self.assertEqual(len(active.code), 12)
 
         # Static old code NGUYENVU265 must be REJECTED
         res_old = client.get("/api/auth/validate-referral?code=NGUYENVU265")
         self.assertEqual(res_old.status_code, 200)
         self.assertFalse(res_old.json()["valid"])
 
-        # Live active code must be VALID
-        res_ok = client.get(f"/api/auth/validate-referral?code={active.code}")
+        # Live active code (even pasted with mobile spaces!) must be VALID
+        spaced_code = f"VU - {active.code[3:7]} {active.code[7:]}"
+        res_ok = client.get(f"/api/auth/validate-referral?code={spaced_code}")
         self.assertEqual(res_ok.status_code, 200)
         self.assertTrue(res_ok.json()["valid"])
         self.assertEqual(res_ok.json()["referrer_name"], "Tô Nguyên Vũ")
+
+        # Stateless HMAC code (simulating Render container restart before registration) MUST also work ONCE then burn!
+        stateless_code = referral_service.generate_signed_code()
+        res_stateless = client.get(f"/api/auth/validate-referral?code={stateless_code}")
+        self.assertTrue(res_stateless.json()["valid"])
 
     def test_02_code_burns_on_first_use_and_auto_rotates(self):
         db = next(get_db())

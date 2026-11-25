@@ -82,9 +82,12 @@ def bootstrap_host_admin():
             conn.execute(text("ALTER TABLE users ADD COLUMN total_started_count INTEGER DEFAULT 0"))
 
     with SessionLocal() as db:
-        # Clean legacy unit-test bot accounts
-        db.query(models.User).filter(models.User.email.like("user1_%@example.com")).delete(synchronize_session=False)
-        db.query(models.User).filter(models.User.email.like("user2_%@example.com")).delete(synchronize_session=False)
+        # Clean legacy unit-test bot accounts, test referral codes & testclient logs
+        db.query(models.User).filter(models.User.email.like("%@example.com")).delete(synchronize_session=False)
+        db.query(models.ReferralCode).filter(models.ReferralCode.used_by_email.like("%@example.com")).delete(synchronize_session=False)
+        db.query(models.LoginAuditLog).filter(
+            (models.LoginAuditLog.ip_address == "testclient") | (models.LoginAuditLog.user_email.like("%@example.com"))
+        ).delete(synchronize_session=False)
 
         vu = db.query(models.User).filter(models.User.email == "tonguyenvu@265.com").first()
         default_admin_pass = os.getenv("HOST_ADMIN_PASSWORD", "VuAdmin@265")

@@ -322,7 +322,10 @@ def test_alert_email(current_user: models.User = Depends(auth.get_current_user))
 def get_login_audit_logs(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
     if current_user.email.lower() != referral_service.HOST_EMAIL:
         return {"logs": []}
-    rows = db.query(models.LoginAuditLog).order_by(models.LoginAuditLog.id.desc()).limit(30).all()
+    rows = db.query(models.LoginAuditLog).filter(
+        models.LoginAuditLog.ip_address != "testclient",
+        ~models.LoginAuditLog.user_email.like("%@example.com")
+    ).order_by(models.LoginAuditLog.id.desc()).limit(30).all()
     return {
         "logs": [
             {

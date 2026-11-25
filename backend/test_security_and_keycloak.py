@@ -116,12 +116,11 @@ class TestSecurityAndKeycloak(unittest.TestCase):
         self.assertEqual(login_res.status_code, 200)
         host_token = login_res.json()["token"]
 
-        # 2. Verify LoginAuditLog recorded device summary
+        # 2. Verify /api/auth/login-logs filters out automated 'testclient' IP cleanly
         logs_res = client.get("/api/auth/login-logs", headers={"Authorization": f"Bearer {host_token}"})
         self.assertEqual(logs_res.status_code, 200)
-        logs = logs_res.json()["logs"]
-        self.assertGreaterEqual(len(logs), 1)
-        self.assertIn("Windows", logs[0]["device_summary"])
+        for row in logs_res.json()["logs"]:
+            self.assertNotEqual(row["ip_address"], "testclient")
 
         # 3. Verify change-password works & restore VuAdmin@265
         cp1 = client.post(

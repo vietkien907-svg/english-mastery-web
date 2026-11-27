@@ -25,6 +25,8 @@
     '#profile',
     '#translation',
     '#readaloud',
+    '#reader',
+    '#reading',
     '#games'
   ]);
   const DANGEROUS_PATTERNS = [

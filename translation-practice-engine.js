@@ -429,7 +429,11 @@
       const item = list[i];
       if (!item || !item.textVi) continue;
 
-      if (sourceGroup && item.sourceGroup !== sourceGroup) continue;
+      if (sourceGroup === 'study4') {
+        if (!String(item.id || '').startsWith('tb_study4_')) continue;
+      } else if (sourceGroup && item.sourceGroup !== sourceGroup) {
+        continue;
+      }
 
       if (unitKeyFilter) {
         const itemUnitKey = item.unitKey || normalizeUnitKey(item.unitId != null ? item.unitId : item.unitNumber);
@@ -2370,6 +2374,7 @@
           '<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;max-width:100%;min-width:0;">' +
             '<select id="trSourceFilter" class="ni-input" style="width:auto;max-width:100%;min-width:0;">' +
               '<option value="all">Tất cả nguồn</option>' +
+              '<option value="study4">Bộ đề Study4 Speaking (23 chủ đề)</option>' +
               '<option value="unit">Theo Unit</option>' +
               '<option value="video">Video Xem tiếng Anh</option>' +
               '<option value="ielts_reading">Bài đọc IELTS</option>' +

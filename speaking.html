@@ -248,6 +248,10 @@
           <i data-lucide="book-open-check" class="w-4 h-4"></i>
           <span>Đọc Lại</span>
         </button>
+        <button type="button" onclick="switchTab('reader')" id="nav-btn-reading" class="ni-tab-btn" title="Kho Bài Đọc IELTS, VSTEP &amp; Study4">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          <span>Bài Đọc</span>
+        </button>
         <button type="button" onclick="switchTab('games')" id="nav-btn-games" class="ni-tab-btn" title="8 Trò chơi dịch Việt–Anh theo Unit">
           <i data-lucide="gamepad-2" class="w-4 h-4"></i>
           <span>Trò Chơi</span>
@@ -1160,6 +1164,9 @@
             </span>
             <button onclick="filterReadingByExam('all')" id="examBtn_all" class="exam-filter-btn active px-3 py-1 rounded-xl font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap">
               Tất cả định dạng
+            </button>
+            <button onclick="filterReadingByExam('STUDY4')" id="examBtn_study4" class="exam-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-rose-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-rose-500/30">
+              🔥 Study4 Speaking (23 Chủ Đề Part 2 &amp; 3)
             </button>
             <button onclick="filterReadingByExam('VSTEP')" id="examBtn_vstep" class="exam-filter-btn px-3 py-1 rounded-xl font-semibold bg-slate-800 text-emerald-300 hover:text-white hover:bg-slate-700 transition whitespace-nowrap border border-emerald-500/30">
               🇻🇳 VSTEP Reading (Ace of English)

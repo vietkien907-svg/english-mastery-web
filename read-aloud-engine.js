@@ -187,12 +187,37 @@
     const g = getGlobal();
     const type = sourceType || 'all';
     const items = [];
+    const bank = Array.isArray(g.TRANSLATION_BANK) ? g.TRANSLATION_BANK : [];
 
-    if (type === 'all' || type === 'bank') {
-      const bank = Array.isArray(g.TRANSLATION_BANK) ? g.TRANSLATION_BANK : [];
-      let bankAdded = 0;
+    if (type === 'study4') {
       for (let i = 0; i < bank.length; i++) {
         const b = bank[i];
+        if (!b || !String(b.id || '').startsWith('tb_study4_') || !b.referenceEn || !String(b.referenceEn).trim()) continue;
+        items.push({
+          id: String(b.id),
+          title: String(b.titleEn || b.title || ('Study4 ' + (i + 1))).trim(),
+          textEn: String(b.referenceEn).trim(),
+          textVi: String(b.textVi || '').trim(),
+          sourceId: String(b.id),
+          sourceType: 'study4',
+          fromTranslation: false
+        });
+      }
+      return items;
+    }
+
+    if (type === 'all' || type === 'bank') {
+      // Surface Study4 Speaking passages prominently alongside all bank passages
+      const ordered = [];
+      for (let i = 0; i < bank.length; i++) {
+        if (bank[i] && String(bank[i].id || '').startsWith('tb_study4_')) ordered.push(bank[i]);
+      }
+      for (let i = 0; i < bank.length; i++) {
+        if (bank[i] && !String(bank[i].id || '').startsWith('tb_study4_')) ordered.push(bank[i]);
+      }
+      let bankAdded = 0;
+      for (let i = 0; i < ordered.length; i++) {
+        const b = ordered[i];
         if (!b || !b.referenceEn || !String(b.referenceEn).trim()) continue;
         items.push({
           id: String(b.id || ('bank_' + i)),
@@ -204,7 +229,7 @@
           fromTranslation: false
         });
         bankAdded++;
-        if (bankAdded >= 120) break;
+        if (bankAdded >= 2000) break;
       }
     }
 
@@ -218,13 +243,13 @@
           id: 'reading_' + String(rd.id || r),
           title: String(rd.title || ('IELTS Reading ' + (r + 1))).trim(),
           textEn: String(rd.content).trim(),
-          textVi: '',
+          textVi: String(rd.translation_vi || '').trim(),
           sourceId: 'reading_' + String(rd.id || r),
           sourceType: 'reading',
           fromTranslation: false
         });
         readingAdded++;
-        if (readingAdded >= 200) break;
+        if (readingAdded >= 500) break;
       }
     }
 
@@ -1825,14 +1850,15 @@
               '<button type="button" id="raBtnGroqKey" class="ni-nav-btn">🔑 Groq Key</button>' +
             '</div>' +
           '</div>' +
-          '<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">' +
-            '<select id="raSourceSelector" class="ni-input" style="width:auto;">' +
+          '<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;max-width:100%;min-width:0;">' +
+            '<select id="raSourceSelector" class="ni-input" style="width:auto;max-width:100%;min-width:0;">' +
               '<option value="all">Tất cả bài đọc mẫu</option>' +
+              '<option value="study4">Bộ đề Study4 Speaking (Part 2 &amp; 3)</option>' +
               '<option value="bank">Từ kho bài dịch</option>' +
               '<option value="reading">IELTS Readings</option>' +
               '<option value="custom">Tự dán văn bản tiếng Anh</option>' +
             '</select>' +
-            '<select id="raPassageSelector" class="ni-input" style="flex:1;min-width:200px;"><option value="">-- Chọn bài đọc mẫu --</option></select>' +
+            '<select id="raPassageSelector" class="ni-input" style="flex:1;min-width:0;max-width:100%;"><option value="">-- Chọn bài đọc mẫu --</option></select>' +
           '</div>' +
           '<div id="raCustomPassageBox" style="display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);">' +
             '<input id="raCustomTitleInput" type="text" class="ni-input" placeholder="Tiêu đề bài đọc (tùy chọn)" style="margin-bottom:6px;" />' +

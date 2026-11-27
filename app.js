@@ -107,7 +107,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       switchTab("speaking", true);
     } else {
       const targetHash = window.location.hash.replace("#", "");
-      if (["today", "flashcard", "video", "conversation", "review", "profile", "translation", "readaloud", "games"].includes(targetHash)) {
+      if (["today", "flashcard", "video", "conversation", "review", "profile", "translation", "readaloud", "reader", "reading", "games"].includes(targetHash)) {
         switchTab(targetHash, true);
       }
     }
@@ -5598,7 +5598,7 @@ function applyReadingFilters() {
   const select = document.getElementById("readingSelect");
   if (select) {
     select.innerHTML = currentFilteredReadings.map(r => `
-      <option value="${r.origIdx}">[Tháng ${r.month || 1}] [${r.level || 'B1'}] ${r.title.replace(/^Bài \d+:\s*/, "")} (7 câu)</option>
+      <option value="${r.origIdx}">[Tháng ${r.month || 1}] [${r.level || 'B1'}] ${r.title.replace(/^Bài \d+:\s*/, "")} (${Array.isArray(r.questions) && r.questions.length ? r.questions.length : 7} câu)</option>
     `).join("");
   }
 
@@ -5931,9 +5931,16 @@ function renderReadingPassageContentOnly(passage) {
     pEl.appendChild(paraBody);
 
     if (readingExamState.showBilingual) {
+      const viParas = (passage.translation_vi || "").split(/\n\n+/);
+      const realViPara = (viParas[pIdx] || "").trim();
       const viTransEl = document.createElement("div");
-      viTransEl.className = "mt-2.5 pt-2 border-t border-slate-800/80 text-xs sm:text-sm text-cyan-200/90 italic leading-relaxed bg-cyan-950/20 p-2.5 rounded-lg border border-cyan-800/30";
-      viTransEl.innerHTML = `🇻🇳 <em>(Bản dịch tham khảo Đoạn ${String.fromCharCode(65 + pIdx)}):</em> Nội dung đoạn văn phân tích các luận điểm và thuật ngữ cốt lõi liên quan đến chủ đề bài đọc.`;
+      viTransEl.className = "mt-2.5 pt-2 border-t border-slate-800/80 text-xs sm:text-sm text-cyan-200/90 italic leading-relaxed bg-cyan-950/20 p-2.5 rounded-lg border border-cyan-800/30 whitespace-pre-line";
+      if (realViPara) {
+        const safeVi = realViPara.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        viTransEl.innerHTML = `🇻🇳 <em>(Bản dịch Đoạn ${String.fromCharCode(65 + pIdx)}):</em> ${safeVi}`;
+      } else {
+        viTransEl.innerHTML = `🇻🇳 <em>(Bản dịch tham khảo Đoạn ${String.fromCharCode(65 + pIdx)}):</em> Nội dung đoạn văn phân tích các luận điểm và thuật ngữ cốt lõi liên quan đến chủ đề bài đọc.`;
+      }
       pEl.appendChild(viTransEl);
     }
 

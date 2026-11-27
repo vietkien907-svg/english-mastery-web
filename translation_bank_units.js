@@ -7330,3 +7330,5803 @@ window.TRANSLATION_BANK.push(
   window.TRANSLATION_BANK.push(...UNITS_EXTRA);
 })();
 // === V105 CORPUS MERGE END ===
+
+// === STUDY4 SPEAKING & READING MERGE START ===
+(function () {
+  'use strict';
+  var root = typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : this);
+  root.TRANSLATION_BANK = root.TRANSLATION_BANK || [];
+  var STUDY4_TRANSLATION_BATCH = [
+  {
+    "id": "tb_study4_01_p2",
+    "title": "[Study4 #01 • Part 2] Miêu tả một món quà bạn muốn mua tặng bạn mình",
+    "titleEn": "[Study4 #01 • Part 2] Describe a gift you would like to buy for your friend (Q3/2026 | Study4 ID 24184)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q3/2026 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 429,
+    "textVi": "Mình muốn kể về một món quà mà mình đang định mua tặng cho cô bạn thân nhất tên Linh, tháng sau là sinh nhật cậu ấy rồi.\n\nThực ra bọn mình chơi với nhau từ rất lâu rồi. Lần đầu hai đứa quen nhau là hồi cấp hai, tình cờ được xếp ngồi cạnh nhau ngay ngày đầu đi học, thế là hợp cạ luôn từ lúc đó. Tính đến nay cũng khoảng mười hai năm rồi, nên cậu ấy đã cùng mình đi qua đủ mọi thăng trầm: thi cử, thất tình, chuyển việc, chuyện gì cũng có mặt.\n\nMà Linh là kiểu người cực kỳ khó mua quà. Cậu ấy chẳng hề vật chất chút nào, lại thuộc tuýp người hễ thích gì là tự đi mua lấy. Vậy nên thay vì vớ đại một món đồ phổ thông trên kệ, mình đã suy nghĩ rất kỹ. Cuối cùng mình chốt chọn một chiếc máy ảnh phim 35mm hàng cũ, không quá hào nhoáng. Ý tưởng này nảy ra là vì vài tháng trước, cậu ấy có buột miệng nhắc qua rằng bản thân nhớ cảm giác ngày xưa khi mỗi bức ảnh đều đặc biệt, thay vì bị chôn vùi giữa hàng nghìn tấm ảnh trong điện thoại. Chắc cậu ấy cũng quên bẵng mình từng nói câu đó rồi, nhưng mình đã ghi nhớ trong đầu. Từ dạo ấy, mình lùng sục khắp các tiệm đồ cũ và sàn mua bán trực tuyến, thậm chí còn rủ thêm một anh đồng nghiệp khá rành nhiếp ảnh để nhờ chọn giúp chiếc máy dễ dùng cho người mới bắt đầu.\n\nCòn về lý do chọn món quà này, mình luôn tin rằng tấm lòng mới là điều quan trọng nhất, và những món quà ý nghĩa nhất là thứ cho thấy bạn thực sự lắng nghe đối phương. Nếu mình chỉ mua tặng cậu ấy phiếu quà tặng hay một hũ nến thơm, trông sẽ rất chiếu lệ. Ngược lại, một chiếc máy ảnh lại mang giá trị tinh thần thực sự. Đó là món đồ cậu ấy sẽ trân trọng và hy vọng sẽ dùng để lưu giữ kỷ niệm trong nhiều năm tới. Mình cũng định gói quà cẩn thận kèm vài cuộn phim và một tấm thiệp viết tay để thêm chút dấu ấn cá nhân. Món quà này không đến mức khiến mình cháy túi, nhưng mình nghĩ nó sẽ cực kỳ ý nghĩa với cậu ấy, và mình rất háo hức chờ xem gương mặt cậu ấy khi mở quà.",
+    "referenceEn": "I’d like to talk about a present I’ve been meaning to get for my closest friend, Linh, whose birthday is coming up next month.\n\nWe go back a long way, actually. We first crossed paths in secondary school, when we happened to be seated next to each other on the very first day, and we just hit it off straight away. That was about twelve years ago now, so she’s seen me through thick and thin: exams, heartbreaks, career changes, you name it.\n\nNow, Linh is notoriously hard to buy for. She’s not materialistic in the slightest, and she’s the kind of person who, if she wants something, simply goes out and gets it herself. So rather than grabbing something generic off the shelf, I’ve put quite a bit of thought into it. What I’ve settled on is a film camera, a second-hand 35mm one, nothing too flashy. The idea came to me because a few months back she mentioned, almost in passing, that she missed the days when photos felt special instead of being buried among thousands on her phone. She’s probably forgotten she ever said it, but I made a mental note. Since then, I’ve been scouring vintage shops and online marketplaces, and I’ve even roped in a colleague who’s a bit of a photography buff to help me pick one that’s beginner-friendly.\n\nAs for why I’d go for this, well, I’ve always believed it’s the thought that counts, and the best gifts are the ones that show you’ve really been listening. Had I just bought her a gift voucher or a scented candle, it would’ve felt like a token gesture. A camera, on the other hand, has real sentimental value. It’s something she’ll treasure and, hopefully, use to capture memories for years to come. I’m also planning to have it gift-wrapped with a couple of rolls of film and a handwritten card, just to add a personal touch. It won’t exactly break the bank, but I think it’ll mean the world to her, and I can’t wait to see her face when she unwraps it.",
+    "keywords": [
+      "through thick and thin",
+      "notoriously hard to buy for",
+      "it’s the thought that counts",
+      "token gesture",
+      "sentimental value",
+      "break the bank"
+    ]
+  },
+  {
+    "id": "tb_study4_01_p3_q01",
+    "title": "[Study4 #01 • Part 3 Q1] Tại sao đôi khi việc mua hoặc chọn quà cho ai đó lại khó khăn?",
+    "titleEn": "[Study4 #01 • Part 3 Q1] Why is it sometimes difficult to buy or choose a gift for someone?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 165,
+    "textVi": "Tại sao đôi khi việc mua hoặc chọn quà cho ai đó lại khó khăn?\n\nMình nghĩ phần lớn nằm ở chuyện phải đoán mò. Chọn quà nghĩa là bạn phải đoán xem gu của người khác thế nào, mà việc đó ngay cả với người thân quen cũng đã khó rồi. Thêm vào đó, mọi thứ ngày càng khó hơn vì hàng hóa trên kệ càng nhiều thì người mua lại càng dễ bị choáng ngợp. Bạn có thể thấy cảnh mọi người đi lang thang quanh các trung tâm thương mại vào tháng Mười Hai với vẻ mặt khá bối rối. Thế là họ cuống lên và chọn giải pháp an toàn, thường là vớ đại món gì đó chung chung như nến thơm hoặc phiếu quà tặng. Chẳng ai phật lòng vì một tấm phiếu quà tặng cả. Nhưng nó khá thiếu dấu ấn cá nhân, và người nhận nhìn là biết ngay đó là món quà mua vội vào phút chót.",
+    "referenceEn": "Why is it sometimes difficult to buy or choose a gift for someone?\n\nI’d say it mostly comes down to guesswork. Choosing a present means second-guessing someone else’s taste, and that’s hard even with people you know well. On top of that, it’s got harder, because the more there is on the shelves, the more overwhelmed shoppers feel. You see them wandering round department stores in December looking kind of lost. So they panic and play it safe, which usually means grabbing something generic like a scented candle or a gift voucher. Nobody’s offended by a voucher. But it’s pretty impersonal, and the recipient can tell it was a last-minute purchase.",
+    "keywords": [
+      "comes down to",
+      "second-guessing",
+      "overwhelmed",
+      "play it safe",
+      "last-minute purchase"
+    ]
+  },
+  {
+    "id": "tb_study4_01_p3_q02",
+    "title": "[Study4 #01 • Part 3 Q2] Giá tiền của một món quà có quan trọng không?",
+    "titleEn": "[Study4 #01 • Part 3 Q2] Is the price of a gift important?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 149,
+    "textVi": "Giá tiền của một món quà có quan trọng không?\n\nKhông quan trọng bằng mức mọi người vẫn nghĩ đâu. Phải thừa nhận rằng nếu bạn đi đám cưới mà mang theo món quà trông rõ ràng chẳng đáng bao nhiêu thì dễ bị xem là hơi keo kiệt, nên giá tiền không phải hoàn toàn vô nghĩa. Tuy nhiên, vung tay quá trán lại có thể phản tác dụng. Một món quà xa xỉ thường dễ bị coi là phô trương, khiến người nhận chịu áp lực phải đáp lễ bằng thứ đắt tiền tương đương, tạo ra tình huống gượng gạo cho cả hai bên. Thực chất tấm lòng mới là điều đáng quý. Một món quà giản dị nhưng chứng tỏ bạn đã lắng nghe, chẳng hạn cuốn sách bìa mềm ai đó từng nhắc tới vài tháng trước, bao giờ cũng có ý nghĩa hơn.",
+    "referenceEn": "Is the price of a gift important?\n\nNot nearly as much as people assume. Admittedly, if you arrived at a wedding with something that obviously cost next to nothing, it might come across as a bit stingy, so the price tag isn’t completely irrelevant. That said, splashing out can backfire. A lavish present is often seen as flashy, leaving the other person under pressure to reciprocate with something just as expensive, which is awkward for everyone. It’s the thought that counts, really. A modest gift that shows you’ve been listening, like a paperback someone mentioned months ago, will always mean more.",
+    "keywords": [
+      "next to nothing",
+      "come across as",
+      "splashing out",
+      "reciprocate",
+      "modest gift"
+    ]
+  },
+  {
+    "id": "tb_study4_01_p3_q03",
+    "title": "[Study4 #01 • Part 3 Q3] Bạn có thích tặng quà cho người khác không?",
+    "titleEn": "[Study4 #01 • Part 3 Q3] Do you like giving gifts?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 158,
+    "textVi": "Bạn có thích tặng quà cho người khác không?\n\nMình có thích, nhưng chỉ khi chẳng ai mong đợi điều đó thôi. Điều mình thích nhất là tình cờ bắt gặp một món đồ trong cửa hàng và biết ngay nó hợp với ai. Kiểu quà bất ngờ như thế thường chẳng tốn bao nhiêu tiền nhưng lại được trân trọng hơn nhiều so với những món gói sẵn cho dịp sinh nhật. Còn các dịp bắt buộc lại là chuyện khác. Lấy ví dụ trò Secret Santa ở văn phòng, nơi mỗi người được bốc thăm một cái tên kèm hạn mức chi tiêu, thế là cả chuyện tặng quà biến thành một nghĩa vụ mệt mỏi. Sự hào phóng theo lịch hẹn thì đâu còn là hào phóng thực sự nữa. Có ai thực sự nâng niu một chiếc cốc in hình kỳ lạ từ người đồng nghiệp mình hầu như chẳng quen biết đâu chứ?",
+    "referenceEn": "Do you like giving gifts?\n\nI do, although only when nobody’s expecting it. What I enjoy most is stumbling across something in a shop and knowing straight away who it’s for. That kind of spontaneous present, which usually costs very little, tends to be appreciated far more than anything gift-wrapped for a birthday. The obligatory occasions are another matter. Take the office Secret Santa, where everyone’s given a name and a spending limit, and the whole thing turns into a chore. Generosity on a schedule isn’t really generosity. Does anyone actually treasure a novelty mug from a colleague they barely know?",
+    "keywords": [
+      "stumbling across",
+      "spontaneous present",
+      "obligatory occasions",
+      "turns into a chore",
+      "novelty mug"
+    ]
+  },
+  {
+    "id": "tb_study4_01_p3_q04",
+    "title": "[Study4 #01 • Part 3 Q4] Tại sao con người lại tặng quà cho nhau?",
+    "titleEn": "[Study4 #01 • Part 3 Q4] Why do people give gifts?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 137,
+    "textVi": "Tại sao con người lại tặng quà cho nhau?\n\nHãy nghĩ xem điều gì diễn ra trong một chuyến thăm cấp nhà nước. Hai nhà lãnh đạo vừa mới gặp nhau đã trao quà trước ống kính máy quay, và chẳng ai nghĩ một vị tổng thống lại thiếu thêm một chiếc bình gốm nghi lễ cả. Bản thân món đồ không phải trọng tâm. Thông điệp thực sự là thiện chí, hay đúng hơn là lời cam kết rằng mối quan hệ này rất quan trọng. Người bình thường cũng làm điều tương tự ở quy mô nhỏ hơn. Một món quà tân gia hay hộp sô-cô-la biếu chủ nhà là cử chỉ thắt chặt tình cảm, đó là lý do đến dự tiệc tối mà đi tay không thường bị xem là bất lịch sự.",
+    "referenceEn": "Why do people give gifts?\n\nWell, think about what happens on a state visit. Two leaders who’ve only just met exchange gifts in front of the cameras, and nobody imagines a president needs another ceremonial vase. The object is beside the point. The real message is goodwill, or rather a promise that the relationship matters. And ordinary people do more or less the same thing on a smaller scale. A housewarming present or a box of chocolates for a host is a gesture that cements a bond, which is why turning up to dinner empty-handed is regarded as rude.",
+    "keywords": [
+      "beside the point",
+      "goodwill",
+      "cements a bond",
+      "empty-handed",
+      "smaller scale"
+    ]
+  },
+  {
+    "id": "tb_study4_01_p3_q05",
+    "title": "[Study4 #01 • Part 3 Q5] Những món quà nào thường phổ biến ở đất nước bạn?",
+    "titleEn": "[Study4 #01 • Part 3 Q5] What gifts are popular in your country?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 129,
+    "textVi": "Những món quà nào thường phổ biến ở đất nước bạn?\n\nỞ Việt Nam, phần lớn hoạt động tặng quà xoay quanh dịp Tết Nguyên đán, và thứ mọi người chọn biếu cũng thay đổi khá nhiều. Trước đây chủ yếu là đồ nhà làm, như bánh chưng hay hũ dưa hành, để các gia đình tự tay mang sang biếu nhau. Ngày nay, lựa chọn mặc định lại là những giỏ quà gói sẵn đầy bánh quy và rượu ngoại. Ngay cả tiền lì xì cũng đã số hóa rồi. Rất nhiều người trẻ giờ chuyển khoản qua ứng dụng ngân hàng thay vì dùng phong bao đỏ, và xu hướng đó chắc chắn sẽ còn tiếp diễn. Tiện lợi thật đấy, nhưng hơi thiếu chút hồn cốt.",
+    "referenceEn": "What gifts are popular in your country?\n\nIn Vietnam, most gift-giving revolves around the Lunar New Year, and what people give has changed quite a bit. It used to be mainly homemade things, like sticky rice cakes or a jar of pickled onions, which families handed over in person. These days the default choice is a ready-made hamper full of imported biscuits and wine. Even lucky money has gone digital. Plenty of young people now send it through a banking app instead of a red envelope, and that shift is set to continue. Convenient, but a little soulless.",
+    "keywords": [
+      "revolves around",
+      "default choice",
+      "ready-made hamper",
+      "gone digital",
+      "soulless"
+    ]
+  },
+  {
+    "id": "tb_study4_01_p3_q06",
+    "title": "[Study4 #01 • Part 3 Q6] Cha mẹ thường cân nhắc những yếu tố nào khi chọn quà cho trẻ em?",
+    "titleEn": "[Study4 #01 • Part 3 Q6] What factors do parents consider when choosing a gift for children?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 143,
+    "textVi": "Cha mẹ thường cân nhắc những yếu tố nào khi chọn quà cho trẻ em?\n\nĐể mình nghĩ xem. Nếu đặt một phụ huynh vào cửa hàng đồ chơi, mình đoán thứ đầu tiên họ kiểm tra là khuyến cáo độ tuổi trên vỏ hộp, vì những chi tiết nhỏ rất dễ gây hóc nghẹn cho trẻ tập đi. Xong bước đó rồi, câu hỏi thực sự là món đồ chơi có kích thích tư duy hay chỉ gây ồn ào. Cha mẹ thường coi quà tặng như cơ hội nuôi dưỡng kỹ năng, nên bộ thí nghiệm khoa học hay được chọn hơn đồ nhựa vô thưởng vô phạt. Họ cũng dè chừng màn hình điện tử nữa. Một chiếc máy tính bảng có thể là thứ đứa trẻ nài nỉ mãi, nhưng cuối cùng nó vẫn nằm lại trên kệ thôi.",
+    "referenceEn": "What factors do parents consider when choosing a gift for children?\n\nLet me think. If you put a parent in a toy shop, I suspect the first thing they’d check is the age rating on the box, because small parts are a choking hazard for toddlers. Once that’s out of the way, the real question is whether the toy is stimulating or noisy. Parents tend to treat a present as a chance to nurture a skill, so science kits get chosen over plastic gadgets. They’re wary of screens, too. A tablet may well be what the child’s been pestering them for, but it stays on the shelf.",
+    "keywords": [
+      "age rating",
+      "choking hazard",
+      "nurture a skill",
+      "wary of",
+      "pestering"
+    ]
+  },
+  {
+    "id": "tb_study4_01_p3_q07",
+    "title": "[Study4 #01 • Part 3 Q7] Việc chọn quần áo làm quà tặng có dễ không?",
+    "titleEn": "[Study4 #01 • Part 3 Q7] Is it easy to choose clothes as gifts?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 162,
+    "textVi": "Việc chọn quần áo làm quà tặng có dễ không?\n\nCòn tùy xem món nào được tính là quần áo nữa. Một chiếc khăn quàng cổ hay đôi găng tay thì gần như là món quà ít rủi ro nhất rồi, vì chẳng cần phải đo kích cỡ gì. Nhưng bất cứ thứ gì may đo vừa vặn đều khó hơn nhiều. Kích cỡ giữa các thương hiệu nổi tiếng là thiếu đồng nhất, cỡ trung bình ở tiệm này có khi thành cỡ lớn ở tiệm khác, chưa kể phong cách cá nhân lại còn mang tính chủ quan hơn nữa. Điều đó đồng nghĩa việc mua tặng ai đó một chiếc áo khoác chẳng khác nào mò kim đáy bể. Cơ mà các cửa hàng cũng nắm bắt rất nhanh. Nếu họ không bắt đầu cung cấp hóa đơn đổi quà, chắc phân nửa số áo len không ưng ý kia vẫn nằm im trong tủ với nguyên mác giá.",
+    "referenceEn": "Is it easy to choose clothes as gifts?\n\nThat depends on what counts as clothes. A scarf or a pair of gloves is about as low-risk as a present gets, because there’s no sizing involved. Anything fitted is far trickier. Sizes are notoriously inconsistent between brands, so a medium in one shop is a large in another, and personal style is even more subjective. Which means buying someone a jacket is basically a shot in the dark. Mind you, shops have caught on. If they hadn’t started offering gift receipts, half those unwanted jumpers would still be sitting in wardrobes with the tags on.",
+    "keywords": [
+      "low-risk",
+      "inconsistent",
+      "subjective",
+      "shot in the dark",
+      "gift receipts"
+    ]
+  },
+  {
+    "id": "tb_study4_02_p2",
+    "title": "[Study4 #02 • Part 2] Miêu tả một người lớn tuổi hơn bạn mà bạn ngưỡng mộ",
+    "titleEn": "[Study4 #02 • Part 2] Describe someone who is older than you that you admire (Q3/2026 | Study4 ID 24158)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q3/2026 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 474,
+    "textVi": "À, người đầu tiên hiện lên ngay trong đầu mình chính là ông ngoại mình — bố của mẹ mình. Mùa xuân năm nay ông vừa tròn tám mươi hai tuổi, nhưng nếu nói thật thì ông còn minh mẫn hơn khối người trẻ bằng nửa tuổi ông nữa.\n\nTất nhiên là mình quen biết ông suốt cả đời rồi, nhưng phải đến cuối tuổi thiếu niên mình mới thực sự hiểu rõ ông. Trước thời điểm đó, trong các buổi họp mặt gia đình, ông chỉ giống như một người có phần nghiêm nghị, kiểu người mà bạn giữ phép lịch sự nhiều hơn là gần gũi thân thiết. Bước ngoặt xảy ra vào một mùa hè mình sang nhà ông ở chơi, không lâu sau khi bà ngoại qua đời. Mình nghĩ khi ấy ông cần người bầu bạn, và nhìn lại thì chắc bản thân mình lúc đó cũng cần thêm góc nhìn sống, thế nên hai ông cháu tự nhiên xích lại gần nhau.\n\nKể từ dạo đó, hai ông cháu có một thói quen nho nhỏ với nhau. Ông là người rất nề nếp, nên lần nào mình sang cũng bắt đầu y hệt nhau: một ấm trà thật đậm và một ván cờ vua — mà thú thực là hầu như ván nào ông cũng thắng. Cơ mà cũng phải công nhận ông có tới sáu mươi năm kinh nghiệm đi trước mình rồi. Sau ván cờ, hai ông cháu hay ra vườn lúi húi chăm cây, và thường thì những câu chuyện xưa bắt đầu từ lúc đó. Ông từng sống qua những năm tháng vô cùng thiếu thốn, và nói thật, nếu không được nghe ông kể trực tiếp, mình khó mà thấm thía hết thế hệ tụi mình bây giờ đang sống sung sướng thế nào.\n\nVà điều đó cũng dẫn tới lý do khiến mình ngưỡng mộ ông đến vậy. Không hẳn chỉ vì tuổi tác của ông, mà là việc ông nhất quyết không chịu sống chậm lại vì tuổi già. Ông đã bước sang những năm tháng xế chiều rồi mà vẫn cực kỳ tự lập. Ông vẫn đạp xe đi chợ, tự mày mò học cách gọi video để theo dõi tin tức của con cháu, và chưa một lần nào mình nghe ông lấy tuổi tác ra làm cái cớ cả. Đúng là ông hơi bảo thủ ở vài thói quen thật, nhưng cũng chỉ dừng ở chuyện pha trà phải đúng kiểu thôi.\n\nCòn về tình cảm dành cho ông, đó là sự yêu thương vô bờ bến, dù đôi lúc có xen lẫn chút chạnh lòng vì mình hiểu rất rõ ông không thể ở bên mãi mãi. Chắc chính vì thế mà hễ thu xếp được lúc nào là mình lại tranh thủ ghé thăm ông ngay.",
+    "referenceEn": "Well, the person who immediately springs to mind is my grandfather, my mum’s dad, who turned eighty-two this spring and is, if anything, sharper than most people half his age.\n\nNow, obviously I’ve known him my whole life, but I’d say I only really got to know him in my late teens. Up until then he’d just been this slightly stern figure at family gatherings, someone you were polite to rather than close to. What changed things was a summer I spent at his place, not long after my grandmother passed away. I think he needed the company and, looking back, I probably needed the perspective, so we sort of met in the middle.\n\nEver since then, we’ve had our little routine. He’s a real creature of habit, so every visit starts the same way: a pot of very strong tea and a game of chess, which, I should admit, he nearly always wins. Mind you, he’s had a sixty-year head start. After that we tend to potter about in his garden, and that’s usually when the stories come out. He lived through some really lean years, and I mean, had I not heard about them first-hand, I doubt I’d appreciate quite how easy my generation has it.\n\nAnd that actually brings me to why I admire him so much. It’s not his age as such; it’s the fact that he just refuses to slow down. He’s well into his twilight years, yet he’s still fiercely independent. He cycles to the market, he taught himself to video-call so he could keep up with the grandchildren, and not once have I heard him use his age as an excuse. He’s set in his ways, sure, but only when it comes to how his tea’s made.\n\nAs for how I feel about him, it’s a huge amount of affection, really, though it’s tinged with a bit of sadness, because I’m very aware he won’t be around forever. I suppose that’s exactly why I make a point of dropping by whenever I can.",
+    "keywords": [
+      "springs to mind",
+      "creature of habit",
+      "head start",
+      "lean years",
+      "twilight years",
+      "set in his ways"
+    ]
+  },
+  {
+    "id": "tb_study4_02_p3_q01",
+    "title": "[Study4 #02 • Part 3 Q1] Người trẻ và người lớn tuổi có thể học hỏi gì từ nhau?",
+    "titleEn": "[Study4 #02 • Part 3 Q1] What can young and old people learn from each other?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 158,
+    "textVi": "Người trẻ và người lớn tuổi có thể học hỏi gì từ nhau?\n\nHãy thử nhìn vào các chương trình cố vấn ngược mà một số tập đoàn đa quốc gia đang triển khai, nơi nhân viên trẻ hướng dẫn quản lý cấp cao về mạng xã hội và mấy thứ tương tự. Điều gần như chắc chắn sẽ xảy ra là cuộc trao đổi ấy biến thành con đường hai chiều. Người trẻ truyền lại sự nhạy bén công nghệ số của mình. Đổi lại, họ học được thứ bản lĩnh phán đoán chỉ có thể đúc kết từ hàng chục năm va vấp, ví dụ như biết lúc nào nên im lặng trên bàn đàm phán. Vì vậy mình cho rằng người trẻ mang đến sự thành thạo với cái mới, còn người lớn tuổi đem lại kinh nghiệm chiêm nghiệm sâu sắc — thứ bạn chẳng thể nào học nổi từ một video hướng dẫn.",
+    "referenceEn": "What can young and old people learn from each other?\n\nTake the reverse mentoring schemes that some multinationals run, where a junior employee coaches a senior manager on social media and that sort of thing. What almost inevitably happens is that the exchange turns into a two-way street. The younger person passes on their digital know-how. In return, they pick up the kind of judgement that only comes from decades of setbacks, like knowing when to say nothing in a negotiation. So I reckon the young bring fluency with whatever’s new and older people bring hindsight, which you can’t exactly get from a tutorial.",
+    "keywords": [
+      "reverse mentoring",
+      "two-way street",
+      "digital know-how",
+      "decades of setbacks",
+      "hindsight"
+    ]
+  },
+  {
+    "id": "tb_study4_02_p3_q02",
+    "title": "[Study4 #02 • Part 3 Q2] Chất lượng cuộc sống của người cao tuổi hiện nay có cải thiện so với trước đây không?",
+    "titleEn": "[Study4 #02 • Part 3 Q2] Has old people's quality of life improved when compared to the past?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 181,
+    "textVi": "Chất lượng cuộc sống của người cao tuổi hiện nay có cải thiện so với trước đây không?\n\nXét về mặt vật chất, cuộc sống tuổi già ngày nay rõ ràng thoải mái hơn hẳn. Hai thế hệ trước, một khớp háng bị thoái hóa hay thị lực suy giảm gần như đồng nghĩa với việc chấm dứt khả năng tự lập. Ngày nay, phẫu thuật thay khớp háng và mổ đục thủy tinh thể được coi là những thủ thuật thường quy, và phần lớn người lớn tuổi đều có thể trông cậy vào lương hưu nhà nước. Nhưng liệu họ có hạnh phúc hơn không? Trước kia người già thường sống chung trong đại gia đình nhiều thế hệ, còn bây giờ rất nhiều người sống một mình, nên sự cô đơn trở nên phổ biến hơn. Dẫu vậy, mình vẫn nghĩ họ có cuộc sống tốt hơn, bởi nỗi cô đơn còn có thể xoa dịu bằng một cuộc điện thoại, chứ một khớp háng mòn vẹt vào thập niên 1950 thì chẳng thể nào thay mới được.",
+    "referenceEn": "Has old people's quality of life improved when compared to the past?\n\nIn material terms, later life is undeniably more comfortable. Two generations ago, an arthritic hip or deteriorating eyesight more or less ended your independence. These days hip replacements and cataract surgery are treated as routine procedures, and most elderly people can fall back on a state pension. Are they happier, though? Older people used to live among extended family, and now plenty live alone, so loneliness has become more prevalent. Even so, I’d say they’re better off, because isolation can be eased with a phone call, whereas a worn-out hip in the 1950s couldn’t be replaced.",
+    "keywords": [
+      "in material terms",
+      "routine procedures",
+      "fall back on",
+      "extended family",
+      "prevalent"
+    ]
+  },
+  {
+    "id": "tb_study4_02_p3_q03",
+    "title": "[Study4 #02 • Part 3 Q3] Tại sao lại tồn tại khoảng cách thế hệ giữa người trẻ và người lớn tuổi?",
+    "titleEn": "[Study4 #02 • Part 3 Q3] Why is there a generation gap between the young and the old?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 157,
+    "textVi": "Tại sao lại tồn tại khoảng cách thế hệ giữa người trẻ và người lớn tuổi?\n\nMình nghĩ nguyên nhân nằm ở tốc độ biến đổi của xã hội. Con người tiếp thu các chuẩn mực về công việc, hôn nhân và nhiều mặt khác trong những năm tháng hình thành nhân cách, và các chuẩn mực ấy dần ăn sâu vào nếp nghĩ. Rồi nền kinh tế chuyển dịch, khiến thế hệ kế tiếp được nuôi dạy với một hệ quy chiếu hoàn toàn khác. Cuối cùng mỗi bên lại lấy thước đo của riêng mình để đánh giá bên kia, làm cả hai đều thấy bị hiểu lầm. Nếu bạn bắt đầu đi làm vào thời một công việc gắn bó suốt đời, hẳn bạn sẽ coi việc nhảy việc là thiếu trung thành. Nhưng với một người hai mươi lăm tuổi hiện nay, đó gần như là cách duy nhất để được tăng lương.",
+    "referenceEn": "Why is there a generation gap between the young and the old?\n\nI think it comes down to the pace of social change. People absorb their norms about work and marriage and so on in their formative years, and those norms tend to become ingrained. Then the economy shifts, which means the next generation is raised with a different set entirely. Each side ends up measuring the other by its own yardstick, leaving both feeling misunderstood. If you’d started work when a job was for life, you’d probably see job-hopping as disloyal. For a twenty-five-year-old, it’s pretty much the only way to get a pay rise.",
+    "keywords": [
+      "formative years",
+      "ingrained",
+      "yardstick",
+      "job-hopping",
+      "pay rise"
+    ]
+  },
+  {
+    "id": "tb_study4_02_p3_q04",
+    "title": "[Study4 #02 • Part 3 Q4] Người cao tuổi thường làm gì trong sinh hoạt hằng ngày?",
+    "titleEn": "[Study4 #02 • Part 3 Q4] What do old people usually do in their daily life?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q3/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 151,
+    "textVi": "Người cao tuổi thường làm gì trong sinh hoạt hằng ngày?\n\nỪm, mình không chắc bây giờ còn khái niệm một ngày điển hình chung nữa đâu. Khuôn mẫu quen thuộc là hình ảnh ai đó sống khá ít vận động quanh quẩn trong nhà, và điều đó có lẽ vẫn đúng với những cụ ở tuổi gần chín mươi khi khả năng đi lại bị hạn chế. Vấn đề là nhóm người ở độ tuổi sáu mươi và bảy mươi hiện nay thường có cuộc sống năng động đến bất ngờ. Chăm sóc cháu nhỏ đã trở thành công việc toàn thời gian với không ít người trong số họ — à, một công việc không lương. Cứ nhìn cổng trường lúc ba giờ chiều thì biết. Và khi độ tuổi nghỉ hưu ngày càng tăng, khá nhiều người ở tuổi bảy mươi vẫn sẽ đang đi làm đều đặn.",
+    "referenceEn": "What do old people usually do in their daily life?\n\nHmm, I’m not sure there’s a typical day any more. The stereotype is someone fairly sedentary around the house, and that probably still fits people in their late eighties, whose mobility is often limited. The thing is, those in their sixties and seventies generally lead surprisingly full lives. Looking after grandchildren has become a full-time job for some of them. Well, an unpaid one. Just look at the school gates at three o’clock. And with the retirement age rising, a fair few of them will still be commuting at seventy.",
+    "keywords": [
+      "stereotype",
+      "sedentary",
+      "mobility",
+      "full-time job",
+      "retirement age"
+    ]
+  },
+  {
+    "id": "tb_study4_03_p2",
+    "title": "[Study4 #03 • Part 2] Miêu tả một tin tức địa phương mà mọi người đang quan tâm",
+    "titleEn": "[Study4 #03 • Part 2] Describe a piece of local news that people are interested in (Q2/2026 | Study4 ID 24051)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q2/2026 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 355,
+    "textVi": "Mình muốn kể về một tin tức địa phương gần đây thu hút sự quan tâm rất lớn của công chúng. Đó là vụ việc liên quan đến một cuộc tấn công bạo lực tại Bắc Ireland, trong đó nghi phạm là một người xin tị nạn.\n\nTheo mình nhớ thì sự việc xảy ra khoảng hai tuần trước. Dựa trên các bản tin mình xem được, nghi phạm đã dùng dao rựa tấn công một người ngay nơi công cộng. Toàn bộ vụ việc bị quay phim lại, và chính vì thế nhiều hãng tin tại Vương quốc Anh đã nhanh chóng vào cuộc đưa tin.\n\nLần đầu mình biết tới tin này là trên mạng, bởi nó lập tức trở thành chủ đề gây tranh cãi dữ dội tại quốc gia mình đang sinh sống. Gần như không thể né tránh thông tin này được. Chỉ cần lướt Instagram hay Facebook là bạn sẽ bắt gặp ngay hàng loạt bài đăng hoặc video bàn tán về vụ án. Theo những gì mình đọc được, nghi phạm đã bị bắt giữ, còn nạn nhân thì đang được cấp cứu trong tình trạng nguy kịch.\n\nMọi người quan tâm đến tin tức này chủ yếu vì nó thổi bùng những cuộc tranh luận rộng lớn hơn về vấn đề nhập cư ở Anh. Nhập cư vốn dĩ luôn là đề tài nóng tại đây, và sự cố lần này càng thu hút thêm sự chú ý của dư luận. Đáng tiếc là nó dường như cũng củng cố thêm định kiến tiêu cực của một bộ phận công chúng đối với người nhập cư nói chung.\n\nMột lý do khác khiến người ta chú ý đến vậy là mức độ tàn bạo của chính vụ việc. Ở bất kỳ quốc gia nào, một vụ hành hung công khai như thế đều gây rúng động. Sau cùng nạn nhân đã mất thị lực vĩnh viễn, nhưng điều khiến công chúng bàng hoàng hơn cả là cảnh tượng đó bị ghi hình rồi lan truyền chóng mặt trên mạng, làm câu chuyện phủ sóng nhanh hơn nữa.",
+    "referenceEn": "I’d like to describe a piece of local news that people were very interested in recently. It was about a violent attack in Northern Ireland involving an asylum seeker as the suspect.\n\nThe incident happened, I believe, about two weeks ago. According to the reports I saw, the suspect attacked someone in public with a machete. The incident was filmed, and because of that, many news outlets in the UK quickly picked it up and reported it.\n\nI first heard about it online because it became a highly controversial topic in the country where I am currently living. It was difficult to avoid. If you scrolled through Instagram or Facebook, you would quickly come across posts or videos discussing the case. From what I read, the suspect was arrested, while the victim was receiving emergency medical care and was in critical condition.\n\nPeople were interested in this news mainly because it raised wider debates about immigration in the UK. Immigration has always been a heated topic here, and this incident attracted even more public attention. Unfortunately, it also seemed to reinforce some people’s negative biases against immigrants in general.\n\nAnother reason people were so interested was the brutality of the incident itself. In any country, a public attack like that would be shocking. The victim permanently lost his vision after all, but what made it even more disturbing was that it was caught on video and widely circulated online, which made the story spread even faster.",
+    "keywords": [
+      "asylum seeker",
+      "news outlets",
+      "controversial topic",
+      "critical condition",
+      "negative biases",
+      "widely circulated"
+    ]
+  },
+  {
+    "id": "tb_study4_03_p3_q01",
+    "title": "[Study4 #03 • Part 3 Q1] Ngày nay mọi người thường tiếp cận tin tức địa phương bằng cách nào?",
+    "titleEn": "[Study4 #03 • Part 3 Q1] How do people usually get local news nowadays?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 108,
+    "textVi": "Ngày nay mọi người thường tiếp cận tin tức địa phương bằng cách nào?\n\nHiện nay mọi người thường cập nhật tin tức địa phương giống hệt cách họ tiếp cận hầu hết các loại tin tức khác, đó là qua các nền tảng trực tuyến. Các tòa soạn đăng tải bài viết lên trang web của họ, còn độc giả dễ dàng đọc trên điện thoại hoặc máy tính. So với trước đây thì cách này vô cùng tiện lợi. Người ta chỉ cần mở một trang web hay ứng dụng tin tức là có thể truy cập hàng loạt bài báo gần như ngay lập tức.",
+    "referenceEn": "How do people usually get local news nowadays?\n\nNowadays, people usually get local news in the same way they access most other types of news, through online platforms. News organizations publish articles on their websites, and people can read them easily on their phones, or computers. It is extremely convenient compared to the past. All people need to do is open a website or a news app, and they can access a wide range of articles almost instantly.",
+    "keywords": [
+      "online platforms",
+      "news organizations",
+      "extremely convenient",
+      "news app",
+      "almost instantly"
+    ]
+  },
+  {
+    "id": "tb_study4_03_p3_q02",
+    "title": "[Study4 #03 • Part 3 Q2] Bạn có nghĩ tin tức địa phương quan trọng hơn tin quốc tế không? Tại sao?",
+    "titleEn": "[Study4 #03 • Part 3 Q2] Do you think local news is more important than international news? Why?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 136,
+    "textVi": "Bạn có nghĩ tin tức địa phương quan trọng hơn tin quốc tế không? Tại sao?\n\nMình cho rằng tin tức địa phương thường sát sườn với người dân hơn tin quốc tế. Một lý do là tin địa phương hay kéo theo hệ quả trực tiếp đối với người đọc vì sự việc diễn ra ngay tại đất nước hoặc khu phố của họ. Chẳng hạn, nếu có một vụ trộm đột nhập trong khu vực mình ở, người dân chắc chắn sẽ chú ý vì nó ảnh hưởng tới an toàn của bản thân. Tin địa phương cũng cập nhật cho mọi người những đổi thay trong cộng đồng như đường sá mới hay chính sách địa phương, và nhiều người vốn rất thích theo dõi tình hình phát triển của đất nước mình.",
+    "referenceEn": "Do you think local news is more important than international news? Why?\n\nI think local news is often more relevant to people than international news. One reason is that local news usually has more direct consequences for the reader because it happens in their country, or neighborhood. For example, if there is a burglary in someone’s area, they are likely to pay attention because it could affect their own safety. Local news also informs people about changes in their community, such as new roads, or local policies, and certain people just love getting updated on their country’s development.",
+    "keywords": [
+      "relevant to",
+      "direct consequences",
+      "burglary",
+      "local policies",
+      "getting updated"
+    ]
+  },
+  {
+    "id": "tb_study4_03_p3_q03",
+    "title": "[Study4 #03 • Part 3 Q3] Tại sao một số bản tin lại thu hút nhiều sự chú ý hơn những tin khác?",
+    "titleEn": "[Study4 #03 • Part 3 Q3] Why are some news stories more popular than others?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 136,
+    "textVi": "Tại sao một số bản tin lại thu hút nhiều sự chú ý hơn những tin khác?\n\nCó vài nguyên nhân khiến một số câu chuyện trở nên nổi bật hơn hẳn phần còn lại. Một lý do là chúng liên quan đến người nổi tiếng. Vì gương mặt người nổi tiếng rất dễ nhận diện nên độc giả có thể bấm vào bài viết đơn giản vì tò mò xem chuyện gì đã xảy ra với họ. Một yếu tố khác nằm ở chính nội dung câu chuyện. Những tin tức bình thường, như một ủy viên hội đồng địa phương xin ngân sách cho dự án công cộng mới, có thể không gây nhiều chú ý. Nhưng nếu câu chuyện có yếu tố bất thường, người ta sẽ dễ bấm đọc vì hiếu kỳ.",
+    "referenceEn": "Why are some news stories more popular than others?\n\nThere are several reasons why some news stories become more popular than others. One reason is that they involve famous people. Since celebrities are recognizable, people may click on the article simply because they are curious about what happened to that person. Another reason is the content of the story itself. Ordinary news, such as a local councilor trying to fund a new public project, may not attract much attention. However, if a story is out of the ordinary, people are more likely to read it out of curiosity.",
+    "keywords": [
+      "famous people",
+      "recognizable",
+      "local councilor",
+      "out of the ordinary",
+      "curiosity"
+    ]
+  },
+  {
+    "id": "tb_study4_03_p3_q04",
+    "title": "[Study4 #03 • Part 3 Q4] Mạng xã hội có ảnh hưởng đến cách mọi người tiếp nhận tin tức không?",
+    "titleEn": "[Study4 #03 • Part 3 Q4] Does social media affect the way people receive news?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 137,
+    "textVi": "Mạng xã hội có ảnh hưởng đến cách mọi người tiếp nhận tin tức không?\n\nCó chứ, mình nghĩ mạng xã hội tác động rõ rệt tới cách công chúng đón nhận tin tức. Thứ nhất, các nền tảng như Facebook và Instagram cho phép người dùng tự do chia sẻ video và bình luận cá nhân. Kết quả là quan điểm của nhiều người có thể bị định hình bởi những gì họ thấy trên mạng ngay cả trước khi họ đọc báo cáo chính thống. Một tác động khác là tốc độ. Mạng xã hội đưa tin gần như tức thì, khiến mọi người dần thiếu kiên nhẫn hơn. Giờ đây họ kỳ vọng một dòng cập nhật liên tục và dễ bực bội nếu phải chờ quá lâu để biết chi tiết quan trọng.",
+    "referenceEn": "Does social media affect the way people receive news?\n\nYes, I think social media does affect the way people receive news. Firstly, platforms like Facebook and Instagram allow people to share videos, and commentary freely. As a result, people’s views may be shaped by what they see online, even before they read official news reports. Another effect is speed. Social media delivers news almost instantly, so people have become less patient. They now expect a constant stream of updates and may become impatient if they have to wait too long for important details.",
+    "keywords": [
+      "commentary",
+      "shaped by",
+      "official news reports",
+      "constant stream",
+      "impatient"
+    ]
+  },
+  {
+    "id": "tb_study4_03_p3_q05",
+    "title": "[Study4 #03 • Part 3 Q5] Tin tức có thể tác động đến dư luận xã hội không? Bằng cách nào?",
+    "titleEn": "[Study4 #03 • Part 3 Q5] Can news influence public opinion? How?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 116,
+    "textVi": "Tin tức có thể tác động đến dư luận xã hội không? Bằng cách nào?\n\nChắc chắn là có, tin tức hoàn toàn có thể dẫn dắt dư luận và mình nghĩ nó đóng vai trò cực kỳ quan trọng. Với nhiều người, báo chí là một trong những nguồn thông tin chủ yếu về các vấn đề mới nổi, đặc biệt là chuyện chính trị hoặc kinh tế. Tần suất đưa tin của truyền thông cũng chi phối mức độ quan tâm của công chúng đối với một sự việc cụ thể. Nếu bản tin lặp đi lặp lại về một vấn đề nào đó, người dân sẽ dễ coi đó là chuyện hệ trọng.",
+    "referenceEn": "Can news influence public opinion? How?\n\nYes, news can absolutely influence public opinion, and I think it plays a very significant role. For many people, news is one of the main sources of information about emerging issues, especially political, or economic problems. Media coverage can also affect how much the public cares about a particular issue. If the news reports on a problem repeatedly, people are more likely to see it as important.",
+    "keywords": [
+      "public opinion",
+      "significant role",
+      "emerging issues",
+      "media coverage",
+      "repeatedly"
+    ]
+  },
+  {
+    "id": "tb_study4_03_p3_q06",
+    "title": "[Study4 #03 • Part 3 Q6] Bạn có nghĩ mọi tin tức ngày nay đều đáng tin cậy không? Tại sao có hoặc tại sao không?",
+    "titleEn": "[Study4 #03 • Part 3 Q6] Do you think all news is reliable nowadays? Why or why not?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 133,
+    "textVi": "Bạn có nghĩ mọi tin tức ngày nay đều đáng tin cậy không? Tại sao có hoặc tại sao không?\n\nKhông, mình không nghĩ toàn bộ tin tức ngày nay đều đáng tin cậy. Một mặt, các cơ quan báo chí chính thống thường đáng tin hơn vì thông tin của họ phải trải qua khâu kiểm chứng sự thật và nhiều vòng biên tập trước khi xuất bản tới công chúng. Mặt khác, mạng xã hội lại cho phép bất kỳ ai cũng có thể đăng tải thông tin về sự kiện thế giới, bất kể đúng hay sai. Thế nên đôi lúc không có cách nào rõ ràng để xác minh các tuyên bố đó, vì vậy thật không khôn ngoan nếu tin mọi mẩu tin ta bắt gặp trên mạng.",
+    "referenceEn": "Do you think all news is reliable nowadays? Why or why not?\n\nNo, I do not think all news is reliable nowadays. On the one hand, official media outlets are usually more reliable because their information often goes through fact-checking, and several layers of review before being published to the public. On the other hand, social media allows anyone to share information about world events, whether it is true or false. So, sometimes there is no clear way to verify these claims, so it is not a good idea to trust every piece of news we see online.",
+    "keywords": [
+      "official media outlets",
+      "fact-checking",
+      "layers of review",
+      "verify these claims",
+      "trust every piece"
+    ]
+  },
+  {
+    "id": "tb_study4_03_p3_q07",
+    "title": "[Study4 #03 • Part 3 Q7] Có nhiều người bàn tán về tin tức địa phương không?",
+    "titleEn": "[Study4 #03 • Part 3 Q7] Do many people talk about local news?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 109,
+    "textVi": "Có nhiều người bàn tán về tin tức địa phương không?\n\nCó chứ, mình thấy rất nhiều người hay trao đổi về tin địa phương, nhất là khi tin đó đụng chạm tới sinh hoạt hằng ngày của họ. Ví dụ, mọi người thường bàn về tình trạng ùn tắc giao thông hoặc những công trình xây dựng mới quanh khu mình sống. Những chủ đề này rất dễ mở lời vì ai cũng trải nghiệm trực tiếp. Nếu một con đường bị rào chắn hay một công trình công cộng đang thi công, cư dân địa phương tự nhiên sẽ nhắc tới nó trong các cuộc trò chuyện.",
+    "referenceEn": "Do many people talk about local news?\n\nYes, I think many people do talk about local news, especially when it affects their daily lives. For example, people may discuss traffic congestion, or new construction projects in their area. These topics are easy to talk about because people experience them directly. If a road is blocked, or a public facility is being built, local residents will naturally bring it up in conversation.",
+    "keywords": [
+      "daily lives",
+      "traffic congestion",
+      "construction projects",
+      "public facility",
+      "bring it up"
+    ]
+  },
+  {
+    "id": "tb_study4_03_p3_q08",
+    "title": "[Study4 #03 • Part 3 Q8] Người trẻ hay người lớn tuổi quan tâm đến tin tức địa phương nhiều hơn?",
+    "titleEn": "[Study4 #03 • Part 3 Q8] Do young people or old people care more about local news?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 131,
+    "textVi": "Người trẻ hay người lớn tuổi quan tâm đến tin tức địa phương nhiều hơn?\n\nMình nghĩ cả hai nhóm đều quan tâm tới tin địa phương, chỉ là theo những cách hơi khác nhau thôi. Người trẻ hiện nay ý thức rõ hơn về các vấn đề xã hội tại địa phương vì họ tiếp nhận thông tin liên tục qua điện thoại và nền tảng mạng xã hội. Người lớn tuổi cũng quan tâm tin trong nước vì họ muốn nắm bắt xem đất nước đang có chuyển biến gì. Một số người vẫn duy trì thói quen đọc báo giấy, trong khi số khác nhờ con cháu hỗ trợ tìm đọc tin trực tuyến. Vậy nên mình cho rằng cả hai thế hệ đều để tâm như nhau.",
+    "referenceEn": "Do young people or old people care more about local news?\n\nI think both groups care about local news, but in slightly different ways. Young people are now more aware of local social issues because they receive information constantly through their phones, and social media platforms. Older people also care about local news because they want to stay informed about what is happening in their country. Some may still read newspapers, while others may ask their children or grandchildren to help them access online news. So, I would say both age groups care.",
+    "keywords": [
+      "social issues",
+      "stay informed",
+      "read newspapers",
+      "access online news",
+      "age groups"
+    ]
+  },
+  {
+    "id": "tb_study4_03_p3_q09",
+    "title": "[Study4 #03 • Part 3 Q9] Mọi người chú ý đến tin địa phương hay tin quốc tế nhiều hơn?",
+    "titleEn": "[Study4 #03 • Part 3 Q9] Do people pay more attention to local news or international news?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 117,
+    "textVi": "Mọi người chú ý đến tin địa phương hay tin quốc tế nhiều hơn?\n\nMình thấy điều này tùy thuộc vào từng cá nhân. Một số người rất quan tâm tới sự phát triển của đất nước mình nên họ dành nhiều sự chú ý cho tin tức địa phương. Họ muốn cập nhật về hạ tầng mới hoặc các dự án trong cộng đồng. Trái lại, có những người chuộng tin quốc tế hơn vì cảm thấy tin địa phương quá tẻ nhạt. Họ có thể hứng thú hơn với các cuộc xung đột toàn cầu hay khủng hoảng kinh tế vì những câu chuyện ấy mang tính nghiêm trọng và tầm ảnh hưởng lớn hơn.",
+    "referenceEn": "Do people pay more attention to local news or international news?\n\nI think it varies from person to person. Some people are very interested in the development of their own country, so they pay more attention to local news. They may want updates about new infrastructure, or projects in their community. By contrast, some people prefer international news because they find local news too mundane. They may be more interested in global conflicts, or economic crises because these stories feel more serious and have higher stakes.",
+    "keywords": [
+      "varies from",
+      "new infrastructure",
+      "mundane",
+      "global conflicts",
+      "higher stakes"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p2",
+    "title": "[Study4 #04 • Part 2] Miêu tả một thành phố bạn từng đến và rất thích tham quan",
+    "titleEn": "[Study4 #04 • Part 2] Describe a city that you have been to and enjoy visiting (Q2/2026 | Study4 ID 24077)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 379,
+    "textVi": "Mình muốn kể về một thành phố mà mình từng ghé thăm và thực sự rất thích, đó là thành phố Bath ở Vương quốc Anh. Đây là lần đầu tiên mình đặt chân tới nơi này, đúng vào dịp lễ Phục sinh vì tình cờ mình có chút thời gian rảnh.\n\nMình đi chuyến ngắn ngày kéo dài hai ngày thôi. Ngày đầu tiên, mình đến nơi và nhận phòng homestay, sau đó đi dạo quanh thành phố. Bath nổi tiếng với vẻ đẹp cổ kính và thanh lịch, nên mình đã có khoảng thời gian khám phá vô cùng thú vị. Thời tiết hôm ấy có nắng nhẹ nhưng không quá gắt, nhờ vậy mình có thể tham quan vài địa danh nổi tiếng, trong đó có Tu viện Bath.\n\nSang ngày thứ hai, mình leo lên một ngọn đồi cho phép ngắm toàn cảnh cả thành phố từ trên cao. Khung cảnh thực sự ngoạn mục đến nín thở. Tiếc là mình chỉ ở lại thời gian ngắn nên cũng chỉ kịp trải nghiệm bấy nhiêu thôi.\n\nMình thực sự mê Bath vì nhiều lý do. Thứ nhất là dấu ấn La Mã cổ đại. Rất nhiều công trình và di tích lịch sử nơi đây mang đậm kiến trúc La Mã, tạo cho thành phố một bầu không khí khác hẳn những nơi mình từng đi qua. Nhờ vậy mình cũng chụp được vô số bức ảnh đáng nhớ để chia sẻ với gia đình và bạn bè.\n\nMột lý do nữa là sự đa dạng các hoạt động tham quan. Người yêu lịch sử có thể ghé khu Nhà tắm La Mã để tìm hiểu cách người xưa sử dụng nhà tắm công cộng ra sao. Họ cũng có thể thăm Tu viện Bath, vốn tự thân nó đã là một công trình tuyệt đẹp. Đồng thời, ai thích đi bộ đường dài có thể leo những ngọn đồi gần đó và thu trọn thành phố vào tầm mắt.\n\nNói thêm một chút, nơi đây cũng rất thuận tiện để làm điểm xuất phát tới các điểm du lịch khác. Từ Bath, mình dễ dàng ghé thăm những thắng cảnh nổi tiếng lân cận như bãi đá cổ Stonehenge và vùng quê Cotswolds nữa.",
+    "referenceEn": "I’d like to describe a city I have been to and really enjoyed visiting, which is Bath in the United Kingdom. This was the first time I visited this location, and it was during Easter because I happened to have some free time.\n\nI visited the city for a short two-day trip. On the first day, I arrived and checked into a homestay, after which, I walked around the city. Bath is known for being old and beautiful, and I had a great time exploring it. The weather was sunny but not too hot, so I was able to see some famous sights, including Bath Abbey.\n\nOn the second day, I climbed up a hill that gave me a panoramic view of the whole city. It was absolutely breathtaking. Unfortunately, I only stayed for a short time, so that was all I was able to do.\n\nI really enjoyed Bath for several reasons. The first is its Roman influence. Many of the buildings and historical sites reflect Roman architecture, which made the city feel very different from other places I had visited. It also gave me many memorable photos to share with my friends and family.\n\nAnother reason is the variety of activities available. History lovers can visit the Roman Baths and learn about how people used communal baths in the past. They can also visit Bath Abbey, which is beautiful in its own right. At the same time, people who enjoy hiking can climb the nearby hills and enjoy the view of the city.\n\nAs a side note, it is also quite convenient as a starting point for travel to other locations. From Bath, I was able to visit other famous tourist attractions, such as Stonehenge and the Cotswolds as well.",
+    "keywords": [
+      "panoramic view",
+      "absolutely breathtaking",
+      "Roman architecture",
+      "communal baths",
+      "in its own right",
+      "starting point"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q01",
+    "title": "[Study4 #04 • Part 3 Q1] Sống ở nông thôn và sống ở thành phố có gì khác nhau?",
+    "titleEn": "[Study4 #04 • Part 3 Q1] What is the difference between living in the countryside and the city?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 137,
+    "textVi": "Sống ở nông thôn và sống ở thành phố có gì khác nhau?\n\nCó rất nhiều khác biệt giữa cuộc sống nông thôn và thành thị. Một khác biệt lớn là môi trường sống. Các thành phố thường ô nhiễm hơn vì dân số đông đúc và ùn tắc giao thông vào giờ cao điểm. Hệ quả là khói bụi mù mịt dày đặc hơn, khiến người dân dễ mắc các bệnh về hô hấp nếu sinh sống lâu dài ở đó. Ngược lại, vùng quê thường có không khí trong lành hơn cùng nhiều không gian xanh, giúp con người cảm thấy thư thái hơn. Nhịp sống cũng rất khác biệt. Đô thị lúc nào cũng nhộn nhịp và hối hả, trong khi nông thôn thường mang lại lối sống chậm rãi và yên bình hơn.",
+    "referenceEn": "What is the difference between living in the countryside and the city?\n\nThere are many differences between living in the countryside and living in the city. One major difference is the environment. Cities are often more polluted because there are more people, and more traffic congestion during peak hours. As a result, there is more smog, so people may develop respiratory problems if they live there for a long time. By contrast, the countryside usually has fresher air and more green spaces, so people may feel more relaxed. The pace of life is also very different. Cities are bustling and fast-paced, while the countryside usually offers a slower and more peaceful lifestyle.",
+    "keywords": [
+      "peak hours",
+      "respiratory problems",
+      "green spaces",
+      "bustling",
+      "peaceful lifestyle"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q02",
+    "title": "[Study4 #04 • Part 3 Q2] Bạn thích sống ở thành phố hay ở nông thôn hơn?",
+    "titleEn": "[Study4 #04 • Part 3 Q2] Do you prefer to live in the city or in the countryside?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 122,
+    "textVi": "Bạn thích sống ở thành phố hay ở nông thôn hơn?\n\nMình nghĩ mình thích sống ở thành phố hơn. Mình mới hai mươi bốn tuổi nên vẫn còn khá nhiều năng lượng, lại thích ra ngoài hẹn hò cà phê buổi tối cùng bạn bè. Thành phố vì thế cho mình nhiều cơ hội giao lưu và trò chuyện đủ mọi đề tài với người khác. Mình cũng thích sự tiện nghi của đời sống đô thị. Mình có thể dễ dàng tiếp cận các tiện ích giải trí như phòng tập gym, quán cà phê và nhà hàng. Những nơi này ở vùng quê thường khó tìm hơn nhiều, nên hiện tại cuộc sống thành thị hợp với mình hơn.",
+    "referenceEn": "Do you prefer to live in the city or in the countryside?\n\nI think I prefer living in the city. I am only 24 years old, so I still have quite a lot of energy, and I enjoy going out for coffee dates at night with my friends. The city, then, gives me more chances to mingle and talk about all sorts of topics with other people. I also like the convenience of city life. I can easily access recreational facilities such as gyms, cafés, and restaurants. These places may be much less accessible in rural areas, so for now, city life suits me better.",
+    "keywords": [
+      "mingle",
+      "convenience",
+      "recreational facilities",
+      "less accessible",
+      "suits me better"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q03",
+    "title": "[Study4 #04 • Part 3 Q3] Người lớn tuổi sống ở các thành phố lớn có tốt không?",
+    "titleEn": "[Study4 #04 • Part 3 Q3] Is it good for elderly people to live in large cities?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 133,
+    "textVi": "Người lớn tuổi sống ở các thành phố lớn có tốt không?\n\nCó chứ, mình nghĩ sống ở thành phố lớn hoàn toàn có lợi cho người cao tuổi. Một lý do là đô thị lớn thường có dịch vụ y tế tốt hơn. Vì người già có thể mắc sẵn bệnh nền hoặc gặp biến chứng y khoa đột ngột, việc dễ dàng tiếp cận bệnh viện và phòng khám vô cùng quan trọng. Một lý do khác là sự gắn kết gia đình. Nhiều người lớn tuổi có con cái sinh sống và làm việc tại thành phố. Nếu ở cùng thành phố, họ có thể gặp con thường xuyên hơn, điều rất tốt cho sức khỏe tinh thần vì luôn có người để trò chuyện và sẻ chia tâm sự.",
+    "referenceEn": "Is it good for elderly people to live in large cities?\n\nYes, I think it can be good for elderly people to live in large cities. One reason is that large cities usually have better medical services. Since elderly people may suffer from existing health conditions or sudden medical complications, having easy access to hospitals and clinics can be extremely important. Another reason is family connection. Many elderly people have children who live and work in cities. If they also live in the same city, they may be able to see their children more often, which is good for their mental health because they have someone to talk to and share their feelings with.",
+    "keywords": [
+      "medical services",
+      "existing health conditions",
+      "complications",
+      "family connection",
+      "mental health"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q04",
+    "title": "[Study4 #04 • Part 3 Q4] Liệu có khả năng toàn bộ dân số sẽ chuyển hết lên thành phố sống không?",
+    "titleEn": "[Study4 #04 • Part 3 Q4] Is it possible that all of the population will move to cities?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 144,
+    "textVi": "Liệu có khả năng toàn bộ dân số sẽ chuyển hết lên thành phố sống không?\n\nMình nghĩ làn sóng di cư lên đô thị sẽ còn tiếp diễn, nhưng nói tất cả mọi người sẽ chuyển lên thành phố thì không thực tế. Một nguyên nhân là quỹ đất ở đô thị ngày càng hạn hẹp. Nếu toàn bộ cư dân nông thôn dồn lên phố, chắc chắn sẽ không đủ nhà ở để đáp ứng, dẫn đến những hệ lụy nghiêm trọng như tình trạng vô gia cư. Cũng cần nói thêm rằng các chính phủ đang nỗ lực phát triển khu vực nông thôn nữa. Nếu vùng quê có hạ tầng tốt hơn và triển vọng nghề nghiệp sáng sủa hơn, nhiều người có thể chọn ở lại quê hương hoặc tỉnh nhà thay vì đổ xô lên thành phố lớn.",
+    "referenceEn": "Is it possible that all of the population will move to cities?\n\nI think urban migration will continue, but I do not think it is realistic to say that everyone will move to cities. One reason is that land in cities is becoming more limited. If everyone from rural areas moved to cities, there probably would not be enough housing to accommodate them, and this could lead to serious problems such as homelessness. It should also be said that governments are trying to develop the countryside as well. If rural areas have better infrastructure, and better career prospects, some people may choose to stay in their hometowns or home provinces instead of moving to large cities.",
+    "keywords": [
+      "urban migration",
+      "accommodate",
+      "homelessness",
+      "career prospects",
+      "home provinces"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q05",
+    "title": "[Study4 #04 • Part 3 Q5] Trong tương lai người ta có còn sống ở vùng nông thôn không?",
+    "titleEn": "[Study4 #04 • Part 3 Q5] Will people live in the countryside in the future?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 141,
+    "textVi": "Trong tương lai người ta có còn sống ở vùng nông thôn không?\n\nCó chứ, mình tin một bộ phận dân cư vẫn sẽ tiếp tục sống ở nông thôn trong tương lai. Chẳng hạn người nghỉ hưu có thể chuộng cuộc sống thanh bình với bầu không khí sạch và ít ô nhiễm. Điều này đặc biệt hấp dẫn với người lớn tuổi có vấn đề về hô hấp hoặc đơn giản chỉ muốn tận hưởng nhịp sống tĩnh lặng hơn. Tuy nhiên, nhiều người trẻ có lẽ vẫn sẽ bám trụ ở thành phố vì đô thị mang lại nhiều cơ hội việc làm và mức lương cao hơn. Một số người cao tuổi cũng có thể ở lại phố vì gia đình họ sống tại đó, nên ở gần sẽ dễ duy trì tình cảm gia đình hơn.",
+    "referenceEn": "Will people live in the countryside in the future?\n\nYes, I think some people will continue to live in the countryside in the future. Retired people, for example, may prefer a peaceful life with fresh air and less pollution. This can be especially attractive for elderly people who have respiratory problems or simply want to enjoy a quieter lifestyle. However, many young people will probably continue to live in cities because cities offer more job opportunities and higher salaries. Some elderly people may also stay in cities because that is where their families live, so living nearby makes it easier for them to maintain family relationships.",
+    "keywords": [
+      "retired people",
+      "quieter lifestyle",
+      "higher salaries",
+      "living nearby",
+      "family relationships"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q06",
+    "title": "[Study4 #04 • Part 3 Q6] Bạn có nghĩ người dân ở nông thôn thân thiện hơn ở thành phố không?",
+    "titleEn": "[Study4 #04 • Part 3 Q6] Do you think people in the countryside are friendlier than in cities?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 115,
+    "textVi": "Bạn có nghĩ người dân ở nông thôn thân thiện hơn ở thành phố không?\n\nNhìn chung thì mình đồng ý. Người dân vùng quê thường có nhịp sống chậm hơn nên họ ít bị công việc làm cho căng thẳng. Nhờ thế, họ điềm tĩnh hơn và sẵn sàng dành thời gian trò chuyện với người khác. Người thành thị trái lại lúc nào cũng vội đi đâu đó. Họ có thể đang tất tả đi làm, chạy cho kịp cuộc hẹn hoặc xoay xở lịch trình dày đặc. Hệ quả là họ hay bỏ qua những câu chào hỏi xã giao, điều đó dễ khiến họ trông có vẻ kém thân thiện hơn.",
+    "referenceEn": "Do you think people in the countryside are friendlier than in cities?\n\nGenerally, I would say yes. People in the countryside often have a slower pace of life, so they may feel less stressed by work. Because of that, they may be calmer and more willing to take their time when talking to others. City people, however, often have somewhere to be. They may be commuting to work, rushing to an appointment, or dealing with a busy schedule. As a result, they may try to skip small talk, which can make them seem less friendly.",
+    "keywords": [
+      "pace of life",
+      "less stressed",
+      "rushing to",
+      "busy schedule",
+      "small talk"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q07",
+    "title": "[Study4 #04 • Part 3 Q7] Chính phủ nên làm gì để cải thiện sự an toàn cho công dân?",
+    "titleEn": "[Study4 #04 • Part 3 Q7] What should the government do to improve citizens' safety?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 146,
+    "textVi": "Chính phủ nên làm gì để cải thiện sự an toàn cho công dân?\n\nMình nghĩ có nhiều biện pháp chính phủ có thể áp dụng để nâng cao an toàn cho người dân. Một cách là lắp đặt thêm camera giám sát tại khu vực công cộng. Việc này rất phổ biến ở Vương quốc Anh, nơi bạn có thể thấy camera ở trạm xe buýt, bên ngoài cửa hàng và trên các tuyến phố đông đúc. Chúng có tác dụng răn đe các tội phạm như trộm cắp hay móc túi. Nhà nước cũng có thể ban hành quy định chặt chẽ hơn về an toàn giao thông và xây dựng. Khi biết đường sá được quản lý bài bản và tòa nhà được kiểm định định kỳ, người dân sẽ cảm thấy an tâm hơn cả lúc lái xe lẫn khi ở nhà.",
+    "referenceEn": "What should the government do to improve citizens' safety?\n\nI think there are many measures the government could take to improve citizens’ safety. One method is to install more surveillance cameras in public areas. This is quite common in the United Kingdom, where cameras can be seen at bus stops, outside shops, and in busy streets. They can discourage crimes such as theft or pickpocketing. The government can also introduce stricter regulations related to traffic and building safety. If people know that roads are properly managed and buildings are regularly inspected, they may feel safer both when they are driving and when they are at home.",
+    "keywords": [
+      "surveillance cameras",
+      "discourage crimes",
+      "pickpocketing",
+      "stricter regulations",
+      "regularly inspected"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q08",
+    "title": "[Study4 #04 • Part 3 Q8] Những thay đổi nào thường diễn ra tại các thành phố và thị trấn?",
+    "titleEn": "[Study4 #04 • Part 3 Q8] What changes usually take place in cities and towns?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 137,
+    "textVi": "Những thay đổi nào thường diễn ra tại các thành phố và thị trấn?\n\nCó đủ loại biến đổi thường xuyên diễn ra ở các thành phố và thị trấn. Một thay đổi phổ biến là xây dựng các tòa nhà mới. Quá trình này có thể bao gồm phá dỡ công trình cũ, điều động máy ủi và gây ra nhiều bụi bặm lẫn tiếng ồn, nên sự đổi thay thường rất dễ nhận thấy. Một thay đổi quen thuộc khác là nâng cấp hạ tầng giao thông đường bộ. Đôi khi người ta phải giải tỏa một số tòa nhà để lấy mặt bằng mở rộng đường hoặc làm tuyến giao thông mới. Dù việc thi công có thể gây bất tiện tạm thời, nó giúp giảm ùn tắc xe cộ sau khi hoàn thành.",
+    "referenceEn": "What changes usually take place in cities and towns?\n\nThere are various changes that usually take place in cities and towns. One common change is the construction of new buildings. This may involve demolishing old structures, using bulldozers, and creating a lot of dust and noise, so the change is usually quite noticeable. Another common change is the improvement of road infrastructure. Sometimes buildings have to be removed to make space for wider roads or new transport routes. Although this can be inconvenient during construction, it may reduce traffic congestion once the work is finished.",
+    "keywords": [
+      "demolishing",
+      "bulldozers",
+      "road infrastructure",
+      "inconvenient",
+      "traffic congestion"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q09",
+    "title": "[Study4 #04 • Part 3 Q9] Thành phố của bạn dạo này có thay đổi gì không?",
+    "titleEn": "[Study4 #04 • Part 3 Q9] Are there any changes in your city?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "short",
+    "wordCountVi": 83,
+    "textVi": "Thành phố của bạn dạo này có thay đổi gì không?\n\nHiện tại mình chưa thể nói chắc chắn được vì khoảng một năm nay mình chưa quay về thành phố quê hương. Tiếc là mình chưa trực tiếp quan sát được đổi thay nào gần đây cả. Dĩ nhiên điều đó không có nghĩa là thành phố không hề thay đổi đâu. Chỉ là mình đang đi xa, nên mình không muốn đưa ra nhận định khi chưa tận mắt chứng kiến.",
+    "referenceEn": "Are there any changes in your city?\n\nAt the moment, I cannot say for certain because I have not returned to my home city for about a year. So, unfortunately, I have not personally observed any recent changes. That does not mean the city has not changed, though. It is just that I have been away, so I do not want to make a claim without seeing the changes myself.",
+    "keywords": [
+      "for certain",
+      "personally observed",
+      "recent changes",
+      "make a claim",
+      "seeing the changes"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q10",
+    "title": "[Study4 #04 • Part 3 Q10] Tại sao du khách lại chọn tham quan một số thành phố nhất định?",
+    "titleEn": "[Study4 #04 • Part 3 Q10] Why do tourists choose to visit certain cities?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 147,
+    "textVi": "Tại sao du khách lại chọn tham quan một số thành phố nhất định?\n\nCó vài lý do khiến du khách ưu ái lựa chọn một số thành phố cụ thể. Yếu tố quan trọng đầu tiên là số lượng điểm tham quan du lịch. Một số đô thị có thể khá buồn tẻ vì chủ yếu là trung tâm thương mại hoặc công nghiệp, nên khách du lịch chẳng tìm thấy nhiều hoạt động giải trí ở đó. Ngược lại, những thành phố giàu bề dày lịch sử, có bảo tàng và di tích lịch sử thường hấp dẫn du khách hơn nhiều. Một số thành phố còn được quy hoạch rất chu đáo cho du khách, chẳng hạn cung cấp hỗ trợ đa ngôn ngữ và dịch vụ thân thiện với khách tham quan, khiến chuyến đi trở nên thuận tiện và đáng nhớ hơn.",
+    "referenceEn": "Why do tourists choose to visit certain cities?\n\nThere are several reasons why tourists choose to visit certain cities. One important factor is the number of tourist attractions. Some cities may be rather dull because they are mainly business or industrial centers, so tourists may not find much to do there. By contrast, cities with a rich history, museums, and historical monuments are often more exciting for tourists. Some cities are also designed with special consideration for tourists. They may offer language support, and tourist-friendly services, which makes them easier and more enjoyable to visit.",
+    "keywords": [
+      "tourist attractions",
+      "industrial centers",
+      "historical monuments",
+      "language support",
+      "tourist-friendly"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q11",
+    "title": "[Study4 #04 • Part 3 Q11] Các thành phố hiện đại có thú vị với du khách hơn những thành phố cổ kính không?",
+    "titleEn": "[Study4 #04 • Part 3 Q11] Are modern cities more interesting for tourists than historical ones?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 138,
+    "textVi": "Các thành phố hiện đại có thú vị với du khách hơn những thành phố cổ kính không?\n\nMình nghĩ còn tùy vào đối tượng du khách nữa. Đô thị hiện đại có sức hút riêng của nó. Chúng có thể mang lại đời sống về đêm sôi động, ẩm thực đường phố và các khu vui chơi như sàn bowling hay rạp chiếu phim — những thứ chắc hẳn thu hút giới trẻ mê xê dịch. Tuy nhiên, có những du khách đi du lịch chủ yếu để tìm trải nghiệm văn hóa và lịch sử. Họ có thể chuộng những thành phố có bảo tàng, tượng đài và chiều sâu lịch sử lâu đời. Thế nên rốt cuộc thành phố hiện đại hay cổ kính thú vị hơn còn phụ thuộc vào sở thích cá nhân.",
+    "referenceEn": "Are modern cities more interesting for tourists than historical ones?\n\nI would say it depends on the tourist. Modern cities have their own appeal. They may offer vibrant nightlife, street food, and recreational facilities such as bowling alleys or cinemas, which might appeal to young travelers, I suppose. However, some tourists travel mainly for cultural and historical experiences. They may prefer cities with museums, monuments, and a rich historical background. So, in the end, whether modern or historical cities are more interesting depends on personal preference.",
+    "keywords": [
+      "vibrant nightlife",
+      "street food",
+      "bowling alleys",
+      "cultural and historical",
+      "personal preference"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q12",
+    "title": "[Study4 #04 • Part 3 Q12] Những thành phố du khách thích đến tham quan có đồng thời là nơi đáng sống không?",
+    "titleEn": "[Study4 #04 • Part 3 Q12] Are cities that tourists like to visit also good places to live?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 132,
+    "textVi": "Những thành phố du khách thích đến tham quan có đồng thời là nơi đáng sống không?\n\nKhông phải lúc nào cũng vậy đâu. Những thành phố được du khách yêu thích thường được thiết kế để chiều lòng khách tham quan, nhưng điều đó không đương nhiên biến chúng thành nơi lý tưởng để định cư. Chẳng hạn, nhiều công việc tại thành phố du lịch phụ thuộc nặng vào mùa cao điểm, nên việc làm có thể không ổn định quanh năm. Với mình, một nơi đáng sống không chỉ cần đẹp mà còn phải mang lại cơ hội việc làm tốt và thu nhập vững vàng. Một thành phố có thể tuyệt vời cho kỳ nghỉ ngắn ngày, nhưng chưa chắc đã thiết thực cho cuộc sống thường nhật.",
+    "referenceEn": "Are cities that tourists like to visit also good places to live?\n\nNot always. Cities that tourists enjoy visiting are often designed to accommodate visitors, but that does not necessarily make them good places to live. For example, many jobs in tourist cities may depend heavily on peak tourist seasons, so employment may not be stable throughout the year. For me, a good place to live is not only attractive, but also able to provide good employment opportunities and a stable income. A city may be wonderful for a short holiday, but that does not automatically mean it is practical for everyday life.",
+    "keywords": [
+      "accommodate visitors",
+      "peak tourist seasons",
+      "stable income",
+      "practical",
+      "everyday life"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q13",
+    "title": "[Study4 #04 • Part 3 Q13] Tại sao nhiều người lại lựa chọn sinh sống ở thành phố?",
+    "titleEn": "[Study4 #04 • Part 3 Q13] Why do many people choose to live in cities?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 116,
+    "textVi": "Tại sao nhiều người lại lựa chọn sinh sống ở thành phố?\n\nCó rất nhiều lý do khiến đông đảo người dân chọn sống tại đô thị. Nguyên nhân lớn đầu tiên là cơ hội việc làm. Thành phố thường có nền kinh tế phát triển mạnh hơn vùng nông thôn, nên các doanh nghiệp liên tục tuyển dụng nhân sự mới và đem lại triển vọng thăng tiến tốt hơn. Một lý do nữa là sự tiện lợi. Đô thị thường sở hữu đầy đủ dịch vụ hiện đại như bệnh viện và khu vui chơi giải trí; bởi thế nhiều người lên thành phố vì muốn tiếp cận dễ dàng các dịch vụ ấy.",
+    "referenceEn": "Why do many people choose to live in cities?\n\nThere are many reasons why people choose to live in cities. One major reason is job opportunities. Cities usually have stronger economies than rural areas, so companies are often looking for new employees and offering better career prospects. Another reason is convenience. Cities usually have modern services such as hospitals, and recreational facilities; therefore, many people live in cities because they want easy access to these services as well.",
+    "keywords": [
+      "job opportunities",
+      "stronger economies",
+      "career prospects",
+      "modern services",
+      "easy access"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q14",
+    "title": "[Study4 #04 • Part 3 Q14] Sống ở thành phố mang lại nhiều lợi thế hơn cho người trẻ hay người lớn tuổi?",
+    "titleEn": "[Study4 #04 • Part 3 Q14] Does living in cities have more advantages for younger or older people?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 118,
+    "textVi": "Sống ở thành phố mang lại nhiều lợi thế hơn cho người trẻ hay người lớn tuổi?\n\nMình cho rằng sống ở thành phố mang lại nhiều lợi thế hơn cho người trẻ. Như mình vừa nhắc lúc nãy, đô thị thường cung cấp cơ hội nghề nghiệp tốt hơn. Nếu một bạn trẻ có trình độ chuyên môn cao, họ có thể tìm được công việc ổn định với mức lương khá. Thành phố cũng có nhiều lựa chọn giải trí hơn. Người trẻ có thể ghé quán cà phê hay tụ điểm vui chơi sau giờ làm. Những hoạt động này giúp họ giao lưu xã hội và mở rộng vòng tròn kết nối bạn bè.",
+    "referenceEn": "Does living in cities have more advantages for younger or older people?\n\nI would say living in cities has more advantages for younger people. As I mentioned earlier, cities usually provide better job opportunities. If a young adult is highly qualified, they may be able to secure a stable job with a good salary. Cities also have more entertainment options. Young people can go to cafés, or other recreational places after work. These activities help them socialize, and expand their social circle.",
+    "keywords": [
+      "highly qualified",
+      "stable job",
+      "entertainment options",
+      "socialize",
+      "social circle"
+    ]
+  },
+  {
+    "id": "tb_study4_04_p3_q15",
+    "title": "[Study4 #04 • Part 3 Q15] Bạn đồng ý hay không đồng ý với quan điểm rằng các thành phố dần đánh mất bản sắc riêng khi mở rộng quy mô?",
+    "titleEn": "[Study4 #04 • Part 3 Q15] Do you agree or disagree that cities lose their individual character as they grow in size?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 160,
+    "textVi": "Bạn đồng ý hay không đồng ý với quan điểm rằng các thành phố dần đánh mất bản sắc riêng khi mở rộng quy mô?\n\nMình đồng ý ở một mức độ nhất định. Khi thành phố phình to ra, chúng có thể trở nên đông đúc và thương mại hóa hơn, điều này dễ làm phai nhạt nét đặc trưng ban đầu. Ví dụ, nếu xây dựng quá nhiều cao ốc, trung tâm mua sắm và đường lớn, thành phố ấy có thể bắt đầu trông na ná vô số đô thị hiện đại khác. Sự gia tăng dân số cũng tạo áp lực lên tài nguyên thiên nhiên và mảng xanh. Nếu một thành phố từng nổi tiếng nhờ các công viên yên tĩnh, những nét đẹp đó có nguy cơ bị hủy hoại bởi kẹt xe và ô nhiễm tiếng ồn, khiến thành phố dần đánh mất những giá trị làm nên sức hút thuở ban đầu.",
+    "referenceEn": "Do you agree or disagree that cities lose their individual character as they grow in size?\n\nI agree to some extent. As cities grow larger, they may become more crowded and commercialized, and this can make them lose some of their original character. For example, if more high-rise buildings, shopping centers, and roads are built, the city may start to look similar to many other modern cities. Population growth can also put pressure on natural resources and green spaces. If a city was once known for its peaceful parks, those features may be damaged by traffic congestion, and noise pollution. As a result, the city may gradually lose the qualities that made it special in the first place.",
+    "keywords": [
+      "commercialized",
+      "original character",
+      "high-rise buildings",
+      "natural resources",
+      "noise pollution"
+    ]
+  },
+  {
+    "id": "tb_study4_05_p2",
+    "title": "[Study4 #05 • Part 2] Miêu tả một phát minh hữu ích trong đời sống hằng ngày của bạn",
+    "titleEn": "[Study4 #05 • Part 2] Describe an invention that is useful in your daily life (Q1/2026 | Study4 ID 20267)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q1/2026 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 363,
+    "textVi": "Mình muốn nói về chiếc điện thoại thông minh của mình — một kỳ quan công nghệ mà đúng nghĩa mình không thể sống thiếu dù chỉ một ngày. Lý do là vì điện thoại thông minh có thể làm quá nhiều việc cùng lúc. Nó cho phép mình gọi điện, nhắn tin, lướt mạng và thậm chí quản lý lịch trình cá nhân. Thực tế là từ khi đi du học, chiếc máy này lại càng trở nên vô giá, bởi đây là cách duy nhất giúp mình tra cứu chính xác giờ xe buýt cập bến. Nói thật lòng, cuộc sống của mình chắc chắn sẽ khốn khổ lắm nếu thiếu nó.\n\nXét về mức độ phổ biến thì điện thoại thông minh có mặt ở khắp mọi nơi. Hầu hết những người mình quen, từ sinh viên cho tới người lớn tuổi, ai cũng sở hữu một chiếc, và ở nhiều nơi nó đã trở thành nhu yếu phẩm cơ bản chứ không còn là món đồ xa xỉ nữa. Bạn có thể bắt gặp mọi người dùng điện thoại trên phương tiện công cộng, ngoài quán cà phê và cả tại nơi làm việc, điều đó cho thấy phát minh này đã hòa nhập sâu vào đời sống thường nhật tới mức nào.\n\nVà xét từ những gì mình vừa kể, mình đánh giá điện thoại thông minh rất dễ sử dụng. Về lý do thì nhìn chung chúng được thiết kế cực kỳ thân thiện với người dùng. Hầu hết ứng dụng đều có giao diện trực quan, nên bạn có thể học cách thao tác chỉ bằng vài cú chạm thử. Dĩ nhiên một số tính năng nâng cao cần thời gian làm quen, và người lớn tuổi vốn nổi tiếng là hay ngại công nghệ chỉ vì họ chưa hiểu cách vận hành. Tuy vậy, mình nghĩ chỉ cần bỏ ra vài phút nhờ ai đó chỉ dẫn, họ hoàn toàn có thể sử dụng được, vì xét về thiết kế thì nó chẳng hề khó dùng chút nào. Thú thực, phát minh này đã làm cuộc sống nhanh hơn và kết nối hơn rất nhiều.",
+    "referenceEn": "I’d like to talk about my smartphone, a technological marvel that I simply cannot go a day without. This is because a smartphone can do so many things at once. It allows me to make calls, send messages, browse the internet, and even manage my schedule. In fact, now that I’m studying abroad, it has become even more invaluable, since it’s the only way I can reliably get information on what time the buses arrive. My life, honestly, would be miserable without it.\n\nIn terms of popularity, smartphones are everywhere. Almost everyone I know, from students to elderly people, owns one, and in many places, it’s become a basic necessity rather than a luxury. You see people using their phones on public transport, at cafés, and even at work, which really shows how deeply this invention is integrated into daily life.\n\nAnd, considering what I’ve said, I’d say smartphones are really easy to use. As for why, I’d say it is because they are generally very user-friendly. Most apps are designed to be intuitive, so you can learn how to use them just by tapping around. Of course, some advanced features take time to get used to, and the elderly are notorious for hating technology just because they don’t understand them. However, I think by just spending a few minutes asking for help, they can learn how to use a smartphone, since it’s, by design, not difficult to use at all. Honestly, this invention has just made life faster, and more connected.",
+    "keywords": [
+      "technological marvel",
+      "basic necessity",
+      "integrated into daily life",
+      "user-friendly",
+      "intuitive",
+      "by design"
+    ]
+  },
+  {
+    "id": "tb_study4_05_p3_q01",
+    "title": "[Study4 #05 • Part 3 Q1] Những người phát minh thường có phẩm chất gì?",
+    "titleEn": "[Study4 #05 • Part 3 Q1] What qualities do inventors have?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 108,
+    "textVi": "Những người phát minh thường có phẩm chất gì?\n\nCác nhà phát minh thường giàu sức sáng tạo và cực kỳ tinh tế trong quan sát. Họ nhận ra những bất cập trong đời sống thường ngày rồi tìm cách giải quyết chúng. Sự kiên trì cũng đóng vai trò then chốt, vì quá trình sáng chế luôn đòi hỏi thử nghiệm và sửa sai liên tục. Và có một điểm chung ở mọi nhà phát minh, đó là sự sẵn sàng chấp nhận rủi ro. Thật lòng mà nói, làm sao bạn có thể tạo ra thứ gì đó mới mẻ nếu không dám mạo hiểm chứ.",
+    "referenceEn": "What qualities do inventors have?\n\nInventors are usually creative, and highly observant. They notice problems in everyday life and think about how to solve them. Persistence is also crucial, because invention often involves trial and error. And, there’s one thing that all inventors have in common, and that’s their willingness to take risks. Honestly, how can you invent something new if you don’t take risks.",
+    "keywords": [
+      "highly observant",
+      "persistence",
+      "trial and error",
+      "have in common",
+      "take risks"
+    ]
+  },
+  {
+    "id": "tb_study4_05_p3_q02",
+    "title": "[Study4 #05 • Part 3 Q2] Bạn có nghĩ chỉ các nhà khoa học mới có thể phát minh ra những thứ mới không?",
+    "titleEn": "[Study4 #05 • Part 3 Q2] Do you think only scientists can invent new things?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 103,
+    "textVi": "Bạn có nghĩ chỉ các nhà khoa học mới có thể phát minh ra những thứ mới không?\n\nKhông hề chút nào. Dù các nhà khoa học giữ vai trò lớn trong những bước đột phá công nghệ, rất nhiều phát minh lại xuất phát từ những người bình thường. Doanh nhân, kỹ sư và thậm chí chính người sử dụng cũng có thể sáng tạo ra giải pháp thiết thực từ nhu cầu hằng ngày. Ngoài mọi kiến thức chuyên môn cần thiết ra, nhà phát minh trước hết là bất kỳ ai biết sáng tạo và dám chấp nhận rủi ro.",
+    "referenceEn": "Do you think only scientists can invent new things?\n\nNo, not at all. While scientists play a big role in technological breakthroughs, many inventions come from ordinary people. Entrepreneurs, engineers, and even users themselves can invent practical solutions based on daily needs. Aside from all the expertise needed, an inventor is, first and foremost, anyone who is creative, and who is a risk-taker.",
+    "keywords": [
+      "technological breakthroughs",
+      "ordinary people",
+      "practical solutions",
+      "expertise",
+      "risk-taker"
+    ]
+  },
+  {
+    "id": "tb_study4_05_p3_q03",
+    "title": "[Study4 #05 • Part 3 Q3] Theo bạn những phát minh nào cần được cải thiện thêm?",
+    "titleEn": "[Study4 #05 • Part 3 Q3] What inventions do you think should be improved?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 104,
+    "textVi": "Theo bạn những phát minh nào cần được cải thiện thêm?\n\nMình nghĩ điện thoại thông minh và các nền tảng mạng xã hội cần được cải thiện, đặc biệt ở khía cạnh sức khỏe và quyền riêng tư. Chúng cực kỳ hữu ích thật đấy, nhưng việc lạm dụng có thể gây nghiện và căng thẳng tâm lý. Nâng cấp các tính năng chăm sóc sức khỏe số và bảo vệ dữ liệu sẽ giúp chúng an toàn hơn. Dù vậy mình phải thú nhận bản thân chưa đủ thông minh để nghĩ ra giải pháp triệt để cho chứng nghiện điện thoại.",
+    "referenceEn": "What inventions do you think should be improved?\n\nI think smartphones and social media platforms need improvement, especially in terms of health and privacy. They’re incredibly useful, but overuse can cause addiction and stress. Improving digital wellbeing features and data protection would potentially make them safer. Though, I must admit, I am not bright enough to come up with a solution for phone addiction.",
+    "keywords": [
+      "privacy",
+      "overuse",
+      "digital wellbeing",
+      "data protection",
+      "phone addiction"
+    ]
+  },
+  {
+    "id": "tb_study4_05_p3_q04",
+    "title": "[Study4 #05 • Part 3 Q4] Còn những phát minh nào khác giúp thế giới trở nên tốt đẹp hơn không?",
+    "titleEn": "[Study4 #05 • Part 3 Q4] Are there any other inventions that make the world better?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 105,
+    "textVi": "Còn những phát minh nào khác giúp thế giới trở nên tốt đẹp hơn không?\n\nCó chứ, rất nhiều phát minh đã cải thiện đáng kể chất lượng cuộc sống con người. Trước hết, các công nghệ y tế như vắc-xin và máy chụp cộng hưởng từ MRI cứu sống vô số bệnh nhân mỗi ngày. Hơn nữa, những sáng chế tạo ra năng lượng tái tạo như tấm pin mặt trời và tua-bin gió giúp bảo vệ môi trường, và ngay cả những phát minh giản dị như hệ thống lọc nước sạch cũng tạo nên sự khác biệt khổng lồ trên toàn cầu.",
+    "referenceEn": "Are there any other inventions that make the world better?\n\nYes, many inventions have significantly improved quality of life. First, medical technologies like vaccines and MRI machines save lives every day. Moreover, inventions that provide renewable energy, such as solar panels and wind turbines, help protect the environment, and even simple inventions, like clean water systems, have made a huge difference globally.",
+    "keywords": [
+      "quality of life",
+      "vaccines",
+      "renewable energy",
+      "wind turbines",
+      "clean water systems"
+    ]
+  },
+  {
+    "id": "tb_study4_05_p3_q05",
+    "title": "[Study4 #05 • Part 3 Q5] Có phải mọi phát minh đều mang lại lợi ích cho thế giới của chúng ta không?",
+    "titleEn": "[Study4 #05 • Part 3 Q5] Do all inventions bring benefits to our world?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 140,
+    "textVi": "Có phải mọi phát minh đều mang lại lợi ích cho thế giới của chúng ta không?\n\nKhông phải phát minh nào cũng hoàn toàn tích cực đâu. Một số sáng chế kéo theo hệ quả tiêu cực ngoài ý muốn, chẳng hạn như vũ khí hoặc hóa chất độc hại. Ngay cả những công nghệ hữu ích cũng có thể bị sử dụng sai mục đích hoặc lạm dụng quá mức. Cứ nhìn ví dụ về công nghệ hạt nhân mà xem. Nó từng được ứng dụng cho cả mục đích tốt đẹp như phát điện lẫn mục đích hủy diệt như chế tạo bom hạt nhân. Vậy nên dù phát minh ra đời nhằm giải quyết vấn đề, tác động thực tế của chúng vẫn phụ thuộc vào việc con người sử dụng có trách nhiệm đến đâu.",
+    "referenceEn": "Do all inventions bring benefits to our world?\n\nNot all inventions are entirely positive. Some inventions have unintended negative consequences, such as weapons or harmful chemicals. Even useful technologies can be misused or overused. Honestly, just look at the example of nuclear technology. It has been used for both good, like for energy use, and evil purposes, like for making nuclear bombs. So while inventions aim to solve problems, their impact depends on how responsibly they are used.",
+    "keywords": [
+      "unintended negative consequences",
+      "misused",
+      "nuclear technology",
+      "evil purposes",
+      "responsibly"
+    ]
+  },
+  {
+    "id": "tb_study4_05_p3_q06",
+    "title": "[Study4 #05 • Part 3 Q6] Chính phủ hay các công ty tư nhân nên hỗ trợ và tài trợ cho nhà phát minh?",
+    "titleEn": "[Study4 #05 • Part 3 Q6] Who should support and sponsor inventors, governments or private companies?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 111,
+    "textVi": "Chính phủ hay các công ty tư nhân nên hỗ trợ và tài trợ cho nhà phát minh?\n\nMình nghĩ cả hai phía đều nên góp vai trò của mình. Chính phủ có thể hỗ trợ nhà phát minh thông qua nguồn ngân sách và các dự án nghiên cứu dài hạn. Xét cho cùng, nhà nghiên cứu cũng là con người với gia đình và trách nhiệm cơm áo, nên họ vẫn cần nguồn thu nhập ổn định. Các công ty tư nhân cũng có thể đồng hành cùng giới khoa học vì họ rất giỏi biến ý tưởng phòng thí nghiệm thành sản phẩm sẵn sàng thương mại hóa.",
+    "referenceEn": "Who should support and sponsor inventors, governments or private companies?\n\nI think both should play a role. Governments can support inventors through funding, and long-term research projects. Researchers, at the end of the day, are still people with maybe families and responsibilities, so they need to make money somehow. Private companies may also support scientists since they are really good at turning ideas into market-ready products.",
+    "keywords": [
+      "play a role",
+      "funding",
+      "long-term research",
+      "responsibilities",
+      "market-ready products"
+    ]
+  },
+  {
+    "id": "tb_study4_05_p3_q07",
+    "title": "[Study4 #05 • Part 3 Q7] Bạn nghĩ đâu là một số phát minh quan trọng nhất trong khoảng 100 năm qua?",
+    "titleEn": "[Study4 #05 • Part 3 Q7] What do you think have been some of the most important inventions in the past 100 years or so?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 123,
+    "textVi": "Bạn nghĩ đâu là một số phát minh quan trọng nhất trong khoảng 100 năm qua?\n\nMột vài phát minh quan trọng nhất phải kể đến internet, máy tính và điện thoại thông minh — những thứ đã làm thay đổi hoàn toàn cách giao tiếp và làm việc. Thành thật mà nói, mình không nghĩ nhân loại có thể quay lại cảnh nhận tin tức và liên lạc với gia đình, bạn bè theo lối cũ như gửi thư tay và đọc báo giấy nữa. Những bước tiến y khoa như kháng sinh và vắc-xin cũng đã cứu sống hàng triệu người, và nhờ có chúng mà nhiều dịch bệnh nguy hiểm như đậu mùa gần như đã biến mất hoàn toàn.",
+    "referenceEn": "What do you think have been some of the most important inventions in the past 100 years or so?\n\nSome of the most important inventions include the internet, computers, and smartphones, which have transformed communication and work. I honestly don’t think mankind can go back to receiving news and contacting their friends and family through traditional methods like sending letters and reading from newspapers. Medical advances like antibiotics and vaccines have also saved millions of lives. And, thanks to them, some dangerous diseases like smallpox have almost completely disappeared.",
+    "keywords": [
+      "transformed communication",
+      "traditional methods",
+      "antibiotics",
+      "dangerous diseases",
+      "smallpox"
+    ]
+  },
+  {
+    "id": "tb_study4_06_p2",
+    "title": "[Study4 #06 • Part 2] Miêu tả công việc lý tưởng của bạn",
+    "titleEn": "[Study4 #06 • Part 2] Describe your perfect job (Q1/2026 | Study4 ID 20277)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2026 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 318,
+    "textVi": "Mình muốn chia sẻ về công việc mà mình coi là lý tưởng nhất đối với bản thân. Thú thật đây không phải quyết định nảy ra ngẫu hứng nhất thời, mà là điều mình đã dần nhận ra theo năm tháng.\n\nCông việc mơ ước của mình là làm lập trình viên phát triển phần mềm, đặc biệt tại một công ty tập trung xây dựng các sản phẩm số hữu ích. Lần đầu mình nghe nói tới nghề này là từ thầy cô giáo, rồi qua mạng xã hội và các diễn đàn trực tuyến. Nói thật là mình chẳng nhớ nổi đã xem bao nhiêu video chia sẻ trải nghiệm làm việc trong ngành công nghệ nữa, chỉ biết là rất nhiều. Và buồn cười ở chỗ mình chẳng hề thấy chán chút nào, bởi càng tìm hiểu sâu thì mình lại càng bị cuốn hút hơn.\n\nTheo những gì mình biết hiện tại, để có được công việc này, mình cần trang bị nhiều kỹ năng quan trọng. Trước tiên mình phải nắm vững các ngôn ngữ lập trình như Python hay Java, đồng thời rèn luyện kỹ năng giải quyết vấn đề và tư duy logic. Bên cạnh đó, học cách làm việc nhóm, truyền đạt ý tưởng mạch lạc và liên tục cập nhật công nghệ mới là điều bắt buộc vì lĩnh vực này biến đổi quá nhanh.\n\nCòn về lý do, mình tin đây là công việc hoàn hảo vì nó khớp với cả tính cách lẫn sở thích của mình. Mình thích cảm giác giải quyết bài toán khó và tự tay dựng nên sản phẩm từ con số không, lại thích ý tưởng được học hỏi điều mới mẻ không ngừng. Thêm nữa, nghề này mang lại sự linh hoạt và cơ hội phát triển sự nghiệp tốt — những yếu tố thực sự quan trọng với mình.",
+    "referenceEn": "I’d like to talk about what I consider my perfect job. It’s honestly not a decision I made on the fly, but rather, it’s something I’ve gradually realised over time.\n\nMy perfect job would be working as a software developer, especially in a company that focuses on creating useful digital products. I first heard about this job from my teachers and also through social media and online forums. Actually, I cannot remember the number of videos I have seen about people sharing their experiences working in the tech industry, just because I have seen so many. And, funnily enough, I have not gotten bored of them since the more I learned about it, the more interested I became.\n\nFrom what I currently know, to get this job, I need to learn several important skills. I first have to be strong in programming languages like Python or Java, and I also need problem-solving skills and logical thinking. On top of that, learning how to work in a team, how to communicate ideas clearly, and how to keep up with new technologies is essential because the field changes so fast.\n\nSo, regarding the reason, I think this is my perfect job because it matches both my personality and my interests. I enjoy solving problems and building things from scratch, and I like the idea of constantly learning something new. Also, this job offers flexibility and good career opportunities, which are really important to me.",
+    "keywords": [
+      "on the fly",
+      "gradually realised",
+      "problem-solving skills",
+      "keep up with",
+      "from scratch",
+      "career opportunities"
+    ]
+  },
+  {
+    "id": "tb_study4_06_p3_q01",
+    "title": "[Study4 #06 • Part 3 Q1] Khi lớn lên trẻ em thường muốn làm những công việc gì?",
+    "titleEn": "[Study4 #06 • Part 3 Q1] What jobs do children want to do when they grow up?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 127,
+    "textVi": "Khi lớn lên trẻ em thường muốn làm những công việc gì?\n\nTrẻ nhỏ thường mơ ước những nghề nghiệp trông thật thú vị hoặc đáng ngưỡng mộ trong mắt chúng. Nhiều em muốn trở thành bác sĩ, giáo viên hoặc lính cứu hỏa vì thấy những vai trò đó thật hữu ích và anh hùng. Nhưng ngày nay còn có những nghề kỳ lạ đáng kinh ngạc mà trẻ con cũng muốn theo đuổi như làm YouTuber, game thủ hay ca sĩ. Thú thật là mình có cảm xúc khá lẫn lộn khi nghe vài đứa trẻ nói đó là nghề mơ ước của chúng, bởi những lựa chọn ấy phản ánh trí tưởng tượng nhiều hơn là sự thấu hiểu thực tế về công việc.",
+    "referenceEn": "What jobs do children want to do when they grow up?\n\nChildren usually dream of jobs that seem exciting or admirable to them. Many want to become doctors, teachers, or firefighters because they see these roles as helpful and heroic. Nowadays, though, there are incredible strange jobs that children also want to be like YouTubers, gamers, or singers. I honestly have mixed feelings when some children say these jobs are their dream occupation, since these choices really reflect imagination rather than a realistic understanding of work.",
+    "keywords": [
+      "admirable",
+      "heroic",
+      "mixed feelings",
+      "dream occupation",
+      "realistic understanding"
+    ]
+  },
+  {
+    "id": "tb_study4_06_p3_q02",
+    "title": "[Study4 #06 • Part 3 Q2] Mọi người nên cân nhắc điều gì khi lựa chọn nghề nghiệp?",
+    "titleEn": "[Study4 #06 • Part 3 Q2] What should people consider when choosing jobs?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 135,
+    "textVi": "Mọi người nên cân nhắc điều gì khi lựa chọn nghề nghiệp?\n\nKhi chọn nghề, người ta nên cân nhắc sở thích cá nhân và các mục tiêu dài hạn của bản thân. Điều quan trọng là phải nghĩ tới sự hài lòng trong công việc, cân bằng giữa công việc và cuộc sống cũng như cơ hội phát triển, chứ không chỉ nhìn vào lợi ích ngắn hạn. Giá trị sống và lối sống cá nhân cũng rất đáng lưu tâm, và một công việc phù hợp thường giúp tăng động lực lẫn hiệu suất làm việc, bất kể mức lương thực tế có cao hay không. Xét cho cùng, nếu bạn phải gắn bó với công việc ít nhất năm mươi năm cuộc đời, bạn nên chọn công việc khiến mình thấy vui.",
+    "referenceEn": "What should people consider when choosing jobs?\n\nWhen choosing a job, people should consider their interests, and long-term goals. It’s important to think about job satisfaction, work-life balance, and opportunities for growth, not just short-term benefits. Personal values and lifestyle also matter, and a well-matched job usually leads to better motivation and performance, regardless if the pay is actually high or not. At the end of the day, if you’re going to have to work for at least 50 years, you should make it enjoyable.",
+    "keywords": [
+      "long-term goals",
+      "job satisfaction",
+      "work-life balance",
+      "personal values",
+      "short-term benefits"
+    ]
+  },
+  {
+    "id": "tb_study4_06_p3_q03",
+    "title": "[Study4 #06 • Part 3 Q3] Tiền lương có phải là lý do chính khiến người ta chọn một công việc nào đó không?",
+    "titleEn": "[Study4 #06 • Part 3 Q3] Is salary the main reason people choose a certain job?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 120,
+    "textVi": "Tiền lương có phải là lý do chính khiến người ta chọn một công việc nào đó không?\n\nLương bổng rất quan trọng, nhưng không phải lúc nào cũng là lý do hàng đầu. Dù tiền bạc ảnh hưởng tới chất lượng cuộc sống, nhiều người vẫn ưu tiên niềm vui công việc hoặc cảm giác được cống hiến trọn vẹn, thậm chí có người sẵn sàng nhận mức lương thấp hơn nếu công việc mang lại ý nghĩa hoặc ít áp lực. Nếu suy ngẫm nghiêm túc về chuyện này, nghề nghiệp là thứ theo bạn suốt cả cuộc đời, vì vậy yêu thích công việc mình làm nên quan trọng hơn chuyện kiếm thu nhập cao đơn thuần.",
+    "referenceEn": "Is salary the main reason people choose a certain job?\n\nSalary is important, but it’s not always the main reason. While money affects quality of life, many people prioritise job satisfaction, or personal fulfilment, and some are even willing to accept lower pay if the job is meaningful or less stressful. If you seriously consider the issue, a job is something you have to do your whole life, so enjoying your work should matter more than earning a high income.",
+    "keywords": [
+      "quality of life",
+      "prioritise",
+      "personal fulfilment",
+      "lower pay",
+      "high income"
+    ]
+  },
+  {
+    "id": "tb_study4_07_p2",
+    "title": "[Study4 #07 • Part 2] Miêu tả một chuyến đi bạn muốn thực hiện lại lần nữa",
+    "titleEn": "[Study4 #07 • Part 2] Describe a trip you would like to make again (Q1/2026 | Study4 ID 20231)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q1/2026 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 346,
+    "textVi": "Mình muốn kể về chuyến đi tới Kyoto, Nhật Bản — một hành trình mà mình rất mong được quay lại thêm lần nữa. Chuyến đi diễn ra vài năm trước, lúc đó mình đi cùng hai người bạn thân nhân kỳ nghỉ ở trường đại học. Thực sự rất vui, và theo ký ức của mình, cả chuyến đi đúng nghĩa là sự pha trộn hoàn hảo giữa khám phá phiêu lưu và thư giãn.\n\nNgay từ khoảnh khắc đặt chân tới, thành phố đã toát lên bầu không khí trầm lắng nhưng vô cùng cuốn hút. Trong thời gian ở đó, tụi mình đã làm đủ thứ hoạt động. Bọn mình ghé thăm các ngôi đền và đền thờ Thần đạo truyền thống, dạo bước xuyên qua rừng trúc và thưởng thức ẩm thực địa phương như mì ramen cùng các món ăn vặt đường phố. Tất cả trải nghiệm đó đều rất tuyệt, nhưng một trong những khoảnh khắc mình nhớ nhất là lúc đạp xe vòng quanh những khu dân cư yên tĩnh vào sáng sớm, khi đường phố hầu như vắng tanh. Cảm giác lúc đó cứ như đang bước ngược dòng thời gian vậy, và tụi mình cũng chụp hàng trăm bức ảnh. Tuy nhiên, chẳng bức hình nào có thể lột tả trọn vẹn cảm xúc khi thực sự có mặt tại nơi ấy.\n\nVậy nên, lý do lớn nhất khiến mình muốn đi lại chuyến này là vì bọn mình mới chỉ kịp chạm nhẹ vào bề nổi những trải nghiệm ở thành phố đó thôi. Vẫn còn quá nhiều nơi để ngắm nhìn và khám phá, và lần tới mình muốn du lịch chậm rãi hơn để thực sự tận hưởng từng khoảnh khắc. Nếu có thể, mình cũng muốn đồng hành cùng đúng nhóm bạn cũ ấy vì cảm thấy đội hình đó quá ăn ý cho chuyến đi này. Cơ mà hiện tại tụi mình chưa lên kế hoạch gì cả, nên chắc chuyến quay lại này tạm thời mới dừng ở ước mơ thôi.",
+    "referenceEn": "I’d like to talk about my trip to Kyoto, Japan, one which I’d love to go to again. This happened a few years ago, and I went there with two close friends during our university break. It was great fun, and, from what I can remember, the trip was honestly filled with activities that were just the perfect mix of adventure and relaxation.\n\nFrom the moment we arrived, the city had a calm but fascinating atmosphere. And, while we were there, we did quite a lot. We visited traditional temples and shrines, walked through bamboo forests, and tried local food like ramen and street snacks. Those were all really fun, but one of my favourite moments was cycling around quiet neighbourhoods early in the morning, when the streets were almost empty. It almost felt like stepping back in time, and we also took hundreds of photos. However, no picture can really capture the feeling of being there.\n\nSo, the main reason I’d like to make this trip again is we barely scratched the surface of activities to do in that city. There’s still so much to see and experience, and this time I’d like to travel more slowly and really soak everything in. If possible, I’d also like to go back with the same friends since I feel that group was just perfect for that trip. I haven’t made plans with them though, so I suppose that this trip will just be wishful thinking for now.",
+    "keywords": [
+      "perfect mix",
+      "stepping back in time",
+      "barely scratched the surface",
+      "soak everything in",
+      "wishful thinking"
+    ]
+  },
+  {
+    "id": "tb_study4_07_p3_q01",
+    "title": "[Study4 #07 • Part 3 Q1] Tại sao mọi người lại thích đi du lịch?",
+    "titleEn": "[Study4 #07 • Part 3 Q1] Why do people like travelling?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 116,
+    "textVi": "Tại sao mọi người lại thích đi du lịch?\n\nÀ, mình nghĩ mọi người thích đi du lịch chủ yếu vì nó cho phép họ tạm thoát khỏi guồng quay thường nhật và nạp lại năng lượng. Có lẽ đó là khoảng thời gian con người có cơ hội trải nghiệm các nền văn hóa khác nhau, nếm thử món ăn mới và tận mắt ngắm những địa danh trước giờ chỉ thấy trên mạng. Hơn nữa, du lịch còn giúp mở mang tầm nhìn và khiến con người cởi mở hơn. Và với nhiều người, đó cũng là cách tuyệt vời để tạo dựng những kỷ niệm đáng nhớ bên bạn bè hoặc gia đình.",
+    "referenceEn": "Why do people like travelling?\n\nWell, I think people enjoy travelling mainly because it allows them to escape their daily routine and recharge their batteries. It’s, perhaps, a time when people are given the chance to experience different cultures, try new food, and see places they’ve only seen online. On top of that, travelling broadens people’s horizons and helps them become more open-minded. And, for many, it’s also a great way to create meaningful memories with friends or family.",
+    "keywords": [
+      "daily routine",
+      "recharge their batteries",
+      "broadens people’s horizons",
+      "open-minded",
+      "meaningful memories"
+    ]
+  },
+  {
+    "id": "tb_study4_07_p3_q02",
+    "title": "[Study4 #07 • Part 3 Q2] Chúng ta nên chuẩn bị những gì trước một chuyến đi?",
+    "titleEn": "[Study4 #07 • Part 3 Q2] What should we prepare before a trip?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 101,
+    "textVi": "Chúng ta nên chuẩn bị những gì trước một chuyến đi?\n\nTrước mỗi chuyến đi có khá nhiều đầu việc cần thu xếp ổn thỏa. Trước hết, mọi người cần lên lịch trình, đặt chỗ ở và sắp xếp phương tiện đi lại. Việc chuẩn bị giấy tờ như hộ chiếu hay thị thực cũng rất quan trọng, đặc biệt khi đi nước ngoài. Ngoài ra, du khách nên cân nhắc mang theo trang phục phù hợp, kiểm tra dự báo thời tiết và vạch ra ngân sách rõ ràng để tránh những căng thẳng không đáng có suốt hành trình.",
+    "referenceEn": "What should we prepare before a trip?\n\nBefore a trip, there are quite a few things to sort out. First of all, people need to plan their itinerary, book accommodation, and arrange transport. It’s also important to prepare documents like passports or visas, especially for overseas travel. Besides, people should also consider packing suitable clothes, checking the weather, and setting a budget to avoid unnecessary stress during the journey.",
+    "keywords": [
+      "sort out",
+      "itinerary",
+      "accommodation",
+      "overseas travel",
+      "setting a budget"
+    ]
+  },
+  {
+    "id": "tb_study4_07_p3_q03",
+    "title": "[Study4 #07 • Part 3 Q3] Điều gì sẽ xảy ra nếu không có sự chuẩn bị nào trước chuyến đi?",
+    "titleEn": "[Study4 #07 • Part 3 Q3] What would happen if no preparation were made before the trip?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 102,
+    "textVi": "Điều gì sẽ xảy ra nếu không có sự chuẩn bị nào trước chuyến đi?\n\nNếu ai đó đi du lịch mà chẳng chuẩn bị gì trước, mọi thứ rất dễ đổ bể. Họ có thể bị lỡ chuyến bay hoặc để quên giấy tờ quan trọng, đồng nghĩa với việc không thể lên đường được. Họ cũng có nguy cơ cạn tiền ngay giữa chuyến đi, điều thực sự là thảm họa. Thêm vào đó, khâu lên kế hoạch kém còn dẫn tới lãng phí thời gian và cảm giác bực bội, làm mất hết niềm vui của chuyến du lịch.",
+    "referenceEn": "What would happen if no preparation were made before the trip?\n\nIf someone travels without any preparation, things can easily go wrong. They might miss flights, or might forget important documents, which means they won’t be able to travel. They may also run out of money halfway through the trip, which is absolutely disastrous. On top of that, poor planning can lead to wasted time and frustration, which really takes the fun out of travelling.",
+    "keywords": [
+      "go wrong",
+      "miss flights",
+      "run out of money",
+      "disastrous",
+      "frustration"
+    ]
+  },
+  {
+    "id": "tb_study4_07_p3_q04",
+    "title": "[Study4 #07 • Part 3 Q4] Tại sao một số người thích du lịch trong nước hơn là ra nước ngoài?",
+    "titleEn": "[Study4 #07 • Part 3 Q4] Why do some people prefer to travel in their own country rather than going abroad?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 126,
+    "textVi": "Tại sao một số người thích du lịch trong nước hơn là ra nước ngoài?\n\nMình đoán việc du lịch nội địa mang lại cảm giác tiện lợi và đỡ áp lực hơn với nhiều người. Không có rào cản ngôn ngữ, không phiền phức chuyện xin visa và thường chi phí cũng rẻ hơn. Du khách lại quen thuộc hơn với văn hóa và ẩm thực bản địa, giúp chuyến đi dễ chịu hơn hẳn. Một lập luận phổ biến khác mà mình hay nghe là ngay trong nước vẫn còn vô vàn viên ngọc ẩn chưa được khám phá, vậy thì việc gì phải cất công ra nước ngoài khi vừa tốn kém vừa mất thời gian hơn so với đi trong nước chứ.",
+    "referenceEn": "Why do some people prefer to travel in their own country rather than going abroad?\n\nI suppose travelling domestically feels more convenient and less stressful for many people. There’s no language barrier, no visa issues, and it’s usually cheaper. People are also more familiar with the culture and food, which makes the trip more enjoyable. One popular argument I also see is that there are plenty of hidden gems that are yet to be discovered, so what’s the point of travelling abroad? It’s both expensive and time-consuming compared to domestic travelling.",
+    "keywords": [
+      "domestically",
+      "language barrier",
+      "hidden gems",
+      "time-consuming",
+      "what’s the point"
+    ]
+  },
+  {
+    "id": "tb_study4_08_p2",
+    "title": "[Study4 #08 • Part 2] Miêu tả một chương trình hoặc ứng dụng trên máy tính hoặc điện thoại của bạn",
+    "titleEn": "[Study4 #08 • Part 2] Describe a program or app on your computer or phone (Q1/2026 | Study4 ID 20281)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Q1/2026 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 321,
+    "textVi": "Mình muốn nói về một ứng dụng mà mình dùng rất thường xuyên trên điện thoại, đó là Spotify.\n\nMình thường mở ứng dụng này mỗi ngày, nhất là khi đang di chuyển ngoài đường, lúc học bài hoặc đơn giản là muốn thư giãn sau một ngày dài. Thực ra, khoảng thời gian mình dùng ứng dụng này nhiều nhất là khi làm bài tập. Vì cần tập trung cao độ, nhạc lo-fi hoặc nhạc không lời thực sự giúp mình gạt bỏ mọi tiếng ồn xao nhãng bên ngoài, nên theo một cách kỳ lạ nào đó nó hỗ trợ mình rất nhiều. Tuy nhiên vào cuối tuần mình cũng hay dùng Spotify để nghe podcast hoặc nhạc tiết tấu sôi động khi đang chạy xe máy tới chỗ tụ tập bạn bè.\n\nLần đầu mình biết tới ứng dụng này là qua bạn bè, họ cứ giới thiệu mãi với mình. Sau đó mình cũng thấy quảng cáo trên mạng nên quyết định tải về dùng thử. Chỉ sau một thời gian ngắn sử dụng, nó nhanh chóng trở thành một phần thói quen hằng ngày của mình nhờ kho nhạc khổng lồ và các danh sách phát được cá nhân hóa.\n\nVà thú thật là mình đã mê tít ứng dụng này rồi. Nó dễ sử dụng, thiết kế đẹp mắt và lúc nào cũng dường như hiểu đúng tâm trạng âm nhạc của mình. Ứng dụng còn giúp mình điều hòa cảm xúc và cực kỳ đa năng nữa. Mình luôn có thể tìm thấy danh sách phát phù hợp bất cứ khi nào cần nhạc tiếp động lực, thư giãn hay chỉ làm âm thanh nền nhẹ nhàng. Thật lòng mà nói, Spotify giúp cuộc sống thường ngày của mình thú vị hơn hẳn, và giờ mình chẳng thể tưởng tượng nổi chiếc điện thoại của mình thiếu ứng dụng này thì sẽ ra sao.",
+    "referenceEn": "I’d like to talk about an app I use a lot on my phone, and that is Spotify.\n\nI usually use it every day, especially when I’m commuting, studying, or just trying to relax after a long day. In fact, I think the time I use this app the most is when I’m doing assignments. Since I’m trying to concentrate, lo-fi or instrumental music really helps me cancel out all the outside distractions, so, for me, in a weird sense, it actually does help quite a bit. I also use Spotify on weekends, though, and I often just open it to listen to podcasts or upbeat music when I’m on my motorbike, speeding towards the place where I’m going to hang out with friends.\n\nI first found this app through my friends, who kept recommending it to me. Later on, I also saw it being advertised online, so I decided to give it a try. After using it for a while, it quickly became part of my daily routine because of its huge music library and personalised playlists.\n\nAnd, to be honest, I have fallen in love with this app. It’s easy to use, well-designed, and it always seems to know what kind of music I’m in the mood for. It also helps me manage my emotions, and it’s extremely multi-purpose. I can always look up any playlist whenever I need music for motivation, relaxation, or just as some background noise. Honestly, Spotify makes my everyday life more enjoyable, and I can’t imagine my phone without it anymore.",
+    "keywords": [
+      "cancel out",
+      "give it a try",
+      "personalised playlists",
+      "in the mood for",
+      "multi-purpose",
+      "background noise"
+    ]
+  },
+  {
+    "id": "tb_study4_08_p3_q01",
+    "title": "[Study4 #08 • Part 3 Q1] Có những khác biệt nào giữa người lớn tuổi và người trẻ khi sử dụng ứng dụng?",
+    "titleEn": "[Study4 #08 • Part 3 Q1] What are the differences between old and young people when using apps?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 121,
+    "textVi": "Có những khác biệt nào giữa người lớn tuổi và người trẻ khi sử dụng ứng dụng?\n\nNói chung, người trẻ thường dùng ứng dụng với tần suất cao và linh hoạt hơn. Họ thoải mái khám phá các tính năng mới và rất thành thạo việc tận dụng ứng dụng cho mục đích giải trí, kết nối xã hội lẫn nâng cao năng suất. Ngược lại, người lớn tuổi thường chú trọng tính thiết thực và chủ yếu dùng ứng dụng để nhắn tin hoặc ngân hàng điện tử. Với các hoạt động khác, họ có phần truyền thống hơn và ưa chuộng những ứng dụng đơn giản, dễ thao tác, không làm tốn quá nhiều thời gian của họ.",
+    "referenceEn": "What are the differences between old and young people when using apps?\n\nGenerally speaking, young people tend to use apps more frequently and more flexibly. They’re comfortable exploring new features, and they’re very adept at using it for entertainment purposes, like socialising, and productivity. Older people, however, usually focus on practicality, and mainly use it for messaging, and e-banking. For other activities, they might be more old-fashioned and prefer simple, user-friendly apps that don’t take too much of their time.",
+    "keywords": [
+      "more flexibly",
+      "adept at",
+      "practicality",
+      "e-banking",
+      "user-friendly"
+    ]
+  },
+  {
+    "id": "tb_study4_08_p3_q02",
+    "title": "[Study4 #08 • Part 3 Q2] Tại sao một số người không thích sử dụng các ứng dụng?",
+    "titleEn": "[Study4 #08 • Part 3 Q2] Why do some people not like using apps?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Q1/2026 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 121,
+    "textVi": "Tại sao một số người không thích sử dụng các ứng dụng?\n\nCó vài lý do khiến nhiều người không thích dùng ứng dụng. Một số người thấy chúng rối rắm hoặc mất thời gian, nhất là nếu họ không rành công nghệ. Số khác lại lo ngại về quyền riêng tư và bảo mật dữ liệu — một mối bận tâm ngày càng lớn hiện nay. Tuy vậy, thành thật mà nói, mình nghĩ nguyên nhân chính chỉ đơn giản là một số người thích giao tiếp mặt đối mặt hoặc phương thức truyền thống hơn, vì họ cảm thấy cách đó chân thực hơn so với sự vội vã và thiếu hơi ấm con người của nhiều ứng dụng.",
+    "referenceEn": "Why do some people not like using apps?\n\nThere are several reasons why people dislike using apps. Some find them confusing or time-consuming, especially if they’re not tech-savvy. Others worry about privacy and data security, which is a growing concern nowadays. Honestly, though, I think the main reason is just some people simply prefer face-to-face interaction or traditional methods, since they feel it is more authentic compared to how rushed and impersonal some apps are.",
+    "keywords": [
+      "tech-savvy",
+      "data security",
+      "face-to-face interaction",
+      "authentic",
+      "impersonal"
+    ]
+  },
+  {
+    "id": "tb_study4_09_p2",
+    "title": "[Study4 #09 • Part 2] Mô tả một quyết định khó khăn bạn từng đưa ra và mang lại kết quả tốt đẹp",
+    "titleEn": "[Study4 #09 • Part 2] Describe a difficult decision that you made and had a good result (Q1/2025 | Study4 ID 14596)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2025 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 362,
+    "textVi": "Cá nhân tôi từng thấy việc chuyển ngành ở đại học cực kỳ mạo hiểm, nhưng thật may là canh bạc ấy đã mang lại quả ngọt.\n\nTôi vẫn nhớ như in sự việc này, đó là vào năm hai đại học. Lúc ấy, tôi đang theo học ngành kỹ thuật, một lĩnh vực mà phần lớn tôi chọn vì kỳ vọng của gia đình. Tuy nhiên, sâu thẳm bên trong, tôi lại không hề có đam mê với nó và cảm thấy bị thu hút nhiều hơn bởi tiếp thị và truyền thông.\n\nVà tôi phải nói thật rằng quyết định đó chẳng hề dễ dàng chút nào. Tôi đã mất nhiều tuần đắn đo không biết nên cố bám trụ tiếp hay đi theo sở thích của mình. Tôi đã trò chuyện với các giảng viên, bạn bè và thậm chí cả cố vấn nghề nghiệp để cân nhắc các lựa chọn. Cuối cùng, tôi quyết định chuyển sang chuyên ngành kinh doanh, cụ thể là tiếp thị. Đó là một canh bạc lớn vì nó đồng nghĩa với việc bắt đầu lại từ đầu ở một lĩnh vực khác và có khả năng khiến bố mẹ thất vọng.\n\nThật bất ngờ, kết quả lại tốt hơn nhiều so với những gì tôi từng kỳ vọng. Tôi học tập rất thuận lợi ở các môn học mới, đồng thời khám phá ra những năng khiếu mà trước đây tôi chưa từng biết mình có, chẳng hạn như sáng tạo chiến dịch và làm việc nhóm trong các dự án thực tế. Tôi thậm chí còn trúng tuyển kỳ thực tập tại một công ty danh tiếng. Điều đó hoàn toàn nằm ngoài dự tính, và là một cơ hội mà tôi nghi ngờ mình khó có được nếu cứ ở lại ngành kỹ thuật.\n\nThẳng thắn mà nói, bản thân quyết định đó chứa đựng rất nhiều rủi ro. Tôi không chắc việc đổi hướng có dẫn đến thành công hay không, và tôi cũng lo lắng về cách người khác sẽ phản ứng. Dù vậy, nhìn lại thì tôi vẫn thấy vui vì đã nghe theo trái tim mình.",
+    "referenceEn": "I personally found switching my major in university to be extremely risky, thankfully the gamble paid off.\n\nI vividly remember this event, it was my second year of studies. At the time, I was majoring in engineering, a field I had chosen largely because of my family’s expectations. However, deep down, I wasn’t passionate about it and felt more drawn to marketing and communication.\n\nAnd I must say, the decision was anything but easy. I spent weeks debating whether to stick it out or follow my interests. I talked to professors, friends, and even career advisors to weigh my options. Eventually, I decided to switch to a business major, specifically marketing. It was a huge gamble because it meant starting fresh in another field and possibly disappointing my parents.\n\nTo my surprise, the result turned out to be better than I had expected. I thrived in my new courses, and I also discovered talents I never knew I had like creating campaigns and working with teams on real-world projects. I even landed an internship at a well-known company. That was completely unexpected, and it was an opportunity I doubt I would’ve had if I’d stayed in engineering.\n\nFrankly, the decision itself involved a lot of risk. I wasn’t sure if changing paths would lead to success, and I was worried about how others would react. Looking back, though, I’m glad I followed my heart.",
+    "keywords": [
+      "paid off",
+      "anything but easy",
+      "stick it out",
+      "weigh my options",
+      "landed an internship",
+      "followed my heart"
+    ]
+  },
+  {
+    "id": "tb_study4_09_p3_q01",
+    "title": "[Study4 #09 • Part 3 Q1] Quảng cáo có ảnh hưởng đến quyết định của người tiêu dùng không?",
+    "titleEn": "[Study4 #09 • Part 3 Q1] Do advertisements influence consumers' decisions?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 118,
+    "textVi": "Quảng cáo có ảnh hưởng đến quyết định của người tiêu dùng không?\n\nChắc chắn rồi, quảng cáo có tác động rất lớn đến quyết định của người tiêu dùng. Chúng được thiết kế để thu hút sự chú ý và khơi dậy mong muốn sở hữu sản phẩm, thường bằng những kỹ thuật thuyết phục như đánh vào cảm xúc hoặc nhờ người nổi tiếng đại diện thương hiệu. Ví dụ, nếu một mẫu quảng cáo cho thấy một vận động viên nổi tiếng quảng bá cho một đôi giày thể thao, mọi người có xu hướng cảm thấy rằng việc mua đôi giày đó sẽ giúp nâng cao phong độ hoặc phong cách của chính họ.",
+    "referenceEn": "Do advertisements influence consumers' decisions?\n\nAbsolutely, advertisements have a significant impact on consumers’ decisions. They’re designed to grab attention and create a desire for the product, often with persuasive techniques like emotional appeals or celebrity endorsements. For example, if an ad shows a famous athlete endorsing a pair of sneakers, people are likely to feel that buying those shoes will boost their own performance or style.",
+    "keywords": [
+      "significant impact",
+      "grab attention",
+      "persuasive techniques",
+      "emotional appeals",
+      "celebrity endorsements"
+    ]
+  },
+  {
+    "id": "tb_study4_09_p3_q02",
+    "title": "[Study4 #09 • Part 3 Q2] Người trẻ thường thích hỏi lời khuyên từ ai khi đưa ra quyết định?",
+    "titleEn": "[Study4 #09 • Part 3 Q2] Who do young people like to ask for advice when making decisions?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 101,
+    "textVi": "Người trẻ thường thích hỏi lời khuyên từ ai khi đưa ra quyết định?\n\nĐiều đó còn tùy vào tính chất của quyết định, nhưng tôi cho rằng người trẻ thường tìm đến bạn bè hoặc gia đình để xin lời khuyên. Đối với những vấn đề cá nhân hay tình cảm, họ có xu hướng tìm sự định hướng từ những người bạn thân hiểu rõ mình. Ngược lại, đối với các quyết định về nghề nghiệp hoặc học tập, họ có thể tham khảo ý kiến bố mẹ hoặc thầy cô để có góc nhìn giàu kinh nghiệm hơn.",
+    "referenceEn": "Who do young people like to ask for advice when making decisions?\n\nIt depends on the nature of the decision, but I’d say that young people often turn to friends or family for advice. For personal or emotional matters, they’re more likely to seek guidance from close friends who understand them well. On the other hand, for career or academic decisions, they may consult their parents or teachers for a more experienced perspective.",
+    "keywords": [
+      "nature of the decision",
+      "turn to",
+      "seek guidance",
+      "career or academic decisions",
+      "experienced perspective"
+    ]
+  },
+  {
+    "id": "tb_study4_09_p3_q03",
+    "title": "[Study4 #09 • Part 3 Q3] Bạn có nghĩ trẻ em cần tự đưa ra càng nhiều quyết định càng tốt không?",
+    "titleEn": "[Study4 #09 • Part 3 Q3] Do you think it’s necessary for kids to make as many decisions by themselves as they can?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 108,
+    "textVi": "Bạn có nghĩ trẻ em cần tự đưa ra càng nhiều quyết định càng tốt không?\n\nCó, tôi tin rằng việc trẻ em tập tự đưa ra quyết định từ sớm là rất quan trọng. Điều này giúp các em rèn luyện tư duy phản biện và tính tự lập. Tất nhiên, với những quyết định lớn hoặc có tính rủi ro cao, sự hướng dẫn của người lớn là điều thiết yếu. Nhưng việc để trẻ tự chọn những điều nhỏ hơn, như sở thích hay trang phục của mình, sẽ giúp tăng sự tự tin và chuẩn bị cho các trách nhiệm lớn hơn sau này.",
+    "referenceEn": "Do you think it’s necessary for kids to make as many decisions by themselves as they can?\n\nYes, I believe it’s important for kids to practice decision-making early on. It helps them develop critical thinking and independence. Of course, for major or risky decisions, adult guidance is essential. But letting children make smaller choices, like selecting their hobbies or outfits, boosts their confidence and prepares them for bigger responsibilities later.",
+    "keywords": [
+      "decision-making",
+      "critical thinking",
+      "adult guidance",
+      "boosts their confidence",
+      "bigger responsibilities"
+    ]
+  },
+  {
+    "id": "tb_study4_09_p3_q04",
+    "title": "[Study4 #09 • Part 3 Q4] Bạn có nghĩ một số người có thể tự quyết định mà không cần hỏi ý kiến người khác không?",
+    "titleEn": "[Study4 #09 • Part 3 Q4] Do you think some people can make decisions without asking for advice from others?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 138,
+    "textVi": "Bạn có nghĩ một số người có thể tự quyết định mà không cần hỏi ý kiến người khác không?\n\nChắc chắn là có, một số người vốn bẩm sinh đã là những người ra quyết định rất tự tin. Họ có năng khiếu biết dựa vào kinh nghiệm hoặc trực giác để cân nhắc hài hòa giữa mặt lợi và mặt hại. Dù việc tìm lời khuyên có thể hữu ích, điều đó không phải lúc nào cũng cần thiết, đặc biệt nếu một người nắm rõ thông tin về tình huống và tin tưởng vào phán đoán của bản thân. Tuyệt vời hơn nữa, nếu điều đó dẫn tới thành công, họ sẽ càng độc lập hơn và có thể đưa ra những quyết định sáng suốt hơn mà không chịu ảnh hưởng từ người khác.",
+    "referenceEn": "Do you think some people can make decisions without asking for advice from others?\n\nDefinitely, some people are naturally confident decision-makers. They have a knack for relying on their experiences or intuition to weigh the pros and cons equally. While seeking advice can be helpful, it’s not always necessary especially if someone is well-informed about the situation and trusts their own judgment. Even better, if it leads to success, they’ll be even more independent, and they can make more sound decisions without the influence of others.",
+    "keywords": [
+      "have a knack for",
+      "intuition",
+      "weigh the pros and cons",
+      "well-informed",
+      "sound decisions"
+    ]
+  },
+  {
+    "id": "tb_study4_09_p3_q05",
+    "title": "[Study4 #09 • Part 3 Q5] Bạn có nghĩ người trẻ dễ bị người khác tác động khi đưa ra quyết định không? Tại sao có hoặc tại sao không?",
+    "titleEn": "[Study4 #09 • Part 3 Q5] Do you think young people are easily influenced by others when they make decisions? Why or why not?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 104,
+    "textVi": "Bạn có nghĩ người trẻ dễ bị người khác tác động khi đưa ra quyết định không? Tại sao có hoặc tại sao không?\n\nCó, người trẻ thường dễ bị bạn bè đồng trang lứa hoặc các trào lưu xã hội tác động, đặc biệt trong những lĩnh vực như thời trang hay lựa chọn lối sống. Phần lớn là vì họ muốn hòa nhập hoặc nhận được sự tán thành từ mọi người. Tuy nhiên, một số bạn trẻ có tính độc lập và tự tin cao hơn, nên họ ít có khả năng bị lung lay bởi ý kiến của người khác.",
+    "referenceEn": "Do you think young people are easily influenced by others when they make decisions? Why or why not?\n\nYes, young people are often influenced by their peers or social trends, especially in areas like fashion or lifestyle choices. This is largely because they want to fit in or gain approval. However, some young individuals are more independent and confident, so they’re less likely to be swayed by others’ opinions.",
+    "keywords": [
+      "social trends",
+      "lifestyle choices",
+      "fit in",
+      "gain approval",
+      "swayed by"
+    ]
+  },
+  {
+    "id": "tb_study4_09_p3_q06",
+    "title": "[Study4 #09 • Part 3 Q6] Người trẻ thường phải đưa ra những loại quyết định nào?",
+    "titleEn": "[Study4 #09 • Part 3 Q6] What kinds of decisions do young people have to make?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 120,
+    "textVi": "Người trẻ thường phải đưa ra những loại quyết định nào?\n\nNgày nay, người trẻ phải đối mặt với rất nhiều quyết định khác nhau. Đó có thể là những việc nhỏ nhặt, vụn vặt như sử dụng thời gian rảnh ra sao hoặc chọn kiểu tóc nào. Đó cũng có thể là những quyết định mang tính bước ngoặt cuộc đời như chọn ngành học hay nơi làm việc. Sau cùng, tất cả phụ thuộc vào mức độ ưu tiên của họ tại thời điểm đó. Xét cho cùng, việc ra quyết định là một phần tất yếu của quá trình trưởng thành. Mọi lựa chọn, dù lớn hay nhỏ, đều góp phần định hình tương lai của họ.",
+    "referenceEn": "What kinds of decisions do young people have to make?\n\nNowadays, young people face a wide range of decisions. It might be small, trivial matters like how to spend their free time, or what hairstyle to pick. It might also be life-changing decisions like choosing what to study or where to work. Ultimately, it all depends on their priorities at the time. Decision-making is part and parcel of growing up after all. Every choice, big or small, helps shape their future.",
+    "keywords": [
+      "wide range",
+      "trivial matters",
+      "life-changing decisions",
+      "priorities",
+      "part and parcel"
+    ]
+  },
+  {
+    "id": "tb_study4_10_p2",
+    "title": "[Study4 #10 • Part 2] Mô tả một cuộc trò chuyện thú vị mà bạn đã có với người bạn của mình",
+    "titleEn": "[Study4 #10 • Part 2] Describe an interesting discussion you had with your friend (Q1/2025 | Study4 ID 14566)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Q1/2025 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 389,
+    "textVi": "Chà, chủ đề này làm tôi hơi bị hỏi bất ngờ đấy, để tôi lần lại trí nhớ một chút. Tôi và cô bạn thân nhất của mình, Jackie, hôm trước vừa trò chuyện về tương lai của trí tuệ nhân tạo và cách nó có thể tác động đến cuộc sống của chúng ta.\n\nThực ra thì lúc đó chúng tôi đang ngồi ở một quán cà phê ấm cúng gần trường đại học, nhâm nhi cà phê và hỏi thăm nhau sau một tuần bận rộn. Điều thú vị là cuộc trò chuyện ban đầu chỉ là tán gẫu xã giao, nhưng rồi nhanh chóng biến thành một cuộc trao đổi sâu sắc và gợi mở nhiều suy ngẫm.\n\nBản thân Jackie đúng là một cuốn bách khoa toàn thư sống, cái gì trên đời cô ấy cũng biết, bao gồm cả chủ đề này. Ngược lại, tôi lại khá mù mờ, nhất là khi đụng đến những đề tài kiểu như vậy, nên việc nói chuyện với cô ấy thực sự là một trải nghiệm mở mang tầm mắt.\n\nThoạt đầu câu chuyện có vẻ tầm phào thôi, nhưng chỉ một lúc sau tôi thấy mình bị cuốn hút bởi những lời giải thích của cô ấy về cách AI đang định hình nhiều ngành công nghiệp. Điều khiến cuộc thảo luận càng hấp dẫn hơn là cách cả hai liên hệ nó với chính cuộc sống của tụi tôi. Thú thật là tôi cũng nêu lên những lo ngại về quyền riêng tư trong một thế giới vận hành bởi AI, trong khi cô ấy lập luận rằng công nghệ thực tế có thể giúp cuộc sống hiệu quả và an toàn hơn.\n\nDù chúng tôi không hoàn toàn đồng quan điểm ở một vài khía cạnh, cả hai đều thống nhất rằng xã hội cần tìm ra điểm cân bằng giữa việc đón nhận đổi mới và giải quyết những thách thức đi kèm.\n\nCuộc trò chuyện này thật sự nổi bật vì nó mang lại cho tôi một góc nhìn mới mẻ về AI. Việc thảo luận cùng một người hiểu biết sâu rộng như Jackie thực sự đã mở rộng tầm mắt của tôi, và tôi rất mong sẽ có thêm nhiều buổi trò chuyện khai sáng như thế với cô ấy.",
+    "referenceEn": "Wow, this topic is kinda putting me on the spot, let me retrace my recollection a bit. Me and my best friend, Jackie, were just talking the other day about the future of artificial intelligence and how it might impact our lives.\n\nIn fact, we were sitting at a cozy café near our university, sipping coffee and catching up after a busy week. Interestingly, what started as casual small talk quickly turned into a deep and thought-provoking conversation.\n\nJackie, herself, is quite a walking encyclopedia, she knows everything under the sun, including this. I, on the contrary, is quite oblivious, especially when it comes to topics like this, so talking to her was quite an eye-opening experience.\n\nThe conversation seemed trivial at first, but after a while, I found myself hooked by her explanations of how AI is already shaping many industries. What made the discussion even more engaging was how we related it to our own lives. Actually, I did voice my concerns about privacy in an AI-driven world, while she argued that technology could actually make life more efficient and safer.\n\nThough we didn’t see eye to eye in some aspects, we both agreed that society needs to strike a balance between embracing innovation and addressing its challenges.\n\nThis conversation stood out because it gave me a fresh perspective on AI. Discussing it with someone as knowledgeable as Jackie really broadened my horizons, and I’m genuinely looking forward to having more such enlightening talks with her.",
+    "keywords": [
+      "putting me on the spot",
+      "walking encyclopedia",
+      "eye-opening experience",
+      "see eye to eye",
+      "strike a balance",
+      "broadened my horizons"
+    ]
+  },
+  {
+    "id": "tb_study4_10_p3_q01",
+    "title": "[Study4 #10 • Part 3 Q1] Trẻ em thường hình thành quan điểm riêng vào độ tuổi nào?",
+    "titleEn": "[Study4 #10 • Part 3 Q1] When do children normally form their own views?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 104,
+    "textVi": "Trẻ em thường hình thành quan điểm riêng vào độ tuổi nào?\n\nTrẻ em thường bắt đầu hình thành quan điểm riêng vào khoảng 6 hoặc 7 tuổi, khi các em bắt đầu hiểu rõ hơn về thế giới xung quanh. Ở giai đoạn này, trẻ nhận thức rõ hơn về các giá trị xã hội và phát triển ý kiến dựa trên trải nghiệm của bản thân. Khi lớn lên, đặc biệt trong tuổi thiếu niên, quan điểm của các em trở nên rõ nét hơn và đôi khi có thể chịu ảnh hưởng từ bạn bè hoặc thậm chí mạng xã hội.",
+    "referenceEn": "When do children normally form their own views?\n\nChildren usually start forming their own views around the age of 6 or 7, as they begin to understand the world around them more clearly. At this stage, they become more aware of societal values and develop opinions based on their experiences. As they grow older, especially during adolescence, their views become more defined and can sometimes be influenced by peers, or even social media.",
+    "keywords": [
+      "forming their own views",
+      "societal values",
+      "adolescence",
+      "more defined",
+      "social media"
+    ]
+  },
+  {
+    "id": "tb_study4_10_p3_q02",
+    "title": "[Study4 #10 • Part 3 Q2] Trẻ em có những ý kiến mạnh mẽ không?",
+    "titleEn": "[Study4 #10 • Part 3 Q2] Do children have strong opinions?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 106,
+    "textVi": "Trẻ em có những ý kiến mạnh mẽ không?\n\nCó, trẻ em hoàn toàn có thể có những ý kiến mạnh mẽ, đặc biệt khi các em lớn dần lên. Ở độ tuổi nhỏ, quan điểm của trẻ thường được định hình bởi những người thân gần gũi như bố hoặc mẹ. Tuy nhiên, khi tích lũy thêm kiến thức và trải nghiệm sống, góc nhìn của các em có thể trở nên độc lập và quyết đoán hơn. Một số trẻ, nhất là thanh thiếu niên, có thể bày tỏ quan điểm rất nhiệt huyết khi đang cố gắng khẳng định bản sắc cá nhân.",
+    "referenceEn": "Do children have strong opinions?\n\nYes, children can have strong opinions, especially as they get older. At a young age, their opinions are often shaped by their immediate relatives like fathers or mothers. However, as they gain more knowledge and life experience, their views can become more independent and assertive. Some children, particularly teenagers, may express their opinions passionately as they try to establish their identity.",
+    "keywords": [
+      "strong opinions",
+      "immediate relatives",
+      "life experience",
+      "assertive",
+      "establish their identity"
+    ]
+  },
+  {
+    "id": "tb_study4_10_p3_q03",
+    "title": "[Study4 #10 • Part 3 Q3] Cha mẹ có nên yêu cầu con cái phải vâng lời mình không?",
+    "titleEn": "[Study4 #10 • Part 3 Q3] Should parents require their kids to obey them?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 114,
+    "textVi": "Cha mẹ có nên yêu cầu con cái phải vâng lời mình không?\n\nCha mẹ nên kỳ vọng sự tôn trọng từ con cái, nhưng sự vâng lời tuyệt đối thì không phải lúc nào cũng cần thiết. Dù việc trẻ hiểu vì sao quy tắc tồn tại và học cách đưa ra quyết định có trách nhiệm rất quan trọng, việc các em không cảm thấy bị áp lực và choáng ngợp bởi những quy tắc đó cũng quan trọng không kém. Sau cùng, mục tiêu nên là dẫn dắt trẻ biết tư duy phản biện và hành động có trách nhiệm, chứ không chỉ làm theo quy tắc một cách mù quáng.",
+    "referenceEn": "Should parents require their kids to obey them?\n\nParents should expect respect from their children, but strict obedience isn’t always necessary. While it’s important for children to understand why rules exist and learn to make responsible decisions, it’s no less crucial that they don’t feel pressured and overwhelmed by those rules. Ultimately, the goal should be guiding children to think critically and act responsibly, and not just follow rules blindly.",
+    "keywords": [
+      "strict obedience",
+      "responsible decisions",
+      "overwhelmed",
+      "think critically",
+      "follow rules blindly"
+    ]
+  },
+  {
+    "id": "tb_study4_10_p3_q04",
+    "title": "[Study4 #10 • Part 3 Q4] Bạn nghĩ giao tiếp là kỹ năng cần thiết trong những ngành nghề nào?",
+    "titleEn": "[Study4 #10 • Part 3 Q4] In what industries do you think communication is a necessary skill?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 100,
+    "textVi": "Bạn nghĩ giao tiếp là kỹ năng cần thiết trong những ngành nghề nào?\n\nGiao tiếp là kỹ năng thiết yếu ở hầu hết mọi ngành nghề, nhưng thể hiện rõ rệt nhất trong lĩnh vực dịch vụ khách hàng và bán hàng. Ở những vị trí này, giao tiếp hiệu quả giúp xây dựng mối quan hệ và bảo đảm quy trình vận hành trơn tru. Dù là truyền đạt thông tin rõ ràng hay biết đồng cảm với người khác, khả năng giao tiếp tốt chính là chìa khóa dẫn đến thành công trong các ngành nghề ấy.",
+    "referenceEn": "In what industries do you think communication is a necessary skill?\n\nCommunication is essential in nearly every industry, but it’s most evident in customer service, and sales. In these roles, effective communication helps to build relationships, and ensure smooth operations. Whether it’s conveying information clearly or empathizing with others, good communication is key to success in these industries.",
+    "keywords": [
+      "customer service",
+      "build relationships",
+      "smooth operations",
+      "conveying information",
+      "empathizing with"
+    ]
+  },
+  {
+    "id": "tb_study4_10_p3_q05",
+    "title": "[Study4 #10 • Part 3 Q5] Cha mẹ có nên cân nhắc ý kiến của con cái trong mọi việc không? Tại sao?",
+    "titleEn": "[Study4 #10 • Part 3 Q5] Should parents consider their children's opinions on everything? Why?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 113,
+    "textVi": "Cha mẹ có nên cân nhắc ý kiến của con cái trong mọi việc không? Tại sao?\n\nDù cha mẹ chắc chắn nên lắng nghe ý kiến của con cái, họ không nhất thiết phải cân nhắc ý kiến đó trong mọi chuyện. Việc trẻ cảm thấy tiếng nói của mình được lắng nghe là rất quan trọng, nhưng đôi khi ý kiến của các em có thể còn ngây thơ hoặc thậm chí thiếu thực tế. Vì vậy, có những lúc cha mẹ, với tư cách là người có thẩm quyền và nhiều trải nghiệm sống hơn, phải đưa ra quyết định cuối cùng vì lợi ích tốt đẹp của con mình.",
+    "referenceEn": "Should parents consider their children's opinions on everything? Why?\n\nWhile parents should certainly listen to their children’s opinions, they don’t need to consider them on everything. While it’s important for children to feel heard, sometimes their opinions may be naive or even outlandish. And so, there are instances when parents, as the authoritative figures with more life experience, must make the final decisions for the well-being of their children.",
+    "keywords": [
+      "feel heard",
+      "naive",
+      "outlandish",
+      "authoritative figures",
+      "well-being"
+    ]
+  },
+  {
+    "id": "tb_study4_10_p3_q06",
+    "title": "[Study4 #10 • Part 3 Q6] Tại sao một số bạn trẻ từ chối giao tiếp với người khác?",
+    "titleEn": "[Study4 #10 • Part 3 Q6] Why do some young people refuse to communicate with others?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 110,
+    "textVi": "Tại sao một số bạn trẻ từ chối giao tiếp với người khác?\n\nMột số bạn trẻ có thể từ chối giao tiếp với người khác vì tính nhút nhát hoặc nỗi sợ bị phán xét. Chứng lo âu xã hội cũng có thể đóng vai trò đáng kể khiến họ cảm thấy không thoải mái hoặc bị ngợp trong các tình huống giao tiếp. Những trải nghiệm tiêu cực trong quá khứ hoặc áp lực từ bạn bè cũng là nguyên nhân dẫn đến sự thu mình của họ. Trong những trường hợp này, có lẽ tốt nhất nên tìm đến chuyên gia tâm lý để được tư vấn.",
+    "referenceEn": "Why do some young people refuse to communicate with others?\n\nSome young people may refuse to communicate with others due to shyness or fear of judgment. Social anxiety can also play a significant role in making them feel uncomfortable or overwhelmed in social situations. Negative past experiences or peer pressure are also to blame for their withdrawal. In these cases, it’s perhaps best to consult a therapist.",
+    "keywords": [
+      "fear of judgment",
+      "social anxiety",
+      "peer pressure",
+      "withdrawal",
+      "consult a therapist"
+    ]
+  },
+  {
+    "id": "tb_study4_11_p2",
+    "title": "[Study4 #11 • Part 2] Mô tả một dịp ai đó đã cho bạn lời khuyên hoặc gợi ý tích cực về công việc hay học tập",
+    "titleEn": "[Study4 #11 • Part 2] Describe an occasion when someone gave you positive advice or suggestions about your work/study (Q1/2025 | Study4 ID 14520)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 375,
+    "textVi": "Một khoảnh khắc thực sự nổi bật trong ký ức tôi là khi thầy giáo cấp ba của tôi, thầy Anderson, cho tôi một lời khuyên tuyệt vời về cách quản lý việc học. Chuyện xảy ra vào năm cuối cấp, lúc tôi đang cảm thấy hoàn toàn choáng ngợp trước đống bài tập, kỳ thi và các hoạt động ngoại khóa. Tôi không đạt kết quả tốt như kỳ vọng, và thành thật mà nói, sự tự tin của tôi bắt đầu sụt giảm nghiêm trọng. Quả thực lúc đó tôi có quá nhiều thứ phải gánh trên vai!\n\nThầy Anderson đã nhận ra điều đó và một hôm gọi tôi nán lại sau giờ học. Thầy bảo tôi ngồi xuống rồi đưa ra một lời khuyên giản dị nhưng tác động vô cùng mạnh mẽ: “Đừng tự vắt kiệt sức mình. Cứ đi từng bước chậm rãi thôi.” Sau đó thầy gợi ý tôi lập kế hoạch hằng ngày và chia nhỏ những dự án lớn thành từng bước dễ kiểm soát hơn. Lúc đầu nghe cứ như điều hiển nhiên ai cũng biết, nhưng khi áp dụng vào thực tế, nó đã thay đổi hoàn toàn cách tôi làm việc.\n\nLàm theo lời khuyên của thầy, tôi bắt đầu sắp xếp thời gian hợp lý hơn. Thay vì căng thẳng lo lắng cùng lúc về mọi thứ, tôi tập trung hoàn thành dứt điểm từng đầu việc một. Chiến lược của tôi rất đơn giản, chỉ tập trung giải quyết những nhiệm vụ thực sự quan trọng hoặc cấp bách. Chẳng hạn, tôi sẽ ưu tiên một bài luận sắp đến hạn nộp và tạm gác những bài tập ít gấp hơn lại sau. Và nhìn chung, tôi phải thừa nhận rằng chiến lược này tỏ ra hiệu quả ngoài sức tưởng tượng. Điểm số của tôi bắt đầu cải thiện, và tôi thậm chí còn tìm được thời gian để nghỉ ngơi thư giãn.\n\nVới cá nhân tôi, tôi sẽ biết ơn thầy mãi mãi vì lời khuyên ấy đã mang lại cho tôi sự sáng suốt đúng vào lúc tôi cần nhất. Ngay cả bây giờ, tôi vẫn áp dụng những chiến lược đó mỗi khi cảm thấy quá tải.",
+    "referenceEn": "One moment that really stands out was when my high school teacher, Mr. Anderson, gave me some great advice about managing my studies. It happened during my final year, and I was feeling completely overwhelmed by all the assignments, exams, and extracurricular activities. I wasn’t performing as well as I hoped, and honestly, my confidence was starting to take a hit. There was just so much on my plate!\n\nMr. Anderson noticed and pulled me aside after class one day. He sat me down and gave me some simple but really impactful advice: “Don’t burn yourself out. Take things slow.” He then suggested creating a daily plan and breaking big projects into smaller, more manageable steps. At first, it sounded like common sense, but in practice, it completely changed the way I worked.\n\nFollowing his advice, I started organizing my time better. Instead of stressing out over everything at once, I focused on finishing one task at a time. My strategy was simple, just focus on finishing the tasks that were either really important or urgent. For example, I’d prioritize an essay due soon and leave less urgent assignments for later. And, all in all, I must admit that this strategy proved to be wildly effective. My grades started improving, and I even found time to relax.\n\nPersonally, I’ll be forever grateful because his advice gave me clarity when I really needed it. Even now, I use those strategies whenever I feel overwhelmed.",
+    "keywords": [
+      "take a hit",
+      "on my plate",
+      "burn yourself out",
+      "common sense",
+      "one task at a time",
+      "wildly effective"
+    ]
+  },
+  {
+    "id": "tb_study4_11_p3_q01",
+    "title": "[Study4 #11 • Part 3 Q1] Cha mẹ nên khích lệ con cái vào những lúc nào?",
+    "titleEn": "[Study4 #11 • Part 3 Q1] When should parents encourage their children?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 103,
+    "textVi": "Cha mẹ nên khích lệ con cái vào những lúc nào?\n\nCha mẹ nên khích lệ con cái ở mọi giai đoạn phát triển của trẻ, nhưng đặc biệt là khi các em đối mặt với thử thách hoặc những trải nghiệm mới mẻ. Sự động viên giúp xây dựng lòng tự tin và khả năng phục hồi. Khi trẻ lần đầu thử làm một việc gì đó hoặc đang chật vật với một kỹ năng mới, chỉ một chút khích lệ tích cực thôi cũng có thể tạo ra khác biệt rất lớn đối với động lực bước tiếp của các em.",
+    "referenceEn": "When should parents encourage their children?\n\nParents should encourage their children at every stage of their development, but especially when they face challenges or new experiences. Encouragement helps build confidence and resilience. When children are trying something for the first time or struggling with a new skill, a little positive reinforcement can make all the difference in their motivation to keep going.",
+    "keywords": [
+      "face challenges",
+      "confidence and resilience",
+      "struggling with",
+      "positive reinforcement",
+      "keep going"
+    ]
+  },
+  {
+    "id": "tb_study4_11_p3_q02",
+    "title": "[Study4 #11 • Part 3 Q2] Cha mẹ có nên lúc nào cũng khen ngợi khích lệ con cái không?",
+    "titleEn": "[Study4 #11 • Part 3 Q2] Should parents always encourage their children?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 102,
+    "textVi": "Cha mẹ có nên lúc nào cũng khen ngợi khích lệ con cái không?\n\nDù sự khích lệ rất quan trọng, việc đó không nên bị lạm dụng quá mức. Cha mẹ cũng cần đưa ra những lời góp ý mang tính xây dựng để giúp con học hỏi từ sai lầm của mình. Đôi khi, việc cân bằng đúng mực giữa hỗ trợ và thử thách có thể thúc đẩy sự trưởng thành. Vì vậy, sự khích lệ nên được trao vào những thời điểm thích hợp, chứ không chỉ là cách bao bọc để che chắn trẻ khỏi thất bại.",
+    "referenceEn": "Should parents always encourage their children?\n\nWhile encouragement is important, it shouldn’t be overdone. Parents should also provide constructive criticism to help children learn from their mistakes. Sometimes, offering the right balance of support and challenge can foster growth. So, encouragement should be given at appropriate moments, not just as a way to shield children from failure.",
+    "keywords": [
+      "overdone",
+      "constructive criticism",
+      "balance of support",
+      "foster growth",
+      "shield children from failure"
+    ]
+  },
+  {
+    "id": "tb_study4_11_p3_q03",
+    "title": "[Study4 #11 • Part 3 Q3] Bạn có nghĩ phản hồi tiêu cực quan trọng hơn phản hồi tích cực không? Tại sao?",
+    "titleEn": "[Study4 #11 • Part 3 Q3] Do you think negative feedback is more important than positive feedback? Why?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 117,
+    "textVi": "Bạn có nghĩ phản hồi tiêu cực quan trọng hơn phản hồi tích cực không? Tại sao?\n\nTôi cho rằng cả hai đều quan trọng như nhau. Trong khi phản hồi tích cực giúp tăng sự tự tin, thì phản hồi tiêu cực giúp mọi người nhận ra điểm yếu của mình và thực hiện thay đổi. Nó là một công cụ thực tế hơn cho sự tiến bộ; nếu không có nó, chúng ta thậm chí có thể không nhận ra mình cần cải thiện ở đâu. Nói vậy nhưng phản hồi tiêu cực cần được đưa ra một cách mang tính xây dựng, chứ không phải dùng làm cái cớ để công kích cá nhân.",
+    "referenceEn": "Do you think negative feedback is more important than positive feedback? Why?\n\nI reckon that both are equally important. While positive feedback boosts confidence, negative feedback helps people recognize their weaknesses and make changes. It’s a more practical tool for growth, without it, we might not even realize where we need to improve. That said, negative feedback should be given constructively, and not used as a chance to throw personal insults.",
+    "keywords": [
+      "equally important",
+      "recognize their weaknesses",
+      "practical tool",
+      "given constructively",
+      "personal insults"
+    ]
+  },
+  {
+    "id": "tb_study4_11_p3_q04",
+    "title": "[Study4 #11 • Part 3 Q4] Tại sao phản hồi tiêu cực cũng quan trọng như phản hồi tích cực trong công việc hay học tập?",
+    "titleEn": "[Study4 #11 • Part 3 Q4] Why is negative feedback as important as positive feedback at work or in study?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 119,
+    "textVi": "Tại sao phản hồi tiêu cực cũng quan trọng như phản hồi tích cực trong công việc hay học tập?\n\nTôi cho rằng phản hồi tiêu cực giúp xác định những điểm bạn có thể làm tốt hơn, điều vốn thiết yếu cho sự phát triển trong bất kỳ lĩnh vực nào. Nếu bạn chỉ nhận được toàn lời khen ngợi, bạn rất dễ trở nên tự mãn và bỏ lỡ cơ hội hoàn thiện bản thân. Lời phê bình mang tính xây dựng, khi được truyền đạt đúng cách, sẽ vạch ra định hướng và giúp bạn tự nhận thức rõ hơn về mình. Đó là một cơ hội tuyệt vời để thực sự trau dồi kỹ năng.",
+    "referenceEn": "Why is negative feedback as important as positive feedback at work or in study?\n\nI’d say negative feedback helps identify areas where you can do better, which is essential for growth in any field. If you only receive positive feedback, you may become complacent and overlook opportunities to improve. Constructive criticism, when given properly, provides direction and can make you more self-aware. It’s a great chance to really refine your skills.",
+    "keywords": [
+      "become complacent",
+      "overlook opportunities",
+      "constructive criticism",
+      "self-aware",
+      "refine your skills"
+    ]
+  },
+  {
+    "id": "tb_study4_11_p3_q05",
+    "title": "[Study4 #11 • Part 3 Q5] Đối với người trưởng thành tại nơi làm việc, phản hồi tích cực hay phản hồi tiêu cực quan trọng hơn?",
+    "titleEn": "[Study4 #11 • Part 3 Q5] Which is more important for adults in the workplace, positive feedback or negative feedback?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 129,
+    "textVi": "Đối với người trưởng thành tại nơi làm việc, phản hồi tích cực hay phản hồi tiêu cực quan trọng hơn?\n\nCả hai đều quan trọng, nhưng phản hồi tiêu cực thường có giá trị hơn cho việc cải thiện năng lực. Trong khi phản hồi tích cực nuôi dưỡng động lực và tinh thần làm việc, thì phản hồi tiêu cực đưa ra chỉ dẫn rõ ràng về những mảng cần khắc phục. Ở chốn công sở, việc phát triển liên tục là chìa khóa thành công. Tuy nhiên, một môi trường làm việc tích cực nên cân bằng hài hòa giữa cả hai yếu tố, bởi việc nghiêng quá nặng về bên nào cũng sẽ gây bất lợi cho sự phát triển cá nhân của chúng ta.",
+    "referenceEn": "Which is more important for adults in the workplace, positive feedback or negative feedback?\n\nBoth are important, but negative feedback tends to be more valuable for improvement. While positive feedback encourages motivation and morale, negative feedback gives clear guidance on areas that need work. In the workplace, continuous growth is key to success. However, a positive workplace should strike a balance between both, as leaning too heavily on either side will be detrimental to our personal growth.",
+    "keywords": [
+      "motivation and morale",
+      "clear guidance",
+      "continuous growth",
+      "strike a balance",
+      "detrimental to"
+    ]
+  },
+  {
+    "id": "tb_study4_11_p3_q06",
+    "title": "[Study4 #11 • Part 3 Q6] Bạn có nghĩ mọi người quan tâm đến nhận xét của người khác về họ không?",
+    "titleEn": "[Study4 #11 • Part 3 Q6] Do you think people care about others’ comments about them?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 112,
+    "textVi": "Bạn có nghĩ mọi người quan tâm đến nhận xét của người khác về họ không?\n\nCó, hầu hết mọi người đều có quan tâm ở một mức độ nhất định. Những lời nhận xét, đặc biệt từ những người chúng ta kính trọng hoặc ngưỡng mộ, có thể tạo ra ảnh hưởng lớn đến cách chúng ta cảm nhận về bản thân. Nói vậy nhưng mức độ bận tâm nhiều hay ít còn tùy thuộc vào từng người và hoàn cảnh. Trong khi một số người bỏ ngoài tai ý kiến của thiên hạ, những người khác lại dễ để bụng, làm ảnh hưởng đến lòng tự trọng của chính họ.",
+    "referenceEn": "Do you think people care about others’ comments about them?\n\nYes, most people do care to some extent. Comments, especially from those we respect or admire, can have a significant impact on how we feel about ourselves. That said, how much we care depends on the person and the context. While some people brush off others' opinions, others might take them to heart, influencing their self-esteem.",
+    "keywords": [
+      "to some extent",
+      "respect or admire",
+      "brush off",
+      "take them to heart",
+      "self-esteem"
+    ]
+  },
+  {
+    "id": "tb_study4_12_p2",
+    "title": "[Study4 #12 • Part 2] Mô tả một hoài bão mà bạn vẫn chưa thực hiện được",
+    "titleEn": "[Study4 #12 • Part 2] Describe an ambition that you haven't achieved (Q1/2025 | Study4 ID 14544)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 334,
+    "textVi": "Nói lưu loát tiếng Pháp là điều mà tôi luôn khao khát đạt được, và chẳng có gì bí mật khi tôi thực sự bị cuốn hút bởi ngôn ngữ này. Nó rất lãng mạn, được sử dụng rộng rãi trên khắp thế giới, và tôi cũng luôn nghĩ rằng việc thông thạo hai thứ tiếng sẽ mở ra nhiều cơ hội nghề nghiệp mới, đó quả là một điểm cộng đáng giá.\n\nTuy vậy, tôi phải thừa nhận rằng mục tiêu này vẫn chưa hoàn thành phần lớn là do sự lười biếng của bản thân. Đơn giản là tôi đã không duy trì được sự đều đặn trong việc học. Tôi bắt đầu theo học các lớp tiếng Pháp cách đây vài năm và thậm chí còn tải các ứng dụng học ngoại ngữ để tự luyện tập. Thế nhưng lịch trình của tôi lại quá bận rộn, nên tôi thấy ngày càng khó dành đủ thời gian để thực sự đắm mình vào ngôn ngữ này.\n\nBan đầu, tôi cố gắng tranh thủ những buổi học ngắn bất cứ khi nào có chút thời gian rảnh, nhưng thời gian trôi qua, tôi nhận ra sự tiến bộ của mình chậm hơn rất nhiều so với kỳ vọng. Tôi có thể tiếp thu nhanh mấy câu cơ bản như “Bonjour” hay “Merci”, nhưng lại chật vật khi ghép những câu phức tạp hơn, và đặc biệt là rất vất vả khi duy trì một cuộc trò chuyện đúng nghĩa.\n\nThành thật mà nói, cảm giác này hơi bực bội một chút vì tôi biết cảm giác làm chủ được tiếng Pháp sẽ xứng đáng đến nhường nào. Dẫu vậy, cứ như thể vạch đích ngày càng bị đẩy ra xa hơn. Tuy nhiên, tôi vẫn thấy hào hứng với hoài bão này, và tôi tin rằng một ngày nào đó mình sẽ chinh phục được nó. Đến lúc làm được, mọi công sức bỏ ra chắc chắn sẽ hoàn toàn xứng đáng.",
+    "referenceEn": "Becoming fluent in French is something I’ve always aspired to achieve and, it’s no secret that I’m fascinated by the language. It’s romantic, and it’s widely spoken around the world and I’ve also always thought that being bilingual would open up new career opportunities, which is an added bonus.\n\nI must admit, though, that this goal hasn’t been achieved largely due to laziness. I simply haven’t been consistent with my learning. I started taking French classes a couple of years ago and even downloaded language apps to practice on my own. But I just have such a hectic schedule, so I found it increasingly hard to dedicate enough time to really immerse myself in the language.\n\nAt first, I tried squeezing in short study sessions whenever I had a spare moment, but as time went on, I realized that my progress was much slower than I had hoped. I could pick up basic phrases like “Bonjour” and “Merci” but I struggled to form more complex sentences, and I especially struggled with holding proper conversations.\n\nHonestly, it feels a bit frustrating because I know how rewarding it would be to finally master French. However, it feels like the goalpost keeps moving further away. I still feel excited about this ambition, though, and I know that I’ll achieve it one day. When I do, it’s going to be worth all the effort in the end.",
+    "keywords": [
+      "aspired to achieve",
+      "added bonus",
+      "hectic schedule",
+      "immerse myself in",
+      "goalpost keeps moving",
+      "worth all the effort"
+    ]
+  },
+  {
+    "id": "tb_study4_12_p3_q01",
+    "title": "[Study4 #12 • Part 3 Q1] Trẻ em thường có những ước mơ hoài bão gì?",
+    "titleEn": "[Study4 #12 • Part 3 Q1] What ambitions do children usually have?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 111,
+    "textVi": "Trẻ em thường có những ước mơ hoài bão gì?\n\nTrẻ em thường mơ ước lớn và ấp ủ hoài bão trở thành bác sĩ hoặc vận động viên nổi tiếng. Mục tiêu của các em thường chịu ảnh hưởng từ những gì các em thấy thú vị hoặc những điều xem được trên phim ảnh và truyền hình. Một số trẻ có thể muốn nối nghiệp cha mẹ mình, trong khi những em khác lại được truyền cảm hứng từ thầy cô hoặc các hình mẫu lý tưởng. Những hoài bão này thường thay đổi theo thời gian khi các em trưởng thành và tích lũy thêm trải nghiệm sống.",
+    "referenceEn": "What ambitions do children usually have?\n\nChildren often dream big and have ambitions of becoming doctors, or famous athletes. Their goals are usually influenced by what they find exciting or what they see in movies and TV shows. Some kids might want to follow in their parents’ footsteps, while others are inspired by teachers or role models. These ambitions often evolve as they grow and gain more life experience.",
+    "keywords": [
+      "dream big",
+      "follow in their parents’ footsteps",
+      "role models",
+      "evolve",
+      "life experience"
+    ]
+  },
+  {
+    "id": "tb_study4_12_p3_q02",
+    "title": "[Study4 #12 • Part 3 Q2] Tại sao một số người lại rất có tham vọng trong công việc?",
+    "titleEn": "[Study4 #12 • Part 3 Q2] Why are some people very ambitious in their work?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 116,
+    "textVi": "Tại sao một số người lại rất có tham vọng trong công việc?\n\nNhững người giàu tham vọng thường được thúc đẩy bởi khát khao mạnh mẽ muốn thành công và chạm tới các mục tiêu của mình. Thành thực mà nói thì có rất nhiều lý do cho điều này. Nó có thể bắt nguồn từ động lực cá nhân, chẳng hạn như muốn mang lại cuộc sống tốt đẹp hơn cho gia đình hoặc giành được sự công nhận. Nó cũng có thể được châm ngòi bởi sự cạnh tranh hoặc nhu cầu tự khẳng định bản thân. Dù lý do là gì, tham vọng vẫn giúp con người giữ vững sự tập trung.",
+    "referenceEn": "Why are some people very ambitious in their work?\n\nAmbitious people are often driven by a strong desire to succeed and achieve their goals. Honestly, there are many reasons for this. It could stem from personal motivation, like wanting to provide a better life for their family or gain recognition. It could also be fueled by competition or the need to prove oneself. Whatever the reason, ambition helps people stay focused.",
+    "keywords": [
+      "strong desire",
+      "stem from",
+      "gain recognition",
+      "prove oneself",
+      "stay focused"
+    ]
+  },
+  {
+    "id": "tb_study4_12_p3_q03",
+    "title": "[Study4 #12 • Part 3 Q3] Tại sao một số người lại không có ước mơ?",
+    "titleEn": "[Study4 #12 • Part 3 Q3] Why don't some people have dreams?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 103,
+    "textVi": "Tại sao một số người lại không có ước mơ?\n\nCó nhiều nguyên nhân khác nhau khiến một số người thiếu đi ước mơ. Với vài người, có thể do họ thiếu nguồn cảm hứng hoặc thiếu niềm tin vào năng lực của chính mình. Những người khác lại có thể đang đối mặt với các trở ngại như khó khăn tài chính hay biến cố cá nhân, khiến họ khó lòng tập trung vào các hoài bão xa xôi. Và một số người đơn giản chỉ ưu tiên tận hưởng trọn vẹn hiện tại thay vì lập kế hoạch cho tương lai.",
+    "referenceEn": "Why don't some people have dreams?\n\nThere are various reasons why some people lack dreams. For some, it could be due to a lack of inspiration or confidence in their abilities. Others might face challenges, like financial difficulties or personal struggles, that make it hard to focus on aspirations. And some just simply prioritize living in the moment rather than planning for the future.",
+    "keywords": [
+      "lack of inspiration",
+      "financial difficulties",
+      "personal struggles",
+      "aspirations",
+      "living in the moment"
+    ]
+  },
+  {
+    "id": "tb_study4_12_p3_q04",
+    "title": "[Study4 #12 • Part 3 Q4] Mọi người cân bằng giữa công việc và cuộc sống như thế nào?",
+    "titleEn": "[Study4 #12 • Part 3 Q4] How do people balance work and life?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 126,
+    "textVi": "Mọi người cân bằng giữa công việc và cuộc sống như thế nào?\n\nViệc cân bằng giữa công việc và cuộc sống đòi hỏi phải thiết lập ranh giới rõ ràng và quản lý thời gian hiệu quả. Với một số người, đời sống cá nhân là ưu tiên hàng đầu, nên họ sẽ tan làm đúng giờ để theo đuổi sở thích hoặc tập thể dục. Họ tránh làm thêm giờ, bất kể vấn đề có gấp gáp đến đâu. Tất nhiên cũng có những biện pháp nhẹ nhàng hơn, như làm việc từ xa hoặc nghỉ giải lao ngắn. Sau cùng, điều cốt lõi là biết khi nào nên tạm rời công việc để dành thời gian cho những điều thực sự quan trọng.",
+    "referenceEn": "How do people balance work and life?\n\nBalancing work and life requires setting clear boundaries and managing time effectively. For some, their personal lives are the top priority, so they’ll clock out on time to pursue hobbies, or exercise. They avoid overtime, no matter how urgent the issue may be. There are less drastic measures, of course, like working remotely or taking short breaks. Ultimately, it’s about knowing when to step back from work and make time for the things that truly matter.",
+    "keywords": [
+      "clear boundaries",
+      "top priority",
+      "clock out on time",
+      "working remotely",
+      "step back from work"
+    ]
+  },
+  {
+    "id": "tb_study4_12_p3_q05",
+    "title": "[Study4 #12 • Part 3 Q5] Tại sao một số người thích làm quản lý ở nơi làm việc?",
+    "titleEn": "[Study4 #12 • Part 3 Q5] Why do some people like to be the manager in the workplace?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 100,
+    "textVi": "Tại sao một số người thích làm quản lý ở nơi làm việc?\n\nLàm quản lý đi kèm với quyền hạn và trách nhiệm, điều mà nhiều người cảm thấy rất đáng giá. Vị trí này cho phép họ đưa ra những quyết định quan trọng và thậm chí tác động trực tiếp đến kết quả chung. Với một số người, đó còn là cảm giác đạt được thành tựu và sự công nhận gắn liền với vai trò lãnh đạo. Tuy nhiên, phần hấp dẫn nhất của vị trí này chính là những quyền lợi về mặt tài chính.",
+    "referenceEn": "Why do some people like to be the manager in the workplace?\n\nBeing a manager comes with authority and responsibility, which many people find rewarding. It allows them to make important decisions, and even influence outcomes. For some, it’s also about the sense of accomplishment and the recognition that comes with a leadership role. The best part about the position, however, are the financial benefits.",
+    "keywords": [
+      "authority and responsibility",
+      "influence outcomes",
+      "sense of accomplishment",
+      "leadership role",
+      "financial benefits"
+    ]
+  },
+  {
+    "id": "tb_study4_12_p3_q06",
+    "title": "[Study4 #12 • Part 3 Q6] Những người có tham vọng thường mang những nét tính cách nào?",
+    "titleEn": "[Study4 #12 • Part 3 Q6] What are the traits of an ambitious person?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Q1/2025 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 119,
+    "textVi": "Những người có tham vọng thường mang những nét tính cách nào?\n\nNhững người giàu tham vọng thường định hướng rõ ràng theo mục tiêu và làm việc chăm chỉ. Họ thường có động lực cao và sẵn sàng chấp nhận rủi ro để đạt được đích đến. Khả năng bền bỉ vượt khó cũng là một phẩm chất then chốt; họ không dễ bỏ cuộc ngay cả khi đối mặt thử thách. Thay vào đó, người có tham vọng thường tự tin, chủ động, và luôn tìm kiếm cơ hội để phát triển cũng như hoàn thiện bản thân. Chính sự quyết tâm không lay chuyển là điều thực sự giúp họ nổi bật so với người khác.",
+    "referenceEn": "What are the traits of an ambitious person?\n\nAmbitious people are typically goal-oriented and hardworking. They’re often highly motivated and willing to take risks to achieve their objectives. Resilience is another key trait; they don’t give up easily, even when facing challenges. Instead, ambitious individuals are usually confident and proactive, and they’ll always look for opportunities to grow and improve themselves. Their unwavering determination is what really sets them apart from others.",
+    "keywords": [
+      "goal-oriented",
+      "take risks",
+      "resilience",
+      "proactive",
+      "unwavering determination"
+    ]
+  },
+  {
+    "id": "tb_study4_13_p2",
+    "title": "[Study4 #13 • Part 2] Mô tả một thử thách bạn từng đối mặt mà bạn nghĩ là khá khó khăn",
+    "titleEn": "[Study4 #13 • Part 2] Describe a challenge you faced that you thought was rather difficult (Q3/2024 | Study4 ID 14190)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q3/2024 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 317,
+    "textVi": "Trong tâm trí tôi vẫn còn in đậm ký ức về lần phải làm một bài kiểm tra Toán đặc biệt khó vào năm cuối cấp ba. Bài thi đó chắc chắn không hề dễ ăn chút nào. Nó bao quát hàng loạt chuyên đề phức tạp, bao gồm cả tích phân và phương trình vi phân, những phần vốn cực kỳ hóc búa đối với tôi.\n\nTôi thấy bài kiểm tra này đặc biệt căng thẳng vì các câu hỏi không chỉ phức tạp mà còn đòi hỏi sự nắm vững bản chất khái niệm lẫn kỹ năng vận dụng linh hoạt. Chẳng hạn, có những bài toán nhiều bước kèm phép tính rắc rối, khiến người làm rất dễ bị rối tung hoặc mắc sai sót. Thêm vào đó, giới hạn thời gian càng đẩy áp lực lên cao, khiến việc xử lý từng câu hỏi càng khó khăn hơn.\n\nCó những lúc trong phòng thi, tôi cảm thấy như mình sắp ngất xỉu đến nơi. Tôi hoảng loạn và bế tắc tột độ vì lo âu lẫn ức chế. Tuy nhiên, tôi quyết định tạm bỏ qua những câu hỏi quá hóc búa và tập trung vào những câu mình cảm thấy tự tin hơn. Chiến lược này thực sự giúp tôi lấy lại bình tĩnh và hoàn thành bài thi mà không bị choáng ngợp hoàn toàn.\n\nThật bất ngờ, bất chấp bao chật vật, tôi lại vượt qua bài thi với điểm số xuất sắc. Và tất nhiên, tôi cảm thấy nhẹ nhõm vô cùng ngay khi giờ thi khép lại, và tôi vui sướng như đang ở trên chín tầng mây vì mình đã làm được. Trải nghiệm đó cũng dạy cho tôi rất nhiều bài học về sự kiên trì, bởi tôi tin thành công ngày hôm ấy là kết quả từ việc luyện tập đều đặn của bản thân.",
+    "referenceEn": "It is still imprinted in my mind the time I had to take a particularly difficult Math test during my senior year in high school. The test was definitely no walk in the park. It covered a wide range of complex topics, including integrals and differential equations, which were incredibly challenging for me.\n\nI found this test especially tough because the questions were not only complex but also demanded a solid grasp of the concepts and the skill to apply them. For instance, there were problems involving multiple steps and intricate calculations, which made it easy to get tangled up or make mistakes. On top of that, the time limit cranked up the pressure, making it even harder to work through each question.\n\nAt times, I felt like I was on the verge of passing out in the exam room. I was beside myself with anxiety and frustration. However, I decided to move on from the questions that felt too challenging and concentrated on the ones I felt more confident about. This strategy really helped me regain my composure and finish the exam without feeling completely overwhelmed.\n\nTo my surprise, despite the struggle, I passed the test with flying colours. And of course, I felt a deep sense of relief once it was over and I was on cloud nine that I made it. The experience also taught me a lot about perseverance as I believe the success on that day was a result of my consistent practice.",
+    "keywords": [
+      "imprinted in my mind",
+      "no walk in the park",
+      "cranked up the pressure",
+      "regain my composure",
+      "with flying colours",
+      "on cloud nine"
+    ]
+  },
+  {
+    "id": "tb_study4_13_p3_q01",
+    "title": "[Study4 #13 • Part 3 Q1] Tại sao một số người thích tham gia các môn thể thao mạo hiểm?",
+    "titleEn": "[Study4 #13 • Part 3 Q1] Why do some people enjoy doing extreme sports?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 105,
+    "textVi": "Tại sao một số người thích tham gia các môn thể thao mạo hiểm?\n\nRất nhiều người mê thể thao mạo hiểm vì họ thích đẩy bản thân vượt giới hạn và tận hưởng cảm giác hưng phấn tột độ đó. Chẳng hạn, những hoạt động như nhảy dù hay leo núi đá mang lại cho họ cảm giác thành tựu khi chiến thắng được nỗi sợ hãi của mình. Sau cùng, tất cả xoay quanh cảm giác hồi hộp phấn khích và việc tự chứng minh với bản thân rằng họ có thể làm được điều mà hầu hết mọi người không dám thử.",
+    "referenceEn": "Why do some people enjoy doing extreme sports?\n\nA lot of people love extreme sports because they enjoy pushing their limits and getting that adrenaline rush. For instance, activities like skydiving or rock climbing give them a sense of achievement when they overcome their fears. At the end of the day, it’s all about the thrill and proving to themselves that they can do something most people wouldn’t dare to try.",
+    "keywords": [
+      "pushing their limits",
+      "adrenaline rush",
+      "sense of achievement",
+      "overcome their fears",
+      "dare to try"
+    ]
+  },
+  {
+    "id": "tb_study4_13_p3_q02",
+    "title": "[Study4 #13 • Part 3 Q2] Mọi người thường gặp những thử thách gì khi học một môn thể thao mới?",
+    "titleEn": "[Study4 #13 • Part 3 Q2] What challenges would people face when learning new sports?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 116,
+    "textVi": "Mọi người thường gặp những thử thách gì khi học một môn thể thao mới?\n\nKhi học một môn thể thao mới, mọi người thường chật vật với việc nắm bắt những kỹ thuật cơ bản ngay từ đầu. Một mặt là yếu tố thể chất — phải rèn luyện sức mạnh và sức bền — nhưng mặt khác còn là thử thách tinh thần khi phải tiếp thu luật chơi hay kỹ thuật mới. Thêm vào đó, họ có thể cảm thấy nản lòng nếu không tiến bộ nhanh như mong muốn. Dù vậy, nếu họ kiên trì theo đuổi, họ sẽ tiến bộ và cảm nhận được niềm tự hào thành tựu thực sự.",
+    "referenceEn": "What challenges would people face when learning new sports?\n\nWhen learning a new sport, people often struggle with getting the hang of the basics in the beginning. For one thing, there’s the physical aspect—building strength and stamina—but also the mental challenge of learning new rules or techniques. On top of that, they might face frustration if they don’t improve as quickly as they’d like. If they stick with it, though, they'll make progress and feel a real sense of accomplishment.",
+    "keywords": [
+      "getting the hang of",
+      "strength and stamina",
+      "mental challenge",
+      "stick with it",
+      "sense of accomplishment"
+    ]
+  },
+  {
+    "id": "tb_study4_13_p3_q03",
+    "title": "[Study4 #13 • Part 3 Q3] Bạn nghĩ những hoạt động nào sẽ khiến trẻ em cảm thấy bị thử thách? Tại sao?",
+    "titleEn": "[Study4 #13 • Part 3 Q3] What activities do you think would make children feel challenged? Why?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 146,
+    "textVi": "Bạn nghĩ những hoạt động nào sẽ khiến trẻ em cảm thấy bị thử thách? Tại sao?\n\nTôi nghĩ các hoạt động như giải đố, thể thao hay thậm chí làm việc nhóm thực sự có thể thử thách trẻ nhỏ, đẩy các em ra khỏi vùng an toàn để học về sự bền bỉ và kỹ năng giải quyết vấn đề. Ví dụ, một trò xếp hình phức tạp dạy trẻ tính kiên nhẫn và tư duy phản biện, vốn rất thiết yếu trong cuộc sống. Ngược lại, các môn thể thao đồng đội thử thách kỹ năng giao tiếp và phối hợp, giúp các em hiểu tầm quan trọng của sự hợp tác. Những trải nghiệm này không chỉ nuôi dưỡng sự phát triển cá nhân mà còn trang bị cho trẻ những kỹ năng sống quý giá mang theo tới tuổi trưởng thành.",
+    "referenceEn": "What activities do you think would make children feel challenged? Why?\n\nI think activities like puzzles, sports, or even group projects can really challenge kids, pushing them out of their comfort zone to learn about resilience and problem-solving. For example, a complicated puzzle teaches them to be patient and think critically, which is essential in life. On the other hand, team sports challenge their communication and teamwork skills, helping them understand the importance of collaboration. These experiences not only foster personal growth but also equip children with valuable life skills they’ll carry into adulthood.",
+    "keywords": [
+      "comfort zone",
+      "problem-solving",
+      "think critically",
+      "foster personal growth",
+      "life skills"
+    ]
+  },
+  {
+    "id": "tb_study4_13_p3_q04",
+    "title": "[Study4 #13 • Part 3 Q4] Phần lớn mọi người chọn đối mặt với thử thách một mình hay cùng với người khác?",
+    "titleEn": "[Study4 #13 • Part 3 Q4] Do most people choose to face a challenge alone or with others?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 131,
+    "textVi": "Phần lớn mọi người chọn đối mặt với thử thách một mình hay cùng với người khác?\n\nĐiều này tùy thuộc vào từng người. Một số người thích tự mình giải quyết, nhất là khi họ cảm thấy mình tập trung tốt hơn nếu không bị xao nhãng. Tuy nhiên, nhiều người khác lại thích làm việc cùng tập thể vì họ có thể chia sẻ gánh nặng, nhận được sự hỗ trợ và tận hưởng tinh thần đồng đội gắn kết. Theo kinh nghiệm của tôi, việc giải quyết thử thách cùng bạn bè hoặc gia đình thường giúp quá trình diễn ra nhẹ nhàng và thú vị hơn. Nếu phải đối mặt với một thử thách lớn, chắc chắn tôi sẽ muốn có những người khác ở bên cạnh.",
+    "referenceEn": "Do most people choose to face a challenge alone or with others?\n\nIt depends on the person. Some people prefer to go it alone, especially if they feel like they can focus better without distractions. However, many others enjoy working with a team because they can share the load and get support, enjoy the camaraderie. In my experience, tackling a challenge with friends or family tends to make the process easier and more enjoyable. If I were to face a big challenge, I’d definitely want others by my side.",
+    "keywords": [
+      "go it alone",
+      "without distractions",
+      "share the load",
+      "camaraderie",
+      "by my side"
+    ]
+  },
+  {
+    "id": "tb_study4_13_p3_q05",
+    "title": "[Study4 #13 • Part 3 Q5] Trẻ em có dễ dàng vượt qua một thử thách không?",
+    "titleEn": "[Study4 #13 • Part 3 Q5] Is it easy for children to overcome a challenge?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 102,
+    "textVi": "Trẻ em có dễ dàng vượt qua một thử thách không?\n\nKhông phải lúc nào cũng dễ. Một phần là vì trẻ em có thể thiếu kinh nghiệm hoặc thiếu công cụ cảm xúc để tự mình xoay xở trước khó khăn. Nói vậy nhưng với sự định hướng và khích lệ đúng cách từ cha mẹ hay thầy cô, các em có thể hình thành sự tự tin để giải quyết các trở ngại. Nếu được trao cơ hội tự mình thử sức, trẻ thường khiến chúng ta bất ngờ bởi sự sáng tạo và sức bền tinh thần của mình.",
+    "referenceEn": "Is it easy for children to overcome a challenge?\n\nNot always. For one thing, children might lack the experience or emotional tools to deal with challenges on their own. That being said, with proper guidance and encouragement from parents or teachers, they can develop the confidence to tackle obstacles. If they’re given the chance to try things on their own, they often surprise us with their creativity and resilience.",
+    "keywords": [
+      "emotional tools",
+      "proper guidance",
+      "tackle obstacles",
+      "on their own",
+      "creativity and resilience"
+    ]
+  },
+  {
+    "id": "tb_study4_13_p3_q06",
+    "title": "[Study4 #13 • Part 3 Q6] Trẻ em thường làm gì khi đối mặt với một thử thách?",
+    "titleEn": "[Study4 #13 • Part 3 Q6] What do children often do when they face a challenge?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 3: Working Life (Công việc & Tính cách)",
+    "unitId": "unit_3_working_life_(công_việc_and_tính_cách)",
+    "unitNumber": 3,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 106,
+    "textVi": "Trẻ em thường làm gì khi đối mặt với một thử thách?\n\nTrẻ em có xu hướng hoặc là nhờ giúp đỡ ngay lập tức, hoặc là tự mình tìm cách giải quyết vấn đề. Trong trường hợp thứ hai, khi không thể nghĩ ra cách làm, các em có thể trở nên chán nản hoặc thậm chí bỏ cuộc. Tuy nhiên, một số trẻ lại rất quyết tâm và sẽ tiếp tục thử cho đến khi tìm ra lời giải. Cá nhân tôi thấy cách các em phản ứng thường phụ thuộc vào tính cách và dạng thử thách mà các em đang gặp phải.",
+    "referenceEn": "What do children often do when they face a challenge?\n\nChildren tend to either ask for help right away or try to solve the problem themselves. In the latter case, when they can’t figure it out, they may get frustrated or even give up. However, some kids are really determined and will keep trying until they find a solution. Personally speaking, how they react usually depends on their personality and the type of challenge they’re facing.",
+    "keywords": [
+      "ask for help",
+      "figure it out",
+      "give up",
+      "determined",
+      "find a solution"
+    ]
+  },
+  {
+    "id": "tb_study4_14_p2",
+    "title": "[Study4 #14 • Part 2] Mô tả một bộ phim bạn đã xem và yêu thích gần đây",
+    "titleEn": "[Study4 #14 • Part 2] Describe a movie you watched and enjoyed recently (Q3/2024 | Study4 ID 14186)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q3/2024 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 355,
+    "textVi": "Gần đây, tôi có dịp đi xem bộ phim Inside Out 2 cùng vài người bạn thân. Vào một buổi tối thứ Bảy rất đẹp trời, chúng tôi quyết định ra rạp chiếu phim nằm ngay gần nhà chỉ cách vài bước chân, và trải nghiệm hôm đó thật sự tuyệt vời ngoài sức tưởng tượng. Rạp phim rất ấm cúng, và cả nhóm đều háo hức xem phần hậu truyện này sẽ sánh với phần đầu ra sao.\n\nInside Out 2 nối tiếp ngay đoạn kết của phần phim đầu tiên, đi sâu vào những năm tháng tuổi thiếu niên của Riley và những thử thách cảm xúc mới mẻ mà cô bé phải đối mặt. Phần tiếp theo đưa vào những người bạn mới cùng vài nhân vật cảm xúc kỳ quặc mới, khiến câu chuyện trở nên sinh động hẳn lên. Phần hoạt họa vẫn rực rỡ và giàu trí tưởng tượng, trong khi cách kể chuyện thực sự lôi cuốn và sâu sắc.\n\nTôi chọn xem bộ phim này vì tôi đã vô cùng yêu thích phần một. Bộ phim đầu tiên đã làm xuất sắc trong việc thể hiện cách cảm xúc định hình hành vi và các mối quan hệ của chúng ta — theo một lối vừa giải trí vừa đầy ý nghĩa. Vì thế, tôi tò mò muốn xem phần sau sẽ phát triển những ý tưởng đó ra sao và liệu có giữ được nét duyên dáng tương tự hay không. Thú thật là tôi phải công nhận bộ phim hoàn toàn đáp ứng đúng kỳ vọng của mình, nhờ sự hòa quyện giữa nét hài hước, những khoảnh khắc ấm lòng và góc nhìn tinh tế về những thăng trầm cảm xúc của tuổi trưởng thành.\n\nViệc xem phim cùng bạn bè khiến trải nghiệm càng đáng nhớ hơn bởi bên cạnh chất lượng tuyệt vời của bộ phim, còn có tình bạn gắn bó giữa chúng tôi. Cả nhóm đã có những giờ phút vui hết nấc bên nhau, và thật lòng mà nói thì từng đồng bỏ ra đều vô cùng xứng đáng.",
+    "referenceEn": "Recently, I had the chance to watch Inside Out 2 with a few close friends. On a very fine Saturday evening, we decided to hit the cinema, which was just a stone’s throw away from my house, and the experience was out of this world. The cinema was cozy, and we were all curious to see how the sequel would stack up against the original.\n\nInside Out 2 picks up where the first film left off, diving into Riley's teenage years and the new emotional challenges she faces. The sequel brings in her new friends and some quirky new emotions, which really spice up the story. The animation remains vibrant and imaginative, while the storytelling is nothing short of engaging and insightful.\n\nI picked this movie because I really loved the original. The first film did such an amazing job in showing how emotions shape our behavior and relationships - in a way that was both entertaining and meaningful. So, I was curious to see how the sequel would build on those ideas and if it could capture the same charm. I've got to say that, honestly, it totally lived up to my expectations, with its blend of humor, heartwarming moments, and clever insights into the emotional ups and downs of growing up.\n\nWatching it with friends made the experience even more memorable because, alongside how great the film was, there was also our camaraderie. We had such a blast together, and honestly, it was worth every penny.",
+    "keywords": [
+      "a stone’s throw away",
+      "out of this world",
+      "stack up against",
+      "spice up the story",
+      "lived up to my expectations",
+      "worth every penny"
+    ]
+  },
+  {
+    "id": "tb_study4_14_p3_q01",
+    "title": "[Study4 #14 • Part 3 Q1] Tại sao mọi người thích xem phim ở rạp chiếu phim hơn?",
+    "titleEn": "[Study4 #14 • Part 3 Q1] Why do people prefer to watch movies in the cinema?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 92,
+    "textVi": "Tại sao mọi người thích xem phim ở rạp chiếu phim hơn?\n\nTôi nghĩ mọi người thích đi rạp vì đó là một trải nghiệm trọn vẹn. Thứ nhất, hiệu ứng âm thanh và hình ảnh sống động hơn rất nhiều so với việc xem phim ở nhà. Thêm vào đó là sự phấn khích khi được thưởng thức bộ phim trên màn ảnh rộng cùng bạn bè hoặc gia đình. Nếu bạn hỏi tôi, chính bầu không khí trong rạp đã thực sự góp phần tạo nên phép màu điện ảnh.",
+    "referenceEn": "Why do people prefer to watch movies in the cinema?\n\nI think people love going to the cinema because it’s a whole experience. For one thing, the sound and visual effects are far more immersive than watching a movie at home. On top of that, there’s the excitement of seeing a film on the big screen with friends or family. If you ask me, the atmosphere in a cinema really adds to the movie magic.",
+    "keywords": [
+      "whole experience",
+      "visual effects",
+      "immersive",
+      "big screen",
+      "movie magic"
+    ]
+  },
+  {
+    "id": "tb_study4_14_p3_q02",
+    "title": "[Study4 #14 • Part 3 Q2] Bạn có nghĩ những bộ phim thành công nhất thiết phải có diễn viên nam hoặc nữ nổi tiếng đóng vai chính không?",
+    "titleEn": "[Study4 #14 • Part 3 Q2] Do you think successful movies should have well-known actors or actresses in leading roles?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 114,
+    "textVi": "Bạn có nghĩ những bộ phim thành công nhất thiết phải có diễn viên nam hoặc nữ nổi tiếng đóng vai chính không?\n\nĐiều đó có giúp ích, nhưng không phải yếu tố duy nhất. Nếu cốt truyện đủ lôi cuốn, ngay cả những diễn viên ít tên tuổi cũng có thể làm nên một bộ phim ăn khách. Nói vậy nhưng các diễn viên nổi tiếng quả thực thu hút nhiều sự chú ý hơn và thường kéo được lượng khán giả đông đảo hơn. Sau cùng, chính sự kết hợp giữa diễn xuất chắc tay, kịch bản hay và đạo diễn tài năng mới tạo nên thành công cho một bộ phim.",
+    "referenceEn": "Do you think successful movies should have well-known actors or actresses in leading roles?\n\nIt helps, but it’s not the only factor. If the storyline is compelling, even lesser-known actors can make a film a hit. That being said, famous actors do bring in more attention and often draw larger audiences. At the end of the day, it’s a combination of strong acting, a good script, and great direction that makes a movie successful.",
+    "keywords": [
+      "storyline is compelling",
+      "lesser-known actors",
+      "draw larger audiences",
+      "strong acting",
+      "great direction"
+    ]
+  },
+  {
+    "id": "tb_study4_14_p3_q03",
+    "title": "[Study4 #14 • Part 3 Q3] Bạn có nghĩ chỉ những đạo diễn nổi tiếng mới có thể tạo ra những bộ phim hay nhất không?",
+    "titleEn": "[Study4 #14 • Part 3 Q3] Do you think only well-known directors can create the best movies?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 111,
+    "textVi": "Bạn có nghĩ chỉ những đạo diễn nổi tiếng mới có thể tạo ra những bộ phim hay nhất không?\n\nKhông hẳn vậy. Trong khi các đạo diễn tên tuổi có nhiều kinh nghiệm và nguồn lực hơn, vẫn có rất nhiều đạo diễn ít tiếng tăm hơn mang lại những ý tưởng tươi mới và góc nhìn độc đáo. Nếu một đạo diễn có tầm nhìn rõ ràng, họ hoàn toàn có thể làm nên một tác phẩm xuất sắc ngay cả khi chưa nổi tiếng. Trong nhiều trường hợp, chính các đạo diễn trẻ triển vọng lại cho ra đời những bộ phim nguyên bản và sáng tạo nhất.",
+    "referenceEn": "Do you think only well-known directors can create the best movies?\n\nNot necessarily. While big-name directors have more experience and resources, there are plenty of lesser-known directors who bring fresh ideas and new perspectives. If a director has a clear vision, they can create an amazing movie, even if they’re not yet famous. In some cases, up-and-coming directors deliver some of the most original and innovative films.",
+    "keywords": [
+      "big-name directors",
+      "fresh ideas",
+      "clear vision",
+      "up-and-coming",
+      "original and innovative"
+    ]
+  },
+  {
+    "id": "tb_study4_14_p3_q04",
+    "title": "[Study4 #14 • Part 3 Q4] Người Việt Nam thích xem phim nội địa hay phim nước ngoài hơn?",
+    "titleEn": "[Study4 #14 • Part 3 Q4] Do Vietnamese people prefer to watch domestic movies or foreign movies?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "short",
+    "wordCountVi": 84,
+    "textVi": "Người Việt Nam thích xem phim nội địa hay phim nước ngoài hơn?\n\nĐiều đó còn tùy. Nhiều người thích phim nước ngoài vì chất lượng sản xuất cao và dàn ngôi sao toàn cầu. Tuy nhiên, tình cảm dành cho phim Việt phản ánh văn hóa và câu chuyện bản địa cũng đang ngày càng tăng lên. Nếu một bộ phim chạm được tới cảm xúc người xem, dù là phim ngoại hay phim nội thì đều sẽ được đón nhận nồng nhiệt.",
+    "referenceEn": "Do Vietnamese people prefer to watch domestic movies or foreign movies?\n\nIt depends. Many people enjoy foreign movies for the high production quality and global stars. However, there’s also a growing love for Vietnamese films that reflect local culture and stories. If a movie resonates with people, whether it’s foreign or domestic, it will be well-received.",
+    "keywords": [
+      "production quality",
+      "global stars",
+      "local culture",
+      "resonates with",
+      "well-received"
+    ]
+  },
+  {
+    "id": "tb_study4_14_p3_q05",
+    "title": "[Study4 #14 • Part 3 Q5] Những yếu tố nào tạo nên một bộ phim thành công?",
+    "titleEn": "[Study4 #14 • Part 3 Q5] What are the factors that make a successful movie?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 92,
+    "textVi": "Những yếu tố nào tạo nên một bộ phim thành công?\n\nMột bộ phim thành công cần có cốt truyện hấp dẫn, diễn xuất thuyết phục và sự chỉ đạo vững vàng của đạo diễn. Bên cạnh đó, nhạc phim và kỹ thuật quay phim đóng vai trò cực kỳ quan trọng trong việc tạo bầu không khí và cuốn khán giả vào câu chuyện. Nếu bộ phim khơi gợi được cảm xúc, dù là tiếng cười, nước mắt hay sự hồi hộp, thì chắc chắn nó sẽ thành công vang dội.",
+    "referenceEn": "What are the factors that make a successful movie?\n\nA successful movie needs a gripping storyline, strong performances, and solid direction. On top of that, the soundtrack and cinematography play a huge role in setting the mood and drawing the audience in. If a film manages to evoke emotions, whether it’s laughter, tears, or suspense, it’s bound to be a hit.",
+    "keywords": [
+      "gripping storyline",
+      "strong performances",
+      "cinematography",
+      "setting the mood",
+      "evoke emotions"
+    ]
+  },
+  {
+    "id": "tb_study4_14_p3_q06",
+    "title": "[Study4 #14 • Part 3 Q6] Bạn nghĩ những thể loại phim nào thường thành công ở đất nước mình?",
+    "titleEn": "[Study4 #14 • Part 3 Q6] What kinds of movies do you think are successful in your country?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "unitId": "unit_4_fact_or_fiction_(sự_thật_and_truyền_thông)",
+    "unitNumber": 4,
+    "topic": "Study4 Q3/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 108,
+    "textVi": "Bạn nghĩ những thể loại phim nào thường thành công ở đất nước mình?\n\nỞ Việt Nam, phim hài và phim tâm lý xã hội thường rất thịnh hành. Chẳng hạn, những tác phẩm phản ánh đời sống thường nhật hoặc các vấn đề xã hội thường dễ tạo sự đồng cảm với khán giả. Tuy nhiên, phim hành động và phim tình cảm cũng ăn khách, đặc biệt là những phim kết hợp hài hòa giữa yếu tố giải trí và thông điệp ý nghĩa. Nếu một bộ phim cân bằng được giữa tiếng cười và chiều sâu cảm xúc, nó thường sẽ gặt hái thành công.",
+    "referenceEn": "What kinds of movies do you think are successful in your country?\n\nIn Vietnam, comedies and dramas tend to be all the rage. For instance, films that reflect everyday life or social issues tend to resonate with audiences. However, action and romance films also do well, especially those which blend entertainment with meaningful messages. If a movie can strike a balance between humor and heart, it usually finds success.",
+    "keywords": [
+      "all the rage",
+      "everyday life",
+      "resonate with",
+      "meaningful messages",
+      "humor and heart"
+    ]
+  },
+  {
+    "id": "tb_study4_15_p2",
+    "title": "[Study4 #15 • Part 2] Mô tả một lần ai đó tặng bạn món đồ mà bạn thực sự mong muốn",
+    "titleEn": "[Study4 #15 • Part 2] Describe a time when someone gave you something that you really wanted (Q2/2024 | Study4 ID 13756)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q2/2024 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 373,
+    "textVi": "Được rồi, một lần mà ai đó tặng tôi món đồ tôi thực sự ao ước là khi tôi nhận được đôi giày thể thao tuyệt đẹp này. Chuyện xảy ra hồi tôi khoảng 17 tuổi, và lúc ấy tôi đã để mắt đến đôi giày này suốt nhiều tháng liền. Đó là mẫu mới nhất vừa ra mắt của một thương hiệu đình đám, và dường như ai ở trường cũng bàn tán về nó.\n\nTôi nhận được món quà đúng vào ngày sinh nhật, điều đó khiến mọi thứ càng trở nên đặc biệt hơn. Đó là quà của cậu bạn thân nhất, người rõ ràng đã rất để tâm đến những lời gợi ý chẳng hề giấu giếm của tôi. Tôi vẫn nhớ khoảnh khắc ấy rõ mồn một. Lúc đó chúng tôi đang ở nhà tôi, chỉ tụ tập nhẹ nhàng cùng nhau, và sau khi cắt bánh kem, cậu ấy đưa cho tôi một chiếc hộp lớn đầy màu sắc. Ngay khi nhìn thấy logo thương hiệu, tôi biết chính xác bên trong là gì.\n\nĐôi giày này không phải giày bình thường; chúng là phiên bản giới hạn với thiết kế độc đáo và lớp đệm êm ái cực kỳ. Bạn tôi biết tôi thích chúng đến mức nào vì tôi đã nói về các tính năng của đôi giày suốt ngày không ngớt. Chúng sở hữu sự kết hợp hoàn hảo giữa phong cách thời trang và độ thoải mái, nên rất lý tưởng cho cả việc đi học lẫn đi chơi dạo phố.\n\nLý do tôi khao khát đôi giày này nhiều đến vậy là vì chúng đại diện cho một dạng biểu tượng đẳng cấp trong nhóm bạn cùng trang lứa. Hơn nữa, tôi vốn luôn có niềm yêu thích đặc biệt với thời trang, và đôi giày thể thao này là mảnh ghép hoàn hảo bổ sung vào tủ đồ của tôi. Nhận được chúng khiến tôi có cảm giác như vừa trúng số độc đắc vậy. Tôi mang chúng đi khắp mọi nơi, và chúng lập tức trở thành đôi giày yêu thích nhất của tôi. Đó là một cảm giác thật tuyệt vời, và tôi đã vui sướng đến phát ngất.",
+    "referenceEn": "Alright, so, a time when someone gave me something I really wanted was when I got this amazing pair of sneakers. This was back when I was about 17 years old, and I had been eyeing these shoes for months. They were the latest release from a popular brand, and everyone at school seemed to be talking about them.\n\nI received them on my birthday, which made the whole thing even more special. It was a gift from my best friend, who had obviously been paying close attention to my not-so-subtle hints. I remember the moment so clearly. We were at my house, just having a casual get-together, and after we cut the cake, he handed me this big, colorful box. As soon as I saw the brand logo, I knew exactly what it was.\n\nThese sneakers weren't just any shoes; they were the limited edition ones with a unique design and super comfy cushioning. My friend knew how much I wanted them because I had been talking about their features non-stop. They had this perfect blend of style and comfort, which made them ideal for both school and casual outings.\n\nThe reason I wanted these shoes so much was that they represented a kind of status symbol among my peers. Plus, I've always had a keen interest in fashion, and these sneakers were the perfect addition to my wardrobe. Receiving them felt like hitting the jackpot. I wore them everywhere, and they instantly became my favorite pair. It was a fantastic feeling, and I was thrilled to bits.",
+    "keywords": [
+      "eyeing these shoes",
+      "not-so-subtle hints",
+      "limited edition",
+      "status symbol",
+      "hitting the jackpot",
+      "thrilled to bits"
+    ]
+  },
+  {
+    "id": "tb_study4_15_p3_q01",
+    "title": "[Study4 #15 • Part 3 Q1] Nhân viên có nên có mục tiêu riêng của mình không?",
+    "titleEn": "[Study4 #15 • Part 3 Q1] Should employees have their own goals?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 92,
+    "textVi": "Nhân viên có nên có mục tiêu riêng của mình không?\n\nỒ, chắc chắn rồi! Việc có mục tiêu cá nhân giúp nhân viên duy trì động lực và mang lại cho họ cảm giác định hướng rõ ràng. Nó giống như việc có một tấm bản đồ lộ trình cho sự nghiệp, giúp họ tập trung và không ngừng phấn đấu hoàn thiện hơn. Thêm vào đó, việc đạt được những mục tiêu này có thể dẫn tới cảm giác thành tựu và sự hài lòng cao hơn trong công việc.",
+    "referenceEn": "Should employees have their own goals?\n\nOh, definitely! Having personal goals keeps employees motivated and gives them a sense of direction. It's like having a roadmap for their career, helping them to stay focused and strive for improvement. Plus, achieving these goals can lead to a greater sense of accomplishment and job satisfaction.",
+    "keywords": [
+      "sense of direction",
+      "roadmap",
+      "strive for improvement",
+      "sense of accomplishment",
+      "job satisfaction"
+    ]
+  },
+  {
+    "id": "tb_study4_15_p3_q02",
+    "title": "[Study4 #15 • Part 3 Q2] Cấp trên nên khen thưởng nhân viên như thế nào?",
+    "titleEn": "[Study4 #15 • Part 3 Q2] How should bosses reward employees?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 98,
+    "textVi": "Cấp trên nên khen thưởng nhân viên như thế nào?\n\nChà, sự kết hợp giữa ghi nhận tinh thần và phần thưởng vật chất mang lại hiệu quả kỳ diệu. Một lời “cảm ơn” chân thành hay sự biểu dương công khai có thể tiếp thêm động lực rất lớn. Tiền thưởng, thêm ngày nghỉ phép hay thậm chí một bữa trưa ngon lành bên ngoài đều khiến nhân viên cảm thấy được trân trọng. Việc điều chỉnh phần thưởng theo sở thích từng cá nhân cũng cho thấy sếp thực sự coi trọng đội ngũ của mình.",
+    "referenceEn": "How should bosses reward employees?\n\nWell, a mix of recognition and tangible rewards works wonders. A heartfelt “thank you” or public acknowledgment can be really motivating. Bonuses, extra vacation days, or even a nice lunch out can make employees feel appreciated. Tailoring rewards to individual preferences can also show that the boss truly values their team.",
+    "keywords": [
+      "tangible rewards",
+      "works wonders",
+      "public acknowledgment",
+      "feel appreciated",
+      "tailoring rewards"
+    ]
+  },
+  {
+    "id": "tb_study4_15_p3_q03",
+    "title": "[Study4 #15 • Part 3 Q3] Người trẻ thường thích nhận những món quà nào làm phần thưởng?",
+    "titleEn": "[Study4 #15 • Part 3 Q3] What kinds of gifts do young people like to receive as rewards?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "short",
+    "wordCountVi": 76,
+    "textVi": "Người trẻ thường thích nhận những món quà nào làm phần thưởng?\n\nNgười trẻ thường chuộng các thiết bị công nghệ như mẫu điện thoại thông minh mới nhất hoặc tai nghe thời thượng. Những trải nghiệm như vé xem hòa nhạc hay các hoạt động phiêu lưu cũng rất được yêu thích. Thẻ quà tặng cũng phổ biến nữa, vì chúng mang lại quyền tự do lựa chọn chính xác món đồ mà họ muốn.",
+    "referenceEn": "What kinds of gifts do young people like to receive as rewards?\n\nYoung people often go for tech gadgets like the latest smartphone or trendy headphones. Experiences like concert tickets or adventure activities are also a big hit. Gift cards are popular too, as they give the freedom to choose exactly what they want.",
+    "keywords": [
+      "tech gadgets",
+      "trendy headphones",
+      "a big hit",
+      "gift cards",
+      "freedom to choose"
+    ]
+  },
+  {
+    "id": "tb_study4_15_p3_q04",
+    "title": "[Study4 #15 • Part 3 Q4] Trẻ em nên tiêu tiền tiêu vặt của mình như thế nào?",
+    "titleEn": "[Study4 #15 • Part 3 Q4] How should children spend their allowance money?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 92,
+    "textVi": "Trẻ em nên tiêu tiền tiêu vặt của mình như thế nào?\n\nViệc trẻ học cách quản lý tiền bạc từ sớm là rất tốt. Các em nên được khuyến khích tiết kiệm một phần cho những nhu cầu tương lai hoặc những món đồ lớn hơn. Chi tiêu cho những món quà nhỏ hay thứ mình thích cũng ổn thôi, nhưng các em cũng cần học cách lập ngân sách. Thậm chí có thể trích ra một khoản nhỏ làm từ thiện để hiểu được giá trị của sự sẻ chia.",
+    "referenceEn": "How should children spend their allowance money?\n\nIt's great for kids to learn about managing money early on. They should be encouraged to save a bit for future needs or bigger purchases. Spending on small treats or things they enjoy is fine, but they should also learn to budget. Maybe even set aside a little for charity to understand the value of giving back.",
+    "keywords": [
+      "managing money",
+      "bigger purchases",
+      "small treats",
+      "learn to budget",
+      "giving back"
+    ]
+  },
+  {
+    "id": "tb_study4_15_p3_q05",
+    "title": "[Study4 #15 • Part 3 Q5] Tại sao ngày nay mọi người thích mua sắm nhiều hơn so với trước đây?",
+    "titleEn": "[Study4 #15 • Part 3 Q5] Why do people like shopping more now than in the past?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 97,
+    "textVi": "Tại sao ngày nay mọi người thích mua sắm nhiều hơn so với trước đây?\n\nÀ, việc mua sắm đã trở nên siêu tiện lợi và thú vị, nhất là với mua sắm trực tuyến. Bạn có thể tìm thấy bất cứ thứ gì mình muốn chỉ với vài cú nhấp chuột, và luôn có sẵn các ưu đãi hay mã giảm giá để săn. Thêm vào đó, mạng xã hội liên tục giới thiệu các xu hướng và sản phẩm mới, biến mua sắm gần như thành một thú vui tiêu khiển đối với nhiều người.",
+    "referenceEn": "Why do people like shopping more now than in the past?\n\nWell, shopping has become super convenient and fun, especially with online shopping. You can find anything you want with just a few clicks, and there are always deals and discounts to snag. Plus, social media constantly showcases new trends and products, making shopping almost a hobby for some people.",
+    "keywords": [
+      "online shopping",
+      "few clicks",
+      "deals and discounts",
+      "snag",
+      "new trends"
+    ]
+  },
+  {
+    "id": "tb_study4_15_p3_q06",
+    "title": "[Study4 #15 • Part 3 Q6] Bạn có nghĩ việc mua sắm tốt cho nền kinh tế của một quốc gia không?",
+    "titleEn": "[Study4 #15 • Part 3 Q6] Do you think shopping is good for a country's economy?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "unitId": "unit_1_me_and_mine_(sở_hữu_and_đồ_vật)",
+    "unitNumber": 1,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 93,
+    "textVi": "Bạn có nghĩ việc mua sắm tốt cho nền kinh tế của một quốc gia không?\n\nỒ, hoàn toàn có chứ! Mua sắm thúc đẩy nhu cầu tiêu dùng, từ đó kích thích sản xuất và tạo ra công ăn việc làm. Nó giúp dòng tiền lưu thông liên tục trong nền kinh tế và hỗ trợ nhiều lĩnh vực từ sản xuất chế tạo đến bán lẻ. Hơn nữa, chi tiêu của người tiêu dùng thường là một chỉ dấu tốt phản ánh sức khỏe và niềm tin của nền kinh tế.",
+    "referenceEn": "Do you think shopping is good for a country's economy?\n\nOh, absolutely! Shopping drives consumer demand, which boosts production and creates jobs. It keeps money circulating in the economy and supports various sectors from manufacturing to retail. Plus, consumer spending is often a good indicator of economic health and confidence.",
+    "keywords": [
+      "consumer demand",
+      "creates jobs",
+      "money circulating",
+      "manufacturing to retail",
+      "economic health"
+    ]
+  },
+  {
+    "id": "tb_study4_16_p2",
+    "title": "[Study4 #16 • Part 2] Mô tả một địa điểm trong nhà hoặc ngoài trời nơi bạn dễ dàng tập trung học tập",
+    "titleEn": "[Study4 #16 • Part 2] Describe an indoor or outdoor place where it is easy for you to study (Q2/2024 | Study4 ID 13736)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2024 • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 298,
+    "textVi": "Được rồi, một không gian trong nhà nơi tôi thấy học tập cực kỳ dễ dàng là quán cà phê nhỏ ấm cúng mang tên The Nest, nằm ngay giữa trung tâm Quận 1 ở Thành phố Hồ Chí Minh. Quán nép mình trong một con phố yên tĩnh, điều này quá lý tưởng vì ở đó không quá đông đúc hay ồn ào.\n\nThe Nest sở hữu một bầu không khí thực sự thu hút. Quán có những chiếc ghế êm ái, bàn gỗ và tràn ngập ánh sáng tự nhiên chiếu vào từ những khung cửa sổ lớn. Lối trang trí khá tối giản nhưng tinh tế, với rất nhiều cây xanh xung quanh, tạo cảm giác tươi mới và thư thái. Họ bật nhạc nền nhẹ nhàng, giúp tôi tập trung mà không hề gây xao nhãng.\n\nTôi thường ghé qua đó vào các buổi chiều, đặc biệt là cuối tuần khi tôi có nhiều thời gian rảnh hơn. Tôi mang theo máy tính xách tay cùng tài liệu học tập, gọi một ly cà phê tuyệt ngon của quán rồi ổn định chỗ ngồi để học liên tục vài tiếng đồng hồ không bị ngắt quãng. Đó là một góc tuyệt vời để viết bài luận hoặc đọc bù tài liệu.\n\nLý do tôi yêu thích việc học ở The Nest là vì nơi đây tạo ra sự cân bằng hoàn hảo giữa cảm giác thư giãn và hiệu suất làm việc. Không gian vừa vặn để bước vào trạng thái tập trung cao độ, còn nhân viên thì thân thiện nhưng không hề làm phiền khách. Hơn nữa, cà phê ở đây thực sự giúp tỉnh táo tinh thần, đó luôn là một điểm cộng lớn mỗi khi bạn phải cày bài vở.",
+    "referenceEn": "Alright, so, an indoor place where I find it super easy to study is this cozy little café called The Nest, right in the heart of District 1 in Ho Chi Minh City. It's tucked away on a quiet street, which is perfect because it's not too busy or noisy.\n\nThe Nest has this really inviting atmosphere. It's got comfy chairs, wooden tables, and loads of natural light streaming in from big windows. The décor is pretty minimalist but stylish, with lots of plants around, which makes it feel fresh and calming. They play soft background music, which helps me focus without being distracting.\n\nI usually go there in the afternoons, especially on weekends when I've got more time on my hands. I bring my laptop and my study materials, grab a cup of their amazing coffee, and settle in for a few hours of uninterrupted study. It's a great spot for working on essays or catching up on reading.\n\nThe reason I love studying at The Nest is because it strikes the perfect balance between being relaxed and productive. The ambiance is just right for getting into the zone, and the staff are friendly but not intrusive. Plus, the coffee is a real pick-me-up, which is always a bonus when you're hitting the books.",
+    "keywords": [
+      "tucked away",
+      "inviting atmosphere",
+      "time on my hands",
+      "uninterrupted study",
+      "getting into the zone",
+      "hitting the books"
+    ]
+  },
+  {
+    "id": "tb_study4_16_p3_q01",
+    "title": "[Study4 #16 • Part 3 Q1] Bạn thích tự học một mình hay học cùng với người khác?",
+    "titleEn": "[Study4 #16 • Part 3 Q1] Do you like to learn on your own or with others?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 93,
+    "textVi": "Bạn thích tự học một mình hay học cùng với người khác?\n\nBạn biết đấy, tôi thích kết hợp cả hai cách. Tự học một mình cho phép tôi đi theo tốc độ riêng và đào sâu vào những chủ đề tôi thực sự tò mò. Nhưng học cùng người khác có thể tạo động lực rất lớn và bạn được trao đổi ý tưởng, điều này thực sự giúp mở rộng góc nhìn. Vì vậy, sự cân bằng giữa tự học và học nhóm mang lại hiệu quả tốt nhất cho tôi.",
+    "referenceEn": "Do you like to learn on your own or with others?\n\nYou know, I enjoy a mix of both. Learning on my own lets me go at my own pace and dive deep into topics I'm really curious about. But, studying with others can be super motivating and you get to exchange ideas, which can really broaden your perspective. So, a balance of solo and group study works best for me.",
+    "keywords": [
+      "at my own pace",
+      "dive deep into",
+      "super motivating",
+      "exchange ideas",
+      "broaden your perspective"
+    ]
+  },
+  {
+    "id": "tb_study4_16_p3_q02",
+    "title": "[Study4 #16 • Part 3 Q2] Sự khác biệt giữa việc học trực tiếp với giáo viên và việc tự học là gì?",
+    "titleEn": "[Study4 #16 • Part 3 Q2] What's the difference between learning face-to-face with teachers and learning by yourself?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 95,
+    "textVi": "Sự khác biệt giữa việc học trực tiếp với giáo viên và việc tự học là gì?\n\nÀ, học trực tiếp với giáo viên rất tuyệt vì bạn nhận được phản hồi tức thì và sự hướng dẫn sát sao theo từng cá nhân. Thầy cô có thể giải đáp thắc mắc ngay tại chỗ và giảng giải những khái niệm phức tạp theo cách dễ hiểu. Ngược lại, việc tự học trao cho bạn sự linh hoạt trong việc chọn nội dung và thời điểm học, điều này có thể vô cùng tiện lợi.",
+    "referenceEn": "What's the difference between learning face-to-face with teachers and learning by yourself?\n\nWell, face-to-face learning with teachers is great because you get immediate feedback and personalized guidance. Teachers can clarify doubts on the spot and explain complex concepts in a way that's easy to understand. On the other hand, learning by yourself gives you the flexibility to choose what to study and when, which can be really convenient.",
+    "keywords": [
+      "immediate feedback",
+      "personalized guidance",
+      "clarify doubts",
+      "on the spot",
+      "flexibility"
+    ]
+  },
+  {
+    "id": "tb_study4_16_p3_q03",
+    "title": "[Study4 #16 • Part 3 Q3] Bạn thích học ở nhà hơn hay học ở những nơi khác hơn?",
+    "titleEn": "[Study4 #16 • Part 3 Q3] Do you prefer to study at home or study in other places?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "short",
+    "wordCountVi": 85,
+    "textVi": "Bạn thích học ở nhà hơn hay học ở những nơi khác hơn?\n\nNhìn chung tôi thích học ở những nơi khác như thư viện hoặc quán cà phê hơn. Sự thay đổi môi trường giúp tôi tập trung tốt hơn, và ở những nơi này có một bầu không khí đặc biệt khiến tôi làm việc năng suất hơn. Ở nhà, đôi khi tôi thấy quá thoải mái rồi bị xao nhãng bởi mấy thứ như tivi hay chiếc giường cứ vẫy gọi mình!",
+    "referenceEn": "Do you prefer to study at home or study in other places?\n\nI generally prefer studying in other places like libraries or cafes. The change of environment helps me focus better and there's a certain vibe in these places that makes me more productive. At home, I sometimes get too comfortable and distracted by things like the TV or my bed calling my name!",
+    "keywords": [
+      "change of environment",
+      "focus better",
+      "certain vibe",
+      "more productive",
+      "distracted by"
+    ]
+  },
+  {
+    "id": "tb_study4_16_p3_q04",
+    "title": "[Study4 #16 • Part 3 Q4] Những lợi ích của việc tích lũy kinh nghiệm làm việc trong khi đang đi học là gì?",
+    "titleEn": "[Study4 #16 • Part 3 Q4] What are the benefits of gaining work experience while studying?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 119,
+    "textVi": "Những lợi ích của việc tích lũy kinh nghiệm làm việc trong khi đang đi học là gì?\n\nTích lũy kinh nghiệm làm việc khi còn đi học mang lại rất nhiều lợi ích. Nó trang bị cho bạn những kỹ năng thực hành và góc nhìn thực tế mà bạn không thể có được từ sách giáo khoa. Thêm vào đó, điều đó trông rất ấn tượng trên hồ sơ xin việc và có thể khiến bạn thu hút hơn trong mắt nhà tuyển dụng tương lai. Việc cân bằng giữa đi làm và đi học cũng rèn cho bạn kỹ năng quản lý thời gian, bản thân điều đó đã là một bài học quý giá rồi.",
+    "referenceEn": "What are the benefits of gaining work experience while studying?\n\nGaining work experience while studying is super beneficial. It gives you practical skills and real-world insights that you can't get from textbooks. Plus, it looks great on your resume and can make you more attractive to future employers. Balancing work and study also teaches you time management skills, which is a valuable lesson in itself.",
+    "keywords": [
+      "practical skills",
+      "real-world insights",
+      "looks great on your resume",
+      "future employers",
+      "time management skills"
+    ]
+  },
+  {
+    "id": "tb_study4_16_p3_q05",
+    "title": "[Study4 #16 • Part 3 Q5] Phần lớn mọi người có thích học ở nơi ồn ào không?",
+    "titleEn": "[Study4 #16 • Part 3 Q5] Do most people like to study in a noisy place?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 97,
+    "textVi": "Phần lớn mọi người có thích học ở nơi ồn ào không?\n\nKhông hẳn vậy, hầu hết mọi người thấy những nơi ồn ào khá gây xao nhãng khi họ đang cố gắng học bài. Rất khó tập trung khi xung quanh có quá nhiều tiếng ồn nền. Tuy nhiên, một số người lại học hiệu quả trong bầu không khí hơi rộn ràng một chút, chẳng hạn như quán cà phê có tiếng động nhẹ xung quanh. Tôi đoán điều đó còn tùy vào sở thích cá nhân và dạng bài học mà họ đang làm.",
+    "referenceEn": "Do most people like to study in a noisy place?\n\nNot really, most people find noisy places quite distracting when they're trying to study. It's hard to concentrate with a lot of background noise. However, some people do thrive in a bit of a buzz, like a cafe with some ambient sounds. I guess it depends on personal preference and what kind of study they're doing.",
+    "keywords": [
+      "background noise",
+      "concentrate",
+      "thrive in",
+      "ambient sounds",
+      "personal preference"
+    ]
+  },
+  {
+    "id": "tb_study4_16_p3_q06",
+    "title": "[Study4 #16 • Part 3 Q6] Những ưu điểm và nhược điểm của việc học cùng người khác là gì?",
+    "titleEn": "[Study4 #16 • Part 3 Q6] What are the advantages and disadvantages of studying with other people?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 6: Places (Đô thị & Du lịch)",
+    "unitId": "unit_6_places_(đô_thị_and_du_lịch)",
+    "unitNumber": 6,
+    "topic": "Study4 Q2/2024 • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 96,
+    "textVi": "Những ưu điểm và nhược điểm của việc học cùng người khác là gì?\n\nHọc cùng người khác có một số lợi thế tuyệt vời, như việc có thể chia sẻ tài liệu và giúp nhau hiểu những phần kiến thức hóc búa. Cách học này cũng vui hơn và bớt cảm giác cô độc. Nhưng nó cũng có những mặt hạn chế nữa, chẳng hạn như dễ bị lạc đề bởi các cuộc trò chuyện phiếm hoặc bất đồng về phương pháp học. Cần phải có một chút kỷ luật để giữ đúng tiến độ.",
+    "referenceEn": "What are the advantages and disadvantages of studying with other people?\n\nStudying with others has some great perks, like being able to share resources and help each other understand tricky topics. It's also more fun and less isolating. But, there can be downsides too, like getting sidetracked by conversations or disagreements on study methods. It requires a bit of discipline to stay on track.",
+    "keywords": [
+      "share resources",
+      "tricky topics",
+      "less isolating",
+      "getting sidetracked",
+      "stay on track"
+    ]
+  },
+  {
+    "id": "tb_study4_17_p2",
+    "title": "[Study4 #17 • Part 2] Mô tả một thói quen hằng ngày mà bạn yêu thích",
+    "titleEn": "[Study4 #17 • Part 2] Describe a daily routine that you enjoy (Không ghi Q/năm | Study4 ID 7676)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 2: Behaviour (Hành vi & Cảm xúc)",
+    "unitId": "unit_2_behaviour_(hành_vi_and_cảm_xúc)",
+    "unitNumber": 2,
+    "topic": "Study4 Không ghi Q/năm • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 348,
+    "textVi": "Tôi muốn kể về thói quen buổi sáng của mình, một nhịp sinh hoạt mà tôi thực sự yêu thích và thấy rất có ích cho cả ngày dài. Thông thường, tôi thức dậy vào khoảng 6 giờ sáng và lập tức tập vài động tác giãn cơ nhẹ nhàng để làm ấm cơ thể và sẵn sàng cho ngày mới. Sau đó, tôi tắm nhanh để cảm thấy sảng khoái và tràn đầy năng lượng.\n\nKhi đã thay quần áo xong, tôi thường tự pha một tách cà phê và nhâm nhi trong lúc đọc tin tức hoặc lướt qua vài trang web yêu thích. Tôi thấy khoảng thời gian này vô cùng thư giãn, vì tôi có cơ hội bước vào ngày mới một cách nhẹ nhàng mà vẫn cập nhật được những sự kiện thời sự nóng hổi. Điều này giúp tôi cảm thấy chuẩn bị kỹ càng và tập trung hơn cho một ngày phía trước.\n\nTiếp theo, tôi dành vài phút thiền định hoặc tập vài bài hít thở sâu để giữ tâm trí bình tĩnh và cân bằng. Thói quen này thực sự giúp tôi khởi đầu ngày mới với tâm thế tích cực và định hình bầu không khí dễ chịu cho phần còn lại của cả ngày.\n\nSau đó, tôi chuẩn bị một bữa sáng lành mạnh, thường gồm ít trái cây, sữa chua và bánh mì nướng nguyên cám. Vì thực sự thích nấu nướng, tôi luôn thong thả chuẩn bị bữa ăn và thấy quá trình này mang lại cảm giác thư thái như một liệu pháp tinh thần.\n\nTóm lại, thói quen buổi sáng là điều tôi vô cùng trân trọng, bởi nó giúp tôi thấy tràn đầy năng lượng, tập trung và lạc quan cho ngày phía trước. Sự kết hợp giữa giãn cơ, tắm nhanh, thưởng thức cà phê, đọc tin tức và thiền định, tiếp nối bằng một bữa sáng lành mạnh, tạo nên cảm giác cân bằng và hài hòa vô giá đối với sức khỏe thể chất lẫn tinh thần của tôi.",
+    "referenceEn": "I would like to talk about my morning routine, which I really enjoy and find beneficial to my day. Typically, I wake up at around 6:00 am and immediately do some light stretching exercises to get my body warmed up and ready for the day. After that, I take a quick shower to freshen up and feel energized.\n\nOnce I'm dressed, I usually make myself a cup of coffee and enjoy it while reading the news or browsing my favorite websites. I find this time to be very relaxing, as I have the chance to ease into my day while keeping up with current events. This helps me feel more prepared and focused for the day ahead.\n\nNext, I spend a few minutes meditating or doing some deep breathing exercises to help me stay calm and centered. This really helps me start my day on a positive note, and it sets the tone for the rest of my day.\n\nAfter that, I prepare a healthy breakfast, which usually consists of some fruits, yogurt, and whole-grain toast. I really enjoy cooking, so I take my time preparing the meal, and I find the process to be quite therapeutic.\n\nIn summary, my morning routine is something I really enjoy, as it helps me to feel energized, focused, and positive for the day ahead. The combination of stretching, showering, enjoying coffee, reading, and meditating, followed by a healthy breakfast, creates a sense of balance and harmony that I find invaluable for my physical and mental well-being.",
+    "keywords": [
+      "ease into my day",
+      "keeping up with current events",
+      "stay calm and centered",
+      "start my day on a positive note",
+      "sets the tone",
+      "balance and harmony"
+    ]
+  },
+  {
+    "id": "tb_study4_17_p3_q01",
+    "title": "[Study4 #17 • Part 3 Q1] Trẻ em có nên có thói quen học tập cố định không?",
+    "titleEn": "[Study4 #17 • Part 3 Q1] Should children have learning routines?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 2: Behaviour (Hành vi & Cảm xúc)",
+    "unitId": "unit_2_behaviour_(hành_vi_and_cảm_xúc)",
+    "unitNumber": 2,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 118,
+    "textVi": "Trẻ em có nên có thói quen học tập cố định không?\n\nCó chứ, việc duy trì thói quen học tập có thể mang lại nhiều lợi ích cho trẻ em. Sự nhất quán và nề nếp giúp trẻ hình thành thói quen học tốt cùng tính kỷ luật, từ đó hỗ trợ quá trình phát triển học thuật lẫn cá nhân của các em. Tuy nhiên, điều quan trọng là phải bảo đảm lịch trình ấy không quá cứng nhắc hay căng thẳng, vì điều đó dễ dẫn đến kiệt sức và làm trẻ mất hứng thú học tập. Một sự cân bằng lành mạnh giữa tính khuôn khổ và sự linh hoạt chính là chìa khóa.",
+    "referenceEn": "Should children have learning routines?\n\nYes, it can be beneficial for children to have learning routines. Consistency and structure can help children develop good study habits and discipline, which can aid in their academic and personal development. However, it is important to ensure that the routine is not too rigid or stressful, as this can lead to burnout and a lack of enjoyment in learning. A healthy balance between structure and flexibility is key.",
+    "keywords": [
+      "good study habits",
+      "consistency and structure",
+      "burnout",
+      "lack of enjoyment",
+      "structure and flexibility"
+    ]
+  },
+  {
+    "id": "tb_study4_17_p3_q02",
+    "title": "[Study4 #17 • Part 3 Q2] Thói quen của mọi người khác nhau như thế nào giữa ngày trong tuần và cuối tuần?",
+    "titleEn": "[Study4 #17 • Part 3 Q2] How do people’s routines differ on weekdays and weekends?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 2: Behaviour (Hành vi & Cảm xúc)",
+    "unitId": "unit_2_behaviour_(hành_vi_and_cảm_xúc)",
+    "unitNumber": 2,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 139,
+    "textVi": "Thói quen của mọi người khác nhau như thế nào giữa ngày trong tuần và cuối tuần?\n\nNhịp sinh hoạt của mọi người có thể khác biệt đáng kể giữa ngày thường và dịp cuối tuần. Trong tuần, nhiều người có lịch làm việc hoặc học tập cố định quyết định giờ thức dậy, ăn uống và tham gia các hoạt động khác. Những ngày trong tuần thường có nhịp độ nhanh hơn, ít thời gian rảnh hơn và chú trọng nhiều hơn vào năng suất. Vào cuối tuần, mọi người có thể linh hoạt thời gian biểu hơn và có xu hướng tham gia những hoạt động yêu thích hoặc thư giãn, chẳng hạn như dành thời gian bên gia đình và bạn bè, theo đuổi sở thích cá nhân hay tham gia các hoạt động ngoài trời.",
+    "referenceEn": "How do people’s routines differ on weekdays and weekends?\n\nPeople's routines can differ significantly between weekdays and weekends. During the week, many individuals have set work or school schedules that dictate when they wake up, eat, and engage in other activities. Weekdays are often characterized by a faster pace, with less leisure time and more emphasis on productivity. On weekends, people may have more flexibility in their schedules and tend to engage in activities that they enjoy or find relaxing, such as spending time with family and friends, pursuing hobbies, or engaging in outdoor activities.",
+    "keywords": [
+      "differ significantly",
+      "set work or school schedules",
+      "faster pace",
+      "emphasis on productivity",
+      "pursuing hobbies"
+    ]
+  },
+  {
+    "id": "tb_study4_17_p3_q03",
+    "title": "[Study4 #17 • Part 3 Q3] Việc trẻ em có thời gian biểu nề nếp ở trường mang lại những lợi ích gì?",
+    "titleEn": "[Study4 #17 • Part 3 Q3] What are the advantages of children having a routine at school?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 2: Behaviour (Hành vi & Cảm xúc)",
+    "unitId": "unit_2_behaviour_(hành_vi_and_cảm_xúc)",
+    "unitNumber": 2,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 136,
+    "textVi": "Việc trẻ em có thời gian biểu nề nếp ở trường mang lại những lợi ích gì?\n\nCó một lịch sinh hoạt nề nếp tại trường có thể đem lại nhiều lợi ích thiết thực cho trẻ em. Trước hết, nó giúp các em rèn luyện kỹ năng quản lý thời gian và xây dựng ý thức về trật tự, kỷ luật trong đời sống hằng ngày. Điều này có thể dẫn đến khả năng sắp xếp công việc tốt hơn cũng như giảm bớt cảm giác căng thẳng và lo âu. Bên cạnh đó, một thói quen ổn định còn giúp trẻ hình thành những nếp sống tốt như ăn uống lành mạnh, vận động thường xuyên và ngủ đủ giấc, góp phần cải thiện sức khỏe và hạnh phúc tổng thể của các em.",
+    "referenceEn": "What are the advantages of children having a routine at school?\n\nHaving a routine at school can provide several advantages for children. Firstly, it can help them develop time management skills and establish a sense of structure and discipline in their daily lives. This can lead to better organization and a reduced sense of stress and anxiety. Additionally, a consistent routine can help children establish good habits, such as healthy eating, regular exercise, and adequate sleep, which can improve their overall health and well-being.",
+    "keywords": [
+      "time management skills",
+      "structure and discipline",
+      "stress and anxiety",
+      "adequate sleep",
+      "overall health and well-being"
+    ]
+  },
+  {
+    "id": "tb_study4_17_p3_q04",
+    "title": "[Study4 #17 • Part 3 Q4] Có thời gian biểu ổn định có giúp trẻ cảm thấy an tâm hơn ở trường không?",
+    "titleEn": "[Study4 #17 • Part 3 Q4] Does having a routine make kids feel more secure at school?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 2: Behaviour (Hành vi & Cảm xúc)",
+    "unitId": "unit_2_behaviour_(hành_vi_and_cảm_xúc)",
+    "unitNumber": 2,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 161,
+    "textVi": "Có thời gian biểu ổn định có giúp trẻ cảm thấy an tâm hơn ở trường không?\n\nCó, một lịch trình ổn định có thể khiến trẻ cảm thấy an toàn hơn khi ở trường. Khi biết trước điều gì sắp diễn ra, trẻ sẽ bớt lo âu và cảm giác bất định hơn. Một thời gian biểu rõ ràng cũng giúp tạo dựng ý thức về cấu trúc và trật tự, mang lại cảm giác dễ chịu, an tâm. Bằng việc làm theo một lịch trình dễ đoán, trẻ có thể cảm thấy chủ động kiểm soát môi trường xung quanh và các hoạt động hằng ngày của mình tốt hơn. Điều này giúp các em phát triển tính tự chủ và sự tự tin. Ngoài ra, thói quen nề nếp còn tạo điều kiện thuận lợi cho việc học tập và thành tích học đường nhờ cung cấp một khung sườn rõ ràng cho việc học và thực hành.",
+    "referenceEn": "Does having a routine make kids feel more secure at school?\n\nYes, having a routine can make kids feel more secure at school. When children know what to expect, it can reduce anxiety and uncertainty. A routine can also help establish a sense of structure and order, which can be comforting. By following a predictable routine, children can feel more in control of their environment and their day-to-day activities. This can help them develop a sense of autonomy and confidence. Additionally, a routine can facilitate learning and academic achievement by providing a framework for study and practice.",
+    "keywords": [
+      "reduce anxiety and uncertainty",
+      "sense of structure and order",
+      "predictable routine",
+      "autonomy and confidence",
+      "academic achievement"
+    ]
+  },
+  {
+    "id": "tb_study4_17_p3_q05",
+    "title": "[Study4 #17 • Part 3 Q5] Mọi người thường có những thói quen sinh hoạt nào tại nhà?",
+    "titleEn": "[Study4 #17 • Part 3 Q5] What daily routines do people have at home?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 2: Behaviour (Hành vi & Cảm xúc)",
+    "unitId": "unit_2_behaviour_(hành_vi_and_cảm_xúc)",
+    "unitNumber": 2,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 115,
+    "textVi": "Mọi người thường có những thói quen sinh hoạt nào tại nhà?\n\nThói quen sinh hoạt hằng ngày tại nhà có thể thay đổi tùy theo lối sống và ưu tiên của từng cá nhân. Một số nếp sinh hoạt phổ biến bao gồm thức dậy vào một khung giờ nhất định, ăn sáng, thay đồ rồi đi làm hoặc đi học. Những người khác có thể có các việc riêng như làm việc nhà, tập thể dục theo lịch hoặc luyện chơi một loại nhạc cụ. Vào buổi tối, mọi người có thể ăn tối, quây quần bên gia đình, xem tivi hoặc theo đuổi sở thích như đọc sách hay chơi trò chơi.",
+    "referenceEn": "What daily routines do people have at home?\n\nDaily routines at home can vary depending on the individual's lifestyle and priorities. Some common routines include waking up at a certain time, having breakfast, getting dressed, and commuting to work or school. Others may have specific tasks such as household chores, exercise routines, or practicing a musical instrument. In the evening, people may have dinner, spend time with family, watch television, or engage in hobbies such as reading or playing games.",
+    "keywords": [
+      "lifestyle and priorities",
+      "commuting to work or school",
+      "household chores",
+      "practicing a musical instrument",
+      "engage in hobbies"
+    ]
+  },
+  {
+    "id": "tb_study4_17_p3_q06",
+    "title": "[Study4 #17 • Part 3 Q6] Thói quen hằng ngày của con người hiện nay khác gì so với 15 năm trước?",
+    "titleEn": "[Study4 #17 • Part 3 Q6] What are the differences between people’s daily routines now and in the last 15 years?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 2: Behaviour (Hành vi & Cảm xúc)",
+    "unitId": "unit_2_behaviour_(hành_vi_and_cảm_xúc)",
+    "unitNumber": 2,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 147,
+    "textVi": "Thói quen hằng ngày của con người hiện nay khác gì so với 15 năm trước?\n\nNhững tiến bộ công nghệ đã tác động sâu sắc tới thói quen hằng ngày của con người trong 15 năm qua. Với sự trỗi dậy của điện thoại thông minh và các thiết bị di động khác, mọi người giờ đây kết nối nhiều hơn bao giờ hết, đồng thời nhịp sinh hoạt hằng ngày cũng gấp gáp hơn và liên tục thay đổi. Mạng xã hội và các dịch vụ phát trực tuyến đã trở thành một phần của đời sống thường nhật, khiến con người dành thời gian ở trong nhà nhiều hơn trước đây. Thêm vào đó, làm việc từ xa và lịch trình linh hoạt ngày càng phổ biến, cho phép mọi người kiểm soát chủ động hơn đối với thói quen hằng ngày của mình.",
+    "referenceEn": "What are the differences between people’s daily routines now and in the last 15 years?\n\nThe advancements in technology have significantly impacted people's daily routines in the last 15 years. With the rise of smartphones and other portable devices, people are now more connected than ever before, and their daily routines are more fast-paced and constantly changing. Social media and streaming services have become a part of daily life, and people spend more time indoors than ever before. Additionally, remote work and flexible schedules have become more common, allowing people to have more control over their daily routines.",
+    "keywords": [
+      "advancements in technology",
+      "portable devices",
+      "fast-paced",
+      "streaming services",
+      "remote work"
+    ]
+  },
+  {
+    "id": "tb_study4_18_p2",
+    "title": "[Study4 #18 • Part 2] Mô tả một điều bạn muốn học trong tương lai",
+    "titleEn": "[Study4 #18 • Part 2] Describe something you would like to learn in the future (Không ghi Q/năm | Study4 ID 7666)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 274,
+    "textVi": "Tôi muốn học cách chơi một loại nhạc cụ, cụ thể là đàn ghi-ta. Âm nhạc luôn là một phần quan trọng trong cuộc sống của tôi, và tôi rất trân trọng tính nghệ thuật cũng như kỹ năng tinh tế để chơi được một nhạc cụ. Tôi nghĩ học chơi ghi-ta sẽ là một cách tuyệt vời để bộc lộ bản thân một cách sáng tạo và mang lại cảm giác viên mãn.\n\nĐể đạt được mục tiêu này, tôi dự định đăng ký các buổi học bài bản với một giảng viên ghi-ta có trình độ chuyên môn. Tôi tin rằng việc có một môi trường học tập có cấu trúc rõ ràng cùng người thầy giỏi sẽ là cách tốt nhất để tiến bộ và nâng cao kỹ năng. Tôi cũng sẽ tự luyện tập đều đặn ở nhà nhằm củng cố những gì được học trên lớp và xây dựng phản xạ ghi nhớ của cơ bắp.\n\nBên cạnh đó, tôi có kế hoạch tận dụng các nguồn tài nguyên trực tuyến như video hướng dẫn và diễn đàn học đàn để bổ trợ cho quá trình học. Tôi nghĩ điều này sẽ giúp mình duy trì sự hứng thú với việc luyện tập và hiểu sâu hơn về cây đàn ghi-ta cùng nhiều kỹ thuật đa dạng của nó.\n\nNhìn chung, tôi tin rằng học chơi ghi-ta sẽ là một nỗ lực đầy thử thách nhưng vô cùng xứng đáng. Nó sẽ cho phép tôi mở rộng tầm nhìn và trau dồi một kỹ năng mới mang lại niềm vui cùng sự thỏa mãn cho cuộc sống của mình.",
+    "referenceEn": "I would like to learn how to play a musical instrument, specifically the guitar. Music has always been an important part of my life, and I have a great appreciation for the artistry and skill that goes into playing an instrument. I think learning to play the guitar would be an excellent way to express myself creatively and provide a sense of fulfillment.\n\nTo achieve this goal, I plan to take formal lessons with a qualified guitar instructor. I believe that having a structured learning environment with a skilled teacher will be the best way to make progress and improve my skills. I would also practice regularly on my own to reinforce what I learn in the lessons and build up muscle memory.\n\nIn addition, I plan to use online resources such as instructional videos and forums to supplement my learning. I think this will help me to stay engaged with the process and gain a deeper understanding of the guitar and its various techniques.\n\nOverall, I believe that learning to play the guitar would be a challenging yet rewarding endeavor. It would allow me to expand my horizons and develop a new skill that would bring joy and fulfillment to my life.",
+    "keywords": [
+      "express myself creatively",
+      "sense of fulfillment",
+      "qualified guitar instructor",
+      "build up muscle memory",
+      "supplement my learning",
+      "expand my horizons"
+    ]
+  },
+  {
+    "id": "tb_study4_18_p3_q01",
+    "title": "[Study4 #18 • Part 3 Q1] Điều gì đang được mọi người ưa chuộng học nhất hiện nay?",
+    "titleEn": "[Study4 #18 • Part 3 Q1] What’s the most popular thing to learn nowadays?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 139,
+    "textVi": "Điều gì đang được mọi người ưa chuộng học nhất hiện nay?\n\nĐiều phổ biến nhất để học hiện nay thay đổi tùy theo từng cá nhân và mối quan tâm của họ. Tuy nhiên, một số lĩnh vực thu hút nhiều người học bao gồm công nghệ và lập trình máy tính, bởi kỹ năng số ngày càng trở nên thiết yếu trong lực lượng lao động ngày nay. Những mảng học phổ biến khác gồm ngoại ngữ, khi toàn cầu hóa tiếp tục mở rộng và thế giới ngày càng gắn kết chặt chẽ hơn. Ngoài ra, nhiều người cũng quan tâm tới việc hoàn thiện bản thân, phát triển cá nhân và chăm sóc sức khỏe toàn diện, dẫn đến sự gia tăng hứng thú với các bộ môn như thiền định, yoga và chánh niệm.",
+    "referenceEn": "What’s the most popular thing to learn nowadays?\n\nThe most popular thing to learn nowadays varies depending on the individual and their interests. However, some popular areas of learning include technology and computer programming, as digital skills are becoming increasingly important in today's workforce. Other popular areas of learning include foreign languages, as globalization continues to expand and the world becomes more interconnected. Additionally, many people are interested in self-improvement, personal growth, and wellness, leading to an increased interest in areas such as meditation, yoga, and mindfulness.",
+    "keywords": [
+      "computer programming",
+      "digital skills",
+      "globalization",
+      "interconnected",
+      "mindfulness"
+    ]
+  },
+  {
+    "id": "tb_study4_18_p3_q02",
+    "title": "[Study4 #18 • Part 3 Q2] Trẻ em nên bắt đầu tự đưa ra quyết định ở độ tuổi nào? Tại sao?",
+    "titleEn": "[Study4 #18 • Part 3 Q2] At what age should children start making their own decisions? Why?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 153,
+    "textVi": "Trẻ em nên bắt đầu tự đưa ra quyết định ở độ tuổi nào? Tại sao?\n\nĐộ tuổi mà trẻ em nên bắt đầu tự ra quyết định khác nhau tùy thuộc vào các yếu tố như văn hóa, cách nuôi dạy và sự phát triển riêng của từng em. Nhìn chung, khi trẻ lớn lên và trưởng thành hơn, các em nên được trao nhiều cơ hội hơn để đưa ra những lựa chọn phù hợp với lứa tuổi và mức độ trách nhiệm của mình. Nhờ vậy, trẻ có thể rèn luyện kỹ năng ra quyết định quan trọng, học hỏi từ sai lầm và xây dựng sự tự tin vào năng lực bản thân. Tuy nhiên, cha mẹ và người chăm sóc vẫn cần định hướng, hỗ trợ trong quá trình ấy và đặt ra những giới hạn phù hợp nhằm bảo đảm an toàn và sức khỏe cho trẻ.",
+    "referenceEn": "At what age should children start making their own decisions? Why?\n\nThe age at which children should start making their own decisions varies based on factors such as culture, upbringing, and individual development. Generally, as children grow and mature, they should be given increasing opportunities to make decisions that are appropriate to their age and level of responsibility. By doing so, children can develop critical decision-making skills, learn from mistakes, and build confidence in their abilities. However, it is important for parents and caregivers to provide guidance and support in the decision-making process, and to set appropriate boundaries to ensure the child's safety and well-being.",
+    "keywords": [
+      "upbringing",
+      "level of responsibility",
+      "decision-making skills",
+      "learn from mistakes",
+      "appropriate boundaries"
+    ]
+  },
+  {
+    "id": "tb_study4_18_p3_q03",
+    "title": "[Study4 #18 • Part 3 Q3] Thu nhập hay sở thích tác động nhiều hơn tới người trẻ khi chọn ngành học?",
+    "titleEn": "[Study4 #18 • Part 3 Q3] Which influences young people more when choosing a course, income or interest?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 165,
+    "textVi": "Thu nhập hay sở thích tác động nhiều hơn tới người trẻ khi chọn ngành học?\n\nKhi lựa chọn một khóa học, người trẻ có thể chịu ảnh hưởng từ nhiều yếu tố khác nhau, trong đó có cả thu nhập lẫn đam mê cá nhân. Dù thu nhập là một khía cạnh đáng cân nhắc, sở thích thường đóng vai trò quan trọng hơn. Theo đuổi ngành học phù hợp với mối quan tâm và đam mê của bản thân có thể mang lại sự hài lòng trong công việc và ý thức về mục đích sống rõ rệt hơn. Tuy nhiên, yếu tố tài chính cũng không thể xem nhẹ, nhất là khi chi phí giáo dục hiện nay rất đắt đỏ. Cuối cùng, đây là bài toán cân bằng giữa hai yếu tố, đòi hỏi mỗi cá nhân phải cân nhắc các ưu tiên và đưa ra quyết định sáng suốt dựa trên hoàn cảnh cùng mục tiêu nghề nghiệp tương lai.",
+    "referenceEn": "Which influences young people more when choosing a course, income or interest?\n\nWhen choosing a course, young people can be influenced by a variety of factors, including income and interest. While income may be an important consideration, interest is often the more significant factor. Pursuing a course of study that aligns with one's interests and passions can provide greater job satisfaction and a sense of purpose. However, financial considerations cannot be ignored, especially given the high cost of education. Ultimately, it is a balancing act between the two, and individuals need to weigh their priorities and make informed decisions based on their circumstances and future career goals.",
+    "keywords": [
+      "important consideration",
+      "job satisfaction",
+      "sense of purpose",
+      "balancing act",
+      "weigh their priorities"
+    ]
+  },
+  {
+    "id": "tb_study4_18_p3_q04",
+    "title": "[Study4 #18 • Part 3 Q4] Người trẻ có nghe theo lời khuyên của cha mẹ khi chọn chuyên ngành không?",
+    "titleEn": "[Study4 #18 • Part 3 Q4] Do young people take their parents’ advice when choosing a major?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 133,
+    "textVi": "Người trẻ có nghe theo lời khuyên của cha mẹ khi chọn chuyên ngành không?\n\nĐiều này tùy thuộc vào nhiều yếu tố như mối quan hệ giữa cá nhân với cha mẹ, bối cảnh văn hóa và hoài bão riêng của mỗi người. Một số bạn trẻ có thể tìm đến và trân trọng lời khuyên của cha mẹ khi chọn chuyên ngành, đặc biệt nếu phụ huynh có chuyên môn trong một lĩnh vực liên quan. Ngược lại, nhiều người khác lại đặt sở thích và khát vọng cá nhân lên hàng đầu, bỏ qua ý kiến đóng góp từ gia đình. Nhìn chung, dù lời khuyên của cha mẹ rất có giá trị, người trẻ thường tự đưa ra lựa chọn cuối cùng khi quyết định chuyên ngành theo học.",
+    "referenceEn": "Do young people take their parents’ advice when choosing a major?\n\nIt depends on various factors such as the individual's relationship with their parents, cultural background, and personal ambitions. Some young people may seek and value their parents' advice when choosing a major, especially if their parents have expertise in a relevant field. However, others may prioritize their own interests and aspirations, disregarding parental input. Overall, while parents' advice can be valuable, young people often make their own choices when it comes to choosing a major.",
+    "keywords": [
+      "cultural background",
+      "personal ambitions",
+      "expertise",
+      "aspirations",
+      "parental input"
+    ]
+  },
+  {
+    "id": "tb_study4_18_p3_q05",
+    "title": "[Study4 #18 • Part 3 Q5] Ngoài cha mẹ, mọi người thường tìm lời khuyên từ những ai khác?",
+    "titleEn": "[Study4 #18 • Part 3 Q5] Besides parents, who else would people take advice from?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 147,
+    "textVi": "Ngoài cha mẹ, mọi người thường tìm lời khuyên từ những ai khác?\n\nCó nhiều đối tượng mà mọi người có thể tìm đến để xin lời khuyên ngoài cha mẹ mình. Bạn bè và người thân trong gia đình có thể mang lại sự động viên và chỉ dẫn dựa trên trải nghiệm cá nhân của họ. Những người làm chuyên môn như giáo viên, chuyên viên tư vấn hay huấn luyện viên có thể đưa ra lời khuyên chuyên sâu và kiến thức đặc thù trong từng lĩnh vực cụ thể. Người cố vấn hoặc hình mẫu lý tưởng cũng đem lại góc nhìn và sự thấu hiểu quý giá về phát triển nghề nghiệp lẫn bản thân. Ngoài ra, mọi người còn có thể tìm đến tài nguyên trực tuyến, sách báo hoặc podcast để thu thập thông tin và tham khảo ý kiến.",
+    "referenceEn": "Besides parents, who else would people take advice from?\n\nThere are several people from whom individuals may seek advice besides their parents. Friends and family members can provide support and guidance based on their personal experiences. Professionals such as teachers, counselors, or coaches can offer expert advice and specialized knowledge in specific areas. Mentors or role models can provide valuable insight and perspective on career and personal development. Also, people may turn to online resources, books, or podcasts to gather information and seek advice.",
+    "keywords": [
+      "support and guidance",
+      "counselors",
+      "specialized knowledge",
+      "role models",
+      "valuable insight"
+    ]
+  },
+  {
+    "id": "tb_study4_18_p3_q06",
+    "title": "[Study4 #18 • Part 3 Q6] Tại sao một số người thích học một mình hơn?",
+    "titleEn": "[Study4 #18 • Part 3 Q6] Why do some people prefer to study alone?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 131,
+    "textVi": "Tại sao một số người thích học một mình hơn?\n\nCó thể có nhiều lý do giải thích vì sao một số người ưa chuộng việc tự học một mình. Trước hết, học một mình cho phép mỗi cá nhân tự thiết lập nhịp độ và thời gian biểu riêng, điều này rất có lợi cho những ai làm việc hiệu quả hơn trong không gian yên tĩnh và tập trung. Thứ hai, việc học độc lập giúp giảm bớt sự phân tâm và gián đoạn từ người khác, qua đó tăng khả năng tập trung và ghi nhớ thông tin tốt hơn. Cuối cùng, một số người đơn giản chỉ cảm thấy việc học một mình thoải mái và tự nhiên hơn đối với cách tiếp thu của bản thân.",
+    "referenceEn": "Why do some people prefer to study alone?\n\nThere could be several reasons why some people prefer to study alone. Firstly, studying alone allows individuals to set their own pace and schedule, which can be beneficial for those who work better in a quiet and focused environment. Secondly, studying alone can reduce distractions and interruptions from others, allowing for better concentration and retention of information. Finally, some people may simply prefer to study alone as it can be a more comfortable and natural way for them to learn.",
+    "keywords": [
+      "set their own pace",
+      "focused environment",
+      "distractions and interruptions",
+      "retention of information",
+      "comfortable and natural"
+    ]
+  },
+  {
+    "id": "tb_study4_19_p2",
+    "title": "[Study4 #19 • Part 2] Mô tả một quảng cáo hay mà bạn thấy hữu ích",
+    "titleEn": "[Study4 #19 • Part 2] Describe a good advertisement that you think is useful (Không ghi Q/năm | Study4 ID 9814)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 345,
+    "textVi": "Một quảng cáo mà tôi thấy đặc biệt hữu ích là chiến dịch \"Những cách chết ngớ ngẩn\" (Dumb Ways to Die) của hãng tàu Metro Trains tại Melbourne, Úc. Thông điệp tuyên truyền cộng đồng này cổ vũ an toàn đường sắt theo một cách vô cùng sáng tạo.\n\nĐoạn quảng cáo sử dụng một bài hát bắt tai và hài hước đi kèm với các nhân vật hoạt hình tham gia vào đủ kiểu hành động tai hại đến mức buồn cười, dẫn tới những cái chết phi lý và dở khóc dở cười. Thông điệp truyền tải rất rõ ràng: \"Hãy cẩn thận quanh khu vực tàu hỏa. Thông điệp từ Metro.\"\n\nĐiều làm nên hiệu quả của quảng cáo này là khả năng truyền tải một lời cảnh báo an toàn nghiêm túc theo cách giải trí và dễ ghi nhớ. Nó lập tức thu hút sự chú ý của người xem và để lại ấn tượng sâu sắc. Hơn thế nữa, giai điệu ngắn ấy bắt tai đến mức rất khó quên, đóng vai trò như lời nhắc nhở thường trực phải thận trọng khi ở gần đường ray.\n\nViệc quảng cáo vận dụng yếu tố hài hước, các tình huống dễ đồng cảm và dàn nhân vật đáng nhớ đã giúp nó trở nên phổ biến rộng rãi và được chia sẻ liên tục trên mạng xã hội. Chiến dịch đã nâng cao nhận thức về an toàn tàu hỏa một cách thành công cho nhiều nhóm khán giả đa dạng, từ trẻ nhỏ tới người lớn.\n\nGiữa một thế giới tràn ngập những mẫu quảng cáo chóng quên, \"Dumb Ways to Die\" nổi bật lên như một ví dụ xuất sắc về việc kết hợp sáng tạo và hài hước để truyền đạt thông điệp thiết yếu. Nó hòa quyện hiệu quả giữa tính giải trí với lời nhắn nhủ an toàn mạnh mẽ, khiến chiến dịch không chỉ hữu ích mà còn có sức lan tỏa cao trong việc thúc đẩy ý thức an toàn đường sắt.",
+    "referenceEn": "One advertisement that I find exceptionally useful is the \"Dumb Ways to Die\" campaign by Metro Trains in Melbourne, Australia. This public service announcement creatively promotes train safety.\n\nThe advertisement features a catchy and humorous song accompanied by animated characters engaging in various comically disastrous activities, leading to their untimely and absurd deaths. The message is clear: \"Be Safe Around Trains. A message from Metro.\"\n\nWhat makes this advertisement effective is its ability to convey a serious safety message in an entertaining and memorable way. It grabs the viewer's attention and leaves a lasting impression. Moreover, the jingle is so catchy that it becomes difficult to forget, serving as a constant reminder to be cautious around trains.\n\nThe advertisement's use of humor, relatable scenarios, and memorable characters has made it widely popular and shareable on social media. It has successfully raised awareness about train safety among a diverse audience, from children to adults.\n\nIn a world filled with forgettable advertisements, \"Dumb Ways to Die\" stands out as a brilliant example of using creativity and humor to convey a vital message. It effectively combines entertainment with a powerful safety message, making it not only useful but also highly impactful in promoting train safety awareness.",
+    "keywords": [
+      "public service announcement",
+      "catchy and humorous song",
+      "leaves a lasting impression",
+      "constant reminder",
+      "relatable scenarios",
+      "raised awareness"
+    ]
+  },
+  {
+    "id": "tb_study4_19_p3_q01",
+    "title": "[Study4 #19 • Part 3 Q1] Bạn nghĩ sao về quảng cáo trực tuyến?",
+    "titleEn": "[Study4 #19 • Part 3 Q1] What do you think of online advertising?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 143,
+    "textVi": "Bạn nghĩ sao về quảng cáo trực tuyến?\n\nQuảng cáo trực tuyến có cả mặt tích cực lẫn hạn chế. Nó rất hiệu quả trong việc tiếp cận lượng khán giả rộng lớn và nhắm đúng các nhóm nhân khẩu học cụ thể. Tuy nhiên, quảng cáo xuất hiện quá dày đặc có thể gây xâm phạm và phiền toái. Những lo ngại về quyền riêng tư cũng phát sinh do hoạt động theo dõi dữ liệu người dùng. Một số quảng cáo trực tuyến mang tính cung cấp thông tin và lôi cuốn, trong khi số khác lại gây gián đoạn trải nghiệm. Vì vậy, điều quan trọng là các nhà quảng cáo cần giữ sự cân bằng, còn người tiêu dùng có quyền kiểm soát trải nghiệm mạng của mình thông qua trình chặn quảng cáo và cài đặt riêng tư.",
+    "referenceEn": "What do you think of online advertising?\n\nOnline advertising has both pros and cons. It's effective for reaching a wide audience and targeting specific demographics. However, excessive ads can be intrusive and annoying. Privacy concerns also arise due to data tracking. Some online ads are informative and engaging, while others are disruptive. Therefore, it's important for advertisers to strike a balance and for consumers to have control over their online experience through ad-blockers and privacy settings.",
+    "keywords": [
+      "specific demographics",
+      "intrusive and annoying",
+      "data tracking",
+      "disruptive",
+      "strike a balance"
+    ]
+  },
+  {
+    "id": "tb_study4_19_p3_q02",
+    "title": "[Study4 #19 • Part 3 Q2] Hiện nay có những quảng cáo trực tuyến nào thực sự xuất sắc không?",
+    "titleEn": "[Study4 #19 • Part 3 Q2] Are there any great online advertisements?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 130,
+    "textVi": "Hiện nay có những quảng cáo trực tuyến nào thực sự xuất sắc không?\n\nCó chứ, hiện có rất nhiều quảng cáo trực tuyến đặc sắc. Những chiến dịch này thường kết hợp sự sáng tạo, nghệ thuật kể chuyện và sự đồng điệu cảm xúc để thu hút sự chú ý của người xem và để lại dấu ấn lâu dài. Các quảng cáo trực tuyến thành công có thể khơi gợi cảm xúc mạnh mẽ, truyền tải thông điệp sâu sắc và quảng bá hiệu quả cho sản phẩm hoặc các chiến dịch cộng đồng. Nhiều doanh nghiệp và tổ chức thường đầu tư vào những mẫu quảng cáo mới mẻ, đáng nhớ để gắn kết với nhóm khách hàng mục tiêu trong kỷ nguyên số ngày nay.",
+    "referenceEn": "Are there any great online advertisements?\n\nYes, there are numerous outstanding online advertisements. These ads often combine creativity, storytelling, and emotional resonance to capture viewers' attention and leave a lasting impact. Successful online advertisements can evoke strong emotions, convey powerful messages, and effectively promote products or causes. Companies and organizations often invest in innovative and memorable online ads to engage their target audience in today's digital age.",
+    "keywords": [
+      "emotional resonance",
+      "leave a lasting impact",
+      "evoke strong emotions",
+      "target audience",
+      "digital age"
+    ]
+  },
+  {
+    "id": "tb_study4_19_p3_q03",
+    "title": "[Study4 #19 • Part 3 Q3] Mọi người thường mua những gì?",
+    "titleEn": "[Study4 #19 • Part 3 Q3] What do people usually buy?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 123,
+    "textVi": "Mọi người thường mua những gì?\n\nMọi người thường mua sắm rất đa dạng hàng hóa và dịch vụ tùy thuộc vào nhu cầu lẫn sở thích cá nhân. Các khoản mua phổ biến gồm thực phẩm, quần áo, đồ điện tử, vật dụng gia đình và sản phẩm chăm sóc cá nhân. Bên cạnh đó, người dân cũng thường chi tiêu cho giải trí, đi lại và chăm sóc sức khỏe. Lựa chọn mua sắm khác nhau rất nhiều giữa từng cá nhân, chịu ảnh hưởng bởi các yếu tố như thu nhập, lối sống và chuẩn mực văn hóa. Thói quen mua sắm cũng có thể thay đổi theo thời gian nhằm thích ứng với hoàn cảnh và ưu tiên mới.",
+    "referenceEn": "What do people usually buy?\n\nPeople typically buy a wide range of goods and services, depending on their needs and preferences. Common purchases include food, clothing, electronics, household items, and personal care products. Additionally, people often spend on entertainment, transportation, and healthcare. The choice of purchases varies greatly among individuals, influenced by factors such as income, lifestyle, and cultural norms. Shopping habits may also evolve over time in response to changing circumstances and priorities.",
+    "keywords": [
+      "goods and services",
+      "personal care products",
+      "cultural norms",
+      "shopping habits",
+      "changing circumstances"
+    ]
+  },
+  {
+    "id": "tb_study4_19_p3_q04",
+    "title": "[Study4 #19 • Part 3 Q4] Tại sao việc mua sắm đồ mới lại khiến con người cảm thấy vui?",
+    "titleEn": "[Study4 #19 • Part 3 Q4] Why does buying new things make people happy?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 131,
+    "textVi": "Tại sao việc mua sắm đồ mới lại khiến con người cảm thấy vui?\n\nMua sắm đồ mới thường mang lại niềm vui vì nó kích thích cảm giác mới lạ và phấn khích. Sự háo hức chờ đợi được sử dụng hoặc sở hữu một món đồ mới có thể đem lại cảm giác dễ chịu. Hơn nữa, những tài sản mới có thể đáp ứng mong muốn, tăng thêm sự tiện nghi hoặc cải thiện sinh hoạt hằng ngày, tạo ra cảm giác hài lòng. Tuy nhiên, niềm vui này thường chỉ tồn tại ngắn ngủi vì nó dễ phai nhạt một khi sự mới mẻ qua đi, qua đó cho thấy tầm quan trọng của việc tìm kiếm những nguồn hạnh phúc bền vững hơn trong cuộc sống.",
+    "referenceEn": "Why does buying new things make people happy?\n\nBuying new things often brings happiness because it triggers a sense of novelty and excitement. The anticipation of using or owning something new can be pleasurable. Moreover, new possessions can fulfill desires, enhance comfort, or improve daily life, creating a sense of satisfaction. However, this happiness can be short-lived, as it may fade once the novelty wears off, highlighting the importance of finding more lasting sources of contentment in life.",
+    "keywords": [
+      "novelty and excitement",
+      "anticipation",
+      "fulfill desires",
+      "short-lived",
+      "wears off"
+    ]
+  },
+  {
+    "id": "tb_study4_19_p3_q05",
+    "title": "[Study4 #19 • Part 3 Q5] Trong thời đại ngày nay, mọi người có còn xem những quảng cáo vô ích không?",
+    "titleEn": "[Study4 #19 • Part 3 Q5] Do people watch useless advertising in this day and age?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 138,
+    "textVi": "Trong thời đại ngày nay, mọi người có còn xem những quảng cáo vô ích không?\n\nTrong kỷ nguyên số này, người xem nhìn chung đã trở nên tinh tường và chọn lọc hơn trước các quảng cáo họ tiếp xúc. Họ thường bấm bỏ qua hoặc phớt lờ những quảng cáo thiếu liên quan hay gây khó chịu. Quảng cáo hiệu quả ngày nay có xu hướng nhắm đúng đối tượng, sát với nhu cầu và không làm phiền, tập trung mang lại giá trị cho người xem. Dẫu vậy, một số quảng cáo kém phù hợp hoặc gây bực mình vẫn có thể xuất hiện trước mắt người dùng, nhưng chúng khó lòng giữ được sự chú ý trong bối cảnh người tiêu dùng nắm nhiều quyền kiểm soát hơn đối với nội dung mình xem.",
+    "referenceEn": "Do people watch useless advertising in this day and age?\n\nIn this digital age, people are generally more discerning about the advertisements they engage with. They often skip or ignore irrelevant or intrusive ads. Effective advertising today tends to be targeted, relevant, and non-intrusive, focusing on providing value to the viewer. However, some less-relevant or annoying ads may still reach people, but they are less likely to hold their attention in a world where consumers have more control over what they see.",
+    "keywords": [
+      "discerning",
+      "skip or ignore",
+      "non-intrusive",
+      "providing value",
+      "hold their attention"
+    ]
+  },
+  {
+    "id": "tb_study4_20_p2",
+    "title": "[Study4 #20 • Part 2] Mô tả một món đồ đắt tiền bạn từng mua và thấy hối tiếc",
+    "titleEn": "[Study4 #20 • Part 2] Describe an expensive item that you bought and regretted (Không ghi Q/năm | Study4 ID 5948)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 263,
+    "textVi": "Thực ra trong đời mình, tôi đã thực hiện nhiều giao dịch mua bán khác nhau mang lại cả cảm giác hài lòng lẫn sự bất mãn. Tuy nhiên, nếu phải chọn ra một món đồ thực sự khiến tôi thất vọng, tôi sẽ kể về chiếc bánh sinh nhật mà tôi mua cho em gái cách đây 2 năm. Giờ nhắc tới lý do vì sao tôi không hài lòng với nó, tôi nghĩ có một sự kết hợp của nhiều nguyên nhân ở đây. Một trong số đó là mức giá đắt đỏ cắt cổ của chiếc bánh. Vào đúng ngày sinh nhật em gái, tôi gặp sự cố khẩn cấp ở chỗ làm và mất gần cả ngày đến tận 11 giờ đêm mới giải quyết xong. Dù phải bỏ ra một khoản tiền rất lớn để mua chiếc bánh, tôi vẫn quyết định lấy vì đó là tiệm bánh duy nhất còn mở cửa muộn đến vậy. Mọi chuyện hẳn đã ổn nếu nó có hương vị ngon, nhưng đáng tiếc chiếc bánh lại có chất lượng tệ hại. Nó ngọt gắt quá mức và hoàn toàn chẳng ngon miệng chút nào. Vì thế, tôi thấy khá hối hận khi chọn mua chiếc bánh đó thay vì bất kỳ món quà nào khác cho em gái. Thật sự là sau lần phải vung tiền mua chiếc bánh mà chẳng nhận lại được giá trị gì tương xứng, kể từ đó tôi có xu hướng cẩn trọng hơn để đưa ra những quyết định mua sắm thực sự khôn ngoan.",
+    "referenceEn": "Actually in my life, I have performed many different transactions which give me both a sense of satisfaction and discontent. However if I have to pick out one item that really let me down, I would name the birthday cake that I bought for my sister 2 years ago. Now with reference to why I was not content with it, I suppose there was a combination of reasons here. One of them was its exorbitant price. On my sister's birthday, I had an emergency at work and it took me almost all day till 11 pm to resolve it. Although it cost me an arm and a leg to buy the cake, I still decided to take it since it was the only bakery shop that stayed open that late. Everything would be fine if it tasted good but unfortunately the cake was of terrible quality. It tasted way too sweet and was not appetizing at all. Thus, I was kind of regretful, choosing to purchase the cake instead of any other present for my sister. Actually as I had to splash out on the cake and received almost nothing back, I tended to be more careful to make really sensible buying decisions from then on.",
+    "keywords": [
+      "sense of satisfaction and discontent",
+      "exorbitant price",
+      "cost me an arm and a leg",
+      "splash out on",
+      "sensible buying decisions"
+    ]
+  },
+  {
+    "id": "tb_study4_20_p3_q01",
+    "title": "[Study4 #20 • Part 3 Q1] Bạn có thường mua nhiều hơn mức mình dự tính không?",
+    "titleEn": "[Study4 #20 • Part 3 Q1] Do you often buy more than you expected?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 92,
+    "textVi": "Bạn có thường mua nhiều hơn mức mình dự tính không?\n\nCó chứ, tôi thường mua nhiều hơn dự kiến, nhưng thông thường chỉ xảy ra với các vật dụng gia đình nhỏ hoặc đồ tạp hóa hằng ngày. Chẳng hạn, tôi sẽ mua hẳn hai chiếc quần jeans nếu chúng đang có chương trình giảm giá, ngay cả khi tôi chỉ thực sự cần một chiếc. Chiếc điện thoại tôi đang dùng là lần đầu tiên tôi chi tiêu vượt quá mức đáng lẽ mình nên bỏ ra nhiều đến thế.",
+    "referenceEn": "Do you often buy more than you expected?\n\nYes, I often buy more than I expected, but it is normally in the case of small household items or grocery items. For example, I would buy 2 pairs of jeans if they are on an offer, even if I need just one. The phone that I am using was the first time I spent so much more than I should have spent.",
+    "keywords": [
+      "household items",
+      "grocery items",
+      "on an offer",
+      "spent so much more"
+    ]
+  },
+  {
+    "id": "tb_study4_20_p3_q02",
+    "title": "[Study4 #20 • Part 3 Q2] Theo bạn, giới trẻ thường chi phần lớn tiền bạc vào những thứ gì?",
+    "titleEn": "[Study4 #20 • Part 3 Q2] What do you think young people spend most of their money on?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "short",
+    "wordCountVi": 73,
+    "textVi": "Theo bạn, giới trẻ thường chi phần lớn tiền bạc vào những thứ gì?\n\nTôi nghĩ người trẻ thường dồn tiền mua quần áo và các phụ kiện thời trang khác như thắt lưng, giày dép hay túi xách. Ngoài ra, tôi thấy rất nhiều bạn trẻ chi tiêu mạnh tay cho các thiết bị công nghệ hiện đại như điện thoại di động, máy tính xách tay và tai nghe không dây.",
+    "referenceEn": "What do you think young people spend most of their money on?\n\nI think young people spend their money on clothes and other fashion accessories like belts, shoes, etc. Also, I think a lot of youth spend their money on gadgets like mobile phones, laptops, and headphones.",
+    "keywords": [
+      "fashion accessories",
+      "spend their money on",
+      "gadgets",
+      "mobile phones, laptops, and headphones"
+    ]
+  },
+  {
+    "id": "tb_study4_20_p3_q03",
+    "title": "[Study4 #20 • Part 3 Q3] Bạn có cho rằng tiết kiệm tiền là điều quan trọng không? Tại sao?",
+    "titleEn": "[Study4 #20 • Part 3 Q3] Do you think it is important to save money? Why?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 108,
+    "textVi": "Bạn có cho rằng tiết kiệm tiền là điều quan trọng không? Tại sao?\n\nCó, tôi cho rằng việc tiết kiệm tiền là vô cùng thiết yếu vì chúng ta không bao giờ có thể chắc chắn về tương lai phía trước. Đại dịch Corona gần đây càng cho thấy rõ cuộc sống bấp bênh đến nhường nào. Nhiều người đã qua đời vì họ không đủ khả năng chi trả chi phí chăm sóc y tế đắt đỏ. Hơn nữa, nếu mọi người không có sẵn tiền tiết kiệm dự phòng, họ sẽ không thể nào xoay xở vượt qua những giai đoạn khốn khó như vậy.",
+    "referenceEn": "Do you think it is important to save money? Why?\n\nYes, I think it is crucial as we can never be certain about the future. The recent Corona epidemic has made it even more clear how uncertain life is. Many people died because they couldn't afford the costly healthcare. Also, if people didn't have savings, it would have been impossible to tide over these difficult times.",
+    "keywords": [
+      "crucial",
+      "uncertain life is",
+      "costly healthcare",
+      "tide over"
+    ]
+  },
+  {
+    "id": "tb_study4_20_p3_q04",
+    "title": "[Study4 #20 • Part 3 Q4] Con người có hay mua những thứ mình không thực sự cần không?",
+    "titleEn": "[Study4 #20 • Part 3 Q4] Do people buy things they don't need?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 99,
+    "textVi": "Con người có hay mua những thứ mình không thực sự cần không?\n\nCó chứ, chuyện đó xảy ra thường xuyên luôn. Tôi nghĩ chúng ta mua đồ bởi vì bản thân hành động mua sắm khiến ta cảm thấy vui vẻ. Ngay cả khi biết rõ mình sẽ chẳng dùng tới món đồ đó, ta vẫn mua nó để tìm kiếm niềm vui chớp nhoáng. Một ví dụ phổ biến là chiếc máy khoan điện, thứ mà mọi người hầu như chỉ dùng đúng 10 phút sau khi mua rồi bỏ xó bám bụi suốt nhiều năm trời.",
+    "referenceEn": "Do people buy things they don't need?\n\nYes, all the time. I think we buy things because buying things makes us happy. Even though we know we won't be using the thing, we buy it for momentary happiness. A common example is an electric drill, which people barely use for 10 mins after buying and then collects dust sitting unused for years.",
+    "keywords": [
+      "all the time",
+      "momentary happiness",
+      "barely use",
+      "collects dust"
+    ]
+  },
+  {
+    "id": "tb_study4_21_p2",
+    "title": "[Study4 #21 • Part 2] Mô tả một dịch vụ tốt mà bạn từng nhận được (từ công ty hoặc cửa hàng)",
+    "titleEn": "[Study4 #21 • Part 2] Describe a good service you received (company or store/shop) (Không ghi Q/năm | Study4 ID 5946)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 303,
+    "textVi": "Tôi sẽ kể về dịch vụ tuyệt vời mà chúng tôi nhận được tại một nhà hàng nơi một người bạn của tôi tổ chức tiệc sinh nhật vào tối thứ Bảy tuần trước.\n\nBạn tôi đã quyết định đặt bàn tại một nhà hàng Ý địa phương cho bữa tiệc. Đó là một quán nhỏ do gia đình tự quản lý, nhưng chính điều này lại khiến không gian trở nên ấm cúng và chào đón hơn bao giờ hết. Bầu không khí rất tuyệt vời và chất lượng phục vụ thì xuất sắc.\n\nNhư tôi đã nói, tôi đến nhà hàng vì người bạn ấy mời tôi tới chung vui sinh nhật cùng cậu ấy. Có khoảng mười người chúng tôi ở đó—phần lớn là những người bạn tôi quen biết từ thời đại học—và thật sự rất vui khi được gặp lại hàn huyên, kể cho nhau nghe chuyện mỗi đứa dạo gần đây ra sao kể từ lần tụ họp trước.\n\nDịch vụ ở đây tốt bởi đội ngũ nhân viên lẫn chủ quán thực sự khiến chúng tôi cảm thấy thoải mái như ở nhà. Ngay từ khoảnh khắc chúng tôi bước vào, các bạn phục vụ đã rất lịch thiệp, dễ gần và chu đáo; chẳng có yêu cầu nào của khách bị xem là phiền hà cả. Họ còn mang ra một chiếc bánh cắm nến và hát vang bài \"Chúc mừng sinh nhật\" tặng bạn tôi dù chúng tôi không hề nhờ trước, rồi hai vợ chồng chủ quán cũng liên tục hỏi thăm xem chúng tôi có hài lòng với mọi thứ không, điều đó thật sự rất tinh tế. Nói chung, đồ ăn ngon, bạn bè hợp ý cùng cung cách phục vụ thân thiện đã tạo nên một buổi tối khó quên.",
+    "referenceEn": "I'm going to talk about the service we received in a restaurant where a friend of mine celebrated his birthday last Saturday evening.\n\nMy friend had decided to book a table in a local Italian restaurant for the party. It was a small, family-run place, but this made it feel all the more welcoming and inviting. The atmosphere was great and the service was excellent.\n\nAs I mentioned, I went to the restaurant because a friend had invited me to celebrate his birthday there. There were about ten of us there - mostly people I've known since university - and it was really nice to catch up with them and chat about what we had all been up to since we last got together.\n\nThe service was good because the restaurant staff and owners really made us feel at home. From the moment we walked in, the waiters were polite, approachable and attentive; nothing was too much to ask. They brought out a cake with candles and sang ‘Happy Birthday' to my friend, although we didn't asked them to do this, and the restaurant owners kept checking whether we were happy with everything, which was thoughtful of them. All in all, the delicious food, good company and friendly service made it an unforgettable evening.",
+    "keywords": [
+      "family-run place",
+      "catch up with them",
+      "made us feel at home",
+      "approachable and attentive",
+      "nothing was too much to ask",
+      "an unforgettable evening"
+    ]
+  },
+  {
+    "id": "tb_study4_21_p3_q01",
+    "title": "[Study4 #21 • Part 3 Q1] Bạn nghĩ gì về mối quan hệ giữa doanh nghiệp và khách hàng?",
+    "titleEn": "[Study4 #21 • Part 3 Q1] What do you think of the relationship between companies and customers?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 100,
+    "textVi": "Bạn nghĩ gì về mối quan hệ giữa doanh nghiệp và khách hàng?\n\nTôi nghĩ cả doanh nghiệp lẫn khách hàng đều nương tựa lẫn nhau. Nếu không có doanh số bán hàng, một công ty không thể thành công và phát triển, ngược lại nếu không có những doanh nghiệp làm ăn tử tế, người dân cũng không thể tiếp cận các sản phẩm và dịch vụ chất lượng tốt. Vì vậy, chẳng có gì ngạc nhiên khi những tập đoàn hàng đầu như Apple hay Amazon đồng thời sở hữu dịch vụ chăm sóc khách hàng tốt nhất.",
+    "referenceEn": "What do you think of the relationship between companies and customers?\n\nI think both companies and customers depend upon each other. Without sales, a company cannot succeed and grow, and without good companies, people cannot get good quality products and services. Thus, it is not surprising that the leading companies like Apple and Amazon also have the best customer service.",
+    "keywords": [
+      "depend upon each other",
+      "succeed and grow",
+      "good quality products",
+      "customer service"
+    ]
+  },
+  {
+    "id": "tb_study4_21_p3_q02",
+    "title": "[Study4 #21 • Part 3 Q2] Với tư cách khách hàng, bạn kỳ vọng nhận được những kiểu dịch vụ nào từ một công ty?",
+    "titleEn": "[Study4 #21 • Part 3 Q2] As a customer, what kinds of services would you expect to receive from a company?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 94,
+    "textVi": "Với tư cách khách hàng, bạn kỳ vọng nhận được những kiểu dịch vụ nào từ một công ty?\n\nTôi nghĩ điều quan trọng nhất là các công ty phải giữ đúng lời hứa của mình. Chẳng hạn, nếu doanh nghiệp cam kết lắp đặt trong một ngày thì công việc đã hứa phải được hoàn tất đúng trong vòng một ngày. Bên cạnh đó, nếu sản phẩm cung cấp không đạt tiêu chuẩn như đã cam kết, công ty cần phải xin lỗi và hoàn tiền bồi thường thỏa đáng cho khách hàng.",
+    "referenceEn": "As a customer, what kinds of services would you expect to receive from a company?\n\nI think companies should fulfill their promises most of all. For example, if companies make promises like one-day installation, the promised work should be done within one day. In addition, if the product provided doesn't keep up to the standards promised, the company should apologize and reimburse the customers.",
+    "keywords": [
+      "fulfill their promises",
+      "one-day installation",
+      "keep up to the standards",
+      "reimburse the customers"
+    ]
+  },
+  {
+    "id": "tb_study4_21_p3_q03",
+    "title": "[Study4 #21 • Part 3 Q3] Những công việc nào đòi hỏi phải tiếp xúc xử lý trực tiếp với công chúng?",
+    "titleEn": "[Study4 #21 • Part 3 Q3] What kinds of jobs involve coping with the public?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 107,
+    "textVi": "Những công việc nào đòi hỏi phải tiếp xúc xử lý trực tiếp với công chúng?\n\nTôi cho rằng phần lớn các công việc thuộc ngành dịch vụ và bán hàng đều liên quan đến việc giao tiếp ứng xử với công chúng. Công việc dịch vụ có thể bao gồm bất kỳ ngành nào như sửa chữa ô tô, lắp đặt sản phẩm, chăm sóc y tế, giảng dạy, vân vân. Tương tự, dù mua sắm trực tuyến đã làm giảm bớt sự tương tác trực tiếp, hoạt động bán hàng ở mức độ lớn vẫn đòi hỏi việc làm việc thường xuyên với khách hàng.",
+    "referenceEn": "What kinds of jobs involve coping with the public?\n\nI think most service and sales jobs involve coping with the public. Services can be anything like car repair, product installations, healthcare services, teaching, etc. Similarly, although online shopping has reduced interaction, sales to a large extent still entail dealing with the public.",
+    "keywords": [
+      "coping with the public",
+      "healthcare services",
+      "reduced interaction",
+      "dealing with the public"
+    ]
+  },
+  {
+    "id": "tb_study4_21_p3_q04",
+    "title": "[Study4 #21 • Part 3 Q4] Vì sao các công ty cần phản ứng nhanh khi khách hàng gặp khó khăn?",
+    "titleEn": "[Study4 #21 • Part 3 Q4] Why should companies react quickly when customers have difficulties?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "unitId": "unit_5_consumer_(tiêu_dùng_and_mua_sắm)",
+    "unitNumber": 5,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 99,
+    "textVi": "Vì sao các công ty cần phản ứng nhanh khi khách hàng gặp khó khăn?\n\nTôi nghĩ việc chủ động giải quyết các khiếu nại và rắc rối của khách hàng rất quan trọng vì sự chậm trễ có thể làm tổn hại uy tín thương hiệu của doanh nghiệp, mà trong kỷ nguyên cạnh tranh ngày nay, hình ảnh thương hiệu là yếu tố tối quan trọng dẫn tới thành công. Thực tế đây cũng là một trong những lý do lớn khiến các doanh nghiệp hiện đại ngày càng chú trọng gánh vác trách nhiệm xã hội.",
+    "referenceEn": "Why should companies react quickly when customers have difficulties?\n\nI think it is important to proactively deal with customer's complaints and difficulties because it can harm the brand reputation of the company, and in today's competitive era, brand image is paramount to success. In fact, it is also one of the major reasons why companies today are taking on social responsibilities.",
+    "keywords": [
+      "proactively deal with",
+      "brand reputation",
+      "competitive era",
+      "paramount to success",
+      "social responsibilities"
+    ]
+  },
+  {
+    "id": "tb_study4_22_p2",
+    "title": "[Study4 #22 • Part 2] Mô tả một điều quan trọng bạn học được (không phải ở trường học hay đại học)",
+    "titleEn": "[Study4 #22 • Part 2] Describe an important thing you learned (not at school or college) (Không ghi Q/năm | Study4 ID 6754)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 313,
+    "textVi": "Tôi muốn kể cho bạn nghe về một kỹ năng quan trọng mà tôi đã học được bên ngoài nhà trường. Suốt hơn mười năm qua, tôi tự học cách chơi đàn ghi-ta. Ở trường phổ thông, tôi không theo học môn âm nhạc vì tôi chuyên về các môn khoa học tự nhiên, nên tôi đã tự mày mò học chơi đàn. Tôi bắt đầu tập khi khoảng bảy tuổi. Bố tôi đã chỉ dẫn những bước cơ bản đầu tiên, và khi lớn lên dần, tôi tiếp tục học hỏi thêm ngày càng nhiều theo thời gian.\n\nNhư tôi vừa chia sẻ, tôi hoàn toàn tự học chứ không có giáo viên riêng hay lớp học nào cả. Lúc mới bắt đầu tập, tôi thường đọc sách và tạp chí hướng dẫn cách chơi đàn. Tôi cũng tận dụng các video trên YouTube. Trên đó có rất nhiều video hướng dẫn tuyệt vời có thể dạy bạn những kiến thức nền tảng cực kỳ nhanh chóng. Một điều khiến tôi khá tự hào là tôi chưa từng tốn đồng nào cho tiền học phí. Toàn bộ số tiền tôi chi ra đều dùng để mua đàn mới, bộ khuếch đại âm thanh và bàn đạp hiệu ứng—tất cả mọi thứ tôi đều tự học hết!\n\nÂm nhạc là một phần lớn trong cuộc sống của tôi và việc chơi ghi-ta thực sự rất có ý nghĩa với tôi. Tôi thích học những bài hát mới rồi biểu diễn trực tiếp cho bạn bè và gia đình nghe. Nó giúp tôi thư giãn và dạy cho tôi biết bao kỹ năng mới mẻ. Tôi cảm thấy mình thật ngầu khi chơi đàn và đó đúng là một tài lẻ tuyệt vời trong các buổi tiệc! Nhưng tôi vẫn muốn chơi hay hơn nữa nên tôi vẫn cố gắng luyện tập mỗi ngày.",
+    "referenceEn": "I'd like to tell you about something important which I learned outside of school. For over ten years, I have been learning how to play guitar. At school, I don't do music because I specialise in science subjects, so I taught myself how to play guitar. I started learning when I was around seven. My dad helped me learn the ropes and as I grew up, I learned more and more as time moved on.\n\nAs I said, I'm self-taught, so I don't have a teacher or anything. When I first started learning, I would read books and magazines about how to play. I also used YouTube videos. There are loads of great YouTube tutorials which can teach you the basics very quickly. One thing that I'm quite proud of is that I haven't spent any money on lessons. All the money I have spent has been on new guitars, amplifiers and pedals - I have taught myself everything!\n\nMusic is a big part of my life and playing guitar is really important to me. I love to learn new songs and play them live for my friends and family. It helps me relax and it teaches me loads of new skills. I feel really cool when I play and it's a great party trick! But I still want to get better so I still try and practise every day.",
+    "keywords": [
+      "specialise in science subjects",
+      "learn the ropes",
+      "self-taught",
+      "loads of great YouTube tutorials",
+      "great party trick"
+    ]
+  },
+  {
+    "id": "tb_study4_22_p3_q01",
+    "title": "[Study4 #22 • Part 3 Q1] Trẻ em có thể học được những gì từ cha mẹ?",
+    "titleEn": "[Study4 #22 • Part 3 Q1] What can children learn from parents?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 124,
+    "textVi": "Trẻ em có thể học được những gì từ cha mẹ?\n\nTrẻ nhỏ có thể học hỏi được vô vàn điều từ cha mẹ mình. Khi còn nhỏ, các em gần như học mọi thứ từ đầu. Chẳng hạn, trẻ học cách phân biệt điều gì đúng và điều gì sai. Các em cũng học cách giao tiếp ứng xử. Khi lớn hơn một chút, chẳng hạn bước vào tuổi thiếu niên hay thanh niên, các em vẫn tiếp tục tiếp thu nhiều bài học từ bố mẹ. Tôi nghĩ cha mẹ chính là những người thầy vĩ đại nhất của chúng ta. Bố tôi đã dạy tôi biết bao kỹ năng thực tế mà đến tận hôm nay tôi vẫn còn áp dụng.",
+    "referenceEn": "What can children learn from parents?\n\nChildren can learn a huge amount from their parents. When kids are young, they learn everything. For example, they learn what's right and what's wrong. They also learn how to communicate. When kids get older, such as when they become teenagers or young adults, they're still learning lessons from their parents. Our parents are our greatest teachers, I think. My dad has taught me so many practical skills that I still use today.",
+    "keywords": [
+      "huge amount",
+      "what's right and what's wrong",
+      "how to communicate",
+      "practical skills"
+    ]
+  },
+  {
+    "id": "tb_study4_22_p3_q02",
+    "title": "[Study4 #22 • Part 3 Q2] Bạn có thấy một số trẻ em cư xử rất ngoan ngoãn lễ phép không?",
+    "titleEn": "[Study4 #22 • Part 3 Q2] Do you think some children are well-behaved?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 124,
+    "textVi": "Bạn có thấy một số trẻ em cư xử rất ngoan ngoãn lễ phép không?\n\nCó chứ, tôi thấy vậy. Khi đi dạo ngoài phố, tôi gặp rất nhiều em nhỏ cư xử rất lễ phép và đúng mực. Tôi nghĩ điều này bắt nguồn từ những bậc phụ huynh biết nghiêm khắc nhưng công bằng với con cái. Tuy nhiên, tôi cũng bắt gặp những đứa trẻ cư xử rất tệ, hỗn hào với chính cha mẹ và mọi người xung quanh. Theo quan điểm của tôi, đây lại tiếp tục là lỗi ở cách dạy dỗ của phụ huynh. Điều quan trọng là trẻ em cần được rèn vào khuôn phép và được dạy cách tôn trọng người khác ngay từ nhỏ.",
+    "referenceEn": "Do you think some children are well-behaved?\n\nYes, I do. When I'm walking around, I see lots of well-behaved children. I think this comes down to the parents who are strict but fair with their kids. But, I also see very horrible children who are rude to their parents and the people around them. Again, this is the parents' fault, in my opinion. It's important that children are disciplined and they are taught respect from a young age.",
+    "keywords": [
+      "well-behaved",
+      "comes down to",
+      "strict but fair",
+      "disciplined",
+      "taught respect"
+    ]
+  },
+  {
+    "id": "tb_study4_22_p3_q03",
+    "title": "[Study4 #22 • Part 3 Q3] Người trưởng thành có cần thiết phải học thêm những điều mới không?",
+    "titleEn": "[Study4 #22 • Part 3 Q3] Is it necessary for adults to learn new things?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 128,
+    "textVi": "Người trưởng thành có cần thiết phải học thêm những điều mới không?\n\nTôi nghĩ là có, đặc biệt đối với người lớn tuổi. Lý do là não bộ của người cao tuổi có thể bị suy giảm chức năng và trở nên chậm chạp dần, vì vậy họ cần giữ cho đầu óc luôn linh hoạt bằng cách học hỏi những điều mới mẻ. Chẳng hạn, một người bạn của tôi làm việc cho một công ty chuyên dạy ngoại ngữ cho các cụ già trong viện dưỡng lão. Hoạt động này giúp ngăn ngừa những căn bệnh như sa sút trí tuệ hoặc Alzheimer. Vậy nên, việc học kỹ năng mới có thể giúp bạn duy trì sức khỏe minh mẫn ngay cả khi về già!",
+    "referenceEn": "Is it necessary for adults to learn new things?\n\nI think so, yes, especially elderly adults. This is because elderly people's brains can deteriorate and become slow, so they need to keep it active by learning new things. For example, one of my friends works for a company who teaches languages to old people in care homes. This helps prevent diseases like dementia or Alzheimer's. So, learning new skills can keep you healthy, even in old age!",
+    "keywords": [
+      "elderly adults",
+      "deteriorate",
+      "keep it active",
+      "care homes",
+      "dementia or Alzheimer's"
+    ]
+  },
+  {
+    "id": "tb_study4_22_p3_q04",
+    "title": "[Study4 #22 • Part 3 Q4] Con người có thể học những điều mới bằng cách nào?",
+    "titleEn": "[Study4 #22 • Part 3 Q4] How can people learn new things?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 127,
+    "textVi": "Con người có thể học những điều mới bằng cách nào?\n\nCó vô số cách để học hỏi những kiến thức mới mẻ. Ví dụ, bạn có thể theo học tại trường phổ thông, cao đẳng hoặc đại học. Các trường cao đẳng thường cung cấp những khóa học ngắn hạn và mang tính thực hành cao hơn. Chẳng hạn như nghề mộc, nấu ăn, pha chế đồ uống—thật lòng mà nói thì học gì cũng có. Đại học lại thiên về các ngành học thuật chuyên sâu hơn, như luật, lịch sử, khoa học và nhiều môn tương tự. Ngày nay, mọi người cũng học kỹ năng mới qua mạng. Có hàng triệu video YouTube có thể hướng dẫn bạn gần như bất cứ điều gì.",
+    "referenceEn": "How can people learn new things?\n\nThere are so many ways to learn new things. For example, you can go to a school, college or university. Colleges offer shorter and more practical courses. For instance, woodworking, cooking, cocktail making - anything, to be honest. University is for more academic subjects, like law, history, science and so on. Nowadays, people also learn new things online. There are millions of YouTube videos which can teach you pretty much anything.",
+    "keywords": [
+      "practical courses",
+      "woodworking",
+      "academic subjects",
+      "millions of YouTube videos"
+    ]
+  },
+  {
+    "id": "tb_study4_22_p3_q05",
+    "title": "[Study4 #22 • Part 3 Q5] Internet khiến việc học trở nên dễ dàng hơn hay khó khăn hơn?",
+    "titleEn": "[Study4 #22 • Part 3 Q5] Does the internet make learning easier or more difficult?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 134,
+    "textVi": "Internet khiến việc học trở nên dễ dàng hơn hay khó khăn hơn?\n\nĐây là một câu hỏi rất hay! Tôi nghĩ điều đó tùy thuộc vào việc bạn muốn học lĩnh vực gì. Chẳng hạn, nếu bạn muốn học một kỹ năng thiên về thực hành như lái xe hoặc nấu ăn hay đại loại thế, tốt hơn hết là nên tham gia lớp học cùng chuyên gia hướng dẫn. Lý do là mạng internet rất tuyệt vời để đọc tìm thông tin, nhưng bạn cũng chỉ đang nhìn chằm chằm vào màn hình mà thôi. Internet lại cực kỳ lý tưởng cho những môn học thuật đòi hỏi phải đọc nhiều tài liệu. Tôi vẫn dùng internet thường xuyên ở trường đại học để nghiên cứu đủ loại chủ đề khác nhau.",
+    "referenceEn": "Does the internet make learning easier or more difficult?\n\nThis is a great question! I think it depends on what you want to learn. For instance, if you want to learn something that is practical, like driving or cooking, or something like that, it's better to take classes with professionals. This is because the internet is great for reading information, but you are only staring at a screen. The internet is perfect for more academic subjects that require a lot of reading. I use the internet all the time at university to research different topics.",
+    "keywords": [
+      "depends on what you want to learn",
+      "staring at a screen",
+      "academic subjects",
+      "research different topics"
+    ]
+  },
+  {
+    "id": "tb_study4_22_p3_q06",
+    "title": "[Study4 #22 • Part 3 Q6] Con người ngày nay có thể tiếp thu nhiều tri thức hơn trước đây không?",
+    "titleEn": "[Study4 #22 • Part 3 Q6] Can people acquire more knowledge now than before?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "unitId": "unit_8_wisdom_(trí_tuệ_and_lời_khuyên)",
+    "unitNumber": 8,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 130,
+    "textVi": "Con người ngày nay có thể tiếp thu nhiều tri thức hơn trước đây không?\n\nCó chứ, chắc chắn rồi. Trong quá khứ, chỉ tầng lớp tinh hoa trong xã hội mới tiếp cận được nguồn thông tin vì họ là những người duy nhất biết đọc biết viết. Ở Vương quốc Anh chẳng hạn, giới nhà giàu và Hoàng gia từng là những người hiếm hoi nắm giữ tri thức. Ngày nay, đại đa số người dân trên khắp thế giới đều biết chữ và được giáo dục bài bản, nhờ đó họ có thể tiếp cận kiến thức và học hỏi điều mới. Internet cũng giúp việc học trở nên thuận tiện hơn nhiều, và hàng tỷ người trên toàn cầu đều có thể truy cập mạng internet.",
+    "referenceEn": "Can people acquire more knowledge now than before?\n\nYes, absolutely. In the past, only the elite members of society had access to information because they were the only ones that were literate. In the UK, for example, the rich members of society and the Royal Family were the only people who had knowledge. Nowadays, the vast majority of people around the world are literate and educated, so they can access knowledge and learn new things. The internet also makes it easier to learn new things, and billions of people around the world have access to the internet.",
+    "keywords": [
+      "elite members",
+      "literate",
+      "vast majority",
+      "access knowledge"
+    ]
+  },
+  {
+    "id": "tb_study4_23_p2",
+    "title": "[Study4 #23 • Part 2] Mô tả một lần bạn tổ chức thành công một sự kiện vui vẻ",
+    "titleEn": "[Study4 #23 • Part 2] Describe a time when you organized a happy event successfully (Không ghi Q/năm | ID chưa xác định)",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Không ghi Q/năm • Part 2",
+    "level": "C1",
+    "lengthTier": "long",
+    "wordCountVi": 396,
+    "textVi": "Năm ngoái, tôi có vinh dự được đứng ra tổ chức một bữa tiệc chia tay cho cô giáo yêu thích nhất của mình và phải nói rằng mọi thứ diễn ra trôi chảy mỹ mãn. Dù đó là một khoảnh khắc vui buồn đan xen, tôi cảm thấy cả lớp đã mang đến cho cô một buổi tiễn biệt thật trang trọng và ấm áp.\n\nĐể chuẩn bị, chúng tôi bắt đầu họp bàn lên ý tưởng trước đó vài tuần. Cả nhóm lên kế hoạch cho mọi thứ, từ địa điểm tổ chức cho tới khâu trang trí và các hoạt động trong buổi tiệc. Cuối cùng, chúng tôi chọn tổ chức tại hội trường lớn của trường vì không gian đó đủ rộng để chứa trọn cả lớp. Chúng tôi cũng quyết định chọn tông màu chủ đề dựa trên những gam màu cô yêu thích, thậm chí còn thêm nhiều dấu ấn cá nhân như băng rôn tự làm và các bức ảnh ghép ghi lại quãng thời gian cô gắn bó cùng chúng tôi.\n\nQuá trình chuẩn bị khá dồn dập và vất vả, nhưng thật may mắn là tôi không hề đơn độc trong nỗ lực này. Các bạn cùng lớp đều hỗ trợ hết mình và ai nấy đều chung tay góp sức. Một vài bạn phụ trách dựng sân khấu trang trí, trong khi những bạn khác dựng một đoạn phim ngắn tổng hợp những khoảnh khắc đáng nhớ của cô trên bục giảng. Chúng tôi cũng thu thập lời nhắn từ các học sinh rồi đóng thành một cuốn sổ lưu niệm làm quà chia tay.\n\nBản thân sự kiện diễn ra vô cùng tuyệt vời. Tuy nhiên, điểm nhấn đáng nhớ nhất là khi cô giáo đọc bài phát biểu cảm ơn đầy xúc động từ tận đáy lòng. Là học trò của cô, chúng tôi có thể thấy rõ cô trân trọng mọi điều cả lớp đã làm đến nhường nào.\n\nCá nhân tôi nghĩ buổi tiệc thành công vì nó gắn kết mọi người lại bên nhau và bày tỏ lòng biết ơn của chúng tôi một cách thật ý nghĩa. Nhìn thấy nụ cười của cô và biết rằng mình đã làm cho ngày hôm ấy của cô trở nên đặc biệt khiến tôi cảm thấy vô cùng hạnh phúc và xứng đáng.",
+    "referenceEn": "Last year, I had the privilege of organizing a farewell party for my favorite teacher and I’d say it went swimmingly. While it was a bittersweet moment, I felt we managed to give her a proper send-off.\n\nTo prepare, we started by brainstorming ideas a few weeks in advance. We planned everything, from the venue to the decorations and activities. In the end, we chose to hold the party in our school’s auditorium because it was big enough to accommodate the whole class. We also decided to go with a theme based on her favorite colors and we even added personal touches like handmade banners and photo collages of her time with us.\n\nIt was quite an intensive preparation, but thankfully, I wasn’t alone in this endeavor. My classmates were incredibly supportive, and everyone pitched in. Some helped with the setup, while others prepared a video montage of her memorable moments as our teacher. We also collected messages from students and put them into a scrapbook as a farewell gift.\n\nThe event itself was amazing. However, the highlight was when our teacher gave a heartfelt thank-you speech. As her students, we could clearly see how much she appreciated everything we’d done.\n\nPersonally, I think it was a success because the event brought everyone together and showed our gratitude in a meaningful way. Seeing her smile and knowing we had made her day so special was incredibly rewarding.",
+    "keywords": [
+      "went swimmingly",
+      "bittersweet moment",
+      "proper send-off",
+      "pitched in",
+      "heartfelt thank-you speech",
+      "incredibly rewarding"
+    ]
+  },
+  {
+    "id": "tb_study4_23_p3_q01",
+    "title": "[Study4 #23 • Part 3 Q1] Cha mẹ có thể giúp con cái trở nên ngăn nắp, có tổ chức bằng cách nào?",
+    "titleEn": "[Study4 #23 • Part 3 Q1] How can parents help children to be organized?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 131,
+    "textVi": "Cha mẹ có thể giúp con cái trở nên ngăn nắp, có tổ chức bằng cách nào?\n\nCha mẹ có thể giúp trẻ rèn tính ngăn nắp có tổ chức bằng cách dạy các em biết cách quản lý thời gian và sắp xếp thứ tự ưu tiên. Chẳng hạn, phụ huynh có thể khuyến khích con lập thời gian biểu hằng ngày hoặc sử dụng những công cụ như danh sách việc cần làm. Những thói quen đơn giản như soạn sẵn cặp sách từ tối hôm trước hoặc giữ phòng ốc gọn gàng cũng có thể tạo ra khác biệt lớn. Vì trẻ em học hỏi thông qua tấm gương thực tế, việc chính cha mẹ giữ nếp sống ngăn nắp cũng đóng vai trò hết sức thiết yếu.",
+    "referenceEn": "How can parents help children to be organized?\n\nParents can help children become organized by teaching them how to manage their time and set priorities. For example, they can encourage kids to create a daily schedule or use tools like to-do lists. Simple habits, like packing their school bags the night before or keeping their room tidy, can also make a big difference. Since children learn by examples, it’s essential for parents to stay organized themselves.",
+    "keywords": [
+      "manage their time",
+      "set priorities",
+      "to-do lists",
+      "learn by examples"
+    ]
+  },
+  {
+    "id": "tb_study4_23_p3_q02",
+    "title": "[Study4 #23 • Part 3 Q2] Trong những dịp nào con người cần phải làm việc có kế hoạch, tổ chức?",
+    "titleEn": "[Study4 #23 • Part 3 Q2] On what occasions do people need to be organized?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 137,
+    "textVi": "Trong những dịp nào con người cần phải làm việc có kế hoạch, tổ chức?\n\nCon người cần sự ngăn nắp có tổ chức trong rất nhiều tình huống, chẳng hạn như lên kế hoạch sự kiện hay kiểm soát hạn chót công việc. Đi du lịch cũng là một hoàn cảnh mà khâu chuẩn bị khoa học đóng vai trò thiết yếu, bởi chỉ cần quên một món đồ quan trọng là đủ làm hỏng cả chuyến đi. Ngay cả những việc giản dị như chuẩn bị sẵn thực đơn tuần hay lập ngân sách chi tiêu cũng đòi hỏi một mức độ lập kế hoạch nhất định. Thành thật mà nói, kỹ năng tổ chức tốt là yếu tố không thể thiếu để quản lý cả những việc lớn lẫn việc nhỏ trong đời sống.",
+    "referenceEn": "On what occasions do people need to be organized?\n\nPeople need to be organized on many occasions, like planning events or managing work deadlines. Traveling is another situation where organization is essential, as forgetting something important can ruin a trip. Even simple things like meal prepping or budgeting also require a certain level of planning. Honestly, having good organizational skills are indispensable in managing both big and small aspects of life.",
+    "keywords": [
+      "managing work deadlines",
+      "meal prepping",
+      "budgeting",
+      "indispensable"
+    ]
+  },
+  {
+    "id": "tb_study4_23_p3_q03",
+    "title": "[Study4 #23 • Part 3 Q3] Có phải mọi việc đều cần được chuẩn bị thật kỹ lưỡng không?",
+    "titleEn": "[Study4 #23 • Part 3 Q3] Does everything need to be well prepared?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 140,
+    "textVi": "Có phải mọi việc đều cần được chuẩn bị thật kỹ lưỡng không?\n\nKhông hẳn lúc nào cũng vậy. Một số tình huống sẽ hưởng lợi lớn từ sự chuẩn bị chi tiết, như các kỳ thi hay những bài thuyết trình quan trọng. Tuy nhiên, đối với các hoạt động ngẫu hứng hoặc mang tính thư giãn nhẹ nhàng, việc chuẩn bị quá mức cầu kỳ có thể làm mất đi niềm vui tự nhiên. Điều quan trọng hơn là tìm được sự cân bằng hợp lý. Bạn chỉ nên chuẩn bị vừa đủ để thấy tự tin, nhưng vẫn đủ linh hoạt để thích ứng với những tình huống bất ngờ phát sinh. Xét cho cùng, không phải mọi chuyện trong cuộc sống đều có thể được lên kế hoạch tỉ mỉ đến từng chi tiết cuối cùng.",
+    "referenceEn": "Does everything need to be well prepared?\n\nNot necessarily. Some situations benefit from detailed preparation, like exams or big presentations. However, for casual or spontaneous activities, over-preparation can take away the fun. It’s more about striking a balance. You should just be prepared enough to feel confident but flexible enough to adapt to unexpected situations. After all, not everything in life can be planned to the last detail.",
+    "keywords": [
+      "detailed preparation",
+      "spontaneous activities",
+      "striking a balance",
+      "adapt to unexpected situations"
+    ]
+  },
+  {
+    "id": "tb_study4_23_p3_q04",
+    "title": "[Study4 #23 • Part 3 Q4] Con người có cần sự giúp đỡ của người khác khi tổ chức mọi việc không?",
+    "titleEn": "[Study4 #23 • Part 3 Q4] Do people need others’ help when organizing things?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 123,
+    "textVi": "Con người có cần sự giúp đỡ của người khác khi tổ chức mọi việc không?\n\nĐôi khi có chứ. Đối với những đầu việc hoặc sự kiện quy mô lớn như đám cưới hay các dự án công ty, việc có một đội ngũ phối hợp sẽ khiến quy trình trở nên nhẹ nhàng và hiệu quả hơn nhiều. Ngay cả với những việc nhỏ hơn như lên lịch cho chuyến du lịch gia đình, ý kiến đóng góp từ người khác cũng giúp bảo đảm không bỏ sót điều gì quan trọng. Sự hợp tác còn thường mang lại kết quả tốt đẹp hơn, bởi mỗi người khác nhau sẽ đóng góp những ý tưởng và góc nhìn độc đáo riêng.",
+    "referenceEn": "Do people need others’ help when organizing things?\n\nSometimes. For larger tasks or events, like weddings or work projects, having a team can make the process much easier and more efficient. Even for smaller things, like organizing a family trip, input from others can ensure nothing important is overlooked. Collaboration also often leads to better outcomes, as different people bring unique ideas and perspectives.",
+    "keywords": [
+      "much easier and more efficient",
+      "input from others",
+      "overlooked",
+      "collaboration",
+      "ideas and perspectives"
+    ]
+  },
+  {
+    "id": "tb_study4_23_p3_q05",
+    "title": "[Study4 #23 • Part 3 Q5] Bạn sẽ cảm thấy thế nào khi chưa chuẩn bị chu đáo cho một việc gì đó?",
+    "titleEn": "[Study4 #23 • Part 3 Q5] How would you feel when you were not well prepared for something?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "B2",
+    "lengthTier": "medium",
+    "wordCountVi": 114,
+    "textVi": "Bạn sẽ cảm thấy thế nào khi chưa chuẩn bị chu đáo cho một việc gì đó?\n\nThú thật là tôi sẽ cảm thấy lo âu và có lẽ hơi bực bội với chính bản thân mình. Việc thiếu chuẩn bị thường dẫn đến sai sót hoặc đánh mất cơ hội, điều đó thực sự rất dễ làm nhụt chí. Nó cũng làm lung lay sự tự tin của bạn, đặc biệt nếu bạn đang ở trong một tình huống áp lực cao như kỳ thi hay buổi phỏng vấn xin việc. Chính vì thế tôi luôn cố gắng chuẩn bị kỹ càng nhất có thể để tránh những căng thẳng không đáng có.",
+    "referenceEn": "How would you feel when you were not well prepared for something?\n\nHonestly, I’d feel anxious and probably a bit frustrated with myself. Being unprepared often leads to mistakes or missed opportunities, which can really discouraging. It also undermines your confidence, especially if you’re in a high-pressure situation like an exam or a job interview. That’s why I always try to prepare as much as I can to avoid unnecessary stress.",
+    "keywords": [
+      "anxious and probably a bit frustrated",
+      "missed opportunities",
+      "undermines your confidence",
+      "high-pressure situation"
+    ]
+  },
+  {
+    "id": "tb_study4_23_p3_q06",
+    "title": "[Study4 #23 • Part 3 Q6] Bạn thích tự tay chuẩn bị tổ chức một hoạt động hay chỉ tham gia vào hoạt động đó?",
+    "titleEn": "[Study4 #23 • Part 3 Q6] Do you prefer to prepare and organize an activity or just take part in an activity?",
+    "sourceGroup": "unit",
+    "sourceLabel": "Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "unitId": "unit_7_connect_(giao_tiếp_and_công_nghệ)",
+    "unitNumber": 7,
+    "topic": "Study4 Không ghi Q/năm • Part 3",
+    "level": "C1",
+    "lengthTier": "medium",
+    "wordCountVi": 110,
+    "textVi": "Bạn thích tự tay chuẩn bị tổ chức một hoạt động hay chỉ tham gia vào hoạt động đó?\n\nĐiều đó còn tùy vào từng hoàn cảnh cụ thể. Nếu đó là việc tôi thực sự tâm huyết hoặc đã ấp ủ những ý tưởng riêng rõ ràng, nhiều khả năng tôi sẽ chuẩn bị trước nhiều ngày vì nó mang lại cho tôi cảm giác chủ động kiểm soát và thành tựu. Ngược lại, với những buổi tụ họp thoải mái hơn như tiệc sinh nhật bạn bè, tôi thích chỉ tham dự và tận hưởng niềm vui mà không phải bận tâm lo lắng từng chi tiết nhỏ.",
+    "referenceEn": "Do you prefer to prepare and organize an activity or just take part in an activity?\n\nIt depends on the situation. If it’s something I’m passionate about or have specific ideas for, I’ll likely prepare days in advance since it gives me a sense of control and accomplishment. However, for more casual activities, like a friend’s party, I’d rather just take part and enjoy myself without worrying about the details.",
+    "keywords": [
+      "passionate about",
+      "days in advance",
+      "sense of control and accomplishment",
+      "worrying about the details"
+    ]
+  }
+];
+  root.TRANSLATION_BANK.push.apply(root.TRANSLATION_BANK, STUDY4_TRANSLATION_BATCH);
+  if (root.APP_DATA && Array.isArray(root.APP_DATA.readings)) {
+    var STUDY4_READINGS_BATCH = [
+  {
+    "id": 151,
+    "title": "Study4 #01: Describe a gift you would like to buy for your friend (Q3/2026 • Unit 1)",
+    "category": "STUDY4 • Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q3/2026 | Study4 ID 24184 | Unit 1: Me & Mine (Sở hữu & Đồ vật))",
+    "content": "[Part 2 Cue Card — Describe a gift you would like to buy for your friend]\nI’d like to talk about a present I’ve been meaning to get for my closest friend, Linh, whose birthday is coming up next month.\n\nWe go back a long way, actually. We first crossed paths in secondary school, when we happened to be seated next to each other on the very first day, and we just hit it off straight away. That was about twelve years ago now, so she’s seen me through thick and thin: exams, heartbreaks, career changes, you name it.\n\nNow, Linh is notoriously hard to buy for. She’s not materialistic in the slightest, and she’s the kind of person who, if she wants something, simply goes out and gets it herself. So rather than grabbing something generic off the shelf, I’ve put quite a bit of thought into it. What I’ve settled on is a film camera, a second-hand 35mm one, nothing too flashy. The idea came to me because a few months back she mentioned, almost in passing, that she missed the days when photos felt special instead of being buried among thousands on her phone. She’s probably forgotten she ever said it, but I made a mental note. Since then, I’ve been scouring vintage shops and online marketplaces, and I’ve even roped in a colleague who’s a bit of a photography buff to help me pick one that’s beginner-friendly.\n\nAs for why I’d go for this, well, I’ve always believed it’s the thought that counts, and the best gifts are the ones that show you’ve really been listening. Had I just bought her a gift voucher or a scented candle, it would’ve felt like a token gesture. A camera, on the other hand, has real sentimental value. It’s something she’ll treasure and, hopefully, use to capture memories for years to come. I’m also planning to have it gift-wrapped with a couple of rolls of film and a handwritten card, just to add a personal touch. It won’t exactly break the bank, but I think it’ll mean the world to her, and I can’t wait to see her face when she unwraps it.\n\n[Part 3 - Q1] Why is it sometimes difficult to buy or choose a gift for someone?\nI’d say it mostly comes down to guesswork. Choosing a present means second-guessing someone else’s taste, and that’s hard even with people you know well. On top of that, it’s got harder, because the more there is on the shelves, the more overwhelmed shoppers feel. You see them wandering round department stores in December looking kind of lost. So they panic and play it safe, which usually means grabbing something generic like a scented candle or a gift voucher. Nobody’s offended by a voucher. But it’s pretty impersonal, and the recipient can tell it was a last-minute purchase.\n\n[Part 3 - Q2] Is the price of a gift important?\nNot nearly as much as people assume. Admittedly, if you arrived at a wedding with something that obviously cost next to nothing, it might come across as a bit stingy, so the price tag isn’t completely irrelevant. That said, splashing out can backfire. A lavish present is often seen as flashy, leaving the other person under pressure to reciprocate with something just as expensive, which is awkward for everyone. It’s the thought that counts, really. A modest gift that shows you’ve been listening, like a paperback someone mentioned months ago, will always mean more.\n\n[Part 3 - Q3] Do you like giving gifts?\nI do, although only when nobody’s expecting it. What I enjoy most is stumbling across something in a shop and knowing straight away who it’s for. That kind of spontaneous present, which usually costs very little, tends to be appreciated far more than anything gift-wrapped for a birthday. The obligatory occasions are another matter. Take the office Secret Santa, where everyone’s given a name and a spending limit, and the whole thing turns into a chore. Generosity on a schedule isn’t really generosity. Does anyone actually treasure a novelty mug from a colleague they barely know?\n\n[Part 3 - Q4] Why do people give gifts?\nWell, think about what happens on a state visit. Two leaders who’ve only just met exchange gifts in front of the cameras, and nobody imagines a president needs another ceremonial vase. The object is beside the point. The real message is goodwill, or rather a promise that the relationship matters. And ordinary people do more or less the same thing on a smaller scale. A housewarming present or a box of chocolates for a host is a gesture that cements a bond, which is why turning up to dinner empty-handed is regarded as rude.\n\n[Part 3 - Q5] What gifts are popular in your country?\nIn Vietnam, most gift-giving revolves around the Lunar New Year, and what people give has changed quite a bit. It used to be mainly homemade things, like sticky rice cakes or a jar of pickled onions, which families handed over in person. These days the default choice is a ready-made hamper full of imported biscuits and wine. Even lucky money has gone digital. Plenty of young people now send it through a banking app instead of a red envelope, and that shift is set to continue. Convenient, but a little soulless.\n\n[Part 3 - Q6] What factors do parents consider when choosing a gift for children?\nLet me think. If you put a parent in a toy shop, I suspect the first thing they’d check is the age rating on the box, because small parts are a choking hazard for toddlers. Once that’s out of the way, the real question is whether the toy is stimulating or noisy. Parents tend to treat a present as a chance to nurture a skill, so science kits get chosen over plastic gadgets. They’re wary of screens, too. A tablet may well be what the child’s been pestering them for, but it stays on the shelf.\n\n[Part 3 - Q7] Is it easy to choose clothes as gifts?\nThat depends on what counts as clothes. A scarf or a pair of gloves is about as low-risk as a present gets, because there’s no sizing involved. Anything fitted is far trickier. Sizes are notoriously inconsistent between brands, so a medium in one shop is a large in another, and personal style is even more subjective. Which means buying someone a jacket is basically a shot in the dark. Mind you, shops have caught on. If they hadn’t started offering gift receipts, half those unwanted jumpers would still be sitting in wardrobes with the tags on.",
+    "translation_vi": "[Bài mẫu Part 2 — Miêu tả một món quà bạn muốn mua tặng bạn mình]\nMình muốn kể về một món quà mà mình đang định mua tặng cho cô bạn thân nhất tên Linh, tháng sau là sinh nhật cậu ấy rồi.\n\nThực ra bọn mình chơi với nhau từ rất lâu rồi. Lần đầu hai đứa quen nhau là hồi cấp hai, tình cờ được xếp ngồi cạnh nhau ngay ngày đầu đi học, thế là hợp cạ luôn từ lúc đó. Tính đến nay cũng khoảng mười hai năm rồi, nên cậu ấy đã cùng mình đi qua đủ mọi thăng trầm: thi cử, thất tình, chuyển việc, chuyện gì cũng có mặt.\n\nMà Linh là kiểu người cực kỳ khó mua quà. Cậu ấy chẳng hề vật chất chút nào, lại thuộc tuýp người hễ thích gì là tự đi mua lấy. Vậy nên thay vì vớ đại một món đồ phổ thông trên kệ, mình đã suy nghĩ rất kỹ. Cuối cùng mình chốt chọn một chiếc máy ảnh phim 35mm hàng cũ, không quá hào nhoáng. Ý tưởng này nảy ra là vì vài tháng trước, cậu ấy có buột miệng nhắc qua rằng bản thân nhớ cảm giác ngày xưa khi mỗi bức ảnh đều đặc biệt, thay vì bị chôn vùi giữa hàng nghìn tấm ảnh trong điện thoại. Chắc cậu ấy cũng quên bẵng mình từng nói câu đó rồi, nhưng mình đã ghi nhớ trong đầu. Từ dạo ấy, mình lùng sục khắp các tiệm đồ cũ và sàn mua bán trực tuyến, thậm chí còn rủ thêm một anh đồng nghiệp khá rành nhiếp ảnh để nhờ chọn giúp chiếc máy dễ dùng cho người mới bắt đầu.\n\nCòn về lý do chọn món quà này, mình luôn tin rằng tấm lòng mới là điều quan trọng nhất, và những món quà ý nghĩa nhất là thứ cho thấy bạn thực sự lắng nghe đối phương. Nếu mình chỉ mua tặng cậu ấy phiếu quà tặng hay một hũ nến thơm, trông sẽ rất chiếu lệ. Ngược lại, một chiếc máy ảnh lại mang giá trị tinh thần thực sự. Đó là món đồ cậu ấy sẽ trân trọng và hy vọng sẽ dùng để lưu giữ kỷ niệm trong nhiều năm tới. Mình cũng định gói quà cẩn thận kèm vài cuộn phim và một tấm thiệp viết tay để thêm chút dấu ấn cá nhân. Món quà này không đến mức khiến mình cháy túi, nhưng mình nghĩ nó sẽ cực kỳ ý nghĩa với cậu ấy, và mình rất háo hức chờ xem gương mặt cậu ấy khi mở quà.\n\n[Part 3 - Câu 1] Tại sao đôi khi việc mua hoặc chọn quà cho ai đó lại khó khăn?\nMình nghĩ phần lớn nằm ở chuyện phải đoán mò. Chọn quà nghĩa là bạn phải đoán xem gu của người khác thế nào, mà việc đó ngay cả với người thân quen cũng đã khó rồi. Thêm vào đó, mọi thứ ngày càng khó hơn vì hàng hóa trên kệ càng nhiều thì người mua lại càng dễ bị choáng ngợp. Bạn có thể thấy cảnh mọi người đi lang thang quanh các trung tâm thương mại vào tháng Mười Hai với vẻ mặt khá bối rối. Thế là họ cuống lên và chọn giải pháp an toàn, thường là vớ đại món gì đó chung chung như nến thơm hoặc phiếu quà tặng. Chẳng ai phật lòng vì một tấm phiếu quà tặng cả. Nhưng nó khá thiếu dấu ấn cá nhân, và người nhận nhìn là biết ngay đó là món quà mua vội vào phút chót.\n\n[Part 3 - Câu 2] Giá tiền của một món quà có quan trọng không?\nKhông quan trọng bằng mức mọi người vẫn nghĩ đâu. Phải thừa nhận rằng nếu bạn đi đám cưới mà mang theo món quà trông rõ ràng chẳng đáng bao nhiêu thì dễ bị xem là hơi keo kiệt, nên giá tiền không phải hoàn toàn vô nghĩa. Tuy nhiên, vung tay quá trán lại có thể phản tác dụng. Một món quà xa xỉ thường dễ bị coi là phô trương, khiến người nhận chịu áp lực phải đáp lễ bằng thứ đắt tiền tương đương, tạo ra tình huống gượng gạo cho cả hai bên. Thực chất tấm lòng mới là điều đáng quý. Một món quà giản dị nhưng chứng tỏ bạn đã lắng nghe, chẳng hạn cuốn sách bìa mềm ai đó từng nhắc tới vài tháng trước, bao giờ cũng có ý nghĩa hơn.\n\n[Part 3 - Câu 3] Bạn có thích tặng quà cho người khác không?\nMình có thích, nhưng chỉ khi chẳng ai mong đợi điều đó thôi. Điều mình thích nhất là tình cờ bắt gặp một món đồ trong cửa hàng và biết ngay nó hợp với ai. Kiểu quà bất ngờ như thế thường chẳng tốn bao nhiêu tiền nhưng lại được trân trọng hơn nhiều so với những món gói sẵn cho dịp sinh nhật. Còn các dịp bắt buộc lại là chuyện khác. Lấy ví dụ trò Secret Santa ở văn phòng, nơi mỗi người được bốc thăm một cái tên kèm hạn mức chi tiêu, thế là cả chuyện tặng quà biến thành một nghĩa vụ mệt mỏi. Sự hào phóng theo lịch hẹn thì đâu còn là hào phóng thực sự nữa. Có ai thực sự nâng niu một chiếc cốc in hình kỳ lạ từ người đồng nghiệp mình hầu như chẳng quen biết đâu chứ?\n\n[Part 3 - Câu 4] Tại sao con người lại tặng quà cho nhau?\nHãy nghĩ xem điều gì diễn ra trong một chuyến thăm cấp nhà nước. Hai nhà lãnh đạo vừa mới gặp nhau đã trao quà trước ống kính máy quay, và chẳng ai nghĩ một vị tổng thống lại thiếu thêm một chiếc bình gốm nghi lễ cả. Bản thân món đồ không phải trọng tâm. Thông điệp thực sự là thiện chí, hay đúng hơn là lời cam kết rằng mối quan hệ này rất quan trọng. Người bình thường cũng làm điều tương tự ở quy mô nhỏ hơn. Một món quà tân gia hay hộp sô-cô-la biếu chủ nhà là cử chỉ thắt chặt tình cảm, đó là lý do đến dự tiệc tối mà đi tay không thường bị xem là bất lịch sự.\n\n[Part 3 - Câu 5] Những món quà nào thường phổ biến ở đất nước bạn?\nỞ Việt Nam, phần lớn hoạt động tặng quà xoay quanh dịp Tết Nguyên đán, và thứ mọi người chọn biếu cũng thay đổi khá nhiều. Trước đây chủ yếu là đồ nhà làm, như bánh chưng hay hũ dưa hành, để các gia đình tự tay mang sang biếu nhau. Ngày nay, lựa chọn mặc định lại là những giỏ quà gói sẵn đầy bánh quy và rượu ngoại. Ngay cả tiền lì xì cũng đã số hóa rồi. Rất nhiều người trẻ giờ chuyển khoản qua ứng dụng ngân hàng thay vì dùng phong bao đỏ, và xu hướng đó chắc chắn sẽ còn tiếp diễn. Tiện lợi thật đấy, nhưng hơi thiếu chút hồn cốt.\n\n[Part 3 - Câu 6] Cha mẹ thường cân nhắc những yếu tố nào khi chọn quà cho trẻ em?\nĐể mình nghĩ xem. Nếu đặt một phụ huynh vào cửa hàng đồ chơi, mình đoán thứ đầu tiên họ kiểm tra là khuyến cáo độ tuổi trên vỏ hộp, vì những chi tiết nhỏ rất dễ gây hóc nghẹn cho trẻ tập đi. Xong bước đó rồi, câu hỏi thực sự là món đồ chơi có kích thích tư duy hay chỉ gây ồn ào. Cha mẹ thường coi quà tặng như cơ hội nuôi dưỡng kỹ năng, nên bộ thí nghiệm khoa học hay được chọn hơn đồ nhựa vô thưởng vô phạt. Họ cũng dè chừng màn hình điện tử nữa. Một chiếc máy tính bảng có thể là thứ đứa trẻ nài nỉ mãi, nhưng cuối cùng nó vẫn nằm lại trên kệ thôi.\n\n[Part 3 - Câu 7] Việc chọn quần áo làm quà tặng có dễ không?\nCòn tùy xem món nào được tính là quần áo nữa. Một chiếc khăn quàng cổ hay đôi găng tay thì gần như là món quà ít rủi ro nhất rồi, vì chẳng cần phải đo kích cỡ gì. Nhưng bất cứ thứ gì may đo vừa vặn đều khó hơn nhiều. Kích cỡ giữa các thương hiệu nổi tiếng là thiếu đồng nhất, cỡ trung bình ở tiệm này có khi thành cỡ lớn ở tiệm khác, chưa kể phong cách cá nhân lại còn mang tính chủ quan hơn nữa. Điều đó đồng nghĩa việc mua tặng ai đó một chiếc áo khoác chẳng khác nào mò kim đáy bể. Cơ mà các cửa hàng cũng nắm bắt rất nhanh. Nếu họ không bắt đầu cung cấp hóa đơn đổi quà, chắc phân nửa số áo len không ưng ý kia vẫn nằm im trong tủ với nguyên mác giá.",
+    "target_words": [
+      {
+        "word": "sentimental value",
+        "pos": "noun phrase",
+        "ipa": "/ˌsentɪˈmentl ˈvæljuː/",
+        "meaning_vi": "giá trị tinh thần, giá trị tình cảm",
+        "example": "Her grandmother's watch has immense sentimental value even though it is not made of gold."
+      },
+      {
+        "word": "notoriously",
+        "pos": "adverb",
+        "ipa": "/nəʊˈtɔːriəsli/",
+        "meaning_vi": "nổi tiếng là (thường theo nghĩa khó khăn hoặc tiêu cực)",
+        "example": "Clothing sizes are notoriously inconsistent from one retail brand to another."
+      },
+      {
+        "word": "reciprocate",
+        "pos": "verb",
+        "ipa": "/rɪˈsɪprəkeɪt/",
+        "meaning_vi": "đáp lại, đền đáp tương xứng",
+        "example": "Receiving an overly lavish gift can pressure someone to reciprocate with something equally costly."
+      },
+      {
+        "word": "spontaneous",
+        "pos": "adjective",
+        "ipa": "/spɒnˈteɪniəs/",
+        "meaning_vi": "ngẫu hứng, tự phát",
+        "example": "A spontaneous gift picked up during a weekend walk often feels more sincere than an obligatory one."
+      },
+      {
+        "word": "token gesture",
+        "pos": "noun phrase",
+        "ipa": "/ˈtəʊkən ˈdʒestʃə(r)/",
+        "meaning_vi": "cử chỉ mang tính hình thức, chiếu lệ",
+        "example": "Handing over a generic store voucher can seem like a token gesture rather than a thoughtful choice."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why did the speaker decide to buy Linh a second-hand 35mm film camera?",
+        "options": [
+          "A. Linh specifically asked for one before her birthday.",
+          "B. Linh had casually remarked that she missed photos feeling special.",
+          "C. A photography colleague offered to sell his old camera cheaply.",
+          "D. Film cameras are currently trending on online marketplaces."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói kể rằng vài tháng trước Linh từng nhắc thoáng qua rằng cô nhớ thời mà những bức ảnh mang cảm giác đặc biệt thay vì bị chôn vùi trong điện thoại, nên người nói đã ghi nhớ chi tiết đó để chọn mua máy ảnh phim."
+      },
+      {
+        "q": "According to Part 3, why can buying an extravagant gift sometimes backfire?",
+        "options": [
+          "A. The recipient may suspect it was bought at the last minute.",
+          "B. Department stores rarely allow refunds on expensive items.",
+          "C. It can seem showy and pressure the recipient to spend just as much in return.",
+          "D. Most people prefer receiving digital lucky money over physical goods."
+        ],
+        "answer": 2,
+        "explain": "Ở câu trả lời Part 3 câu 2, người nói giải thích rằng một món quà xa xỉ dễ bị coi là phô trương (flashy) và khiến người nhận áp lực phải đáp lễ (reciprocate) bằng món đồ đắt tiền tương đương."
+      },
+      {
+        "q": "What does the speaker dislike about office Secret Santa exchanges?",
+        "options": [
+          "A. Colleagues often forget to wrap their presents properly.",
+          "B. Scheduled gift-giving with spending caps turns generosity into an obligation.",
+          "C. Managers usually receive better gifts than junior staff.",
+          "D. Spending limits make it impossible to buy science kits."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 3, người nói cho rằng các dịp bắt buộc như Secret Santa với hạn mức chi tiêu biến việc tặng quà thành nghĩa vụ mệt mỏi (turn into a chore), và 'sự hào phóng theo lịch hẹn không còn là hào phóng thực sự'."
+      },
+      {
+        "q": "What makes fitted clothing risky to buy as a gift?",
+        "options": [
+          "A. Stores refuse to provide gift receipts for jackets and jumpers.",
+          "B. Scarves and gloves are usually out of stock in December.",
+          "C. Sizing varies inconsistently across brands and style taste is subjective.",
+          "D. Most recipients view clothes as an impersonal gesture."
+        ],
+        "answer": 2,
+        "explain": "Ở Part 3 câu 7, người nói chỉ ra rằng kích cỡ quần áo không đồng nhất giữa các hãng và gu thẩm mỹ cá nhân rất chủ quan, khiến việc mua áo khoác chẳng khác nào mò kim đáy bể."
+      }
+    ],
+    "month": 1,
+    "assigned_days": [
+      1
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 152,
+    "title": "Study4 #02: Describe someone who is older than you that you admire (Q3/2026 • Unit 8)",
+    "category": "STUDY4 • Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q3/2026 | Study4 ID 24158 | Unit 8: Wisdom (Trí tuệ & Lời khuyên))",
+    "content": "[Part 2 Cue Card — Describe someone who is older than you that you admire]\nCue Card Prompts: Who this person is • How you knew this person • What kinds of things you like to do together • And explain how you feel about this person.\n\nWell, the person who immediately springs to mind is my grandfather, my mum’s dad, who turned eighty-two this spring and is, if anything, sharper than most people half his age.\n\nNow, obviously I’ve known him my whole life, but I’d say I only really got to know him in my late teens. Up until then he’d just been this slightly stern figure at family gatherings, someone you were polite to rather than close to. What changed things was a summer I spent at his place, not long after my grandmother passed away. I think he needed the company and, looking back, I probably needed the perspective, so we sort of met in the middle.\n\nEver since then, we’ve had our little routine. He’s a real creature of habit, so every visit starts the same way: a pot of very strong tea and a game of chess, which, I should admit, he nearly always wins. Mind you, he’s had a sixty-year head start. After that we tend to potter about in his garden, and that’s usually when the stories come out. He lived through some really lean years, and I mean, had I not heard about them first-hand, I doubt I’d appreciate quite how easy my generation has it.\n\nAnd that actually brings me to why I admire him so much. It’s not his age as such; it’s the fact that he just refuses to slow down. He’s well into his twilight years, yet he’s still fiercely independent. He cycles to the market, he taught himself to video-call so he could keep up with the grandchildren, and not once have I heard him use his age as an excuse. He’s set in his ways, sure, but only when it comes to how his tea’s made.\n\nAs for how I feel about him, it’s a huge amount of affection, really, though it’s tinged with a bit of sadness, because I’m very aware he won’t be around forever. I suppose that’s exactly why I make a point of dropping by whenever I can.\n\n[Part 3 - Q1] What can young and old people learn from each other?\nTake the reverse mentoring schemes that some multinationals run, where a junior employee coaches a senior manager on social media and that sort of thing. What almost inevitably happens is that the exchange turns into a two-way street. The younger person passes on their digital know-how. In return, they pick up the kind of judgement that only comes from decades of setbacks, like knowing when to say nothing in a negotiation. So I reckon the young bring fluency with whatever’s new and older people bring hindsight, which you can’t exactly get from a tutorial.\n\n[Part 3 - Q2] Has old people's quality of life improved when compared to the past?\nIn material terms, later life is undeniably more comfortable. Two generations ago, an arthritic hip or deteriorating eyesight more or less ended your independence. These days hip replacements and cataract surgery are treated as routine procedures, and most elderly people can fall back on a state pension. Are they happier, though? Older people used to live among extended family, and now plenty live alone, so loneliness has become more prevalent. Even so, I’d say they’re better off, because isolation can be eased with a phone call, whereas a worn-out hip in the 1950s couldn’t be replaced.\n\n[Part 3 - Q3] Why is there a generation gap between the young and the old?\nI think it comes down to the pace of social change. People absorb their norms about work and marriage and so on in their formative years, and those norms tend to become ingrained. Then the economy shifts, which means the next generation is raised with a different set entirely. Each side ends up measuring the other by its own yardstick, leaving both feeling misunderstood. If you’d started work when a job was for life, you’d probably see job-hopping as disloyal. For a twenty-five-year-old, it’s pretty much the only way to get a pay rise.\n\n[Part 3 - Q4] What do old people usually do in their daily life?\nHmm, I’m not sure there’s a typical day any more. The stereotype is someone fairly sedentary around the house, and that probably still fits people in their late eighties, whose mobility is often limited. The thing is, those in their sixties and seventies generally lead surprisingly full lives. Looking after grandchildren has become a full-time job for some of them. Well, an unpaid one. Just look at the school gates at three o’clock. And with the retirement age rising, a fair few of them will still be commuting at seventy.",
+    "translation_vi": "[Bài mẫu Part 2 — Miêu tả một người lớn tuổi hơn bạn mà bạn ngưỡng mộ]\nÀ, người đầu tiên hiện lên ngay trong đầu mình chính là ông ngoại mình — bố của mẹ mình. Mùa xuân năm nay ông vừa tròn tám mươi hai tuổi, nhưng nếu nói thật thì ông còn minh mẫn hơn khối người trẻ bằng nửa tuổi ông nữa.\n\nTất nhiên là mình quen biết ông suốt cả đời rồi, nhưng phải đến cuối tuổi thiếu niên mình mới thực sự hiểu rõ ông. Trước thời điểm đó, trong các buổi họp mặt gia đình, ông chỉ giống như một người có phần nghiêm nghị, kiểu người mà bạn giữ phép lịch sự nhiều hơn là gần gũi thân thiết. Bước ngoặt xảy ra vào một mùa hè mình sang nhà ông ở chơi, không lâu sau khi bà ngoại qua đời. Mình nghĩ khi ấy ông cần người bầu bạn, và nhìn lại thì chắc bản thân mình lúc đó cũng cần thêm góc nhìn sống, thế nên hai ông cháu tự nhiên xích lại gần nhau.\n\nKể từ dạo đó, hai ông cháu có một thói quen nho nhỏ với nhau. Ông là người rất nề nếp, nên lần nào mình sang cũng bắt đầu y hệt nhau: một ấm trà thật đậm và một ván cờ vua — mà thú thực là hầu như ván nào ông cũng thắng. Cơ mà cũng phải công nhận ông có tới sáu mươi năm kinh nghiệm đi trước mình rồi. Sau ván cờ, hai ông cháu hay ra vườn lúi húi chăm cây, và thường thì những câu chuyện xưa bắt đầu từ lúc đó. Ông từng sống qua những năm tháng vô cùng thiếu thốn, và nói thật, nếu không được nghe ông kể trực tiếp, mình khó mà thấm thía hết thế hệ tụi mình bây giờ đang sống sung sướng thế nào.\n\nVà điều đó cũng dẫn tới lý do khiến mình ngưỡng mộ ông đến vậy. Không hẳn chỉ vì tuổi tác của ông, mà là việc ông nhất quyết không chịu sống chậm lại vì tuổi già. Ông đã bước sang những năm tháng xế chiều rồi mà vẫn cực kỳ tự lập. Ông vẫn đạp xe đi chợ, tự mày mò học cách gọi video để theo dõi tin tức của con cháu, và chưa một lần nào mình nghe ông lấy tuổi tác ra làm cái cớ cả. Đúng là ông hơi bảo thủ ở vài thói quen thật, nhưng cũng chỉ dừng ở chuyện pha trà phải đúng kiểu thôi.\n\nCòn về tình cảm dành cho ông, đó là sự yêu thương vô bờ bến, dù đôi lúc có xen lẫn chút chạnh lòng vì mình hiểu rất rõ ông không thể ở bên mãi mãi. Chắc chính vì thế mà hễ thu xếp được lúc nào là mình lại tranh thủ ghé thăm ông ngay.\n\n[Part 3 - Câu 1] Người trẻ và người lớn tuổi có thể học hỏi gì từ nhau?\nHãy thử nhìn vào các chương trình cố vấn ngược mà một số tập đoàn đa quốc gia đang triển khai, nơi nhân viên trẻ hướng dẫn quản lý cấp cao về mạng xã hội và mấy thứ tương tự. Điều gần như chắc chắn sẽ xảy ra là cuộc trao đổi ấy biến thành con đường hai chiều. Người trẻ truyền lại sự nhạy bén công nghệ số của mình. Đổi lại, họ học được thứ bản lĩnh phán đoán chỉ có thể đúc kết từ hàng chục năm va vấp, ví dụ như biết lúc nào nên im lặng trên bàn đàm phán. Vì vậy mình cho rằng người trẻ mang đến sự thành thạo với cái mới, còn người lớn tuổi đem lại kinh nghiệm chiêm nghiệm sâu sắc — thứ bạn chẳng thể nào học nổi từ một video hướng dẫn.\n\n[Part 3 - Câu 2] Chất lượng cuộc sống của người cao tuổi hiện nay có cải thiện so với trước đây không?\nXét về mặt vật chất, cuộc sống tuổi già ngày nay rõ ràng thoải mái hơn hẳn. Hai thế hệ trước, một khớp háng bị thoái hóa hay thị lực suy giảm gần như đồng nghĩa với việc chấm dứt khả năng tự lập. Ngày nay, phẫu thuật thay khớp háng và mổ đục thủy tinh thể được coi là những thủ thuật thường quy, và phần lớn người lớn tuổi đều có thể trông cậy vào lương hưu nhà nước. Nhưng liệu họ có hạnh phúc hơn không? Trước kia người già thường sống chung trong đại gia đình nhiều thế hệ, còn bây giờ rất nhiều người sống một mình, nên sự cô đơn trở nên phổ biến hơn. Dẫu vậy, mình vẫn nghĩ họ có cuộc sống tốt hơn, bởi nỗi cô đơn còn có thể xoa dịu bằng một cuộc điện thoại, chứ một khớp háng mòn vẹt vào thập niên 1950 thì chẳng thể nào thay mới được.\n\n[Part 3 - Câu 3] Tại sao lại tồn tại khoảng cách thế hệ giữa người trẻ và người lớn tuổi?\nMình nghĩ nguyên nhân nằm ở tốc độ biến đổi của xã hội. Con người tiếp thu các chuẩn mực về công việc, hôn nhân và nhiều mặt khác trong những năm tháng hình thành nhân cách, và các chuẩn mực ấy dần ăn sâu vào nếp nghĩ. Rồi nền kinh tế chuyển dịch, khiến thế hệ kế tiếp được nuôi dạy với một hệ quy chiếu hoàn toàn khác. Cuối cùng mỗi bên lại lấy thước đo của riêng mình để đánh giá bên kia, làm cả hai đều thấy bị hiểu lầm. Nếu bạn bắt đầu đi làm vào thời một công việc gắn bó suốt đời, hẳn bạn sẽ coi việc nhảy việc là thiếu trung thành. Nhưng với một người hai mươi lăm tuổi hiện nay, đó gần như là cách duy nhất để được tăng lương.\n\n[Part 3 - Câu 4] Người cao tuổi thường làm gì trong sinh hoạt hằng ngày?\nỪm, mình không chắc bây giờ còn khái niệm một ngày điển hình chung nữa đâu. Khuôn mẫu quen thuộc là hình ảnh ai đó sống khá ít vận động quanh quẩn trong nhà, và điều đó có lẽ vẫn đúng với những cụ ở tuổi gần chín mươi khi khả năng đi lại bị hạn chế. Vấn đề là nhóm người ở độ tuổi sáu mươi và bảy mươi hiện nay thường có cuộc sống năng động đến bất ngờ. Chăm sóc cháu nhỏ đã trở thành công việc toàn thời gian với không ít người trong số họ — à, một công việc không lương. Cứ nhìn cổng trường lúc ba giờ chiều thì biết. Và khi độ tuổi nghỉ hưu ngày càng tăng, khá nhiều người ở tuổi bảy mươi vẫn sẽ đang đi làm đều đặn.",
+    "target_words": [
+      {
+        "word": "twilight years",
+        "pos": "noun phrase",
+        "ipa": "/ˈtwaɪlaɪt jɪəz/",
+        "meaning_vi": "những năm tháng xế chiều, tuổi già",
+        "example": "Even in his twilight years, her grandfather remains fiercely independent and cycles daily."
+      },
+      {
+        "word": "hindsight",
+        "pos": "noun",
+        "ipa": "/ˈhaɪndsaɪt/",
+        "meaning_vi": "sự chiêm nghiệm, nhận thức muộn sau khi việc đã qua",
+        "example": "Older colleagues bring valuable hindsight that cannot simply be learned from an online tutorial."
+      },
+      {
+        "word": "ingrained",
+        "pos": "adjective",
+        "ipa": "/ɪnˈɡreɪnd/",
+        "meaning_vi": "ăn sâu bén rễ, khó thay đổi",
+        "example": "Social habits formed in early adulthood often become deeply ingrained over decades."
+      },
+      {
+        "word": "prevalent",
+        "pos": "adjective",
+        "ipa": "/ˈprevələnt/",
+        "meaning_vi": "phổ biến, thịnh hành",
+        "example": "Social isolation has become more prevalent among seniors who live far from extended family."
+      },
+      {
+        "word": "sedentary",
+        "pos": "adjective",
+        "ipa": "/ˈsedntri/",
+        "meaning_vi": "ít vận động, ngồi nhiều một chỗ",
+        "example": "The stereotype of retirees leading purely sedentary lives no longer matches active sixty-year-olds."
+      }
+    ],
+    "questions": [
+      {
+        "q": "When did the speaker truly start getting close to his grandfather?",
+        "options": [
+          "A. When he beat his grandfather at chess as a young child.",
+          "B. During a summer stay at his grandfather's house after his grandmother passed away.",
+          "C. When his grandfather asked for help buying a bicycle at age eighty-two.",
+          "D. Only after his grandfather learned how to make video calls."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói kể rằng dù quen biết ông từ nhỏ nhưng phải tới cuối tuổi thiếu niên, khi sang ở nhà ông một mùa hè sau khi bà ngoại mất, hai ông cháu mới thực sự gần gũi."
+      },
+      {
+        "q": "What does the speaker admire most about his grandfather?",
+        "options": [
+          "A. His ability to brew exceptionally strong tea.",
+          "B. His detailed memories of historical wars.",
+          "C. His refusal to slow down or use old age as an excuse.",
+          "D. His willingness to let his grandson win at chess occasionally."
+        ],
+        "answer": 2,
+        "explain": "Người nói nhấn mạnh rằng điều khiến mình ngưỡng mộ ông nhất là việc ông không chịu chậm lại, vẫn đạp xe đi chợ, tự học gọi video và chưa bao giờ lấy tuổi tác làm cái cớ."
+      },
+      {
+        "q": "Why does the speaker believe older people today are generally better off despite greater loneliness?",
+        "options": [
+          "A. Extended families now live together more often than in the 1950s.",
+          "B. Modern routine surgeries and pensions protect mobility and independence that past generations lacked.",
+          "C. Most seniors prefer living alone rather than looking after grandchildren.",
+          "D. Reverse mentoring programs pay seniors an extra retirement bonus."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 2, người nói lập luận rằng nỗi cô đơn có thể vơi đi qua cuộc gọi, còn phẫu thuật thay khớp háng, mổ đục thủy tinh thể và lương hưu hiện đại mang lại sự tự lập mà thế hệ thập niên 1950 không có."
+      },
+      {
+        "q": "According to Part 3, what causes the generation gap between young and old people?",
+        "options": [
+          "A. Older employees refuse to work alongside younger staff.",
+          "B. Rapid economic and social changes give each generation different ingrained norms.",
+          "C. Young adults no longer respect people in their sixties and seventies.",
+          "D. Retirement ages are dropping too quickly for families to adapt."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 3, người nói giải thích khoảng cách thế hệ đến từ tốc độ biến đổi xã hội và kinh tế: mỗi thế hệ hình thành chuẩn mực khác nhau và dùng 'thước đo' riêng để đánh giá thế hệ kia."
+      }
+    ],
+    "month": 2,
+    "assigned_days": [
+      4
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 153,
+    "title": "Study4 #03: Describe a piece of local news that people are interested in (Q2/2026 • Unit 4)",
+    "category": "STUDY4 • Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q2/2026 | Study4 ID 24051 | Unit 4: Fact or Fiction (Sự thật & Truyền thông))",
+    "content": "[Part 2 Cue Card — Describe a piece of local news that people are interested in]\nCue Card Prompts: What it was about • Where you saw/heard it • Who was involved • And explain why people were interested in it.\n\nI’d like to describe a piece of local news that people were very interested in recently. It was about a violent attack in Northern Ireland involving an asylum seeker as the suspect.\n\nThe incident happened, I believe, about two weeks ago. According to the reports I saw, the suspect attacked someone in public with a machete. The incident was filmed, and because of that, many news outlets in the UK quickly picked it up and reported it.\n\nI first heard about it online because it became a highly controversial topic in the country where I am currently living. It was difficult to avoid. If you scrolled through Instagram or Facebook, you would quickly come across posts or videos discussing the case. From what I read, the suspect was arrested, while the victim was receiving emergency medical care and was in critical condition.\n\nPeople were interested in this news mainly because it raised wider debates about immigration in the UK. Immigration has always been a heated topic here, and this incident attracted even more public attention. Unfortunately, it also seemed to reinforce some people’s negative biases against immigrants in general.\n\nAnother reason people were so interested was the brutality of the incident itself. In any country, a public attack like that would be shocking. The victim permanently lost his vision after all, but what made it even more disturbing was that it was caught on video and widely circulated online, which made the story spread even faster.\n\n[Part 3 - Q1] How do people usually get local news nowadays?\nNowadays, people usually get local news in the same way they access most other types of news, through online platforms. News organizations publish articles on their websites, and people can read them easily on their phones, or computers. It is extremely convenient compared to the past. All people need to do is open a website or a news app, and they can access a wide range of articles almost instantly.\n\n[Part 3 - Q2] Do you think local news is more important than international news? Why?\nI think local news is often more relevant to people than international news. One reason is that local news usually has more direct consequences for the reader because it happens in their country, or neighborhood. For example, if there is a burglary in someone’s area, they are likely to pay attention because it could affect their own safety. Local news also informs people about changes in their community, such as new roads, or local policies, and certain people just love getting updated on their country’s development.\n\n[Part 3 - Q3] Why are some news stories more popular than others?\nThere are several reasons why some news stories become more popular than others. One reason is that they involve famous people. Since celebrities are recognizable, people may click on the article simply because they are curious about what happened to that person. Another reason is the content of the story itself. Ordinary news, such as a local councilor trying to fund a new public project, may not attract much attention. However, if a story is out of the ordinary, people are more likely to read it out of curiosity.\n\n[Part 3 - Q4] Does social media affect the way people receive news?\nYes, I think social media does affect the way people receive news. Firstly, platforms like Facebook and Instagram allow people to share videos, and commentary freely. As a result, people’s views may be shaped by what they see online, even before they read official news reports. Another effect is speed. Social media delivers news almost instantly, so people have become less patient. They now expect a constant stream of updates and may become impatient if they have to wait too long for important details.\n\n[Part 3 - Q5] Can news influence public opinion? How?\nYes, news can absolutely influence public opinion, and I think it plays a very significant role. For many people, news is one of the main sources of information about emerging issues, especially political, or economic problems. Media coverage can also affect how much the public cares about a particular issue. If the news reports on a problem repeatedly, people are more likely to see it as important.\n\n[Part 3 - Q6] Do you think all news is reliable nowadays? Why or why not?\nNo, I do not think all news is reliable nowadays. On the one hand, official media outlets are usually more reliable because their information often goes through fact-checking, and several layers of review before being published to the public. On the other hand, social media allows anyone to share information about world events, whether it is true or false. So, sometimes there is no clear way to verify these claims, so it is not a good idea to trust every piece of news we see online.\n\n[Part 3 - Q7] Do many people talk about local news?\nYes, I think many people do talk about local news, especially when it affects their daily lives. For example, people may discuss traffic congestion, or new construction projects in their area. These topics are easy to talk about because people experience them directly. If a road is blocked, or a public facility is being built, local residents will naturally bring it up in conversation.\n\n[Part 3 - Q8] Do young people or old people care more about local news?\nI think both groups care about local news, but in slightly different ways. Young people are now more aware of local social issues because they receive information constantly through their phones, and social media platforms. Older people also care about local news because they want to stay informed about what is happening in their country. Some may still read newspapers, while others may ask their children or grandchildren to help them access online news. So, I would say both age groups care.\n\n[Part 3 - Q9] Do people pay more attention to local news or international news?\nI think it varies from person to person. Some people are very interested in the development of their own country, so they pay more attention to local news. They may want updates about new infrastructure, or projects in their community. By contrast, some people prefer international news because they find local news too mundane. They may be more interested in global conflicts, or economic crises because these stories feel more serious and have higher stakes.",
+    "translation_vi": "[Bài mẫu Part 2 — Miêu tả một tin tức địa phương mà mọi người đang quan tâm]\nMình muốn kể về một tin tức địa phương gần đây thu hút sự quan tâm rất lớn của công chúng. Đó là vụ việc liên quan đến một cuộc tấn công bạo lực tại Bắc Ireland, trong đó nghi phạm là một người xin tị nạn.\n\nTheo mình nhớ thì sự việc xảy ra khoảng hai tuần trước. Dựa trên các bản tin mình xem được, nghi phạm đã dùng dao rựa tấn công một người ngay nơi công cộng. Toàn bộ vụ việc bị quay phim lại, và chính vì thế nhiều hãng tin tại Vương quốc Anh đã nhanh chóng vào cuộc đưa tin.\n\nLần đầu mình biết tới tin này là trên mạng, bởi nó lập tức trở thành chủ đề gây tranh cãi dữ dội tại quốc gia mình đang sinh sống. Gần như không thể né tránh thông tin này được. Chỉ cần lướt Instagram hay Facebook là bạn sẽ bắt gặp ngay hàng loạt bài đăng hoặc video bàn tán về vụ án. Theo những gì mình đọc được, nghi phạm đã bị bắt giữ, còn nạn nhân thì đang được cấp cứu trong tình trạng nguy kịch.\n\nMọi người quan tâm đến tin tức này chủ yếu vì nó thổi bùng những cuộc tranh luận rộng lớn hơn về vấn đề nhập cư ở Anh. Nhập cư vốn dĩ luôn là đề tài nóng tại đây, và sự cố lần này càng thu hút thêm sự chú ý của dư luận. Đáng tiếc là nó dường như cũng củng cố thêm định kiến tiêu cực của một bộ phận công chúng đối với người nhập cư nói chung.\n\nMột lý do khác khiến người ta chú ý đến vậy là mức độ tàn bạo của chính vụ việc. Ở bất kỳ quốc gia nào, một vụ hành hung công khai như thế đều gây rúng động. Sau cùng nạn nhân đã mất thị lực vĩnh viễn, nhưng điều khiến công chúng bàng hoàng hơn cả là cảnh tượng đó bị ghi hình rồi lan truyền chóng mặt trên mạng, làm câu chuyện phủ sóng nhanh hơn nữa.\n\n[Part 3 - Câu 1] Ngày nay mọi người thường tiếp cận tin tức địa phương bằng cách nào?\nHiện nay mọi người thường cập nhật tin tức địa phương giống hệt cách họ tiếp cận hầu hết các loại tin tức khác, đó là qua các nền tảng trực tuyến. Các tòa soạn đăng tải bài viết lên trang web của họ, còn độc giả dễ dàng đọc trên điện thoại hoặc máy tính. So với trước đây thì cách này vô cùng tiện lợi. Người ta chỉ cần mở một trang web hay ứng dụng tin tức là có thể truy cập hàng loạt bài báo gần như ngay lập tức.\n\n[Part 3 - Câu 2] Bạn có nghĩ tin tức địa phương quan trọng hơn tin quốc tế không? Tại sao?\nMình cho rằng tin tức địa phương thường sát sườn với người dân hơn tin quốc tế. Một lý do là tin địa phương hay kéo theo hệ quả trực tiếp đối với người đọc vì sự việc diễn ra ngay tại đất nước hoặc khu phố của họ. Chẳng hạn, nếu có một vụ trộm đột nhập trong khu vực mình ở, người dân chắc chắn sẽ chú ý vì nó ảnh hưởng tới an toàn của bản thân. Tin địa phương cũng cập nhật cho mọi người những đổi thay trong cộng đồng như đường sá mới hay chính sách địa phương, và nhiều người vốn rất thích theo dõi tình hình phát triển của đất nước mình.\n\n[Part 3 - Câu 3] Tại sao một số bản tin lại thu hút nhiều sự chú ý hơn những tin khác?\nCó vài nguyên nhân khiến một số câu chuyện trở nên nổi bật hơn hẳn phần còn lại. Một lý do là chúng liên quan đến người nổi tiếng. Vì gương mặt người nổi tiếng rất dễ nhận diện nên độc giả có thể bấm vào bài viết đơn giản vì tò mò xem chuyện gì đã xảy ra với họ. Một yếu tố khác nằm ở chính nội dung câu chuyện. Những tin tức bình thường, như một ủy viên hội đồng địa phương xin ngân sách cho dự án công cộng mới, có thể không gây nhiều chú ý. Nhưng nếu câu chuyện có yếu tố bất thường, người ta sẽ dễ bấm đọc vì hiếu kỳ.\n\n[Part 3 - Câu 4] Mạng xã hội có ảnh hưởng đến cách mọi người tiếp nhận tin tức không?\nCó chứ, mình nghĩ mạng xã hội tác động rõ rệt tới cách công chúng đón nhận tin tức. Thứ nhất, các nền tảng như Facebook và Instagram cho phép người dùng tự do chia sẻ video và bình luận cá nhân. Kết quả là quan điểm của nhiều người có thể bị định hình bởi những gì họ thấy trên mạng ngay cả trước khi họ đọc báo cáo chính thống. Một tác động khác là tốc độ. Mạng xã hội đưa tin gần như tức thì, khiến mọi người dần thiếu kiên nhẫn hơn. Giờ đây họ kỳ vọng một dòng cập nhật liên tục và dễ bực bội nếu phải chờ quá lâu để biết chi tiết quan trọng.\n\n[Part 3 - Câu 5] Tin tức có thể tác động đến dư luận xã hội không? Bằng cách nào?\nChắc chắn là có, tin tức hoàn toàn có thể dẫn dắt dư luận và mình nghĩ nó đóng vai trò cực kỳ quan trọng. Với nhiều người, báo chí là một trong những nguồn thông tin chủ yếu về các vấn đề mới nổi, đặc biệt là chuyện chính trị hoặc kinh tế. Tần suất đưa tin của truyền thông cũng chi phối mức độ quan tâm của công chúng đối với một sự việc cụ thể. Nếu bản tin lặp đi lặp lại về một vấn đề nào đó, người dân sẽ dễ coi đó là chuyện hệ trọng.\n\n[Part 3 - Câu 6] Bạn có nghĩ mọi tin tức ngày nay đều đáng tin cậy không? Tại sao có hoặc tại sao không?\nKhông, mình không nghĩ toàn bộ tin tức ngày nay đều đáng tin cậy. Một mặt, các cơ quan báo chí chính thống thường đáng tin hơn vì thông tin của họ phải trải qua khâu kiểm chứng sự thật và nhiều vòng biên tập trước khi xuất bản tới công chúng. Mặt khác, mạng xã hội lại cho phép bất kỳ ai cũng có thể đăng tải thông tin về sự kiện thế giới, bất kể đúng hay sai. Thế nên đôi lúc không có cách nào rõ ràng để xác minh các tuyên bố đó, vì vậy thật không khôn ngoan nếu tin mọi mẩu tin ta bắt gặp trên mạng.\n\n[Part 3 - Câu 7] Có nhiều người bàn tán về tin tức địa phương không?\nCó chứ, mình thấy rất nhiều người hay trao đổi về tin địa phương, nhất là khi tin đó đụng chạm tới sinh hoạt hằng ngày của họ. Ví dụ, mọi người thường bàn về tình trạng ùn tắc giao thông hoặc những công trình xây dựng mới quanh khu mình sống. Những chủ đề này rất dễ mở lời vì ai cũng trải nghiệm trực tiếp. Nếu một con đường bị rào chắn hay một công trình công cộng đang thi công, cư dân địa phương tự nhiên sẽ nhắc tới nó trong các cuộc trò chuyện.\n\n[Part 3 - Câu 8] Người trẻ hay người lớn tuổi quan tâm đến tin tức địa phương nhiều hơn?\nMình nghĩ cả hai nhóm đều quan tâm tới tin địa phương, chỉ là theo những cách hơi khác nhau thôi. Người trẻ hiện nay ý thức rõ hơn về các vấn đề xã hội tại địa phương vì họ tiếp nhận thông tin liên tục qua điện thoại và nền tảng mạng xã hội. Người lớn tuổi cũng quan tâm tin trong nước vì họ muốn nắm bắt xem đất nước đang có chuyển biến gì. Một số người vẫn duy trì thói quen đọc báo giấy, trong khi số khác nhờ con cháu hỗ trợ tìm đọc tin trực tuyến. Vậy nên mình cho rằng cả hai thế hệ đều để tâm như nhau.\n\n[Part 3 - Câu 9] Mọi người chú ý đến tin địa phương hay tin quốc tế nhiều hơn?\nMình thấy điều này tùy thuộc vào từng cá nhân. Một số người rất quan tâm tới sự phát triển của đất nước mình nên họ dành nhiều sự chú ý cho tin tức địa phương. Họ muốn cập nhật về hạ tầng mới hoặc các dự án trong cộng đồng. Trái lại, có những người chuộng tin quốc tế hơn vì cảm thấy tin địa phương quá tẻ nhạt. Họ có thể hứng thú hơn với các cuộc xung đột toàn cầu hay khủng hoảng kinh tế vì những câu chuyện ấy mang tính nghiêm trọng và tầm ảnh hưởng lớn hơn.",
+    "target_words": [
+      {
+        "word": "controversial",
+        "pos": "adjective",
+        "ipa": "/ˌkɒntrəˈvɜːʃl/",
+        "meaning_vi": "gây tranh cãi, nhiều ý kiến trái chiều",
+        "example": "Immigration policy remains a highly controversial topic across many European news outlets."
+      },
+      {
+        "word": "bias",
+        "pos": "noun",
+        "ipa": "/ˈbaɪəs/",
+        "meaning_vi": "thiên kiến, định kiến",
+        "example": "Sensationalized headlines can unfairly reinforce public biases against minority communities."
+      },
+      {
+        "word": "fact-checking",
+        "pos": "noun",
+        "ipa": "/ˈfækt tʃekɪŋ/",
+        "meaning_vi": "quá trình kiểm chứng sự thật",
+        "example": "Reputable newspapers run strict fact-checking before publishing sensitive breaking reports."
+      },
+      {
+        "word": "mundane",
+        "pos": "adjective",
+        "ipa": "/mʌnˈdeɪn/",
+        "meaning_vi": "bình thường, tẻ nhạt, tầm thường",
+        "example": "Some readers skip local council updates because they find routine budget stories too mundane."
+      },
+      {
+        "word": "circulate",
+        "pos": "verb",
+        "ipa": "/ˈsɜːkjəleɪt/",
+        "meaning_vi": "lan truyền, lưu hành rộng rãi",
+        "example": "Unverified video clips often circulate rapidly across social media before journalists confirm the facts."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why did the local attack story in Northern Ireland attract such widespread public attention?",
+        "options": [
+          "A. It involved a well-known politician from London.",
+          "B. It was filmed and circulated online, fueling broader debates over immigration.",
+          "C. Local newspapers published it exclusively in print editions.",
+          "D. The suspect escaped and remained missing for weeks."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói nêu hai lý do chính: vụ việc làm dấy lên tranh luận rộng hơn về nhập cư tại Anh, và tính chất bạo lực bị quay video rồi lan truyền chóng mặt trên mạng."
+      },
+      {
+        "q": "According to Part 3, why do people often pay closer attention to local news than international news?",
+        "options": [
+          "A. International news rarely receives coverage on mobile apps.",
+          "B. Local reports affect their immediate safety, roads, and community policies.",
+          "C. Local reporters are always more trustworthy than global broadcasters.",
+          "D. Young people prefer reading printed local newspapers."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 2, người nói giải thích tin địa phương có hệ quả trực tiếp đối với đời sống người đọc như an ninh khu phố (vụ trộm), đường sá mới hoặc chính sách địa phương."
+      },
+      {
+        "q": "How has social media changed news consumption habits, according to the speaker?",
+        "options": [
+          "A. It has made readers less patient by accustoming them to instant, continuous updates.",
+          "B. It has eliminated public commentary before official reports appear.",
+          "C. It forces every post to pass through multiple editorial fact-checks.",
+          "D. It has caused older adults to stop caring about national news."
+        ],
+        "answer": 0,
+        "explain": "Ở Part 3 câu 4, người nói nhận xét tốc độ tức thì của mạng xã hội khiến người dùng trở nên thiếu kiên nhẫn hơn và luôn mong chờ dòng cập nhật liên tục."
+      },
+      {
+        "q": "Why do some people prefer international news over local stories?",
+        "options": [
+          "A. Local stories never mention infrastructure projects.",
+          "B. They consider local news mundane compared with high-stakes global crises.",
+          "C. International websites do not allow user comments.",
+          "D. Only international outlets verify their sources."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 9, người nói giải thích một số người thấy tin địa phương quá tẻ nhạt (mundane) nên thích theo dõi xung đột toàn cầu hoặc khủng hoảng kinh tế vì tầm ảnh hưởng lớn hơn."
+      }
+    ],
+    "month": 3,
+    "assigned_days": [
+      7
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 154,
+    "title": "Study4 #04: Describe a city that you have been to and enjoy visiting (Q2/2026 • Unit 6)",
+    "category": "STUDY4 • Unit 6: Places (Đô thị & Du lịch)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q2/2026 | Study4 ID 24077 | Unit 6: Places (Đô thị & Du lịch))",
+    "content": "[Part 2 Cue Card — Describe a city that you have been to and enjoy visiting]\nCue Card Prompts: Where the city is • What you did there • How many times you have been there • And explain why you really enjoyed visiting this city.\n\nI’d like to describe a city I have been to and really enjoyed visiting, which is Bath in the United Kingdom. This was the first time I visited this location, and it was during Easter because I happened to have some free time.\n\nI visited the city for a short two-day trip. On the first day, I arrived and checked into a homestay, after which, I walked around the city. Bath is known for being old and beautiful, and I had a great time exploring it. The weather was sunny but not too hot, so I was able to see some famous sights, including Bath Abbey.\n\nOn the second day, I climbed up a hill that gave me a panoramic view of the whole city. It was absolutely breathtaking. Unfortunately, I only stayed for a short time, so that was all I was able to do.\n\nI really enjoyed Bath for several reasons. The first is its Roman influence. Many of the buildings and historical sites reflect Roman architecture, which made the city feel very different from other places I had visited. It also gave me many memorable photos to share with my friends and family.\n\nAnother reason is the variety of activities available. History lovers can visit the Roman Baths and learn about how people used communal baths in the past. They can also visit Bath Abbey, which is beautiful in its own right. At the same time, people who enjoy hiking can climb the nearby hills and enjoy the view of the city.\n\nAs a side note, it is also quite convenient as a starting point for travel to other locations. From Bath, I was able to visit other famous tourist attractions, such as Stonehenge and the Cotswolds as well.\n\n[Part 3 - Q1] What is the difference between living in the countryside and the city?\nThere are many differences between living in the countryside and living in the city. One major difference is the environment. Cities are often more polluted because there are more people, and more traffic congestion during peak hours. As a result, there is more smog, so people may develop respiratory problems if they live there for a long time. By contrast, the countryside usually has fresher air and more green spaces, so people may feel more relaxed. The pace of life is also very different. Cities are bustling and fast-paced, while the countryside usually offers a slower and more peaceful lifestyle.\n\n[Part 3 - Q2] Do you prefer to live in the city or in the countryside?\nI think I prefer living in the city. I am only 24 years old, so I still have quite a lot of energy, and I enjoy going out for coffee dates at night with my friends. The city, then, gives me more chances to mingle and talk about all sorts of topics with other people. I also like the convenience of city life. I can easily access recreational facilities such as gyms, cafés, and restaurants. These places may be much less accessible in rural areas, so for now, city life suits me better.\n\n[Part 3 - Q3] Is it good for elderly people to live in large cities?\nYes, I think it can be good for elderly people to live in large cities. One reason is that large cities usually have better medical services. Since elderly people may suffer from existing health conditions or sudden medical complications, having easy access to hospitals and clinics can be extremely important. Another reason is family connection. Many elderly people have children who live and work in cities. If they also live in the same city, they may be able to see their children more often, which is good for their mental health because they have someone to talk to and share their feelings with.\n\n[Part 3 - Q4] Is it possible that all of the population will move to cities?\nI think urban migration will continue, but I do not think it is realistic to say that everyone will move to cities. One reason is that land in cities is becoming more limited. If everyone from rural areas moved to cities, there probably would not be enough housing to accommodate them, and this could lead to serious problems such as homelessness. It should also be said that governments are trying to develop the countryside as well. If rural areas have better infrastructure, and better career prospects, some people may choose to stay in their hometowns or home provinces instead of moving to large cities.\n\n[Part 3 - Q5] Will people live in the countryside in the future?\nYes, I think some people will continue to live in the countryside in the future. Retired people, for example, may prefer a peaceful life with fresh air and less pollution. This can be especially attractive for elderly people who have respiratory problems or simply want to enjoy a quieter lifestyle. However, many young people will probably continue to live in cities because cities offer more job opportunities and higher salaries. Some elderly people may also stay in cities because that is where their families live, so living nearby makes it easier for them to maintain family relationships.\n\n[Part 3 - Q6] Do you think people in the countryside are friendlier than in cities?\nGenerally, I would say yes. People in the countryside often have a slower pace of life, so they may feel less stressed by work. Because of that, they may be calmer and more willing to take their time when talking to others. City people, however, often have somewhere to be. They may be commuting to work, rushing to an appointment, or dealing with a busy schedule. As a result, they may try to skip small talk, which can make them seem less friendly.\n\n[Part 3 - Q7] What should the government do to improve citizens' safety?\nI think there are many measures the government could take to improve citizens’ safety. One method is to install more surveillance cameras in public areas. This is quite common in the United Kingdom, where cameras can be seen at bus stops, outside shops, and in busy streets. They can discourage crimes such as theft or pickpocketing. The government can also introduce stricter regulations related to traffic and building safety. If people know that roads are properly managed and buildings are regularly inspected, they may feel safer both when they are driving and when they are at home.\n\n[Part 3 - Q8] What changes usually take place in cities and towns?\nThere are various changes that usually take place in cities and towns. One common change is the construction of new buildings. This may involve demolishing old structures, using bulldozers, and creating a lot of dust and noise, so the change is usually quite noticeable. Another common change is the improvement of road infrastructure. Sometimes buildings have to be removed to make space for wider roads or new transport routes. Although this can be inconvenient during construction, it may reduce traffic congestion once the work is finished.\n\n[Part 3 - Q9] Are there any changes in your city?\nAt the moment, I cannot say for certain because I have not returned to my home city for about a year. So, unfortunately, I have not personally observed any recent changes. That does not mean the city has not changed, though. It is just that I have been away, so I do not want to make a claim without seeing the changes myself.\n\n[Part 3 - Q10] Why do tourists choose to visit certain cities?\nThere are several reasons why tourists choose to visit certain cities. One important factor is the number of tourist attractions. Some cities may be rather dull because they are mainly business or industrial centers, so tourists may not find much to do there. By contrast, cities with a rich history, museums, and historical monuments are often more exciting for tourists. Some cities are also designed with special consideration for tourists. They may offer language support, and tourist-friendly services, which makes them easier and more enjoyable to visit.\n\n[Part 3 - Q11] Are modern cities more interesting for tourists than historical ones?\nI would say it depends on the tourist. Modern cities have their own appeal. They may offer vibrant nightlife, street food, and recreational facilities such as bowling alleys or cinemas, which might appeal to young travelers, I suppose. However, some tourists travel mainly for cultural and historical experiences. They may prefer cities with museums, monuments, and a rich historical background. So, in the end, whether modern or historical cities are more interesting depends on personal preference.\n\n[Part 3 - Q12] Are cities that tourists like to visit also good places to live?\nNot always. Cities that tourists enjoy visiting are often designed to accommodate visitors, but that does not necessarily make them good places to live. For example, many jobs in tourist cities may depend heavily on peak tourist seasons, so employment may not be stable throughout the year. For me, a good place to live is not only attractive, but also able to provide good employment opportunities and a stable income. A city may be wonderful for a short holiday, but that does not automatically mean it is practical for everyday life.\n\n[Part 3 - Q13] Why do many people choose to live in cities?\nThere are many reasons why people choose to live in cities. One major reason is job opportunities. Cities usually have stronger economies than rural areas, so companies are often looking for new employees and offering better career prospects. Another reason is convenience. Cities usually have modern services such as hospitals, and recreational facilities; therefore, many people live in cities because they want easy access to these services as well.\n\n[Part 3 - Q14] Does living in cities have more advantages for younger or older people?\nI would say living in cities has more advantages for younger people. As I mentioned earlier, cities usually provide better job opportunities. If a young adult is highly qualified, they may be able to secure a stable job with a good salary. Cities also have more entertainment options. Young people can go to cafés, or other recreational places after work. These activities help them socialize, and expand their social circle.\n\n[Part 3 - Q15] Do you agree or disagree that cities lose their individual character as they grow in size?\nI agree to some extent. As cities grow larger, they may become more crowded and commercialized, and this can make them lose some of their original character. For example, if more high-rise buildings, shopping centers, and roads are built, the city may start to look similar to many other modern cities. Population growth can also put pressure on natural resources and green spaces. If a city was once known for its peaceful parks, those features may be damaged by traffic congestion, and noise pollution. As a result, the city may gradually lose the qualities that made it special in the first place.",
+    "translation_vi": "[Bài mẫu Part 2 — Miêu tả một thành phố bạn từng đến và rất thích tham quan]\nMình muốn kể về một thành phố mà mình từng ghé thăm và thực sự rất thích, đó là thành phố Bath ở Vương quốc Anh. Đây là lần đầu tiên mình đặt chân tới nơi này, đúng vào dịp lễ Phục sinh vì tình cờ mình có chút thời gian rảnh.\n\nMình đi chuyến ngắn ngày kéo dài hai ngày thôi. Ngày đầu tiên, mình đến nơi và nhận phòng homestay, sau đó đi dạo quanh thành phố. Bath nổi tiếng với vẻ đẹp cổ kính và thanh lịch, nên mình đã có khoảng thời gian khám phá vô cùng thú vị. Thời tiết hôm ấy có nắng nhẹ nhưng không quá gắt, nhờ vậy mình có thể tham quan vài địa danh nổi tiếng, trong đó có Tu viện Bath.\n\nSang ngày thứ hai, mình leo lên một ngọn đồi cho phép ngắm toàn cảnh cả thành phố từ trên cao. Khung cảnh thực sự ngoạn mục đến nín thở. Tiếc là mình chỉ ở lại thời gian ngắn nên cũng chỉ kịp trải nghiệm bấy nhiêu thôi.\n\nMình thực sự mê Bath vì nhiều lý do. Thứ nhất là dấu ấn La Mã cổ đại. Rất nhiều công trình và di tích lịch sử nơi đây mang đậm kiến trúc La Mã, tạo cho thành phố một bầu không khí khác hẳn những nơi mình từng đi qua. Nhờ vậy mình cũng chụp được vô số bức ảnh đáng nhớ để chia sẻ với gia đình và bạn bè.\n\nMột lý do nữa là sự đa dạng các hoạt động tham quan. Người yêu lịch sử có thể ghé khu Nhà tắm La Mã để tìm hiểu cách người xưa sử dụng nhà tắm công cộng ra sao. Họ cũng có thể thăm Tu viện Bath, vốn tự thân nó đã là một công trình tuyệt đẹp. Đồng thời, ai thích đi bộ đường dài có thể leo những ngọn đồi gần đó và thu trọn thành phố vào tầm mắt.\n\nNói thêm một chút, nơi đây cũng rất thuận tiện để làm điểm xuất phát tới các điểm du lịch khác. Từ Bath, mình dễ dàng ghé thăm những thắng cảnh nổi tiếng lân cận như bãi đá cổ Stonehenge và vùng quê Cotswolds nữa.\n\n[Part 3 - Câu 1] Sống ở nông thôn và sống ở thành phố có gì khác nhau?\nCó rất nhiều khác biệt giữa cuộc sống nông thôn và thành thị. Một khác biệt lớn là môi trường sống. Các thành phố thường ô nhiễm hơn vì dân số đông đúc và ùn tắc giao thông vào giờ cao điểm. Hệ quả là khói bụi mù mịt dày đặc hơn, khiến người dân dễ mắc các bệnh về hô hấp nếu sinh sống lâu dài ở đó. Ngược lại, vùng quê thường có không khí trong lành hơn cùng nhiều không gian xanh, giúp con người cảm thấy thư thái hơn. Nhịp sống cũng rất khác biệt. Đô thị lúc nào cũng nhộn nhịp và hối hả, trong khi nông thôn thường mang lại lối sống chậm rãi và yên bình hơn.\n\n[Part 3 - Câu 2] Bạn thích sống ở thành phố hay ở nông thôn hơn?\nMình nghĩ mình thích sống ở thành phố hơn. Mình mới hai mươi bốn tuổi nên vẫn còn khá nhiều năng lượng, lại thích ra ngoài hẹn hò cà phê buổi tối cùng bạn bè. Thành phố vì thế cho mình nhiều cơ hội giao lưu và trò chuyện đủ mọi đề tài với người khác. Mình cũng thích sự tiện nghi của đời sống đô thị. Mình có thể dễ dàng tiếp cận các tiện ích giải trí như phòng tập gym, quán cà phê và nhà hàng. Những nơi này ở vùng quê thường khó tìm hơn nhiều, nên hiện tại cuộc sống thành thị hợp với mình hơn.\n\n[Part 3 - Câu 3] Người lớn tuổi sống ở các thành phố lớn có tốt không?\nCó chứ, mình nghĩ sống ở thành phố lớn hoàn toàn có lợi cho người cao tuổi. Một lý do là đô thị lớn thường có dịch vụ y tế tốt hơn. Vì người già có thể mắc sẵn bệnh nền hoặc gặp biến chứng y khoa đột ngột, việc dễ dàng tiếp cận bệnh viện và phòng khám vô cùng quan trọng. Một lý do khác là sự gắn kết gia đình. Nhiều người lớn tuổi có con cái sinh sống và làm việc tại thành phố. Nếu ở cùng thành phố, họ có thể gặp con thường xuyên hơn, điều rất tốt cho sức khỏe tinh thần vì luôn có người để trò chuyện và sẻ chia tâm sự.\n\n[Part 3 - Câu 4] Liệu có khả năng toàn bộ dân số sẽ chuyển hết lên thành phố sống không?\nMình nghĩ làn sóng di cư lên đô thị sẽ còn tiếp diễn, nhưng nói tất cả mọi người sẽ chuyển lên thành phố thì không thực tế. Một nguyên nhân là quỹ đất ở đô thị ngày càng hạn hẹp. Nếu toàn bộ cư dân nông thôn dồn lên phố, chắc chắn sẽ không đủ nhà ở để đáp ứng, dẫn đến những hệ lụy nghiêm trọng như tình trạng vô gia cư. Cũng cần nói thêm rằng các chính phủ đang nỗ lực phát triển khu vực nông thôn nữa. Nếu vùng quê có hạ tầng tốt hơn và triển vọng nghề nghiệp sáng sủa hơn, nhiều người có thể chọn ở lại quê hương hoặc tỉnh nhà thay vì đổ xô lên thành phố lớn.\n\n[Part 3 - Câu 5] Trong tương lai người ta có còn sống ở vùng nông thôn không?\nCó chứ, mình tin một bộ phận dân cư vẫn sẽ tiếp tục sống ở nông thôn trong tương lai. Chẳng hạn người nghỉ hưu có thể chuộng cuộc sống thanh bình với bầu không khí sạch và ít ô nhiễm. Điều này đặc biệt hấp dẫn với người lớn tuổi có vấn đề về hô hấp hoặc đơn giản chỉ muốn tận hưởng nhịp sống tĩnh lặng hơn. Tuy nhiên, nhiều người trẻ có lẽ vẫn sẽ bám trụ ở thành phố vì đô thị mang lại nhiều cơ hội việc làm và mức lương cao hơn. Một số người cao tuổi cũng có thể ở lại phố vì gia đình họ sống tại đó, nên ở gần sẽ dễ duy trì tình cảm gia đình hơn.\n\n[Part 3 - Câu 6] Bạn có nghĩ người dân ở nông thôn thân thiện hơn ở thành phố không?\nNhìn chung thì mình đồng ý. Người dân vùng quê thường có nhịp sống chậm hơn nên họ ít bị công việc làm cho căng thẳng. Nhờ thế, họ điềm tĩnh hơn và sẵn sàng dành thời gian trò chuyện với người khác. Người thành thị trái lại lúc nào cũng vội đi đâu đó. Họ có thể đang tất tả đi làm, chạy cho kịp cuộc hẹn hoặc xoay xở lịch trình dày đặc. Hệ quả là họ hay bỏ qua những câu chào hỏi xã giao, điều đó dễ khiến họ trông có vẻ kém thân thiện hơn.\n\n[Part 3 - Câu 7] Chính phủ nên làm gì để cải thiện sự an toàn cho công dân?\nMình nghĩ có nhiều biện pháp chính phủ có thể áp dụng để nâng cao an toàn cho người dân. Một cách là lắp đặt thêm camera giám sát tại khu vực công cộng. Việc này rất phổ biến ở Vương quốc Anh, nơi bạn có thể thấy camera ở trạm xe buýt, bên ngoài cửa hàng và trên các tuyến phố đông đúc. Chúng có tác dụng răn đe các tội phạm như trộm cắp hay móc túi. Nhà nước cũng có thể ban hành quy định chặt chẽ hơn về an toàn giao thông và xây dựng. Khi biết đường sá được quản lý bài bản và tòa nhà được kiểm định định kỳ, người dân sẽ cảm thấy an tâm hơn cả lúc lái xe lẫn khi ở nhà.\n\n[Part 3 - Câu 8] Những thay đổi nào thường diễn ra tại các thành phố và thị trấn?\nCó đủ loại biến đổi thường xuyên diễn ra ở các thành phố và thị trấn. Một thay đổi phổ biến là xây dựng các tòa nhà mới. Quá trình này có thể bao gồm phá dỡ công trình cũ, điều động máy ủi và gây ra nhiều bụi bặm lẫn tiếng ồn, nên sự đổi thay thường rất dễ nhận thấy. Một thay đổi quen thuộc khác là nâng cấp hạ tầng giao thông đường bộ. Đôi khi người ta phải giải tỏa một số tòa nhà để lấy mặt bằng mở rộng đường hoặc làm tuyến giao thông mới. Dù việc thi công có thể gây bất tiện tạm thời, nó giúp giảm ùn tắc xe cộ sau khi hoàn thành.\n\n[Part 3 - Câu 9] Thành phố của bạn dạo này có thay đổi gì không?\nHiện tại mình chưa thể nói chắc chắn được vì khoảng một năm nay mình chưa quay về thành phố quê hương. Tiếc là mình chưa trực tiếp quan sát được đổi thay nào gần đây cả. Dĩ nhiên điều đó không có nghĩa là thành phố không hề thay đổi đâu. Chỉ là mình đang đi xa, nên mình không muốn đưa ra nhận định khi chưa tận mắt chứng kiến.\n\n[Part 3 - Câu 10] Tại sao du khách lại chọn tham quan một số thành phố nhất định?\nCó vài lý do khiến du khách ưu ái lựa chọn một số thành phố cụ thể. Yếu tố quan trọng đầu tiên là số lượng điểm tham quan du lịch. Một số đô thị có thể khá buồn tẻ vì chủ yếu là trung tâm thương mại hoặc công nghiệp, nên khách du lịch chẳng tìm thấy nhiều hoạt động giải trí ở đó. Ngược lại, những thành phố giàu bề dày lịch sử, có bảo tàng và di tích lịch sử thường hấp dẫn du khách hơn nhiều. Một số thành phố còn được quy hoạch rất chu đáo cho du khách, chẳng hạn cung cấp hỗ trợ đa ngôn ngữ và dịch vụ thân thiện với khách tham quan, khiến chuyến đi trở nên thuận tiện và đáng nhớ hơn.\n\n[Part 3 - Câu 11] Các thành phố hiện đại có thú vị với du khách hơn những thành phố cổ kính không?\nMình nghĩ còn tùy vào đối tượng du khách nữa. Đô thị hiện đại có sức hút riêng của nó. Chúng có thể mang lại đời sống về đêm sôi động, ẩm thực đường phố và các khu vui chơi như sàn bowling hay rạp chiếu phim — những thứ chắc hẳn thu hút giới trẻ mê xê dịch. Tuy nhiên, có những du khách đi du lịch chủ yếu để tìm trải nghiệm văn hóa và lịch sử. Họ có thể chuộng những thành phố có bảo tàng, tượng đài và chiều sâu lịch sử lâu đời. Thế nên rốt cuộc thành phố hiện đại hay cổ kính thú vị hơn còn phụ thuộc vào sở thích cá nhân.\n\n[Part 3 - Câu 12] Những thành phố du khách thích đến tham quan có đồng thời là nơi đáng sống không?\nKhông phải lúc nào cũng vậy đâu. Những thành phố được du khách yêu thích thường được thiết kế để chiều lòng khách tham quan, nhưng điều đó không đương nhiên biến chúng thành nơi lý tưởng để định cư. Chẳng hạn, nhiều công việc tại thành phố du lịch phụ thuộc nặng vào mùa cao điểm, nên việc làm có thể không ổn định quanh năm. Với mình, một nơi đáng sống không chỉ cần đẹp mà còn phải mang lại cơ hội việc làm tốt và thu nhập vững vàng. Một thành phố có thể tuyệt vời cho kỳ nghỉ ngắn ngày, nhưng chưa chắc đã thiết thực cho cuộc sống thường nhật.\n\n[Part 3 - Câu 13] Tại sao nhiều người lại lựa chọn sinh sống ở thành phố?\nCó rất nhiều lý do khiến đông đảo người dân chọn sống tại đô thị. Nguyên nhân lớn đầu tiên là cơ hội việc làm. Thành phố thường có nền kinh tế phát triển mạnh hơn vùng nông thôn, nên các doanh nghiệp liên tục tuyển dụng nhân sự mới và đem lại triển vọng thăng tiến tốt hơn. Một lý do nữa là sự tiện lợi. Đô thị thường sở hữu đầy đủ dịch vụ hiện đại như bệnh viện và khu vui chơi giải trí; bởi thế nhiều người lên thành phố vì muốn tiếp cận dễ dàng các dịch vụ ấy.\n\n[Part 3 - Câu 14] Sống ở thành phố mang lại nhiều lợi thế hơn cho người trẻ hay người lớn tuổi?\nMình cho rằng sống ở thành phố mang lại nhiều lợi thế hơn cho người trẻ. Như mình vừa nhắc lúc nãy, đô thị thường cung cấp cơ hội nghề nghiệp tốt hơn. Nếu một bạn trẻ có trình độ chuyên môn cao, họ có thể tìm được công việc ổn định với mức lương khá. Thành phố cũng có nhiều lựa chọn giải trí hơn. Người trẻ có thể ghé quán cà phê hay tụ điểm vui chơi sau giờ làm. Những hoạt động này giúp họ giao lưu xã hội và mở rộng vòng tròn kết nối bạn bè.\n\n[Part 3 - Câu 15] Bạn đồng ý hay không đồng ý với quan điểm rằng các thành phố dần đánh mất bản sắc riêng khi mở rộng quy mô?\nMình đồng ý ở một mức độ nhất định. Khi thành phố phình to ra, chúng có thể trở nên đông đúc và thương mại hóa hơn, điều này dễ làm phai nhạt nét đặc trưng ban đầu. Ví dụ, nếu xây dựng quá nhiều cao ốc, trung tâm mua sắm và đường lớn, thành phố ấy có thể bắt đầu trông na ná vô số đô thị hiện đại khác. Sự gia tăng dân số cũng tạo áp lực lên tài nguyên thiên nhiên và mảng xanh. Nếu một thành phố từng nổi tiếng nhờ các công viên yên tĩnh, những nét đẹp đó có nguy cơ bị hủy hoại bởi kẹt xe và ô nhiễm tiếng ồn, khiến thành phố dần đánh mất những giá trị làm nên sức hút thuở ban đầu.",
+    "target_words": [
+      {
+        "word": "panoramic",
+        "pos": "adjective",
+        "ipa": "/ˌpænəˈræmɪk/",
+        "meaning_vi": "bao quát toàn cảnh",
+        "example": "Climbing the hill rewarded us with a panoramic view over the entire historic city of Bath."
+      },
+      {
+        "word": "respiratory",
+        "pos": "adjective",
+        "ipa": "/rəˈspɪrətri/",
+        "meaning_vi": "thuộc về đường hô hấp",
+        "example": "Long-term exposure to heavy urban smog can trigger chronic respiratory problems."
+      },
+      {
+        "word": "accommodate",
+        "pos": "verb",
+        "ipa": "/əˈkɒmədeɪt/",
+        "meaning_vi": "đáp ứng chỗ ở, chứa được, phục vụ",
+        "example": "Overcrowded cities struggle to build enough affordable housing to accommodate continuous rural migration."
+      },
+      {
+        "word": "commercialized",
+        "pos": "adjective",
+        "ipa": "/kəˈmɜːʃəlaɪzd/",
+        "meaning_vi": "bị thương mại hóa",
+        "example": "Some historic towns lose their local charm when main streets become heavily commercialized."
+      },
+      {
+        "word": "demolish",
+        "pos": "verb",
+        "ipa": "/dɪˈmɒlɪʃ/",
+        "meaning_vi": "phá dỡ, đập bỏ công trình",
+        "example": "City planners sometimes demolish aging structures to widen congested commuter roads."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What did the speaker do on the second day of the trip to Bath?",
+        "options": [
+          "A. Checked into a homestay and visited Bath Abbey.",
+          "B. Climbed a hill to enjoy a panoramic view of the city.",
+          "C. Took a guided tour inside the Roman Baths.",
+          "D. Traveled onward to Stonehenge and the Cotswolds."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, ngày đầu người nói nhận phòng và đi thăm Tu viện Bath, còn sang ngày thứ hai thì leo lên một ngọn đồi để ngắm toàn cảnh (panoramic view) thành phố."
+      },
+      {
+        "q": "Why does the speaker consider living in large cities beneficial for elderly residents?",
+        "options": [
+          "A. Cities always offer cleaner air and quieter lifestyles than villages.",
+          "B. Seniors have faster access to hospitals and can see city-dwelling children more often.",
+          "C. Public transport is free for retirees across all metropolitan areas.",
+          "D. Urban housing costs are lower for retired citizens."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 3, người nói đưa ra hai lý do: thành phố lớn có dịch vụ y tế/bệnh viện tốt hơn cho tình huống khẩn cấp và giúp người già sống gần con cái để tốt cho sức khỏe tinh thần."
+      },
+      {
+        "q": "Why might a popular tourist city NOT be a good place to live permanently?",
+        "options": [
+          "A. Museums and monuments close during winter months.",
+          "B. Tourist cities lack restaurants and cinemas for locals.",
+          "C. Employment often depends on peak tourist seasons and lacks year-round stability.",
+          "D. Visitors make public surveillance cameras ineffective."
+        ],
+        "answer": 2,
+        "explain": "Ở Part 3 câu 12, người nói giải thích nhiều việc làm ở thành phố du lịch phụ thuộc mùa cao điểm (peak tourist seasons) nên thu nhập không ổn định suốt năm."
+      },
+      {
+        "q": "How can rapid urban growth erode a city's individual character?",
+        "options": [
+          "A. High-rise towers and malls make cities look alike while traffic harms quiet parks.",
+          "B. Residents stop using recreational facilities such as gyms and cafés.",
+          "C. Local authorities prohibit road expansion near historical monuments.",
+          "D. Rural migrants refuse to work in commercialized business districts."
+        ],
+        "answer": 0,
+        "explain": "Ở Part 3 câu 15, người nói đồng tình rằng việc xây thêm nhiều cao ốc, trung tâm thương mại khiến thành phố na ná nhau, còn kẹt xe và tiếng ồn làm hư hại các công viên yên bình."
+      }
+    ],
+    "month": 1,
+    "assigned_days": [
+      10
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 155,
+    "title": "Study4 #05: Describe an invention that is useful in your daily life (Q1/2026 • Unit 1)",
+    "category": "STUDY4 • Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q1/2026 | Study4 ID 20267 | Unit 1: Me & Mine (Sở hữu & Đồ vật))",
+    "content": "[Part 2 Cue Card — Describe an invention that is useful in your daily life]\nCue Card Prompts: What the invention is • What it can do • How popular it is • And explain whether it is difficult or easy to use.\n\nI’d like to talk about my smartphone, a technological marvel that I simply cannot go a day without. This is because a smartphone can do so many things at once. It allows me to make calls, send messages, browse the internet, and even manage my schedule. In fact, now that I’m studying abroad, it has become even more invaluable, since it’s the only way I can reliably get information on what time the buses arrive. My life, honestly, would be miserable without it.\n\nIn terms of popularity, smartphones are everywhere. Almost everyone I know, from students to elderly people, owns one, and in many places, it’s become a basic necessity rather than a luxury. You see people using their phones on public transport, at cafés, and even at work, which really shows how deeply this invention is integrated into daily life.\n\nAnd, considering what I’ve said, I’d say smartphones are really easy to use. As for why, I’d say it is because they are generally very user-friendly. Most apps are designed to be intuitive, so you can learn how to use them just by tapping around. Of course, some advanced features take time to get used to, and the elderly are notorious for hating technology just because they don’t understand them. However, I think by just spending a few minutes asking for help, they can learn how to use a smartphone, since it’s, by design, not difficult to use at all. Honestly, this invention has just made life faster, and more connected.\n\n[Part 3 - Q1] What qualities do inventors have?\nInventors are usually creative, and highly observant. They notice problems in everyday life and think about how to solve them. Persistence is also crucial, because invention often involves trial and error. And, there’s one thing that all inventors have in common, and that’s their willingness to take risks. Honestly, how can you invent something new if you don’t take risks.\n\n[Part 3 - Q2] Do you think only scientists can invent new things?\nNo, not at all. While scientists play a big role in technological breakthroughs, many inventions come from ordinary people. Entrepreneurs, engineers, and even users themselves can invent practical solutions based on daily needs. Aside from all the expertise needed, an inventor is, first and foremost, anyone who is creative, and who is a risk-taker.\n\n[Part 3 - Q3] What inventions do you think should be improved?\nI think smartphones and social media platforms need improvement, especially in terms of health and privacy. They’re incredibly useful, but overuse can cause addiction and stress. Improving digital wellbeing features and data protection would potentially make them safer. Though, I must admit, I am not bright enough to come up with a solution for phone addiction.\n\n[Part 3 - Q4] Are there any other inventions that make the world better?\nYes, many inventions have significantly improved quality of life. First, medical technologies like vaccines and MRI machines save lives every day. Moreover, inventions that provide renewable energy, such as solar panels and wind turbines, help protect the environment, and even simple inventions, like clean water systems, have made a huge difference globally.\n\n[Part 3 - Q5] Do all inventions bring benefits to our world?\nNot all inventions are entirely positive. Some inventions have unintended negative consequences, such as weapons or harmful chemicals. Even useful technologies can be misused or overused. Honestly, just look at the example of nuclear technology. It has been used for both good, like for energy use, and evil purposes, like for making nuclear bombs. So while inventions aim to solve problems, their impact depends on how responsibly they are used.\n\n[Part 3 - Q6] Who should support and sponsor inventors, governments or private companies?\nI think both should play a role. Governments can support inventors through funding, and long-term research projects. Researchers, at the end of the day, are still people with maybe families and responsibilities, so they need to make money somehow. Private companies may also support scientists since they are really good at turning ideas into market-ready products.\n\n[Part 3 - Q7] What do you think have been some of the most important inventions in the past 100 years or so?\nSome of the most important inventions include the internet, computers, and smartphones, which have transformed communication and work. I honestly don’t think mankind can go back to receiving news and contacting their friends and family through traditional methods like sending letters and reading from newspapers. Medical advances like antibiotics and vaccines have also saved millions of lives. And, thanks to them, some dangerous diseases like smallpox have almost completely disappeared.",
+    "translation_vi": "[Bài mẫu Part 2 — Miêu tả một phát minh hữu ích trong đời sống hằng ngày của bạn]\nMình muốn nói về chiếc điện thoại thông minh của mình — một kỳ quan công nghệ mà đúng nghĩa mình không thể sống thiếu dù chỉ một ngày. Lý do là vì điện thoại thông minh có thể làm quá nhiều việc cùng lúc. Nó cho phép mình gọi điện, nhắn tin, lướt mạng và thậm chí quản lý lịch trình cá nhân. Thực tế là từ khi đi du học, chiếc máy này lại càng trở nên vô giá, bởi đây là cách duy nhất giúp mình tra cứu chính xác giờ xe buýt cập bến. Nói thật lòng, cuộc sống của mình chắc chắn sẽ khốn khổ lắm nếu thiếu nó.\n\nXét về mức độ phổ biến thì điện thoại thông minh có mặt ở khắp mọi nơi. Hầu hết những người mình quen, từ sinh viên cho tới người lớn tuổi, ai cũng sở hữu một chiếc, và ở nhiều nơi nó đã trở thành nhu yếu phẩm cơ bản chứ không còn là món đồ xa xỉ nữa. Bạn có thể bắt gặp mọi người dùng điện thoại trên phương tiện công cộng, ngoài quán cà phê và cả tại nơi làm việc, điều đó cho thấy phát minh này đã hòa nhập sâu vào đời sống thường nhật tới mức nào.\n\nVà xét từ những gì mình vừa kể, mình đánh giá điện thoại thông minh rất dễ sử dụng. Về lý do thì nhìn chung chúng được thiết kế cực kỳ thân thiện với người dùng. Hầu hết ứng dụng đều có giao diện trực quan, nên bạn có thể học cách thao tác chỉ bằng vài cú chạm thử. Dĩ nhiên một số tính năng nâng cao cần thời gian làm quen, và người lớn tuổi vốn nổi tiếng là hay ngại công nghệ chỉ vì họ chưa hiểu cách vận hành. Tuy vậy, mình nghĩ chỉ cần bỏ ra vài phút nhờ ai đó chỉ dẫn, họ hoàn toàn có thể sử dụng được, vì xét về thiết kế thì nó chẳng hề khó dùng chút nào. Thú thực, phát minh này đã làm cuộc sống nhanh hơn và kết nối hơn rất nhiều.\n\n[Part 3 - Câu 1] Những người phát minh thường có phẩm chất gì?\nCác nhà phát minh thường giàu sức sáng tạo và cực kỳ tinh tế trong quan sát. Họ nhận ra những bất cập trong đời sống thường ngày rồi tìm cách giải quyết chúng. Sự kiên trì cũng đóng vai trò then chốt, vì quá trình sáng chế luôn đòi hỏi thử nghiệm và sửa sai liên tục. Và có một điểm chung ở mọi nhà phát minh, đó là sự sẵn sàng chấp nhận rủi ro. Thật lòng mà nói, làm sao bạn có thể tạo ra thứ gì đó mới mẻ nếu không dám mạo hiểm chứ.\n\n[Part 3 - Câu 2] Bạn có nghĩ chỉ các nhà khoa học mới có thể phát minh ra những thứ mới không?\nKhông hề chút nào. Dù các nhà khoa học giữ vai trò lớn trong những bước đột phá công nghệ, rất nhiều phát minh lại xuất phát từ những người bình thường. Doanh nhân, kỹ sư và thậm chí chính người sử dụng cũng có thể sáng tạo ra giải pháp thiết thực từ nhu cầu hằng ngày. Ngoài mọi kiến thức chuyên môn cần thiết ra, nhà phát minh trước hết là bất kỳ ai biết sáng tạo và dám chấp nhận rủi ro.\n\n[Part 3 - Câu 3] Theo bạn những phát minh nào cần được cải thiện thêm?\nMình nghĩ điện thoại thông minh và các nền tảng mạng xã hội cần được cải thiện, đặc biệt ở khía cạnh sức khỏe và quyền riêng tư. Chúng cực kỳ hữu ích thật đấy, nhưng việc lạm dụng có thể gây nghiện và căng thẳng tâm lý. Nâng cấp các tính năng chăm sóc sức khỏe số và bảo vệ dữ liệu sẽ giúp chúng an toàn hơn. Dù vậy mình phải thú nhận bản thân chưa đủ thông minh để nghĩ ra giải pháp triệt để cho chứng nghiện điện thoại.\n\n[Part 3 - Câu 4] Còn những phát minh nào khác giúp thế giới trở nên tốt đẹp hơn không?\nCó chứ, rất nhiều phát minh đã cải thiện đáng kể chất lượng cuộc sống con người. Trước hết, các công nghệ y tế như vắc-xin và máy chụp cộng hưởng từ MRI cứu sống vô số bệnh nhân mỗi ngày. Hơn nữa, những sáng chế tạo ra năng lượng tái tạo như tấm pin mặt trời và tua-bin gió giúp bảo vệ môi trường, và ngay cả những phát minh giản dị như hệ thống lọc nước sạch cũng tạo nên sự khác biệt khổng lồ trên toàn cầu.\n\n[Part 3 - Câu 5] Có phải mọi phát minh đều mang lại lợi ích cho thế giới của chúng ta không?\nKhông phải phát minh nào cũng hoàn toàn tích cực đâu. Một số sáng chế kéo theo hệ quả tiêu cực ngoài ý muốn, chẳng hạn như vũ khí hoặc hóa chất độc hại. Ngay cả những công nghệ hữu ích cũng có thể bị sử dụng sai mục đích hoặc lạm dụng quá mức. Cứ nhìn ví dụ về công nghệ hạt nhân mà xem. Nó từng được ứng dụng cho cả mục đích tốt đẹp như phát điện lẫn mục đích hủy diệt như chế tạo bom hạt nhân. Vậy nên dù phát minh ra đời nhằm giải quyết vấn đề, tác động thực tế của chúng vẫn phụ thuộc vào việc con người sử dụng có trách nhiệm đến đâu.\n\n[Part 3 - Câu 6] Chính phủ hay các công ty tư nhân nên hỗ trợ và tài trợ cho nhà phát minh?\nMình nghĩ cả hai phía đều nên góp vai trò của mình. Chính phủ có thể hỗ trợ nhà phát minh thông qua nguồn ngân sách và các dự án nghiên cứu dài hạn. Xét cho cùng, nhà nghiên cứu cũng là con người với gia đình và trách nhiệm cơm áo, nên họ vẫn cần nguồn thu nhập ổn định. Các công ty tư nhân cũng có thể đồng hành cùng giới khoa học vì họ rất giỏi biến ý tưởng phòng thí nghiệm thành sản phẩm sẵn sàng thương mại hóa.\n\n[Part 3 - Câu 7] Bạn nghĩ đâu là một số phát minh quan trọng nhất trong khoảng 100 năm qua?\nMột vài phát minh quan trọng nhất phải kể đến internet, máy tính và điện thoại thông minh — những thứ đã làm thay đổi hoàn toàn cách giao tiếp và làm việc. Thành thật mà nói, mình không nghĩ nhân loại có thể quay lại cảnh nhận tin tức và liên lạc với gia đình, bạn bè theo lối cũ như gửi thư tay và đọc báo giấy nữa. Những bước tiến y khoa như kháng sinh và vắc-xin cũng đã cứu sống hàng triệu người, và nhờ có chúng mà nhiều dịch bệnh nguy hiểm như đậu mùa gần như đã biến mất hoàn toàn.",
+    "target_words": [
+      {
+        "word": "intuitive",
+        "pos": "adjective",
+        "ipa": "/ɪnˈtjuːɪtɪv/",
+        "meaning_vi": "trực quan, dễ hiểu ngay khi dùng",
+        "example": "Most smartphone apps feature intuitive menus that new users can figure out within minutes."
+      },
+      {
+        "word": "persistence",
+        "pos": "noun",
+        "ipa": "/pəˈsɪstəns/",
+        "meaning_vi": "sự kiên trì, bền bỉ",
+        "example": "Successful invention demands immense persistence through repeated rounds of trial and error."
+      },
+      {
+        "word": "breakthrough",
+        "pos": "noun",
+        "ipa": "/ˈbreɪkθruː/",
+        "meaning_vi": "bước đột phá",
+        "example": "Medical breakthroughs such as antibiotics have saved millions of lives over the past century."
+      },
+      {
+        "word": "unintended",
+        "pos": "adjective",
+        "ipa": "/ˌʌnɪnˈtendɪd/",
+        "meaning_vi": "ngoài ý muốn, không chủ đích",
+        "example": "Even well-meaning technologies can produce unintended negative consequences if poorly regulated."
+      },
+      {
+        "word": "invaluable",
+        "pos": "adjective",
+        "ipa": "/ɪnˈvæljuəbl/",
+        "meaning_vi": "vô giá, cực kỳ hữu ích",
+        "example": "Live bus schedules on a smartphone become invaluable when studying in an unfamiliar foreign city."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why has the smartphone become especially invaluable to the speaker recently?",
+        "options": [
+          "A. It helps him build advanced applications for school.",
+          "B. It is his only reliable tool for checking bus arrival times while studying abroad.",
+          "C. It allows his elderly relatives to avoid learning new technology.",
+          "D. It replaced every textbook in his university library."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói cho biết từ khi đi du học, điện thoại thông minh càng trở nên vô giá vì đó là cách duy nhất giúp kiểm tra chính xác giờ xe buýt đến."
+      },
+      {
+        "q": "According to Part 3, why is persistence considered essential for inventors?",
+        "options": [
+          "A. Inventors rarely receive any private funding.",
+          "B. Creating new solutions usually involves repeated trial and error.",
+          "C. Only scientists with decades of training can invent things.",
+          "D. Users generally refuse to try new inventions at first."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 1, người nói giải thích sự kiên trì rất quan trọng vì quá trình phát minh thường gắn liền với thử nghiệm và sửa sai (trial and error)."
+      },
+      {
+        "q": "What example does the speaker use to illustrate that inventions can have both positive and harmful impacts?",
+        "options": [
+          "A. Wind turbines and solar panels",
+          "B. Antibiotics and clean water filters",
+          "C. Nuclear technology used for electricity versus nuclear weapons",
+          "D. Printed newspapers versus handwritten letters"
+        ],
+        "answer": 2,
+        "explain": "Ở Part 3 câu 5, người nói lấy công nghệ hạt nhân làm ví dụ: nó vừa phục vụ mục đích tốt như sản xuất năng lượng, vừa bị dùng vào mục đích hủy diệt như chế tạo bom hạt nhân."
+      },
+      {
+        "q": "How should governments and private companies divide the responsibility of supporting inventors?",
+        "options": [
+          "A. Governments should fund long-term research while private firms turn ideas into market-ready products.",
+          "B. Private companies should pay researchers' salaries only after smallpox disappears.",
+          "C. Governments should ban commercial apps from gathering user data.",
+          "D. Universities should prevent ordinary users from patenting ideas."
+        ],
+        "answer": 0,
+        "explain": "Ở Part 3 câu 6, người nói đề xuất cả hai đều nên tham gia: chính phủ tài trợ nghiên cứu dài hạn để nhà khoa học trang trải cuộc sống, còn doanh nghiệp tư nhân đưa ý tưởng thành sản phẩm thương mại."
+      }
+    ],
+    "month": 2,
+    "assigned_days": [
+      13
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 156,
+    "title": "Study4 #06: Describe your perfect job (Q1/2026 • Unit 3)",
+    "category": "STUDY4 • Unit 3: Working Life (Công việc & Tính cách)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q1/2026 | Study4 ID 20277 | Unit 3: Working Life (Công việc & Tính cách))",
+    "content": "[Part 2 Cue Card — Describe your perfect job]\nCue Card Prompts: What it is • Where you heard about it from • What you need to learn to get the job • And explain why you think it is your perfect job.\n\nI’d like to talk about what I consider my perfect job. It’s honestly not a decision I made on the fly, but rather, it’s something I’ve gradually realised over time.\n\nMy perfect job would be working as a software developer, especially in a company that focuses on creating useful digital products. I first heard about this job from my teachers and also through social media and online forums. Actually, I cannot remember the number of videos I have seen about people sharing their experiences working in the tech industry, just because I have seen so many. And, funnily enough, I have not gotten bored of them since the more I learned about it, the more interested I became.\n\nFrom what I currently know, to get this job, I need to learn several important skills. I first have to be strong in programming languages like Python or Java, and I also need problem-solving skills and logical thinking. On top of that, learning how to work in a team, how to communicate ideas clearly, and how to keep up with new technologies is essential because the field changes so fast.\n\nSo, regarding the reason, I think this is my perfect job because it matches both my personality and my interests. I enjoy solving problems and building things from scratch, and I like the idea of constantly learning something new. Also, this job offers flexibility and good career opportunities, which are really important to me.\n\n[Part 3 - Q1] What jobs do children want to do when they grow up?\nChildren usually dream of jobs that seem exciting or admirable to them. Many want to become doctors, teachers, or firefighters because they see these roles as helpful and heroic. Nowadays, though, there are incredible strange jobs that children also want to be like YouTubers, gamers, or singers. I honestly have mixed feelings when some children say these jobs are their dream occupation, since these choices really reflect imagination rather than a realistic understanding of work.\n\n[Part 3 - Q2] What should people consider when choosing jobs?\nWhen choosing a job, people should consider their interests, and long-term goals. It’s important to think about job satisfaction, work-life balance, and opportunities for growth, not just short-term benefits. Personal values and lifestyle also matter, and a well-matched job usually leads to better motivation and performance, regardless if the pay is actually high or not. At the end of the day, if you’re going to have to work for at least 50 years, you should make it enjoyable.\n\n[Part 3 - Q3] Is salary the main reason people choose a certain job?\nSalary is important, but it’s not always the main reason. While money affects quality of life, many people prioritise job satisfaction, or personal fulfilment, and some are even willing to accept lower pay if the job is meaningful or less stressful. If you seriously consider the issue, a job is something you have to do your whole life, so enjoying your work should matter more than earning a high income.",
+    "translation_vi": "[Bài mẫu Part 2 — Miêu tả công việc lý tưởng của bạn]\nMình muốn chia sẻ về công việc mà mình coi là lý tưởng nhất đối với bản thân. Thú thật đây không phải quyết định nảy ra ngẫu hứng nhất thời, mà là điều mình đã dần nhận ra theo năm tháng.\n\nCông việc mơ ước của mình là làm lập trình viên phát triển phần mềm, đặc biệt tại một công ty tập trung xây dựng các sản phẩm số hữu ích. Lần đầu mình nghe nói tới nghề này là từ thầy cô giáo, rồi qua mạng xã hội và các diễn đàn trực tuyến. Nói thật là mình chẳng nhớ nổi đã xem bao nhiêu video chia sẻ trải nghiệm làm việc trong ngành công nghệ nữa, chỉ biết là rất nhiều. Và buồn cười ở chỗ mình chẳng hề thấy chán chút nào, bởi càng tìm hiểu sâu thì mình lại càng bị cuốn hút hơn.\n\nTheo những gì mình biết hiện tại, để có được công việc này, mình cần trang bị nhiều kỹ năng quan trọng. Trước tiên mình phải nắm vững các ngôn ngữ lập trình như Python hay Java, đồng thời rèn luyện kỹ năng giải quyết vấn đề và tư duy logic. Bên cạnh đó, học cách làm việc nhóm, truyền đạt ý tưởng mạch lạc và liên tục cập nhật công nghệ mới là điều bắt buộc vì lĩnh vực này biến đổi quá nhanh.\n\nCòn về lý do, mình tin đây là công việc hoàn hảo vì nó khớp với cả tính cách lẫn sở thích của mình. Mình thích cảm giác giải quyết bài toán khó và tự tay dựng nên sản phẩm từ con số không, lại thích ý tưởng được học hỏi điều mới mẻ không ngừng. Thêm nữa, nghề này mang lại sự linh hoạt và cơ hội phát triển sự nghiệp tốt — những yếu tố thực sự quan trọng với mình.\n\n[Part 3 - Câu 1] Khi lớn lên trẻ em thường muốn làm những công việc gì?\nTrẻ nhỏ thường mơ ước những nghề nghiệp trông thật thú vị hoặc đáng ngưỡng mộ trong mắt chúng. Nhiều em muốn trở thành bác sĩ, giáo viên hoặc lính cứu hỏa vì thấy những vai trò đó thật hữu ích và anh hùng. Nhưng ngày nay còn có những nghề kỳ lạ đáng kinh ngạc mà trẻ con cũng muốn theo đuổi như làm YouTuber, game thủ hay ca sĩ. Thú thật là mình có cảm xúc khá lẫn lộn khi nghe vài đứa trẻ nói đó là nghề mơ ước của chúng, bởi những lựa chọn ấy phản ánh trí tưởng tượng nhiều hơn là sự thấu hiểu thực tế về công việc.\n\n[Part 3 - Câu 2] Mọi người nên cân nhắc điều gì khi lựa chọn nghề nghiệp?\nKhi chọn nghề, người ta nên cân nhắc sở thích cá nhân và các mục tiêu dài hạn của bản thân. Điều quan trọng là phải nghĩ tới sự hài lòng trong công việc, cân bằng giữa công việc và cuộc sống cũng như cơ hội phát triển, chứ không chỉ nhìn vào lợi ích ngắn hạn. Giá trị sống và lối sống cá nhân cũng rất đáng lưu tâm, và một công việc phù hợp thường giúp tăng động lực lẫn hiệu suất làm việc, bất kể mức lương thực tế có cao hay không. Xét cho cùng, nếu bạn phải gắn bó với công việc ít nhất năm mươi năm cuộc đời, bạn nên chọn công việc khiến mình thấy vui.\n\n[Part 3 - Câu 3] Tiền lương có phải là lý do chính khiến người ta chọn một công việc nào đó không?\nLương bổng rất quan trọng, nhưng không phải lúc nào cũng là lý do hàng đầu. Dù tiền bạc ảnh hưởng tới chất lượng cuộc sống, nhiều người vẫn ưu tiên niềm vui công việc hoặc cảm giác được cống hiến trọn vẹn, thậm chí có người sẵn sàng nhận mức lương thấp hơn nếu công việc mang lại ý nghĩa hoặc ít áp lực. Nếu suy ngẫm nghiêm túc về chuyện này, nghề nghiệp là thứ theo bạn suốt cả cuộc đời, vì vậy yêu thích công việc mình làm nên quan trọng hơn chuyện kiếm thu nhập cao đơn thuần.",
+    "target_words": [
+      {
+        "word": "on the fly",
+        "pos": "idiom",
+        "ipa": "/ɒn ðə flaɪ/",
+        "meaning_vi": "ngẫu hứng, quyết định vội ngay tại chỗ mà không chuẩn bị trước",
+        "example": "Choosing a lifelong career is rarely a decision people make wisely on the fly."
+      },
+      {
+        "word": "from scratch",
+        "pos": "idiom",
+        "ipa": "/frəm skrætʃ/",
+        "meaning_vi": "từ đầu, từ con số không",
+        "example": "Software engineers often enjoy designing and building digital tools completely from scratch."
+      },
+      {
+        "word": "fulfilment",
+        "pos": "noun",
+        "ipa": "/fʊlˈfɪlmənt/",
+        "meaning_vi": "cảm giác thỏa mãn, viên mãn",
+        "example": "Many workers value personal fulfilment above receiving the highest possible salary."
+      },
+      {
+        "word": "prioritise",
+        "pos": "verb",
+        "ipa": "/praɪˈɒrətaɪz/",
+        "meaning_vi": "ưu tiên hàng đầu",
+        "example": "Graduates should prioritise long-term growth and work-life balance when evaluating job offers."
+      },
+      {
+        "word": "heroic",
+        "pos": "adjective",
+        "ipa": "/həˈrəʊɪk/",
+        "meaning_vi": "anh hùng, quả cảm",
+        "example": "Young children often admire firefighters because their rescue work looks exciting and heroic."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why does the speaker believe software development suits him so well?",
+        "options": [
+          "A. It requires almost no teamwork or communication skills.",
+          "B. He enjoys solving problems, building things from scratch, and learning continuously.",
+          "C. His parents forced him to study Python and Java at school.",
+          "D. Technology rarely changes once a developer masters one language."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói giải thích nghề lập trình viên khớp với tính cách và sở thích vì anh thích giải quyết vấn đề, tự xây dựng sản phẩm từ đầu (from scratch), học hỏi liên tục và có sự linh hoạt."
+      },
+      {
+        "q": "How did the speaker first learn about working in the tech industry?",
+        "options": [
+          "A. From teachers, social media, and online forums",
+          "B. From an internship at a gaming company",
+          "C. From a childhood dream of becoming a YouTuber",
+          "D. From a career fair arranged by his neighbors"
+        ],
+        "answer": 0,
+        "explain": "Trong Part 2, người nói kể lần đầu biết tới nghề lập trình là qua thầy cô giáo (teachers), mạng xã hội và các diễn đàn trực tuyến (online forums)."
+      },
+      {
+        "q": "Why does the speaker feel ambivalent when children say they want to be YouTubers or gamers?",
+        "options": [
+          "A. Those jobs pay less than becoming a firefighter.",
+          "B. Such choices reflect imagination rather than a realistic grasp of working life.",
+          "C. Children are forbidden from watching online videos.",
+          "D. Schools only teach traditional careers like medicine and teaching."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 1, người nói có cảm xúc lẫn lộn (mixed feelings) vì những nghề như YouTuber hay game thủ phản ánh trí tưởng tượng hơn là sự hiểu biết thực tế về công việc."
+      },
+      {
+        "q": "What does the speaker conclude about salary in Part 3?",
+        "options": [
+          "A. High pay is the only reason adults stay in a job for 50 years.",
+          "B. Enjoying meaningful, low-stress work matters more in the long run than earning top pay.",
+          "C. People never accept lower pay regardless of work-life balance.",
+          "D. Short-term benefits guarantee strong workplace motivation."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 2 và 3, người nói nhấn mạnh công việc gắn bó suốt cuộc đời (ít nhất 50 năm), nên sự hài lòng, ý nghĩa công việc và niềm vui nên quan trọng hơn thu nhập cao đơn thuần."
+      }
+    ],
+    "month": 3,
+    "assigned_days": [
+      16
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 157,
+    "title": "Study4 #07: Describe a trip you would like to make again (Q1/2026 • Unit 6)",
+    "category": "STUDY4 • Unit 6: Places (Đô thị & Du lịch)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q1/2026 | Study4 ID 20231 | Unit 6: Places (Đô thị & Du lịch))",
+    "content": "[Part 2 Cue Card — Describe a trip you would like to make again]\nCue Card Prompts: Where you went • What you did there • Who you went there with • And explain why you'd like to make the trip again.\n\nI’d like to talk about my trip to Kyoto, Japan, one which I’d love to go to again. This happened a few years ago, and I went there with two close friends during our university break. It was great fun, and, from what I can remember, the trip was honestly filled with activities that were just the perfect mix of adventure and relaxation.\n\nFrom the moment we arrived, the city had a calm but fascinating atmosphere. And, while we were there, we did quite a lot. We visited traditional temples and shrines, walked through bamboo forests, and tried local food like ramen and street snacks. Those were all really fun, but one of my favourite moments was cycling around quiet neighbourhoods early in the morning, when the streets were almost empty. It almost felt like stepping back in time, and we also took hundreds of photos. However, no picture can really capture the feeling of being there.\n\nSo, the main reason I’d like to make this trip again is we barely scratched the surface of activities to do in that city. There’s still so much to see and experience, and this time I’d like to travel more slowly and really soak everything in. If possible, I’d also like to go back with the same friends since I feel that group was just perfect for that trip. I haven’t made plans with them though, so I suppose that this trip will just be wishful thinking for now.\n\n[Part 3 - Q1] Why do people like travelling?\nWell, I think people enjoy travelling mainly because it allows them to escape their daily routine and recharge their batteries. It’s, perhaps, a time when people are given the chance to experience different cultures, try new food, and see places they’ve only seen online. On top of that, travelling broadens people’s horizons and helps them become more open-minded. And, for many, it’s also a great way to create meaningful memories with friends or family.\n\n[Part 3 - Q2] What should we prepare before a trip?\nBefore a trip, there are quite a few things to sort out. First of all, people need to plan their itinerary, book accommodation, and arrange transport. It’s also important to prepare documents like passports or visas, especially for overseas travel. Besides, people should also consider packing suitable clothes, checking the weather, and setting a budget to avoid unnecessary stress during the journey.\n\n[Part 3 - Q3] What would happen if no preparation were made before the trip?\nIf someone travels without any preparation, things can easily go wrong. They might miss flights, or might forget important documents, which means they won’t be able to travel. They may also run out of money halfway through the trip, which is absolutely disastrous. On top of that, poor planning can lead to wasted time and frustration, which really takes the fun out of travelling.\n\n[Part 3 - Q4] Why do some people prefer to travel in their own country rather than going abroad?\nI suppose travelling domestically feels more convenient and less stressful for many people. There’s no language barrier, no visa issues, and it’s usually cheaper. People are also more familiar with the culture and food, which makes the trip more enjoyable. One popular argument I also see is that there are plenty of hidden gems that are yet to be discovered, so what’s the point of travelling abroad? It’s both expensive and time-consuming compared to domestic travelling.",
+    "translation_vi": "[Bài mẫu Part 2 — Miêu tả một chuyến đi bạn muốn thực hiện lại lần nữa]\nMình muốn kể về chuyến đi tới Kyoto, Nhật Bản — một hành trình mà mình rất mong được quay lại thêm lần nữa. Chuyến đi diễn ra vài năm trước, lúc đó mình đi cùng hai người bạn thân nhân kỳ nghỉ ở trường đại học. Thực sự rất vui, và theo ký ức của mình, cả chuyến đi đúng nghĩa là sự pha trộn hoàn hảo giữa khám phá phiêu lưu và thư giãn.\n\nNgay từ khoảnh khắc đặt chân tới, thành phố đã toát lên bầu không khí trầm lắng nhưng vô cùng cuốn hút. Trong thời gian ở đó, tụi mình đã làm đủ thứ hoạt động. Bọn mình ghé thăm các ngôi đền và đền thờ Thần đạo truyền thống, dạo bước xuyên qua rừng trúc và thưởng thức ẩm thực địa phương như mì ramen cùng các món ăn vặt đường phố. Tất cả trải nghiệm đó đều rất tuyệt, nhưng một trong những khoảnh khắc mình nhớ nhất là lúc đạp xe vòng quanh những khu dân cư yên tĩnh vào sáng sớm, khi đường phố hầu như vắng tanh. Cảm giác lúc đó cứ như đang bước ngược dòng thời gian vậy, và tụi mình cũng chụp hàng trăm bức ảnh. Tuy nhiên, chẳng bức hình nào có thể lột tả trọn vẹn cảm xúc khi thực sự có mặt tại nơi ấy.\n\nVậy nên, lý do lớn nhất khiến mình muốn đi lại chuyến này là vì bọn mình mới chỉ kịp chạm nhẹ vào bề nổi những trải nghiệm ở thành phố đó thôi. Vẫn còn quá nhiều nơi để ngắm nhìn và khám phá, và lần tới mình muốn du lịch chậm rãi hơn để thực sự tận hưởng từng khoảnh khắc. Nếu có thể, mình cũng muốn đồng hành cùng đúng nhóm bạn cũ ấy vì cảm thấy đội hình đó quá ăn ý cho chuyến đi này. Cơ mà hiện tại tụi mình chưa lên kế hoạch gì cả, nên chắc chuyến quay lại này tạm thời mới dừng ở ước mơ thôi.\n\n[Part 3 - Câu 1] Tại sao mọi người lại thích đi du lịch?\nÀ, mình nghĩ mọi người thích đi du lịch chủ yếu vì nó cho phép họ tạm thoát khỏi guồng quay thường nhật và nạp lại năng lượng. Có lẽ đó là khoảng thời gian con người có cơ hội trải nghiệm các nền văn hóa khác nhau, nếm thử món ăn mới và tận mắt ngắm những địa danh trước giờ chỉ thấy trên mạng. Hơn nữa, du lịch còn giúp mở mang tầm nhìn và khiến con người cởi mở hơn. Và với nhiều người, đó cũng là cách tuyệt vời để tạo dựng những kỷ niệm đáng nhớ bên bạn bè hoặc gia đình.\n\n[Part 3 - Câu 2] Chúng ta nên chuẩn bị những gì trước một chuyến đi?\nTrước mỗi chuyến đi có khá nhiều đầu việc cần thu xếp ổn thỏa. Trước hết, mọi người cần lên lịch trình, đặt chỗ ở và sắp xếp phương tiện đi lại. Việc chuẩn bị giấy tờ như hộ chiếu hay thị thực cũng rất quan trọng, đặc biệt khi đi nước ngoài. Ngoài ra, du khách nên cân nhắc mang theo trang phục phù hợp, kiểm tra dự báo thời tiết và vạch ra ngân sách rõ ràng để tránh những căng thẳng không đáng có suốt hành trình.\n\n[Part 3 - Câu 3] Điều gì sẽ xảy ra nếu không có sự chuẩn bị nào trước chuyến đi?\nNếu ai đó đi du lịch mà chẳng chuẩn bị gì trước, mọi thứ rất dễ đổ bể. Họ có thể bị lỡ chuyến bay hoặc để quên giấy tờ quan trọng, đồng nghĩa với việc không thể lên đường được. Họ cũng có nguy cơ cạn tiền ngay giữa chuyến đi, điều thực sự là thảm họa. Thêm vào đó, khâu lên kế hoạch kém còn dẫn tới lãng phí thời gian và cảm giác bực bội, làm mất hết niềm vui của chuyến du lịch.\n\n[Part 3 - Câu 4] Tại sao một số người thích du lịch trong nước hơn là ra nước ngoài?\nMình đoán việc du lịch nội địa mang lại cảm giác tiện lợi và đỡ áp lực hơn với nhiều người. Không có rào cản ngôn ngữ, không phiền phức chuyện xin visa và thường chi phí cũng rẻ hơn. Du khách lại quen thuộc hơn với văn hóa và ẩm thực bản địa, giúp chuyến đi dễ chịu hơn hẳn. Một lập luận phổ biến khác mà mình hay nghe là ngay trong nước vẫn còn vô vàn viên ngọc ẩn chưa được khám phá, vậy thì việc gì phải cất công ra nước ngoài khi vừa tốn kém vừa mất thời gian hơn so với đi trong nước chứ.",
+    "target_words": [
+      {
+        "word": "scratch the surface",
+        "pos": "idiom",
+        "ipa": "/skrætʃ ðə ˈsɜːfɪs/",
+        "meaning_vi": "mới chỉ chạm đến bề nổi, khám phá được phần rất nhỏ",
+        "example": "With only three days in Kyoto, we felt we had barely scratched the surface of its temples."
+      },
+      {
+        "word": "soak in",
+        "pos": "phrasal verb",
+        "ipa": "/səʊk ɪn/",
+        "meaning_vi": "tận hưởng, đắm mình cảm nhận trọn vẹn",
+        "example": "Slow travel gives visitors time to sit at local cafés and truly soak everything in."
+      },
+      {
+        "word": "itinerary",
+        "pos": "noun",
+        "ipa": "/aɪˈtɪnərəri/",
+        "meaning_vi": "lịch trình chuyến đi",
+        "example": "Drafting a flexible itinerary beforehand helps travelers avoid wasting hours on transit."
+      },
+      {
+        "word": "broaden horizons",
+        "pos": "collocation",
+        "ipa": "/ˈbrɔːdn həˈraɪznz/",
+        "meaning_vi": "mở mang tầm mắt, mở rộng hiểu biết",
+        "example": "Experiencing unfamiliar customs abroad naturally broadens horizons and builds empathy."
+      },
+      {
+        "word": "hidden gem",
+        "pos": "noun phrase",
+        "ipa": "/ˈhɪdn dʒem/",
+        "meaning_vi": "viên ngọc ẩn (địa điểm đẹp nhưng ít người biết)",
+        "example": "Domestic travelers often prefer seeking out quiet hidden gems rather than crowded capitals."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Which moment in Kyoto stood out as a personal favorite for the speaker?",
+        "options": [
+          "A. Buying souvenirs at a crowded midnight street market.",
+          "B. Cycling through quiet neighborhoods in the early morning when streets were nearly empty.",
+          "C. Attending a summer festival with university classmates.",
+          "D. Taking a bullet train back to Tokyo."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói kể một trong những khoảnh khắc yêu thích nhất là đạp xe quanh các khu phố yên tĩnh vào sáng sớm, lúc đường sá gần như vắng bóng người."
+      },
+      {
+        "q": "Why does the speaker want to return to Kyoto with the exact same group of friends?",
+        "options": [
+          "A. They already booked non-refundable tickets together.",
+          "B. They missed all the temples on their first visit.",
+          "C. They barely scratched the surface of Kyoto and that friend group was ideal for the trip.",
+          "D. One of his friends now works as a tour guide in Japan."
+        ],
+        "answer": 2,
+        "explain": "Ở đoạn cuối Part 2, người nói giải thích vì mới khám phá được bề nổi của Kyoto nên muốn đi chậm lại để cảm nhận kỹ hơn, và nhóm bạn cũ đó quá hợp nhau cho chuyến đi."
+      },
+      {
+        "q": "What serious risk does the speaker mention if someone travels without planning?",
+        "options": [
+          "A. Experiencing unexpected language barriers inside hotels.",
+          "B. Missing flights, forgetting documents, or running out of money mid-trip.",
+          "C. Spending too much time cycling around quiet neighborhoods.",
+          "D. Being unable to take good photographs."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 3, người nói cảnh báo nếu không chuẩn bị, du khách có thể lỡ chuyến bay, quên giấy tờ hoặc cạn tiền giữa chừng, gây bực bội và mất vui."
+      },
+      {
+        "q": "What argument is commonly used in favor of domestic travel over going abroad?",
+        "options": [
+          "A. International flights do not require passports anymore.",
+          "B. Local countries still contain many unexplored hidden gems at lower cost and stress.",
+          "C. Foreign hotels rarely accept digital payments.",
+          "D. Domestic trips always offer better weather."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 4, người nói nhắc tới lập luận rằng trong nước vẫn còn nhiều điểm đến thú vị chưa khám phá (hidden gems), lại không vướng rào cản ngôn ngữ hay visa và tiết kiệm hơn."
+      }
+    ],
+    "month": 1,
+    "assigned_days": [
+      19
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 158,
+    "title": "Study4 #08: Describe a program or app on your computer or phone (Q1/2026 • Unit 7)",
+    "category": "STUDY4 • Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q1/2026 | Study4 ID 20281 | Unit 7: Connect (Giao tiếp & Công nghệ))",
+    "content": "[Part 2 Cue Card — Describe a program or app on your computer or phone]\nCue Card Prompts: When/how you use it • Where you found it • And explain how you feel about it.\n\nI’d like to talk about an app I use a lot on my phone, and that is Spotify.\n\nI usually use it every day, especially when I’m commuting, studying, or just trying to relax after a long day. In fact, I think the time I use this app the most is when I’m doing assignments. Since I’m trying to concentrate, lo-fi or instrumental music really helps me cancel out all the outside distractions, so, for me, in a weird sense, it actually does help quite a bit. I also use Spotify on weekends, though, and I often just open it to listen to podcasts or upbeat music when I’m on my motorbike, speeding towards the place where I’m going to hang out with friends.\n\nI first found this app through my friends, who kept recommending it to me. Later on, I also saw it being advertised online, so I decided to give it a try. After using it for a while, it quickly became part of my daily routine because of its huge music library and personalised playlists.\n\nAnd, to be honest, I have fallen in love with this app. It’s easy to use, well-designed, and it always seems to know what kind of music I’m in the mood for. It also helps me manage my emotions, and it’s extremely multi-purpose. I can always look up any playlist whenever I need music for motivation, relaxation, or just as some background noise. Honestly, Spotify makes my everyday life more enjoyable, and I can’t imagine my phone without it anymore.\n\n[Part 3 - Q1] What are the differences between old and young people when using apps?\nGenerally speaking, young people tend to use apps more frequently and more flexibly. They’re comfortable exploring new features, and they’re very adept at using it for entertainment purposes, like socialising, and productivity. Older people, however, usually focus on practicality, and mainly use it for messaging, and e-banking. For other activities, they might be more old-fashioned and prefer simple, user-friendly apps that don’t take too much of their time.\n\n[Part 3 - Q2] Why do some people not like using apps?\nThere are several reasons why people dislike using apps. Some find them confusing or time-consuming, especially if they’re not tech-savvy. Others worry about privacy and data security, which is a growing concern nowadays. Honestly, though, I think the main reason is just some people simply prefer face-to-face interaction or traditional methods, since they feel it is more authentic compared to how rushed and impersonal some apps are.",
+    "translation_vi": "[Bài mẫu Part 2 — Miêu tả một chương trình hoặc ứng dụng trên máy tính hoặc điện thoại của bạn]\nMình muốn nói về một ứng dụng mà mình dùng rất thường xuyên trên điện thoại, đó là Spotify.\n\nMình thường mở ứng dụng này mỗi ngày, nhất là khi đang di chuyển ngoài đường, lúc học bài hoặc đơn giản là muốn thư giãn sau một ngày dài. Thực ra, khoảng thời gian mình dùng ứng dụng này nhiều nhất là khi làm bài tập. Vì cần tập trung cao độ, nhạc lo-fi hoặc nhạc không lời thực sự giúp mình gạt bỏ mọi tiếng ồn xao nhãng bên ngoài, nên theo một cách kỳ lạ nào đó nó hỗ trợ mình rất nhiều. Tuy nhiên vào cuối tuần mình cũng hay dùng Spotify để nghe podcast hoặc nhạc tiết tấu sôi động khi đang chạy xe máy tới chỗ tụ tập bạn bè.\n\nLần đầu mình biết tới ứng dụng này là qua bạn bè, họ cứ giới thiệu mãi với mình. Sau đó mình cũng thấy quảng cáo trên mạng nên quyết định tải về dùng thử. Chỉ sau một thời gian ngắn sử dụng, nó nhanh chóng trở thành một phần thói quen hằng ngày của mình nhờ kho nhạc khổng lồ và các danh sách phát được cá nhân hóa.\n\nVà thú thật là mình đã mê tít ứng dụng này rồi. Nó dễ sử dụng, thiết kế đẹp mắt và lúc nào cũng dường như hiểu đúng tâm trạng âm nhạc của mình. Ứng dụng còn giúp mình điều hòa cảm xúc và cực kỳ đa năng nữa. Mình luôn có thể tìm thấy danh sách phát phù hợp bất cứ khi nào cần nhạc tiếp động lực, thư giãn hay chỉ làm âm thanh nền nhẹ nhàng. Thật lòng mà nói, Spotify giúp cuộc sống thường ngày của mình thú vị hơn hẳn, và giờ mình chẳng thể tưởng tượng nổi chiếc điện thoại của mình thiếu ứng dụng này thì sẽ ra sao.\n\n[Part 3 - Câu 1] Có những khác biệt nào giữa người lớn tuổi và người trẻ khi sử dụng ứng dụng?\nNói chung, người trẻ thường dùng ứng dụng với tần suất cao và linh hoạt hơn. Họ thoải mái khám phá các tính năng mới và rất thành thạo việc tận dụng ứng dụng cho mục đích giải trí, kết nối xã hội lẫn nâng cao năng suất. Ngược lại, người lớn tuổi thường chú trọng tính thiết thực và chủ yếu dùng ứng dụng để nhắn tin hoặc ngân hàng điện tử. Với các hoạt động khác, họ có phần truyền thống hơn và ưa chuộng những ứng dụng đơn giản, dễ thao tác, không làm tốn quá nhiều thời gian của họ.\n\n[Part 3 - Câu 2] Tại sao một số người không thích sử dụng các ứng dụng?\nCó vài lý do khiến nhiều người không thích dùng ứng dụng. Một số người thấy chúng rối rắm hoặc mất thời gian, nhất là nếu họ không rành công nghệ. Số khác lại lo ngại về quyền riêng tư và bảo mật dữ liệu — một mối bận tâm ngày càng lớn hiện nay. Tuy vậy, thành thật mà nói, mình nghĩ nguyên nhân chính chỉ đơn giản là một số người thích giao tiếp mặt đối mặt hoặc phương thức truyền thống hơn, vì họ cảm thấy cách đó chân thực hơn so với sự vội vã và thiếu hơi ấm con người của nhiều ứng dụng.",
+    "target_words": [
+      {
+        "word": "cancel out",
+        "pos": "phrasal verb",
+        "ipa": "/ˈkænsl aʊt/",
+        "meaning_vi": "triệt tiêu, át đi (tiếng ồn hoặc tác động)",
+        "example": "Instrumental lo-fi tracks help cancel out street noise when studying in a busy café."
+      },
+      {
+        "word": "adept",
+        "pos": "adjective",
+        "ipa": "/əˈdept/",
+        "meaning_vi": "thành thạo, khéo léo",
+        "example": "Younger users are often adept at combining multiple productivity apps in their workflow."
+      },
+      {
+        "word": "tech-savvy",
+        "pos": "adjective",
+        "ipa": "/ˌtek ˈsævi/",
+        "meaning_vi": "rành công nghệ, am hiểu kỹ thuật số",
+        "example": "Complex app menus can frustrate older customers who are less tech-savvy."
+      },
+      {
+        "word": "impersonal",
+        "pos": "adjective",
+        "ipa": "/ɪmˈpɜːsənl/",
+        "meaning_vi": "lạnh lẽo, thiếu tính cá nhân, thiếu giao tiếp người với người",
+        "example": "Some consumers avoid automated booking apps because they find digital interfaces impersonal."
+      },
+      {
+        "word": "personalised",
+        "pos": "adjective",
+        "ipa": "/ˈpɜːsənəlaɪzd/",
+        "meaning_vi": "được cá nhân hóa theo sở thích riêng",
+        "example": "Streaming platforms retain listeners by curating personalised playlists matching their moods."
+      }
+    ],
+    "questions": [
+      {
+        "q": "When does the speaker use Spotify the most?",
+        "options": [
+          "A. Only while riding a motorbike on weekends.",
+          "B. When doing assignments and trying to block out distractions.",
+          "C. Exclusively before going to sleep at night.",
+          "D. While watching online advertisements with friends."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói khẳng định thời điểm dùng Spotify nhiều nhất là khi làm bài tập (doing assignments), nghe nhạc lo-fi hoặc không lời để át đi tiếng ồn xao nhãng."
+      },
+      {
+        "q": "How did the speaker originally discover Spotify?",
+        "options": [
+          "A. It came pre-installed on his computer.",
+          "B. Friends repeatedly recommended it, and later he saw online ads.",
+          "C. A university lecturer asked students to download it for podcasts.",
+          "D. He found it by searching for productivity tools."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói kể lần đầu biết tới ứng dụng qua lời giới thiệu liên tục của bạn bè và sau đó thấy quảng cáo trực tuyến nên quyết định dùng thử."
+      },
+      {
+        "q": "How do older users typically differ from younger users in app usage?",
+        "options": [
+          "A. Older users spend more time exploring new entertainment features.",
+          "B. Older users prioritize practical tasks like messaging and e-banking with simple interfaces.",
+          "C. Younger users avoid productivity apps and only stream music.",
+          "D. Younger users refuse to use mobile banking apps."
+        ],
+        "answer": 1,
+        "explain": "Ở Part 3 câu 1, người nói nhận xét người lớn tuổi tập trung vào tính thực tế (practicality), chủ yếu dùng để nhắn tin và ngân hàng điện tử, ưa thích ứng dụng đơn giản dễ dùng."
+      },
+      {
+        "q": "What does the speaker believe is the main reason some people dislike using apps?",
+        "options": [
+          "A. Mobile phones run out of battery too quickly.",
+          "B. Streaming subscriptions cost too much for students.",
+          "C. They prefer face-to-face interaction, feeling it is more authentic than rushed apps.",
+          "D. Most apps lack personalised music playlists."
+        ],
+        "answer": 2,
+        "explain": "Ở Part 3 câu 2, sau khi nhắc tới sự rắc rối và nỗi lo bảo mật dữ liệu, người nói nhấn mạnh lý do chính là nhiều người thích tương tác trực tiếp (face-to-face) vì thấy chân thực hơn các ứng dụng vội vã, thiếu hơi ấm."
+      }
+    ],
+    "month": 2,
+    "assigned_days": [
+      22
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 159,
+    "title": "Study4 #09: Describe a difficult decision that you made and had a good result (Q1/2025 • Unit 3)",
+    "category": "STUDY4 • Unit 3: Working Life (Công việc & Tính cách)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q1/2025 | Study4 ID 14596 | Unit 3: Working Life (Công việc & Tính cách))",
+    "content": "[Part 2 Cue Card — Describe a difficult decision that you made and had a good result]\nCue Card Prompts: When the decision was • What decision you made • How the result was • And explain why the decision was difficult.\n\nI personally found switching my major in university to be extremely risky, thankfully the gamble paid off.\n\nI vividly remember this event, it was my second year of studies. At the time, I was majoring in engineering, a field I had chosen largely because of my family’s expectations. However, deep down, I wasn’t passionate about it and felt more drawn to marketing and communication.\n\nAnd I must say, the decision was anything but easy. I spent weeks debating whether to stick it out or follow my interests. I talked to professors, friends, and even career advisors to weigh my options. Eventually, I decided to switch to a business major, specifically marketing. It was a huge gamble because it meant starting fresh in another field and possibly disappointing my parents.\n\nTo my surprise, the result turned out to be better than I had expected. I thrived in my new courses, and I also discovered talents I never knew I had like creating campaigns and working with teams on real-world projects. I even landed an internship at a well-known company. That was completely unexpected, and it was an opportunity I doubt I would’ve had if I’d stayed in engineering.\n\nFrankly, the decision itself involved a lot of risk. I wasn’t sure if changing paths would lead to success, and I was worried about how others would react. Looking back, though, I’m glad I followed my heart.\n\n[Part 3 - Q1] Do advertisements influence consumers' decisions?\nAbsolutely, advertisements have a significant impact on consumers’ decisions. They’re designed to grab attention and create a desire for the product, often with persuasive techniques like emotional appeals or celebrity endorsements. For example, if an ad shows a famous athlete endorsing a pair of sneakers, people are likely to feel that buying those shoes will boost their own performance or style.\n\n[Part 3 - Q2] Who do young people like to ask for advice when making decisions?\nIt depends on the nature of the decision, but I’d say that young people often turn to friends or family for advice. For personal or emotional matters, they’re more likely to seek guidance from close friends who understand them well. On the other hand, for career or academic decisions, they may consult their parents or teachers for a more experienced perspective.\n\n[Part 3 - Q3] Do you think it’s necessary for kids to make as many decisions by themselves as they can?\nYes, I believe it’s important for kids to practice decision-making early on. It helps them develop critical thinking and independence. Of course, for major or risky decisions, adult guidance is essential. But letting children make smaller choices, like selecting their hobbies or outfits, boosts their confidence and prepares them for bigger responsibilities later.\n\n[Part 3 - Q4] Do you think some people can make decisions without asking for advice from others?\nDefinitely, some people are naturally confident decision-makers. They have a knack for relying on their experiences or intuition to weigh the pros and cons equally. While seeking advice can be helpful, it’s not always necessary especially if someone is well-informed about the situation and trusts their own judgment. Even better, if it leads to success, they’ll be even more independent, and they can make more sound decisions without the influence of others.\n\n[Part 3 - Q5] Do you think young people are easily influenced by others when they make decisions? Why or why not?\nYes, young people are often influenced by their peers or social trends, especially in areas like fashion or lifestyle choices. This is largely because they want to fit in or gain approval. However, some young individuals are more independent and confident, so they’re less likely to be swayed by others’ opinions.\n\n[Part 3 - Q6] What kinds of decisions do young people have to make?\nNowadays, young people face a wide range of decisions. It might be small, trivial matters like how to spend their free time, or what hairstyle to pick. It might also be life-changing decisions like choosing what to study or where to work. Ultimately, it all depends on their priorities at the time. Decision-making is part and parcel of growing up after all. Every choice, big or small, helps shape their future.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một quyết định khó khăn bạn từng đưa ra và mang lại kết quả tốt đẹp]\nCá nhân tôi từng thấy việc chuyển ngành ở đại học cực kỳ mạo hiểm, nhưng thật may là canh bạc ấy đã mang lại quả ngọt.\n\nTôi vẫn nhớ như in sự việc này, đó là vào năm hai đại học. Lúc ấy, tôi đang theo học ngành kỹ thuật, một lĩnh vực mà phần lớn tôi chọn vì kỳ vọng của gia đình. Tuy nhiên, sâu thẳm bên trong, tôi lại không hề có đam mê với nó và cảm thấy bị thu hút nhiều hơn bởi tiếp thị và truyền thông.\n\nVà tôi phải nói thật rằng quyết định đó chẳng hề dễ dàng chút nào. Tôi đã mất nhiều tuần đắn đo không biết nên cố bám trụ tiếp hay đi theo sở thích của mình. Tôi đã trò chuyện với các giảng viên, bạn bè và thậm chí cả cố vấn nghề nghiệp để cân nhắc các lựa chọn. Cuối cùng, tôi quyết định chuyển sang chuyên ngành kinh doanh, cụ thể là tiếp thị. Đó là một canh bạc lớn vì nó đồng nghĩa với việc bắt đầu lại từ đầu ở một lĩnh vực khác và có khả năng khiến bố mẹ thất vọng.\n\nThật bất ngờ, kết quả lại tốt hơn nhiều so với những gì tôi từng kỳ vọng. Tôi học tập rất thuận lợi ở các môn học mới, đồng thời khám phá ra những năng khiếu mà trước đây tôi chưa từng biết mình có, chẳng hạn như sáng tạo chiến dịch và làm việc nhóm trong các dự án thực tế. Tôi thậm chí còn trúng tuyển kỳ thực tập tại một công ty danh tiếng. Điều đó hoàn toàn nằm ngoài dự tính, và là một cơ hội mà tôi nghi ngờ mình khó có được nếu cứ ở lại ngành kỹ thuật.\n\nThẳng thắn mà nói, bản thân quyết định đó chứa đựng rất nhiều rủi ro. Tôi không chắc việc đổi hướng có dẫn đến thành công hay không, và tôi cũng lo lắng về cách người khác sẽ phản ứng. Dù vậy, nhìn lại thì tôi vẫn thấy vui vì đã nghe theo trái tim mình.\n\n[Part 3 - Câu 1] Quảng cáo có ảnh hưởng đến quyết định của người tiêu dùng không?\nChắc chắn rồi, quảng cáo có tác động rất lớn đến quyết định của người tiêu dùng. Chúng được thiết kế để thu hút sự chú ý và khơi dậy mong muốn sở hữu sản phẩm, thường bằng những kỹ thuật thuyết phục như đánh vào cảm xúc hoặc nhờ người nổi tiếng đại diện thương hiệu. Ví dụ, nếu một mẫu quảng cáo cho thấy một vận động viên nổi tiếng quảng bá cho một đôi giày thể thao, mọi người có xu hướng cảm thấy rằng việc mua đôi giày đó sẽ giúp nâng cao phong độ hoặc phong cách của chính họ.\n\n[Part 3 - Câu 2] Người trẻ thường thích hỏi lời khuyên từ ai khi đưa ra quyết định?\nĐiều đó còn tùy vào tính chất của quyết định, nhưng tôi cho rằng người trẻ thường tìm đến bạn bè hoặc gia đình để xin lời khuyên. Đối với những vấn đề cá nhân hay tình cảm, họ có xu hướng tìm sự định hướng từ những người bạn thân hiểu rõ mình. Ngược lại, đối với các quyết định về nghề nghiệp hoặc học tập, họ có thể tham khảo ý kiến bố mẹ hoặc thầy cô để có góc nhìn giàu kinh nghiệm hơn.\n\n[Part 3 - Câu 3] Bạn có nghĩ trẻ em cần tự đưa ra càng nhiều quyết định càng tốt không?\nCó, tôi tin rằng việc trẻ em tập tự đưa ra quyết định từ sớm là rất quan trọng. Điều này giúp các em rèn luyện tư duy phản biện và tính tự lập. Tất nhiên, với những quyết định lớn hoặc có tính rủi ro cao, sự hướng dẫn của người lớn là điều thiết yếu. Nhưng việc để trẻ tự chọn những điều nhỏ hơn, như sở thích hay trang phục của mình, sẽ giúp tăng sự tự tin và chuẩn bị cho các trách nhiệm lớn hơn sau này.\n\n[Part 3 - Câu 4] Bạn có nghĩ một số người có thể tự quyết định mà không cần hỏi ý kiến người khác không?\nChắc chắn là có, một số người vốn bẩm sinh đã là những người ra quyết định rất tự tin. Họ có năng khiếu biết dựa vào kinh nghiệm hoặc trực giác để cân nhắc hài hòa giữa mặt lợi và mặt hại. Dù việc tìm lời khuyên có thể hữu ích, điều đó không phải lúc nào cũng cần thiết, đặc biệt nếu một người nắm rõ thông tin về tình huống và tin tưởng vào phán đoán của bản thân. Tuyệt vời hơn nữa, nếu điều đó dẫn tới thành công, họ sẽ càng độc lập hơn và có thể đưa ra những quyết định sáng suốt hơn mà không chịu ảnh hưởng từ người khác.\n\n[Part 3 - Câu 5] Bạn có nghĩ người trẻ dễ bị người khác tác động khi đưa ra quyết định không? Tại sao có hoặc tại sao không?\nCó, người trẻ thường dễ bị bạn bè đồng trang lứa hoặc các trào lưu xã hội tác động, đặc biệt trong những lĩnh vực như thời trang hay lựa chọn lối sống. Phần lớn là vì họ muốn hòa nhập hoặc nhận được sự tán thành từ mọi người. Tuy nhiên, một số bạn trẻ có tính độc lập và tự tin cao hơn, nên họ ít có khả năng bị lung lay bởi ý kiến của người khác.\n\n[Part 3 - Câu 6] Người trẻ thường phải đưa ra những loại quyết định nào?\nNgày nay, người trẻ phải đối mặt với rất nhiều quyết định khác nhau. Đó có thể là những việc nhỏ nhặt, vụn vặt như sử dụng thời gian rảnh ra sao hoặc chọn kiểu tóc nào. Đó cũng có thể là những quyết định mang tính bước ngoặt cuộc đời như chọn ngành học hay nơi làm việc. Sau cùng, tất cả phụ thuộc vào mức độ ưu tiên của họ tại thời điểm đó. Xét cho cùng, việc ra quyết định là một phần tất yếu của quá trình trưởng thành. Mọi lựa chọn, dù lớn hay nhỏ, đều góp phần định hình tương lai của họ.",
+    "target_words": [
+      {
+        "word": "stick it out",
+        "pos": "idiom",
+        "ipa": "/stɪk ɪt aʊt/",
+        "meaning_vi": "kiên trì bám trụ cho đến cùng dù khó khăn",
+        "example": "I spent weeks debating whether to stick it out or follow my interests."
+      },
+      {
+        "word": "pay off",
+        "pos": "phr.v",
+        "ipa": "/peɪ ɒf/",
+        "meaning_vi": "đem lại kết quả xứng đáng, đền đáp công sức",
+        "example": "Switching my major was risky, but thankfully the gamble paid off."
+      },
+      {
+        "word": "weigh the pros and cons",
+        "pos": "collocation",
+        "ipa": "/weɪ ðə prəʊz ənd kɒnz/",
+        "meaning_vi": "cân nhắc mặt lợi và mặt hại",
+        "example": "Confident decision-makers weigh the pros and cons carefully before acting."
+      },
+      {
+        "word": "swayed by",
+        "pos": "phrase",
+        "ipa": "/sweɪd baɪ/",
+        "meaning_vi": "bị lung lay, bị chi phối bởi",
+        "example": "Independent individuals are less likely to be swayed by peer pressure."
+      },
+      {
+        "word": "part and parcel",
+        "pos": "idiom",
+        "ipa": "/pɑːt ənd ˈpɑːsəl/",
+        "meaning_vi": "một phần tất yếu, không thể tách rời",
+        "example": "Making tough choices is part and parcel of growing up."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why did the speaker originally choose to major in engineering?",
+        "options": [
+          "A. Because they had a lifelong passion for building machines",
+          "B. Largely due to their family's expectations",
+          "C. Because a career advisor recommended it in high school",
+          "D. To win a scholarship at a famous technology company"
+        ],
+        "answer": 1,
+        "explain": "Trong đoạn 2 của Part 2, người nói nêu rõ đã chọn ngành kỹ thuật phần lớn vì kỳ vọng của gia đình ('largely because of my family’s expectations'), dù sâu bên trong không thực sự đam mê."
+      },
+      {
+        "q": "What unexpected opportunity did the speaker gain after switching to marketing?",
+        "options": [
+          "A. Receiving a full tuition refund from the university",
+          "B. Publishing an academic paper with their professors",
+          "C. Landing an internship at a well-known company",
+          "D. Becoming the head of an engineering student club"
+        ],
+        "answer": 2,
+        "explain": "Đoạn 4 của Part 2 cho biết sau khi chuyển sang chuyên ngành marketing, người nói học rất tốt và thậm chí còn giành được suất thực tập tại một công ty nổi tiếng ('I even landed an internship at a well-known company')."
+      },
+      {
+        "q": "According to Part 3, when is consulting others NOT strictly necessary for making a decision?",
+        "options": [
+          "A. When someone is well-informed and trusts their own judgment",
+          "B. When a young child is choosing a risky financial investment",
+          "C. When an advertisement uses a famous athlete to promote shoes",
+          "D. When someone wants to fit in with social lifestyle trends"
+        ],
+        "answer": 0,
+        "explain": "Ở câu trả lời Part 3 số 4, người nói giải thích rằng việc hỏi lời khuyên không phải lúc nào cũng cần thiết nếu một người đã nắm vững thông tin và tin tưởng vào phán đoán của chính mình ('well-informed about the situation and trusts their own judgment')."
+      },
+      {
+        "q": "In Part 3, why do many young people let peers or social trends influence their choices?",
+        "options": [
+          "A. Because parents refuse to discuss career decisions with them",
+          "B. Because they want to fit in or gain approval from others",
+          "C. Because critical thinking only develops after university",
+          "D. Because trivial decisions rarely matter for their future"
+        ],
+        "answer": 1,
+        "explain": "Trong câu 5 của Part 3, người nói chỉ ra rằng giới trẻ hay bị ảnh hưởng bởi bạn bè hoặc trào lưu xã hội phần lớn vì họ muốn hòa nhập hoặc được mọi người tán thành ('they want to fit in or gain approval')."
+      }
+    ],
+    "month": 3,
+    "assigned_days": [
+      25
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 160,
+    "title": "Study4 #10: Describe an interesting discussion you had with your friend (Q1/2025 • Unit 7)",
+    "category": "STUDY4 • Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q1/2025 | Study4 ID 14566 | Unit 7: Connect (Giao tiếp & Công nghệ))",
+    "content": "[Part 2 Cue Card — Describe an interesting discussion you had with your friend]\nCue Card Prompts: Who you spoke with • Where you were • What the conversation was about • And explain why you think it was interesting.\n\nWow, this topic is kinda putting me on the spot, let me retrace my recollection a bit. Me and my best friend, Jackie, were just talking the other day about the future of artificial intelligence and how it might impact our lives.\n\nIn fact, we were sitting at a cozy café near our university, sipping coffee and catching up after a busy week. Interestingly, what started as casual small talk quickly turned into a deep and thought-provoking conversation.\n\nJackie, herself, is quite a walking encyclopedia, she knows everything under the sun, including this. I, on the contrary, is quite oblivious, especially when it comes to topics like this, so talking to her was quite an eye-opening experience.\n\nThe conversation seemed trivial at first, but after a while, I found myself hooked by her explanations of how AI is already shaping many industries. What made the discussion even more engaging was how we related it to our own lives. Actually, I did voice my concerns about privacy in an AI-driven world, while she argued that technology could actually make life more efficient and safer.\n\nThough we didn’t see eye to eye in some aspects, we both agreed that society needs to strike a balance between embracing innovation and addressing its challenges.\n\nThis conversation stood out because it gave me a fresh perspective on AI. Discussing it with someone as knowledgeable as Jackie really broadened my horizons, and I’m genuinely looking forward to having more such enlightening talks with her.\n\n[Part 3 - Q1] When do children normally form their own views?\nChildren usually start forming their own views around the age of 6 or 7, as they begin to understand the world around them more clearly. At this stage, they become more aware of societal values and develop opinions based on their experiences. As they grow older, especially during adolescence, their views become more defined and can sometimes be influenced by peers, or even social media.\n\n[Part 3 - Q2] Do children have strong opinions?\nYes, children can have strong opinions, especially as they get older. At a young age, their opinions are often shaped by their immediate relatives like fathers or mothers. However, as they gain more knowledge and life experience, their views can become more independent and assertive. Some children, particularly teenagers, may express their opinions passionately as they try to establish their identity.\n\n[Part 3 - Q3] Should parents require their kids to obey them?\nParents should expect respect from their children, but strict obedience isn’t always necessary. While it’s important for children to understand why rules exist and learn to make responsible decisions, it’s no less crucial that they don’t feel pressured and overwhelmed by those rules. Ultimately, the goal should be guiding children to think critically and act responsibly, and not just follow rules blindly.\n\n[Part 3 - Q4] In what industries do you think communication is a necessary skill?\nCommunication is essential in nearly every industry, but it’s most evident in customer service, and sales. In these roles, effective communication helps to build relationships, and ensure smooth operations. Whether it’s conveying information clearly or empathizing with others, good communication is key to success in these industries.\n\n[Part 3 - Q5] Should parents consider their children's opinions on everything? Why?\nWhile parents should certainly listen to their children’s opinions, they don’t need to consider them on everything. While it’s important for children to feel heard, sometimes their opinions may be naive or even outlandish. And so, there are instances when parents, as the authoritative figures with more life experience, must make the final decisions for the well-being of their children.\n\n[Part 3 - Q6] Why do some young people refuse to communicate with others?\nSome young people may refuse to communicate with others due to shyness or fear of judgment. Social anxiety can also play a significant role in making them feel uncomfortable or overwhelmed in social situations. Negative past experiences or peer pressure are also to blame for their withdrawal. In these cases, it’s perhaps best to consult a therapist.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một cuộc trò chuyện thú vị mà bạn đã có với người bạn của mình]\nChà, chủ đề này làm tôi hơi bị hỏi bất ngờ đấy, để tôi lần lại trí nhớ một chút. Tôi và cô bạn thân nhất của mình, Jackie, hôm trước vừa trò chuyện về tương lai của trí tuệ nhân tạo và cách nó có thể tác động đến cuộc sống của chúng ta.\n\nThực ra thì lúc đó chúng tôi đang ngồi ở một quán cà phê ấm cúng gần trường đại học, nhâm nhi cà phê và hỏi thăm nhau sau một tuần bận rộn. Điều thú vị là cuộc trò chuyện ban đầu chỉ là tán gẫu xã giao, nhưng rồi nhanh chóng biến thành một cuộc trao đổi sâu sắc và gợi mở nhiều suy ngẫm.\n\nBản thân Jackie đúng là một cuốn bách khoa toàn thư sống, cái gì trên đời cô ấy cũng biết, bao gồm cả chủ đề này. Ngược lại, tôi lại khá mù mờ, nhất là khi đụng đến những đề tài kiểu như vậy, nên việc nói chuyện với cô ấy thực sự là một trải nghiệm mở mang tầm mắt.\n\nThoạt đầu câu chuyện có vẻ tầm phào thôi, nhưng chỉ một lúc sau tôi thấy mình bị cuốn hút bởi những lời giải thích của cô ấy về cách AI đang định hình nhiều ngành công nghiệp. Điều khiến cuộc thảo luận càng hấp dẫn hơn là cách cả hai liên hệ nó với chính cuộc sống của tụi tôi. Thú thật là tôi cũng nêu lên những lo ngại về quyền riêng tư trong một thế giới vận hành bởi AI, trong khi cô ấy lập luận rằng công nghệ thực tế có thể giúp cuộc sống hiệu quả và an toàn hơn.\n\nDù chúng tôi không hoàn toàn đồng quan điểm ở một vài khía cạnh, cả hai đều thống nhất rằng xã hội cần tìm ra điểm cân bằng giữa việc đón nhận đổi mới và giải quyết những thách thức đi kèm.\n\nCuộc trò chuyện này thật sự nổi bật vì nó mang lại cho tôi một góc nhìn mới mẻ về AI. Việc thảo luận cùng một người hiểu biết sâu rộng như Jackie thực sự đã mở rộng tầm mắt của tôi, và tôi rất mong sẽ có thêm nhiều buổi trò chuyện khai sáng như thế với cô ấy.\n\n[Part 3 - Câu 1] Trẻ em thường hình thành quan điểm riêng vào độ tuổi nào?\nTrẻ em thường bắt đầu hình thành quan điểm riêng vào khoảng 6 hoặc 7 tuổi, khi các em bắt đầu hiểu rõ hơn về thế giới xung quanh. Ở giai đoạn này, trẻ nhận thức rõ hơn về các giá trị xã hội và phát triển ý kiến dựa trên trải nghiệm của bản thân. Khi lớn lên, đặc biệt trong tuổi thiếu niên, quan điểm của các em trở nên rõ nét hơn và đôi khi có thể chịu ảnh hưởng từ bạn bè hoặc thậm chí mạng xã hội.\n\n[Part 3 - Câu 2] Trẻ em có những ý kiến mạnh mẽ không?\nCó, trẻ em hoàn toàn có thể có những ý kiến mạnh mẽ, đặc biệt khi các em lớn dần lên. Ở độ tuổi nhỏ, quan điểm của trẻ thường được định hình bởi những người thân gần gũi như bố hoặc mẹ. Tuy nhiên, khi tích lũy thêm kiến thức và trải nghiệm sống, góc nhìn của các em có thể trở nên độc lập và quyết đoán hơn. Một số trẻ, nhất là thanh thiếu niên, có thể bày tỏ quan điểm rất nhiệt huyết khi đang cố gắng khẳng định bản sắc cá nhân.\n\n[Part 3 - Câu 3] Cha mẹ có nên yêu cầu con cái phải vâng lời mình không?\nCha mẹ nên kỳ vọng sự tôn trọng từ con cái, nhưng sự vâng lời tuyệt đối thì không phải lúc nào cũng cần thiết. Dù việc trẻ hiểu vì sao quy tắc tồn tại và học cách đưa ra quyết định có trách nhiệm rất quan trọng, việc các em không cảm thấy bị áp lực và choáng ngợp bởi những quy tắc đó cũng quan trọng không kém. Sau cùng, mục tiêu nên là dẫn dắt trẻ biết tư duy phản biện và hành động có trách nhiệm, chứ không chỉ làm theo quy tắc một cách mù quáng.\n\n[Part 3 - Câu 4] Bạn nghĩ giao tiếp là kỹ năng cần thiết trong những ngành nghề nào?\nGiao tiếp là kỹ năng thiết yếu ở hầu hết mọi ngành nghề, nhưng thể hiện rõ rệt nhất trong lĩnh vực dịch vụ khách hàng và bán hàng. Ở những vị trí này, giao tiếp hiệu quả giúp xây dựng mối quan hệ và bảo đảm quy trình vận hành trơn tru. Dù là truyền đạt thông tin rõ ràng hay biết đồng cảm với người khác, khả năng giao tiếp tốt chính là chìa khóa dẫn đến thành công trong các ngành nghề ấy.\n\n[Part 3 - Câu 5] Cha mẹ có nên cân nhắc ý kiến của con cái trong mọi việc không? Tại sao?\nDù cha mẹ chắc chắn nên lắng nghe ý kiến của con cái, họ không nhất thiết phải cân nhắc ý kiến đó trong mọi chuyện. Việc trẻ cảm thấy tiếng nói của mình được lắng nghe là rất quan trọng, nhưng đôi khi ý kiến của các em có thể còn ngây thơ hoặc thậm chí thiếu thực tế. Vì vậy, có những lúc cha mẹ, với tư cách là người có thẩm quyền và nhiều trải nghiệm sống hơn, phải đưa ra quyết định cuối cùng vì lợi ích tốt đẹp của con mình.\n\n[Part 3 - Câu 6] Tại sao một số bạn trẻ từ chối giao tiếp với người khác?\nMột số bạn trẻ có thể từ chối giao tiếp với người khác vì tính nhút nhát hoặc nỗi sợ bị phán xét. Chứng lo âu xã hội cũng có thể đóng vai trò đáng kể khiến họ cảm thấy không thoải mái hoặc bị ngợp trong các tình huống giao tiếp. Những trải nghiệm tiêu cực trong quá khứ hoặc áp lực từ bạn bè cũng là nguyên nhân dẫn đến sự thu mình của họ. Trong những trường hợp này, có lẽ tốt nhất nên tìm đến chuyên gia tâm lý để được tư vấn.",
+    "target_words": [
+      {
+        "word": "put someone on the spot",
+        "pos": "idiom",
+        "ipa": "/pʊt ˈsʌmwʌn ɒn ðə spɒt/",
+        "meaning_vi": "làm ai đó lúng túng vì hỏi bất ngờ",
+        "example": "Wow, this topic is kind of putting me on the spot!"
+      },
+      {
+        "word": "see eye to eye",
+        "pos": "idiom",
+        "ipa": "/siː aɪ tuː aɪ/",
+        "meaning_vi": "đồng quan điểm, nhất trí với nhau",
+        "example": "Though we didn't see eye to eye on every point, we respected each other."
+      },
+      {
+        "word": "broaden one's horizons",
+        "pos": "idiom",
+        "ipa": "/ˈbrɔːdən wʌnz həˈraɪzənz/",
+        "meaning_vi": "mở mang tầm mắt, mở rộng hiểu biết",
+        "example": "Talking with someone as knowledgeable as Jackie really broadened my horizons."
+      },
+      {
+        "word": "assertive",
+        "pos": "adj",
+        "ipa": "/əˈsɜːtɪv/",
+        "meaning_vi": "quả quyết, tự tin bày tỏ chính kiến",
+        "example": "As children gain experience, their opinions become more independent and assertive."
+      },
+      {
+        "word": "outlandish",
+        "pos": "adj",
+        "ipa": "/aʊtˈlændɪʃ/",
+        "meaning_vi": "kỳ quặc, xa rời thực tế",
+        "example": "Sometimes younger kids propose naive or even outlandish ideas."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Where did the speaker and Jackie have their conversation about artificial intelligence?",
+        "options": [
+          "A. Inside a quiet study hall at their university library",
+          "B. At a cozy café located near their university",
+          "C. During an AI workshop hosted at a tech company",
+          "D. Over a phone call after a busy weekend"
+        ],
+        "answer": 1,
+        "explain": "Đoạn 2 của Part 2 nêu rõ cả hai đang ngồi tại một quán cà phê ấm cúng gần trường đại học ('sitting at a cozy café near our university')."
+      },
+      {
+        "q": "What contrast emerged between the speaker's view and Jackie's view on AI?",
+        "options": [
+          "A. The speaker worried about privacy, while Jackie stressed efficiency and safety",
+          "B. Jackie wanted to ban AI completely, while the speaker supported it",
+          "C. Both agreed AI only affects small talk and not major industries",
+          "D. The speaker knew far more technical details than Jackie did"
+        ],
+        "answer": 0,
+        "explain": "Trong đoạn 4 của Part 2, người nói chia sẻ mình lo ngại về quyền riêng tư ('voice my concerns about privacy'), còn Jackie lập luận rằng công nghệ giúp cuộc sống hiệu quả và an toàn hơn ('make life more efficient and safer')."
+      },
+      {
+        "q": "What does the speaker say in Part 3 about strict parental obedience?",
+        "options": [
+          "A. Children must obey every rule blindly without asking questions",
+          "B. Parents should never set any rules at home",
+          "C. Respect matters, but parents should guide critical thinking rather than demand blind obedience",
+          "D. Strict obedience prevents teenagers from using social media"
+        ],
+        "answer": 2,
+        "explain": "Ở câu 3 của Part 3, người nói nhấn mạnh sự vâng lời cứng nhắc không phải lúc nào cũng cần thiết; mục tiêu là giúp trẻ tư duy phản biện và hành động có trách nhiệm chứ không làm theo quy tắc mù quáng ('not just follow rules blindly')."
+      },
+      {
+        "q": "Which of the following is mentioned in Part 3 as a reason some young people refuse to communicate?",
+        "options": [
+          "A. Excessive homework assigned by university professors",
+          "B. Social anxiety, fear of judgment, or negative past experiences",
+          "C. Lack of access to smartphones or coffee shops",
+          "D. Too much encouragement from sales and customer service staff"
+        ],
+        "answer": 1,
+        "explain": "Trong câu 6 của Part 3, các nguyên nhân được nêu gồm sự nhút nhát, nỗi sợ bị phán xét ('fear of judgment'), lo âu xã hội ('social anxiety'), trải nghiệm tiêu cực trong quá khứ hoặc áp lực đồng trang lứa."
+      }
+    ],
+    "month": 1,
+    "assigned_days": [
+      28
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 161,
+    "title": "Study4 #11: Describe an occasion when someone gave you positive advice or suggestions about your work/study (Q1/2025 • Unit 8)",
+    "category": "STUDY4 • Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q1/2025 | Study4 ID 14520 | Unit 8: Wisdom (Trí tuệ & Lời khuyên))",
+    "content": "[Part 2 Cue Card — Describe an occasion when someone gave you positive advice or suggestions about your work/study]\nCue Card Prompts: Who the person is • What he/she said • How the advice/suggestion affected you • And explain how you felt about the advice/suggestions.\n\nOne moment that really stands out was when my high school teacher, Mr. Anderson, gave me some great advice about managing my studies. It happened during my final year, and I was feeling completely overwhelmed by all the assignments, exams, and extracurricular activities. I wasn’t performing as well as I hoped, and honestly, my confidence was starting to take a hit. There was just so much on my plate!\n\nMr. Anderson noticed and pulled me aside after class one day. He sat me down and gave me some simple but really impactful advice: “Don’t burn yourself out. Take things slow.” He then suggested creating a daily plan and breaking big projects into smaller, more manageable steps. At first, it sounded like common sense, but in practice, it completely changed the way I worked.\n\nFollowing his advice, I started organizing my time better. Instead of stressing out over everything at once, I focused on finishing one task at a time. My strategy was simple, just focus on finishing the tasks that were either really important or urgent. For example, I’d prioritize an essay due soon and leave less urgent assignments for later. And, all in all, I must admit that this strategy proved to be wildly effective. My grades started improving, and I even found time to relax.\n\nPersonally, I’ll be forever grateful because his advice gave me clarity when I really needed it. Even now, I use those strategies whenever I feel overwhelmed.\n\n[Part 3 - Q1] When should parents encourage their children?\nParents should encourage their children at every stage of their development, but especially when they face challenges or new experiences. Encouragement helps build confidence and resilience. When children are trying something for the first time or struggling with a new skill, a little positive reinforcement can make all the difference in their motivation to keep going.\n\n[Part 3 - Q2] Should parents always encourage their children?\nWhile encouragement is important, it shouldn’t be overdone. Parents should also provide constructive criticism to help children learn from their mistakes. Sometimes, offering the right balance of support and challenge can foster growth. So, encouragement should be given at appropriate moments, not just as a way to shield children from failure.\n\n[Part 3 - Q3] Do you think negative feedback is more important than positive feedback? Why?\nI reckon that both are equally important. While positive feedback boosts confidence, negative feedback helps people recognize their weaknesses and make changes. It’s a more practical tool for growth, without it, we might not even realize where we need to improve. That said, negative feedback should be given constructively, and not used as a chance to throw personal insults.\n\n[Part 3 - Q4] Why is negative feedback as important as positive feedback at work or in study?\nI’d say negative feedback helps identify areas where you can do better, which is essential for growth in any field. If you only receive positive feedback, you may become complacent and overlook opportunities to improve. Constructive criticism, when given properly, provides direction and can make you more self-aware. It’s a great chance to really refine your skills.\n\n[Part 3 - Q5] Which is more important for adults in the workplace, positive feedback or negative feedback?\nBoth are important, but negative feedback tends to be more valuable for improvement. While positive feedback encourages motivation and morale, negative feedback gives clear guidance on areas that need work. In the workplace, continuous growth is key to success. However, a positive workplace should strike a balance between both, as leaning too heavily on either side will be detrimental to our personal growth.\n\n[Part 3 - Q6] Do you think people care about others’ comments about them?\nYes, most people do care to some extent. Comments, especially from those we respect or admire, can have a significant impact on how we feel about ourselves. That said, how much we care depends on the person and the context. While some people brush off others' opinions, others might take them to heart, influencing their self-esteem.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một dịp ai đó đã cho bạn lời khuyên hoặc gợi ý tích cực về công việc hay học tập]\nMột khoảnh khắc thực sự nổi bật trong ký ức tôi là khi thầy giáo cấp ba của tôi, thầy Anderson, cho tôi một lời khuyên tuyệt vời về cách quản lý việc học. Chuyện xảy ra vào năm cuối cấp, lúc tôi đang cảm thấy hoàn toàn choáng ngợp trước đống bài tập, kỳ thi và các hoạt động ngoại khóa. Tôi không đạt kết quả tốt như kỳ vọng, và thành thật mà nói, sự tự tin của tôi bắt đầu sụt giảm nghiêm trọng. Quả thực lúc đó tôi có quá nhiều thứ phải gánh trên vai!\n\nThầy Anderson đã nhận ra điều đó và một hôm gọi tôi nán lại sau giờ học. Thầy bảo tôi ngồi xuống rồi đưa ra một lời khuyên giản dị nhưng tác động vô cùng mạnh mẽ: “Đừng tự vắt kiệt sức mình. Cứ đi từng bước chậm rãi thôi.” Sau đó thầy gợi ý tôi lập kế hoạch hằng ngày và chia nhỏ những dự án lớn thành từng bước dễ kiểm soát hơn. Lúc đầu nghe cứ như điều hiển nhiên ai cũng biết, nhưng khi áp dụng vào thực tế, nó đã thay đổi hoàn toàn cách tôi làm việc.\n\nLàm theo lời khuyên của thầy, tôi bắt đầu sắp xếp thời gian hợp lý hơn. Thay vì căng thẳng lo lắng cùng lúc về mọi thứ, tôi tập trung hoàn thành dứt điểm từng đầu việc một. Chiến lược của tôi rất đơn giản, chỉ tập trung giải quyết những nhiệm vụ thực sự quan trọng hoặc cấp bách. Chẳng hạn, tôi sẽ ưu tiên một bài luận sắp đến hạn nộp và tạm gác những bài tập ít gấp hơn lại sau. Và nhìn chung, tôi phải thừa nhận rằng chiến lược này tỏ ra hiệu quả ngoài sức tưởng tượng. Điểm số của tôi bắt đầu cải thiện, và tôi thậm chí còn tìm được thời gian để nghỉ ngơi thư giãn.\n\nVới cá nhân tôi, tôi sẽ biết ơn thầy mãi mãi vì lời khuyên ấy đã mang lại cho tôi sự sáng suốt đúng vào lúc tôi cần nhất. Ngay cả bây giờ, tôi vẫn áp dụng những chiến lược đó mỗi khi cảm thấy quá tải.\n\n[Part 3 - Câu 1] Cha mẹ nên khích lệ con cái vào những lúc nào?\nCha mẹ nên khích lệ con cái ở mọi giai đoạn phát triển của trẻ, nhưng đặc biệt là khi các em đối mặt với thử thách hoặc những trải nghiệm mới mẻ. Sự động viên giúp xây dựng lòng tự tin và khả năng phục hồi. Khi trẻ lần đầu thử làm một việc gì đó hoặc đang chật vật với một kỹ năng mới, chỉ một chút khích lệ tích cực thôi cũng có thể tạo ra khác biệt rất lớn đối với động lực bước tiếp của các em.\n\n[Part 3 - Câu 2] Cha mẹ có nên lúc nào cũng khen ngợi khích lệ con cái không?\nDù sự khích lệ rất quan trọng, việc đó không nên bị lạm dụng quá mức. Cha mẹ cũng cần đưa ra những lời góp ý mang tính xây dựng để giúp con học hỏi từ sai lầm của mình. Đôi khi, việc cân bằng đúng mực giữa hỗ trợ và thử thách có thể thúc đẩy sự trưởng thành. Vì vậy, sự khích lệ nên được trao vào những thời điểm thích hợp, chứ không chỉ là cách bao bọc để che chắn trẻ khỏi thất bại.\n\n[Part 3 - Câu 3] Bạn có nghĩ phản hồi tiêu cực quan trọng hơn phản hồi tích cực không? Tại sao?\nTôi cho rằng cả hai đều quan trọng như nhau. Trong khi phản hồi tích cực giúp tăng sự tự tin, thì phản hồi tiêu cực giúp mọi người nhận ra điểm yếu của mình và thực hiện thay đổi. Nó là một công cụ thực tế hơn cho sự tiến bộ; nếu không có nó, chúng ta thậm chí có thể không nhận ra mình cần cải thiện ở đâu. Nói vậy nhưng phản hồi tiêu cực cần được đưa ra một cách mang tính xây dựng, chứ không phải dùng làm cái cớ để công kích cá nhân.\n\n[Part 3 - Câu 4] Tại sao phản hồi tiêu cực cũng quan trọng như phản hồi tích cực trong công việc hay học tập?\nTôi cho rằng phản hồi tiêu cực giúp xác định những điểm bạn có thể làm tốt hơn, điều vốn thiết yếu cho sự phát triển trong bất kỳ lĩnh vực nào. Nếu bạn chỉ nhận được toàn lời khen ngợi, bạn rất dễ trở nên tự mãn và bỏ lỡ cơ hội hoàn thiện bản thân. Lời phê bình mang tính xây dựng, khi được truyền đạt đúng cách, sẽ vạch ra định hướng và giúp bạn tự nhận thức rõ hơn về mình. Đó là một cơ hội tuyệt vời để thực sự trau dồi kỹ năng.\n\n[Part 3 - Câu 5] Đối với người trưởng thành tại nơi làm việc, phản hồi tích cực hay phản hồi tiêu cực quan trọng hơn?\nCả hai đều quan trọng, nhưng phản hồi tiêu cực thường có giá trị hơn cho việc cải thiện năng lực. Trong khi phản hồi tích cực nuôi dưỡng động lực và tinh thần làm việc, thì phản hồi tiêu cực đưa ra chỉ dẫn rõ ràng về những mảng cần khắc phục. Ở chốn công sở, việc phát triển liên tục là chìa khóa thành công. Tuy nhiên, một môi trường làm việc tích cực nên cân bằng hài hòa giữa cả hai yếu tố, bởi việc nghiêng quá nặng về bên nào cũng sẽ gây bất lợi cho sự phát triển cá nhân của chúng ta.\n\n[Part 3 - Câu 6] Bạn có nghĩ mọi người quan tâm đến nhận xét của người khác về họ không?\nCó, hầu hết mọi người đều có quan tâm ở một mức độ nhất định. Những lời nhận xét, đặc biệt từ những người chúng ta kính trọng hoặc ngưỡng mộ, có thể tạo ra ảnh hưởng lớn đến cách chúng ta cảm nhận về bản thân. Nói vậy nhưng mức độ bận tâm nhiều hay ít còn tùy thuộc vào từng người và hoàn cảnh. Trong khi một số người bỏ ngoài tai ý kiến của thiên hạ, những người khác lại dễ để bụng, làm ảnh hưởng đến lòng tự trọng của chính họ.",
+    "target_words": [
+      {
+        "word": "burn out",
+        "pos": "phr.v",
+        "ipa": "/bɜːn aʊt/",
+        "meaning_vi": "kiệt sức về thể chất lẫn tinh thần do làm việc quá tải",
+        "example": "Mr. Anderson told me gently: Don't burn yourself out; take things slow."
+      },
+      {
+        "word": "have a lot on one's plate",
+        "pos": "idiom",
+        "ipa": "/hæv ə lɒt ɒn wʌnz pleɪt/",
+        "meaning_vi": "có quá nhiều việc phải lo liệu cùng lúc",
+        "example": "With exams and club duties, I had way too much on my plate."
+      },
+      {
+        "word": "complacent",
+        "pos": "adj",
+        "ipa": "/kəmˈpleɪsənt/",
+        "meaning_vi": "tự mãn, chủ quan không muốn cố gắng thêm",
+        "example": "Receiving only praise can make workers complacent and overlook mistakes."
+      },
+      {
+        "word": "detrimental",
+        "pos": "adj",
+        "ipa": "/ˌdetrɪˈmentəl/",
+        "meaning_vi": "gây hại, bất lợi",
+        "example": "Leaning too heavily on harsh criticism is detrimental to morale."
+      },
+      {
+        "word": "take something to heart",
+        "pos": "idiom",
+        "ipa": "/teɪk ˈsʌmθɪŋ tuː hɑːt/",
+        "meaning_vi": "để bụng, suy nghĩ sâu sắc về lời nhận xét",
+        "example": "Sensitive learners often take critical remarks to heart."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What caused the speaker's confidence to drop during their final year of high school?",
+        "options": [
+          "A. Being overwhelmed by assignments, exams, and extracurricular activities",
+          "B. Receiving harsh personal insults from classmates",
+          "C. Failing to get along with Mr. Anderson after class",
+          "D. Changing schools right before graduation"
+        ],
+        "answer": 0,
+        "explain": "Đoạn 1 của Part 2 nêu rõ người nói bị quá tải bởi bài tập, kỳ thi và hoạt động ngoại khóa ('overwhelmed by all the assignments, exams, and extracurricular activities'), khiến kết quả không như ý và sự tự tin bị ảnh hưởng."
+      },
+      {
+        "q": "What specific method did Mr. Anderson suggest to help manage the workload?",
+        "options": [
+          "A. Dropping all extracurricular clubs immediately",
+          "B. Studying only late at night when everything is quiet",
+          "C. Making a daily plan and breaking big projects into smaller steps",
+          "D. Asking classmates to share their completed essays"
+        ],
+        "answer": 2,
+        "explain": "Ở đoạn 2 của Part 2, thầy Anderson khuyên người nói lập kế hoạch hằng ngày và chia các dự án lớn thành những bước nhỏ dễ quản lý hơn ('creating a daily plan and breaking big projects into smaller, more manageable steps')."
+      },
+      {
+        "q": "In Part 3, what risk is associated with receiving ONLY positive feedback?",
+        "options": [
+          "A. People may lose all respect for their managers",
+          "B. People may become complacent and miss chances to improve",
+          "C. Workers will immediately refuse to communicate with colleagues",
+          "D. Children will stop trying any new hobbies"
+        ],
+        "answer": 1,
+        "explain": "Câu 4 của Part 3 nêu rõ nếu chỉ nhận được phản hồi tích cực, bạn có thể trở nên tự mãn và bỏ qua cơ hội cải thiện ('become complacent and overlook opportunities to improve')."
+      },
+      {
+        "q": "According to Part 3, how do different people react to others' comments about them?",
+        "options": [
+          "A. Everyone ignores opinions unless they come from parents",
+          "B. Only young children care about criticism",
+          "C. Some brush others' opinions off, while others take them to heart",
+          "D. Adults care about comments only at the workplace"
+        ],
+        "answer": 2,
+        "explain": "Trong câu 6 của Part 3, người nói giải thích rằng phản ứng phụ thuộc vào từng người: một số người bỏ ngoài tai ý kiến người khác ('brush off others' opinions'), còn số khác lại để tâm sâu sắc làm ảnh hưởng tới lòng tự trọng ('take them to heart')."
+      }
+    ],
+    "month": 2,
+    "assigned_days": [
+      31
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 162,
+    "title": "Study4 #12: Describe an ambition that you haven't achieved (Q1/2025 • Unit 8)",
+    "category": "STUDY4 • Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q1/2025 | Study4 ID 14544 | Unit 8: Wisdom (Trí tuệ & Lời khuyên))",
+    "content": "[Part 2 Cue Card — Describe an ambition that you haven't achieved]\nCue Card Prompts: What it is • Why you haven’t achieved it • What you did • And how you felt about it.\n\nBecoming fluent in French is something I’ve always aspired to achieve and, it’s no secret that I’m fascinated by the language. It’s romantic, and it’s widely spoken around the world and I’ve also always thought that being bilingual would open up new career opportunities, which is an added bonus.\n\nI must admit, though, that this goal hasn’t been achieved largely due to laziness. I simply haven’t been consistent with my learning. I started taking French classes a couple of years ago and even downloaded language apps to practice on my own. But I just have such a hectic schedule, so I found it increasingly hard to dedicate enough time to really immerse myself in the language.\n\nAt first, I tried squeezing in short study sessions whenever I had a spare moment, but as time went on, I realized that my progress was much slower than I had hoped. I could pick up basic phrases like “Bonjour” and “Merci” but I struggled to form more complex sentences, and I especially struggled with holding proper conversations.\n\nHonestly, it feels a bit frustrating because I know how rewarding it would be to finally master French. However, it feels like the goalpost keeps moving further away. I still feel excited about this ambition, though, and I know that I’ll achieve it one day. When I do, it’s going to be worth all the effort in the end.\n\n[Part 3 - Q1] What ambitions do children usually have?\nChildren often dream big and have ambitions of becoming doctors, or famous athletes. Their goals are usually influenced by what they find exciting or what they see in movies and TV shows. Some kids might want to follow in their parents’ footsteps, while others are inspired by teachers or role models. These ambitions often evolve as they grow and gain more life experience.\n\n[Part 3 - Q2] Why are some people very ambitious in their work?\nAmbitious people are often driven by a strong desire to succeed and achieve their goals. Honestly, there are many reasons for this. It could stem from personal motivation, like wanting to provide a better life for their family or gain recognition. It could also be fueled by competition or the need to prove oneself. Whatever the reason, ambition helps people stay focused.\n\n[Part 3 - Q3] Why don't some people have dreams?\nThere are various reasons why some people lack dreams. For some, it could be due to a lack of inspiration or confidence in their abilities. Others might face challenges, like financial difficulties or personal struggles, that make it hard to focus on aspirations. And some just simply prioritize living in the moment rather than planning for the future.\n\n[Part 3 - Q4] How do people balance work and life?\nBalancing work and life requires setting clear boundaries and managing time effectively. For some, their personal lives are the top priority, so they’ll clock out on time to pursue hobbies, or exercise. They avoid overtime, no matter how urgent the issue may be. There are less drastic measures, of course, like working remotely or taking short breaks. Ultimately, it’s about knowing when to step back from work and make time for the things that truly matter.\n\n[Part 3 - Q5] Why do some people like to be the manager in the workplace?\nBeing a manager comes with authority and responsibility, which many people find rewarding. It allows them to make important decisions, and even influence outcomes. For some, it’s also about the sense of accomplishment and the recognition that comes with a leadership role. The best part about the position, however, are the financial benefits.\n\n[Part 3 - Q6] What are the traits of an ambitious person?\nAmbitious people are typically goal-oriented and hardworking. They’re often highly motivated and willing to take risks to achieve their objectives. Resilience is another key trait; they don’t give up easily, even when facing challenges. Instead, ambitious individuals are usually confident and proactive, and they’ll always look for opportunities to grow and improve themselves. Their unwavering determination is what really sets them apart from others.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một hoài bão mà bạn vẫn chưa thực hiện được]\nNói lưu loát tiếng Pháp là điều mà tôi luôn khao khát đạt được, và chẳng có gì bí mật khi tôi thực sự bị cuốn hút bởi ngôn ngữ này. Nó rất lãng mạn, được sử dụng rộng rãi trên khắp thế giới, và tôi cũng luôn nghĩ rằng việc thông thạo hai thứ tiếng sẽ mở ra nhiều cơ hội nghề nghiệp mới, đó quả là một điểm cộng đáng giá.\n\nTuy vậy, tôi phải thừa nhận rằng mục tiêu này vẫn chưa hoàn thành phần lớn là do sự lười biếng của bản thân. Đơn giản là tôi đã không duy trì được sự đều đặn trong việc học. Tôi bắt đầu theo học các lớp tiếng Pháp cách đây vài năm và thậm chí còn tải các ứng dụng học ngoại ngữ để tự luyện tập. Thế nhưng lịch trình của tôi lại quá bận rộn, nên tôi thấy ngày càng khó dành đủ thời gian để thực sự đắm mình vào ngôn ngữ này.\n\nBan đầu, tôi cố gắng tranh thủ những buổi học ngắn bất cứ khi nào có chút thời gian rảnh, nhưng thời gian trôi qua, tôi nhận ra sự tiến bộ của mình chậm hơn rất nhiều so với kỳ vọng. Tôi có thể tiếp thu nhanh mấy câu cơ bản như “Bonjour” hay “Merci”, nhưng lại chật vật khi ghép những câu phức tạp hơn, và đặc biệt là rất vất vả khi duy trì một cuộc trò chuyện đúng nghĩa.\n\nThành thật mà nói, cảm giác này hơi bực bội một chút vì tôi biết cảm giác làm chủ được tiếng Pháp sẽ xứng đáng đến nhường nào. Dẫu vậy, cứ như thể vạch đích ngày càng bị đẩy ra xa hơn. Tuy nhiên, tôi vẫn thấy hào hứng với hoài bão này, và tôi tin rằng một ngày nào đó mình sẽ chinh phục được nó. Đến lúc làm được, mọi công sức bỏ ra chắc chắn sẽ hoàn toàn xứng đáng.\n\n[Part 3 - Câu 1] Trẻ em thường có những ước mơ hoài bão gì?\nTrẻ em thường mơ ước lớn và ấp ủ hoài bão trở thành bác sĩ hoặc vận động viên nổi tiếng. Mục tiêu của các em thường chịu ảnh hưởng từ những gì các em thấy thú vị hoặc những điều xem được trên phim ảnh và truyền hình. Một số trẻ có thể muốn nối nghiệp cha mẹ mình, trong khi những em khác lại được truyền cảm hứng từ thầy cô hoặc các hình mẫu lý tưởng. Những hoài bão này thường thay đổi theo thời gian khi các em trưởng thành và tích lũy thêm trải nghiệm sống.\n\n[Part 3 - Câu 2] Tại sao một số người lại rất có tham vọng trong công việc?\nNhững người giàu tham vọng thường được thúc đẩy bởi khát khao mạnh mẽ muốn thành công và chạm tới các mục tiêu của mình. Thành thực mà nói thì có rất nhiều lý do cho điều này. Nó có thể bắt nguồn từ động lực cá nhân, chẳng hạn như muốn mang lại cuộc sống tốt đẹp hơn cho gia đình hoặc giành được sự công nhận. Nó cũng có thể được châm ngòi bởi sự cạnh tranh hoặc nhu cầu tự khẳng định bản thân. Dù lý do là gì, tham vọng vẫn giúp con người giữ vững sự tập trung.\n\n[Part 3 - Câu 3] Tại sao một số người lại không có ước mơ?\nCó nhiều nguyên nhân khác nhau khiến một số người thiếu đi ước mơ. Với vài người, có thể do họ thiếu nguồn cảm hứng hoặc thiếu niềm tin vào năng lực của chính mình. Những người khác lại có thể đang đối mặt với các trở ngại như khó khăn tài chính hay biến cố cá nhân, khiến họ khó lòng tập trung vào các hoài bão xa xôi. Và một số người đơn giản chỉ ưu tiên tận hưởng trọn vẹn hiện tại thay vì lập kế hoạch cho tương lai.\n\n[Part 3 - Câu 4] Mọi người cân bằng giữa công việc và cuộc sống như thế nào?\nViệc cân bằng giữa công việc và cuộc sống đòi hỏi phải thiết lập ranh giới rõ ràng và quản lý thời gian hiệu quả. Với một số người, đời sống cá nhân là ưu tiên hàng đầu, nên họ sẽ tan làm đúng giờ để theo đuổi sở thích hoặc tập thể dục. Họ tránh làm thêm giờ, bất kể vấn đề có gấp gáp đến đâu. Tất nhiên cũng có những biện pháp nhẹ nhàng hơn, như làm việc từ xa hoặc nghỉ giải lao ngắn. Sau cùng, điều cốt lõi là biết khi nào nên tạm rời công việc để dành thời gian cho những điều thực sự quan trọng.\n\n[Part 3 - Câu 5] Tại sao một số người thích làm quản lý ở nơi làm việc?\nLàm quản lý đi kèm với quyền hạn và trách nhiệm, điều mà nhiều người cảm thấy rất đáng giá. Vị trí này cho phép họ đưa ra những quyết định quan trọng và thậm chí tác động trực tiếp đến kết quả chung. Với một số người, đó còn là cảm giác đạt được thành tựu và sự công nhận gắn liền với vai trò lãnh đạo. Tuy nhiên, phần hấp dẫn nhất của vị trí này chính là những quyền lợi về mặt tài chính.\n\n[Part 3 - Câu 6] Những người có tham vọng thường mang những nét tính cách nào?\nNhững người giàu tham vọng thường định hướng rõ ràng theo mục tiêu và làm việc chăm chỉ. Họ thường có động lực cao và sẵn sàng chấp nhận rủi ro để đạt được đích đến. Khả năng bền bỉ vượt khó cũng là một phẩm chất then chốt; họ không dễ bỏ cuộc ngay cả khi đối mặt thử thách. Thay vào đó, người có tham vọng thường tự tin, chủ động, và luôn tìm kiếm cơ hội để phát triển cũng như hoàn thiện bản thân. Chính sự quyết tâm không lay chuyển là điều thực sự giúp họ nổi bật so với người khác.",
+    "target_words": [
+      {
+        "word": "aspire to",
+        "pos": "v",
+        "ipa": "/əˈspaɪə tuː/",
+        "meaning_vi": "khao khát, hướng tới đạt được điều gì",
+        "example": "Becoming fluent in French is something I have always aspired to achieve."
+      },
+      {
+        "word": "immerse oneself in",
+        "pos": "phr.v",
+        "ipa": "/ɪˈmɜːs wʌnˈself ɪn/",
+        "meaning_vi": "đắm mình vào, toàn tâm toàn ý vào",
+        "example": "A hectic schedule made it hard to immerse myself in French."
+      },
+      {
+        "word": "moving the goalpost",
+        "pos": "idiom",
+        "ipa": "/ˈmuːvɪŋ ðə ˈɡəʊlpəʊst/",
+        "meaning_vi": "mục tiêu cứ ngày càng xa tầm với hoặc thay đổi liên tục",
+        "example": "With slow progress, it feels like the goalpost keeps moving further away."
+      },
+      {
+        "word": "clock out",
+        "pos": "phr.v",
+        "ipa": "/klɒk aʊt/",
+        "meaning_vi": "chấm công ra về, kết thúc giờ làm việc",
+        "example": "Many employees clock out on time to protect their personal lives."
+      },
+      {
+        "word": "unwavering",
+        "pos": "adj",
+        "ipa": "/ʌnˈweɪvərɪŋ/",
+        "meaning_vi": "kiên định, không hề lung lay",
+        "example": "Unwavering determination sets ambitious achievers apart from the crowd."
+      }
+    ],
+    "questions": [
+      {
+        "q": "According to the speaker, what is the main reason they have not become fluent in French yet?",
+        "options": [
+          "A. French grammar apps are too expensive for students",
+          "B. Laziness and failing to stay consistent amid a hectic schedule",
+          "C. Difficulty finding a French teacher in their hometown",
+          "D. A lack of career benefits from being bilingual"
+        ],
+        "answer": 1,
+        "explain": "Ở đoạn 2 của Part 2, người nói thẳng thắn thừa nhận mục tiêu chưa đạt được phần lớn do lười biếng, thiếu sự kiên trì đều đặn ('largely due to laziness... haven't been consistent') và lịch trình quá bận rộn."
+      },
+      {
+        "q": "Which aspect of French did the speaker struggle with the MOST?",
+        "options": [
+          "A. Remembering simple greetings like 'Bonjour' and 'Merci'",
+          "B. Installing language-learning apps on their phone",
+          "C. Forming complex sentences and holding proper conversations",
+          "D. Understanding why French is considered a romantic language"
+        ],
+        "answer": 2,
+        "explain": "Đoạn 3 của Part 2 nêu rõ người nói nắm được các cụm từ cơ bản nhưng gặp khó khăn khi tạo câu phức tạp và đặc biệt là duy trì hội thoại thực sự ('especially struggled with holding proper conversations')."
+      },
+      {
+        "q": "In Part 3, why might some people have no ambitions or dreams at all?",
+        "options": [
+          "A. Because they already hold high-paying management jobs",
+          "B. Because of lack of inspiration, financial struggles, or preferring to live in the moment",
+          "C. Because TV shows discourage children from dreaming big",
+          "D. Because remote work removes all career motivation"
+        ],
+        "answer": 1,
+        "explain": "Câu 3 của Part 3 liệt kê các lý do gồm thiếu cảm hứng hoặc tự tin, khó khăn tài chính/cá nhân, và một số người đơn giản chỉ ưu tiên sống cho hiện tại ('prioritize living in the moment')."
+      },
+      {
+        "q": "What does the speaker describe as the 'best part' of being a workplace manager in Part 3?",
+        "options": [
+          "A. Never having to follow any deadlines",
+          "B. Clocking out earlier than every other staff member",
+          "C. Avoiding difficult decisions and responsibility",
+          "D. The financial benefits that come with the position"
+        ],
+        "answer": 3,
+        "explain": "Trong câu 5 của Part 3, sau khi nhắc đến quyền hạn, trách nhiệm và sự công nhận, người nói chốt lại rằng phần tuyệt nhất của vị trí quản lý chính là lợi ích tài chính ('The best part about the position, however, are the financial benefits')."
+      }
+    ],
+    "month": 3,
+    "assigned_days": [
+      34
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 163,
+    "title": "Study4 #13: Describe a challenge you faced that you thought was rather difficult (Q3/2024 • Unit 3)",
+    "category": "STUDY4 • Unit 3: Working Life (Công việc & Tính cách)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q3/2024 | Study4 ID 14190 | Unit 3: Working Life (Công việc & Tính cách))",
+    "content": "[Part 2 Cue Card — Describe a challenge you faced that you thought was rather difficult]\nCue Card Prompts: What it was • When and where you faced it • Why you thought it was a difficult challenge • And explain how you felt at the time.\n\nIt is still imprinted in my mind the time I had to take a particularly difficult Math test during my senior year in high school. The test was definitely no walk in the park. It covered a wide range of complex topics, including integrals and differential equations, which were incredibly challenging for me.\n\nI found this test especially tough because the questions were not only complex but also demanded a solid grasp of the concepts and the skill to apply them. For instance, there were problems involving multiple steps and intricate calculations, which made it easy to get tangled up or make mistakes. On top of that, the time limit cranked up the pressure, making it even harder to work through each question.\n\nAt times, I felt like I was on the verge of passing out in the exam room. I was beside myself with anxiety and frustration. However, I decided to move on from the questions that felt too challenging and concentrated on the ones I felt more confident about. This strategy really helped me regain my composure and finish the exam without feeling completely overwhelmed.\n\nTo my surprise, despite the struggle, I passed the test with flying colours. And of course, I felt a deep sense of relief once it was over and I was on cloud nine that I made it. The experience also taught me a lot about perseverance as I believe the success on that day was a result of my consistent practice.\n\n[Part 3 - Q1] Why do some people enjoy doing extreme sports?\nA lot of people love extreme sports because they enjoy pushing their limits and getting that adrenaline rush. For instance, activities like skydiving or rock climbing give them a sense of achievement when they overcome their fears. At the end of the day, it’s all about the thrill and proving to themselves that they can do something most people wouldn’t dare to try.\n\n[Part 3 - Q2] What challenges would people face when learning new sports?\nWhen learning a new sport, people often struggle with getting the hang of the basics in the beginning. For one thing, there’s the physical aspect—building strength and stamina—but also the mental challenge of learning new rules or techniques. On top of that, they might face frustration if they don’t improve as quickly as they’d like. If they stick with it, though, they'll make progress and feel a real sense of accomplishment.\n\n[Part 3 - Q3] What activities do you think would make children feel challenged? Why?\nI think activities like puzzles, sports, or even group projects can really challenge kids, pushing them out of their comfort zone to learn about resilience and problem-solving. For example, a complicated puzzle teaches them to be patient and think critically, which is essential in life. On the other hand, team sports challenge their communication and teamwork skills, helping them understand the importance of collaboration. These experiences not only foster personal growth but also equip children with valuable life skills they’ll carry into adulthood.\n\n[Part 3 - Q4] Do most people choose to face a challenge alone or with others?\nIt depends on the person. Some people prefer to go it alone, especially if they feel like they can focus better without distractions. However, many others enjoy working with a team because they can share the load and get support, enjoy the camaraderie. In my experience, tackling a challenge with friends or family tends to make the process easier and more enjoyable. If I were to face a big challenge, I’d definitely want others by my side.\n\n[Part 3 - Q5] Is it easy for children to overcome a challenge?\nNot always. For one thing, children might lack the experience or emotional tools to deal with challenges on their own. That being said, with proper guidance and encouragement from parents or teachers, they can develop the confidence to tackle obstacles. If they’re given the chance to try things on their own, they often surprise us with their creativity and resilience.\n\n[Part 3 - Q6] What do children often do when they face a challenge?\nChildren tend to either ask for help right away or try to solve the problem themselves. In the latter case, when they can’t figure it out, they may get frustrated or even give up. However, some kids are really determined and will keep trying until they find a solution. Personally speaking, how they react usually depends on their personality and the type of challenge they’re facing.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một thử thách bạn từng đối mặt mà bạn nghĩ là khá khó khăn]\nTrong tâm trí tôi vẫn còn in đậm ký ức về lần phải làm một bài kiểm tra Toán đặc biệt khó vào năm cuối cấp ba. Bài thi đó chắc chắn không hề dễ ăn chút nào. Nó bao quát hàng loạt chuyên đề phức tạp, bao gồm cả tích phân và phương trình vi phân, những phần vốn cực kỳ hóc búa đối với tôi.\n\nTôi thấy bài kiểm tra này đặc biệt căng thẳng vì các câu hỏi không chỉ phức tạp mà còn đòi hỏi sự nắm vững bản chất khái niệm lẫn kỹ năng vận dụng linh hoạt. Chẳng hạn, có những bài toán nhiều bước kèm phép tính rắc rối, khiến người làm rất dễ bị rối tung hoặc mắc sai sót. Thêm vào đó, giới hạn thời gian càng đẩy áp lực lên cao, khiến việc xử lý từng câu hỏi càng khó khăn hơn.\n\nCó những lúc trong phòng thi, tôi cảm thấy như mình sắp ngất xỉu đến nơi. Tôi hoảng loạn và bế tắc tột độ vì lo âu lẫn ức chế. Tuy nhiên, tôi quyết định tạm bỏ qua những câu hỏi quá hóc búa và tập trung vào những câu mình cảm thấy tự tin hơn. Chiến lược này thực sự giúp tôi lấy lại bình tĩnh và hoàn thành bài thi mà không bị choáng ngợp hoàn toàn.\n\nThật bất ngờ, bất chấp bao chật vật, tôi lại vượt qua bài thi với điểm số xuất sắc. Và tất nhiên, tôi cảm thấy nhẹ nhõm vô cùng ngay khi giờ thi khép lại, và tôi vui sướng như đang ở trên chín tầng mây vì mình đã làm được. Trải nghiệm đó cũng dạy cho tôi rất nhiều bài học về sự kiên trì, bởi tôi tin thành công ngày hôm ấy là kết quả từ việc luyện tập đều đặn của bản thân.\n\n[Part 3 - Câu 1] Tại sao một số người thích tham gia các môn thể thao mạo hiểm?\nRất nhiều người mê thể thao mạo hiểm vì họ thích đẩy bản thân vượt giới hạn và tận hưởng cảm giác hưng phấn tột độ đó. Chẳng hạn, những hoạt động như nhảy dù hay leo núi đá mang lại cho họ cảm giác thành tựu khi chiến thắng được nỗi sợ hãi của mình. Sau cùng, tất cả xoay quanh cảm giác hồi hộp phấn khích và việc tự chứng minh với bản thân rằng họ có thể làm được điều mà hầu hết mọi người không dám thử.\n\n[Part 3 - Câu 2] Mọi người thường gặp những thử thách gì khi học một môn thể thao mới?\nKhi học một môn thể thao mới, mọi người thường chật vật với việc nắm bắt những kỹ thuật cơ bản ngay từ đầu. Một mặt là yếu tố thể chất — phải rèn luyện sức mạnh và sức bền — nhưng mặt khác còn là thử thách tinh thần khi phải tiếp thu luật chơi hay kỹ thuật mới. Thêm vào đó, họ có thể cảm thấy nản lòng nếu không tiến bộ nhanh như mong muốn. Dù vậy, nếu họ kiên trì theo đuổi, họ sẽ tiến bộ và cảm nhận được niềm tự hào thành tựu thực sự.\n\n[Part 3 - Câu 3] Bạn nghĩ những hoạt động nào sẽ khiến trẻ em cảm thấy bị thử thách? Tại sao?\nTôi nghĩ các hoạt động như giải đố, thể thao hay thậm chí làm việc nhóm thực sự có thể thử thách trẻ nhỏ, đẩy các em ra khỏi vùng an toàn để học về sự bền bỉ và kỹ năng giải quyết vấn đề. Ví dụ, một trò xếp hình phức tạp dạy trẻ tính kiên nhẫn và tư duy phản biện, vốn rất thiết yếu trong cuộc sống. Ngược lại, các môn thể thao đồng đội thử thách kỹ năng giao tiếp và phối hợp, giúp các em hiểu tầm quan trọng của sự hợp tác. Những trải nghiệm này không chỉ nuôi dưỡng sự phát triển cá nhân mà còn trang bị cho trẻ những kỹ năng sống quý giá mang theo tới tuổi trưởng thành.\n\n[Part 3 - Câu 4] Phần lớn mọi người chọn đối mặt với thử thách một mình hay cùng với người khác?\nĐiều này tùy thuộc vào từng người. Một số người thích tự mình giải quyết, nhất là khi họ cảm thấy mình tập trung tốt hơn nếu không bị xao nhãng. Tuy nhiên, nhiều người khác lại thích làm việc cùng tập thể vì họ có thể chia sẻ gánh nặng, nhận được sự hỗ trợ và tận hưởng tinh thần đồng đội gắn kết. Theo kinh nghiệm của tôi, việc giải quyết thử thách cùng bạn bè hoặc gia đình thường giúp quá trình diễn ra nhẹ nhàng và thú vị hơn. Nếu phải đối mặt với một thử thách lớn, chắc chắn tôi sẽ muốn có những người khác ở bên cạnh.\n\n[Part 3 - Câu 5] Trẻ em có dễ dàng vượt qua một thử thách không?\nKhông phải lúc nào cũng dễ. Một phần là vì trẻ em có thể thiếu kinh nghiệm hoặc thiếu công cụ cảm xúc để tự mình xoay xở trước khó khăn. Nói vậy nhưng với sự định hướng và khích lệ đúng cách từ cha mẹ hay thầy cô, các em có thể hình thành sự tự tin để giải quyết các trở ngại. Nếu được trao cơ hội tự mình thử sức, trẻ thường khiến chúng ta bất ngờ bởi sự sáng tạo và sức bền tinh thần của mình.\n\n[Part 3 - Câu 6] Trẻ em thường làm gì khi đối mặt với một thử thách?\nTrẻ em có xu hướng hoặc là nhờ giúp đỡ ngay lập tức, hoặc là tự mình tìm cách giải quyết vấn đề. Trong trường hợp thứ hai, khi không thể nghĩ ra cách làm, các em có thể trở nên chán nản hoặc thậm chí bỏ cuộc. Tuy nhiên, một số trẻ lại rất quyết tâm và sẽ tiếp tục thử cho đến khi tìm ra lời giải. Cá nhân tôi thấy cách các em phản ứng thường phụ thuộc vào tính cách và dạng thử thách mà các em đang gặp phải.",
+    "target_words": [
+      {
+        "word": "no walk in the park",
+        "pos": "idiom",
+        "ipa": "/nəʊ wɔːk ɪn ðə pɑːk/",
+        "meaning_vi": "không hề dễ dàng chút nào, rất cam go",
+        "example": "My senior-year calculus exam was definitely no walk in the park."
+      },
+      {
+        "word": "regain one's composure",
+        "pos": "collocation",
+        "ipa": "/rɪˈɡeɪn wʌnz kəmˈpəʊʒə/",
+        "meaning_vi": "lấy lại bình tĩnh sau lúc hoảng loạn",
+        "example": "Skipping the hardest question first helped me regain my composure."
+      },
+      {
+        "word": "with flying colours",
+        "pos": "idiom",
+        "ipa": "/wɪð ˈflaɪɪŋ ˈkʌləz/",
+        "meaning_vi": "đạt kết quả xuất sắc, thành công rực rỡ",
+        "example": "Despite the initial panic, I passed the test with flying colours."
+      },
+      {
+        "word": "get the hang of",
+        "pos": "idiom",
+        "ipa": "/ɡet ðə hæŋ ɒv/",
+        "meaning_vi": "nắm bắt được cách làm, quen dần kỹ thuật",
+        "example": "Beginners often struggle when getting the hang of a new sport."
+      },
+      {
+        "word": "camaraderie",
+        "pos": "n",
+        "ipa": "/ˌkæməˈrɑːdəri/",
+        "meaning_vi": "tình đồng đội, sự gắn kết thân thiết",
+        "example": "Facing hard projects in a team brings real support and camaraderie."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why was the speaker's senior-year Math test especially stressful?",
+        "options": [
+          "A. The exam room was noisy and poorly lit",
+          "B. It involved multi-step complex problems under a strict time limit",
+          "C. The teacher changed the syllabus the night before the exam",
+          "D. The speaker forgot to bring a calculator to school"
+        ],
+        "answer": 1,
+        "explain": "Đoạn 2 của Part 2 giải thích đề thi không chỉ phức tạp (tích phân, vi phân) với nhiều bước tính rắc rối mà giới hạn thời gian còn làm áp lực tăng vọt ('the time limit cranked up the pressure')."
+      },
+      {
+        "q": "What strategy helped the speaker finish the Math exam successfully?",
+        "options": [
+          "A. Spending the whole hour on the hardest differential equation",
+          "B. Asking a classmate sitting nearby for hints",
+          "C. Moving past overly hard questions to focus on confident ones first",
+          "D. Leaving the exam room early to regain composure"
+        ],
+        "answer": 2,
+        "explain": "Trong đoạn 3 của Part 2, người nói chọn tạm bỏ qua các câu quá khó để tập trung vào những câu tự tin hơn ('move on from the questions that felt too challenging and concentrated on the ones I felt more confident about')."
+      },
+      {
+        "q": "According to Part 3, why do some people prefer facing challenges as part of a team?",
+        "options": [
+          "A. They can share the load, get support, and enjoy camaraderie",
+          "B. They can avoid learning basic rules or stamina training",
+          "C. Teammates are responsible for finishing all the work alone",
+          "D. Group work eliminates every kind of frustration immediately"
+        ],
+        "answer": 0,
+        "explain": "Câu 4 của Part 3 nêu rằng nhiều người thích làm cùng nhóm vì có thể san sẻ gánh nặng, nhận sự hỗ trợ và tận hưởng tình đồng đội ('share the load and get support, enjoy the camaraderie')."
+      },
+      {
+        "q": "In Part 3, what helps children develop the confidence to tackle difficult obstacles?",
+        "options": [
+          "A. Shielding them from all puzzles and competitive sports",
+          "B. Proper guidance, encouragement, and chances to try things themselves",
+          "C. Solving every hard problem for them right away",
+          "D. Forcing them to practice extreme sports like skydiving"
+        ],
+        "answer": 1,
+        "explain": "Trong câu 5 của Part 3, người nói cho biết với sự hướng dẫn, khích lệ đúng đắn từ cha mẹ/thầy cô cùng cơ hội tự thử sức ('proper guidance and encouragement... given the chance to try things on their own'), trẻ sẽ phát triển sự tự tin và sáng tạo."
+      }
+    ],
+    "month": 1,
+    "assigned_days": [
+      37
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 164,
+    "title": "Study4 #14: Describe a movie you watched and enjoyed recently (Q3/2024 • Unit 4)",
+    "category": "STUDY4 • Unit 4: Fact or Fiction (Sự thật & Truyền thông)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q3/2024 | Study4 ID 14186 | Unit 4: Fact or Fiction (Sự thật & Truyền thông))",
+    "content": "[Part 2 Cue Card — Describe a movie you watched and enjoyed recently]\nCue Card Prompts: When and where you watched it • Who you watched it with • What it was about • And explain why you watched this movie.\n\nRecently, I had the chance to watch Inside Out 2 with a few close friends. On a very fine Saturday evening, we decided to hit the cinema, which was just a stone’s throw away from my house, and the experience was out of this world. The cinema was cozy, and we were all curious to see how the sequel would stack up against the original.\n\nInside Out 2 picks up where the first film left off, diving into Riley's teenage years and the new emotional challenges she faces. The sequel brings in her new friends and some quirky new emotions, which really spice up the story. The animation remains vibrant and imaginative, while the storytelling is nothing short of engaging and insightful.\n\nI picked this movie because I really loved the original. The first film did such an amazing job in showing how emotions shape our behavior and relationships - in a way that was both entertaining and meaningful. So, I was curious to see how the sequel would build on those ideas and if it could capture the same charm. I've got to say that, honestly, it totally lived up to my expectations, with its blend of humor, heartwarming moments, and clever insights into the emotional ups and downs of growing up.\n\nWatching it with friends made the experience even more memorable because, alongside how great the film was, there was also our camaraderie. We had such a blast together, and honestly, it was worth every penny.\n\n[Part 3 - Q1] Why do people prefer to watch movies in the cinema?\nI think people love going to the cinema because it’s a whole experience. For one thing, the sound and visual effects are far more immersive than watching a movie at home. On top of that, there’s the excitement of seeing a film on the big screen with friends or family. If you ask me, the atmosphere in a cinema really adds to the movie magic.\n\n[Part 3 - Q2] Do you think successful movies should have well-known actors or actresses in leading roles?\nIt helps, but it’s not the only factor. If the storyline is compelling, even lesser-known actors can make a film a hit. That being said, famous actors do bring in more attention and often draw larger audiences. At the end of the day, it’s a combination of strong acting, a good script, and great direction that makes a movie successful.\n\n[Part 3 - Q3] Do you think only well-known directors can create the best movies?\nNot necessarily. While big-name directors have more experience and resources, there are plenty of lesser-known directors who bring fresh ideas and new perspectives. If a director has a clear vision, they can create an amazing movie, even if they’re not yet famous. In some cases, up-and-coming directors deliver some of the most original and innovative films.\n\n[Part 3 - Q4] Do Vietnamese people prefer to watch domestic movies or foreign movies?\nIt depends. Many people enjoy foreign movies for the high production quality and global stars. However, there’s also a growing love for Vietnamese films that reflect local culture and stories. If a movie resonates with people, whether it’s foreign or domestic, it will be well-received.\n\n[Part 3 - Q5] What are the factors that make a successful movie?\nA successful movie needs a gripping storyline, strong performances, and solid direction. On top of that, the soundtrack and cinematography play a huge role in setting the mood and drawing the audience in. If a film manages to evoke emotions, whether it’s laughter, tears, or suspense, it’s bound to be a hit.\n\n[Part 3 - Q6] What kinds of movies do you think are successful in your country?\nIn Vietnam, comedies and dramas tend to be all the rage. For instance, films that reflect everyday life or social issues tend to resonate with audiences. However, action and romance films also do well, especially those which blend entertainment with meaningful messages. If a movie can strike a balance between humor and heart, it usually finds success.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một bộ phim bạn đã xem và yêu thích gần đây]\nGần đây, tôi có dịp đi xem bộ phim Inside Out 2 cùng vài người bạn thân. Vào một buổi tối thứ Bảy rất đẹp trời, chúng tôi quyết định ra rạp chiếu phim nằm ngay gần nhà chỉ cách vài bước chân, và trải nghiệm hôm đó thật sự tuyệt vời ngoài sức tưởng tượng. Rạp phim rất ấm cúng, và cả nhóm đều háo hức xem phần hậu truyện này sẽ sánh với phần đầu ra sao.\n\nInside Out 2 nối tiếp ngay đoạn kết của phần phim đầu tiên, đi sâu vào những năm tháng tuổi thiếu niên của Riley và những thử thách cảm xúc mới mẻ mà cô bé phải đối mặt. Phần tiếp theo đưa vào những người bạn mới cùng vài nhân vật cảm xúc kỳ quặc mới, khiến câu chuyện trở nên sinh động hẳn lên. Phần hoạt họa vẫn rực rỡ và giàu trí tưởng tượng, trong khi cách kể chuyện thực sự lôi cuốn và sâu sắc.\n\nTôi chọn xem bộ phim này vì tôi đã vô cùng yêu thích phần một. Bộ phim đầu tiên đã làm xuất sắc trong việc thể hiện cách cảm xúc định hình hành vi và các mối quan hệ của chúng ta — theo một lối vừa giải trí vừa đầy ý nghĩa. Vì thế, tôi tò mò muốn xem phần sau sẽ phát triển những ý tưởng đó ra sao và liệu có giữ được nét duyên dáng tương tự hay không. Thú thật là tôi phải công nhận bộ phim hoàn toàn đáp ứng đúng kỳ vọng của mình, nhờ sự hòa quyện giữa nét hài hước, những khoảnh khắc ấm lòng và góc nhìn tinh tế về những thăng trầm cảm xúc của tuổi trưởng thành.\n\nViệc xem phim cùng bạn bè khiến trải nghiệm càng đáng nhớ hơn bởi bên cạnh chất lượng tuyệt vời của bộ phim, còn có tình bạn gắn bó giữa chúng tôi. Cả nhóm đã có những giờ phút vui hết nấc bên nhau, và thật lòng mà nói thì từng đồng bỏ ra đều vô cùng xứng đáng.\n\n[Part 3 - Câu 1] Tại sao mọi người thích xem phim ở rạp chiếu phim hơn?\nTôi nghĩ mọi người thích đi rạp vì đó là một trải nghiệm trọn vẹn. Thứ nhất, hiệu ứng âm thanh và hình ảnh sống động hơn rất nhiều so với việc xem phim ở nhà. Thêm vào đó là sự phấn khích khi được thưởng thức bộ phim trên màn ảnh rộng cùng bạn bè hoặc gia đình. Nếu bạn hỏi tôi, chính bầu không khí trong rạp đã thực sự góp phần tạo nên phép màu điện ảnh.\n\n[Part 3 - Câu 2] Bạn có nghĩ những bộ phim thành công nhất thiết phải có diễn viên nam hoặc nữ nổi tiếng đóng vai chính không?\nĐiều đó có giúp ích, nhưng không phải yếu tố duy nhất. Nếu cốt truyện đủ lôi cuốn, ngay cả những diễn viên ít tên tuổi cũng có thể làm nên một bộ phim ăn khách. Nói vậy nhưng các diễn viên nổi tiếng quả thực thu hút nhiều sự chú ý hơn và thường kéo được lượng khán giả đông đảo hơn. Sau cùng, chính sự kết hợp giữa diễn xuất chắc tay, kịch bản hay và đạo diễn tài năng mới tạo nên thành công cho một bộ phim.\n\n[Part 3 - Câu 3] Bạn có nghĩ chỉ những đạo diễn nổi tiếng mới có thể tạo ra những bộ phim hay nhất không?\nKhông hẳn vậy. Trong khi các đạo diễn tên tuổi có nhiều kinh nghiệm và nguồn lực hơn, vẫn có rất nhiều đạo diễn ít tiếng tăm hơn mang lại những ý tưởng tươi mới và góc nhìn độc đáo. Nếu một đạo diễn có tầm nhìn rõ ràng, họ hoàn toàn có thể làm nên một tác phẩm xuất sắc ngay cả khi chưa nổi tiếng. Trong nhiều trường hợp, chính các đạo diễn trẻ triển vọng lại cho ra đời những bộ phim nguyên bản và sáng tạo nhất.\n\n[Part 3 - Câu 4] Người Việt Nam thích xem phim nội địa hay phim nước ngoài hơn?\nĐiều đó còn tùy. Nhiều người thích phim nước ngoài vì chất lượng sản xuất cao và dàn ngôi sao toàn cầu. Tuy nhiên, tình cảm dành cho phim Việt phản ánh văn hóa và câu chuyện bản địa cũng đang ngày càng tăng lên. Nếu một bộ phim chạm được tới cảm xúc người xem, dù là phim ngoại hay phim nội thì đều sẽ được đón nhận nồng nhiệt.\n\n[Part 3 - Câu 5] Những yếu tố nào tạo nên một bộ phim thành công?\nMột bộ phim thành công cần có cốt truyện hấp dẫn, diễn xuất thuyết phục và sự chỉ đạo vững vàng của đạo diễn. Bên cạnh đó, nhạc phim và kỹ thuật quay phim đóng vai trò cực kỳ quan trọng trong việc tạo bầu không khí và cuốn khán giả vào câu chuyện. Nếu bộ phim khơi gợi được cảm xúc, dù là tiếng cười, nước mắt hay sự hồi hộp, thì chắc chắn nó sẽ thành công vang dội.\n\n[Part 3 - Câu 6] Bạn nghĩ những thể loại phim nào thường thành công ở đất nước mình?\nỞ Việt Nam, phim hài và phim tâm lý xã hội thường rất thịnh hành. Chẳng hạn, những tác phẩm phản ánh đời sống thường nhật hoặc các vấn đề xã hội thường dễ tạo sự đồng cảm với khán giả. Tuy nhiên, phim hành động và phim tình cảm cũng ăn khách, đặc biệt là những phim kết hợp hài hòa giữa yếu tố giải trí và thông điệp ý nghĩa. Nếu một bộ phim cân bằng được giữa tiếng cười và chiều sâu cảm xúc, nó thường sẽ gặt hái thành công.",
+    "target_words": [
+      {
+        "word": "a stone's throw away",
+        "pos": "idiom",
+        "ipa": "/ə stəʊnz θrəʊ əˈweɪ/",
+        "meaning_vi": "rất gần, chỉ cách vài bước chân",
+        "example": "We visited a cozy cinema just a stone's throw away from my house."
+      },
+      {
+        "word": "stack up against",
+        "pos": "phr.v",
+        "ipa": "/stæk ʌp əˈɡenst/",
+        "meaning_vi": "sánh ngang, so sánh với",
+        "example": "Everyone wondered how the sequel would stack up against the original."
+      },
+      {
+        "word": "live up to one's expectations",
+        "pos": "collocation",
+        "ipa": "/lɪv ʌp tuː wʌnz ˌekspekˈteɪʃənz/",
+        "meaning_vi": "đáp ứng đúng kỳ vọng",
+        "example": "Inside Out 2 completely lived up to my expectations."
+      },
+      {
+        "word": "immersive",
+        "pos": "adj",
+        "ipa": "/ɪˈmɜːsɪv/",
+        "meaning_vi": "sống động, cuốn người xem đắm chìm vào không gian",
+        "example": "Cinema sound and visuals feel far more immersive than home screens."
+      },
+      {
+        "word": "all the rage",
+        "pos": "idiom",
+        "ipa": "/ɔːl ðə reɪdʒ/",
+        "meaning_vi": "rất thịnh hành, làm mưa làm gió",
+        "example": "Relatable comedies and family dramas are all the rage in Vietnam."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why did the speaker decide to watch Inside Out 2?",
+        "options": [
+          "A. Because tickets were discounted on Saturday afternoon",
+          "B. Because they loved how meaningful and entertaining the first movie was",
+          "C. Because a famous Vietnamese actor voiced a new character",
+          "D. Because they wanted to write a school essay on animation"
+        ],
+        "answer": 1,
+        "explain": "Đoạn 3 của Part 2 nêu rõ người nói chọn xem phim vì rất thích phần đầu và tò mò xem phần hai có giữ được sức hút và cách thể hiện cảm xúc sâu sắc như vậy không ('I picked this movie because I really loved the original')."
+      },
+      {
+        "q": "How did watching Inside Out 2 with friends affect the speaker's experience?",
+        "options": [
+          "A. It made them distracted from the plot",
+          "B. They disagreed on whether the sequel was worth the money",
+          "C. Their camaraderie made the outing even more memorable and joyful",
+          "D. They left halfway through because the cinema was too crowded"
+        ],
+        "answer": 2,
+        "explain": "Đoạn 4 của Part 2 nhấn mạnh tình bạn gắn bó ('our camaraderie') khiến buổi xem phim thêm đáng nhớ, cả nhóm có khoảng thời gian tuyệt vời và thấy rất đáng tiền."
+      },
+      {
+        "q": "In Part 3, what can lesser-known directors bring to filmmaking compared with big-name directors?",
+        "options": [
+          "A. Larger marketing budgets and global celebrity casts",
+          "B. Fresh ideas, new perspectives, and innovative originality",
+          "C. Guaranteed box-office hits regardless of script quality",
+          "D. Faster cinema ticket distribution"
+        ],
+        "answer": 1,
+        "explain": "Trong câu 3 của Part 3, người nói chỉ ra các đạo diễn chưa nổi tiếng vẫn mang đến ý tưởng tươi mới, góc nhìn mới ('fresh ideas and new perspectives') và những bộ phim sáng tạo, nguyên bản nhất."
+      },
+      {
+        "q": "According to Part 3, what kind of movies usually find success in Vietnam?",
+        "options": [
+          "A. Only foreign action blockbusters with huge special effects",
+          "B. Silent documentaries without any soundtrack",
+          "C. Comedies, dramas, and films balancing humor, heart, and everyday life",
+          "D. Movies featuring exclusively unknown amateur actors"
+        ],
+        "answer": 2,
+        "explain": "Câu 6 của Part 3 cho biết phim hài và tâm lý xã hội phản ánh đời sống thường nhật rất thịnh hành ở Việt Nam, đặc biệt các phim cân bằng được tiếng cười và cảm xúc sâu lắng ('strike a balance between humor and heart')."
+      }
+    ],
+    "month": 2,
+    "assigned_days": [
+      40
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 165,
+    "title": "Study4 #15: Describe a time when someone gave you something that you really wanted (Q2/2024 • Unit 1)",
+    "category": "STUDY4 • Unit 1: Me & Mine (Sở hữu & Đồ vật)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q2/2024 | Study4 ID 13756 | Unit 1: Me & Mine (Sở hữu & Đồ vật))",
+    "content": "[Part 2 Cue Card — Describe a time when someone gave you something that you really wanted]\nCue Card Prompts: What it was • When you received it • Who gave it to you • And explain why you wanted it so much.\n\nAlright, so, a time when someone gave me something I really wanted was when I got this amazing pair of sneakers. This was back when I was about 17 years old, and I had been eyeing these shoes for months. They were the latest release from a popular brand, and everyone at school seemed to be talking about them.\n\nI received them on my birthday, which made the whole thing even more special. It was a gift from my best friend, who had obviously been paying close attention to my not-so-subtle hints. I remember the moment so clearly. We were at my house, just having a casual get-together, and after we cut the cake, he handed me this big, colorful box. As soon as I saw the brand logo, I knew exactly what it was.\n\nThese sneakers weren't just any shoes; they were the limited edition ones with a unique design and super comfy cushioning. My friend knew how much I wanted them because I had been talking about their features non-stop. They had this perfect blend of style and comfort, which made them ideal for both school and casual outings.\n\nThe reason I wanted these shoes so much was that they represented a kind of status symbol among my peers. Plus, I've always had a keen interest in fashion, and these sneakers were the perfect addition to my wardrobe. Receiving them felt like hitting the jackpot. I wore them everywhere, and they instantly became my favorite pair. It was a fantastic feeling, and I was thrilled to bits.\n\n[Part 3 - Q1] Should employees have their own goals?\nOh, definitely! Having personal goals keeps employees motivated and gives them a sense of direction. It's like having a roadmap for their career, helping them to stay focused and strive for improvement. Plus, achieving these goals can lead to a greater sense of accomplishment and job satisfaction.\n\n[Part 3 - Q2] How should bosses reward employees?\nWell, a mix of recognition and tangible rewards works wonders. A heartfelt “thank you” or public acknowledgment can be really motivating. Bonuses, extra vacation days, or even a nice lunch out can make employees feel appreciated. Tailoring rewards to individual preferences can also show that the boss truly values their team.\n\n[Part 3 - Q3] What kinds of gifts do young people like to receive as rewards?\nYoung people often go for tech gadgets like the latest smartphone or trendy headphones. Experiences like concert tickets or adventure activities are also a big hit. Gift cards are popular too, as they give the freedom to choose exactly what they want.\n\n[Part 3 - Q4] How should children spend their allowance money?\nIt's great for kids to learn about managing money early on. They should be encouraged to save a bit for future needs or bigger purchases. Spending on small treats or things they enjoy is fine, but they should also learn to budget. Maybe even set aside a little for charity to understand the value of giving back.\n\n[Part 3 - Q5] Why do people like shopping more now than in the past?\nWell, shopping has become super convenient and fun, especially with online shopping. You can find anything you want with just a few clicks, and there are always deals and discounts to snag. Plus, social media constantly showcases new trends and products, making shopping almost a hobby for some people.\n\n[Part 3 - Q6] Do you think shopping is good for a country's economy?\nOh, absolutely! Shopping drives consumer demand, which boosts production and creates jobs. It keeps money circulating in the economy and supports various sectors from manufacturing to retail. Plus, consumer spending is often a good indicator of economic health and confidence.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một lần ai đó tặng bạn món đồ mà bạn thực sự mong muốn]\nĐược rồi, một lần mà ai đó tặng tôi món đồ tôi thực sự ao ước là khi tôi nhận được đôi giày thể thao tuyệt đẹp này. Chuyện xảy ra hồi tôi khoảng 17 tuổi, và lúc ấy tôi đã để mắt đến đôi giày này suốt nhiều tháng liền. Đó là mẫu mới nhất vừa ra mắt của một thương hiệu đình đám, và dường như ai ở trường cũng bàn tán về nó.\n\nTôi nhận được món quà đúng vào ngày sinh nhật, điều đó khiến mọi thứ càng trở nên đặc biệt hơn. Đó là quà của cậu bạn thân nhất, người rõ ràng đã rất để tâm đến những lời gợi ý chẳng hề giấu giếm của tôi. Tôi vẫn nhớ khoảnh khắc ấy rõ mồn một. Lúc đó chúng tôi đang ở nhà tôi, chỉ tụ tập nhẹ nhàng cùng nhau, và sau khi cắt bánh kem, cậu ấy đưa cho tôi một chiếc hộp lớn đầy màu sắc. Ngay khi nhìn thấy logo thương hiệu, tôi biết chính xác bên trong là gì.\n\nĐôi giày này không phải giày bình thường; chúng là phiên bản giới hạn với thiết kế độc đáo và lớp đệm êm ái cực kỳ. Bạn tôi biết tôi thích chúng đến mức nào vì tôi đã nói về các tính năng của đôi giày suốt ngày không ngớt. Chúng sở hữu sự kết hợp hoàn hảo giữa phong cách thời trang và độ thoải mái, nên rất lý tưởng cho cả việc đi học lẫn đi chơi dạo phố.\n\nLý do tôi khao khát đôi giày này nhiều đến vậy là vì chúng đại diện cho một dạng biểu tượng đẳng cấp trong nhóm bạn cùng trang lứa. Hơn nữa, tôi vốn luôn có niềm yêu thích đặc biệt với thời trang, và đôi giày thể thao này là mảnh ghép hoàn hảo bổ sung vào tủ đồ của tôi. Nhận được chúng khiến tôi có cảm giác như vừa trúng số độc đắc vậy. Tôi mang chúng đi khắp mọi nơi, và chúng lập tức trở thành đôi giày yêu thích nhất của tôi. Đó là một cảm giác thật tuyệt vời, và tôi đã vui sướng đến phát ngất.\n\n[Part 3 - Câu 1] Nhân viên có nên có mục tiêu riêng của mình không?\nỒ, chắc chắn rồi! Việc có mục tiêu cá nhân giúp nhân viên duy trì động lực và mang lại cho họ cảm giác định hướng rõ ràng. Nó giống như việc có một tấm bản đồ lộ trình cho sự nghiệp, giúp họ tập trung và không ngừng phấn đấu hoàn thiện hơn. Thêm vào đó, việc đạt được những mục tiêu này có thể dẫn tới cảm giác thành tựu và sự hài lòng cao hơn trong công việc.\n\n[Part 3 - Câu 2] Cấp trên nên khen thưởng nhân viên như thế nào?\nChà, sự kết hợp giữa ghi nhận tinh thần và phần thưởng vật chất mang lại hiệu quả kỳ diệu. Một lời “cảm ơn” chân thành hay sự biểu dương công khai có thể tiếp thêm động lực rất lớn. Tiền thưởng, thêm ngày nghỉ phép hay thậm chí một bữa trưa ngon lành bên ngoài đều khiến nhân viên cảm thấy được trân trọng. Việc điều chỉnh phần thưởng theo sở thích từng cá nhân cũng cho thấy sếp thực sự coi trọng đội ngũ của mình.\n\n[Part 3 - Câu 3] Người trẻ thường thích nhận những món quà nào làm phần thưởng?\nNgười trẻ thường chuộng các thiết bị công nghệ như mẫu điện thoại thông minh mới nhất hoặc tai nghe thời thượng. Những trải nghiệm như vé xem hòa nhạc hay các hoạt động phiêu lưu cũng rất được yêu thích. Thẻ quà tặng cũng phổ biến nữa, vì chúng mang lại quyền tự do lựa chọn chính xác món đồ mà họ muốn.\n\n[Part 3 - Câu 4] Trẻ em nên tiêu tiền tiêu vặt của mình như thế nào?\nViệc trẻ học cách quản lý tiền bạc từ sớm là rất tốt. Các em nên được khuyến khích tiết kiệm một phần cho những nhu cầu tương lai hoặc những món đồ lớn hơn. Chi tiêu cho những món quà nhỏ hay thứ mình thích cũng ổn thôi, nhưng các em cũng cần học cách lập ngân sách. Thậm chí có thể trích ra một khoản nhỏ làm từ thiện để hiểu được giá trị của sự sẻ chia.\n\n[Part 3 - Câu 5] Tại sao ngày nay mọi người thích mua sắm nhiều hơn so với trước đây?\nÀ, việc mua sắm đã trở nên siêu tiện lợi và thú vị, nhất là với mua sắm trực tuyến. Bạn có thể tìm thấy bất cứ thứ gì mình muốn chỉ với vài cú nhấp chuột, và luôn có sẵn các ưu đãi hay mã giảm giá để săn. Thêm vào đó, mạng xã hội liên tục giới thiệu các xu hướng và sản phẩm mới, biến mua sắm gần như thành một thú vui tiêu khiển đối với nhiều người.\n\n[Part 3 - Câu 6] Bạn có nghĩ việc mua sắm tốt cho nền kinh tế của một quốc gia không?\nỒ, hoàn toàn có chứ! Mua sắm thúc đẩy nhu cầu tiêu dùng, từ đó kích thích sản xuất và tạo ra công ăn việc làm. Nó giúp dòng tiền lưu thông liên tục trong nền kinh tế và hỗ trợ nhiều lĩnh vực từ sản xuất chế tạo đến bán lẻ. Hơn nữa, chi tiêu của người tiêu dùng thường là một chỉ dấu tốt phản ánh sức khỏe và niềm tin của nền kinh tế.",
+    "target_words": [
+      {
+        "word": "hit the jackpot",
+        "pos": "idiom",
+        "ipa": "/hɪt ðə ˈdʒækpɒt/",
+        "meaning_vi": "trúng số, đạt được điều may mắn ngoài mong đợi",
+        "example": "Opening that birthday sneaker box felt like hitting the jackpot."
+      },
+      {
+        "word": "thrilled to bits",
+        "pos": "idiom",
+        "ipa": "/θrɪld tuː bɪts/",
+        "meaning_vi": "vui sướng tột độ, hạnh phúc vô cùng",
+        "example": "I was thrilled to bits when I saw the limited-edition sneakers."
+      },
+      {
+        "word": "tangible",
+        "pos": "adj",
+        "ipa": "/ˈtændʒəbəl/",
+        "meaning_vi": "hữu hình, cụ thể (như tiền thưởng, hiện vật)",
+        "example": "A blend of verbal praise and tangible rewards motivates employees."
+      },
+      {
+        "word": "snag",
+        "pos": "v",
+        "ipa": "/snæɡ/",
+        "meaning_vi": "chớp lấy, săn được nhanh (món hời, ưu đãi)",
+        "example": "Online shoppers love snagging flash deals with just a few clicks."
+      },
+      {
+        "word": "circulate",
+        "pos": "v",
+        "ipa": "/ˈsɜːkjəleɪt/",
+        "meaning_vi": "lưu thông, xoay vòng",
+        "example": "Active consumer spending keeps money circulating across the economy."
+      }
+    ],
+    "questions": [
+      {
+        "q": "How did the speaker's best friend know which birthday gift to buy?",
+        "options": [
+          "A. The speaker's parents sent him a shopping list",
+          "B. The speaker had been dropping hints and talking about the sneakers nonstop",
+          "C. He happened to pick a random pair on sale at the mall",
+          "D. Everyone at school received the exact same birthday gift"
+        ],
+        "answer": 1,
+        "explain": "Đoạn 2 và 3 của Part 2 cho biết người bạn thân đã chú ý đến những gợi ý lộ liễu ('not-so-subtle hints') và vì người nói cứ nói mãi về tính năng của đôi giày ('talking about their features non-stop')."
+      },
+      {
+        "q": "Why were those specific sneakers so desirable to the speaker?",
+        "options": [
+          "A. They were cheap enough for weekly allowance money",
+          "B. They were a status symbol among peers and fit the speaker's passion for fashion",
+          "C. They were required for a high-school track competition",
+          "D. No one else at school had ever heard of the brand"
+        ],
+        "answer": 1,
+        "explain": "Đoạn 4 của Part 2 giải thích đôi giày vừa là biểu tượng đẳng cấp trong nhóm bạn ('status symbol among my peers') vừa hợp với niềm đam mê thời trang của người nói."
+      },
+      {
+        "q": "In Part 3, why are gift cards popular rewards among young people?",
+        "options": [
+          "A. They teach kids how to donate to charity",
+          "B. They give young people the freedom to choose exactly what they want",
+          "C. They always come with free concert tickets",
+          "D. They replace the need for a salary bonus"
+        ],
+        "answer": 1,
+        "explain": "Câu 3 của Part 3 nêu rõ thẻ quà tặng được ưa chuộng vì chúng cho người nhận sự tự do chọn đúng món mình thích ('give the freedom to choose exactly what they want')."
+      },
+      {
+        "q": "According to Part 3, how does shopping benefit a nation's economy?",
+        "options": [
+          "A. It drives consumer demand, boosts production, creates jobs, and circulates money",
+          "B. It encourages workers to skip vacations and work overtime",
+          "C. It stops social media from promoting new trends",
+          "D. It reduces the need for manufacturing and retail sectors"
+        ],
+        "answer": 0,
+        "explain": "Câu 6 của Part 3 giải thích mua sắm thúc đẩy cầu tiêu dùng, tăng sản xuất, tạo việc làm và giúp dòng tiền lưu thông xuyên suốt từ sản xuất đến bán lẻ."
+      }
+    ],
+    "month": 3,
+    "assigned_days": [
+      43
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 166,
+    "title": "Study4 #16: Describe an indoor or outdoor place where it is easy for you to study (Q2/2024 • Unit 6)",
+    "category": "STUDY4 • Unit 6: Places (Đô thị & Du lịch)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Q2/2024 | Study4 ID 13736 | Unit 6: Places (Đô thị & Du lịch))",
+    "content": "[Part 2 Cue Card — Describe an indoor or outdoor place where it is easy for you to study]\nCue Card Prompts: Where it is • What it is like • When you go there • What you study there • And explain why you would like to study in this place.\n\nAlright, so, an indoor place where I find it super easy to study is this cozy little café called The Nest, right in the heart of District 1 in Ho Chi Minh City. It's tucked away on a quiet street, which is perfect because it's not too busy or noisy.\n\nThe Nest has this really inviting atmosphere. It's got comfy chairs, wooden tables, and loads of natural light streaming in from big windows. The décor is pretty minimalist but stylish, with lots of plants around, which makes it feel fresh and calming. They play soft background music, which helps me focus without being distracting.\n\nI usually go there in the afternoons, especially on weekends when I've got more time on my hands. I bring my laptop and my study materials, grab a cup of their amazing coffee, and settle in for a few hours of uninterrupted study. It's a great spot for working on essays or catching up on reading.\n\nThe reason I love studying at The Nest is because it strikes the perfect balance between being relaxed and productive. The ambiance is just right for getting into the zone, and the staff are friendly but not intrusive. Plus, the coffee is a real pick-me-up, which is always a bonus when you're hitting the books.\n\n[Part 3 - Q1] Do you like to learn on your own or with others?\nYou know, I enjoy a mix of both. Learning on my own lets me go at my own pace and dive deep into topics I'm really curious about. But, studying with others can be super motivating and you get to exchange ideas, which can really broaden your perspective. So, a balance of solo and group study works best for me.\n\n[Part 3 - Q2] What's the difference between learning face-to-face with teachers and learning by yourself?\nWell, face-to-face learning with teachers is great because you get immediate feedback and personalized guidance. Teachers can clarify doubts on the spot and explain complex concepts in a way that's easy to understand. On the other hand, learning by yourself gives you the flexibility to choose what to study and when, which can be really convenient.\n\n[Part 3 - Q3] Do you prefer to study at home or study in other places?\nI generally prefer studying in other places like libraries or cafes. The change of environment helps me focus better and there's a certain vibe in these places that makes me more productive. At home, I sometimes get too comfortable and distracted by things like the TV or my bed calling my name!\n\n[Part 3 - Q4] What are the benefits of gaining work experience while studying?\nGaining work experience while studying is super beneficial. It gives you practical skills and real-world insights that you can't get from textbooks. Plus, it looks great on your resume and can make you more attractive to future employers. Balancing work and study also teaches you time management skills, which is a valuable lesson in itself.\n\n[Part 3 - Q5] Do most people like to study in a noisy place?\nNot really, most people find noisy places quite distracting when they're trying to study. It's hard to concentrate with a lot of background noise. However, some people do thrive in a bit of a buzz, like a cafe with some ambient sounds. I guess it depends on personal preference and what kind of study they're doing.\n\n[Part 3 - Q6] What are the advantages and disadvantages of studying with other people?\nStudying with others has some great perks, like being able to share resources and help each other understand tricky topics. It's also more fun and less isolating. But, there can be downsides too, like getting sidetracked by conversations or disagreements on study methods. It requires a bit of discipline to stay on track.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một địa điểm trong nhà hoặc ngoài trời nơi bạn dễ dàng tập trung học tập]\nĐược rồi, một không gian trong nhà nơi tôi thấy học tập cực kỳ dễ dàng là quán cà phê nhỏ ấm cúng mang tên The Nest, nằm ngay giữa trung tâm Quận 1 ở Thành phố Hồ Chí Minh. Quán nép mình trong một con phố yên tĩnh, điều này quá lý tưởng vì ở đó không quá đông đúc hay ồn ào.\n\nThe Nest sở hữu một bầu không khí thực sự thu hút. Quán có những chiếc ghế êm ái, bàn gỗ và tràn ngập ánh sáng tự nhiên chiếu vào từ những khung cửa sổ lớn. Lối trang trí khá tối giản nhưng tinh tế, với rất nhiều cây xanh xung quanh, tạo cảm giác tươi mới và thư thái. Họ bật nhạc nền nhẹ nhàng, giúp tôi tập trung mà không hề gây xao nhãng.\n\nTôi thường ghé qua đó vào các buổi chiều, đặc biệt là cuối tuần khi tôi có nhiều thời gian rảnh hơn. Tôi mang theo máy tính xách tay cùng tài liệu học tập, gọi một ly cà phê tuyệt ngon của quán rồi ổn định chỗ ngồi để học liên tục vài tiếng đồng hồ không bị ngắt quãng. Đó là một góc tuyệt vời để viết bài luận hoặc đọc bù tài liệu.\n\nLý do tôi yêu thích việc học ở The Nest là vì nơi đây tạo ra sự cân bằng hoàn hảo giữa cảm giác thư giãn và hiệu suất làm việc. Không gian vừa vặn để bước vào trạng thái tập trung cao độ, còn nhân viên thì thân thiện nhưng không hề làm phiền khách. Hơn nữa, cà phê ở đây thực sự giúp tỉnh táo tinh thần, đó luôn là một điểm cộng lớn mỗi khi bạn phải cày bài vở.\n\n[Part 3 - Câu 1] Bạn thích tự học một mình hay học cùng với người khác?\nBạn biết đấy, tôi thích kết hợp cả hai cách. Tự học một mình cho phép tôi đi theo tốc độ riêng và đào sâu vào những chủ đề tôi thực sự tò mò. Nhưng học cùng người khác có thể tạo động lực rất lớn và bạn được trao đổi ý tưởng, điều này thực sự giúp mở rộng góc nhìn. Vì vậy, sự cân bằng giữa tự học và học nhóm mang lại hiệu quả tốt nhất cho tôi.\n\n[Part 3 - Câu 2] Sự khác biệt giữa việc học trực tiếp với giáo viên và việc tự học là gì?\nÀ, học trực tiếp với giáo viên rất tuyệt vì bạn nhận được phản hồi tức thì và sự hướng dẫn sát sao theo từng cá nhân. Thầy cô có thể giải đáp thắc mắc ngay tại chỗ và giảng giải những khái niệm phức tạp theo cách dễ hiểu. Ngược lại, việc tự học trao cho bạn sự linh hoạt trong việc chọn nội dung và thời điểm học, điều này có thể vô cùng tiện lợi.\n\n[Part 3 - Câu 3] Bạn thích học ở nhà hơn hay học ở những nơi khác hơn?\nNhìn chung tôi thích học ở những nơi khác như thư viện hoặc quán cà phê hơn. Sự thay đổi môi trường giúp tôi tập trung tốt hơn, và ở những nơi này có một bầu không khí đặc biệt khiến tôi làm việc năng suất hơn. Ở nhà, đôi khi tôi thấy quá thoải mái rồi bị xao nhãng bởi mấy thứ như tivi hay chiếc giường cứ vẫy gọi mình!\n\n[Part 3 - Câu 4] Những lợi ích của việc tích lũy kinh nghiệm làm việc trong khi đang đi học là gì?\nTích lũy kinh nghiệm làm việc khi còn đi học mang lại rất nhiều lợi ích. Nó trang bị cho bạn những kỹ năng thực hành và góc nhìn thực tế mà bạn không thể có được từ sách giáo khoa. Thêm vào đó, điều đó trông rất ấn tượng trên hồ sơ xin việc và có thể khiến bạn thu hút hơn trong mắt nhà tuyển dụng tương lai. Việc cân bằng giữa đi làm và đi học cũng rèn cho bạn kỹ năng quản lý thời gian, bản thân điều đó đã là một bài học quý giá rồi.\n\n[Part 3 - Câu 5] Phần lớn mọi người có thích học ở nơi ồn ào không?\nKhông hẳn vậy, hầu hết mọi người thấy những nơi ồn ào khá gây xao nhãng khi họ đang cố gắng học bài. Rất khó tập trung khi xung quanh có quá nhiều tiếng ồn nền. Tuy nhiên, một số người lại học hiệu quả trong bầu không khí hơi rộn ràng một chút, chẳng hạn như quán cà phê có tiếng động nhẹ xung quanh. Tôi đoán điều đó còn tùy vào sở thích cá nhân và dạng bài học mà họ đang làm.\n\n[Part 3 - Câu 6] Những ưu điểm và nhược điểm của việc học cùng người khác là gì?\nHọc cùng người khác có một số lợi thế tuyệt vời, như việc có thể chia sẻ tài liệu và giúp nhau hiểu những phần kiến thức hóc búa. Cách học này cũng vui hơn và bớt cảm giác cô độc. Nhưng nó cũng có những mặt hạn chế nữa, chẳng hạn như dễ bị lạc đề bởi các cuộc trò chuyện phiếm hoặc bất đồng về phương pháp học. Cần phải có một chút kỷ luật để giữ đúng tiến độ.",
+    "target_words": [
+      {
+        "word": "get into the zone",
+        "pos": "idiom",
+        "ipa": "/ɡet ˈɪntuː ðə zəʊn/",
+        "meaning_vi": "bước vào trạng thái tập trung cao độ, nhập tâm",
+        "example": "Soft music and natural light make it easy to get into the zone."
+      },
+      {
+        "word": "hit the books",
+        "pos": "idiom",
+        "ipa": "/hɪt ðə bʊks/",
+        "meaning_vi": "bắt đầu học hành chăm chỉ, vùi đầu vào sách vở",
+        "example": "Good coffee is always a welcome pick-me-up when hitting the books."
+      },
+      {
+        "word": "clarify doubts",
+        "pos": "collocation",
+        "ipa": "/ˈklærəfaɪ daʊts/",
+        "meaning_vi": "giải đáp, làm sáng tỏ thắc mắc",
+        "example": "Teachers in face-to-face classes can clarify doubts on the spot."
+      },
+      {
+        "word": "thrive in",
+        "pos": "phr.v",
+        "ipa": "/θraɪv ɪn/",
+        "meaning_vi": "phát triển tốt, làm việc hiệu quả trong môi trường nào đó",
+        "example": "Some students actually thrive in a gentle cafe buzz."
+      },
+      {
+        "word": "get sidetracked",
+        "pos": "phrase",
+        "ipa": "/ɡet ˈsaɪdtrækt/",
+        "meaning_vi": "bị xao nhãng, chệch hướng khỏi việc chính",
+        "example": "Study groups can easily get sidetracked by casual chatter."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What makes the location and design of The Nest ideal for studying?",
+        "options": [
+          "A. It sits inside a noisy shopping mall with bright neon signs",
+          "B. It is tucked on a quiet street with big windows, natural light, plants, and soft music",
+          "C. It only opens late at night and bans laptops on weekends",
+          "D. It offers free tutoring sessions with university teachers"
+        ],
+        "answer": 1,
+        "explain": "Đoạn 1 và 2 của Part 2 mô tả The Nest nằm trên một con phố yên tĩnh ('tucked away on a quiet street'), có nhiều ánh sáng tự nhiên từ cửa sổ lớn, cây xanh và nhạc nền nhẹ nhàng."
+      },
+      {
+        "q": "Why does the speaker generally avoid studying at home, according to Part 3?",
+        "options": [
+          "A. Home internet connections are too slow for research",
+          "B. Family members insist on group discussions all evening",
+          "C. It is too comfortable and easy to get distracted by the TV or bed",
+          "D. There are no wooden tables or coffee makers at home"
+        ],
+        "answer": 2,
+        "explain": "Câu 3 của Part 3 giải thích ở nhà đôi khi quá thoải mái và dễ bị xao nhãng bởi tivi hay chiếc giường ('distracted by things like the TV or my bed calling my name')."
+      },
+      {
+        "q": "What advantage does face-to-face learning with a teacher offer over solo study in Part 3?",
+        "options": [
+          "A. Immediate feedback, personalized guidance, and on-the-spot clarification",
+          "B. Total freedom to choose when and what to study anytime",
+          "C. Guaranteed part-time job offers before graduation",
+          "D. Complete silence with zero background sounds"
+        ],
+        "answer": 0,
+        "explain": "Câu 2 của Part 3 nêu rõ học trực tiếp với giáo viên giúp nhận phản hồi ngay lập tức, hướng dẫn cá nhân hóa và giải đáp thắc mắc tại chỗ ('immediate feedback... personalized guidance... clarify doubts on the spot')."
+      },
+      {
+        "q": "What downside of studying in a group is highlighted in the final question of Part 3?",
+        "options": [
+          "A. Students cannot share study materials with one another",
+          "B. It makes learners feel completely isolated",
+          "C. Groups can get sidetracked by chatter or disagree on study methods",
+          "D. Group study destroys time management skills"
+        ],
+        "answer": 2,
+        "explain": "Câu 6 của Part 3 chỉ ra nhược điểm của học nhóm là dễ bị lạc đề bởi các cuộc trò chuyện hoặc bất đồng về phương pháp học ('getting sidetracked by conversations or disagreements on study methods')."
+      }
+    ],
+    "month": 1,
+    "assigned_days": [
+      46
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 167,
+    "title": "Study4 #17: Describe a daily routine that you enjoy (Không ghi Q/năm • Unit 2)",
+    "category": "STUDY4 • Unit 2: Behaviour (Hành vi & Cảm xúc)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Không ghi Q/năm | Study4 ID 7676 | Unit 2: Behaviour (Hành vi & Cảm xúc))",
+    "content": "[Part 2 Cue Card — Describe a daily routine that you enjoy]\nCue Card Prompts: What it is • Where and when you do it • Who you do it with • And explain why you enjoy it.\n\nI would like to talk about my morning routine, which I really enjoy and find beneficial to my day. Typically, I wake up at around 6:00 am and immediately do some light stretching exercises to get my body warmed up and ready for the day. After that, I take a quick shower to freshen up and feel energized.\n\nOnce I'm dressed, I usually make myself a cup of coffee and enjoy it while reading the news or browsing my favorite websites. I find this time to be very relaxing, as I have the chance to ease into my day while keeping up with current events. This helps me feel more prepared and focused for the day ahead.\n\nNext, I spend a few minutes meditating or doing some deep breathing exercises to help me stay calm and centered. This really helps me start my day on a positive note, and it sets the tone for the rest of my day.\n\nAfter that, I prepare a healthy breakfast, which usually consists of some fruits, yogurt, and whole-grain toast. I really enjoy cooking, so I take my time preparing the meal, and I find the process to be quite therapeutic.\n\nIn summary, my morning routine is something I really enjoy, as it helps me to feel energized, focused, and positive for the day ahead. The combination of stretching, showering, enjoying coffee, reading, and meditating, followed by a healthy breakfast, creates a sense of balance and harmony that I find invaluable for my physical and mental well-being.\n\n[Part 3 - Q1] Should children have learning routines?\nYes, it can be beneficial for children to have learning routines. Consistency and structure can help children develop good study habits and discipline, which can aid in their academic and personal development. However, it is important to ensure that the routine is not too rigid or stressful, as this can lead to burnout and a lack of enjoyment in learning. A healthy balance between structure and flexibility is key.\n\n[Part 3 - Q2] How do people’s routines differ on weekdays and weekends?\nPeople's routines can differ significantly between weekdays and weekends. During the week, many individuals have set work or school schedules that dictate when they wake up, eat, and engage in other activities. Weekdays are often characterized by a faster pace, with less leisure time and more emphasis on productivity. On weekends, people may have more flexibility in their schedules and tend to engage in activities that they enjoy or find relaxing, such as spending time with family and friends, pursuing hobbies, or engaging in outdoor activities.\n\n[Part 3 - Q3] What are the advantages of children having a routine at school?\nHaving a routine at school can provide several advantages for children. Firstly, it can help them develop time management skills and establish a sense of structure and discipline in their daily lives. This can lead to better organization and a reduced sense of stress and anxiety. Additionally, a consistent routine can help children establish good habits, such as healthy eating, regular exercise, and adequate sleep, which can improve their overall health and well-being.\n\n[Part 3 - Q4] Does having a routine make kids feel more secure at school?\nYes, having a routine can make kids feel more secure at school. When children know what to expect, it can reduce anxiety and uncertainty. A routine can also help establish a sense of structure and order, which can be comforting. By following a predictable routine, children can feel more in control of their environment and their day-to-day activities. This can help them develop a sense of autonomy and confidence. Additionally, a routine can facilitate learning and academic achievement by providing a framework for study and practice.\n\n[Part 3 - Q5] What daily routines do people have at home?\nDaily routines at home can vary depending on the individual's lifestyle and priorities. Some common routines include waking up at a certain time, having breakfast, getting dressed, and commuting to work or school. Others may have specific tasks such as household chores, exercise routines, or practicing a musical instrument. In the evening, people may have dinner, spend time with family, watch television, or engage in hobbies such as reading or playing games.\n\n[Part 3 - Q6] What are the differences between people’s daily routines now and in the last 15 years?\nThe advancements in technology have significantly impacted people's daily routines in the last 15 years. With the rise of smartphones and other portable devices, people are now more connected than ever before, and their daily routines are more fast-paced and constantly changing. Social media and streaming services have become a part of daily life, and people spend more time indoors than ever before. Additionally, remote work and flexible schedules have become more common, allowing people to have more control over their daily routines.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một thói quen hằng ngày mà bạn yêu thích]\nTôi muốn kể về thói quen buổi sáng của mình, một nhịp sinh hoạt mà tôi thực sự yêu thích và thấy rất có ích cho cả ngày dài. Thông thường, tôi thức dậy vào khoảng 6 giờ sáng và lập tức tập vài động tác giãn cơ nhẹ nhàng để làm ấm cơ thể và sẵn sàng cho ngày mới. Sau đó, tôi tắm nhanh để cảm thấy sảng khoái và tràn đầy năng lượng.\n\nKhi đã thay quần áo xong, tôi thường tự pha một tách cà phê và nhâm nhi trong lúc đọc tin tức hoặc lướt qua vài trang web yêu thích. Tôi thấy khoảng thời gian này vô cùng thư giãn, vì tôi có cơ hội bước vào ngày mới một cách nhẹ nhàng mà vẫn cập nhật được những sự kiện thời sự nóng hổi. Điều này giúp tôi cảm thấy chuẩn bị kỹ càng và tập trung hơn cho một ngày phía trước.\n\nTiếp theo, tôi dành vài phút thiền định hoặc tập vài bài hít thở sâu để giữ tâm trí bình tĩnh và cân bằng. Thói quen này thực sự giúp tôi khởi đầu ngày mới với tâm thế tích cực và định hình bầu không khí dễ chịu cho phần còn lại của cả ngày.\n\nSau đó, tôi chuẩn bị một bữa sáng lành mạnh, thường gồm ít trái cây, sữa chua và bánh mì nướng nguyên cám. Vì thực sự thích nấu nướng, tôi luôn thong thả chuẩn bị bữa ăn và thấy quá trình này mang lại cảm giác thư thái như một liệu pháp tinh thần.\n\nTóm lại, thói quen buổi sáng là điều tôi vô cùng trân trọng, bởi nó giúp tôi thấy tràn đầy năng lượng, tập trung và lạc quan cho ngày phía trước. Sự kết hợp giữa giãn cơ, tắm nhanh, thưởng thức cà phê, đọc tin tức và thiền định, tiếp nối bằng một bữa sáng lành mạnh, tạo nên cảm giác cân bằng và hài hòa vô giá đối với sức khỏe thể chất lẫn tinh thần của tôi.\n\n[Part 3 - Câu 1] Trẻ em có nên có thói quen học tập cố định không?\nCó chứ, việc duy trì thói quen học tập có thể mang lại nhiều lợi ích cho trẻ em. Sự nhất quán và nề nếp giúp trẻ hình thành thói quen học tốt cùng tính kỷ luật, từ đó hỗ trợ quá trình phát triển học thuật lẫn cá nhân của các em. Tuy nhiên, điều quan trọng là phải bảo đảm lịch trình ấy không quá cứng nhắc hay căng thẳng, vì điều đó dễ dẫn đến kiệt sức và làm trẻ mất hứng thú học tập. Một sự cân bằng lành mạnh giữa tính khuôn khổ và sự linh hoạt chính là chìa khóa.\n\n[Part 3 - Câu 2] Thói quen của mọi người khác nhau như thế nào giữa ngày trong tuần và cuối tuần?\nNhịp sinh hoạt của mọi người có thể khác biệt đáng kể giữa ngày thường và dịp cuối tuần. Trong tuần, nhiều người có lịch làm việc hoặc học tập cố định quyết định giờ thức dậy, ăn uống và tham gia các hoạt động khác. Những ngày trong tuần thường có nhịp độ nhanh hơn, ít thời gian rảnh hơn và chú trọng nhiều hơn vào năng suất. Vào cuối tuần, mọi người có thể linh hoạt thời gian biểu hơn và có xu hướng tham gia những hoạt động yêu thích hoặc thư giãn, chẳng hạn như dành thời gian bên gia đình và bạn bè, theo đuổi sở thích cá nhân hay tham gia các hoạt động ngoài trời.\n\n[Part 3 - Câu 3] Việc trẻ em có thời gian biểu nề nếp ở trường mang lại những lợi ích gì?\nCó một lịch sinh hoạt nề nếp tại trường có thể đem lại nhiều lợi ích thiết thực cho trẻ em. Trước hết, nó giúp các em rèn luyện kỹ năng quản lý thời gian và xây dựng ý thức về trật tự, kỷ luật trong đời sống hằng ngày. Điều này có thể dẫn đến khả năng sắp xếp công việc tốt hơn cũng như giảm bớt cảm giác căng thẳng và lo âu. Bên cạnh đó, một thói quen ổn định còn giúp trẻ hình thành những nếp sống tốt như ăn uống lành mạnh, vận động thường xuyên và ngủ đủ giấc, góp phần cải thiện sức khỏe và hạnh phúc tổng thể của các em.\n\n[Part 3 - Câu 4] Có thời gian biểu ổn định có giúp trẻ cảm thấy an tâm hơn ở trường không?\nCó, một lịch trình ổn định có thể khiến trẻ cảm thấy an toàn hơn khi ở trường. Khi biết trước điều gì sắp diễn ra, trẻ sẽ bớt lo âu và cảm giác bất định hơn. Một thời gian biểu rõ ràng cũng giúp tạo dựng ý thức về cấu trúc và trật tự, mang lại cảm giác dễ chịu, an tâm. Bằng việc làm theo một lịch trình dễ đoán, trẻ có thể cảm thấy chủ động kiểm soát môi trường xung quanh và các hoạt động hằng ngày của mình tốt hơn. Điều này giúp các em phát triển tính tự chủ và sự tự tin. Ngoài ra, thói quen nề nếp còn tạo điều kiện thuận lợi cho việc học tập và thành tích học đường nhờ cung cấp một khung sườn rõ ràng cho việc học và thực hành.\n\n[Part 3 - Câu 5] Mọi người thường có những thói quen sinh hoạt nào tại nhà?\nThói quen sinh hoạt hằng ngày tại nhà có thể thay đổi tùy theo lối sống và ưu tiên của từng cá nhân. Một số nếp sinh hoạt phổ biến bao gồm thức dậy vào một khung giờ nhất định, ăn sáng, thay đồ rồi đi làm hoặc đi học. Những người khác có thể có các việc riêng như làm việc nhà, tập thể dục theo lịch hoặc luyện chơi một loại nhạc cụ. Vào buổi tối, mọi người có thể ăn tối, quây quần bên gia đình, xem tivi hoặc theo đuổi sở thích như đọc sách hay chơi trò chơi.\n\n[Part 3 - Câu 6] Thói quen hằng ngày của con người hiện nay khác gì so với 15 năm trước?\nNhững tiến bộ công nghệ đã tác động sâu sắc tới thói quen hằng ngày của con người trong 15 năm qua. Với sự trỗi dậy của điện thoại thông minh và các thiết bị di động khác, mọi người giờ đây kết nối nhiều hơn bao giờ hết, đồng thời nhịp sinh hoạt hằng ngày cũng gấp gáp hơn và liên tục thay đổi. Mạng xã hội và các dịch vụ phát trực tuyến đã trở thành một phần của đời sống thường nhật, khiến con người dành thời gian ở trong nhà nhiều hơn trước đây. Thêm vào đó, làm việc từ xa và lịch trình linh hoạt ngày càng phổ biến, cho phép mọi người kiểm soát chủ động hơn đối với thói quen hằng ngày của mình.",
+    "target_words": [
+      {
+        "word": "therapeutic",
+        "pos": "Tính từ",
+        "ipa": "/ˌθerəˈpjuːtɪk/",
+        "meaning_vi": "Có tác dụng chữa lành, thư giãn tinh thần",
+        "example": "I take my time preparing the meal, and I find the process to be quite therapeutic."
+      },
+      {
+        "word": "set the tone",
+        "pos": "Thành ngữ",
+        "ipa": "/set ðə təʊn/",
+        "meaning_vi": "Định hình bầu không khí hoặc tâm trạng cho cả ngày",
+        "example": "Deep breathing really helps me start my day positively and sets the tone for the rest of my day."
+      },
+      {
+        "word": "burnout",
+        "pos": "Danh từ",
+        "ipa": "/ˈbɜːrnaʊt/",
+        "meaning_vi": "Tình trạng kiệt sức về thể chất lẫn tinh thần",
+        "example": "A routine that is too rigid can lead to burnout and a lack of enjoyment in learning."
+      },
+      {
+        "word": "autonomy",
+        "pos": "Danh từ",
+        "ipa": "/ɔːˈtɒnəmi/",
+        "meaning_vi": "Tính tự chủ, quyền tự quyết",
+        "example": "Following a predictable routine can help children develop a sense of autonomy and confidence."
+      },
+      {
+        "word": "fast-paced",
+        "pos": "Tính từ",
+        "ipa": "/ˌfɑːst ˈpeɪst/",
+        "meaning_vi": "Có nhịp độ nhanh, hối hả",
+        "example": "With portable devices everywhere, daily routines have become much more fast-paced."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why does the speaker enjoy drinking coffee while reading the news in the morning?",
+        "options": [
+          "A. It helps them finish household chores faster.",
+          "B. It lets them ease into the day and stay informed.",
+          "C. It replaces the need for physical stretching.",
+          "D. It saves time before commuting to work."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói cho biết việc uống cà phê và đọc tin tức giúp họ bước vào ngày mới nhẹ nhàng ('ease into my day') đồng thời cập nhật thời sự ('keeping up with current events')."
+      },
+      {
+        "q": "What warning is given about learning routines for children in Part 3?",
+        "options": [
+          "A. They should exclude outdoor weekend activities.",
+          "B. They must avoid all screen-based streaming tools.",
+          "C. They should not become overly rigid or stressful.",
+          "D. They only work well for older high-school students."
+        ],
+        "answer": 2,
+        "explain": "Ở câu trả lời Q1 Part 3, tác giả lưu ý rằng lịch trình không nên quá cứng nhắc hay căng thẳng ('not too rigid or stressful') vì có thể gây kiệt sức ('burnout')."
+      },
+      {
+        "q": "How does a predictable school routine make children feel more secure?",
+        "options": [
+          "A. By letting them skip difficult subjects.",
+          "B. By eliminating homework on weekdays.",
+          "C. By reducing uncertainty and building autonomy.",
+          "D. By allowing longer afternoon naps."
+        ],
+        "answer": 2,
+        "explain": "Trong Q4 Part 3, biết trước điều sắp xảy ra giúp giảm lo âu và sự bất định ('reduce anxiety and uncertainty'), đồng thời nuôi dưỡng tính tự chủ và sự tự tin ('autonomy and confidence')."
+      },
+      {
+        "q": "According to the last answer, how have smartphones changed daily routines over the past 15 years?",
+        "options": [
+          "A. People now wake up earlier and cook more often.",
+          "B. People spend more time indoors and keep faster-paced schedules.",
+          "C. Traditional commuting has completely disappeared.",
+          "D. Musical instrument practice has doubled at home."
+        ],
+        "answer": 1,
+        "explain": "Trong Q6 Part 3, công nghệ và mạng xã hội làm nhịp sống nhanh hơn ('more fast-paced') và khiến mọi người ở trong nhà nhiều hơn trước ('spend more time indoors than ever before')."
+      }
+    ],
+    "month": 2,
+    "assigned_days": [
+      49
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 168,
+    "title": "Study4 #18: Describe something you would like to learn in the future (Không ghi Q/năm • Unit 8)",
+    "category": "STUDY4 • Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Không ghi Q/năm | Study4 ID 7666 | Unit 8: Wisdom (Trí tuệ & Lời khuyên))",
+    "content": "[Part 2 Cue Card — Describe something you would like to learn in the future]\nCue Card Prompts: What it is • How you would like to learn it • Why you would like to learn it • And explain whether it’s difficult to learn it.\n\nI would like to learn how to play a musical instrument, specifically the guitar. Music has always been an important part of my life, and I have a great appreciation for the artistry and skill that goes into playing an instrument. I think learning to play the guitar would be an excellent way to express myself creatively and provide a sense of fulfillment.\n\nTo achieve this goal, I plan to take formal lessons with a qualified guitar instructor. I believe that having a structured learning environment with a skilled teacher will be the best way to make progress and improve my skills. I would also practice regularly on my own to reinforce what I learn in the lessons and build up muscle memory.\n\nIn addition, I plan to use online resources such as instructional videos and forums to supplement my learning. I think this will help me to stay engaged with the process and gain a deeper understanding of the guitar and its various techniques.\n\nOverall, I believe that learning to play the guitar would be a challenging yet rewarding endeavor. It would allow me to expand my horizons and develop a new skill that would bring joy and fulfillment to my life.\n\n[Part 3 - Q1] What’s the most popular thing to learn nowadays?\nThe most popular thing to learn nowadays varies depending on the individual and their interests. However, some popular areas of learning include technology and computer programming, as digital skills are becoming increasingly important in today's workforce. Other popular areas of learning include foreign languages, as globalization continues to expand and the world becomes more interconnected. Additionally, many people are interested in self-improvement, personal growth, and wellness, leading to an increased interest in areas such as meditation, yoga, and mindfulness.\n\n[Part 3 - Q2] At what age should children start making their own decisions? Why?\nThe age at which children should start making their own decisions varies based on factors such as culture, upbringing, and individual development. Generally, as children grow and mature, they should be given increasing opportunities to make decisions that are appropriate to their age and level of responsibility. By doing so, children can develop critical decision-making skills, learn from mistakes, and build confidence in their abilities. However, it is important for parents and caregivers to provide guidance and support in the decision-making process, and to set appropriate boundaries to ensure the child's safety and well-being.\n\n[Part 3 - Q3] Which influences young people more when choosing a course, income or interest?\nWhen choosing a course, young people can be influenced by a variety of factors, including income and interest. While income may be an important consideration, interest is often the more significant factor. Pursuing a course of study that aligns with one's interests and passions can provide greater job satisfaction and a sense of purpose. However, financial considerations cannot be ignored, especially given the high cost of education. Ultimately, it is a balancing act between the two, and individuals need to weigh their priorities and make informed decisions based on their circumstances and future career goals.\n\n[Part 3 - Q4] Do young people take their parents’ advice when choosing a major?\nIt depends on various factors such as the individual's relationship with their parents, cultural background, and personal ambitions. Some young people may seek and value their parents' advice when choosing a major, especially if their parents have expertise in a relevant field. However, others may prioritize their own interests and aspirations, disregarding parental input. Overall, while parents' advice can be valuable, young people often make their own choices when it comes to choosing a major.\n\n[Part 3 - Q5] Besides parents, who else would people take advice from?\nThere are several people from whom individuals may seek advice besides their parents. Friends and family members can provide support and guidance based on their personal experiences. Professionals such as teachers, counselors, or coaches can offer expert advice and specialized knowledge in specific areas. Mentors or role models can provide valuable insight and perspective on career and personal development. Also, people may turn to online resources, books, or podcasts to gather information and seek advice.\n\n[Part 3 - Q6] Why do some people prefer to study alone?\nThere could be several reasons why some people prefer to study alone. Firstly, studying alone allows individuals to set their own pace and schedule, which can be beneficial for those who work better in a quiet and focused environment. Secondly, studying alone can reduce distractions and interruptions from others, allowing for better concentration and retention of information. Finally, some people may simply prefer to study alone as it can be a more comfortable and natural way for them to learn.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một điều bạn muốn học trong tương lai]\nTôi muốn học cách chơi một loại nhạc cụ, cụ thể là đàn ghi-ta. Âm nhạc luôn là một phần quan trọng trong cuộc sống của tôi, và tôi rất trân trọng tính nghệ thuật cũng như kỹ năng tinh tế để chơi được một nhạc cụ. Tôi nghĩ học chơi ghi-ta sẽ là một cách tuyệt vời để bộc lộ bản thân một cách sáng tạo và mang lại cảm giác viên mãn.\n\nĐể đạt được mục tiêu này, tôi dự định đăng ký các buổi học bài bản với một giảng viên ghi-ta có trình độ chuyên môn. Tôi tin rằng việc có một môi trường học tập có cấu trúc rõ ràng cùng người thầy giỏi sẽ là cách tốt nhất để tiến bộ và nâng cao kỹ năng. Tôi cũng sẽ tự luyện tập đều đặn ở nhà nhằm củng cố những gì được học trên lớp và xây dựng phản xạ ghi nhớ của cơ bắp.\n\nBên cạnh đó, tôi có kế hoạch tận dụng các nguồn tài nguyên trực tuyến như video hướng dẫn và diễn đàn học đàn để bổ trợ cho quá trình học. Tôi nghĩ điều này sẽ giúp mình duy trì sự hứng thú với việc luyện tập và hiểu sâu hơn về cây đàn ghi-ta cùng nhiều kỹ thuật đa dạng của nó.\n\nNhìn chung, tôi tin rằng học chơi ghi-ta sẽ là một nỗ lực đầy thử thách nhưng vô cùng xứng đáng. Nó sẽ cho phép tôi mở rộng tầm nhìn và trau dồi một kỹ năng mới mang lại niềm vui cùng sự thỏa mãn cho cuộc sống của mình.\n\n[Part 3 - Câu 1] Điều gì đang được mọi người ưa chuộng học nhất hiện nay?\nĐiều phổ biến nhất để học hiện nay thay đổi tùy theo từng cá nhân và mối quan tâm của họ. Tuy nhiên, một số lĩnh vực thu hút nhiều người học bao gồm công nghệ và lập trình máy tính, bởi kỹ năng số ngày càng trở nên thiết yếu trong lực lượng lao động ngày nay. Những mảng học phổ biến khác gồm ngoại ngữ, khi toàn cầu hóa tiếp tục mở rộng và thế giới ngày càng gắn kết chặt chẽ hơn. Ngoài ra, nhiều người cũng quan tâm tới việc hoàn thiện bản thân, phát triển cá nhân và chăm sóc sức khỏe toàn diện, dẫn đến sự gia tăng hứng thú với các bộ môn như thiền định, yoga và chánh niệm.\n\n[Part 3 - Câu 2] Trẻ em nên bắt đầu tự đưa ra quyết định ở độ tuổi nào? Tại sao?\nĐộ tuổi mà trẻ em nên bắt đầu tự ra quyết định khác nhau tùy thuộc vào các yếu tố như văn hóa, cách nuôi dạy và sự phát triển riêng của từng em. Nhìn chung, khi trẻ lớn lên và trưởng thành hơn, các em nên được trao nhiều cơ hội hơn để đưa ra những lựa chọn phù hợp với lứa tuổi và mức độ trách nhiệm của mình. Nhờ vậy, trẻ có thể rèn luyện kỹ năng ra quyết định quan trọng, học hỏi từ sai lầm và xây dựng sự tự tin vào năng lực bản thân. Tuy nhiên, cha mẹ và người chăm sóc vẫn cần định hướng, hỗ trợ trong quá trình ấy và đặt ra những giới hạn phù hợp nhằm bảo đảm an toàn và sức khỏe cho trẻ.\n\n[Part 3 - Câu 3] Thu nhập hay sở thích tác động nhiều hơn tới người trẻ khi chọn ngành học?\nKhi lựa chọn một khóa học, người trẻ có thể chịu ảnh hưởng từ nhiều yếu tố khác nhau, trong đó có cả thu nhập lẫn đam mê cá nhân. Dù thu nhập là một khía cạnh đáng cân nhắc, sở thích thường đóng vai trò quan trọng hơn. Theo đuổi ngành học phù hợp với mối quan tâm và đam mê của bản thân có thể mang lại sự hài lòng trong công việc và ý thức về mục đích sống rõ rệt hơn. Tuy nhiên, yếu tố tài chính cũng không thể xem nhẹ, nhất là khi chi phí giáo dục hiện nay rất đắt đỏ. Cuối cùng, đây là bài toán cân bằng giữa hai yếu tố, đòi hỏi mỗi cá nhân phải cân nhắc các ưu tiên và đưa ra quyết định sáng suốt dựa trên hoàn cảnh cùng mục tiêu nghề nghiệp tương lai.\n\n[Part 3 - Câu 4] Người trẻ có nghe theo lời khuyên của cha mẹ khi chọn chuyên ngành không?\nĐiều này tùy thuộc vào nhiều yếu tố như mối quan hệ giữa cá nhân với cha mẹ, bối cảnh văn hóa và hoài bão riêng của mỗi người. Một số bạn trẻ có thể tìm đến và trân trọng lời khuyên của cha mẹ khi chọn chuyên ngành, đặc biệt nếu phụ huynh có chuyên môn trong một lĩnh vực liên quan. Ngược lại, nhiều người khác lại đặt sở thích và khát vọng cá nhân lên hàng đầu, bỏ qua ý kiến đóng góp từ gia đình. Nhìn chung, dù lời khuyên của cha mẹ rất có giá trị, người trẻ thường tự đưa ra lựa chọn cuối cùng khi quyết định chuyên ngành theo học.\n\n[Part 3 - Câu 5] Ngoài cha mẹ, mọi người thường tìm lời khuyên từ những ai khác?\nCó nhiều đối tượng mà mọi người có thể tìm đến để xin lời khuyên ngoài cha mẹ mình. Bạn bè và người thân trong gia đình có thể mang lại sự động viên và chỉ dẫn dựa trên trải nghiệm cá nhân của họ. Những người làm chuyên môn như giáo viên, chuyên viên tư vấn hay huấn luyện viên có thể đưa ra lời khuyên chuyên sâu và kiến thức đặc thù trong từng lĩnh vực cụ thể. Người cố vấn hoặc hình mẫu lý tưởng cũng đem lại góc nhìn và sự thấu hiểu quý giá về phát triển nghề nghiệp lẫn bản thân. Ngoài ra, mọi người còn có thể tìm đến tài nguyên trực tuyến, sách báo hoặc podcast để thu thập thông tin và tham khảo ý kiến.\n\n[Part 3 - Câu 6] Tại sao một số người thích học một mình hơn?\nCó thể có nhiều lý do giải thích vì sao một số người ưa chuộng việc tự học một mình. Trước hết, học một mình cho phép mỗi cá nhân tự thiết lập nhịp độ và thời gian biểu riêng, điều này rất có lợi cho những ai làm việc hiệu quả hơn trong không gian yên tĩnh và tập trung. Thứ hai, việc học độc lập giúp giảm bớt sự phân tâm và gián đoạn từ người khác, qua đó tăng khả năng tập trung và ghi nhớ thông tin tốt hơn. Cuối cùng, một số người đơn giản chỉ cảm thấy việc học một mình thoải mái và tự nhiên hơn đối với cách tiếp thu của bản thân.",
+    "target_words": [
+      {
+        "word": "muscle memory",
+        "pos": "Danh từ",
+        "ipa": "/ˈmʌsl ˈmeməri/",
+        "meaning_vi": "Trí nhớ cơ bắp, phản xạ vận động quen thuộc nhờ luyện tập lặp lại",
+        "example": "Regular solo practice reinforces lessons and helps build up muscle memory on the guitar."
+      },
+      {
+        "word": "supplement",
+        "pos": "Động từ",
+        "ipa": "/ˈsʌplɪment/",
+        "meaning_vi": "Bổ sung, bổ trợ thêm",
+        "example": "I plan to use instructional videos and online forums to supplement my formal lessons."
+      },
+      {
+        "word": "expand one's horizons",
+        "pos": "Thành ngữ",
+        "ipa": "/ɪkˈspænd wʌnz həˈraɪznz/",
+        "meaning_vi": "Mở rộng tầm nhìn, kiến thức và trải nghiệm",
+        "example": "Learning a musical instrument is a rewarding endeavor that can expand my horizons."
+      },
+      {
+        "word": "upbringing",
+        "pos": "Danh từ",
+        "ipa": "/ˈʌpbrɪŋɪŋ/",
+        "meaning_vi": "Sự nuôi dạy, giáo dục từ gia đình",
+        "example": "When kids start making independent choices depends partly on culture and upbringing."
+      },
+      {
+        "word": "retention",
+        "pos": "Danh từ",
+        "ipa": "/rɪˈtenʃn/",
+        "meaning_vi": "Sự ghi nhớ, lưu giữ thông tin",
+        "example": "Studying in a quiet space reduces distractions and improves retention of information."
+      }
+    ],
+    "questions": [
+      {
+        "q": "How does the speaker plan to combine different methods to master the guitar?",
+        "options": [
+          "A. By joining a school band instead of taking classes.",
+          "B. By pairing formal lessons with self-practice and online resources.",
+          "C. By watching music forums without practicing physically.",
+          "D. By hiring several friends to teach basic chords."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói dự định học với giáo viên có chuyên môn ('qualified guitar instructor'), tự luyện tập thường xuyên ('practice regularly on my own') và bổ trợ qua video hướng dẫn, diễn đàn trực tuyến."
+      },
+      {
+        "q": "According to Part 3, why do parents still play a role when children begin making decisions?",
+        "options": [
+          "A. Parents should choose their children's college majors directly.",
+          "B. Parents need to provide guidance and set safe boundaries.",
+          "C. Children cannot learn anything from personal mistakes.",
+          "D. Caregivers must prevent kids from using digital tools."
+        ],
+        "answer": 1,
+        "explain": "Trong Q2 Part 3, người trả lời nhấn mạnh cha mẹ cần đưa ra sự định hướng, hỗ trợ và đặt giới hạn phù hợp để bảo đảm an toàn cho trẻ ('provide guidance and support... set appropriate boundaries')."
+      },
+      {
+        "q": "What is described as a 'balancing act' in Q3 of Part 3?",
+        "options": [
+          "A. Managing university assignments alongside guitar practice.",
+          "B. Weighing personal interest against financial considerations when picking a course.",
+          "C. Choosing between learning yoga and learning programming.",
+          "D. Deciding whether to consult counselors or online podcasts."
+        ],
+        "answer": 1,
+        "explain": "Ở Q3 Part 3, việc chọn khóa học đòi hỏi cân bằng giữa đam mê cá nhân ('interest') và yếu tố thu nhập/chi phí học tập ('financial considerations')."
+      },
+      {
+        "q": "Why do some learners prefer studying alone according to the final answer?",
+        "options": [
+          "A. They dislike listening to mentors or teachers.",
+          "B. They can control their pace and avoid interruptions.",
+          "C. They want to save money on group study rooms.",
+          "D. They find online forums too distracting."
+        ],
+        "answer": 1,
+        "explain": "Trong Q6 Part 3, học một mình giúp người học tự điều chỉnh tốc độ ('set their own pace') và hạn chế xao nhãng, gián đoạn ('reduce distractions and interruptions')."
+      }
+    ],
+    "month": 3,
+    "assigned_days": [
+      52
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 169,
+    "title": "Study4 #19: Describe a good advertisement that you think is useful (Không ghi Q/năm • Unit 5)",
+    "category": "STUDY4 • Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Không ghi Q/năm | Study4 ID 9814 | Unit 5: Consumer (Tiêu dùng & Mua sắm))",
+    "content": "[Part 2 Cue Card — Describe a good advertisement that you think is useful]\nCue Card Prompts: Where you can see it • What it shows • Why you think it is useful • And explain how you feel about it.\n\nOne advertisement that I find exceptionally useful is the \"Dumb Ways to Die\" campaign by Metro Trains in Melbourne, Australia. This public service announcement creatively promotes train safety.\n\nThe advertisement features a catchy and humorous song accompanied by animated characters engaging in various comically disastrous activities, leading to their untimely and absurd deaths. The message is clear: \"Be Safe Around Trains. A message from Metro.\"\n\nWhat makes this advertisement effective is its ability to convey a serious safety message in an entertaining and memorable way. It grabs the viewer's attention and leaves a lasting impression. Moreover, the jingle is so catchy that it becomes difficult to forget, serving as a constant reminder to be cautious around trains.\n\nThe advertisement's use of humor, relatable scenarios, and memorable characters has made it widely popular and shareable on social media. It has successfully raised awareness about train safety among a diverse audience, from children to adults.\n\nIn a world filled with forgettable advertisements, \"Dumb Ways to Die\" stands out as a brilliant example of using creativity and humor to convey a vital message. It effectively combines entertainment with a powerful safety message, making it not only useful but also highly impactful in promoting train safety awareness.\n\n[Part 3 - Q1] What do you think of online advertising?\nOnline advertising has both pros and cons. It's effective for reaching a wide audience and targeting specific demographics. However, excessive ads can be intrusive and annoying. Privacy concerns also arise due to data tracking. Some online ads are informative and engaging, while others are disruptive. Therefore, it's important for advertisers to strike a balance and for consumers to have control over their online experience through ad-blockers and privacy settings.\n\n[Part 3 - Q2] Are there any great online advertisements?\nYes, there are numerous outstanding online advertisements. These ads often combine creativity, storytelling, and emotional resonance to capture viewers' attention and leave a lasting impact. Successful online advertisements can evoke strong emotions, convey powerful messages, and effectively promote products or causes. Companies and organizations often invest in innovative and memorable online ads to engage their target audience in today's digital age.\n\n[Part 3 - Q3] What do people usually buy?\nPeople typically buy a wide range of goods and services, depending on their needs and preferences. Common purchases include food, clothing, electronics, household items, and personal care products. Additionally, people often spend on entertainment, transportation, and healthcare. The choice of purchases varies greatly among individuals, influenced by factors such as income, lifestyle, and cultural norms. Shopping habits may also evolve over time in response to changing circumstances and priorities.\n\n[Part 3 - Q4] Why does buying new things make people happy?\nBuying new things often brings happiness because it triggers a sense of novelty and excitement. The anticipation of using or owning something new can be pleasurable. Moreover, new possessions can fulfill desires, enhance comfort, or improve daily life, creating a sense of satisfaction. However, this happiness can be short-lived, as it may fade once the novelty wears off, highlighting the importance of finding more lasting sources of contentment in life.\n\n[Part 3 - Q5] Do people watch useless advertising in this day and age?\nIn this digital age, people are generally more discerning about the advertisements they engage with. They often skip or ignore irrelevant or intrusive ads. Effective advertising today tends to be targeted, relevant, and non-intrusive, focusing on providing value to the viewer. However, some less-relevant or annoying ads may still reach people, but they are less likely to hold their attention in a world where consumers have more control over what they see.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một quảng cáo hay mà bạn thấy hữu ích]\nMột quảng cáo mà tôi thấy đặc biệt hữu ích là chiến dịch \"Những cách chết ngớ ngẩn\" (Dumb Ways to Die) của hãng tàu Metro Trains tại Melbourne, Úc. Thông điệp tuyên truyền cộng đồng này cổ vũ an toàn đường sắt theo một cách vô cùng sáng tạo.\n\nĐoạn quảng cáo sử dụng một bài hát bắt tai và hài hước đi kèm với các nhân vật hoạt hình tham gia vào đủ kiểu hành động tai hại đến mức buồn cười, dẫn tới những cái chết phi lý và dở khóc dở cười. Thông điệp truyền tải rất rõ ràng: \"Hãy cẩn thận quanh khu vực tàu hỏa. Thông điệp từ Metro.\"\n\nĐiều làm nên hiệu quả của quảng cáo này là khả năng truyền tải một lời cảnh báo an toàn nghiêm túc theo cách giải trí và dễ ghi nhớ. Nó lập tức thu hút sự chú ý của người xem và để lại ấn tượng sâu sắc. Hơn thế nữa, giai điệu ngắn ấy bắt tai đến mức rất khó quên, đóng vai trò như lời nhắc nhở thường trực phải thận trọng khi ở gần đường ray.\n\nViệc quảng cáo vận dụng yếu tố hài hước, các tình huống dễ đồng cảm và dàn nhân vật đáng nhớ đã giúp nó trở nên phổ biến rộng rãi và được chia sẻ liên tục trên mạng xã hội. Chiến dịch đã nâng cao nhận thức về an toàn tàu hỏa một cách thành công cho nhiều nhóm khán giả đa dạng, từ trẻ nhỏ tới người lớn.\n\nGiữa một thế giới tràn ngập những mẫu quảng cáo chóng quên, \"Dumb Ways to Die\" nổi bật lên như một ví dụ xuất sắc về việc kết hợp sáng tạo và hài hước để truyền đạt thông điệp thiết yếu. Nó hòa quyện hiệu quả giữa tính giải trí với lời nhắn nhủ an toàn mạnh mẽ, khiến chiến dịch không chỉ hữu ích mà còn có sức lan tỏa cao trong việc thúc đẩy ý thức an toàn đường sắt.\n\n[Part 3 - Câu 1] Bạn nghĩ sao về quảng cáo trực tuyến?\nQuảng cáo trực tuyến có cả mặt tích cực lẫn hạn chế. Nó rất hiệu quả trong việc tiếp cận lượng khán giả rộng lớn và nhắm đúng các nhóm nhân khẩu học cụ thể. Tuy nhiên, quảng cáo xuất hiện quá dày đặc có thể gây xâm phạm và phiền toái. Những lo ngại về quyền riêng tư cũng phát sinh do hoạt động theo dõi dữ liệu người dùng. Một số quảng cáo trực tuyến mang tính cung cấp thông tin và lôi cuốn, trong khi số khác lại gây gián đoạn trải nghiệm. Vì vậy, điều quan trọng là các nhà quảng cáo cần giữ sự cân bằng, còn người tiêu dùng có quyền kiểm soát trải nghiệm mạng của mình thông qua trình chặn quảng cáo và cài đặt riêng tư.\n\n[Part 3 - Câu 2] Hiện nay có những quảng cáo trực tuyến nào thực sự xuất sắc không?\nCó chứ, hiện có rất nhiều quảng cáo trực tuyến đặc sắc. Những chiến dịch này thường kết hợp sự sáng tạo, nghệ thuật kể chuyện và sự đồng điệu cảm xúc để thu hút sự chú ý của người xem và để lại dấu ấn lâu dài. Các quảng cáo trực tuyến thành công có thể khơi gợi cảm xúc mạnh mẽ, truyền tải thông điệp sâu sắc và quảng bá hiệu quả cho sản phẩm hoặc các chiến dịch cộng đồng. Nhiều doanh nghiệp và tổ chức thường đầu tư vào những mẫu quảng cáo mới mẻ, đáng nhớ để gắn kết với nhóm khách hàng mục tiêu trong kỷ nguyên số ngày nay.\n\n[Part 3 - Câu 3] Mọi người thường mua những gì?\nMọi người thường mua sắm rất đa dạng hàng hóa và dịch vụ tùy thuộc vào nhu cầu lẫn sở thích cá nhân. Các khoản mua phổ biến gồm thực phẩm, quần áo, đồ điện tử, vật dụng gia đình và sản phẩm chăm sóc cá nhân. Bên cạnh đó, người dân cũng thường chi tiêu cho giải trí, đi lại và chăm sóc sức khỏe. Lựa chọn mua sắm khác nhau rất nhiều giữa từng cá nhân, chịu ảnh hưởng bởi các yếu tố như thu nhập, lối sống và chuẩn mực văn hóa. Thói quen mua sắm cũng có thể thay đổi theo thời gian nhằm thích ứng với hoàn cảnh và ưu tiên mới.\n\n[Part 3 - Câu 4] Tại sao việc mua sắm đồ mới lại khiến con người cảm thấy vui?\nMua sắm đồ mới thường mang lại niềm vui vì nó kích thích cảm giác mới lạ và phấn khích. Sự háo hức chờ đợi được sử dụng hoặc sở hữu một món đồ mới có thể đem lại cảm giác dễ chịu. Hơn nữa, những tài sản mới có thể đáp ứng mong muốn, tăng thêm sự tiện nghi hoặc cải thiện sinh hoạt hằng ngày, tạo ra cảm giác hài lòng. Tuy nhiên, niềm vui này thường chỉ tồn tại ngắn ngủi vì nó dễ phai nhạt một khi sự mới mẻ qua đi, qua đó cho thấy tầm quan trọng của việc tìm kiếm những nguồn hạnh phúc bền vững hơn trong cuộc sống.\n\n[Part 3 - Câu 5] Trong thời đại ngày nay, mọi người có còn xem những quảng cáo vô ích không?\nTrong kỷ nguyên số này, người xem nhìn chung đã trở nên tinh tường và chọn lọc hơn trước các quảng cáo họ tiếp xúc. Họ thường bấm bỏ qua hoặc phớt lờ những quảng cáo thiếu liên quan hay gây khó chịu. Quảng cáo hiệu quả ngày nay có xu hướng nhắm đúng đối tượng, sát với nhu cầu và không làm phiền, tập trung mang lại giá trị cho người xem. Dẫu vậy, một số quảng cáo kém phù hợp hoặc gây bực mình vẫn có thể xuất hiện trước mắt người dùng, nhưng chúng khó lòng giữ được sự chú ý trong bối cảnh người tiêu dùng nắm nhiều quyền kiểm soát hơn đối với nội dung mình xem.",
+    "target_words": [
+      {
+        "word": "public service announcement",
+        "pos": "Danh từ",
+        "ipa": "/ˌpʌblɪk ˈsɜːrvɪs əˈnaʊnsmənt/",
+        "meaning_vi": "Thông điệp truyền thông phục vụ lợi ích cộng đồng",
+        "example": "That public service announcement creatively promotes train safety using humor."
+      },
+      {
+        "word": "jingle",
+        "pos": "Danh từ",
+        "ipa": "/ˈdʒɪŋɡl/",
+        "meaning_vi": "Đoạn nhạc quảng cáo ngắn, bắt tai dễ nhớ",
+        "example": "The jingle is so catchy that it serves as a constant reminder near railway tracks."
+      },
+      {
+        "word": "intrusive",
+        "pos": "Tính từ",
+        "ipa": "/ɪnˈtruːsɪv/",
+        "meaning_vi": "Gây phiền toái, xâm phạm không gian cá nhân",
+        "example": "Excessive pop-up ads can feel intrusive and disrupt a user's browsing."
+      },
+      {
+        "word": "emotional resonance",
+        "pos": "Danh từ",
+        "ipa": "/ɪˈməʊʃənl ˈrezənəns/",
+        "meaning_vi": "Sự đồng điệu, rung cảm sâu sắc về mặt cảm xúc",
+        "example": "Great online campaigns blend storytelling with emotional resonance to leave a lasting impact."
+      },
+      {
+        "word": "discerning",
+        "pos": "Tính từ",
+        "ipa": "/dɪˈsɜːrnɪŋ/",
+        "meaning_vi": "Tinh tường, biết chọn lọc kỹ lưỡng",
+        "example": "Modern viewers are far more discerning and quickly skip irrelevant advertisements."
+      }
+    ],
+    "questions": [
+      {
+        "q": "How did the 'Dumb Ways to Die' campaign make its train safety message memorable?",
+        "options": [
+          "A. By displaying real accident footage and strict legal fines.",
+          "B. By pairing a catchy song with humorous animated scenarios.",
+          "C. By interviewing train engineers at Melbourne stations.",
+          "D. By offering free train tickets to social media followers."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, chiến dịch dùng bài hát bắt tai hài hước ('catchy and humorous song') và các nhân vật hoạt hình rơi vào tình huống dở khóc dở cười để truyền tải thông điệp an toàn."
+      },
+      {
+        "q": "What concern does the speaker raise about online advertising in Part 3 Q1?",
+        "options": [
+          "A. It cannot reach specific demographic groups.",
+          "B. It never includes entertaining storytelling.",
+          "C. Excessive ads can be intrusive and raise data-tracking privacy issues.",
+          "D. Ad-blockers have made all online marketing illegal."
+        ],
+        "answer": 2,
+        "explain": "Ở Q1 Part 3, người nói chỉ ra quảng cáo trực tuyến dày đặc gây khó chịu ('intrusive and annoying') và làm nảy sinh lo ngại quyền riêng tư do theo dõi dữ liệu ('data tracking')."
+      },
+      {
+        "q": "Why can the happiness from buying new items fade quickly?",
+        "options": [
+          "A. Because household items rarely improve daily comfort.",
+          "B. Because the initial novelty and excitement soon wear off.",
+          "C. Because cultural norms discourage spending on entertainment.",
+          "D. Because electronic gadgets break down within days."
+        ],
+        "answer": 1,
+        "explain": "Trong Q4 Part 3, niềm vui mua đồ mới thường ngắn ngủi vì nó phai nhạt khi cảm giác mới lạ qua đi ('fade once the novelty wears off')."
+      },
+      {
+        "q": "What characterizes effective advertising today according to the final answer?",
+        "options": [
+          "A. It is targeted, relevant, and non-intrusive.",
+          "B. It repeats loud jingles until viewers cannot skip them.",
+          "C. It disables users' privacy settings automatically.",
+          "D. It avoids providing practical value to consumers."
+        ],
+        "answer": 0,
+        "explain": "Theo Q5 Part 3, quảng cáo hiệu quả ngày nay thường nhắm đúng mục tiêu, phù hợp và không làm phiền ('targeted, relevant, and non-intrusive')."
+      }
+    ],
+    "month": 1,
+    "assigned_days": [
+      55
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 170,
+    "title": "Study4 #20: Describe an expensive item that you bought and regretted (Không ghi Q/năm • Unit 5)",
+    "category": "STUDY4 • Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Không ghi Q/năm | Study4 ID 5948 | Unit 5: Consumer (Tiêu dùng & Mua sắm))",
+    "content": "[Part 2 Cue Card — Describe an expensive item that you bought and regretted]\nCue Card Prompts: What it was • How much you spent on it • Why you bought it • And explain why you think you spent more than expected.\n\nActually in my life, I have performed many different transactions which give me both a sense of satisfaction and discontent. However if I have to pick out one item that really let me down, I would name the birthday cake that I bought for my sister 2 years ago. Now with reference to why I was not content with it, I suppose there was a combination of reasons here. One of them was its exorbitant price. On my sister's birthday, I had an emergency at work and it took me almost all day till 11 pm to resolve it. Although it cost me an arm and a leg to buy the cake, I still decided to take it since it was the only bakery shop that stayed open that late. Everything would be fine if it tasted good but unfortunately the cake was of terrible quality. It tasted way too sweet and was not appetizing at all. Thus, I was kind of regretful, choosing to purchase the cake instead of any other present for my sister. Actually as I had to splash out on the cake and received almost nothing back, I tended to be more careful to make really sensible buying decisions from then on.\n\n[Part 3 - Q1] Do you often buy more than you expected?\nYes, I often buy more than I expected, but it is normally in the case of small household items or grocery items. For example, I would buy 2 pairs of jeans if they are on an offer, even if I need just one. The phone that I am using was the first time I spent so much more than I should have spent.\n\n[Part 3 - Q2] What do you think young people spend most of their money on?\nI think young people spend their money on clothes and other fashion accessories like belts, shoes, etc. Also, I think a lot of youth spend their money on gadgets like mobile phones, laptops, and headphones.\n\n[Part 3 - Q3] Do you think it is important to save money? Why?\nYes, I think it is crucial as we can never be certain about the future. The recent Corona epidemic has made it even more clear how uncertain life is. Many people died because they couldn't afford the costly healthcare. Also, if people didn't have savings, it would have been impossible to tide over these difficult times.\n\n[Part 3 - Q4] Do people buy things they don't need?\nYes, all the time. I think we buy things because buying things makes us happy. Even though we know we won't be using the thing, we buy it for momentary happiness. A common example is an electric drill, which people barely use for 10 mins after buying and then collects dust sitting unused for years.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một món đồ đắt tiền bạn từng mua và thấy hối tiếc]\nThực ra trong đời mình, tôi đã thực hiện nhiều giao dịch mua bán khác nhau mang lại cả cảm giác hài lòng lẫn sự bất mãn. Tuy nhiên, nếu phải chọn ra một món đồ thực sự khiến tôi thất vọng, tôi sẽ kể về chiếc bánh sinh nhật mà tôi mua cho em gái cách đây 2 năm. Giờ nhắc tới lý do vì sao tôi không hài lòng với nó, tôi nghĩ có một sự kết hợp của nhiều nguyên nhân ở đây. Một trong số đó là mức giá đắt đỏ cắt cổ của chiếc bánh. Vào đúng ngày sinh nhật em gái, tôi gặp sự cố khẩn cấp ở chỗ làm và mất gần cả ngày đến tận 11 giờ đêm mới giải quyết xong. Dù phải bỏ ra một khoản tiền rất lớn để mua chiếc bánh, tôi vẫn quyết định lấy vì đó là tiệm bánh duy nhất còn mở cửa muộn đến vậy. Mọi chuyện hẳn đã ổn nếu nó có hương vị ngon, nhưng đáng tiếc chiếc bánh lại có chất lượng tệ hại. Nó ngọt gắt quá mức và hoàn toàn chẳng ngon miệng chút nào. Vì thế, tôi thấy khá hối hận khi chọn mua chiếc bánh đó thay vì bất kỳ món quà nào khác cho em gái. Thật sự là sau lần phải vung tiền mua chiếc bánh mà chẳng nhận lại được giá trị gì tương xứng, kể từ đó tôi có xu hướng cẩn trọng hơn để đưa ra những quyết định mua sắm thực sự khôn ngoan.\n\n[Part 3 - Câu 1] Bạn có thường mua nhiều hơn mức mình dự tính không?\nCó chứ, tôi thường mua nhiều hơn dự kiến, nhưng thông thường chỉ xảy ra với các vật dụng gia đình nhỏ hoặc đồ tạp hóa hằng ngày. Chẳng hạn, tôi sẽ mua hẳn hai chiếc quần jeans nếu chúng đang có chương trình giảm giá, ngay cả khi tôi chỉ thực sự cần một chiếc. Chiếc điện thoại tôi đang dùng là lần đầu tiên tôi chi tiêu vượt quá mức đáng lẽ mình nên bỏ ra nhiều đến thế.\n\n[Part 3 - Câu 2] Theo bạn, giới trẻ thường chi phần lớn tiền bạc vào những thứ gì?\nTôi nghĩ người trẻ thường dồn tiền mua quần áo và các phụ kiện thời trang khác như thắt lưng, giày dép hay túi xách. Ngoài ra, tôi thấy rất nhiều bạn trẻ chi tiêu mạnh tay cho các thiết bị công nghệ hiện đại như điện thoại di động, máy tính xách tay và tai nghe không dây.\n\n[Part 3 - Câu 3] Bạn có cho rằng tiết kiệm tiền là điều quan trọng không? Tại sao?\nCó, tôi cho rằng việc tiết kiệm tiền là vô cùng thiết yếu vì chúng ta không bao giờ có thể chắc chắn về tương lai phía trước. Đại dịch Corona gần đây càng cho thấy rõ cuộc sống bấp bênh đến nhường nào. Nhiều người đã qua đời vì họ không đủ khả năng chi trả chi phí chăm sóc y tế đắt đỏ. Hơn nữa, nếu mọi người không có sẵn tiền tiết kiệm dự phòng, họ sẽ không thể nào xoay xở vượt qua những giai đoạn khốn khó như vậy.\n\n[Part 3 - Câu 4] Con người có hay mua những thứ mình không thực sự cần không?\nCó chứ, chuyện đó xảy ra thường xuyên luôn. Tôi nghĩ chúng ta mua đồ bởi vì bản thân hành động mua sắm khiến ta cảm thấy vui vẻ. Ngay cả khi biết rõ mình sẽ chẳng dùng tới món đồ đó, ta vẫn mua nó để tìm kiếm niềm vui chớp nhoáng. Một ví dụ phổ biến là chiếc máy khoan điện, thứ mà mọi người hầu như chỉ dùng đúng 10 phút sau khi mua rồi bỏ xó bám bụi suốt nhiều năm trời.",
+    "target_words": [
+      {
+        "word": "exorbitant",
+        "pos": "Tính từ",
+        "ipa": "/ɪɡˈzɔːrbɪtənt/",
+        "meaning_vi": "Đắt đỏ quá mức, cắt cổ",
+        "example": "I regretted paying such an exorbitant price for a cake that tasted awful."
+      },
+      {
+        "word": "cost an arm and a leg",
+        "pos": "Thành ngữ",
+        "ipa": "/kɒst ən ɑːrm ænd ə leɡ/",
+        "meaning_vi": "Tốn rất nhiều tiền, đắt kinh khủng",
+        "example": "Although it cost me an arm and a leg, it was the only bakery open at 11 p.m."
+      },
+      {
+        "word": "splash out on",
+        "pos": "Cụm động từ",
+        "ipa": "/splæʃ aʊt ɒn/",
+        "meaning_vi": "Chi mạnh tay, vung tiền mua thứ gì đó",
+        "example": "Having to splash out on a disappointing gift taught me to shop more sensibly."
+      },
+      {
+        "word": "tide over",
+        "pos": "Cụm động từ",
+        "ipa": "/taɪd ˈəʊvər/",
+        "meaning_vi": "Giúp ai vượt qua giai đoạn khó khăn tạm thời",
+        "example": "Without emergency savings, it is nearly impossible to tide over sudden crises."
+      },
+      {
+        "word": "collect dust",
+        "pos": "Thành ngữ",
+        "ipa": "/kəˈlekt dʌst/",
+        "meaning_vi": "Bị bỏ xó, không được sử dụng trong thời gian dài",
+        "example": "Many gadgets people buy on impulse end up collecting dust in a drawer."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why did the speaker buy the birthday cake despite its high price?",
+        "options": [
+          "A. The bakery offered a two-for-one discount.",
+          "B. Their sister specifically requested that bakery.",
+          "C. Work kept them busy until 11 p.m., leaving no other shop open.",
+          "D. The cake looked appetizing in the shop window."
+        ],
+        "answer": 2,
+        "explain": "Trong Part 2, người nói gặp sự cố ở chỗ làm đến 11 giờ đêm và tiệm bánh đó là nơi duy nhất còn mở cửa muộn đến vậy."
+      },
+      {
+        "q": "How did that disappointing purchase affect the speaker afterward?",
+        "options": [
+          "A. They stopped celebrating family birthdays.",
+          "B. They learned to bake cakes at home instead.",
+          "C. They became more careful to make sensible buying decisions.",
+          "D. They complained to the shop until getting a refund."
+        ],
+        "answer": 2,
+        "explain": "Cuối Part 2, người nói chia sẻ từ đó họ có xu hướng cẩn trọng hơn để đưa ra quyết định mua sắm hợp lý ('more careful to make really sensible buying decisions')."
+      },
+      {
+        "q": "In Part 3 Q3, why does the speaker emphasize keeping personal savings?",
+        "options": [
+          "A. To afford luxury gadgets and fashion accessories.",
+          "B. To cope with unpredictable crises and costly healthcare.",
+          "C. To buy extra groceries during seasonal offers.",
+          "D. To invest in new bakery businesses."
+        ],
+        "answer": 1,
+        "explain": "Ở Q3 Part 3, đại dịch Corona cho thấy cuộc sống rất bấp bênh và tiền tiết kiệm giúp mọi người chi trả y tế đắt đỏ và vượt qua thời điểm khó khăn ('tide over these difficult times')."
+      },
+      {
+        "q": "What does the electric drill example illustrate in the final answer?",
+        "options": [
+          "A. People often buy unnecessary things just for momentary happiness.",
+          "B. Home repair tools are always overpriced.",
+          "C. Young people prefer practical tools over clothes.",
+          "D. Sharing tools with neighbors saves space."
+        ],
+        "answer": 0,
+        "explain": "Trong Q4 Part 3, ví dụ chiếc máy khoan điện chỉ dùng 10 phút rồi bỏ xó bám bụi minh họa việc con người mua đồ không cần thiết chỉ vì niềm vui nhất thời ('momentary happiness')."
+      }
+    ],
+    "month": 2,
+    "assigned_days": [
+      58
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 171,
+    "title": "Study4 #21: Describe a good service you received (company or store/shop) (Không ghi Q/năm • Unit 5)",
+    "category": "STUDY4 • Unit 5: Consumer (Tiêu dùng & Mua sắm)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Không ghi Q/năm | Study4 ID 5946 | Unit 5: Consumer (Tiêu dùng & Mua sắm))",
+    "content": "[Part 2 Cue Card — Describe a good service you received (company or store/shop)]\nCue Card Prompts: What the service was • When you received it • Who you were with • And how you felt about it.\n\nI'm going to talk about the service we received in a restaurant where a friend of mine celebrated his birthday last Saturday evening.\n\nMy friend had decided to book a table in a local Italian restaurant for the party. It was a small, family-run place, but this made it feel all the more welcoming and inviting. The atmosphere was great and the service was excellent.\n\nAs I mentioned, I went to the restaurant because a friend had invited me to celebrate his birthday there. There were about ten of us there - mostly people I've known since university - and it was really nice to catch up with them and chat about what we had all been up to since we last got together.\n\nThe service was good because the restaurant staff and owners really made us feel at home. From the moment we walked in, the waiters were polite, approachable and attentive; nothing was too much to ask. They brought out a cake with candles and sang ‘Happy Birthday' to my friend, although we didn't asked them to do this, and the restaurant owners kept checking whether we were happy with everything, which was thoughtful of them. All in all, the delicious food, good company and friendly service made it an unforgettable evening.\n\n[Part 3 - Q1] What do you think of the relationship between companies and customers?\nI think both companies and customers depend upon each other. Without sales, a company cannot succeed and grow, and without good companies, people cannot get good quality products and services. Thus, it is not surprising that the leading companies like Apple and Amazon also have the best customer service.\n\n[Part 3 - Q2] As a customer, what kinds of services would you expect to receive from a company?\nI think companies should fulfill their promises most of all. For example, if companies make promises like one-day installation, the promised work should be done within one day. In addition, if the product provided doesn't keep up to the standards promised, the company should apologize and reimburse the customers.\n\n[Part 3 - Q3] What kinds of jobs involve coping with the public?\nI think most service and sales jobs involve coping with the public. Services can be anything like car repair, product installations, healthcare services, teaching, etc. Similarly, although online shopping has reduced interaction, sales to a large extent still entail dealing with the public.\n\n[Part 3 - Q4] Why should companies react quickly when customers have difficulties?\nI think it is important to proactively deal with customer's complaints and difficulties because it can harm the brand reputation of the company, and in today's competitive era, brand image is paramount to success. In fact, it is also one of the major reasons why companies today are taking on social responsibilities.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một dịch vụ tốt mà bạn từng nhận được (từ công ty hoặc cửa hàng)]\nTôi sẽ kể về dịch vụ tuyệt vời mà chúng tôi nhận được tại một nhà hàng nơi một người bạn của tôi tổ chức tiệc sinh nhật vào tối thứ Bảy tuần trước.\n\nBạn tôi đã quyết định đặt bàn tại một nhà hàng Ý địa phương cho bữa tiệc. Đó là một quán nhỏ do gia đình tự quản lý, nhưng chính điều này lại khiến không gian trở nên ấm cúng và chào đón hơn bao giờ hết. Bầu không khí rất tuyệt vời và chất lượng phục vụ thì xuất sắc.\n\nNhư tôi đã nói, tôi đến nhà hàng vì người bạn ấy mời tôi tới chung vui sinh nhật cùng cậu ấy. Có khoảng mười người chúng tôi ở đó—phần lớn là những người bạn tôi quen biết từ thời đại học—và thật sự rất vui khi được gặp lại hàn huyên, kể cho nhau nghe chuyện mỗi đứa dạo gần đây ra sao kể từ lần tụ họp trước.\n\nDịch vụ ở đây tốt bởi đội ngũ nhân viên lẫn chủ quán thực sự khiến chúng tôi cảm thấy thoải mái như ở nhà. Ngay từ khoảnh khắc chúng tôi bước vào, các bạn phục vụ đã rất lịch thiệp, dễ gần và chu đáo; chẳng có yêu cầu nào của khách bị xem là phiền hà cả. Họ còn mang ra một chiếc bánh cắm nến và hát vang bài \"Chúc mừng sinh nhật\" tặng bạn tôi dù chúng tôi không hề nhờ trước, rồi hai vợ chồng chủ quán cũng liên tục hỏi thăm xem chúng tôi có hài lòng với mọi thứ không, điều đó thật sự rất tinh tế. Nói chung, đồ ăn ngon, bạn bè hợp ý cùng cung cách phục vụ thân thiện đã tạo nên một buổi tối khó quên.\n\n[Part 3 - Câu 1] Bạn nghĩ gì về mối quan hệ giữa doanh nghiệp và khách hàng?\nTôi nghĩ cả doanh nghiệp lẫn khách hàng đều nương tựa lẫn nhau. Nếu không có doanh số bán hàng, một công ty không thể thành công và phát triển, ngược lại nếu không có những doanh nghiệp làm ăn tử tế, người dân cũng không thể tiếp cận các sản phẩm và dịch vụ chất lượng tốt. Vì vậy, chẳng có gì ngạc nhiên khi những tập đoàn hàng đầu như Apple hay Amazon đồng thời sở hữu dịch vụ chăm sóc khách hàng tốt nhất.\n\n[Part 3 - Câu 2] Với tư cách khách hàng, bạn kỳ vọng nhận được những kiểu dịch vụ nào từ một công ty?\nTôi nghĩ điều quan trọng nhất là các công ty phải giữ đúng lời hứa của mình. Chẳng hạn, nếu doanh nghiệp cam kết lắp đặt trong một ngày thì công việc đã hứa phải được hoàn tất đúng trong vòng một ngày. Bên cạnh đó, nếu sản phẩm cung cấp không đạt tiêu chuẩn như đã cam kết, công ty cần phải xin lỗi và hoàn tiền bồi thường thỏa đáng cho khách hàng.\n\n[Part 3 - Câu 3] Những công việc nào đòi hỏi phải tiếp xúc xử lý trực tiếp với công chúng?\nTôi cho rằng phần lớn các công việc thuộc ngành dịch vụ và bán hàng đều liên quan đến việc giao tiếp ứng xử với công chúng. Công việc dịch vụ có thể bao gồm bất kỳ ngành nào như sửa chữa ô tô, lắp đặt sản phẩm, chăm sóc y tế, giảng dạy, vân vân. Tương tự, dù mua sắm trực tuyến đã làm giảm bớt sự tương tác trực tiếp, hoạt động bán hàng ở mức độ lớn vẫn đòi hỏi việc làm việc thường xuyên với khách hàng.\n\n[Part 3 - Câu 4] Vì sao các công ty cần phản ứng nhanh khi khách hàng gặp khó khăn?\nTôi nghĩ việc chủ động giải quyết các khiếu nại và rắc rối của khách hàng rất quan trọng vì sự chậm trễ có thể làm tổn hại uy tín thương hiệu của doanh nghiệp, mà trong kỷ nguyên cạnh tranh ngày nay, hình ảnh thương hiệu là yếu tố tối quan trọng dẫn tới thành công. Thực tế đây cũng là một trong những lý do lớn khiến các doanh nghiệp hiện đại ngày càng chú trọng gánh vác trách nhiệm xã hội.",
+    "target_words": [
+      {
+        "word": "attentive",
+        "pos": "Tính từ",
+        "ipa": "/əˈtentɪv/",
+        "meaning_vi": "Chu đáo, ân cần, luôn để ý tới nhu cầu của người khác",
+        "example": "From the moment we walked in, the waiters were polite, approachable, and attentive."
+      },
+      {
+        "word": "catch up with",
+        "pos": "Cụm động từ",
+        "ipa": "/kætʃ ʌp wɪð/",
+        "meaning_vi": "Gặp gỡ trò chuyện, cập nhật tin tức sau thời gian xa cách",
+        "example": "It was lovely to catch up with old university friends at the birthday dinner."
+      },
+      {
+        "word": "reimburse",
+        "pos": "Động từ",
+        "ipa": "/ˌriːɪmˈbɜːrs/",
+        "meaning_vi": "Hoàn tiền, bồi hoàn lại chi phí",
+        "example": "If a product fails promised standards, the company should apologize and reimburse customers."
+      },
+      {
+        "word": "entail",
+        "pos": "Động từ",
+        "ipa": "/ɪnˈteɪl/",
+        "meaning_vi": "Đòi hỏi, kéo theo việc phải làm gì",
+        "example": "Even with e-commerce growing, most sales jobs still entail dealing with the public."
+      },
+      {
+        "word": "paramount",
+        "pos": "Tính từ",
+        "ipa": "/ˈpærəmaʊnt/",
+        "meaning_vi": "Tối quan trọng, hàng đầu",
+        "example": "In today's competitive market, protecting brand image is paramount to long-term success."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What unexpected gesture made the birthday dinner especially memorable?",
+        "options": [
+          "A. The restaurant waived the entire bill for the group.",
+          "B. Staff surprised the friend with a candle-lit cake and birthday song.",
+          "C. A famous Italian chef cooked a private dessert at the table.",
+          "D. The owners let the guests stay hours past closing time."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, dù nhóm không hề yêu cầu trước, nhân viên đã mang ra bánh có nến và hát 'Happy Birthday' tặng bạn của người nói."
+      },
+      {
+        "q": "Why does the speaker say businesses and customers depend on each other?",
+        "options": [
+          "A. Companies rely on sales to grow, while customers rely on companies for quality.",
+          "B. Customers must advertise family-run shops on social media.",
+          "C. Companies need customers to design new installation schedules.",
+          "D. Customers only buy from large tech firms like Apple and Amazon."
+        ],
+        "answer": 0,
+        "explain": "Trong Q1 Part 3, doanh nghiệp cần doanh thu để phát triển còn khách hàng cần doanh nghiệp cung cấp sản phẩm và dịch vụ tốt."
+      },
+      {
+        "q": "What should a company do if its product fails to meet promised standards?",
+        "options": [
+          "A. Reduce staff interaction with the public.",
+          "B. Apologize and reimburse the affected customers.",
+          "C. Offer a free restaurant voucher instead.",
+          "D. Delay repairs until online reviews appear."
+        ],
+        "answer": 1,
+        "explain": "Theo Q2 Part 3, nếu sản phẩm không đạt chuẩn đã hứa, công ty cần xin lỗi và hoàn tiền bồi thường ('apologize and reimburse the customers')."
+      },
+      {
+        "q": "Why is quick complaint resolution crucial for modern companies?",
+        "options": [
+          "A. Slow responses can damage brand reputation in a competitive market.",
+          "B. Fast replies eliminate the need for social responsibility.",
+          "C. It allows firms to charge higher prices for repairs.",
+          "D. It keeps online shoppers from returning physical goods."
+        ],
+        "answer": 0,
+        "explain": "Trong Q4 Part 3, giải quyết khiếu nại chậm có thể làm hại danh tiếng thương hiệu ('harm the brand reputation'), yếu tố tối quan trọng cho thành công."
+      }
+    ],
+    "month": 3,
+    "assigned_days": [
+      61
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 172,
+    "title": "Study4 #22: Describe an important thing you learned (not at school or college) (Không ghi Q/năm • Unit 8)",
+    "category": "STUDY4 • Unit 8: Wisdom (Trí tuệ & Lời khuyên)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Không ghi Q/năm | Study4 ID 6754 | Unit 8: Wisdom (Trí tuệ & Lời khuyên))",
+    "content": "[Part 2 Cue Card — Describe an important thing you learned (not at school or college)]\nCue Card Prompts: What it was • When you learned it • How you learned it • And explain why it was important.\n\nI'd like to tell you about something important which I learned outside of school. For over ten years, I have been learning how to play guitar. At school, I don't do music because I specialise in science subjects, so I taught myself how to play guitar. I started learning when I was around seven. My dad helped me learn the ropes and as I grew up, I learned more and more as time moved on.\n\nAs I said, I'm self-taught, so I don't have a teacher or anything. When I first started learning, I would read books and magazines about how to play. I also used YouTube videos. There are loads of great YouTube tutorials which can teach you the basics very quickly. One thing that I'm quite proud of is that I haven't spent any money on lessons. All the money I have spent has been on new guitars, amplifiers and pedals - I have taught myself everything!\n\nMusic is a big part of my life and playing guitar is really important to me. I love to learn new songs and play them live for my friends and family. It helps me relax and it teaches me loads of new skills. I feel really cool when I play and it's a great party trick! But I still want to get better so I still try and practise every day.\n\n[Part 3 - Q1] What can children learn from parents?\nChildren can learn a huge amount from their parents. When kids are young, they learn everything. For example, they learn what's right and what's wrong. They also learn how to communicate. When kids get older, such as when they become teenagers or young adults, they're still learning lessons from their parents. Our parents are our greatest teachers, I think. My dad has taught me so many practical skills that I still use today.\n\n[Part 3 - Q2] Do you think some children are well-behaved?\nYes, I do. When I'm walking around, I see lots of well-behaved children. I think this comes down to the parents who are strict but fair with their kids. But, I also see very horrible children who are rude to their parents and the people around them. Again, this is the parents' fault, in my opinion. It's important that children are disciplined and they are taught respect from a young age.\n\n[Part 3 - Q3] Is it necessary for adults to learn new things?\nI think so, yes, especially elderly adults. This is because elderly people's brains can deteriorate and become slow, so they need to keep it active by learning new things. For example, one of my friends works for a company who teaches languages to old people in care homes. This helps prevent diseases like dementia or Alzheimer's. So, learning new skills can keep you healthy, even in old age!\n\n[Part 3 - Q4] How can people learn new things?\nThere are so many ways to learn new things. For example, you can go to a school, college or university. Colleges offer shorter and more practical courses. For instance, woodworking, cooking, cocktail making - anything, to be honest. University is for more academic subjects, like law, history, science and so on. Nowadays, people also learn new things online. There are millions of YouTube videos which can teach you pretty much anything.\n\n[Part 3 - Q5] Does the internet make learning easier or more difficult?\nThis is a great question! I think it depends on what you want to learn. For instance, if you want to learn something that is practical, like driving or cooking, or something like that, it's better to take classes with professionals. This is because the internet is great for reading information, but you are only staring at a screen. The internet is perfect for more academic subjects that require a lot of reading. I use the internet all the time at university to research different topics.\n\n[Part 3 - Q6] Can people acquire more knowledge now than before?\nYes, absolutely. In the past, only the elite members of society had access to information because they were the only ones that were literate. In the UK, for example, the rich members of society and the Royal Family were the only people who had knowledge. Nowadays, the vast majority of people around the world are literate and educated, so they can access knowledge and learn new things. The internet also makes it easier to learn new things, and billions of people around the world have access to the internet.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một điều quan trọng bạn học được (không phải ở trường học hay đại học)]\nTôi muốn kể cho bạn nghe về một kỹ năng quan trọng mà tôi đã học được bên ngoài nhà trường. Suốt hơn mười năm qua, tôi tự học cách chơi đàn ghi-ta. Ở trường phổ thông, tôi không theo học môn âm nhạc vì tôi chuyên về các môn khoa học tự nhiên, nên tôi đã tự mày mò học chơi đàn. Tôi bắt đầu tập khi khoảng bảy tuổi. Bố tôi đã chỉ dẫn những bước cơ bản đầu tiên, và khi lớn lên dần, tôi tiếp tục học hỏi thêm ngày càng nhiều theo thời gian.\n\nNhư tôi vừa chia sẻ, tôi hoàn toàn tự học chứ không có giáo viên riêng hay lớp học nào cả. Lúc mới bắt đầu tập, tôi thường đọc sách và tạp chí hướng dẫn cách chơi đàn. Tôi cũng tận dụng các video trên YouTube. Trên đó có rất nhiều video hướng dẫn tuyệt vời có thể dạy bạn những kiến thức nền tảng cực kỳ nhanh chóng. Một điều khiến tôi khá tự hào là tôi chưa từng tốn đồng nào cho tiền học phí. Toàn bộ số tiền tôi chi ra đều dùng để mua đàn mới, bộ khuếch đại âm thanh và bàn đạp hiệu ứng—tất cả mọi thứ tôi đều tự học hết!\n\nÂm nhạc là một phần lớn trong cuộc sống của tôi và việc chơi ghi-ta thực sự rất có ý nghĩa với tôi. Tôi thích học những bài hát mới rồi biểu diễn trực tiếp cho bạn bè và gia đình nghe. Nó giúp tôi thư giãn và dạy cho tôi biết bao kỹ năng mới mẻ. Tôi cảm thấy mình thật ngầu khi chơi đàn và đó đúng là một tài lẻ tuyệt vời trong các buổi tiệc! Nhưng tôi vẫn muốn chơi hay hơn nữa nên tôi vẫn cố gắng luyện tập mỗi ngày.\n\n[Part 3 - Câu 1] Trẻ em có thể học được những gì từ cha mẹ?\nTrẻ nhỏ có thể học hỏi được vô vàn điều từ cha mẹ mình. Khi còn nhỏ, các em gần như học mọi thứ từ đầu. Chẳng hạn, trẻ học cách phân biệt điều gì đúng và điều gì sai. Các em cũng học cách giao tiếp ứng xử. Khi lớn hơn một chút, chẳng hạn bước vào tuổi thiếu niên hay thanh niên, các em vẫn tiếp tục tiếp thu nhiều bài học từ bố mẹ. Tôi nghĩ cha mẹ chính là những người thầy vĩ đại nhất của chúng ta. Bố tôi đã dạy tôi biết bao kỹ năng thực tế mà đến tận hôm nay tôi vẫn còn áp dụng.\n\n[Part 3 - Câu 2] Bạn có thấy một số trẻ em cư xử rất ngoan ngoãn lễ phép không?\nCó chứ, tôi thấy vậy. Khi đi dạo ngoài phố, tôi gặp rất nhiều em nhỏ cư xử rất lễ phép và đúng mực. Tôi nghĩ điều này bắt nguồn từ những bậc phụ huynh biết nghiêm khắc nhưng công bằng với con cái. Tuy nhiên, tôi cũng bắt gặp những đứa trẻ cư xử rất tệ, hỗn hào với chính cha mẹ và mọi người xung quanh. Theo quan điểm của tôi, đây lại tiếp tục là lỗi ở cách dạy dỗ của phụ huynh. Điều quan trọng là trẻ em cần được rèn vào khuôn phép và được dạy cách tôn trọng người khác ngay từ nhỏ.\n\n[Part 3 - Câu 3] Người trưởng thành có cần thiết phải học thêm những điều mới không?\nTôi nghĩ là có, đặc biệt đối với người lớn tuổi. Lý do là não bộ của người cao tuổi có thể bị suy giảm chức năng và trở nên chậm chạp dần, vì vậy họ cần giữ cho đầu óc luôn linh hoạt bằng cách học hỏi những điều mới mẻ. Chẳng hạn, một người bạn của tôi làm việc cho một công ty chuyên dạy ngoại ngữ cho các cụ già trong viện dưỡng lão. Hoạt động này giúp ngăn ngừa những căn bệnh như sa sút trí tuệ hoặc Alzheimer. Vậy nên, việc học kỹ năng mới có thể giúp bạn duy trì sức khỏe minh mẫn ngay cả khi về già!\n\n[Part 3 - Câu 4] Con người có thể học những điều mới bằng cách nào?\nCó vô số cách để học hỏi những kiến thức mới mẻ. Ví dụ, bạn có thể theo học tại trường phổ thông, cao đẳng hoặc đại học. Các trường cao đẳng thường cung cấp những khóa học ngắn hạn và mang tính thực hành cao hơn. Chẳng hạn như nghề mộc, nấu ăn, pha chế đồ uống—thật lòng mà nói thì học gì cũng có. Đại học lại thiên về các ngành học thuật chuyên sâu hơn, như luật, lịch sử, khoa học và nhiều môn tương tự. Ngày nay, mọi người cũng học kỹ năng mới qua mạng. Có hàng triệu video YouTube có thể hướng dẫn bạn gần như bất cứ điều gì.\n\n[Part 3 - Câu 5] Internet khiến việc học trở nên dễ dàng hơn hay khó khăn hơn?\nĐây là một câu hỏi rất hay! Tôi nghĩ điều đó tùy thuộc vào việc bạn muốn học lĩnh vực gì. Chẳng hạn, nếu bạn muốn học một kỹ năng thiên về thực hành như lái xe hoặc nấu ăn hay đại loại thế, tốt hơn hết là nên tham gia lớp học cùng chuyên gia hướng dẫn. Lý do là mạng internet rất tuyệt vời để đọc tìm thông tin, nhưng bạn cũng chỉ đang nhìn chằm chằm vào màn hình mà thôi. Internet lại cực kỳ lý tưởng cho những môn học thuật đòi hỏi phải đọc nhiều tài liệu. Tôi vẫn dùng internet thường xuyên ở trường đại học để nghiên cứu đủ loại chủ đề khác nhau.\n\n[Part 3 - Câu 6] Con người ngày nay có thể tiếp thu nhiều tri thức hơn trước đây không?\nCó chứ, chắc chắn rồi. Trong quá khứ, chỉ tầng lớp tinh hoa trong xã hội mới tiếp cận được nguồn thông tin vì họ là những người duy nhất biết đọc biết viết. Ở Vương quốc Anh chẳng hạn, giới nhà giàu và Hoàng gia từng là những người hiếm hoi nắm giữ tri thức. Ngày nay, đại đa số người dân trên khắp thế giới đều biết chữ và được giáo dục bài bản, nhờ đó họ có thể tiếp cận kiến thức và học hỏi điều mới. Internet cũng giúp việc học trở nên thuận tiện hơn nhiều, và hàng tỷ người trên toàn cầu đều có thể truy cập mạng internet.",
+    "target_words": [
+      {
+        "word": "learn the ropes",
+        "pos": "Thành ngữ",
+        "ipa": "/lɜːrn ðə rəʊps/",
+        "meaning_vi": "Học những bước cơ bản, làm quen với cách thức hoạt động",
+        "example": "My dad helped me learn the ropes on the guitar when I was around seven."
+      },
+      {
+        "word": "self-taught",
+        "pos": "Tính từ",
+        "ipa": "/ˌself ˈtɔːt/",
+        "meaning_vi": "Tự học, không qua thầy dạy chính thức",
+        "example": "I am completely self-taught and learned everything through books and online videos."
+      },
+      {
+        "word": "deteriorate",
+        "pos": "Động từ",
+        "ipa": "/dɪˈtɪəriəreɪt/",
+        "meaning_vi": "Suy giảm, xuống cấp theo thời gian",
+        "example": "Elderly people's brains can deteriorate if they do not keep their minds active."
+      },
+      {
+        "word": "dementia",
+        "pos": "Danh từ",
+        "ipa": "/dɪˈmenʃə/",
+        "meaning_vi": "Chứng sa sút trí tuệ",
+        "example": "Learning new languages in care homes helps prevent conditions like dementia."
+      },
+      {
+        "word": "literate",
+        "pos": "Tính từ",
+        "ipa": "/ˈlɪtərət/",
+        "meaning_vi": "Biết đọc biết viết, có học thức",
+        "example": "In the past, only elite members of society were literate and could access books."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the speaker especially proud of regarding their guitar journey?",
+        "options": [
+          "A. Winning a national school music competition.",
+          "B. Never spending any money on formal music lessons.",
+          "C. Building their own guitar amplifier at age seven.",
+          "D. Becoming a full-time professional performer."
+        ],
+        "answer": 1,
+        "explain": "Trong Part 2, người nói tự hào vì chưa từng tốn tiền thuê giáo viên hay đóng học phí mà chỉ mua đàn và thiết bị ('haven't spent any money on lessons')."
+      },
+      {
+        "q": "Why does the speaker believe it is vital for elderly adults to learn new skills?",
+        "options": [
+          "A. To qualify for college woodworking courses.",
+          "B. To keep their brains active and help prevent dementia.",
+          "C. To teach their grandchildren how to use social media.",
+          "D. To replace television entertainment in care homes."
+        ],
+        "answer": 1,
+        "explain": "Trong Q3 Part 3, học ngoại ngữ hay kỹ năng mới giúp người cao tuổi giữ não bộ hoạt động, ngăn ngừa sa sút trí tuệ như dementia hay Alzheimer."
+      },
+      {
+        "q": "When does the speaker think taking in-person classes is better than learning online?",
+        "options": [
+          "A. When researching history or law essays.",
+          "B. When learning practical physical skills like driving or cooking.",
+          "C. When practicing vocabulary in care homes.",
+          "D. When reading long scientific articles."
+        ],
+        "answer": 1,
+        "explain": "Ở Q5 Part 3, với các kỹ năng thực hành như lái xe hay nấu ăn ('practical, like driving or cooking'), học trực tiếp với chuyên gia hiệu quả hơn chỉ nhìn màn hình."
+      },
+      {
+        "q": "Why can far more people acquire knowledge today than in past centuries?",
+        "options": [
+          "A. Universities have abolished all tuition fees.",
+          "B. Most people worldwide are literate and billions have internet access.",
+          "C. Royal families distribute free textbooks internationally.",
+          "D. School science subjects now include mandatory music training."
+        ],
+        "answer": 1,
+        "explain": "Theo Q6 Part 3, ngày nay phần lớn dân số đều biết chữ ('literate and educated') và hàng tỷ người truy cập được internet để học hỏi."
+      }
+    ],
+    "month": 1,
+    "assigned_days": [
+      64
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  },
+  {
+    "id": 173,
+    "title": "Study4 #23: Describe a time when you organized a happy event successfully (Không ghi Q/năm • Unit 7)",
+    "category": "STUDY4 • Unit 7: Connect (Giao tiếp & Công nghệ)",
+    "level": "B2 - C1",
+    "source_reference": "Study4 IELTS Speaking & Reading (Không ghi Q/năm | ID chưa xác định | Unit 7: Connect (Giao tiếp & Công nghệ))",
+    "content": "[Part 2 Cue Card — Describe a time when you organized a happy event successfully]\nCue Card Prompts: What the event was • How you prepared for it • Who helped you to organize it • And explain why you think it was a successful event.\n\nLast year, I had the privilege of organizing a farewell party for my favorite teacher and I’d say it went swimmingly. While it was a bittersweet moment, I felt we managed to give her a proper send-off.\n\nTo prepare, we started by brainstorming ideas a few weeks in advance. We planned everything, from the venue to the decorations and activities. In the end, we chose to hold the party in our school’s auditorium because it was big enough to accommodate the whole class. We also decided to go with a theme based on her favorite colors and we even added personal touches like handmade banners and photo collages of her time with us.\n\nIt was quite an intensive preparation, but thankfully, I wasn’t alone in this endeavor. My classmates were incredibly supportive, and everyone pitched in. Some helped with the setup, while others prepared a video montage of her memorable moments as our teacher. We also collected messages from students and put them into a scrapbook as a farewell gift.\n\nThe event itself was amazing. However, the highlight was when our teacher gave a heartfelt thank-you speech. As her students, we could clearly see how much she appreciated everything we’d done.\n\nPersonally, I think it was a success because the event brought everyone together and showed our gratitude in a meaningful way. Seeing her smile and knowing we had made her day so special was incredibly rewarding.\n\n[Part 3 - Q1] How can parents help children to be organized?\nParents can help children become organized by teaching them how to manage their time and set priorities. For example, they can encourage kids to create a daily schedule or use tools like to-do lists. Simple habits, like packing their school bags the night before or keeping their room tidy, can also make a big difference. Since children learn by examples, it’s essential for parents to stay organized themselves.\n\n[Part 3 - Q2] On what occasions do people need to be organized?\nPeople need to be organized on many occasions, like planning events or managing work deadlines. Traveling is another situation where organization is essential, as forgetting something important can ruin a trip. Even simple things like meal prepping or budgeting also require a certain level of planning. Honestly, having good organizational skills are indispensable in managing both big and small aspects of life.\n\n[Part 3 - Q3] Does everything need to be well prepared?\nNot necessarily. Some situations benefit from detailed preparation, like exams or big presentations. However, for casual or spontaneous activities, over-preparation can take away the fun. It’s more about striking a balance. You should just be prepared enough to feel confident but flexible enough to adapt to unexpected situations. After all, not everything in life can be planned to the last detail.\n\n[Part 3 - Q4] Do people need others’ help when organizing things?\nSometimes. For larger tasks or events, like weddings or work projects, having a team can make the process much easier and more efficient. Even for smaller things, like organizing a family trip, input from others can ensure nothing important is overlooked. Collaboration also often leads to better outcomes, as different people bring unique ideas and perspectives.\n\n[Part 3 - Q5] How would you feel when you were not well prepared for something?\nHonestly, I’d feel anxious and probably a bit frustrated with myself. Being unprepared often leads to mistakes or missed opportunities, which can really discouraging. It also undermines your confidence, especially if you’re in a high-pressure situation like an exam or a job interview. That’s why I always try to prepare as much as I can to avoid unnecessary stress.\n\n[Part 3 - Q6] Do you prefer to prepare and organize an activity or just take part in an activity?\nIt depends on the situation. If it’s something I’m passionate about or have specific ideas for, I’ll likely prepare days in advance since it gives me a sense of control and accomplishment. However, for more casual activities, like a friend’s party, I’d rather just take part and enjoy myself without worrying about the details.",
+    "translation_vi": "[Bài mẫu Part 2 — Mô tả một lần bạn tổ chức thành công một sự kiện vui vẻ]\nNăm ngoái, tôi có vinh dự được đứng ra tổ chức một bữa tiệc chia tay cho cô giáo yêu thích nhất của mình và phải nói rằng mọi thứ diễn ra trôi chảy mỹ mãn. Dù đó là một khoảnh khắc vui buồn đan xen, tôi cảm thấy cả lớp đã mang đến cho cô một buổi tiễn biệt thật trang trọng và ấm áp.\n\nĐể chuẩn bị, chúng tôi bắt đầu họp bàn lên ý tưởng trước đó vài tuần. Cả nhóm lên kế hoạch cho mọi thứ, từ địa điểm tổ chức cho tới khâu trang trí và các hoạt động trong buổi tiệc. Cuối cùng, chúng tôi chọn tổ chức tại hội trường lớn của trường vì không gian đó đủ rộng để chứa trọn cả lớp. Chúng tôi cũng quyết định chọn tông màu chủ đề dựa trên những gam màu cô yêu thích, thậm chí còn thêm nhiều dấu ấn cá nhân như băng rôn tự làm và các bức ảnh ghép ghi lại quãng thời gian cô gắn bó cùng chúng tôi.\n\nQuá trình chuẩn bị khá dồn dập và vất vả, nhưng thật may mắn là tôi không hề đơn độc trong nỗ lực này. Các bạn cùng lớp đều hỗ trợ hết mình và ai nấy đều chung tay góp sức. Một vài bạn phụ trách dựng sân khấu trang trí, trong khi những bạn khác dựng một đoạn phim ngắn tổng hợp những khoảnh khắc đáng nhớ của cô trên bục giảng. Chúng tôi cũng thu thập lời nhắn từ các học sinh rồi đóng thành một cuốn sổ lưu niệm làm quà chia tay.\n\nBản thân sự kiện diễn ra vô cùng tuyệt vời. Tuy nhiên, điểm nhấn đáng nhớ nhất là khi cô giáo đọc bài phát biểu cảm ơn đầy xúc động từ tận đáy lòng. Là học trò của cô, chúng tôi có thể thấy rõ cô trân trọng mọi điều cả lớp đã làm đến nhường nào.\n\nCá nhân tôi nghĩ buổi tiệc thành công vì nó gắn kết mọi người lại bên nhau và bày tỏ lòng biết ơn của chúng tôi một cách thật ý nghĩa. Nhìn thấy nụ cười của cô và biết rằng mình đã làm cho ngày hôm ấy của cô trở nên đặc biệt khiến tôi cảm thấy vô cùng hạnh phúc và xứng đáng.\n\n[Part 3 - Câu 1] Cha mẹ có thể giúp con cái trở nên ngăn nắp, có tổ chức bằng cách nào?\nCha mẹ có thể giúp trẻ rèn tính ngăn nắp có tổ chức bằng cách dạy các em biết cách quản lý thời gian và sắp xếp thứ tự ưu tiên. Chẳng hạn, phụ huynh có thể khuyến khích con lập thời gian biểu hằng ngày hoặc sử dụng những công cụ như danh sách việc cần làm. Những thói quen đơn giản như soạn sẵn cặp sách từ tối hôm trước hoặc giữ phòng ốc gọn gàng cũng có thể tạo ra khác biệt lớn. Vì trẻ em học hỏi thông qua tấm gương thực tế, việc chính cha mẹ giữ nếp sống ngăn nắp cũng đóng vai trò hết sức thiết yếu.\n\n[Part 3 - Câu 2] Trong những dịp nào con người cần phải làm việc có kế hoạch, tổ chức?\nCon người cần sự ngăn nắp có tổ chức trong rất nhiều tình huống, chẳng hạn như lên kế hoạch sự kiện hay kiểm soát hạn chót công việc. Đi du lịch cũng là một hoàn cảnh mà khâu chuẩn bị khoa học đóng vai trò thiết yếu, bởi chỉ cần quên một món đồ quan trọng là đủ làm hỏng cả chuyến đi. Ngay cả những việc giản dị như chuẩn bị sẵn thực đơn tuần hay lập ngân sách chi tiêu cũng đòi hỏi một mức độ lập kế hoạch nhất định. Thành thật mà nói, kỹ năng tổ chức tốt là yếu tố không thể thiếu để quản lý cả những việc lớn lẫn việc nhỏ trong đời sống.\n\n[Part 3 - Câu 3] Có phải mọi việc đều cần được chuẩn bị thật kỹ lưỡng không?\nKhông hẳn lúc nào cũng vậy. Một số tình huống sẽ hưởng lợi lớn từ sự chuẩn bị chi tiết, như các kỳ thi hay những bài thuyết trình quan trọng. Tuy nhiên, đối với các hoạt động ngẫu hứng hoặc mang tính thư giãn nhẹ nhàng, việc chuẩn bị quá mức cầu kỳ có thể làm mất đi niềm vui tự nhiên. Điều quan trọng hơn là tìm được sự cân bằng hợp lý. Bạn chỉ nên chuẩn bị vừa đủ để thấy tự tin, nhưng vẫn đủ linh hoạt để thích ứng với những tình huống bất ngờ phát sinh. Xét cho cùng, không phải mọi chuyện trong cuộc sống đều có thể được lên kế hoạch tỉ mỉ đến từng chi tiết cuối cùng.\n\n[Part 3 - Câu 4] Con người có cần sự giúp đỡ của người khác khi tổ chức mọi việc không?\nĐôi khi có chứ. Đối với những đầu việc hoặc sự kiện quy mô lớn như đám cưới hay các dự án công ty, việc có một đội ngũ phối hợp sẽ khiến quy trình trở nên nhẹ nhàng và hiệu quả hơn nhiều. Ngay cả với những việc nhỏ hơn như lên lịch cho chuyến du lịch gia đình, ý kiến đóng góp từ người khác cũng giúp bảo đảm không bỏ sót điều gì quan trọng. Sự hợp tác còn thường mang lại kết quả tốt đẹp hơn, bởi mỗi người khác nhau sẽ đóng góp những ý tưởng và góc nhìn độc đáo riêng.\n\n[Part 3 - Câu 5] Bạn sẽ cảm thấy thế nào khi chưa chuẩn bị chu đáo cho một việc gì đó?\nThú thật là tôi sẽ cảm thấy lo âu và có lẽ hơi bực bội với chính bản thân mình. Việc thiếu chuẩn bị thường dẫn đến sai sót hoặc đánh mất cơ hội, điều đó thực sự rất dễ làm nhụt chí. Nó cũng làm lung lay sự tự tin của bạn, đặc biệt nếu bạn đang ở trong một tình huống áp lực cao như kỳ thi hay buổi phỏng vấn xin việc. Chính vì thế tôi luôn cố gắng chuẩn bị kỹ càng nhất có thể để tránh những căng thẳng không đáng có.\n\n[Part 3 - Câu 6] Bạn thích tự tay chuẩn bị tổ chức một hoạt động hay chỉ tham gia vào hoạt động đó?\nĐiều đó còn tùy vào từng hoàn cảnh cụ thể. Nếu đó là việc tôi thực sự tâm huyết hoặc đã ấp ủ những ý tưởng riêng rõ ràng, nhiều khả năng tôi sẽ chuẩn bị trước nhiều ngày vì nó mang lại cho tôi cảm giác chủ động kiểm soát và thành tựu. Ngược lại, với những buổi tụ họp thoải mái hơn như tiệc sinh nhật bạn bè, tôi thích chỉ tham dự và tận hưởng niềm vui mà không phải bận tâm lo lắng từng chi tiết nhỏ.",
+    "target_words": [
+      {
+        "word": "go swimmingly",
+        "pos": "Thành ngữ",
+        "ipa": "/ɡəʊ ˈswɪmɪŋli/",
+        "meaning_vi": "Diễn ra trôi chảy, suôn sẻ tốt đẹp",
+        "example": "I organized a farewell party for my favorite teacher, and it went swimmingly."
+      },
+      {
+        "word": "pitch in",
+        "pos": "Cụm động từ",
+        "ipa": "/pɪtʃ ɪn/",
+        "meaning_vi": "Chung tay góp sức vào một việc chung",
+        "example": "My classmates were supportive and everyone pitched in with decorations and videos."
+      },
+      {
+        "word": "indispensable",
+        "pos": "Tính từ",
+        "ipa": "/ˌɪndɪˈspensəbl/",
+        "meaning_vi": "Không thể thiếu, vô cùng cần thiết",
+        "example": "Good organizational skills are indispensable in managing both work deadlines and daily life."
+      },
+      {
+        "word": "spontaneous",
+        "pos": "Tính từ",
+        "ipa": "/spɒnˈteɪniəs/",
+        "meaning_vi": "Ngẫu hứng, tự phát không sắp đặt trước",
+        "example": "For casual or spontaneous outings, over-preparation can actually take away the fun."
+      },
+      {
+        "word": "undermine",
+        "pos": "Động từ",
+        "ipa": "/ˌʌndərˈmaɪn/",
+        "meaning_vi": "Làm suy yếu, làm lung lay",
+        "example": "Showing up unprepared to a job interview quickly undermines your confidence."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why did the students pick the school auditorium for the farewell party?",
+        "options": [
+          "A. It already matched the teacher's favorite colors.",
+          "B. It had built-in equipment for showing photo collages.",
+          "C. It was spacious enough to fit the entire class.",
+          "D. It was the only room available on short notice."
+        ],
+        "answer": 2,
+        "explain": "Trong Part 2, cả lớp chọn hội trường vì nơi đó đủ lớn để chứa tất cả học sinh trong lớp ('big enough to accommodate the whole class')."
+      },
+      {
+        "q": "What was the emotional highlight of the farewell celebration?",
+        "options": [
+          "A. Opening the handmade banners together.",
+          "B. Watching the video montage at the beginning.",
+          "C. Listening to the teacher's heartfelt thank-you speech.",
+          "D. Collecting messages for the scrapbook."
+        ],
+        "answer": 2,
+        "explain": "Trong Part 2, điểm nhấn của buổi tiệc là bài phát biểu cảm ơn chân thành từ cô giáo ('heartfelt thank-you speech')."
+      },
+      {
+        "q": "Why should parents stay organized themselves according to Part 3 Q1?",
+        "options": [
+          "A. Because children imitate and learn by example.",
+          "B. Because children refuse to use daily to-do lists.",
+          "C. Because parents must pack kids' school bags every morning.",
+          "D. Because meal prepping takes too much time alone."
+        ],
+        "answer": 0,
+        "explain": "Trong Q1 Part 3, trẻ em học qua tấm gương thực tế ('children learn by examples'), nên bản thân cha mẹ cần giữ nếp ngăn nắp."
+      },
+      {
+        "q": "When does the speaker think detailed preparation can be counterproductive?",
+        "options": [
+          "A. Before major exams and job interviews.",
+          "B. During weddings and large company projects.",
+          "C. During casual or spontaneous social activities.",
+          "D. While budgeting and managing work deadlines."
+        ],
+        "answer": 2,
+        "explain": "Ở Q3 Part 3, với các hoạt động thoải mái hoặc ngẫu hứng ('casual or spontaneous activities'), chuẩn bị quá kỹ có thể làm mất vui ('take away the fun')."
+      }
+    ],
+    "month": 2,
+    "assigned_days": [
+      67
+    ],
+    "type": "comprehension",
+    "question_count": 4,
+    "exam_type": "STUDY4"
+  }
+];
+    for (var i = 0; i < STUDY4_READINGS_BATCH.length; i++) {
+      var item = STUDY4_READINGS_BATCH[i];
+      if (!root.APP_DATA.readings.some(function (r) { return r && r.id === item.id; })) {
+        root.APP_DATA.readings.push(item);
+      }
+    }
+  }
+})();
+// === STUDY4 SPEAKING & READING MERGE END ===

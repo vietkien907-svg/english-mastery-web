@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from database import engine, Base, SessionLocal
 import models
-from routers import auth_router, keycloak_router, study_router, reading_router, grammar_router, sync_router, stats_router, telegram_router
+from routers import auth_router, keycloak_router, study_router, reading_router, grammar_router, sync_router, stats_router, telegram_router, news_router
 import asyncio
 from datetime import datetime, timezone, timedelta
 
@@ -178,6 +178,7 @@ app.include_router(grammar_router.router)
 app.include_router(sync_router.router)
 app.include_router(stats_router.router)
 app.include_router(telegram_router.router)
+app.include_router(news_router.router)
 
 # Mount Static frontend assets
 FRONTEND_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -295,6 +296,34 @@ def serve_conversation_data():
 @app.get("/educational_channels_data.js")
 def serve_educational_channels_data():
     return FileResponse(os.path.join(FRONTEND_DIR, "educational_channels_data.js"), media_type="application/javascript")
+
+@app.get("/translation_bank_units.js")
+def serve_translation_bank_units():
+    return FileResponse(os.path.join(FRONTEND_DIR, "translation_bank_units.js"), media_type="application/javascript")
+
+@app.get("/translation_bank_media.js")
+def serve_translation_bank_media():
+    return FileResponse(os.path.join(FRONTEND_DIR, "translation_bank_media.js"), media_type="application/javascript")
+
+@app.get("/translation_bank_ielts.js")
+def serve_translation_bank_ielts():
+    return FileResponse(os.path.join(FRONTEND_DIR, "translation_bank_ielts.js"), media_type="application/javascript")
+
+@app.get("/translation_bank_trends.js")
+def serve_translation_bank_trends():
+    return FileResponse(os.path.join(FRONTEND_DIR, "translation_bank_trends.js"), media_type="application/javascript")
+
+@app.get("/translation-practice-engine.js")
+def serve_translation_practice_engine():
+    return FileResponse(os.path.join(FRONTEND_DIR, "translation-practice-engine.js"), media_type="application/javascript", headers=NO_CACHE_HEADERS)
+
+@app.get("/read-aloud-engine.js")
+def serve_read_aloud_engine():
+    return FileResponse(os.path.join(FRONTEND_DIR, "read-aloud-engine.js"), media_type="application/javascript", headers=NO_CACHE_HEADERS)
+
+@app.get("/vi-en-games-engine.js")
+def serve_vi_en_games_engine():
+    return FileResponse(os.path.join(FRONTEND_DIR, "vi-en-games-engine.js"), media_type="application/javascript", headers=NO_CACHE_HEADERS)
 
 @app.get("/mobile_qr.png")
 def serve_qr():

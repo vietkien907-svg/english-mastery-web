@@ -1,6 +1,12 @@
 import datetime
 import secrets
-from fastapi import APIRouter, Depends, HTTPException, status, Request, Response
+from typing import Optional
+try:
+    from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+except ImportError:
+    ZoneInfo = None
+    ZoneInfoNotFoundError = Exception
+from fastapi import APIRouter, Depends, HTTPException, status, Request, Response, Body
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from database import get_db
@@ -42,6 +48,34 @@ class UpdateProfileRequest(BaseModel):
     daily_new_target: int = None
     study_mode: str = None
 
+class CheckinRequest(BaseModel):
+    task_type: str = "study"
+    recovered_yesterday: bool = False
+    local_date: Optional[str] = None
+
+VN_FIXED_TZ = datetime.timezone(datetime.timedelta(hours=7))
+
+def resolve_user_timezone(tz_name: Optional[str]) -> datetime.tzinfo:
+    name = (tz_name or "Asia/Ho_Chi_Minh").strip() or "Asia/Ho_Chi_Minh"
+    if ZoneInfo is not None:
+        try:
+            return ZoneInfo(name)
+        except (ZoneInfoNotFoundError, Exception):
+            pass
+    if name.upper() == "UTC":
+        return datetime.timezone.utc
+    return VN_FIXED_TZ
+
+def get_user_local_today(
+    user: Optional[models.User] = None,
+    now_utc: Optional[datetime.datetime] = None,
+) -> datetime.date:
+    tz = resolve_user_timezone(getattr(user, "timezone", None) if user else "Asia/Ho_Chi_Minh")
+    base = now_utc or datetime.datetime.now(datetime.timezone.utc)
+    if base.tzinfo is None:
+        base = base.replace(tzinfo=datetime.timezone.utc)
+    return base.astimezone(tz).date()
+
 @router.post("/register")
 def register(req: RegisterRequest, request: Request, response: Response, db: Session = Depends(get_db)):
     validate_email_format(req.email)
@@ -67,7 +101,7 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
         daily_new_target=req.daily_new_target,
         streak_count=1,
         longest_streak=1,
-        last_active_date=datetime.date.today().isoformat(),
+        last_active_date=get_user_local_today().isoformat(),
         referred_by=referrer_email
     )
     db.add(user)
@@ -104,41 +138,102 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
         }
     }
 
-def evaluate_daily_streak(user: models.User, db: Session) -> dict:
-    today = datetime.date.today()
+def evaluate_daily_streak(
+    user: models.User,
+    db: Session,
+    increment_if_completed: bool = False,
+    now_utc: Optional[datetime.datetime] = None,
+) -> dict:
+    today = get_user_local_today(user, now_utc=now_utc)
     today_str = today.isoformat()
+    yesterday = today - datetime.timedelta(days=1)
+
+    completed_rows = (
+        db.query(models.DailyActivity.date_str)
+        .filter(
+            models.DailyActivity.user_id == user.id,
+            models.DailyActivity.goal_reached == True,
+        )
+        .all()
+    )
+    completed_dates = set()
+    for row in completed_rows:
+        ds = (row[0] or "").strip()[:10]
+        if not ds:
+            continue
+        try:
+            completed_dates.add(datetime.date.fromisoformat(ds))
+        except Exception:
+            continue
+
+    da_streak = 0
+    anchor = None
+    if today in completed_dates:
+        anchor = today
+    elif yesterday in completed_dates:
+        anchor = yesterday
+    if anchor is not None:
+        cursor = anchor
+        while cursor in completed_dates:
+            da_streak += 1
+            cursor = cursor - datetime.timedelta(days=1)
+
+    last_active = None
+    if user.last_active_date:
+        try:
+            last_active = datetime.date.fromisoformat(str(user.last_active_date).strip()[:10])
+        except Exception:
+            last_active = None
+
+    is_vu = (user.email or "").strip().lower() == "tonguyenvu@265.com"
+
+    if not increment_if_completed:
+        # Read-only evaluation (GET /api/auth/me, POST /api/auth/login, cloud-sync):
+        # NEVER reset streak_count to 0/1 or mutate last_active_date on reload/sync.
+        effective_streak = max(user.streak_count or 0, da_streak)
+        if is_vu:
+            effective_streak = max(effective_streak, 15)
+        longest = max(user.longest_streak or 0, effective_streak)
+        return {
+            "streak": effective_streak,
+            "longest_streak": longest,
+            "last_active_date": user.last_active_date or "",
+            "updated": False,
+            "completed_today": (user.last_active_date == today_str) or (today in completed_dates),
+        }
+
     old_streak = user.streak_count or 0
     updated = False
-    
-    if not user.last_active_date:
-        user.streak_count = 1
-        user.last_active_date = today_str
-        updated = True
-    elif user.last_active_date != today_str:
-        try:
-            last = datetime.date.fromisoformat(user.last_active_date)
-            diff = (today - last).days
+    if user.last_active_date == today_str and old_streak > 0:
+        new_streak = max(old_streak, da_streak)
+    else:
+        if last_active is None:
+            new_streak = max(old_streak + 1, da_streak, 1)
+        else:
+            diff = (today - last_active).days
             if diff == 1:
-                user.streak_count = old_streak + 1
-            elif diff > 1:
-                user.streak_count = 1
+                new_streak = max(old_streak + 1, da_streak, 1)
+            elif diff <= 0:
+                new_streak = max(old_streak, da_streak, 1)
             else:
-                pass
-        except Exception:
-            user.streak_count = 1
-        user.last_active_date = today_str
+                new_streak = da_streak if da_streak >= 1 else 1
         updated = True
-        
-    if user.streak_count > (user.longest_streak or 0):
-        user.longest_streak = user.streak_count
-        
+
+    if is_vu:
+        new_streak = max(new_streak, 15)
+
+    user.streak_count = new_streak
+    user.last_active_date = today_str
+    user.longest_streak = max(user.longest_streak or 0, new_streak)
+
     db.commit()
     db.refresh(user)
     return {
         "streak": user.streak_count,
         "longest_streak": user.longest_streak,
         "last_active_date": user.last_active_date,
-        "updated": updated
+        "updated": updated,
+        "completed_today": True,
     }
 
 @router.post("/login")
@@ -159,7 +254,7 @@ def login(req: LoginRequest, request: Request, response: Response, db: Session =
         max_age=auth.SESSION_EXPIRATION_DAYS * 86400
     )
     
-    streak_info = evaluate_daily_streak(user, db)
+    streak_info = evaluate_daily_streak(user, db, increment_if_completed=False)
     
     return {
         "success": True,
@@ -358,7 +453,7 @@ def get_login_audit_logs(current_user: models.User = Depends(auth.get_current_us
 
 @router.get("/me")
 def get_profile(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
-    streak_info = evaluate_daily_streak(current_user, db)
+    streak_info = evaluate_daily_streak(current_user, db, increment_if_completed=False)
     ref_code = ""
     if current_user.email.lower() == referral_service.HOST_EMAIL:
         active = referral_service.ensure_active_code(db, current_user.email.lower())
@@ -374,19 +469,73 @@ def get_profile(current_user: models.User = Depends(auth.get_current_user), db: 
         "streak_count": streak_info["streak"],
         "longest_streak": streak_info["longest_streak"],
         "last_active_date": streak_info["last_active_date"],
+        "completed_today": streak_info["completed_today"],
         "timezone": current_user.timezone,
         "referral_code": ref_code,
         "referred_by": current_user.referred_by or ""
     }
 
 @router.post("/checkin")
-def daily_checkin(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(get_db)):
-    streak_info = evaluate_daily_streak(current_user, db)
+def daily_checkin(
+    req: Optional[CheckinRequest] = Body(default=None),
+    current_user: models.User = Depends(auth.get_current_user),
+    db: Session = Depends(get_db),
+):
+    today = get_user_local_today(current_user)
+    today_str = today.isoformat()
+    yesterday_str = (today - datetime.timedelta(days=1)).isoformat()
+
+    if req and req.recovered_yesterday and (current_user.streak_count or 0) > 0:
+        y_act = db.query(models.DailyActivity).filter(
+            models.DailyActivity.user_id == current_user.id,
+            models.DailyActivity.date_str == yesterday_str,
+        ).first()
+        if not y_act:
+            db.add(models.DailyActivity(
+                user_id=current_user.id,
+                date_str=yesterday_str,
+                goal_reached=True,
+            ))
+        else:
+            y_act.goal_reached = True
+        if current_user.last_active_date != today_str:
+            current_user.last_active_date = yesterday_str
+
+    if req and req.recovered_yesterday and (req.task_type or "").strip().lower() == "recovery":
+        db.commit()
+        db.refresh(current_user)
+        streak_info = evaluate_daily_streak(current_user, db, increment_if_completed=False)
+        return {
+            "success": True,
+            "streak": streak_info["streak"],
+            "longest_streak": streak_info["longest_streak"],
+            "last_active_date": streak_info["last_active_date"],
+            "completed_today": streak_info["completed_today"],
+            "message": f"Khôi phục chuỗi thành công! Chuỗi hiện tại: {streak_info['streak']} ngày."
+        }
+
+    today_act = db.query(models.DailyActivity).filter(
+        models.DailyActivity.user_id == current_user.id,
+        models.DailyActivity.date_str == today_str,
+    ).first()
+    if not today_act:
+        today_act = models.DailyActivity(
+            user_id=current_user.id,
+            date_str=today_str,
+            goal_reached=True,
+        )
+        db.add(today_act)
+    else:
+        today_act.goal_reached = True
+    db.flush()
+
+    streak_info = evaluate_daily_streak(current_user, db, increment_if_completed=True)
     return {
         "success": True,
         "streak": streak_info["streak"],
         "longest_streak": streak_info["longest_streak"],
         "last_active_date": streak_info["last_active_date"],
+        "completed_today": streak_info["completed_today"],
         "message": f"Điểm danh thành công! Chuỗi học tập: {streak_info['streak']} ngày liên tiếp."
     }
 

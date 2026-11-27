@@ -84,10 +84,11 @@ let appState = {
 window.addEventListener("DOMContentLoaded", async () => {
   const initialBan = (typeof getStreakBanStatus === 'function') ? getStreakBanStatus() : { isBanned: false };
   if (initialBan.isBanned && typeof showBanOverlay === 'function') showBanOverlay();
-  // 1. Khởi tạo và nạp tiến độ Lộ trình đầu tiên (đảm bảo giữ nguyên tiến độ 100% khi F5)
-  initDailyMissionEngine();
+  // 1. Nạp dữ liệu lộ trình trước, xác thực người dùng trước khi khởi tạo đồng hồ streak 1s
+  if (typeof loadMissionRegistry === "function") loadMissionRegistry();
   setupUnitSelectors();
   await checkAuthStatus();
+  initDailyMissionEngine();
   await loadTodayQueue();
   await loadGrammarTopics();
   setupReadingSelector();
@@ -96,17 +97,19 @@ window.addEventListener("DOMContentLoaded", async () => {
   initCrossDeviceAutoSync();
   initListeningModule();
   initVietnamTodayModule();
-  loadTelegramSettings();
+  if (typeof loadTelegramSettings === "function") loadTelegramSettings();
   // initBilingualCinemaModule();
   updateSessionRoutineUI();
   initMultiAccountAndLeaderboard();
   updateDailyMissionUI();
-  if (!window.location.hash || window.location.hash === "#speaking" || window.location.pathname.includes("speaking")) {
-    switchTab("speaking");
-  } else {
-    const targetHash = window.location.hash.replace("#", "");
-    if (["today", "flashcard", "video", "conversation", "review", "profile"].includes(targetHash)) {
-      switchTab(targetHash);
+  if (!window._emhUserSwitchedTabDuringBoot) {
+    if (!window.location.hash || window.location.hash === "#speaking" || window.location.pathname.includes("speaking")) {
+      switchTab("speaking", true);
+    } else {
+      const targetHash = window.location.hash.replace("#", "");
+      if (["today", "flashcard", "video", "conversation", "review", "profile", "translation", "readaloud", "games"].includes(targetHash)) {
+        switchTab(targetHash, true);
+      }
     }
   }
   
@@ -363,13 +366,34 @@ function skipCurrentCard() {
 
 
 // ================= STREAK & DAILY CHECK-IN =================
+function getLocalDateStr(dateObj) {
+  if (window.StreakDeadlineEngine && typeof window.StreakDeadlineEngine.toLocalDateStr === "function") {
+    return window.StreakDeadlineEngine.toLocalDateStr(dateObj);
+  }
+  const d = (dateObj instanceof Date && !isNaN(dateObj.getTime())) ? dateObj : new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function isStreakDeviceAuthenticated() {
+  if (window.DeviceAuthGate && typeof window.DeviceAuthGate.evaluateDeviceAccess === "function") {
+    return !!window.DeviceAuthGate.evaluateDeviceAccess(localStorage).allowed;
+  }
+  const email = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  const tok = (localStorage.getItem("EMH_AUTH_TOKEN") || localStorage.getItem("emh_auth_token") || "").trim();
+  return !!(email && tok.length >= 6);
+}
+
 function updateDailyStreak(serverStreak, serverLastDate) {
   if (typeof syncDeadlineStreak === "function") {
     return syncDeadlineStreak(serverStreak, serverLastDate);
   }
-  const today = new Date().toISOString().slice(0, 10);
-  let streak = parseInt(localStorage.getItem("EMH_STREAK") || "1", 10);
-  localStorage.setItem("EMH_STREAK", streak.toString());
+  if (!isStreakDeviceAuthenticated()) return 0;
+  const today = getLocalDateStr();
+  let streak = Math.max(parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0, parseInt(serverStreak || "0", 10) || 0);
+  localStorage.setItem("EMH_STREAK", String(streak));
+  if (serverLastDate) {
+    localStorage.setItem("EMH_LAST_COMPLETED_DATE", String(serverLastDate).slice(0, 10));
+  }
   localStorage.setItem("EMH_LAST_DATE", today);
   return streak;
 }
@@ -378,8 +402,8 @@ async function triggerDailyCheckin() {
   let streak = updateDailyStreak();
 
   if (appState.authToken) {
-    const res = await apiCall("/api/auth/checkin", "POST");
-    if (res && res.streak) {
+    const res = await apiCall("/api/auth/checkin", "POST", { task_type: "checkin", local_date: getLocalDateStr() });
+    if (res && res.streak !== undefined) {
       streak = res.streak;
       updateDailyStreak(res.streak, res.last_active_date);
     }
@@ -395,11 +419,9 @@ async function checkAuthStatus() {
     if (user) {
       appState.currentUser = user;
       updateDailyStreak(user.streak_count, user.last_active_date);
-    } else {
+    } else if (isStreakDeviceAuthenticated()) {
       updateDailyStreak();
     }
-  } else {
-    updateDailyStreak();
   }
   updateAuthUI();
   flushOfflineQueue();
@@ -432,7 +454,9 @@ function updateAuthUI() {
 
   const curEmail = access.allowed ? (appState.currentUser?.email || access.userEmail || "").trim() : "";
   const isHost = curEmail.toLowerCase() === "tonguyenvu@265.com";
-  const streakVal = curEmail ? (localStorage.getItem("EMH_STREAK") || (appState.currentUser?.streak_count || 1)) : 0;
+  const storedStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+  const serverStreak = parseInt((appState.currentUser && (appState.currentUser.streak_count ?? appState.currentUser.streak)) || 0, 10) || 0;
+  const streakVal = curEmail ? Math.max(storedStreak, serverStreak) : 0;
 
   if (streakEl) streakEl.innerText = curEmail ? `${streakVal} ngày` : "0 ngày";
   if (profileStreakEl) profileStreakEl.innerText = curEmail ? `${streakVal} ngày 🔥` : "0 ngày";
@@ -1259,7 +1283,10 @@ async function submitKeycloakReferralActivation() {
 }
 
 // ================= TAB NAVIGATION =================
-function switchTab(tabId) {
+function switchTab(tabId, isAutoBoot) {
+  if (!isAutoBoot) {
+    window._emhUserSwitchedTabDuringBoot = true;
+  }
   // Kiểm tra lệnh cấm: Nếu tài khoản đang bị ban 1 tiếng do mất chuỗi, ngăn truy cập các khu vực học tập
   const banStatus = (typeof getStreakBanStatus === "function") ? getStreakBanStatus() : { isBanned: false };
   if (banStatus.isBanned && ["flashcard", "reader", "reading", "grammar", "listening", "review"].includes(tabId)) {
@@ -1277,7 +1304,7 @@ function switchTab(tabId) {
   appState.activeTab = tabId;
 
   // Sync nav buttons
-  ["today", "flashcard", "listening", "cinema", "video", "review", "reader", "grammar", "profile", "conversation", "speaking"].forEach(id => {
+  ["today", "flashcard", "listening", "cinema", "video", "review", "reader", "grammar", "profile", "conversation", "speaking", "translation", "readaloud", "games"].forEach(id => {
     const sec = document.getElementById(`tab-${id}`);
     if (sec) sec.classList.toggle("hidden", id !== tabId);
 
@@ -1327,19 +1354,41 @@ function switchTab(tabId) {
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === "function") {
       window.SpeakingEngine.init();
     }
+  } else if (tabId === "translation") {
+    if (window.TranslationPracticeEngine && typeof window.TranslationPracticeEngine.init === "function") {
+      window.TranslationPracticeEngine.init();
+    }
+  } else if (tabId === "readaloud") {
+    if (window.ReadAloudEngine && typeof window.ReadAloudEngine.init === "function") {
+      window.ReadAloudEngine.init();
+    }
+  } else if (tabId === "games") {
+    if (window.ViEnGamesEngine && typeof window.ViEnGamesEngine.init === "function") {
+      window.ViEnGamesEngine.init();
+    }
   }
 
   window.scrollTo({ top: 0, behavior: "smooth" });
   lucide.createIcons();
 }
 
+function openGroqApiKeyModal() {
+  if (window.SpeakingEngine && typeof window.SpeakingEngine.openGroqModal === "function") {
+    window.SpeakingEngine.openGroqModal();
+  }
+}
+window.openGroqApiKeyModal = openGroqApiKeyModal;
+
 // ================= TODAY STUDY SESSION =================
 async function loadTodayQueue() {
   const data = await apiCall("/api/study/today");
   if (data) {
-    document.getElementById("metricDueCount").innerText = data.due_count;
-    document.getElementById("metricNewCount").innerText = data.new_count;
-    document.getElementById("metricEstTime").innerText = `~${data.estimated_minutes}p`;
+    const dueEl = document.getElementById("metricDueCount");
+    const newEl = document.getElementById("metricNewCount");
+    const estEl = document.getElementById("metricEstTime");
+    if (dueEl) dueEl.innerText = data.due_count;
+    if (newEl) newEl.innerText = data.new_count;
+    if (estEl) estEl.innerText = `~${data.estimated_minutes}p`;
     appState.todayQueue = data.items || [];
   }
 }
@@ -1518,8 +1567,13 @@ function loadMissionRegistry() {
     missionRegistry.history[curDStr] = {
       vocabDone: false,
       vocabCount: 0,
+      videoDone: false,
       readingDone: false,
       grammarDone: false,
+      listeningDone: false,
+      translationDone: false,
+      readaloudDone: false,
+      translationReadaloudDone: false,
       studiedIndices: []
     };
   }
@@ -1548,10 +1602,7 @@ function saveMissionRegistry() {
 
 
 // ============================================================================
-// STRICT DEADLINE STREAK ENGINE (Duy trì chuỗi khi hoàn thành đủ 4/4 Deadline)
-// ============================================================================
-// ============================================================================
-// COMPREHENSIVE STREAK & ROADMAP COMPLETION ENGINE
+// UNIFIED STREAK & ROADMAP COMPLETION ENGINE
 // ============================================================================
 const STORAGE_KEY_DEADLINE_STREAK_V2 = "EMH_DEADLINE_STREAK_V2";
 
@@ -1564,7 +1615,7 @@ function countCompletedCurriculumDays() {
   const total = (typeof getTotalMissionDays === "function") ? getTotalMissionDays() : 90;
   for (let d = 1; d <= total; d++) {
     const st = getDayMissionStatus(d);
-    if (st.isAllDone || st.completedCount >= 2) {
+    if (st.isAllDone) {
       count++;
     }
   }
@@ -1580,7 +1631,7 @@ function getMaxCompletedCurriculumDay() {
   const total = (typeof getTotalMissionDays === "function") ? getTotalMissionDays() : 90;
   for (let d = 1; d <= total; d++) {
     const st = getDayMissionStatus(d);
-    if (st.isAllDone || st.completedCount >= 2) {
+    if (st.isAllDone) {
       if (d > maxD) maxD = d;
     }
   }
@@ -1590,15 +1641,21 @@ function getMaxCompletedCurriculumDay() {
 // Kiểm tra xem hôm nay học viên đã học hoặc hoàn thành nhiệm vụ nào chưa
 function isTodayStudyActive() {
   const now = new Date();
-  const todayStr = now.toISOString().split("T")[0];
-  const lastActiveDate = localStorage.getItem("EMH_LAST_DATE") || "";
-  if (lastActiveDate === todayStr) {
+  const todayStr = getLocalDateStr(now);
+  const lastCompleted = localStorage.getItem("EMH_LAST_COMPLETED_DATE") || "";
+  if (lastCompleted === todayStr) {
     return true;
+  }
+  if (window.StreakDeadlineEngine && typeof getStreakDeadlineState === "function" && isStreakDeviceAuthenticated()) {
+    const ev = window.StreakDeadlineEngine.evaluateDeadline(getStreakDeadlineState(), now);
+    if (ev.completedToday || (ev.state.todayCompletedTasks && ev.state.todayCompletedTasks.length > 0)) {
+      return true;
+    }
   }
   // Kiểm tra ngày đang chọn
   const curDay = (missionRegistry && missionRegistry.currentDay) ? missionRegistry.currentDay : 1;
   const curStatus = getDayMissionStatus(curDay);
-  if (curStatus.isAllDone || curStatus.completedCount >= 1 || curStatus.videoDone) {
+  if (curStatus.isAllDone || curStatus.completedCount >= 1 || curStatus.videoDone || curStatus.translationDone || curStatus.readaloudDone) {
     return true;
   }
   // Kiểm tra nếu đã lật flashcard hôm nay
@@ -1609,38 +1666,36 @@ function isTodayStudyActive() {
 }
 
 function getDeadlineStreakData() {
-  const todayStr = new Date().toISOString().split("T")[0];
-  let rawData = null;
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_DEADLINE_STREAK_V2);
-    if (raw) rawData = JSON.parse(raw);
-  } catch (e) {}
-
-  const storedStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10);
-  const dataStreak = rawData ? (parseInt(rawData.streakDays) || 0) : 0;
-  const completedCurriculumDays = countCompletedCurriculumDays();
-  const maxCompletedDay = getMaxCompletedCurriculumDay();
-
-  // Mốc chuỗi thực tế tối thiểu không bao giờ nhỏ hơn số ngày lộ trình đã xong
-  const curriculumBase = Math.max(completedCurriculumDays, maxCompletedDay);
-  let effectiveStreak = Math.max(storedStreak, dataStreak, curriculumBase, 6);
-  if (effectiveStreak < 1 && (curriculumBase > 0 || isTodayStudyActive())) {
-    effectiveStreak = Math.max(1, curriculumBase);
+  if (!isStreakDeviceAuthenticated()) {
+    return {
+      streakDays: 0,
+      lastCompletedDate: "",
+      completedToday: false
+    };
   }
-
-  const lastCompletedDate = rawData?.lastCompletedDate || localStorage.getItem("EMH_LAST_COMPLETED_DATE") || "";
-  const isMaintainedToday = (lastCompletedDate === todayStr);
-
+  const now = new Date();
+  const todayStr = getLocalDateStr(now);
+  if (window.StreakDeadlineEngine && typeof getStreakDeadlineState === "function") {
+    const ev = window.StreakDeadlineEngine.evaluateDeadline(getStreakDeadlineState(), now);
+    return {
+      streakDays: Math.max(0, parseInt(ev.state.streak, 10) || 0),
+      lastCompletedDate: ev.state.lastCompletedDate || "",
+      completedToday: !!ev.completedToday
+    };
+  }
+  const storedStreak = Math.max(0, parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0);
+  const lastCompletedDate = localStorage.getItem("EMH_LAST_COMPLETED_DATE") || "";
   return {
-    streakDays: Math.max(1, effectiveStreak),
+    streakDays: storedStreak,
     lastCompletedDate: lastCompletedDate,
-    completedToday: isMaintainedToday
+    completedToday: lastCompletedDate === todayStr
   };
 }
 
 function renderAllStreakUI(streakCount, isMaintainedToday) {
-  const count = Math.max(1, streakCount || 1);
-  const today = new Date().toISOString().slice(0, 10);
+  const authed = isStreakDeviceAuthenticated();
+  const count = authed ? Math.max(0, parseInt(streakCount, 10) || 0) : 0;
+  const today = getLocalDateStr();
 
   // 1. Header Streak Badge
   const headerStreakEl = document.getElementById("streakCount");
@@ -1648,7 +1703,7 @@ function renderAllStreakUI(streakCount, isMaintainedToday) {
 
   // 2. Profile Tab Streak
   const profileStreakEl = document.getElementById("statStreakDisplay");
-  if (profileStreakEl) profileStreakEl.innerText = `${count} ngày 🔥`;
+  if (profileStreakEl) profileStreakEl.innerText = authed ? `${count} ngày 🔥` : "0 ngày";
 
   const streakSubtext = document.getElementById("streakSubtext");
   if (streakSubtext) {
@@ -1660,7 +1715,7 @@ function renderAllStreakUI(streakCount, isMaintainedToday) {
   // 3. Deadline Banner Badge (Today & Flashcard tab)
   const badge = document.getElementById("todayStreakBadge");
   if (badge) {
-    if (isMaintainedToday) {
+    if (isMaintainedToday && authed) {
       badge.className = "px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1 shadow-sm";
       badge.innerHTML = `🔥 Chuỗi Streak: ${count} ngày (Đã giữ chuỗi hôm nay ✓)`;
     } else {
@@ -1669,10 +1724,12 @@ function renderAllStreakUI(streakCount, isMaintainedToday) {
     }
   }
 
-  // 4. Đồng bộ vào LocalStorage
+  if (!authed) return;
+
+  // 4. Đồng bộ vào LocalStorage (chỉ ghi EMH_LAST_DATE khi thực sự hoàn thành hôm nay)
   localStorage.setItem("EMH_STREAK", String(count));
-  localStorage.setItem("EMH_LAST_DATE", today);
   if (isMaintainedToday) {
+    localStorage.setItem("EMH_LAST_DATE", today);
     localStorage.setItem("EMH_LAST_COMPLETED_DATE", today);
   }
   const lastComp = isMaintainedToday ? today : (localStorage.getItem("EMH_LAST_COMPLETED_DATE") || "");
@@ -1683,78 +1740,119 @@ function renderAllStreakUI(streakCount, isMaintainedToday) {
   }));
 }
 
+let _isSyncingDeadlineStreak = false;
 function syncDeadlineStreak(serverStreak, serverLastDate) {
-  const officialToday = (typeof getOfficialTodayDay === "function") ? getOfficialTodayDay() : 1;
-  const todayStatus = getDayMissionStatus(officialToday);
-  const curDay = (missionRegistry && missionRegistry.currentDay) ? missionRegistry.currentDay : officialToday;
-  const curStatus = getDayMissionStatus(curDay);
-
-  const completedCurriculumDays = countCompletedCurriculumDays();
-  const maxCompletedDay = getMaxCompletedCurriculumDay();
-  const curriculumBase = Math.max(completedCurriculumDays, maxCompletedDay);
-
-  let data = getDeadlineStreakData();
-  let currentStreak = Math.max(data.streakDays, curriculumBase, 1);
-
-  if (serverStreak !== undefined && serverStreak !== null) {
-    currentStreak = Math.max(currentStreak, parseInt(serverStreak) || 1, curriculumBase);
+  if (_isSyncingDeadlineStreak) return 0;
+  if (!isStreakDeviceAuthenticated()) {
+    renderAllStreakUI(0, false);
+    return 0;
   }
+  _isSyncingDeadlineStreak = true;
+  try {
+    const now = new Date();
+    const todayStr = getLocalDateStr(now);
+    let state = (typeof getStreakDeadlineState === "function") ? getStreakDeadlineState() : { streak: 0, lastCompletedDate: "" };
 
-  const now = new Date();
-  const todayStr = now.toISOString().split("T")[0];
-  const yesterday = new Date(now);
-  yesterday.setDate(now.getDate() - 1);
-  const yesterdayStr = yesterday.toISOString().split("T")[0];
+    if (window.StreakDeadlineEngine) {
+      if (serverStreak !== undefined && serverStreak !== null && typeof window.StreakDeadlineEngine.reconcileWithServer === "function") {
+        state = window.StreakDeadlineEngine.reconcileWithServer(state, {
+          streak_count: serverStreak,
+          last_active_date: serverLastDate,
+          longest_streak: appState.currentUser?.longest_streak,
+          email: appState.currentUser?.email
+        }, now);
+      }
 
-  const isCompletedFull = todayStatus.isAllDone || curStatus.isAllDone;
-  const isStudyActive = isTodayStudyActive() || isCompletedFull;
+      const officialToday = (typeof getOfficialTodayDay === "function") ? getOfficialTodayDay() : 1;
+      const todayStatus = getDayMissionStatus(officialToday);
+      const curDay = (missionRegistry && missionRegistry.currentDay) ? missionRegistry.currentDay : officialToday;
+      const curStatus = getDayMissionStatus(curDay);
+      const isCompletedFull = todayStatus.isAllDone || curStatus.isAllDone;
 
-  if (isCompletedFull && data.lastCompletedDate !== todayStr) {
-    if (data.lastCompletedDate === yesterdayStr) {
-      currentStreak += 1;
-    } else {
-      currentStreak = Math.max(currentStreak, curriculumBase);
+      const ev = window.StreakDeadlineEngine.evaluateDeadline(state, now);
+      state = ev.state;
+
+      if (isCompletedFull && state.lastCompletedDate !== todayStr) {
+        const res = window.StreakDeadlineEngine.recordCoreTaskCompletion(state, "mission_all", now);
+        state = res.state;
+        if (res.streakIncremented && typeof showToast === "function") {
+          showToast(`🔥 CHUỖI STREAK ĐƯỢC DUY TRÌ: ${state.streak} NGÀY LIÊN TIẾP! (Đã xong deadline hôm nay)`, "success");
+        }
+      }
+
+      if (typeof saveStreakDeadlineState === "function") {
+        saveStreakDeadlineState(state);
+      }
+      const maintainedToday = (state.lastCompletedDate === todayStr);
+      renderAllStreakUI(state.streak || 0, maintainedToday);
+      if (typeof refreshDailyStreakDeadlineUI === "function") {
+        refreshDailyStreakDeadlineUI();
+      }
+      return state.streak || 0;
     }
-    data.lastCompletedDate = todayStr;
-    localStorage.setItem("EMH_LAST_COMPLETED_DATE", todayStr);
-    if (typeof showToast === "function") {
-      showToast(`🔥 CHUỖI STREAK ĐƯỢC DUY TRÌ: ${currentStreak} NGÀY LIÊN TIẾP! (Đã xong deadline hôm nay)`, "success");
-    }
+
+    const fallbackStreak = Math.max(
+      parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0,
+      parseInt(serverStreak || "0", 10) || 0
+    );
+    renderAllStreakUI(fallbackStreak, state.lastCompletedDate === todayStr);
+    return fallbackStreak;
+  } finally {
+    _isSyncingDeadlineStreak = false;
   }
-
-  renderAllStreakUI(currentStreak, isCompletedFull || (data.lastCompletedDate === todayStr));
-  return currentStreak;
 }
 
 function getDayMissionStatus(dayNum) {
   if (typeof loadMissionRegistry === "function" && (!missionRegistry || !missionRegistry.history || Object.keys(missionRegistry.history).length === 0)) {
     loadMissionRegistry();
   }
-  const dStr = String(dayNum);
+  const dNum = parseInt(dayNum, 10) || 1;
+  const dStr = String(dNum);
   const data = (missionRegistry && missionRegistry.history) ? (missionRegistry.history[dStr] || {}) : {};
   const isVocab = !!data.vocabDone || (data.vocabCount >= 20) || (data.vocabCount >= 10);
 
   // DEADLINE BẮT BUỘC: Xem bản tin thời sự tiếng Anh Vietnam Today VTV4 mỗi ngày (Hạn 22:00)
-  const isVideo = !!data.videoDone || !!data.readingDone || (data.completedVideos && data.completedVideos.length > 0);
+  const isVideo = !!data.videoDone || !!data.readingDone || (Array.isArray(data.completedVideos) && data.completedVideos.length > 0);
 
-  // 2 nhiệm vụ bắt buộc: 20 Từ vựng + Bản tin Vietnam Today VTV4
-  let count = 0;
-  if (isVocab) count++;
-  if (isVideo) count++;
+  // Nhiệm vụ Dịch Việt->Anh & Đọc lại
+  const translationDone = !!data.translationDone || !!data.translationReadaloudDone;
+  const readaloudDone = !!data.readaloudDone || !!data.translationReadaloudDone;
+  const isTranslationReadaloud = !!data.translationReadaloudDone || (translationDone && readaloudDone);
 
-  const isAllDone = (isVocab && isVideo);
+  // Bảo toàn tương thích Days 1–14 cho tài khoản Tô Nguyên Vũ & dữ liệu cũ trước v105
+  const curUserEmail = ((typeof appState !== "undefined" && appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
+  const isLegacyCompatibleComplete =
+    (dNum <= 14 && isVocab && isVideo) &&
+    (curUserEmail === "tonguyenvu@265.com" || data.translationReadaloudDone === undefined);
+
+  const count = (isVocab ? 1 : 0) + (isVideo ? 1 : 0) + (isTranslationReadaloud ? 1 : 0);
+  const totalCount = isLegacyCompatibleComplete ? (isTranslationReadaloud ? 3 : 2) : 3;
+  const isAllDone = isLegacyCompatibleComplete ? true : (isVocab && isVideo && isTranslationReadaloud);
 
   return {
     vocabDone: isVocab,
     vocabCount: data.vocabCount || (isVocab ? 20 : 0),
     videoDone: isVideo,
-    grammarDone: true,
+    completedVideos: Array.isArray(data.completedVideos) ? data.completedVideos : [],
+    readingDone: !!data.readingDone,
+    readingDoneCount: data.readingDoneCount || (Array.isArray(data.completedReadings) ? data.completedReadings.length : (data.readingDone ? 3 : 0)),
+    completedReadings: Array.isArray(data.completedReadings) ? data.completedReadings : [],
+    grammarDone: data.grammarDone !== undefined ? !!data.grammarDone : true,
+    completedGrammarTopics: Array.isArray(data.completedGrammarTopics) ? data.completedGrammarTopics : [],
+    listeningDone: !!data.listeningDone,
+    completedListeningTests: Array.isArray(data.completedListeningTests) ? data.completedListeningTests : [],
+    translationDone: translationDone,
+    readaloudDone: readaloudDone,
+    translationReadaloudDone: isTranslationReadaloud,
+    isTranslationReadaloud: isTranslationReadaloud,
     completedCount: count,
+    totalCount: totalCount,
+    totalTasks: totalCount,
     isAllDone: isAllDone
   };
 }
 
-function setDayMissionStatus(dayNum, updates) {
+function setDayMissionStatus(dayNum, updates, options) {
   if (typeof loadMissionRegistry === "function" && (!missionRegistry || !missionRegistry.history)) {
     loadMissionRegistry();
   }
@@ -1762,21 +1860,45 @@ function setDayMissionStatus(dayNum, updates) {
   const current = missionRegistry.history[dStr] || {
     vocabDone: false,
     vocabCount: 0,
+    videoDone: false,
     readingDone: false,
     readingDoneCount: 0,
     completedReadings: [],
-    grammarDone: false
+    grammarDone: false,
+    listeningDone: false,
+    translationDone: false,
+    readaloudDone: false,
+    translationReadaloudDone: false
   };
-  missionRegistry.history[dStr] = { ...current, ...updates };
-  saveMissionRegistry();
-  if (typeof syncDeadlineStreak === "function") {
-    syncDeadlineStreak();
+  const merged = { ...current, ...(updates || {}) };
+  if (updates && updates.translationReadaloudDone === true) {
+    merged.translationDone = true;
+    merged.readaloudDone = true;
   }
-  if (updates && (updates.vocabDone === true || updates.readingDone === true || updates.grammarDone === true || updates.videoDone === true)) {
-    const taskType = updates.vocabDone ? "flashcard" : (updates.readingDone ? "reading" : (updates.grammarDone ? "grammar" : "video"));
-    if (typeof window.markDailyStreakTaskCompleted === "function") {
-      window.markDailyStreakTaskCompleted(taskType);
+  if (merged.translationDone && merged.readaloudDone) {
+    merged.translationReadaloudDone = true;
+  } else if (updates && updates.translationReadaloudDone === false) {
+    merged.translationReadaloudDone = false;
+  }
+
+  missionRegistry.history[dStr] = merged;
+  saveMissionRegistry();
+
+  const opts = options || {};
+  if (!opts.skipStreakHook && updates && typeof window.markDailyStreakTaskCompleted === "function") {
+    const tasksToRecord = [];
+    if (updates.vocabDone === true) tasksToRecord.push("vocab");
+    if (updates.videoDone === true) tasksToRecord.push("video");
+    if (updates.readingDone === true) tasksToRecord.push("reading");
+    if (updates.grammarDone === true) tasksToRecord.push("grammar");
+    if (updates.listeningDone === true) tasksToRecord.push("listening");
+    if (updates.translationReadaloudDone === true) {
+      tasksToRecord.push("translation_readaloud");
+    } else {
+      if (updates.translationDone === true) tasksToRecord.push("translation");
+      if (updates.readaloudDone === true) tasksToRecord.push("readaloud");
     }
+    tasksToRecord.forEach(t => window.markDailyStreakTaskCompleted(t, { skipMissionUpdate: true }));
   }
 }
 
@@ -2043,60 +2165,105 @@ function getStreakStorageKey() {
 }
 
 function getStreakDeadlineState() {
+  const now = new Date();
+  const todayStr = getLocalDateStr(now);
+  const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+  const yStr = getLocalDateStr(yesterday);
+
+  if (!isStreakDeviceAuthenticated()) {
+    return {
+      streak: 0,
+      longestStreak: 0,
+      lastCompletedDate: "",
+      completedDates: [],
+      todayCompletedTasks: [],
+      todayDate: todayStr,
+      missedPreviousStreak: 0,
+      recoveryMonth: todayStr.slice(0, 7),
+      recoveriesUsedThisMonth: 0,
+      lastEvaluatedDate: todayStr
+    };
+  }
+
   const key = getStreakStorageKey();
-  const email = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
+  const email = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
   try {
     const raw = localStorage.getItem(key);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      const localStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+      const parsedStreak = parseInt(parsed.streak, 10) || 0;
+      const parsedMissed = parseInt(parsed.missedPreviousStreak, 10) || 0;
+      if (localStreak > parsedStreak && !(parsedMissed > 0 && parsedStreak === 0)) {
+        parsed.streak = localStreak;
+        parsed.longestStreak = Math.max(parseInt(parsed.longestStreak, 10) || 0, localStreak);
+        if (!parsed.lastCompletedDate) {
+          const yDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+          parsed.lastCompletedDate = getLocalDateStr(yDate);
+        }
+      }
+      return parsed;
+    }
   } catch (e) {}
 
-  // Seed initial real state without auto-marking today:
-  // Tô Nguyên Vũ starts with his real 14-day streak completed yesterday, so TODAY's deadline is ACTIVE.
-  const now = new Date();
-  const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
-  const yStr = (window.StreakDeadlineEngine && window.StreakDeadlineEngine.toLocalDateStr)
-    ? window.StreakDeadlineEngine.toLocalDateStr(yesterday)
-    : yesterday.toISOString().split("T")[0];
-
   const isVu = (email === "tonguyenvu@265.com");
+  const srvStreak = parseInt((appState.currentUser && (appState.currentUser.streak_count ?? appState.currentUser.streak)) || 0, 10) || 0;
+  const localStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+  const seedStreak = isVu ? Math.max(srvStreak, localStreak, 15) : Math.max(srvStreak, localStreak);
+  const srvLast = String((appState.currentUser && appState.currentUser.last_active_date) || localStorage.getItem("EMH_LAST_COMPLETED_DATE") || "").trim().slice(0, 10);
+  const initialLast = isVu ? (srvLast === todayStr ? todayStr : yStr) : srvLast;
   const initial = {
-    streak: isVu ? 14 : (parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0),
-    longestStreak: isVu ? 14 : (parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0),
-    lastCompletedDate: isVu ? yStr : "",
+    streak: seedStreak,
+    longestStreak: Math.max(seedStreak, parseInt((appState.currentUser && appState.currentUser.longest_streak) || 0, 10) || 0),
+    lastCompletedDate: initialLast,
+    completedDates: initialLast ? [initialLast] : [],
     todayCompletedTasks: [],
-    todayDate: (window.StreakDeadlineEngine && window.StreakDeadlineEngine.toLocalDateStr)
-      ? window.StreakDeadlineEngine.toLocalDateStr(now)
-      : now.toISOString().split("T")[0],
+    todayDate: todayStr,
     missedPreviousStreak: 0,
-    recoveryMonth: now.toISOString().slice(0, 7),
+    recoveryMonth: todayStr.slice(0, 7),
     recoveriesUsedThisMonth: 0,
-    lastEvaluatedDate: now.toISOString().split("T")[0]
+    lastEvaluatedDate: todayStr
   };
   saveStreakDeadlineState(initial);
   return initial;
 }
 
 function saveStreakDeadlineState(st) {
+  if (!isStreakDeviceAuthenticated()) return;
   try {
-    localStorage.setItem(getStreakStorageKey(), JSON.stringify(st));
-    localStorage.setItem("EMH_STREAK", String(st.streak || 0));
+    const key = getStreakStorageKey();
+    const nextJson = JSON.stringify(st);
+    if (localStorage.getItem(key) !== nextJson) {
+      localStorage.setItem(key, nextJson);
+    }
+    const nextStreakStr = String(st.streak || 0);
+    if (localStorage.getItem("EMH_STREAK") !== nextStreakStr) {
+      localStorage.setItem("EMH_STREAK", nextStreakStr);
+    }
+    if (st.lastCompletedDate && st.lastCompletedDate === getLocalDateStr()) {
+      localStorage.setItem("EMH_LAST_COMPLETED_DATE", st.lastCompletedDate);
+    }
   } catch (e) {}
 }
 
 function refreshDailyStreakDeadlineUI() {
   if (!window.StreakDeadlineEngine) return;
+  const authed = isStreakDeviceAuthenticated();
   const rawState = getStreakDeadlineState();
+  const rawJson = JSON.stringify(rawState);
   const ev = window.StreakDeadlineEngine.evaluateDeadline(rawState, new Date());
-  saveStreakDeadlineState(ev.state);
+  if (authed && JSON.stringify(ev.state) !== rawJson) {
+    saveStreakDeadlineState(ev.state);
+  }
 
-  const curEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
-  const streakNum = ev.state.streak || 0;
+  const curEmail = authed ? ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim() : "";
+  const streakNum = authed ? (ev.state.streak || 0) : 0;
 
   // Update Header & Profile streak displays
   const streakEl = document.getElementById("streakCount");
-  if (streakEl && curEmail) streakEl.innerText = `${streakNum} ngày`;
+  if (streakEl) streakEl.innerText = curEmail ? `${streakNum} ngày` : "0 ngày";
   const profileStreakEl = document.getElementById("statStreakDisplay");
-  if (profileStreakEl && curEmail) profileStreakEl.innerText = `${streakNum} ngày 🔥`;
+  if (profileStreakEl) profileStreakEl.innerText = curEmail ? `${streakNum} ngày 🔥` : "0 ngày";
 
   // Update Today / Profile Deadline & Recovery Bar
   const countdownEl = document.getElementById("realDeadlineCountdown");
@@ -2141,30 +2308,75 @@ function refreshDailyStreakDeadlineUI() {
       pillEl.className = "px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 text-[11px] font-bold border border-amber-300";
     }
     if (statusEl) {
-      statusEl.innerText = `Hoàn thành ít nhất 1 nhiệm vụ (Flashcard ngày, Speaking, Đọc hiểu hoặc Ngữ pháp) trước 23:59 để giữ & tăng lên ${streakNum + 1} ngày!`;
+      statusEl.innerText = `Hoàn thành ít nhất 1 nhiệm vụ (Flashcard ngày, Speaking, Dịch Việt–Anh & Đọc lại, Đọc hiểu hoặc Ngữ pháp) trước 23:59 để giữ & tăng lên ${streakNum + 1} ngày!`;
     }
   }
 
-  const showRecover = ev.canRecover;
+  const showRecover = authed && ev.canRecover;
   if (recoverBtn) recoverBtn.classList.toggle("hidden", !showRecover);
   if (profileRecoverBtn) profileRecoverBtn.classList.toggle("hidden", !showRecover);
 }
 
-window.markDailyStreakTaskCompleted = function (taskType) {
-  if (!window.StreakDeadlineEngine) return;
-  const st = getStreakDeadlineState();
-  const res = window.StreakDeadlineEngine.recordCoreTaskCompletion(st, taskType, new Date());
-  saveStreakDeadlineState(res.state);
-  refreshDailyStreakDeadlineUI();
+let _isRecordingStreakTask = false;
+window.markDailyStreakTaskCompleted = function (taskType, options) {
+  if (!window.StreakDeadlineEngine || _isRecordingStreakTask) return;
+  _isRecordingStreakTask = true;
+  try {
+    const cleanTask = String(taskType || "study").trim().toLowerCase();
+    const opts = options || {};
+    if (!opts.skipMissionUpdate && typeof setDayMissionStatus === "function" && typeof missionRegistry !== "undefined") {
+      const curDay = missionRegistry.currentDay || ((typeof getOfficialTodayDay === "function") ? getOfficialTodayDay() : 1);
+      const patch = {};
+      if (cleanTask === "vocab" || cleanTask === "flashcard") {
+        patch.vocabDone = true;
+        patch.vocabCount = Math.max((missionRegistry.history && missionRegistry.history[String(curDay)] && missionRegistry.history[String(curDay)].vocabCount) || 0, 20);
+      } else if (cleanTask === "video") {
+        patch.videoDone = true;
+      } else if (cleanTask === "reading") {
+        patch.readingDone = true;
+      } else if (cleanTask === "grammar") {
+        patch.grammarDone = true;
+      } else if (cleanTask === "listening") {
+        patch.listeningDone = true;
+      } else if (cleanTask === "translation") {
+        patch.translationDone = true;
+      } else if (cleanTask === "readaloud") {
+        patch.readaloudDone = true;
+      } else if (cleanTask === "translation_readaloud") {
+        patch.translationDone = true;
+        patch.readaloudDone = true;
+        patch.translationReadaloudDone = true;
+      }
+      if (Object.keys(patch).length > 0) {
+        setDayMissionStatus(curDay, patch, { skipStreakHook: true });
+      }
+    }
 
-  if (res.streakIncremented) {
-    if (typeof showToast === "function") {
-      showToast(`🔥 Hoàn thành Deadline hôm nay! Chuỗi Streak tăng lên ${res.newStreak} ngày liên tiếp!`, "success");
+    const st = getStreakDeadlineState();
+    const now = new Date();
+    const todayStr = getLocalDateStr(now);
+    const res = window.StreakDeadlineEngine.recordCoreTaskCompletion(st, cleanTask, now);
+    saveStreakDeadlineState(res.state);
+    refreshDailyStreakDeadlineUI();
+    renderAllStreakUI(res.state.streak || 0, true);
+
+    if (res.streakIncremented) {
+      if (typeof showToast === "function") {
+        showToast(`🔥 Hoàn thành Deadline hôm nay! Chuỗi Streak tăng lên ${res.newStreak} ngày liên tiếp!`, "success");
+      }
     }
-    // Sync with backend if logged in
-    if (appState && appState.authToken) {
-      apiCall("/api/auth/checkin", "POST").catch(() => {});
+    if (appState && appState.authToken && (res.streakIncremented || (appState.currentUser && appState.currentUser.last_active_date !== todayStr))) {
+      apiCall("/api/auth/checkin", "POST", { task_type: cleanTask, local_date: todayStr })
+        .then((srvRes) => {
+          if (srvRes && srvRes.streak !== undefined && appState.currentUser) {
+            appState.currentUser.streak_count = Math.max(appState.currentUser.streak_count || 0, srvRes.streak);
+            appState.currentUser.last_active_date = srvRes.last_active_date || todayStr;
+          }
+        })
+        .catch(() => {});
     }
+  } finally {
+    _isRecordingStreakTask = false;
   }
 };
 
@@ -2174,6 +2386,13 @@ window.triggerMonthlyStreakRecovery = function () {
   const res = window.StreakDeadlineEngine.recoverMissedStreak(st, new Date());
   saveStreakDeadlineState(res.state);
   refreshDailyStreakDeadlineUI();
+  if (res.success && appState && appState.authToken) {
+    apiCall("/api/auth/checkin", "POST", {
+      task_type: "recovery",
+      recovered_yesterday: true,
+      local_date: getLocalDateStr(new Date())
+    }).catch(() => {});
+  }
   if (typeof showToast === "function") {
     showToast(res.message, res.success ? "success" : "error");
   } else {
@@ -2182,8 +2401,11 @@ window.triggerMonthlyStreakRecovery = function () {
 };
 
 function ensureHostVuProgressRestored() {
-  const curEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
-  if (curEmail !== "tonguyenvu@265.com") return;
+  const access = (window.DeviceAuthGate && typeof window.DeviceAuthGate.evaluateDeviceAccess === "function")
+    ? window.DeviceAuthGate.evaluateDeviceAccess(localStorage)
+    : { allowed: isStreakDeviceAuthenticated(), userEmail: localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "" };
+  const curEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || access.userEmail || "").trim().toLowerCase();
+  if (curEmail !== "tonguyenvu@265.com" || !access.allowed) return;
 
   if (typeof loadMissionRegistry === "function" && (!missionRegistry || !missionRegistry.history)) {
     loadMissionRegistry();
@@ -2191,14 +2413,18 @@ function ensureHostVuProgressRestored() {
   let restoredAny = false;
   for (let d = 1; d <= 14; d++) {
     const dStr = String(d);
-    if (!missionRegistry.history[dStr] || !missionRegistry.history[dStr].vocabDone) {
+    const existing = missionRegistry.history[dStr];
+    if (!existing || !existing.vocabDone || !existing.videoDone) {
       missionRegistry.history[dStr] = {
+        ...(existing || {}),
         vocabDone: true,
-        vocabCount: 20,
+        vocabCount: Math.max((existing && existing.vocabCount) || 0, 20),
         videoDone: true,
         readingDone: true,
         grammarDone: true,
-        studiedIndices: Array.from({ length: 20 }, (_, i) => i)
+        studiedIndices: (existing && Array.isArray(existing.studiedIndices) && existing.studiedIndices.length >= 20)
+          ? existing.studiedIndices
+          : Array.from({ length: 20 }, (_, i) => i)
       };
       restoredAny = true;
     }
@@ -2208,42 +2434,60 @@ function ensureHostVuProgressRestored() {
     restoredAny = true;
   }
 
-  // Force-restore Tô Nguyên Vũ's 15-day streak & saved account summary if wiped by v103
-  const curStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
-  if (curStreak < 15) {
-    localStorage.setItem("EMH_STREAK", "15");
-    try {
-      const now = new Date();
-      const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
-      const yStr = (window.StreakDeadlineEngine && window.StreakDeadlineEngine.toLocalDateStr)
-        ? window.StreakDeadlineEngine.toLocalDateStr(yesterday)
-        : yesterday.toISOString().split("T")[0];
-      const stKey = `EMH_REAL_STREAK_V96_tonguyenvu@265.com`;
-      let stObj = {};
-      try { stObj = JSON.parse(localStorage.getItem(stKey) || "{}"); } catch (e) {}
-      stObj.streak = Math.max(stObj.streak || 0, 15);
-      stObj.longestStreak = Math.max(stObj.longestStreak || 0, 15);
-      if (!stObj.lastCompletedDate) stObj.lastCompletedDate = yStr;
-      localStorage.setItem(stKey, JSON.stringify(stObj));
-    } catch (e) {}
-    try {
-      const savedAccs = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS_V2) || "[]");
-      if (Array.isArray(savedAccs)) {
-        localStorage.setItem(
-          STORAGE_KEY_SAVED_ACCOUNTS_V2,
-          JSON.stringify(savedAccs.map(a => (
-            a && a.email && a.email.toLowerCase() === "tonguyenvu@265.com"
-              ? { ...a, streak: Math.max(a.streak || 0, 15), mature_words: Math.max(a.mature_words || 0, 280) }
-              : a
-          )))
-        );
-      }
-    } catch (e) {}
-    const headerStreak = document.getElementById("streakCount");
-    if (headerStreak) headerStreak.innerText = "15 ngày";
-    const profStreak = document.getElementById("statStreakDisplay");
-    if (profStreak) profStreak.innerText = "15 ngày 🔥";
-  }
+  // Always heal Tô Nguyên Vũ's EMH_REAL_STREAK_V96 state & >= 15 streak (never skip when EMH_STREAK >= 15)
+  let healedStreak = 15;
+  try {
+    const now = new Date();
+    const todayStr = getLocalDateStr(now);
+    const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+    const yStr = getLocalDateStr(yesterday);
+    const stKey = "EMH_REAL_STREAK_V96_tonguyenvu@265.com";
+    let stObj = {};
+    try { stObj = JSON.parse(localStorage.getItem(stKey) || "{}"); } catch (e) {}
+
+    const srvStreak = parseInt((appState.currentUser && (appState.currentUser.streak_count ?? appState.currentUser.streak)) || 0, 10) || 0;
+    const emhStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+    healedStreak = Math.max(parseInt(stObj.streak || 0, 10) || 0, emhStreak, srvStreak, 15);
+    stObj.streak = healedStreak;
+    stObj.longestStreak = Math.max(parseInt(stObj.longestStreak || 0, 10) || 0, healedStreak, 15);
+    stObj.missedPreviousStreak = 0;
+
+    const curLast = String(stObj.lastCompletedDate || "").trim().slice(0, 10);
+    const gap = (curLast && window.StreakDeadlineEngine && typeof window.StreakDeadlineEngine.diffDays === "function")
+      ? window.StreakDeadlineEngine.diffDays(curLast, todayStr)
+      : (curLast === todayStr ? 0 : (curLast === yStr ? 1 : 99));
+    if (curLast !== todayStr && (!curLast || gap > 1)) {
+      stObj.lastCompletedDate = yStr;
+    }
+    if (window.StreakDeadlineEngine && typeof window.StreakDeadlineEngine.evaluateDeadline === "function") {
+      stObj = window.StreakDeadlineEngine.evaluateDeadline(stObj, now).state;
+    }
+    healedStreak = Math.max(stObj.streak || 0, 15);
+    localStorage.setItem(stKey, JSON.stringify(stObj));
+    localStorage.setItem("EMH_STREAK", String(healedStreak));
+    if (stObj.lastCompletedDate) {
+      localStorage.setItem("EMH_LAST_COMPLETED_DATE", stObj.lastCompletedDate);
+    }
+  } catch (e) {}
+
+  try {
+    const savedAccs = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS_V2) || "[]");
+    if (Array.isArray(savedAccs)) {
+      localStorage.setItem(
+        STORAGE_KEY_SAVED_ACCOUNTS_V2,
+        JSON.stringify(savedAccs.map(a => (
+          a && a.email && a.email.toLowerCase() === "tonguyenvu@265.com"
+            ? { ...a, streak: Math.max(a.streak || 0, healedStreak, 15), mature_words: Math.max(a.mature_words || 0, 280) }
+            : a
+        )))
+      );
+    }
+  } catch (e) {}
+
+  const headerStreak = document.getElementById("streakCount");
+  if (headerStreak) headerStreak.innerText = `${healedStreak} ngày`;
+  const profStreak = document.getElementById("statStreakDisplay");
+  if (profStreak) profStreak.innerText = `${healedStreak} ngày 🔥`;
 
   if (restoredAny) {
     saveMissionRegistry();
@@ -2305,6 +2549,33 @@ function initDailyMissionEngine() {
     localStorage.setItem("EMH_PURE_AUTH_V99", "true");
   }
 
+  // Always strip legacy v103 streak-wipe flag so it never resets valid streaks on reload
+  localStorage.removeItem("EMH_TRUE_STREAK_RESET_V103");
+  // One-time v105 migration: restore any zeroed streaks cleanly without blocking later repairs
+  if (!localStorage.getItem("EMH_STREAK_V105_MIGRATED")) {
+    if (isStreakDeviceAuthenticated()) {
+      const email = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
+      const emhStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+      let realObjStreak = 0;
+      try {
+        const rawReal = JSON.parse(localStorage.getItem(`EMH_REAL_STREAK_V96_${email}`) || "{}");
+        realObjStreak = parseInt(rawReal.streak || "0", 10) || 0;
+      } catch (e) {}
+      let v2Streak = 0;
+      try {
+        const rawV2 = JSON.parse(localStorage.getItem(STORAGE_KEY_DEADLINE_STREAK_V2) || "{}");
+        const v2Num = parseInt(rawV2.streakDays || "0", 10) || 0;
+        if (rawV2.lastCompletedDate && v2Num > 0) v2Streak = v2Num;
+      } catch (e) {}
+      const srvStreak = parseInt((appState.currentUser && (appState.currentUser.streak_count ?? appState.currentUser.streak)) || 0, 10) || 0;
+      const restored = Math.max(emhStreak, realObjStreak, v2Streak, srvStreak);
+      if (emhStreak <= 0 && restored > 0) {
+        localStorage.setItem("EMH_STREAK", String(restored));
+      }
+    }
+    localStorage.setItem("EMH_STREAK_V105_MIGRATED", "true");
+  }
+
   loadMissionRegistry();
   ensureHostVuProgressRestored();
 
@@ -2329,7 +2600,9 @@ function initDailyMissionEngine() {
   appState.studyMode = "daily_locked";
   appState.currentUnitIndex = info.unitIndex;
   appState.currentDayIndex = info.dayIndex;
-  if (typeof syncDeadlineStreak === "function") syncDeadlineStreak();
+  if (isStreakDeviceAuthenticated() && typeof syncDeadlineStreak === "function") {
+    syncDeadlineStreak(appState.currentUser?.streak_count, appState.currentUser?.last_active_date);
+  }
 }
 
 
@@ -2341,13 +2614,13 @@ function initDailyMissionEngine() {
 function getOfficialTodayDay() {
   const total = getTotalMissionDays() || 90;
   const now = new Date();
-  const todayStr = now.toISOString().split("T")[0];
+  const todayStr = getLocalDateStr(now);
 
   // Tìm ngày hoàn thành cao nhất
   let maxCompleted = 0;
   for (let d = 1; d <= total; d++) {
     const st = getDayMissionStatus(d);
-    if (st.isAllDone || st.completedCount >= 2) {
+    if (st.isAllDone) {
       if (d > maxCompleted) maxCompleted = d;
     }
   }
@@ -2402,31 +2675,32 @@ function populateMissionDaySelectOptions(sel, selectedDay) {
     const st = getDayMissionStatus(i);
     const isSel = (i === selDay) ? "selected" : "";
 
-    // 4 nhiệm vụ: Từ vựng, Bài đọc, Ngữ pháp, Bài nghe
+    // Nhiệm vụ bắt buộc theo lộ trình (Từ vựng, Bản tin VTV4, Dịch & Đọc lại)
+    const totalTasks = st.totalCount || 3;
     let statusText = "";
     let icon = "";
 
-    const isDayCompleted = (st.isAllDone || st.completedCount >= 3);
+    const isDayCompleted = !!st.isAllDone;
 
     if (isDayCompleted) {
       icon = "✓ ";
-      statusText = (st.completedCount >= 4) ? "(Đã xong 4/4 ✓)" : "(Đã xong 3/3 ✓)";
+      statusText = `(Đã xong ${totalTasks}/${totalTasks} ✓)`;
     } else if (st.completedCount > 0) {
       icon = "⏳ ";
-      statusText = `(${st.completedCount}/4)`;
+      statusText = `(${st.completedCount}/${totalTasks})`;
     } else {
       icon = "";
-      statusText = "(0/4)";
+      statusText = `(0/${totalTasks})`;
     }
 
     if (i === officialToday) {
-      const todayTag = isDayCompleted ? "[★ HÔM NAY - ĐÃ XONG 4/4 ✓]" : "[★ HÔM NAY - DEADLINE CẦN LÀM]";
+      const todayTag = isDayCompleted ? `[★ HÔM NAY - ĐÃ XONG ${totalTasks}/${totalTasks} ✓]` : "[★ HÔM NAY - DEADLINE CẦN LÀM]";
       optHtml += `<option value="${i}" ${isSel} class="font-bold text-amber-300 bg-slate-900">🎯 Ngày ${i} ${todayTag} (${cal.formattedShort}): ${statusText}</option>`;
     } else if (i < officialToday) {
       const pastTag = isDayCompleted ? "[Ngày cũ - Đã xong]" : "[Ngày cũ - Cần bù]";
       optHtml += `<option value="${i}" ${isSel} class="text-slate-300 bg-slate-950">${icon}Ngày ${i} (${cal.formattedShort}) ${pastTag}: ${statusText}</option>`;
     } else {
-      const futureTag = isDayCompleted ? "[Đã học vượt 4/4 ✓]" : "[Học vượt]";
+      const futureTag = isDayCompleted ? `[Đã học vượt ${totalTasks}/${totalTasks} ✓]` : "[Học vượt]";
       optHtml += `<option value="${i}" ${isSel} class="text-cyan-300 bg-slate-950">🚀 Ngày ${i} (${cal.formattedShort}) ${futureTag}: ${statusText}</option>`;
     }
   }
@@ -2820,10 +3094,10 @@ function updateDailyMissionUI() {
                   <span class="text-xs text-emerald-400 font-semibold">${officialCal.formattedFull}</span>
                 </div>
                 <h3 class="font-black text-white text-base sm:text-lg mt-0.5">
-                  🎉 Tuyệt vời! Bạn đã hoàn thành toàn bộ 4/4 nhiệm vụ Ngày ${curDay} hôm nay!
+                  🎉 Tuyệt vời! Bạn đã hoàn thành toàn bộ ${curStatus.totalCount || 3}/${curStatus.totalCount || 3} nhiệm vụ Ngày ${curDay} hôm nay!
                 </h3>
                 <p class="text-xs text-slate-300 mt-0.5">
-                  Toàn bộ tiến độ Từ vựng, Bài đọc, Ngữ pháp và Bài nghe đã hoàn tất. Chuỗi Streak 🔥 được bảo toàn an toàn! Bạn có thể bấm <strong class="text-cyan-300 font-bold">🚀 Học Vượt</strong> sang Ngày ${curDay + 1} để làm trước lộ trình.
+                  Toàn bộ tiến độ Từ vựng, Bản tin VTV4 và Dịch Việt–Anh & Đọc lại đã hoàn tất. Chuỗi Streak 🔥 được bảo toàn an toàn! Bạn có thể bấm <strong class="text-cyan-300 font-bold">🚀 Học Vượt</strong> sang Ngày ${curDay + 1} để làm trước lộ trình.
                 </p>
               </div>
             </div>
@@ -2835,6 +3109,11 @@ function updateDailyMissionUI() {
           </div>
         `;
       } else {
+        const totalTasks = curStatus.totalCount || 3;
+        const pct = Math.round((curStatus.completedCount / totalTasks) * 100);
+        const trLabel = curStatus.isTranslationReadaloud
+          ? '✓ Dịch & Đọc lại'
+          : (curStatus.translationDone ? '⏳ Dịch ✓ · Chờ đọc lại' : (curStatus.readaloudDone ? '⏳ Đọc lại ✓ · Chờ dịch' : '○ Dịch & Đọc lại'));
         noticeArea.innerHTML = `
           <div class="p-3.5 rounded-xl bg-gradient-to-r from-amber-950/60 via-slate-900 to-slate-900 border-2 border-amber-500/70 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
             <div class="flex items-center gap-3">
@@ -2847,18 +3126,16 @@ function updateDailyMissionUI() {
                   <span class="text-xs text-slate-300 font-medium">📅 ${officialCal.formattedFull}</span>
                 </div>
                 <p class="text-xs text-slate-200 mt-1 font-semibold">
-                  Tiến độ: <strong class="text-amber-300 font-bold">${curStatus.completedCount} / 4 nhiệm vụ</strong> (${Math.round((curStatus.completedCount / 4) * 100)}%) • Cần làm đủ 4/4 trước 23:59:59 đêm nay để duy trì chuỗi Streak!
+                  Tiến độ: <strong class="text-amber-300 font-bold">${curStatus.completedCount} / ${totalTasks} nhiệm vụ</strong> (${pct}%) • Cần hoàn thành trước 23:59:59 đêm nay để duy trì chuỗi Streak!
                 </p>
               </div>
             </div>
             <div class="flex items-center gap-2 text-xs font-medium flex-wrap">
               <span class="${curStatus.vocabDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">${curStatus.vocabDone ? '✓ 20 Từ vựng' : '○ 20 Từ vựng'}</span>
               <span class="text-slate-600">•</span>
-              <span class="${curStatus.readingDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">${curStatus.readingDone ? '✓ Đọc hiểu' : '○ Đọc hiểu'}</span>
+              <span class="${curStatus.videoDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">${curStatus.videoDone ? '✓ Bản tin VTV4' : '○ Bản tin VTV4'}</span>
               <span class="text-slate-600">•</span>
-              <span class="${curStatus.grammarDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">${curStatus.grammarDone ? '✓ Ngữ pháp' : '○ Ngữ pháp'}</span>
-              <span class="text-slate-600">•</span>
-              <span class="${curStatus.listeningDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">${curStatus.listeningDone ? '✓ Luyện nghe' : '○ Luyện nghe'}</span>
+              <span class="${curStatus.isTranslationReadaloud ? 'text-emerald-400 font-bold' : ((curStatus.translationDone || curStatus.readaloudDone) ? 'text-amber-300 font-semibold' : 'text-slate-400')}">${trLabel}</span>
             </div>
           </div>
         `;
@@ -3047,22 +3324,68 @@ function updateDailyMissionUI() {
     if (btnG) btnG.innerHTML = `<i data-lucide="edit-3" class="w-3.5 h-3.5"></i> <span>Làm bài tập Ngữ pháp Ngày ${curDay}</span>`;
   }
 
-  // 5. Ratio & Progress Bar (3 Required Deadlines: Vocab, Vietnam Today VTV4, Grammar)
-  const doneCount = curStatus.completedCount;
+  // 4b. Video VTV4 Task Card (guarded)
+  const cardVid = document.getElementById("taskCardVideo");
+  const bannerVid = document.getElementById("taskCardVideoBanner");
+  const badgeVid = document.getElementById("taskStatusBadgeVideo");
+  const btnVidText = document.getElementById("btnStartVideoText");
+  if (cardVid || badgeVid || bannerVid) {
+    if (curStatus.videoDone) {
+      if (cardVid) cardVid.className = "pv-card p-5 flex flex-col justify-between transition-all space-y-4 border-emerald-300 bg-emerald-50/20";
+      if (bannerVid) bannerVid.innerHTML = `<div class="p-2 rounded-xl bg-emerald-50 text-emerald-800 font-bold text-xs flex items-center justify-between border border-emerald-200 mb-2"><span>✓ ĐÃ XEM BẢN TIN HÔM NAY</span><span>100%</span></div>`;
+      if (badgeVid) {
+        badgeVid.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-200";
+        badgeVid.innerText = "✓ Đã xong";
+      }
+      if (btnVidText) btnVidText.innerText = "✓ Đã Xong (Xem lại)";
+    } else {
+      if (cardVid) cardVid.className = "pv-card p-5 flex flex-col justify-between hover:border-slate-300 transition-all space-y-4";
+      if (bannerVid) bannerVid.innerHTML = "";
+      if (badgeVid) {
+        badgeVid.className = "text-[11px] px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 font-semibold border border-rose-200";
+        badgeVid.innerText = "Hạn 22:00";
+      }
+      if (btnVidText) btnVidText.innerText = "Xem Bản Tin Hôm Nay";
+    }
+  }
+
+  // 4c. Optional Translation & Read-Aloud Task Card (for M5 HTML integration, guarded)
+  const cardTr = document.getElementById("taskCardTranslationReadAloud");
+  const badgeTr = document.getElementById("taskStatusBadgeTranslationReadAloud");
+  const descTr = document.getElementById("taskDescTranslationReadAloud");
+  if (cardTr || badgeTr || descTr) {
+    if (curStatus.isTranslationReadaloud) {
+      if (cardTr) cardTr.className = "pv-card p-5 flex flex-col justify-between transition-all space-y-4 border-emerald-300 bg-emerald-50/20";
+      if (badgeTr) {
+        badgeTr.className = "text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-200";
+        badgeTr.innerText = "✓ Đã xong Dịch & Đọc lại";
+      }
+      if (descTr) descTr.innerText = "✓ Bạn đã hoàn thành bài dịch Việt–Anh và luyện đọc lại cho hôm nay.";
+    } else {
+      if (badgeTr) {
+        badgeTr.className = "text-[11px] px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 font-semibold border border-amber-200";
+        badgeTr.innerText = curStatus.translationDone ? "Đã dịch ✓ · Chờ đọc lại" : (curStatus.readaloudDone ? "Đã đọc lại ✓ · Chờ dịch" : "Chưa làm");
+      }
+    }
+  }
+
+  // 5. Ratio & Progress Bar
+  const doneCount = curStatus.completedCount || 0;
+  const totalTasks = curStatus.totalCount || 3;
   const ratioEl = document.getElementById("missionProgressRatio");
   if (ratioEl) {
-    if (curStatus.isAllDone || doneCount >= 2) {
-      ratioEl.innerText = "2 / 2 ✓";
-      ratioEl.className = "text-xl font-black text-emerald-400 flex items-center gap-1";
+    if (curStatus.isAllDone || doneCount >= totalTasks) {
+      ratioEl.innerText = `${totalTasks} / ${totalTasks} ✓`;
+      ratioEl.className = "text-xl font-black text-emerald-500 flex items-center gap-1";
     } else {
-      ratioEl.innerText = `${doneCount} / 2`;
-      ratioEl.className = "text-xl font-black text-amber-400";
+      ratioEl.innerText = `${doneCount} / ${totalTasks}`;
+      ratioEl.className = "text-xl font-black text-amber-500";
     }
   }
   const barEl = document.getElementById("missionProgressBar");
   if (barEl) {
-    barEl.style.width = `${Math.min(100, (doneCount / 2) * 100)}%`;
-    if (doneCount >= 2) {
+    barEl.style.width = `${Math.min(100, (doneCount / totalTasks) * 100)}%`;
+    if (curStatus.isAllDone || doneCount >= totalTasks) {
       barEl.className = "h-full bg-emerald-400 rounded-full transition-all duration-300 shadow-md shadow-emerald-500/50";
     } else if (doneCount > 0) {
       barEl.className = "h-full bg-gradient-to-r from-amber-500 via-cyan-400 to-emerald-400 rounded-full transition-all duration-300 shadow-sm";
@@ -3107,18 +3430,19 @@ function renderRoadmapGrid() {
     const isToday = (i === officialToday);
     const info = getDailyAssignedVocab(i);
 
+    const totalTasks = st.totalCount || 3;
     let borderClass = "border-slate-800 bg-slate-900/60 text-slate-400";
-    let badgeText = "Chưa học (0/4)";
+    let badgeText = `Chưa học (0/${totalTasks})`;
     let badgeBg = "bg-slate-800 text-slate-400";
 
     if (isToday) {
       if (st.isAllDone) {
         borderClass = "border-emerald-400 ring-2 ring-emerald-400/80 bg-emerald-950/40 text-emerald-200";
-        badgeText = "🎯 HÔM NAY (XONG 4/4 ✓)";
+        badgeText = `🎯 HÔM NAY (XONG ${totalTasks}/${totalTasks} ✓)`;
         badgeBg = "bg-emerald-500/30 text-emerald-300 font-extrabold border border-emerald-400";
       } else {
         borderClass = "border-amber-400 ring-2 ring-amber-400/90 bg-amber-950/40 text-amber-200 animate-pulse";
-        badgeText = `🎯 HÔM NAY (${st.completedCount}/4 DEADLINE)`;
+        badgeText = `🎯 HÔM NAY (${st.completedCount}/${totalTasks} DEADLINE)`;
         badgeBg = "bg-amber-500/30 text-amber-300 font-extrabold border border-amber-400";
       }
     } else if (i < officialToday) {
@@ -3126,13 +3450,13 @@ function renderRoadmapGrid() {
         borderClass = isCur
           ? "border-indigo-400 ring-2 ring-indigo-400/70 bg-indigo-950/40 text-indigo-200"
           : "border-emerald-500/50 bg-emerald-950/20 text-emerald-300";
-        badgeText = isCur ? "✓ Đang xem lại (4/4)" : "✓ Đã xong (4/4)";
+        badgeText = isCur ? `✓ Đang xem lại (${totalTasks}/${totalTasks})` : `✓ Đã xong (${totalTasks}/${totalTasks})`;
         badgeBg = "bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30";
       } else {
         borderClass = isCur
           ? "border-amber-400 ring-2 ring-amber-400/70 bg-amber-950/40 text-amber-200"
           : "border-slate-800 bg-slate-900/40 text-slate-400";
-        badgeText = `Ngày cũ (${st.completedCount}/4)`;
+        badgeText = `Ngày cũ (${st.completedCount}/${totalTasks})`;
         badgeBg = "bg-slate-800 text-amber-400/90 font-medium";
       }
     } else {
@@ -3141,19 +3465,19 @@ function renderRoadmapGrid() {
         borderClass = isCur
           ? "border-cyan-400 ring-2 ring-cyan-400/70 bg-cyan-950/40 text-cyan-200"
           : "border-cyan-500/50 bg-cyan-950/20 text-cyan-300";
-        badgeText = "🚀 Đã học vượt (4/4 ✓)";
+        badgeText = `🚀 Đã học vượt (${totalTasks}/${totalTasks} ✓)`;
         badgeBg = "bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/30";
       } else if (st.completedCount > 0) {
         borderClass = isCur
           ? "border-cyan-400 ring-2 ring-cyan-400/70 bg-cyan-950/40 text-cyan-200"
           : "border-cyan-500/30 bg-slate-900/60 text-slate-300";
-        badgeText = `Học vượt (${st.completedCount}/4)`;
+        badgeText = `Học vượt (${st.completedCount}/${totalTasks})`;
         badgeBg = "bg-cyan-500/20 text-cyan-300 font-medium";
       } else {
         borderClass = isCur
           ? "border-cyan-400 ring-2 ring-cyan-400/50 bg-cyan-950/30 text-white"
           : "border-slate-800 bg-slate-900/40 text-slate-400";
-        badgeText = "Học vượt (0/4)";
+        badgeText = `Học vượt (0/${totalTasks})`;
         badgeBg = "bg-slate-800 text-slate-500 font-normal";
       }
     }
@@ -3168,9 +3492,8 @@ function renderRoadmapGrid() {
         <p class="text-[10px] text-slate-400 line-clamp-1">${info.unitTitle}</p>
         <div class="text-[9px] text-slate-500 flex items-center justify-between pt-1 border-t border-slate-800/60">
           <span class="${st.vocabDone ? 'text-emerald-400 font-bold' : ''}">${st.vocabDone ? '✓ Từ' : '○ Từ'}</span>
-          <span class="${st.readingDone ? 'text-emerald-400 font-bold' : ''}">${st.readingDone ? '✓ Đọc' : '○ Đọc'}</span>
-          <span class="${st.grammarDone ? 'text-emerald-400 font-bold' : ''}">${st.grammarDone ? '✓ Ngữ pháp' : '○ Ngữ pháp'}</span>
-          <span class="${st.listeningDone ? 'text-emerald-400 font-bold' : ''}">${st.listeningDone ? '✓ Nghe' : '○ Nghe'}</span>
+          <span class="${st.videoDone ? 'text-emerald-400 font-bold' : ''}">${st.videoDone ? '✓ Video' : '○ Video'}</span>
+          <span class="${st.isTranslationReadaloud ? 'text-emerald-400 font-bold' : ''}">${st.isTranslationReadaloud ? '✓ Dịch&Đọc' : '○ Dịch&Đọc'}</span>
         </div>
       </div>
     `;
@@ -3543,7 +3866,7 @@ function saveWordSRSState(wordStr, srsData) {
 }
 
 function getSessionStreaksData() {
-  const todayStr = new Date().toISOString().split("T")[0];
+  const todayStr = getLocalDateStr();
   try {
     const raw = localStorage.getItem(STORAGE_KEY_SESSION_STREAKS_V3);
     if (raw) {
@@ -7072,16 +7395,23 @@ function checkQuizAnswer(qIdx, selectedIdx, correctIdx, wordId) {
 // ================= PROFILE & ANALYTICS =================
 async function loadProfileAnalytics() {
   if (typeof renderProfileAccountsCompetition === 'function') renderProfileAccountsCompetition();
-  const streakVal = localStorage.getItem("EMH_STREAK") || (appState.currentUser?.streak_count || 1);
+  const authed = isStreakDeviceAuthenticated();
+  const storedStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+  const serverStreak = parseInt((appState.currentUser && (appState.currentUser.streak_count ?? appState.currentUser.streak)) || 0, 10) || 0;
+  const streakVal = authed ? Math.max(storedStreak, serverStreak) : 0;
   const profileStreakEl = document.getElementById("statStreakDisplay");
-  if (profileStreakEl) profileStreakEl.innerText = `${streakVal} ngày 🔥`;
+  if (profileStreakEl) profileStreakEl.innerText = authed ? `${streakVal} ngày 🔥` : "0 ngày";
 
   const stats = await apiCall("/api/stats/summary");
-  if (stats) {
-    document.getElementById("statTotalStarted").innerText = stats.cards.total_started;
-    document.getElementById("statMature").innerText = stats.cards.mature;
-    document.getElementById("statLearning").innerText = stats.cards.learning;
-    document.getElementById("metricRetention").innerText = `${stats.retention_rate_pct}%`;
+  if (stats && stats.cards) {
+    const sStarted = document.getElementById("statTotalStarted");
+    const sMature = document.getElementById("statMature");
+    const sLearning = document.getElementById("statLearning");
+    const sRet = document.getElementById("metricRetention");
+    if (sStarted) sStarted.innerText = stats.cards.total_started;
+    if (sMature) sMature.innerText = stats.cards.mature;
+    if (sLearning) sLearning.innerText = stats.cards.learning;
+    if (sRet) sRet.innerText = `${stats.retention_rate_pct}%`;
   }
 
   const sessions = await apiCall("/api/auth/sessions") || [];
@@ -7106,7 +7436,7 @@ async function exportPersonalData() {
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
   const a = document.createElement("a");
   a.setAttribute("href", dataStr);
-  a.setAttribute("download", `english_mastery_user_data_${new Date().toISOString().slice(0, 10)}.json`);
+  a.setAttribute("download", `english_mastery_user_data_${getLocalDateStr()}.json`);
   a.click();
 }
 
@@ -7449,7 +7779,7 @@ let sentNotificationsToday = new Set();
 
 function tickDeadlineCountdown() {
   const now = new Date();
-  const todayDateStr = now.toISOString().split("T")[0];
+  const todayDateStr = getLocalDateStr(now);
   if (lastNotificationDay !== todayDateStr) {
     lastNotificationDay = todayDateStr;
     sentNotificationsToday.clear();
@@ -7461,13 +7791,13 @@ function tickDeadlineCountdown() {
   const dayCal = getCalendarDateForDay(curDay);
   const curMissionStatus = getDayMissionStatus(curDay);
   const officialStatus = getDayMissionStatus(officialToday);
+  const officialTotal = officialStatus.totalCount || 3;
 
   // Update Full Calendar Date Display
   const fullDateEl = document.getElementById("fullTodayDateDisplay");
   if (fullDateEl) {
     fullDateEl.innerHTML = `📅 <strong>Hôm nay:</strong> ${officialCal.formattedFull} • <span class="text-amber-300 font-bold">Lộ trình: Ngày ${officialToday}</span>`;
   }
-  if (typeof syncDeadlineStreak === "function") syncDeadlineStreak();
 
   const [targetH, targetM] = (deadlineSettings.deadlineTime || "21:30").split(":").map(Number);
   const midnightDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
@@ -7507,11 +7837,11 @@ function tickDeadlineCountdown() {
   // TRƯỜNG HỢP 3: ĐANG XEM ĐÚNG NGÀY HÔM NAY (curDay === officialToday)
   if (officialStatus.isAllDone) {
     if (countdownEl) {
-      countdownEl.innerText = `✓ ĐÃ XONG 4/4 DEADLINE HÔM NAY (NGÀY ${officialToday})!`;
+      countdownEl.innerText = `✓ ĐÃ XONG ${officialTotal}/${officialTotal} DEADLINE HÔM NAY (NGÀY ${officialToday})!`;
       countdownEl.className = "text-xl sm:text-2xl font-black text-emerald-400 font-mono tracking-tight";
     }
     if (subtextEl) {
-      subtextEl.innerText = `🎉 Xuất sắc! Toàn bộ 4 nhiệm vụ Ngày ${officialToday} hôm nay đã hoàn thành. Chuỗi Streak 🔥 được bảo toàn an toàn!`;
+      subtextEl.innerText = `🎉 Xuất sắc! Toàn bộ ${officialTotal} nhiệm vụ Ngày ${officialToday} hôm nay đã hoàn thành. Chuỗi Streak 🔥 được bảo toàn an toàn!`;
     }
     updateDailyGoalChecklist();
     return;
@@ -7530,7 +7860,7 @@ function tickDeadlineCountdown() {
       countdownEl.className = "text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200 font-mono tracking-tight animate-pulse";
     }
     if (subtextEl) {
-      subtextEl.innerHTML = `🔥 Hạn chót 23:59:59 đêm nay (${officialCal.formattedShort}). Cần hoàn thành đủ 4/4 nhiệm vụ Ngày ${officialToday} để giữ chuỗi Streak!`;
+      subtextEl.innerHTML = `🔥 Hạn chót 23:59:59 đêm nay (${officialCal.formattedShort}). Cần hoàn thành đủ ${officialTotal}/${officialTotal} nhiệm vụ Ngày ${officialToday} để giữ chuỗi Streak!`;
     }
   }
 
@@ -7544,6 +7874,7 @@ function updateDailyGoalChecklist() {
   const wItem = document.getElementById("goalItemWords");
   const vItem = document.getElementById("goalItemVideo");
   const gItem = document.getElementById("goalItemGrammar");
+  const tItem = document.getElementById("goalItemTranslation");
   if (gItem) gItem.style.display = "none";
 
   if (wItem) {
@@ -7555,6 +7886,16 @@ function updateDailyGoalChecklist() {
     vItem.innerHTML = curStatus.videoDone
       ? `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">📺 Bản tin Vietnam Today VTV4 (ĐÃ XONG ✓)</span>`
       : `<i data-lucide="circle" class="w-3.5 h-3.5 text-rose-400"></i> <span>📺 Bản tin Vietnam Today VTV4 (Hạn 22:00)</span>`;
+  }
+  if (tItem) {
+    if (curStatus.isTranslationReadaloud) {
+      tItem.innerHTML = `<i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> <span class="text-emerald-300 font-bold">✍️ Dịch Việt–Anh & Đọc lại (ĐÃ XONG ✓)</span>`;
+    } else if (curStatus.translationDone || curStatus.readaloudDone) {
+      const partialLabel = curStatus.translationDone ? "Đã dịch ✓ · Chờ đọc lại" : "Đã đọc lại ✓ · Chờ dịch";
+      tItem.innerHTML = `<i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i> <span class="text-amber-300 font-semibold">✍️ Dịch & Đọc lại (${partialLabel})</span>`;
+    } else {
+      tItem.innerHTML = `<i data-lucide="circle" class="w-3.5 h-3.5 text-amber-400"></i> <span>✍️ Dịch Việt–Anh & Đọc lại (Hạn 23:59)</span>`;
+    }
   }
   if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
 }
@@ -8336,7 +8677,12 @@ function setSyncPairKey(key) {
 }
 
 function buildFullSyncPayload() {
-  const curStreak = parseInt(localStorage.getItem("EMH_STREAK")) || (appState.currentUser?.streak_count || 14);
+  const storedStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+  const serverStreak = parseInt((appState.currentUser && (appState.currentUser.streak_count ?? appState.currentUser.streak)) || 0, 10) || 0;
+  const curStreak = isStreakDeviceAuthenticated() ? Math.max(storedStreak, serverStreak) : 0;
+  const deadlineState = (typeof getStreakDeadlineState === "function" && isStreakDeviceAuthenticated())
+    ? getStreakDeadlineState()
+    : null;
   let doneQuestions = {};
   let practiceHistory = [];
   let cueNotes = {};
@@ -8348,7 +8694,8 @@ function buildFullSyncPayload() {
     missionRegistry: missionRegistry,
     streak: {
       count: curStreak,
-      lastActiveDate: localStorage.getItem("EMH_LAST_ACTIVE_DATE") || new Date().toISOString().slice(0, 10)
+      lastActiveDate: localStorage.getItem("EMH_LAST_ACTIVE_DATE") || localStorage.getItem("EMH_LAST_COMPLETED_DATE") || getLocalDateStr(),
+      deadlineState: deadlineState
     },
     customWords: getSavedCustomWords(),
     interleavedConfig: getInterleavedConfig(),
@@ -8384,55 +8731,110 @@ function applyFullSyncPayload(payload) {
 
       if (remoteReg.history && typeof remoteReg.history === "object") {
         Object.keys(remoteReg.history).forEach(dayKey => {
-          const rDay = remoteReg.history[dayKey];
+          const rDay = remoteReg.history[dayKey] || {};
           const lDay = missionRegistry.history[dayKey] || {
             vocabDone: false,
             vocabCount: 0,
+            videoDone: false,
             readingDone: false,
             readingDoneCount: 0,
             completedReadings: [],
-            grammarDone: false
+            grammarDone: false,
+            listeningDone: false
           };
 
           // Gộp thông minh: Giữ trạng thái hoàn thành nếu một trong hai bên đã xong
           const mergedVocabCount = Math.max(lDay.vocabCount || 0, rDay.vocabCount || 0);
           const mergedVocabDone = !!(lDay.vocabDone || rDay.vocabDone || mergedVocabCount >= 20);
+          const mergedVideoDone = !!(lDay.videoDone || rDay.videoDone);
           const mergedReadingDone = !!(lDay.readingDone || rDay.readingDone);
           const mergedGrammarDone = !!(lDay.grammarDone || rDay.grammarDone);
+          const mergedListeningDone = !!(lDay.listeningDone || rDay.listeningDone);
           const mergedReadingsList = Array.from(new Set([...(lDay.completedReadings || []), ...(rDay.completedReadings || [])]));
+          const mergedVideosList = Array.from(new Set([...(lDay.completedVideos || []), ...(rDay.completedVideos || [])]));
+          const mergedGrammarTopics = Array.from(new Set([...(lDay.completedGrammarTopics || []), ...(rDay.completedGrammarTopics || [])]));
+          const mergedListeningTests = Array.from(new Set([...(lDay.completedListeningTests || []), ...(rDay.completedListeningTests || [])]));
+
+          const hasTranslationField = (lDay.translationDone !== undefined || rDay.translationDone !== undefined || lDay.readaloudDone !== undefined || rDay.readaloudDone !== undefined || lDay.translationReadaloudDone !== undefined || rDay.translationReadaloudDone !== undefined);
+          const mergedTranslationDone = !!(lDay.translationDone || rDay.translationDone || lDay.translationReadaloudDone || rDay.translationReadaloudDone);
+          const mergedReadaloudDone = !!(lDay.readaloudDone || rDay.readaloudDone || lDay.translationReadaloudDone || rDay.translationReadaloudDone);
+          const mergedTranslationReadaloudDone = !!(lDay.translationReadaloudDone || rDay.translationReadaloudDone || (mergedTranslationDone && mergedReadaloudDone));
 
           if (
-            mergedVocabDone !== lDay.vocabDone ||
-            mergedReadingDone !== lDay.readingDone ||
-            mergedGrammarDone !== lDay.grammarDone ||
-            mergedVocabCount > (lDay.vocabCount || 0)
+            mergedVocabDone !== !!lDay.vocabDone ||
+            mergedVideoDone !== !!lDay.videoDone ||
+            mergedReadingDone !== !!lDay.readingDone ||
+            mergedGrammarDone !== !!lDay.grammarDone ||
+            mergedListeningDone !== !!lDay.listeningDone ||
+            mergedVocabCount > (lDay.vocabCount || 0) ||
+            (hasTranslationField && (
+              mergedTranslationDone !== !!lDay.translationDone ||
+              mergedReadaloudDone !== !!lDay.readaloudDone ||
+              mergedTranslationReadaloudDone !== !!lDay.translationReadaloudDone
+            ))
           ) {
             hasChanges = true;
           }
 
-          missionRegistry.history[dayKey] = {
+          const mergedObj = {
             ...lDay,
             ...rDay,
             vocabDone: mergedVocabDone,
             vocabCount: mergedVocabCount,
+            videoDone: mergedVideoDone,
+            completedVideos: mergedVideosList,
             readingDone: mergedReadingDone,
             readingDoneCount: Math.max(lDay.readingDoneCount || 0, rDay.readingDoneCount || 0, mergedReadingsList.length),
             completedReadings: mergedReadingsList,
-            grammarDone: mergedGrammarDone
+            grammarDone: mergedGrammarDone,
+            completedGrammarTopics: mergedGrammarTopics,
+            listeningDone: mergedListeningDone,
+            completedListeningTests: mergedListeningTests
           };
+          if (hasTranslationField) {
+            mergedObj.translationDone = mergedTranslationDone;
+            mergedObj.readaloudDone = mergedReadaloudDone;
+            mergedObj.translationReadaloudDone = mergedTranslationReadaloudDone;
+          }
+          missionRegistry.history[dayKey] = mergedObj;
         });
       }
     }
 
-    // 2. Merge streak (Bảo đảm đúng 14 ngày streak theo tiến độ thực tế)
-    if (payload.streak && payload.streak.count) {
-      const curStreak = parseInt(localStorage.getItem("EMH_STREAK")) || 14;
-      const maxStreak = Math.max(curStreak, parseInt(payload.streak.count) || 14, 14);
-      localStorage.setItem("EMH_STREAK", String(maxStreak));
+    // 2. Merge streak & deadlineState cleanly (NO hardcoded 14 floor!)
+    if (payload.streak && isStreakDeviceAuthenticated()) {
+      const curStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+      const remoteCount = parseInt(payload.streak.count || "0", 10) || 0;
+      const maxStreak = Math.max(curStreak, remoteCount);
+      if (maxStreak > 0) {
+        localStorage.setItem("EMH_STREAK", String(maxStreak));
+      }
       if (payload.streak.lastActiveDate) {
         localStorage.setItem("EMH_LAST_ACTIVE_DATE", payload.streak.lastActiveDate);
       }
-      if (typeof updateStreakUI === "function") updateStreakUI(maxStreak);
+      if (window.StreakDeadlineEngine && typeof getStreakDeadlineState === "function" && typeof saveStreakDeadlineState === "function") {
+        let localSt = getStreakDeadlineState();
+        const remoteDs = payload.streak.deadlineState;
+        if (remoteDs && typeof remoteDs === "object") {
+          const mergedDates = Array.from(new Set([...(localSt.completedDates || []), ...(remoteDs.completedDates || [])])).sort();
+          const mergedTasks = Array.from(new Set([...(localSt.todayCompletedTasks || []), ...(remoteDs.todayCompletedTasks || [])]));
+          localSt = {
+            ...localSt,
+            streak: Math.max(localSt.streak || 0, remoteDs.streak || 0, maxStreak),
+            longestStreak: Math.max(localSt.longestStreak || 0, remoteDs.longestStreak || 0, maxStreak),
+            completedDates: mergedDates,
+            todayCompletedTasks: (localSt.todayDate === remoteDs.todayDate) ? mergedTasks : (localSt.todayCompletedTasks || [])
+          };
+        }
+        if (typeof window.StreakDeadlineEngine.reconcileWithServer === "function") {
+          localSt = window.StreakDeadlineEngine.reconcileWithServer(localSt, {
+            streak_count: maxStreak,
+            last_active_date: payload.streak.lastActiveDate || ""
+          }, new Date());
+        }
+        saveStreakDeadlineState(localSt);
+      }
+      if (typeof refreshDailyStreakDeadlineUI === "function") refreshDailyStreakDeadlineUI();
     }
 
     // 3. Merge customWords
@@ -11791,11 +12193,11 @@ function getSavedAccounts() {
   const activeName = (appState.currentUser && appState.currentUser.full_name) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_NAME") || activeEmail.split("@")[0];
   const activeTarget = (appState.currentUser && appState.currentUser.target_exam) || "IELTS 7.5+";
 
-  const realStreak = (typeof countCompletedCurriculumDays === "function") 
-    ? Math.max(1, countCompletedCurriculumDays()) 
-    : parseInt(localStorage.getItem("EMH_STREAK") || "1", 10);
+  const storedStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+  const serverStreak = parseInt((appState.currentUser && (appState.currentUser.streak_count ?? appState.currentUser.streak)) || 0, 10) || 0;
+  const completedDays = (typeof countCompletedCurriculumDays === "function") ? countCompletedCurriculumDays() : 0;
+  const realStreak = Math.max(storedStreak, serverStreak, completedDays);
   const realWords = (typeof getRealLearnedWordsCount === "function") ? getRealLearnedWordsCount() : 20;
-  const completedDays = (typeof countCompletedCurriculumDays === "function") ? countCompletedCurriculumDays() : 1;
   const realXP = (realStreak * 150) + (realWords * 20) + (completedDays * 100);
 
   const curDay = (typeof missionRegistry !== "undefined" && missionRegistry.currentDay) ? missionRegistry.currentDay : 1;
@@ -11871,8 +12273,9 @@ function saveSavedAccounts(list) {
 
 window.addSpeakingXP = function(points = 50) {
   try {
+    const curEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
+    if (!curEmail) return;
     const list = getSavedAccounts();
-    const curEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "tonguyenvu@265.com").toLowerCase();
     const acc = list.find(a => a && (a.email || "").toLowerCase() === curEmail);
     if (acc) {
       acc.xp = (acc.xp || 200) + points;
@@ -11887,9 +12290,13 @@ window.addSpeakingXP = function(points = 50) {
 
 // Chỉnh sửa tên, email và mục tiêu của tài khoản thực hiện tại
 function editCurrentAccountProfile() {
-  const curName = localStorage.getItem("EMH_USER_REAL_NAME") || "Tô Nguyễn Vũ";
-  const curEmail = localStorage.getItem("EMH_USER_REAL_EMAIL") || "tonguyenvu@265.com";
-  const curTarget = localStorage.getItem("EMH_USER_REAL_TARGET") || "IELTS 7.5+";
+  const curEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || localStorage.getItem("EMH_USER_REAL_EMAIL") || "").trim();
+  if (!curEmail) {
+    if (typeof openAuthModal === "function") openAuthModal("login");
+    return;
+  }
+  const curName = (appState.currentUser && appState.currentUser.full_name) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_NAME") || localStorage.getItem("EMH_USER_REAL_NAME") || curEmail.split("@")[0];
+  const curTarget = (appState.currentUser && appState.currentUser.target_exam) || localStorage.getItem("EMH_USER_REAL_TARGET") || "IELTS 7.5+";
 
   const newName = prompt("Nhập Tên Học Viên Thực của bạn:", curName);
   if (newName === null) return;
@@ -12514,32 +12921,33 @@ function getStreakBanStatus() {
 }
 
 function applyStreakLossBan(reason = "Làm mất chuỗi ngày học liên tục (Streak)") {
+  const curEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  if (!curEmail) return;
   const oneHourMs = 60 * 60 * 1000; // 1 tiếng = 3600 giây
   const banUntil = Date.now() + oneHourMs;
-  const curEmail = appState.currentUser?.email || "hocvien.chinh@emh.edu.vn";
 
   localStorage.setItem(STORAGE_KEY_BAN_UNTIL, String(banUntil));
   localStorage.setItem(STORAGE_KEY_BAN_REASON, reason);
   localStorage.setItem(STORAGE_KEY_BAN_ACCOUNT_EMAIL, curEmail);
 
-  // Cập nhật chuỗi Streak về 0
-  let data = (typeof getDeadlineStreakData === "function") ? getDeadlineStreakData() : { streakDays: 0, lastCompletedDate: "" };
-  data.streakDays = Math.max(14, parseInt(data.streakDays || "14", 10));
-  localStorage.setItem("EMH_DEADLINE_STREAK_V2", JSON.stringify(data));
-  localStorage.setItem("EMH_STREAK", String(Math.max(14, parseInt(localStorage.getItem("EMH_STREAK") || "14", 10))));
+  // Đồng bộ trạng thái chuỗi hiện tại qua StreakDeadlineEngine (không gán cứng mốc 14 giả)
+  const stData = (typeof getDeadlineStreakData === "function") ? getDeadlineStreakData() : { streakDays: 0, lastCompletedDate: "" };
+  const safeDays = Math.max(0, parseInt(stData.streakDays || "0", 10) || 0);
+  localStorage.setItem("EMH_DEADLINE_STREAK_V2", JSON.stringify({ ...stData, streakDays: safeDays }));
+  localStorage.setItem("EMH_STREAK", String(safeDays));
 
   // Cập nhật trạng thái trong danh sách tài khoản
   let list = getSavedAccounts();
   list = list.map(a => {
     if (a.email === curEmail || a.isCurrent) {
-      return { ...a, streak: 0, isBanned: true, banUntil: banUntil };
+      return { ...a, isBanned: true, banUntil: banUntil };
     }
     return a;
   });
   saveSavedAccounts(list);
 
   showBanOverlay();
-  renderAllStreakUI(0, false);
+  renderAllStreakUI(safeDays, !!stData.completedToday);
   renderSavedAccounts();
   renderProfileAccountsCompetition();
   renderLeaderboard();

@@ -6,6 +6,7 @@ from database import get_db
 import models
 import auth
 import srs
+from routers import auth_router
 
 router = APIRouter(prefix="/api/sync", tags=["Offline Sync & Event Merging"])
 
@@ -140,6 +141,12 @@ class ClaimSyncCodeRequest(BaseModel):
     sync_code: str
     device_name: str = "Computer"
 
+def _safe_int(val, default: int = 0) -> int:
+    try:
+        return int(val)
+    except (TypeError, ValueError):
+        return default
+
 @router.post("/cloud-save")
 def cloud_save(
     req: CloudSaveRequest,
@@ -153,9 +160,27 @@ def cloud_save(
         else:
             raise HTTPException(status_code=400, detail="Thiếu mã đồng bộ (sync_key).")
 
+    safe_payload = dict(req.payload) if isinstance(req.payload, dict) else {}
+    if current_user:
+        streak_info = auth_router.evaluate_daily_streak(current_user, db, increment_if_completed=False)
+        server_streak = streak_info["streak"]
+        if isinstance(safe_payload.get("streak"), dict):
+            streak_obj = dict(safe_payload["streak"])
+            client_count = _safe_int(streak_obj.get("count"), 0)
+            if client_count < server_streak:
+                streak_obj["count"] = server_streak
+            if not streak_obj.get("lastActiveDate") and streak_info.get("last_active_date"):
+                streak_obj["lastActiveDate"] = streak_info["last_active_date"]
+            safe_payload["streak"] = streak_obj
+        elif server_streak > 0:
+            safe_payload["streak"] = {
+                "count": server_streak,
+                "lastActiveDate": streak_info.get("last_active_date", "")
+            }
+
     vault = db.query(models.CloudSyncVault).filter(models.CloudSyncVault.sync_key == key).first()
     now = datetime.datetime.utcnow()
-    payload_str = json.dumps(req.payload, ensure_ascii=False)
+    payload_str = json.dumps(safe_payload, ensure_ascii=False)
 
     if not vault:
         vault = models.CloudSyncVault(
@@ -222,13 +247,30 @@ def cloud_load(
     except Exception:
         data = {}
 
-    return {
+    server_streak = None
+    if current_user and isinstance(data, dict):
+        streak_info = auth_router.evaluate_daily_streak(current_user, db, increment_if_completed=False)
+        server_streak = streak_info["streak"]
+        if isinstance(data.get("streak"), dict):
+            data["streak"]["count"] = max(_safe_int(data["streak"].get("count"), 0), server_streak)
+            if not data["streak"].get("lastActiveDate") and streak_info.get("last_active_date"):
+                data["streak"]["lastActiveDate"] = streak_info["last_active_date"]
+        elif server_streak > 0:
+            data["streak"] = {
+                "count": server_streak,
+                "lastActiveDate": streak_info.get("last_active_date", "")
+            }
+
+    res = {
         "success": True,
         "sync_key": vault.sync_key,
         "device_name": vault.device_name,
         "updated_at": vault.updated_at.isoformat() if vault.updated_at else "",
         "data": data
     }
+    if server_streak is not None:
+        res["server_streak"] = server_streak
+    return res
 
 @router.post("/generate-code")
 def generate_sync_code(

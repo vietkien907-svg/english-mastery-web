@@ -22,7 +22,10 @@
     '#video',
     '#conversation',
     '#review',
-    '#profile'
+    '#profile',
+    '#translation',
+    '#readaloud',
+    '#games'
   ]);
   const DANGEROUS_PATTERNS = [
     /javascript:/i,
@@ -120,14 +123,32 @@
   function startAuthGateDomGuard(isDeviceAllowedFn, restoreGateFn) {
     if (typeof document === 'undefined' || typeof MutationObserver === 'undefined') return null;
 
+    let cachedModalClone = null;
+    const captureTemplate = () => {
+      const existing = document.getElementById('authModal');
+      if (existing && !cachedModalClone) {
+        try {
+          cachedModalClone = existing.cloneNode(true);
+        } catch (e) {}
+      }
+    };
+    captureTemplate();
+
     const enforce = () => {
       try {
         if (typeof isDeviceAllowedFn === 'function' && isDeviceAllowedFn()) return;
-        const modal = document.getElementById('authModal');
+        let modal = document.getElementById('authModal');
         if (!modal) {
+          if (cachedModalClone && document.body) {
+            const restored = cachedModalClone.cloneNode(true);
+            document.body.appendChild(restored);
+            modal = document.getElementById('authModal');
+          }
           if (typeof restoreGateFn === 'function') restoreGateFn();
-          return;
         }
+        captureTemplate();
+        modal = document.getElementById('authModal');
+        if (!modal) return;
         if (modal.classList.contains('hidden') || modal.style.display === 'none' || modal.style.visibility === 'hidden' || modal.style.opacity === '0') {
           modal.classList.remove('hidden');
           modal.style.display = 'flex';
@@ -147,6 +168,10 @@
       attributes: true,
       attributeFilter: ['class', 'style', 'hidden']
     });
+
+    if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+      window.addEventListener('hashchange', enforce);
+    }
 
     return observer;
   }

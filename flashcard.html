@@ -37,7 +37,7 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="./style.css?v=104.0">
+  <link rel="stylesheet" href="./style.css?v=105.0">
   <script>
     // Immediate Theme Initialization (Zero flicker — Default: Warm Paper Eye-Care)
     (function() {
@@ -126,21 +126,21 @@
 
   <!-- TOP NAVBAR (EXACT NIGHT IELTS STYLE) -->
   <header class="ni-header sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#ece8f1] px-4 py-2.5">
-    <div class="max-w-5xl mx-auto w-full flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm shadow-sm" style="background-color: var(--accent-wash); border: 1px solid var(--rule); color: var(--accent);">
+    <div class="max-w-5xl mx-auto w-full flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm shadow-sm shrink-0" style="background-color: var(--accent-wash); border: 1px solid var(--rule); color: var(--accent);">
           <i data-lucide="mic" class="w-4 h-4"></i>
         </div>
-        <div>
+        <div class="min-w-0">
           <h1 class="font-bold text-sm md:text-base leading-tight flex items-center gap-2 text-[#221c2b]">
             <span>English Mastery</span>
             <span id="targetExamBadge" class="text-[11px] px-2 py-0.5 rounded-full font-semibold" style="background-color: var(--accent-wash); border: 1px solid var(--rule); color: var(--accent-ink);">IELTS Speaking</span>
           </h1>
-          <p id="userStatusText" class="text-[11px] text-[#5f5870]">Tự học IELTS Speaking & Từ Vựng Chuẩn Quốc Tế</p>
+          <p id="userStatusText" class="hidden sm:block text-[11px] text-[#5f5870]">Tự học IELTS Speaking & Từ Vựng Chuẩn Quốc Tế</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center justify-end gap-1.5 sm:gap-2">
         <!-- Streak Badge Pill (Non-intrusive) -->
         <div class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-xs font-bold flex items-center gap-1 shadow-sm" title="Chuỗi ngày học liên tục (Streak)">
           <span>🔥</span> <span id="streakCount">0 ngày</span>
@@ -240,6 +240,18 @@
           <i data-lucide="tv" class="w-4 h-4"></i>
           <span>Vietnam Today</span>
         </button>
+        <button type="button" onclick="switchTab('translation')" id="nav-btn-translation" class="ni-tab-btn" title="Luyện dịch Việt–Anh đa nguồn & chấm bài viết">
+          <i data-lucide="languages" class="w-4 h-4"></i>
+          <span>Dịch &amp; Viết</span>
+        </button>
+        <button type="button" onclick="switchTab('readaloud')" id="nav-btn-readaloud" class="ni-tab-btn" title="Đọc lại bài tiếng Anh chấm phát âm &amp; ngữ pháp">
+          <i data-lucide="book-open-check" class="w-4 h-4"></i>
+          <span>Đọc Lại</span>
+        </button>
+        <button type="button" onclick="switchTab('games')" id="nav-btn-games" class="ni-tab-btn" title="8 Trò chơi dịch Việt–Anh theo Unit">
+          <i data-lucide="gamepad-2" class="w-4 h-4"></i>
+          <span>Trò Chơi</span>
+        </button>
         <button type="button" onclick="switchTab('conversation')" id="nav-btn-conversation" class="hidden"></button>
         <button type="button" onclick="switchTab('profile')" id="nav-btn-profile" class="ni-tab-btn">
           <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
@@ -261,6 +273,7 @@
       <span id="todayStreakBadge"></span>
       <div id="goalItemWords"><span id="goalItemWordsText"></span></div>
       <div id="goalItemVideo"><span id="goalItemVideoText"></span></div>
+      <div id="goalItemTranslation"><span id="goalItemTranslationText"></span></div>
       <button id="notificationStatusBadge"></button>
     </div>
 
@@ -313,15 +326,15 @@
         </div>
 
         <!-- Day Navigation Controller Bar -->
-        <div class="flex items-center justify-between gap-2 flex-wrap pt-1">
-          <div class="flex items-center gap-2 flex-wrap">
+        <div class="flex items-center justify-between gap-2 flex-wrap pt-1 max-w-full min-w-0">
+          <div class="flex items-center gap-2 flex-wrap max-w-full min-w-0">
             <button type="button" onclick="changeMissionDay(-1)" class="ni-nav-btn text-xs font-semibold" title="Lùi lại 1 ngày">
               <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
               <span>Ngày trước</span>
             </button>
-            <div class="flex items-center gap-1.5 px-1">
-              <span class="text-xs font-medium text-[#64748b]">Đang xem:</span>
-              <select id="missionDaySelect" onchange="jumpToMissionDay(this.value)" class="ni-input text-xs font-bold py-1 px-2.5" style="width: auto;">
+            <div class="flex items-center gap-1.5 px-1 min-w-0 max-w-full">
+              <span class="text-xs font-medium text-[#64748b] shrink-0">Đang xem:</span>
+              <select id="missionDaySelect" onchange="jumpToMissionDay(this.value)" class="ni-input text-xs font-bold py-1 px-2.5 min-w-0 max-w-full truncate" style="width: 100%; max-width: min(100%, 260px);">
               </select>
             </div>
             <button type="button" onclick="changeMissionDay(1)" class="ni-nav-btn text-xs font-semibold" title="Tiến tới 1 ngày">
@@ -413,6 +426,36 @@
             <button type="button" onclick="switchTab('video')" id="btnStartVideoMission" class="ni-submit-btn w-full justify-center text-xs" style="background-color: #0f172a;">
               <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
               <span id="btnStartVideoText">Xem Bản Tin Hôm Nay</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Task 4: Dịch Việt–Anh & Đọc Lại (Deadline Task 3) -->
+        <div id="taskCardTranslationReadAloud" class="pv-card p-5 md:col-span-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-slate-300 transition-all">
+          <div class="space-y-1.5 flex-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5" style="color: var(--accent);">
+                <i data-lucide="languages" class="w-4 h-4"></i> Nhiệm vụ 3: Dịch Việt–Anh &amp; Đọc Lại
+              </span>
+              <span id="taskStatusBadgeTranslationReadAloud" class="text-[11px] px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 font-semibold border border-amber-200">Chưa làm</span>
+            </div>
+            <h3 class="font-bold text-[#0f172a] text-base">Dịch Bài Tiếng Việt Theo Chủ Đề &amp; Luyện Đọc Lại</h3>
+            <p id="taskDescTranslationReadAloud" class="text-xs text-[#64748b] leading-relaxed">
+              Chọn 1 bài từ kho 1.000+ bài (Unit, Video, IELTS, Tin nóng) hoặc bài cá nhân, dịch sang tiếng Anh để chấm viết rồi đọc lại ở tab Đọc Lại trước 23:59.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 shrink-0 flex-wrap">
+            <button type="button" onclick="switchTab('translation')" id="btnStartTranslationMission" class="ni-submit-btn text-xs">
+              <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+              <span>Bắt đầu Dịch</span>
+            </button>
+            <button type="button" onclick="switchTab('readaloud')" id="btnOpenReadAloudMission" class="ni-nav-btn text-xs font-bold">
+              <i data-lucide="mic" class="w-3.5 h-3.5"></i>
+              <span>Đọc Lại</span>
+            </button>
+            <button type="button" onclick="switchTab('games')" class="ni-nav-btn text-xs font-bold">
+              <i data-lucide="gamepad-2" class="w-3.5 h-3.5"></i>
+              <span>8 Trò Chơi</span>
             </button>
           </div>
         </div>
@@ -576,9 +619,9 @@
             <button type="button" onclick="changeMissionDay(-1)" class="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition active:scale-95" title="Lùi lại 1 ngày học">
               <i data-lucide="chevron-left" class="w-4 h-4"></i>
             </button>
-            <div class="flex items-center gap-1 px-1">
-              <span class="text-[11px] text-slate-400 font-medium hidden sm:inline">Ngày:</span>
-              <select id="flashcardMissionDaySelect" onchange="jumpToMissionDay(this.value)" class="bg-slate-800 border border-indigo-500/40 text-xs font-bold text-amber-300 rounded-lg px-2 py-1 outline-none focus:ring-1 focus:ring-indigo-400 cursor-pointer">
+            <div class="flex items-center gap-1 px-1 min-w-0 max-w-full">
+              <span class="text-[11px] text-slate-400 font-medium hidden sm:inline shrink-0">Ngày:</span>
+              <select id="flashcardMissionDaySelect" onchange="jumpToMissionDay(this.value)" class="bg-slate-800 border border-indigo-500/40 text-xs font-bold text-amber-300 rounded-lg px-2 py-1 outline-none focus:ring-1 focus:ring-indigo-400 cursor-pointer max-w-full min-w-0">
                 <!-- Populated dynamically with all 90 days -->
               </select>
             </div>
@@ -2138,6 +2181,14 @@
       </div>
     </section>
 
+    <!-- ================= TAB: DỊCH VIỆT–ANH & CHẤM BÀI VIẾT ================= -->
+    <section id="tab-translation" class="hidden space-y-4"></section>
+
+    <!-- ================= TAB: ĐỌC LẠI & LUYỆN NÓI (RIÊNG BIỆT) ================= -->
+    <section id="tab-readaloud" class="hidden space-y-4"></section>
+
+    <!-- ================= TAB: 8 TRÒ CHƠI DỊCH VIỆT–ANH THEO UNIT ================= -->
+    <section id="tab-games" class="hidden space-y-4"></section>
 
     <!-- MODAL: GROQ API KEY CONFIGURATION (BYOK) -->
     <div id="spGroqSettingsModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4" onclick="if(event.target===this) SpeakingEngine.closeGroqModal()">
@@ -2569,7 +2620,19 @@
       </button>
       <button type="button" onclick="switchTab('video')" id="mob-btn-video" class="mob-tab flex flex-col items-center py-1 text-[#5f5870]" title="Vietnam Today VTV4">
         <i data-lucide="tv" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold mt-1">VTV4 News</span>
+        <span class="text-[10px] font-semibold mt-1">VTV4</span>
+      </button>
+      <button type="button" onclick="switchTab('translation')" id="mob-btn-translation" class="mob-tab flex flex-col items-center py-1 text-[#5f5870]" title="Dịch Việt–Anh">
+        <i data-lucide="languages" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Dịch</span>
+      </button>
+      <button type="button" onclick="switchTab('readaloud')" id="mob-btn-readaloud" class="mob-tab flex flex-col items-center py-1 text-[#5f5870]" title="Đọc Lại">
+        <i data-lucide="book-open-check" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Đọc Lại</span>
+      </button>
+      <button type="button" onclick="switchTab('games')" id="mob-btn-games" class="mob-tab flex flex-col items-center py-1 text-[#5f5870]" title="Trò Chơi Dịch">
+        <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold mt-1">Chơi</span>
       </button>
       <button type="button" onclick="switchTab('conversation')" id="mob-btn-conversation" class="hidden"></button>
       <button type="button" onclick="switchTab('profile')" id="mob-btn-profile" class="mob-tab flex flex-col items-center py-1 text-[#5f5870]">
@@ -3603,25 +3666,32 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=104.0"></script>
-  <script src="./listening_data.js?v=104.0"></script>
-  <script src="./vietnam_today_data.js?v=104.0"></script>
-  <script src="./educational_channels_data.js?v=104.0"></script>
-  <script src="./international_news_videos.js?v=104.0"></script>
-  <script src="./bilingual_news_data.js?v=104.0"></script>
-  <script src="./reading_lexicon.js?v=104.0"></script>
-  <script src="./conversation_data.js?v=104.0"></script>
-  <script src="./speaking-forecast.js?v=104.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=104.0"></script>
-  <script src="./speakout-speaking-data.js?v=104.0"></script>
-  <script src="./speaking-engine.js?v=104.0"></script>
-  <script src="./ocr-vocab-engine.js?v=104.0"></script>
-  <script src="./unit-review-engine.js?v=104.0"></script>
-  <script src="./focus-session-engine.js?v=104.0"></script>
-  <script src="./security-guard-engine.js?v=104.0"></script>
-  <script src="./auth-gate-engine.js?v=104.0"></script>
-  <script src="./streak-deadline-engine.js?v=104.0"></script>
-  <script src="./app.js?v=104.0"></script>
+  <script src="./data.js?v=105.0"></script>
+  <script src="./listening_data.js?v=105.0"></script>
+  <script src="./vietnam_today_data.js?v=105.0"></script>
+  <script src="./educational_channels_data.js?v=105.0"></script>
+  <script src="./international_news_videos.js?v=105.0"></script>
+  <script src="./bilingual_news_data.js?v=105.0"></script>
+  <script src="./reading_lexicon.js?v=105.0"></script>
+  <script src="./conversation_data.js?v=105.0"></script>
+  <script src="./speaking-forecast.js?v=105.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=105.0"></script>
+  <script src="./speakout-speaking-data.js?v=105.0"></script>
+  <script src="./speaking-engine.js?v=105.0"></script>
+  <script src="./translation_bank_units.js?v=105.0"></script>
+  <script src="./translation_bank_media.js?v=105.0"></script>
+  <script src="./translation_bank_ielts.js?v=105.0"></script>
+  <script src="./translation_bank_trends.js?v=105.0"></script>
+  <script src="./translation-practice-engine.js?v=105.0"></script>
+  <script src="./read-aloud-engine.js?v=105.0"></script>
+  <script src="./vi-en-games-engine.js?v=105.0"></script>
+  <script src="./ocr-vocab-engine.js?v=105.0"></script>
+  <script src="./unit-review-engine.js?v=105.0"></script>
+  <script src="./focus-session-engine.js?v=105.0"></script>
+  <script src="./security-guard-engine.js?v=105.0"></script>
+  <script src="./auth-gate-engine.js?v=105.0"></script>
+  <script src="./streak-deadline-engine.js?v=105.0"></script>
+  <script src="./app.js?v=105.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3629,7 +3699,7 @@
     }
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=104.0', { updateViaCache: 'none' })
+        navigator.serviceWorker.register('/sw.js?v=105.0', { updateViaCache: 'none' })
           .then(reg => { try { reg.update(); } catch (e) {} })
           .catch(err => console.log('SW reg failed:', err));
       });

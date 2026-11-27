@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-mastery-v104.0';
+const CACHE_NAME = 'english-mastery-v105.0';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -10,12 +10,20 @@ const ASSETS_TO_CACHE = [
   './international_news_videos.js',
   './bilingual_news_data.js',
   './reading_lexicon.js',
+  './conversation_data.js',
   './ocr-vocab-engine.js',
   './unit-review-engine.js',
   './focus-session-engine.js',
   './security-guard-engine.js',
   './auth-gate-engine.js',
   './streak-deadline-engine.js',
+  './translation_bank_units.js',
+  './translation_bank_media.js',
+  './translation_bank_ielts.js',
+  './translation_bank_trends.js',
+  './translation-practice-engine.js',
+  './read-aloud-engine.js',
+  './vi-en-games-engine.js',
   './app.js',
   './speaking-forecast.js',
   './speaking-knowledge-bank.js',

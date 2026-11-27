@@ -8,6 +8,7 @@ from database import get_db
 import models
 import auth
 import srs
+from routers import auth_router
 
 router = APIRouter(prefix="/api/study", tags=["Study & SRS"])
 
@@ -218,46 +219,37 @@ def rate_study_item(req: RateItemRequest, current_user: models.User = Depends(au
     )
     db.add(evt)
     
-    # Update DailyActivity
-    today_str = datetime.date.today().isoformat()
+    # Update DailyActivity in user's local timezone
+    today_str = auth_router.get_user_local_today(current_user).isoformat()
     activity = db.query(models.DailyActivity).filter(
         models.DailyActivity.user_id == current_user.id,
         models.DailyActivity.date_str == today_str
     ).first()
     
+    target_reviews = max(10, current_user.daily_new_target or 20)
     if not activity:
         activity = models.DailyActivity(
             user_id=current_user.id,
             date_str=today_str,
             reviews_count=1,
-            time_spent_seconds=max(5, req.response_time_ms // 1000)
+            time_spent_seconds=max(5, req.response_time_ms // 1000),
+            goal_reached=False
         )
         db.add(activity)
     else:
         activity.reviews_count += 1
         activity.time_spent_seconds += max(5, req.response_time_ms // 1000)
-        target_reviews = max(10, current_user.daily_new_target or 20)
-        if activity.reviews_count >= target_reviews:
-            activity.goal_reached = True
-            
-    # Streak evaluation on real verified study activity (Section 14)
-    target_reviews = max(10, current_user.daily_new_target or 20)
-    if activity.reviews_count >= target_reviews and current_user.last_active_date != today_str:
-        if current_user.last_active_date:
-            last_date = datetime.date.fromisoformat(current_user.last_active_date)
-            today_date = datetime.date.today()
-            if (today_date - last_date).days == 1:
-                current_user.streak_count += 1
-            elif (today_date - last_date).days > 1:
-                current_user.streak_count = 1
-        else:
-            current_user.streak_count = 1
-            
-        current_user.last_active_date = today_str
-        if current_user.streak_count > current_user.longest_streak:
-            current_user.longest_streak = current_user.streak_count
-            
-    db.commit()
+
+    if activity.reviews_count >= target_reviews:
+        activity.goal_reached = True
+
+    db.flush()
+
+    # Streak evaluation only on genuine goal completion (Section 14)
+    if activity.goal_reached:
+        auth_router.evaluate_daily_streak(current_user, db, increment_if_completed=True)
+    else:
+        db.commit()
     
     return {
         "success": True,

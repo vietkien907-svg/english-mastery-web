@@ -651,10 +651,10 @@ test('T1-F12-01: 4 HTML files (index, flashcard, flashcards, speaking) have 100%
   }
 });
 
-test('T1-F12-02: sw.js uses CACHE_NAME "english-mastery-v105.0" and caches conversation_data.js + all 7 new JS files', () => {
+test('T1-F12-02: sw.js uses CACHE_NAME "english-mastery-v106.0" and caches conversation_data.js + all 7 new JS files', () => {
   const swCode = fs.readFileSync(repoPath('sw.js'), 'utf8');
   const { CACHE_NAME, ASSETS_TO_CACHE } = extractSwAssets(swCode);
-  assert.equal(CACHE_NAME, 'english-mastery-v105.0');
+  assert.equal(CACHE_NAME, 'english-mastery-v106.0');
   assert.ok(Array.isArray(ASSETS_TO_CACHE), 'ASSETS_TO_CACHE must be an array');
   const set = new Set(ASSETS_TO_CACHE);
   assert.ok(set.has('./conversation_data.js'), 'ASSETS_TO_CACHE missing ./conversation_data.js');
@@ -663,13 +663,13 @@ test('T1-F12-02: sw.js uses CACHE_NAME "english-mastery-v105.0" and caches conve
   }
 });
 
-test('T1-F12-03: index.html uses ?v=105.0 for style.css, all scripts (incl. 7 new JS), sw.js, and zero ?v=104.0', () => {
+test('T1-F12-03: index.html uses ?v=106.0 for style.css, all scripts (incl. 7 new JS), sw.js, and zero stale ?v=104.0/?v=105.0', () => {
   const html = fs.readFileSync(repoPath('index.html'), 'utf8');
-  assert.ok(!html.includes('?v=104.0'), 'index.html still contains stale ?v=104.0 references');
-  assert.ok(html.includes('./style.css?v=105.0'), 'index.html missing ./style.css?v=105.0');
-  assert.ok(html.includes('/sw.js?v=105.0'), 'index.html missing /sw.js?v=105.0');
+  assert.ok(!html.includes('?v=104.0') && !html.includes('?v=105.0'), 'index.html still contains stale ?v=104.0 or ?v=105.0 references');
+  assert.ok(html.includes('./style.css?v=106.0'), 'index.html missing ./style.css?v=106.0');
+  assert.ok(html.includes('/sw.js?v=106.0'), 'index.html missing /sw.js?v=106.0');
   for (const jsFile of NEW_JS_FILES) {
-    assert.ok(html.includes(`./${jsFile}?v=105.0`), `index.html missing <script src="./${jsFile}?v=105.0">`);
+    assert.ok(html.includes(`./${jsFile}?v=106.0`), `index.html missing <script src="./${jsFile}?v=106.0">`);
   }
 });
 

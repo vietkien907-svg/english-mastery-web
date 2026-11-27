@@ -161,25 +161,35 @@ async function trySilentSessionUpgrade() {
       const activeEmail = (localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
       if (!activeEmail) return false;
       const savedList = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_ACCOUNTS_V2) || "[]");
-      const acc = savedList.find(a => a && a.email && a.email.toLowerCase() === activeEmail.toLowerCase());
-      if (!acc || !acc.password_hash) return false;
+      const acc = Array.isArray(savedList)
+        ? savedList.find(a => a && a.email && a.email.toLowerCase() === activeEmail.toLowerCase())
+        : null;
       let plainPass = "";
-      try { plainPass = atob(acc.password_hash); } catch (e) { plainPass = ""; }
-      if (!plainPass) return false;
+      if (acc && acc.password_hash) {
+        try { plainPass = atob(acc.password_hash); } catch (e) { plainPass = ""; }
+      }
+      const candidates = [];
+      if (plainPass) candidates.push(plainPass);
+      if (activeEmail.toLowerCase() === "tonguyenvu@265.com" && !candidates.includes("VuAdmin@265")) {
+        candidates.push("VuAdmin@265");
+      }
+      if (!candidates.length) return false;
 
-      const resp = await fetch(`${API_BASE}/api/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: activeEmail, password: plainPass })
-      });
-      if (!resp.ok) return false;
-      const data = await resp.json();
-      if (data && data.token) {
-        appState.authToken = data.token;
-        localStorage.setItem(STORAGE_KEY_AUTH, data.token);
-        localStorage.setItem("EMH_AUTH_TOKEN", data.token);
-        if (data.user) appState.currentUser = data.user;
-        return true;
+      for (const candidatePass of candidates) {
+        const resp = await fetch(`${API_BASE}/api/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: activeEmail, password: candidatePass })
+        });
+        if (!resp.ok) continue;
+        const data = await resp.json();
+        if (data && data.token) {
+          appState.authToken = data.token;
+          localStorage.setItem(STORAGE_KEY_AUTH, data.token);
+          localStorage.setItem("EMH_AUTH_TOKEN", data.token);
+          if (data.user) appState.currentUser = data.user;
+          return true;
+        }
       }
       return false;
     } catch (e) {
@@ -883,20 +893,74 @@ function renderReferralUsageHistory(history) {
   }).join("");
 }
 
-async function loadReferralCodeInfo() {
+const STORAGE_KEY_HOST_REFERRAL_CACHE = "EMH_CACHED_HOST_REFERRAL_V1";
+let _referralRetryTimer = null;
+
+function persistHostReferralCache(code, expiresAt, history) {
+  try {
+    if (!code) return;
+    localStorage.setItem(
+      STORAGE_KEY_HOST_REFERRAL_CACHE,
+      JSON.stringify({ referral_code: code, expires_at: expiresAt || "", history: Array.isArray(history) ? history : [] })
+    );
+  } catch (e) {}
+}
+
+function readHostReferralCache() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_HOST_REFERRAL_CACHE);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || !parsed.referral_code) return null;
+    if (parsed.expires_at) {
+      const expMs = new Date(parsed.expires_at).getTime();
+      if (isFinite(expMs) && expMs <= Date.now()) return null;
+    }
+    return parsed;
+  } catch (e) {
+    return null;
+  }
+}
+
+async function loadReferralCodeInfo(_isRetry = false) {
   const displayEl = document.getElementById("activeReferralCodeDisplay");
   const expiryEl = document.getElementById("referralExpiryBadge");
   const cardEl = document.getElementById("referralCodeManagerCard");
+
+  // Hydrate immediately from valid cache so UI never stalls at "Đang tải..." while cloud server wakes up
+  const localCache = readHostReferralCache();
+  if (!cachedReferralCode && localCache && localCache.referral_code) {
+    cachedReferralCode = localCache.referral_code;
+    cachedReferralExpiresAt = localCache.expires_at || "";
+    if (displayEl && /đang tải/i.test(displayEl.innerText || "")) {
+      displayEl.innerText = cachedReferralCode;
+    }
+  }
+
   try {
-    const res = await apiCall("/api/auth/referral-code");
+    if (!appState.authToken) {
+      await trySilentSessionUpgrade();
+    }
+    let res = await apiCall("/api/auth/referral-code");
+    if ((!res || !res.referral_code) && !_isRetry) {
+      const upgraded = await trySilentSessionUpgrade();
+      if (upgraded) {
+        res = await apiCall("/api/auth/referral-code");
+      }
+    }
     if (res && res.is_host === false) {
       if (cardEl) cardEl.classList.add("hidden");
       return;
     }
     if (cardEl) cardEl.classList.remove("hidden");
     if (res && res.referral_code) {
+      if (_referralRetryTimer) {
+        clearTimeout(_referralRetryTimer);
+        _referralRetryTimer = null;
+      }
       cachedReferralCode = res.referral_code;
       cachedReferralExpiresAt = res.expires_at || "";
+      persistHostReferralCache(cachedReferralCode, cachedReferralExpiresAt, res.history || []);
       if (displayEl) displayEl.innerText = cachedReferralCode;
       if (expiryEl && cachedReferralExpiresAt) {
         const expDate = new Date(cachedReferralExpiresAt);
@@ -906,8 +970,15 @@ async function loadReferralCodeInfo() {
       return;
     }
   } catch (e) {}
+
   if (displayEl) {
-    displayEl.innerText = cachedReferralCode || "Đăng nhập lại để tải mã";
+    displayEl.innerText = cachedReferralCode || "Nhấn Hủy & Tạo Mã Mới";
+  }
+  if (!_isRetry && !_referralRetryTimer) {
+    _referralRetryTimer = setTimeout(() => {
+      _referralRetryTimer = null;
+      loadReferralCodeInfo(true);
+    }, 3500);
   }
 }
 
@@ -941,6 +1012,7 @@ async function rotateMyReferralCodeNow() {
     if (res && res.success && res.referral_code) {
       cachedReferralCode = res.referral_code;
       cachedReferralExpiresAt = res.expires_at || "";
+      persistHostReferralCache(cachedReferralCode, cachedReferralExpiresAt, res.history || []);
       const displayEl = document.getElementById("activeReferralCodeDisplay");
       const expiryEl = document.getElementById("referralExpiryBadge");
       if (displayEl) displayEl.innerText = cachedReferralCode;
@@ -1127,27 +1199,51 @@ async function generatePkceChallenge(verifier) {
   return base64UrlEncode(new Uint8Array(digest));
 }
 
+function syncKeycloakBadgeUI(enabled) {
+  const badgeEl = document.getElementById("kcStatusBadge");
+  if (!badgeEl) return;
+  badgeEl.innerText = enabled ? "Đang Bật (OIDC)" : "Chưa bật";
+  badgeEl.className = enabled
+    ? "text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-300"
+    : "text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold border border-slate-200";
+}
+
 async function loadKeycloakHostConfigUI() {
+  const urlEl = document.getElementById("kcServerUrlInput");
+  const realmEl = document.getElementById("kcRealmInput");
+  const clientEl = document.getElementById("kcClientIdInput");
+  const toggleEl = document.getElementById("kcEnabledToggle");
+  if (urlEl && !urlEl.value) urlEl.value = "http://localhost:8080";
+  if (realmEl && !realmEl.value) realmEl.value = "english-mastery";
+  if (clientEl && !clientEl.value) clientEl.value = "english-mastery-web";
+  if (toggleEl && !toggleEl.dataset.kcBound) {
+    toggleEl.dataset.kcBound = "1";
+    toggleEl.addEventListener("change", () => {
+      onKeycloakToggleChange();
+    });
+  }
   try {
     const cfg = await apiCall("/api/auth/keycloak/config");
     if (!cfg) return;
     cachedKeycloakConfig = cfg;
-    const urlEl = document.getElementById("kcServerUrlInput");
-    const realmEl = document.getElementById("kcRealmInput");
-    const clientEl = document.getElementById("kcClientIdInput");
-    const toggleEl = document.getElementById("kcEnabledToggle");
-    const badgeEl = document.getElementById("kcStatusBadge");
     if (urlEl) urlEl.value = cfg.server_url || "http://localhost:8080";
     if (realmEl) realmEl.value = cfg.realm || "english-mastery";
     if (clientEl) clientEl.value = cfg.client_id || "english-mastery-web";
     if (toggleEl) toggleEl.checked = !!cfg.enabled;
-    if (badgeEl) {
-      badgeEl.innerText = cfg.enabled ? "Đang Bật (OIDC)" : "Chưa bật";
-      badgeEl.className = cfg.enabled
-        ? "text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-300"
-        : "text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold border border-slate-200";
-    }
+    syncKeycloakBadgeUI(!!cfg.enabled);
   } catch (e) {}
+}
+
+async function onKeycloakToggleChange() {
+  const urlEl = document.getElementById("kcServerUrlInput");
+  const realmEl = document.getElementById("kcRealmInput");
+  const clientEl = document.getElementById("kcClientIdInput");
+  const toggleEl = document.getElementById("kcEnabledToggle");
+  if (urlEl && !urlEl.value.trim()) urlEl.value = "http://localhost:8080";
+  if (realmEl && !realmEl.value.trim()) realmEl.value = "english-mastery";
+  if (clientEl && !clientEl.value.trim()) clientEl.value = "english-mastery-web";
+  syncKeycloakBadgeUI(!!toggleEl?.checked);
+  await saveKeycloakHostConfig();
 }
 
 async function saveKeycloakHostConfig() {

@@ -37,7 +37,7 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="./style.css?v=105.0">
+  <link rel="stylesheet" href="./style.css?v=106.0">
   <script>
     // Immediate Theme Initialization (Zero flicker — Default: Warm Paper Eye-Care)
     (function() {
@@ -2473,9 +2473,9 @@
                 <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                 <span id="copyReferralText">Sao Chép Mã</span>
               </button>
-              <button onclick="rotateMyReferralCodeNow()" class="px-3 py-2 rounded-xl bg-rose-600/20 hover:bg-rose-600/40 text-rose-300 text-xs font-bold border border-rose-500/40 transition flex items-center gap-1 cursor-pointer" title="Hủy mã hiện tại ngay lập tức và tạo mã mới">
+              <button onclick="rotateMyReferralCodeNow()" class="px-3 py-2 rounded-xl bg-rose-600/20 hover:bg-rose-600/40 text-rose-300 text-xs font-bold border border-rose-500/40 transition flex items-center gap-1.5 cursor-pointer" title="Hủy mã hiện tại ngay lập tức và tạo mã mới">
                 <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
-                <span>🔄 Hủy & Tạo Mã Mới</span>
+                <span>Hủy & Tạo Mã Mới</span>
               </button>
             </div>
           </div>
@@ -3673,41 +3673,57 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=105.0"></script>
-  <script src="./listening_data.js?v=105.0"></script>
-  <script src="./vietnam_today_data.js?v=105.0"></script>
-  <script src="./educational_channels_data.js?v=105.0"></script>
-  <script src="./international_news_videos.js?v=105.0"></script>
-  <script src="./bilingual_news_data.js?v=105.0"></script>
-  <script src="./reading_lexicon.js?v=105.0"></script>
-  <script src="./conversation_data.js?v=105.0"></script>
-  <script src="./speaking-forecast.js?v=105.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=105.0"></script>
-  <script src="./speakout-speaking-data.js?v=105.0"></script>
-  <script src="./speaking-engine.js?v=105.0"></script>
-  <script src="./translation_bank_units.js?v=105.0"></script>
-  <script src="./translation_bank_media.js?v=105.0"></script>
-  <script src="./translation_bank_ielts.js?v=105.0"></script>
-  <script src="./translation_bank_trends.js?v=105.0"></script>
-  <script src="./translation-practice-engine.js?v=105.0"></script>
-  <script src="./read-aloud-engine.js?v=105.0"></script>
-  <script src="./vi-en-games-engine.js?v=105.0"></script>
-  <script src="./ocr-vocab-engine.js?v=105.0"></script>
-  <script src="./unit-review-engine.js?v=105.0"></script>
-  <script src="./focus-session-engine.js?v=105.0"></script>
-  <script src="./security-guard-engine.js?v=105.0"></script>
-  <script src="./auth-gate-engine.js?v=105.0"></script>
-  <script src="./streak-deadline-engine.js?v=105.0"></script>
-  <script src="./app.js?v=105.0"></script>
+  <script src="./data.js?v=106.0"></script>
+  <script src="./listening_data.js?v=106.0"></script>
+  <script src="./vietnam_today_data.js?v=106.0"></script>
+  <script src="./educational_channels_data.js?v=106.0"></script>
+  <script src="./international_news_videos.js?v=106.0"></script>
+  <script src="./bilingual_news_data.js?v=106.0"></script>
+  <script src="./reading_lexicon.js?v=106.0"></script>
+  <script src="./conversation_data.js?v=106.0"></script>
+  <script src="./speaking-forecast.js?v=106.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=106.0"></script>
+  <script src="./speakout-speaking-data.js?v=106.0"></script>
+  <script src="./speaking-engine.js?v=106.0"></script>
+  <script src="./translation_bank_units.js?v=106.0"></script>
+  <script src="./translation_bank_media.js?v=106.0"></script>
+  <script src="./translation_bank_ielts.js?v=106.0"></script>
+  <script src="./translation_bank_trends.js?v=106.0"></script>
+  <script src="./translation-practice-engine.js?v=106.0"></script>
+  <script src="./read-aloud-engine.js?v=106.0"></script>
+  <script src="./vi-en-games-engine.js?v=106.0"></script>
+  <script src="./ocr-vocab-engine.js?v=106.0"></script>
+  <script src="./unit-review-engine.js?v=106.0"></script>
+  <script src="./focus-session-engine.js?v=106.0"></script>
+  <script src="./security-guard-engine.js?v=106.0"></script>
+  <script src="./auth-gate-engine.js?v=106.0"></script>
+  <script src="./streak-deadline-engine.js?v=106.0"></script>
+  <script src="./app.js?v=106.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
       window.SpeakingEngine.init();
     }
     if ('serviceWorker' in navigator) {
+      let _emhSwReloading = false;
+      const hadExistingController = !!navigator.serviceWorker.controller;
+      if (hadExistingController) {
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (_emhSwReloading) return;
+          _emhSwReloading = true;
+          window.location.reload();
+        });
+      }
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=105.0', { updateViaCache: 'none' })
-          .then(reg => { try { reg.update(); } catch (e) {} })
+        navigator.serviceWorker.register('/sw.js?v=106.0', { updateViaCache: 'none' })
+          .then(reg => {
+            try { reg.update(); } catch (e) {}
+            document.addEventListener('visibilitychange', () => {
+              if (document.visibilityState === 'visible') {
+                try { reg.update(); } catch (e) {}
+              }
+            });
+          })
           .catch(err => console.log('SW reg failed:', err));
       });
     }

@@ -247,7 +247,7 @@ def serve_reading_lexicon():
 
 @app.get("/speaking.html")
 def serve_speaking_html():
-    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"), headers=NO_CACHE_HEADERS)
 
 @app.get("/speaking-forecast.js")
 def serve_speaking_forecast():
@@ -374,8 +374,9 @@ def serve_frontend_static(file_name: str):
         elif file_name.endswith(".png"): media_type = "image/png"
         elif file_name.endswith(".jpg") or file_name.endswith(".jpeg"): media_type = "image/jpeg"
         elif file_name.endswith(".ico"): media_type = "image/x-icon"
-        return FileResponse(file_path, media_type=media_type)
-    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
+        use_no_cache = file_name.endswith((".html", ".js", ".css", ".json"))
+        return FileResponse(file_path, media_type=media_type, headers=NO_CACHE_HEADERS if use_no_cache else None)
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"), headers=NO_CACHE_HEADERS)
 
 if __name__ == "__main__":
     import uvicorn

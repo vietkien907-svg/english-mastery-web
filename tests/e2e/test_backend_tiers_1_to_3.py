@@ -626,12 +626,12 @@ class TestBackendTier3(unittest.TestCase):
         # 2. index.html <script> JS list
         with open(os.path.join(REPO_ROOT, "index.html"), "r", encoding="utf-8") as f:
             html = f.read()
-        html_js = set(re.findall(r'<script\s+[^>]*src=["\']\.\/([^"\'?]+\.js)\?v=105\.0["\']', html))
+        html_js = set(re.findall(r'<script\s+[^>]*src=["\']\.\/([^"\'?]+\.js)\?v=106\.0["\']', html))
 
         # 3. sw.js ASSETS_TO_CACHE JS list
         with open(os.path.join(REPO_ROOT, "sw.js"), "r", encoding="utf-8") as f:
             sw_src = f.read()
-        self.assertIn("english-mastery-v105.0", sw_src)
+        self.assertIn("english-mastery-v106.0", sw_src)
         sw_js = set(re.findall(r"['\"]\.\/([^'\"]+\.js)['\"]", sw_src))
 
         # 4. backend/main.py @app.get JS routes
@@ -644,9 +644,9 @@ class TestBackendTier3(unittest.TestCase):
         sync_js = {f for f in sync_data.get("files_to_sync", []) if f.endswith(".js")}
 
         required = set(ALL_REQUIRED_JS_FILES)
-        for name, s in [("index.html?v=105.0", html_js), ("sw.js", sw_js), ("backend/main.py", main_js), ("sync_to_desktops.py", sync_js)]:
+        for name, s in [("index.html?v=106.0", html_js), ("sw.js", sw_js), ("backend/main.py", main_js), ("sync_to_desktops.py", sync_js)]:
             missing = required - s
-            self.assertFalse(missing, f"{name} missing required v105.0 JS files: {sorted(missing)}")
+            self.assertFalse(missing, f"{name} missing required v106.0 JS files: {sorted(missing)}")
         for js in required:
             self.assertTrue(os.path.isfile(os.path.join(REPO_ROOT, js)), f"Disk file missing: {js}")
 

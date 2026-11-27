@@ -18,6 +18,8 @@
   'use strict';
 
   var STATS_STORAGE_KEY = 'EMH_VI_EN_GAMES_STATS_V1';
+  var MASTERY_STORAGE_KEY = 'EMH_VEG_WORD_MASTERY_V1';
+  var PREFS_STORAGE_KEY = 'EMH_VEG_PREFS_V1';
   var STYLE_ELEMENT_ID = 'veg-inline-styles';
 
   var MODES = [
@@ -49,7 +51,7 @@
       id: 'match_pairs',
       nameVi: 'Nối cặp Việt – Anh',
       nameEn: 'Match Pairs',
-      subtitleVi: 'Ghép 6 cặp nghĩa Việt – Anh siêu tốc',
+      subtitleVi: 'Ghép cặp nghĩa Việt – Anh luôn đảo vị trí',
       icon: '🔗',
       badge: 'Cặp từ'
     },
@@ -84,6 +86,14 @@
       subtitleVi: 'Hoàn thành mạch hội thoại / tin ngắn theo Unit',
       icon: '💬',
       badge: 'Mạch truyện'
+    },
+    {
+      id: 'word_scramble',
+      nameVi: 'Đảo chữ ghép từ',
+      nameEn: 'Word Scramble',
+      subtitleVi: 'Xếp chữ cái / cụm từ bị xáo trộn theo nghĩa Việt',
+      icon: '🔤',
+      badge: 'Nhớ chính tả'
     }
   ];
 
@@ -201,6 +211,7 @@
   var domInitAppData = null;
   var cachedUnitsRef = null;
   var cachedUnitsLen = -1;
+  var cachedCustomSig = '';
   var cachedNormalizedUnits = null;
   var rootEl = null;
   var boundListeners = [];
@@ -210,6 +221,12 @@
   var lastFallingTs = 0;
   var autoBootTimeoutId = null;
   var autoBootListener = null;
+  var roundSizeSetting = 'auto';
+  var multiUnitSelectedIds = [];
+  var multiUnitDrawerOpen = false;
+  var multiUnitSearchQuery = '';
+  var sessionRotationCounter = 0;
+  var sessionRecentWordEpoch = {};
 
   var state = createIdleState();
 
@@ -237,6 +254,7 @@
       lastFeedback: null,
       history: [],
       tilesState: null,
+      scrambleState: null,
       matchState: null,
       fallingState: null,
       dialogueState: null,
@@ -249,7 +267,10 @@
       _fallingPool: [],
       _fallingNextIdx: 0,
       _fallingSpawnIdCounter: 0,
-      _pickedFaultIndex: null
+      _pickedFaultIndex: null,
+      _requeueCount: 0,
+      _maxRequeues: 0,
+      _initialQuestionCount: 0
     };
   }
 
@@ -323,6 +344,28 @@
     return copy;
   }
 
+  function derangeArrayWithRng(arr, rng) {
+    var copy = shuffleWithRng(arr, rng);
+    if (copy.length <= 1) return copy;
+    var allSameOrder = true;
+    var hasDistinct = false;
+    for (var i = 0; i < copy.length; i++) {
+      if (copy[i] !== arr[i]) allSameOrder = false;
+      if (i > 0 && arr[i] !== arr[0]) hasDistinct = true;
+    }
+    if (allSameOrder && hasDistinct) {
+      for (var k = 1; k < copy.length; k++) {
+        if (copy[k] !== copy[0]) {
+          var swapTmp = copy[0];
+          copy[0] = copy[k];
+          copy[k] = swapTmp;
+          break;
+        }
+      }
+    }
+    return copy;
+  }
+
   function capitalizeFirst(str) {
     var s = String(str || '').trim();
     if (!s) return '';
@@ -345,7 +388,11 @@
   }
 
   function cleanOcrVi(text) {
-    var s = String(text == null ? '' : text).replace(/\s+/g, ' ').trim();
+    var s = String(text == null ? '' : text)
+      .replace(/[©®™`~]/g, ' ')
+      .replace(/\s+\d+\s*$/, '')
+      .replace(/\s+/g, ' ')
+      .trim();
     if (!s) return '';
     // Join OCR-broken Vietnamese onset + accented vowel syllables (e.g. "s ản ph ẩm t ừ", "đư ợc", "nghi ệm")
     var pattern = /(^|[\s(])(ngh|ch|gh|gi|kh|ng|nh|ph|qu|th|tr|đư|nghi|bu|cu|hu|[bcdfghklmnpqrstvwxzđ])\s+([àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵ])/gi;
@@ -356,7 +403,7 @@
       s = s.replace(pattern, '$1$2$3');
       guard++;
     } while (s !== prev && guard < 6);
-    return s.replace(/\s+/g, ' ').trim();
+    return s.replace(/[;,\s]+$/, '').replace(/\s+/g, ' ').trim();
   }
 
   function extractShortViAndGlosses(cleanVi) {
@@ -451,13 +498,21 @@
     var primaryRaw = alts[0] || raw;
 
     function expandPlaceholders(str) {
-      var out = String(str || '').trim();
+      var out = String(str || '')
+        .replace(/[©®™`~]/g, ' ')
+        .replace(/[;:]+\s*$/, '')
+        .trim();
       // Known typo in data.js Unit 37: "pay a vist"
       out = out.replace(/\bvist\b/gi, 'visit');
       out = out.replace(/\bsb\/sth\b/gi, 'someone');
       out = out.replace(/\bsth\/sb\b/gi, 'something');
+      out = out.replace(/\bsb\/st\b/gi, 'someone');
+      out = out.replace(/\bst\/sb\b/gi, 'something');
+      out = out.replace(/\bsb's\b/gi, "someone's");
+      out = out.replace(/\bsm's\b/gi, "someone's");
       out = out.replace(/\bsb\b/gi, 'someone');
       out = out.replace(/\bsth\b/gi, 'something');
+      out = out.replace(/\bst\b/gi, 'something');
       out = out.replace(/\s+/g, ' ').trim();
       return out;
     }
@@ -560,18 +615,223 @@
     };
   }
 
+  function readMasterySafe() {
+    var empty = { words: {}, seq: 0 };
+    if (typeof localStorage === 'undefined') return empty;
+    try {
+      var raw = localStorage.getItem(MASTERY_STORAGE_KEY);
+      if (!raw) return empty;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object') return empty;
+      return {
+        words: (parsed.words && typeof parsed.words === 'object') ? parsed.words : {},
+        seq: Number(parsed.seq) || 0
+      };
+    } catch (e) {
+      return empty;
+    }
+  }
+
+  function writeMasterySafe(data) {
+    if (typeof localStorage === 'undefined') return;
+    try {
+      localStorage.setItem(MASTERY_STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {}
+  }
+
+  function normalizeMasteryKey(wordStr) {
+    return String(wordStr || '').trim().toLowerCase().replace(/\s+/g, ' ');
+  }
+
+  function recordWordAttempt(wordStr, isCorrect) {
+    var key = normalizeMasteryKey(wordStr);
+    if (!key) return;
+    var store = readMasterySafe();
+    store.seq = (store.seq || 0) + 1;
+    var prev = store.words[key] || { c: 0, w: 0, last: 0 };
+    if (isCorrect) {
+      prev.c = (prev.c || 0) + 1;
+      if (prev.w > 0) prev.w = Math.max(0, prev.w - 1);
+    } else {
+      prev.w = (prev.w || 0) + 1;
+    }
+    prev.last = store.seq;
+    store.words[key] = prev;
+    writeMasterySafe(store);
+  }
+
+  function resetWordMastery(unitWords) {
+    if (typeof localStorage === 'undefined') return;
+    if (!Array.isArray(unitWords) || !unitWords.length) {
+      try { localStorage.removeItem(MASTERY_STORAGE_KEY); } catch (e) {}
+      sessionRecentWordEpoch = {};
+      return;
+    }
+    var store = readMasterySafe();
+    for (var i = 0; i < unitWords.length; i++) {
+      var k = normalizeMasteryKey(unitWords[i].cleanWord || unitWords[i].word);
+      if (k && store.words[k]) delete store.words[k];
+      if (k && sessionRecentWordEpoch[k]) delete sessionRecentWordEpoch[k];
+    }
+    writeMasterySafe(store);
+  }
+
+  function computeUnitMasterySummary(unit) {
+    if (!unit || !Array.isArray(unit.words) || !unit.words.length) {
+      return { masteredCount: 0, reviewCount: 0, seenCount: 0, totalCount: 0, pct: 0 };
+    }
+    var store = readMasterySafe();
+    var mastered = 0;
+    var review = 0;
+    var seen = 0;
+    for (var i = 0; i < unit.words.length; i++) {
+      var k = normalizeMasteryKey(unit.words[i].cleanWord || unit.words[i].word);
+      var entry = store.words[k];
+      if (!entry) continue;
+      seen++;
+      if ((entry.w || 0) > 0) {
+        review++;
+      } else if ((entry.c || 0) >= 1) {
+        mastered++;
+      }
+    }
+    var total = unit.words.length;
+    return {
+      masteredCount: mastered,
+      reviewCount: review,
+      seenCount: seen,
+      totalCount: total,
+      pct: total > 0 ? Math.round((mastered / total) * 100) : 0
+    };
+  }
+
+  function readPrefsSafe() {
+    if (typeof localStorage === 'undefined') return;
+    try {
+      var raw = localStorage.getItem(PREFS_STORAGE_KEY);
+      if (!raw) return;
+      var p = JSON.parse(raw);
+      if (p && typeof p === 'object') {
+        if (typeof p.roundSize === 'string' && p.roundSize) {
+          roundSizeSetting = p.roundSize;
+        }
+        if (Array.isArray(p.multiUnitIds)) {
+          multiUnitSelectedIds = p.multiUnitIds.filter(Boolean);
+        }
+      }
+    } catch (e) {}
+  }
+
+  function savePrefsSafe() {
+    if (typeof localStorage === 'undefined') return;
+    try {
+      localStorage.setItem(PREFS_STORAGE_KEY, JSON.stringify({
+        roundSize: roundSizeSetting,
+        multiUnitIds: multiUnitSelectedIds
+      }));
+    } catch (e) {}
+  }
+
+  function readLocalCustomVocabularyList() {
+    if (typeof localStorage === 'undefined') return [];
+    var out = [];
+    var keys = ['EMH_CUSTOM_NOTEBOOK_V1', 'EMH_CUSTOM_SAVED_WORDS_V2', 'EMH_FORGOTTEN_WORDS_V1'];
+    for (var k = 0; k < keys.length; k++) {
+      try {
+        var raw = localStorage.getItem(keys[k]);
+        if (!raw) continue;
+        var parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          for (var i = 0; i < parsed.length; i++) {
+            if (parsed[i] && typeof parsed[i] === 'object') out.push(parsed[i]);
+          }
+        } else if (parsed && typeof parsed === 'object') {
+          var objKeys = Object.keys(parsed);
+          for (var j = 0; j < objKeys.length; j++) {
+            var val = parsed[objKeys[j]];
+            if (val && typeof val === 'object') out.push(val);
+          }
+        }
+      } catch (e) {}
+    }
+    return out;
+  }
+
+  function buildNormalizedWordObject(raw, canonicalId, unitNumber, idxInUnit, seenWords) {
+    if (!raw) return null;
+    var wordStr = String(raw.word || raw.phrase || '').replace(/[©®™`~]/g, ' ').replace(/[;:]+\s*$/, '').replace(/\s+/g, ' ').trim();
+    if (!wordStr) return null;
+    if (wordStr.length > 95 || wordStr.split(/\s+/).length > 10) return null;
+
+    var rawVi = String(raw.meaning_vi || raw.meaning || raw.vi || '').trim();
+    if (!rawVi) return null;
+
+    var wordVariants = normalizeEnglishWordVariants(wordStr);
+    if (!wordVariants.cleanWord) return null;
+    var dedupKey = wordVariants.cleanWord.toLowerCase();
+    if (seenWords[dedupKey]) return null;
+
+    var cleanVi = cleanOcrVi(rawVi);
+    if (!cleanVi) return null;
+    seenWords[dedupKey] = true;
+
+    var glossInfo = extractShortViAndGlosses(cleanVi);
+    var posNorm = normalizePos(raw.pos, wordVariants.cleanWord);
+
+    var exRaw = String(raw.example || '').trim();
+    var hasRealEx = Boolean(
+      exRaw &&
+      !/^Example(?:\s+context\s+with)?(?::|\b)/i.test(exRaw) &&
+      exRaw.split(/\s+/).length >= 4
+    );
+
+    return {
+      id: canonicalId + '__' + idxInUnit,
+      word: wordStr,
+      cleanWord: wordVariants.cleanWord,
+      acceptedWords: wordVariants.acceptedWords,
+      posRaw: String(raw.pos || '').trim(),
+      pos: posNorm,
+      pron: String(raw.pron || raw.phonetic || '').trim(),
+      meaningVi: cleanVi,
+      shortVi: glossInfo.shortVi,
+      viGlosses: glossInfo.viGlosses,
+      meaningEn: String(raw.meaning_en || raw.definition || '').trim(),
+      example: hasRealEx ? exRaw : '',
+      hasRealExample: hasRealEx,
+      level: String(raw.level || '').trim(),
+      unitId: canonicalId,
+      unitNumber: unitNumber
+    };
+  }
+
   function getNormalizedUnits(overrideAppData) {
     var appData = getRawAppData(overrideAppData);
     if (!appData || !Array.isArray(appData.units)) return [];
 
-    if (!overrideAppData && cachedNormalizedUnits && cachedUnitsRef === appData.units && cachedUnitsLen === appData.units.length) {
+    var localCustom = !overrideAppData ? readLocalCustomVocabularyList() : [];
+    var currentCustomSig = String(localCustom.length) + ':' +
+      String((appData.collocationsAndIdioms && appData.collocationsAndIdioms.length) || 0) + ':' +
+      String((appData.readings && appData.readings.length) || 0);
+
+    if (!overrideAppData &&
+        cachedNormalizedUnits &&
+        cachedUnitsRef === appData.units &&
+        cachedUnitsLen === appData.units.length &&
+        cachedCustomSig === currentCustomSig) {
       return cachedNormalizedUnits;
     }
 
-    var result = [];
+    var coreUnits = [];
+    var customUnitEntry = null;
+
     for (var idx = 0; idx < appData.units.length; idx++) {
       var u = appData.units[idx];
-      if (!u || u.unitId === 'custom_items' || !Array.isArray(u.days)) continue;
+      if (!u || !Array.isArray(u.days)) continue;
+      if (u.unitId === 'custom_items') {
+        customUnitEntry = u;
+        continue;
+      }
 
       var title = String(u.unitTitle || '').trim();
       var unitNumber = null;
@@ -606,57 +866,19 @@
         var day = daysToUse[dIdx];
         if (!day || !Array.isArray(day.words)) continue;
         for (var wIdx = 0; wIdx < day.words.length; wIdx++) {
-          var raw = day.words[wIdx];
-          if (!raw) continue;
-          var wordStr = String(raw.word || '').trim();
-          if (!wordStr) continue;
-          var dedupKey = wordStr.toLowerCase();
-          if (seenWords[dedupKey]) continue;
-
-          var rawVi = String(raw.meaning_vi || raw.meaning || '').trim();
-          if (!rawVi) continue;
-
-          seenWords[dedupKey] = true;
-
-          var cleanVi = cleanOcrVi(rawVi);
-          var glossInfo = extractShortViAndGlosses(cleanVi);
-          var wordVariants = normalizeEnglishWordVariants(wordStr);
-          var posNorm = normalizePos(raw.pos, wordVariants.cleanWord);
-
-          var exRaw = String(raw.example || '').trim();
-          var hasRealEx = Boolean(
-            exRaw &&
-            !/^Example(?:\s+context\s+with)?(?::|\b)/i.test(exRaw) &&
-            exRaw.split(/\s+/).length >= 4
-          );
-
-          normalizedWords.push({
-            id: canonicalId + '__' + normalizedWords.length,
-            word: wordStr,
-            cleanWord: wordVariants.cleanWord,
-            acceptedWords: wordVariants.acceptedWords,
-            posRaw: String(raw.pos || '').trim(),
-            pos: posNorm,
-            pron: String(raw.pron || raw.phonetic || '').trim(),
-            meaningVi: cleanVi,
-            shortVi: glossInfo.shortVi,
-            viGlosses: glossInfo.viGlosses,
-            meaningEn: String(raw.meaning_en || '').trim(),
-            example: hasRealEx ? exRaw : '',
-            hasRealExample: hasRealEx,
-            level: String(raw.level || '').trim(),
-            unitId: canonicalId,
-            unitNumber: unitNumber
-          });
+          var normObj = buildNormalizedWordObject(day.words[wIdx], canonicalId, unitNumber, normalizedWords.length, seenWords);
+          if (normObj) normalizedWords.push(normObj);
         }
       }
 
       if (normalizedWords.length < 4) continue;
 
-      result.push({
+      coreUnits.push({
         unitId: canonicalId,
         unitNumber: unitNumber,
         unitTitle: title || ('Unit ' + unitNumber),
+        group: 'core_units',
+        groupLabel: '📚 37 Unit Chính Khóa & Kho Cá Nhân',
         themeVi: theme.themeVi,
         themeEn: theme.themeEn,
         themeViSentence: theme.themeViSentence,
@@ -666,16 +888,340 @@
       });
     }
 
+    // Include custom_items (APP_DATA.units[35] + user's personal saved/OCR/forgotten words)
+    if (customUnitEntry || localCustom.length > 0) {
+      var customSeen = {};
+      var customWords = [];
+      if (customUnitEntry && Array.isArray(customUnitEntry.days)) {
+        for (var cd = 0; cd < customUnitEntry.days.length; cd++) {
+          var cDay = customUnitEntry.days[cd];
+          if (!cDay || !Array.isArray(cDay.words)) continue;
+          for (var cw = 0; cw < cDay.words.length; cw++) {
+            var cNorm = buildNormalizedWordObject(cDay.words[cw], 'custom_items', 36, customWords.length, customSeen);
+            if (cNorm) customWords.push(cNorm);
+          }
+        }
+      }
+      for (var lc = 0; lc < localCustom.length; lc++) {
+        var lNorm = buildNormalizedWordObject(localCustom[lc], 'custom_items', 36, customWords.length, customSeen);
+        if (lNorm) customWords.push(lNorm);
+      }
+      var starterPersonalWords = [
+        { word: 'perseverance', pos: 'n', pron: '/ˌpɜːsɪˈvɪərəns/', meaning_vi: 'sự kiên trì, bền chí', example: 'Success in language learning requires daily perseverance.' },
+        { word: 'eloquent', pos: 'adj', pron: '/ˈeləkwənt/', meaning_vi: 'hùng hồn, lưu loát và thuyết phục', example: 'She gave an eloquent speech about environmental protection.' },
+        { word: 'pragmatic', pos: 'adj', pron: '/præɡˈmætɪk/', meaning_vi: 'thực tế, thiết thực', example: 'We need a pragmatic solution to urban traffic congestion.' },
+        { word: 'versatile', pos: 'adj', pron: '/ˈvɜːsətaɪl/', meaning_vi: 'đa năng, linh hoạt', example: 'Digital tools have become versatile aids for modern students.' },
+        { word: 'catalyst', pos: 'n', pron: '/ˈkætəlɪst/', meaning_vi: 'chất xúc tác, động lực thúc đẩy', example: 'Technology acted as a catalyst for educational reform.' },
+        { word: 'coherent', pos: 'adj', pron: '/kəʊˈhɪərənt/', meaning_vi: 'mạch lạc, chặt chẽ', example: 'A high-scoring essay must present a coherent argument.' },
+        { word: 'empathetic', pos: 'adj', pron: '/ˌempəˈθetɪk/', meaning_vi: 'thấu cảm, biết lắng nghe', example: 'Good leaders remain empathetic towards their team members.' },
+        { word: 'proactive', pos: 'adj', pron: '/ˌprəʊˈæktɪv/', meaning_vi: 'chủ động đi trước', example: 'Taking a proactive approach helps prevent costly mistakes.' },
+        { word: 'breakthrough', pos: 'n', pron: '/ˈbreɪkθruː/', meaning_vi: 'bước đột phá quan trọng', example: 'Scientists announced a major breakthrough in renewable energy.' },
+        { word: 'perspective', pos: 'n', pron: '/pəˈspektɪv/', meaning_vi: 'góc nhìn, quan điểm', example: 'Traveling abroad broadens your cultural perspective.' },
+        { word: 'indispensable', pos: 'adj', pron: '/ˌɪndɪˈspensəbl/', meaning_vi: 'không thể thiếu được', example: 'Consistent review is indispensable for long-term memory.' },
+        { word: 'authentic', pos: 'adj', pron: '/ɔːˈθentɪk/', meaning_vi: 'chân thực, nguyên bản', example: 'Listening to authentic conversations improves natural intonation.' },
+        { word: 'mindset', pos: 'n', pron: '/ˈmaɪndset/', meaning_vi: 'tư duy, tâm thế', example: 'A growth mindset turns mistakes into learning opportunities.' },
+        { word: 'cultivate', pos: 'v', pron: '/ˈkʌltɪveɪt/', meaning_vi: 'trau dồi, nuôi dưỡng', example: 'Reading daily helps cultivate a rich academic vocabulary.' }
+      ];
+      for (var sp = 0; sp < starterPersonalWords.length; sp++) {
+        var spNorm = buildNormalizedWordObject(starterPersonalWords[sp], 'custom_items', 36, customWords.length, customSeen);
+        if (spNorm) customWords.push(spNorm);
+      }
+      if (customWords.length >= 4) {
+        coreUnits.push({
+          unitId: 'custom_items',
+          unitNumber: 36,
+          unitTitle: 'Unit 36: Kho Từ Cá Nhân & Sổ Tay Tự Thêm',
+          group: 'core_units',
+          groupLabel: '📚 37 Unit Chính Khóa & Kho Cá Nhân',
+          themeVi: 'từ vựng cá nhân và sổ tay tích lũy',
+          themeEn: 'personal vocabulary notebook',
+          themeViSentence: 'từ vựng cá nhân và sổ tay tích lũy',
+          themeEnSentence: 'personal vocabulary and daily communication',
+          wordCount: customWords.length,
+          words: customWords
+        });
+      }
+    }
+
+    // Include all 29 parts of APP_DATA.collocationsAndIdioms
+    var idiomUnits = [];
+    if (Array.isArray(appData.collocationsAndIdioms)) {
+      for (var tIdx = 0; tIdx < appData.collocationsAndIdioms.length; tIdx++) {
+        var topic = appData.collocationsAndIdioms[tIdx];
+        if (!topic || !Array.isArray(topic.items)) continue;
+        var topicId = Number(topic.topicId) || (tIdx + 1);
+        var idiomId = 'idiom_part_' + topicId;
+        var idiomSeen = {};
+        var idiomWords = [];
+        for (var itIdx = 0; itIdx < topic.items.length; itIdx++) {
+          var rawIt = topic.items[itIdx];
+          if (!rawIt) continue;
+          var adapted = {
+            word: rawIt.phrase || rawIt.word,
+            meaning_vi: rawIt.meaning_vi || rawIt.meaning,
+            pos: 'phrase',
+            example: rawIt.example || ''
+          };
+          var iNorm = buildNormalizedWordObject(adapted, idiomId, 100 + topicId, idiomWords.length, idiomSeen);
+          if (iNorm) idiomWords.push(iNorm);
+        }
+        if (idiomWords.length >= 4) {
+          var rawTopicTitle = String(topic.topicTitle || ('Phần ' + topicId)).trim();
+          var shortTopicLabel = rawTopicTitle.replace(/^Collocations\s*&\s*Idioms\s*-\s*/i, '').trim();
+          idiomUnits.push({
+            unitId: idiomId,
+            unitNumber: 100 + topicId,
+            unitTitle: 'Idioms #' + (topicId < 10 ? '0' + topicId : topicId) + ' — ' + shortTopicLabel,
+            group: 'idioms',
+            groupLabel: '💬 29 Phần Thành Ngữ & Cụm Từ (Idioms & Collocations)',
+            themeVi: 'thành ngữ và cụm từ cố định',
+            themeEn: 'idioms and collocations',
+            themeViSentence: 'thành ngữ và giao tiếp tự nhiên',
+            themeEnSentence: 'idioms and natural expressions',
+            wordCount: idiomWords.length,
+            words: idiomWords
+          });
+        }
+      }
+    }
+
+    // Include Reading & Study4 Target Vocabulary from APP_DATA.readings
+    var readingUnits = [];
+    if (Array.isArray(appData.readings) && appData.readings.length > 0) {
+      var s4Seen = {};
+      var s4Words = [];
+      var acadSeen = {};
+      var acadWords = [];
+      for (var rIdx = 0; rIdx < appData.readings.length; rIdx++) {
+        var rItem = appData.readings[rIdx];
+        if (!rItem || !Array.isArray(rItem.target_words)) continue;
+        var isStudy4 = (Number(rItem.id) >= 151) || /study4/i.test(String(rItem.exam || '') + ' ' + String(rItem.source || ''));
+        for (var rw = 0; rw < rItem.target_words.length; rw++) {
+          if (isStudy4) {
+            var sNorm = buildNormalizedWordObject(rItem.target_words[rw], 'reading_study4_vocab', 201, s4Words.length, s4Seen);
+            if (sNorm) s4Words.push(sNorm);
+          } else {
+            var aNorm = buildNormalizedWordObject(rItem.target_words[rw], 'reading_academic_vocab', 202, acadWords.length, acadSeen);
+            if (aNorm) acadWords.push(aNorm);
+          }
+        }
+      }
+      if (s4Words.length >= 4) {
+        readingUnits.push({
+          unitId: 'reading_study4_vocab',
+          unitNumber: 201,
+          unitTitle: 'Study4 Vocab: 23 Chủ Đề Speaking & Reading',
+          group: 'readings',
+          groupLabel: '📖 Từ Vựng Bài Đọc Học Thuật & Study4',
+          themeVi: 'chủ đề IELTS Speaking và Reading Study4',
+          themeEn: 'IELTS speaking and reading topics',
+          themeViSentence: 'các chủ đề Speaking và Reading thực chiến',
+          themeEnSentence: 'IELTS speaking and reading topics',
+          wordCount: s4Words.length,
+          words: s4Words
+        });
+      }
+      if (acadWords.length >= 4) {
+        readingUnits.push({
+          unitId: 'reading_academic_vocab',
+          unitNumber: 202,
+          unitTitle: 'IELTS Reading Vocab: 150 Bài Đọc Học Thuật',
+          group: 'readings',
+          groupLabel: '📖 Từ Vựng Bài Đọc Học Thuật & Study4',
+          themeVi: 'từ vựng học thuật IELTS Reading',
+          themeEn: 'academic reading vocabulary',
+          themeViSentence: 'nghiên cứu học thuật và bài đọc IELTS',
+          themeEnSentence: 'academic reading and research',
+          wordCount: acadWords.length,
+          words: acadWords
+        });
+      }
+    }
+
+    var allConcrete = coreUnits.concat(idiomUnits).concat(readingUnits);
+
     if (!overrideAppData) {
       cachedUnitsRef = appData.units;
       cachedUnitsLen = appData.units.length;
-      cachedNormalizedUnits = result;
+      cachedCustomSig = currentCustomSig;
+      cachedNormalizedUnits = allConcrete;
     }
-    return result;
+    return allConcrete;
+  }
+
+  function mergeUnitsIntoVirtualDeck(deckId, deckNumber, deckTitle, sourceUnits, themeVi, themeEn) {
+    var seen = {};
+    var merged = [];
+    for (var i = 0; i < sourceUnits.length; i++) {
+      var words = sourceUnits[i] ? sourceUnits[i].words : [];
+      for (var j = 0; j < words.length; j++) {
+        var w = words[j];
+        var key = w.cleanWord.toLowerCase();
+        if (seen[key]) continue;
+        seen[key] = true;
+        merged.push(w);
+      }
+    }
+    if (merged.length < 4) return null;
+    return {
+      unitId: deckId,
+      unitNumber: deckNumber,
+      unitTitle: deckTitle,
+      group: 'mixes',
+      groupLabel: '🔀 Chế Độ Trộn Đảo Từ & Ôn Tập Tổng Hợp',
+      isVirtualMix: true,
+      themeVi: themeVi || 'từ vựng tổng hợp đa chủ đề',
+      themeEn: themeEn || 'mixed multi-topic vocabulary',
+      themeViSentence: themeVi || 'các chủ đề tổng hợp',
+      themeEnSentence: themeEn || 'everyday and academic topics',
+      wordCount: merged.length,
+      words: merged
+    };
+  }
+
+  function buildVirtualMixUnits(concreteUnits) {
+    if (!Array.isArray(concreteUnits) || concreteUnits.length < 2) return [];
+    var mixes = [];
+
+    var coreOnly = concreteUnits.filter(function (u) { return u.group === 'core_units'; });
+    var idiomsOnly = concreteUnits.filter(function (u) { return u.group === 'idioms'; });
+    var readingsOnly = concreteUnits.filter(function (u) { return u.group === 'readings'; });
+
+    // Custom multi-unit combination if selected by learner
+    if (Array.isArray(multiUnitSelectedIds) && multiUnitSelectedIds.length > 0) {
+      var idMap = {};
+      for (var m = 0; m < multiUnitSelectedIds.length; m++) {
+        idMap[String(multiUnitSelectedIds[m]).toLowerCase()] = true;
+      }
+      var pickedUnits = concreteUnits.filter(function (u) {
+        return Boolean(idMap[u.unitId.toLowerCase()]);
+      });
+      var customMix = mergeUnitsIntoVirtualDeck(
+        'mix_custom',
+        900,
+        '🧩 Tổ Hợp Tùy Chọn (' + pickedUnits.length + ' học phần đã gộp)',
+        pickedUnits,
+        'các học phần đã chọn',
+        'selected study units'
+      );
+      if (customMix) mixes.push(customMix);
+    }
+
+    var mixAll = mergeUnitsIntoVirtualDeck(
+      'mix_all',
+      901,
+      '🔀 Trộn Toàn Bộ Hệ Thống (Tất cả Unit + Idioms + Bài Đọc)',
+      concreteUnits,
+      'toàn bộ hệ thống từ vựng',
+      'comprehensive English mastery'
+    );
+    if (mixAll) mixes.push(mixAll);
+
+    var mixCore = mergeUnitsIntoVirtualDeck(
+      'mix_units_all',
+      902,
+      '🔀 Trộn Toàn Bộ 37 Unit Chính Khóa',
+      coreOnly,
+      'toàn bộ 37 Unit chính khóa',
+      'all core curriculum units'
+    );
+    if (mixCore) mixes.push(mixCore);
+
+    var u1to8 = coreOnly.filter(function (u) { return u.unitNumber >= 1 && u.unitNumber <= 8; });
+    var mix18 = mergeUnitsIntoVirtualDeck('mix_u1_8', 903, '🔀 Trộn Unit 1 – 8 (Giao Tiếp Nền Tảng)', u1to8, 'giao tiếp nền tảng', 'everyday communication');
+    if (mix18) mixes.push(mix18);
+
+    var u9to18 = coreOnly.filter(function (u) { return u.unitNumber >= 9 && u.unitNumber <= 18; });
+    var mix918 = mergeUnitsIntoVirtualDeck('mix_u9_18', 904, '🔀 Trộn Unit 9 – 18 (Chủ Đề Mở Rộng)', u9to18, 'đời sống và công việc', 'work and lifestyle');
+    if (mix918) mixes.push(mix918);
+
+    var u19to28 = coreOnly.filter(function (u) { return u.unitNumber >= 19 && u.unitNumber <= 28; });
+    var mix1928 = mergeUnitsIntoVirtualDeck('mix_u19_28', 905, '🔀 Trộn Unit 19 – 28 (Xã Hội & Học Thuật)', u19to28, 'xã hội và học thuật', 'society and education');
+    if (mix1928) mixes.push(mix1928);
+
+    var u29to37 = coreOnly.filter(function (u) { return u.unitNumber >= 29 && u.unitNumber <= 37; });
+    var mix2937 = mergeUnitsIntoVirtualDeck('mix_u29_37', 906, '🔀 Trộn Unit 29 – 37 (Nâng Cao & Tổng Ôn)', u29to37, 'từ vựng nâng cao', 'advanced vocabulary');
+    if (mix2937) mixes.push(mix2937);
+
+    if (idiomsOnly.length > 0) {
+      var mixIdioms = mergeUnitsIntoVirtualDeck(
+        'mix_idioms_all',
+        907,
+        '🔀 Trộn Toàn Bộ 29 Phần Idioms & Collocations',
+        idiomsOnly,
+        'thành ngữ và cụm từ cố định',
+        'idioms and collocations'
+      );
+      if (mixIdioms) mixes.push(mixIdioms);
+    }
+
+    if (readingsOnly.length > 0) {
+      var mixReadings = mergeUnitsIntoVirtualDeck(
+        'mix_readings_all',
+        908,
+        '🔀 Trộn Toàn Bộ Từ Vựng Bài Đọc & Study4',
+        readingsOnly,
+        'bài đọc IELTS và Study4',
+        'IELTS reading and speaking topics'
+      );
+      if (mixReadings) mixes.push(mixReadings);
+    }
+
+    // Weak / Missed words review deck (always padded to >= 12 words if user has fewer mistakes)
+    if (mixAll && mixAll.words.length >= 4) {
+      var store = readMasterySafe();
+      var weakWords = [];
+      var unseenBackup = [];
+      for (var wIdx = 0; wIdx < mixAll.words.length; wIdx++) {
+        var cand = mixAll.words[wIdx];
+        var mKey = normalizeMasteryKey(cand.cleanWord);
+        var rec = store.words[mKey];
+        if (rec && (rec.w || 0) > 0) {
+          weakWords.push(cand);
+        } else if ((!rec || (rec.c || 0) === 0) && unseenBackup.length < 24) {
+          unseenBackup.push(cand);
+        }
+      }
+      var mistakesCount = weakWords.length;
+      for (var b = 0; b < unseenBackup.length && weakWords.length < 16; b++) {
+        weakWords.push(unseenBackup[b]);
+      }
+      if (weakWords.length >= 4) {
+        mixes.push({
+          unitId: 'mix_mistakes',
+          unitNumber: 909,
+          unitTitle: mistakesCount > 0
+            ? ('🎯 Kho Từ Hay Sai Cần Ôn Lại (' + mistakesCount + ' từ sai)')
+            : '🎯 Kho Từ Trọng Tâm Chưa Thuộc (Đảo Ngẫu Nhiên)',
+          group: 'mixes',
+          groupLabel: '🔀 Chế Độ Trộn Đảo Từ & Ôn Tập Tổng Hợp',
+          isVirtualMix: true,
+          themeVi: 'ôn tập từ vựng trọng tâm',
+          themeEn: 'targeted vocabulary review',
+          themeViSentence: 'ôn tập các từ cần ghi nhớ kỹ',
+          themeEnSentence: 'targeted vocabulary review',
+          wordCount: weakWords.length,
+          words: weakWords
+        });
+      }
+    }
+
+    return mixes;
+  }
+
+  function getAllPlayableDecks(overrideAppData) {
+    var concrete = getNormalizedUnits(overrideAppData);
+    if (!concrete.length) return [];
+    var core = concrete.filter(function (u) { return u.group === 'core_units'; });
+    var idioms = concrete.filter(function (u) { return u.group === 'idioms'; });
+    var readings = concrete.filter(function (u) { return u.group === 'readings'; });
+    var mixes = buildVirtualMixUnits(concrete);
+    // Keep core units FIRST so Unit 1 is default [0] and Unit 1..37 match numeric/index lookups first
+    return core.concat(mixes).concat(idioms).concat(readings);
   }
 
   function resolveUnit(unitIdOrNum, overrideAppData) {
-    var units = getNormalizedUnits(overrideAppData);
+    var units = getAllPlayableDecks(overrideAppData);
     if (!units.length) return null;
 
     if (unitIdOrNum == null || unitIdOrNum === '') {
@@ -684,6 +1230,12 @@
 
     var key = String(unitIdOrNum).trim();
     var lower = key.toLowerCase();
+
+    if (lower === 'all') {
+      for (var a = 0; a < units.length; a++) {
+        if (units[a].unitId === 'mix_all') return units[a];
+      }
+    }
 
     // 1. Exact unitId match
     for (var i = 0; i < units.length; i++) {
@@ -701,7 +1253,16 @@
       }
     }
 
-    // 3. Numeric match ('1'..'37') or 'unit1' / 'unit_1' / 'unit_1_...'
+    // 3. Idiom shorthand ('idiom1', 'idiom_1', 'idiom_part_1')
+    var idiomMatch = lower.match(/^idioms?_?(?:part_?)?(\d+)$/);
+    if (idiomMatch) {
+      var idiomTarget = 'idiom_part_' + parseInt(idiomMatch[1], 10);
+      for (var idm = 0; idm < units.length; idm++) {
+        if (units[idm].unitId === idiomTarget) return units[idm];
+      }
+    }
+
+    // 4. Numeric match ('1'..'37') or 'unit1' / 'unit_1' / 'unit_1_...'
     var numMatch = lower.match(/^(?:unit_?)?(\d+)$/);
     if (numMatch) {
       var targetNum = parseInt(numMatch[1], 10);
@@ -712,7 +1273,7 @@
       }
     }
 
-    // 4. Prefix match 'unit_<num>_'
+    // 5. Prefix match 'unit_<num>_'
     var prefixMatch = lower.match(/^unit_?(\d+)_/);
     if (prefixMatch) {
       var pNum = parseInt(prefixMatch[1], 10);
@@ -727,11 +1288,14 @@
   }
 
   function getAvailableUnits(overrideAppData) {
-    return getNormalizedUnits(overrideAppData).map(function (u) {
+    return getAllPlayableDecks(overrideAppData).map(function (u) {
       return {
         unitId: u.unitId,
         unitNumber: u.unitNumber,
         unitTitle: u.unitTitle,
+        group: u.group || 'core_units',
+        groupLabel: u.groupLabel || '📚 Học phần',
+        isVirtualMix: Boolean(u.isVirtualMix),
         themeVi: u.themeVi,
         themeEn: u.themeEn,
         wordCount: u.wordCount
@@ -747,7 +1311,7 @@
       for (var i = 0; i < allUnits.length; i++) {
         var list = allUnits[i].words;
         for (var j = 0; j < list.length; j++) {
-          var key = list[j].word.toLowerCase();
+          var key = list[j].cleanWord.toLowerCase();
           if (!seen[key]) {
             seen[key] = true;
             merged.push(deepClone(list[j]));
@@ -1318,6 +1882,74 @@
     return picked;
   }
 
+  function selectRoundWords(pool, count, rng, opts) {
+    // Preserve strict deterministic ordering when an explicit seed is passed (unless smartRotation=true)
+    if (opts && opts.seed != null && !opts.smartRotation) {
+      return pickUniqueItems(pool, count, rng, [], []);
+    }
+
+    sessionRotationCounter++;
+    var mastery = readMasterySafe();
+    var shuffled = shuffleWithRng(pool, rng);
+    var usedWords = {};
+    var usedVis = {};
+    var uniqueCandidates = [];
+
+    for (var i = 0; i < shuffled.length; i++) {
+      var item = shuffled[i];
+      var wKey = item.cleanWord.toLowerCase();
+      var vKey = item.shortVi.toLowerCase();
+      if (usedWords[wKey] || usedVis[vKey]) continue;
+      usedWords[wKey] = true;
+      usedVis[vKey] = true;
+
+      var rec = mastery.words[wKey] || null;
+      var wrongCnt = rec ? (rec.w || 0) : 0;
+      var correctCnt = rec ? (rec.c || 0) : 0;
+      var lastSeq = rec ? (rec.last || 0) : 0;
+      var recentEpoch = sessionRecentWordEpoch[wKey] || 0;
+
+      // Priority tier:
+      // 0 = missed words needing spaced review
+      // 1 = unseen in current session & not yet mastered
+      // 2 = unmastered (< 2 correct), least recently drawn in session first
+      // 3 = mastered (>= 2 correct), least recently drawn in session first
+      var tier = 3;
+      if (wrongCnt > 0 && recentEpoch < sessionRotationCounter - 1) {
+        tier = 0;
+      } else if (recentEpoch === 0 && correctCnt === 0) {
+        tier = 1;
+      } else if (correctCnt < 2) {
+        tier = 2;
+      }
+
+      uniqueCandidates.push({
+        item: item,
+        wKey: wKey,
+        tier: tier,
+        recentEpoch: recentEpoch,
+        lastSeq: lastSeq,
+        tieJitter: rng()
+      });
+    }
+
+    uniqueCandidates.sort(function (a, b) {
+      if (a.tier !== b.tier) return a.tier - b.tier;
+      if (a.recentEpoch !== b.recentEpoch) return a.recentEpoch - b.recentEpoch;
+      if (a.lastSeq !== b.lastSeq) return a.lastSeq - b.lastSeq;
+      return a.tieJitter - b.tieJitter;
+    });
+
+    var picked = [];
+    for (var p = 0; p < uniqueCandidates.length && picked.length < count; p++) {
+      picked.push(uniqueCandidates[p].item);
+      sessionRecentWordEpoch[uniqueCandidates[p].wKey] = sessionRotationCounter;
+    }
+
+    // Final shuffle so priority buckets never leak predictable positions inside the round
+    return shuffleWithRng(picked, rng);
+  }
+
   function buildMcqOptionsForItem(targetItem, targetLabel, unitWords, rng, preferSamePos) {
     var samePos = preferSamePos
       ? unitWords.filter(function (w) { return w.pos === targetItem.pos && w.id !== targetItem.id; })
@@ -1362,7 +1994,8 @@
   // ==================== 8 Mode Question Generators ====================
 
   function buildWordTilesQuestions(unit, count, rng) {
-    var chosen = pickUniqueItems(unit.words, count, rng, [], []);
+    var chosen = selectRoundWords(unit.words, count, rng, state._options);
+    var tplShift = (state._options && state._options.seed != null) ? 0 : Math.floor(rng() * 6);
     var allSingleTokens = [];
     for (var u = 0; u < unit.words.length; u++) {
       var toks = unit.words[u].cleanWord.split(/\s+/);
@@ -1375,7 +2008,7 @@
     var questions = [];
     for (var i = 0; i < chosen.length; i++) {
       var item = chosen[i];
-      var pair = synthesizeBilingualPair(item, unit, i);
+      var pair = synthesizeBilingualPair(item, unit, i + tplShift);
       var targetTokens = tokenizeSentenceForTiles(pair.en);
       // Ensure 4-10 tokens cleanly
       var targetSet = {};
@@ -1426,11 +2059,12 @@
   }
 
   function buildClozeQuestions(unit, count, rng) {
-    var chosen = pickUniqueItems(unit.words, count, rng, [], []);
+    var chosen = selectRoundWords(unit.words, count, rng, state._options);
+    var tplShift = (state._options && state._options.seed != null) ? 0 : Math.floor(rng() * 6);
     var questions = [];
     for (var i = 0; i < chosen.length; i++) {
       var item = chosen[i];
-      var cloze = buildClozeFromExample(item, unit, i);
+      var cloze = buildClozeFromExample(item, unit, i + tplShift);
       var mcq = buildMcqOptionsForItem(item, cloze.blankAnswer, unit.words, rng, true);
       questions.push({
         id: 'clz_' + i,
@@ -1452,7 +2086,7 @@
   }
 
   function buildSpeedBlitzQuestions(unit, count, rng) {
-    var chosen = pickUniqueItems(unit.words, count, rng, [], []);
+    var chosen = selectRoundWords(unit.words, count, rng, state._options);
     var questions = [];
     for (var i = 0; i < chosen.length; i++) {
       var item = chosen[i];
@@ -1473,7 +2107,7 @@
   }
 
   function buildMatchPairsBoard(unit, pairCount, rng) {
-    var chosen = pickUniqueItems(unit.words, pairCount, rng, [], []);
+    var chosen = selectRoundWords(unit.words, pairCount, rng, state._options);
     var pairs = [];
     var viItems = [];
     var enItems = [];
@@ -1497,11 +2131,12 @@
   }
 
   function buildTypeTranslationQuestions(unit, count, rng) {
-    var chosen = pickUniqueItems(unit.words, count, rng, [], []);
+    var chosen = selectRoundWords(unit.words, count, rng, state._options);
+    var tplShift = (state._options && state._options.seed != null) ? 0 : Math.floor(rng() * 6);
     var questions = [];
     for (var i = 0; i < chosen.length; i++) {
       var item = chosen[i];
-      var pair = synthesizeBilingualPair(item, unit, i);
+      var pair = synthesizeBilingualPair(item, unit, i + tplShift);
       var targetWordsCount = normalizeEnglishAnswer(pair.en).split(/\s+/).filter(Boolean).length;
       var rawAlts = [item.cleanWord].concat(item.acceptedWords || []);
       var acceptedAlts = [];
@@ -1534,8 +2169,8 @@
   }
 
   function buildFallingWordsPool(unit, count, rng) {
-    // Allow cycling up to count items (deduplicated per unit first)
-    var pool = pickUniqueItems(unit.words, Math.min(unit.words.length, Math.max(count, 12)), rng, [], []);
+    // Allow cycling up to count items (deduplicated & smart-rotated per unit)
+    var pool = selectRoundWords(unit.words, Math.min(unit.words.length, Math.max(count, 12)), rng, state._options);
     return pool.map(function (item, idx) {
       return {
         id: 'fw_item_' + idx,
@@ -1548,12 +2183,13 @@
   }
 
   function buildSpotFixQuestions(unit, count, rng) {
-    var chosen = pickUniqueItems(unit.words, count, rng, [], []);
+    var chosen = selectRoundWords(unit.words, count, rng, state._options);
+    var tplShift = (state._options && state._options.seed != null) ? 0 : Math.floor(rng() * 6);
     var questions = [];
 
     for (var i = 0; i < chosen.length; i++) {
       var item = chosen[i];
-      var pair = synthesizeBilingualPair(item, unit, i);
+      var pair = synthesizeBilingualPair(item, unit, i + tplShift);
       var cleanEn = pair.en;
       var tokens = cleanEn.split(/\s+/);
       var errorKind = i % 3;
@@ -1756,8 +2392,9 @@
   }
 
   function buildDialogueChainTurns(unit, turnsCount, rng) {
-    var count = Math.max(4, Math.min(6, turnsCount || 5));
-    var chosen = pickUniqueItems(unit.words, count, rng, [], []);
+    var maxTurns = (state._options && state._options.questionCount) ? Math.min(unit.words.length, state._options.questionCount) : 6;
+    var count = Math.max(4, Math.min(Math.max(6, maxTurns), turnsCount || 5, unit.words.length));
+    var chosen = selectRoundWords(unit.words, count, rng, state._options);
     var speakers = ['Minh', 'Lan', 'Minh', 'Lan', 'Minh', 'Lan'];
     var connectorsVi = [
       'Trong chủ đề ' + unit.themeViSentence + ', ',
@@ -1779,9 +2416,10 @@
     var turns = [];
     for (var i = 0; i < chosen.length; i++) {
       var item = chosen[i];
+      var cIdx = i % connectorsVi.length;
       var pair = synthesizeBilingualPair(item, unit, i + 1);
-      var lineVi = connectorsVi[i] + lowerFirstSmart(pair.vi);
-      var targetEn = connectorsEn[i] + lowerFirstSmart(pair.en);
+      var lineVi = connectorsVi[cIdx] + lowerFirstSmart(pair.vi);
+      var targetEn = connectorsEn[cIdx] + lowerFirstSmart(pair.en);
 
       // Build 3 distractor English lines using other unit items
       var distractorItems = pickUniqueItems(
@@ -1794,7 +2432,7 @@
       var rawOpts = [{ text: targetEn, isCorrect: true }];
       for (var d = 0; d < distractorItems.length; d++) {
         var dPair = synthesizeBilingualPair(distractorItems[d], unit, i + d + 2);
-        var dEn = connectorsEn[i] + lowerFirstSmart(dPair.en);
+        var dEn = connectorsEn[cIdx] + lowerFirstSmart(dPair.en);
         rawOpts.push({ text: dEn, isCorrect: false });
       }
       var shuffled = shuffleWithRng(rawOpts, rng);
@@ -1819,6 +2457,81 @@
       });
     }
     return turns;
+  }
+
+  function createScrambledTilesForTarget(targetWord, rng) {
+    var cleanTarget = String(targetWord || '').trim().replace(/\s+/g, ' ');
+    var rawWords = cleanTarget.split(/\s+/).filter(Boolean);
+    // Single word or 2-4 word phrase: scramble letters INSIDE each word group while keeping word boundaries clear!
+    // 5+ word long idiom: scramble word chunks so tiles stay ergonomic on mobile and desktop!
+    if (rawWords.length <= 4) {
+      var letterTiles = [];
+      var wordLengths = [];
+      var globalIdx = 0;
+      for (var w = 0; w < rawWords.length; w++) {
+        var chars = rawWords[w].split('');
+        wordLengths.push(chars.length);
+        var scrambledChars = derangeArrayWithRng(chars, rng);
+        for (var c = 0; c < scrambledChars.length; c++) {
+          letterTiles.push({
+            tileId: 'sc_' + globalIdx,
+            text: scrambledChars[c],
+            wordGroup: w
+          });
+          globalIdx++;
+        }
+      }
+      return {
+        scrambleKind: 'letters',
+        wordLengths: wordLengths,
+        wordCount: rawWords.length,
+        tiles: letterTiles
+      };
+    } else {
+      var scrambledWords = derangeArrayWithRng(rawWords, rng);
+      var chunkTiles = [];
+      for (var k = 0; k < scrambledWords.length; k++) {
+        chunkTiles.push({
+          tileId: 'sc_' + k,
+          text: scrambledWords[k],
+          wordGroup: 0
+        });
+      }
+      return {
+        scrambleKind: 'chunks',
+        wordLengths: [rawWords.length],
+        wordCount: rawWords.length,
+        tiles: chunkTiles
+      };
+    }
+  }
+
+  function buildWordScrambleQuestions(unit, count, rng) {
+    var chosen = selectRoundWords(unit.words, count, rng, state._options);
+    var questions = [];
+    for (var i = 0; i < chosen.length; i++) {
+      var item = chosen[i];
+      var sc = createScrambledTilesForTarget(item.cleanWord, rng);
+      questions.push({
+        id: 'ws_' + i,
+        itemId: item.id,
+        word: item.cleanWord,
+        targetEn: item.cleanWord,
+        acceptedAnswers: [item.cleanWord].concat(item.acceptedWords || []),
+        pos: item.pos,
+        pron: item.pron || '',
+        promptVi: item.meaningVi || item.shortVi,
+        shortVi: item.shortVi,
+        scrambleKind: sc.scrambleKind,
+        wordLengths: sc.wordLengths,
+        wordCount: sc.wordCount,
+        tiles: sc.tiles,
+        hintText: '',
+        hintRevealed: false,
+        answered: false
+      });
+    }
+    return questions;
   }
 
   // ==================== Falling Words Helpers ====================
@@ -1969,6 +2682,32 @@
     state.accuracy = totalAttempts > 0 ? Math.round((state.correctCount / totalAttempts) * 100) : 0;
   }
 
+  function resolveRequestedRoundCount(chosenMode, unit, opts) {
+    var explicit = opts && (opts.questionCount || opts.pairCount);
+    if (typeof explicit === 'number' && explicit > 0) {
+      return explicit;
+    }
+    var setting = (opts && opts.roundSize) || roundSizeSetting || 'auto';
+    if (setting === 'all') {
+      if (chosenMode === 'match_pairs') return Math.min(8, unit.words.length);
+      if (chosenMode === 'falling_words') return Math.min(30, unit.words.length);
+      return Math.min(120, unit.words.length);
+    }
+    var parsedNum = parseInt(setting, 10);
+    if (isFinite(parsedNum) && parsedNum > 0) {
+      if (chosenMode === 'match_pairs') return Math.min(8, parsedNum, unit.words.length);
+      if (chosenMode === 'falling_words') return Math.min(30, parsedNum, unit.words.length);
+      return Math.min(unit.words.length, parsedNum);
+    }
+    // 'auto' defaults preserving exact baseline behavior
+    if (chosenMode === 'match_pairs') return 6;
+    if (chosenMode === 'speed_blitz') return 15;
+    if (chosenMode === 'falling_words') return 12;
+    if (chosenMode === 'dialogue_chain') return 5;
+    if (chosenMode === 'word_scramble') return 10;
+    return 8;
+  }
+
   function startGame(mode, unitId, options) {
     stopTimers();
     var opts = options || {};
@@ -1980,7 +2719,8 @@
       throw new Error('Cannot resolve unit: ' + String(unitId));
     }
 
-    var seedNum = opts.seed != null ? hashSeed(opts.seed) : hashSeed(Date.now() + ':' + chosenMode + ':' + unit.unitId);
+    var entropySalt = String(Date.now()) + ':' + String(Math.random()) + ':' + String(sessionRotationCounter);
+    var seedNum = opts.seed != null ? hashSeed(opts.seed) : hashSeed(entropySalt + ':' + chosenMode + ':' + unit.unitId);
     var rng = createMulberry32(seedNum);
 
     state = createIdleState();
@@ -1994,9 +2734,10 @@
     state._options = opts;
     state._unit = unit;
 
+    var reqCount = resolveRequestedRoundCount(chosenMode, unit, opts);
     var qCount;
     if (chosenMode === 'match_pairs') {
-      qCount = Math.max(4, Math.min(8, opts.questionCount || opts.pairCount || 6, unit.words.length));
+      qCount = Math.max(4, Math.min(8, reqCount, unit.words.length));
       var board = buildMatchPairsBoard(unit, qCount, rng);
       state.totalQuestions = qCount;
       state.maxScore = qCount * 100 + 150;
@@ -2016,7 +2757,7 @@
         enItems: board.enItems
       };
     } else if (chosenMode === 'speed_blitz') {
-      qCount = Math.max(4, Math.min(unit.words.length, opts.questionCount || 15));
+      qCount = Math.max(4, Math.min(unit.words.length, reqCount));
       var durationSec = (typeof opts.durationSec === 'number' && opts.durationSec > 0) ? opts.durationSec : 60;
       state._questions = buildSpeedBlitzQuestions(unit, qCount, rng);
       state.totalQuestions = state._questions.length;
@@ -2024,7 +2765,7 @@
       state.maxScore = state.totalQuestions * 150;
       state.currentQuestion = state._questions[0] || null;
     } else if (chosenMode === 'falling_words') {
-      var targetCatches = Math.max(4, Math.min(30, opts.questionCount || 12));
+      var targetCatches = Math.max(4, Math.min(30, reqCount));
       var maxLives = Math.max(1, Math.min(5, opts.lives || 3));
       state._fallingPool = buildFallingWordsPool(unit, targetCatches, rng);
       state.totalQuestions = targetCatches;
@@ -2043,7 +2784,7 @@
       spawnFallingWordIfNeeded();
       syncFallingCurrentQuestion();
     } else if (chosenMode === 'dialogue_chain') {
-      qCount = Math.max(4, Math.min(6, opts.questionCount || 5, unit.words.length));
+      qCount = Math.max(4, Math.min(unit.words.length, reqCount));
       var turns = buildDialogueChainTurns(unit, qCount, rng);
       state._questions = turns;
       state.totalQuestions = turns.length;
@@ -2055,31 +2796,41 @@
       };
       state.currentQuestion = turns[0] || null;
     } else if (chosenMode === 'word_tiles') {
-      qCount = Math.max(2, Math.min(unit.words.length, opts.questionCount || 8));
+      qCount = Math.max(2, Math.min(unit.words.length, reqCount));
       state._questions = buildWordTilesQuestions(unit, qCount, rng);
       state.totalQuestions = state._questions.length;
       state.maxScore = state.totalQuestions * 130;
       state.tilesState = { selectedTileIds: [] };
       state.currentQuestion = state._questions[0] || null;
     } else if (chosenMode === 'cloze') {
-      qCount = Math.max(2, Math.min(unit.words.length, opts.questionCount || 8));
+      qCount = Math.max(2, Math.min(unit.words.length, reqCount));
       state._questions = buildClozeQuestions(unit, qCount, rng);
       state.totalQuestions = state._questions.length;
       state.maxScore = state.totalQuestions * 130;
       state.currentQuestion = state._questions[0] || null;
     } else if (chosenMode === 'type_translation') {
-      qCount = Math.max(2, Math.min(unit.words.length, opts.questionCount || 8));
+      qCount = Math.max(2, Math.min(unit.words.length, reqCount));
       state._questions = buildTypeTranslationQuestions(unit, qCount, rng);
       state.totalQuestions = state._questions.length;
       state.maxScore = state.totalQuestions * 120;
       state.currentQuestion = state._questions[0] || null;
     } else if (chosenMode === 'spot_fix') {
-      qCount = Math.max(2, Math.min(unit.words.length, opts.questionCount || 8));
+      qCount = Math.max(2, Math.min(unit.words.length, reqCount));
       state._questions = buildSpotFixQuestions(unit, qCount, rng);
       state.totalQuestions = state._questions.length;
       state.maxScore = state.totalQuestions * 130;
       state.currentQuestion = state._questions[0] || null;
+    } else if (chosenMode === 'word_scramble') {
+      qCount = Math.max(2, Math.min(unit.words.length, reqCount));
+      state._questions = buildWordScrambleQuestions(unit, qCount, rng);
+      state.totalQuestions = state._questions.length;
+      state.maxScore = state.totalQuestions * 125;
+      state.scrambleState = { selectedTileIds: [] };
+      state.currentQuestion = state._questions[0] || null;
     }
+
+    state._initialQuestionCount = state._questions ? state._questions.length : (qCount || 0);
+    state._maxRequeues = Math.min(4, Math.max(1, Math.floor((state._initialQuestionCount || 4) / 2)));
 
     startBrowserTimersIfNeeded();
     renderAll();
@@ -2124,6 +2875,71 @@
     return getState();
   }
 
+  function reconstructScrambleAnswer(q, selectedIds) {
+    if (!q || !Array.isArray(selectedIds) || !selectedIds.length) return '';
+    var tileMap = {};
+    for (var i = 0; i < q.tiles.length; i++) {
+      tileMap[q.tiles[i].tileId] = q.tiles[i].text;
+    }
+    var pieces = [];
+    for (var j = 0; j < selectedIds.length; j++) {
+      var tid = selectedIds[j];
+      if (tileMap[tid] != null) pieces.push(tileMap[tid]);
+    }
+    if (q.scrambleKind === 'chunks') {
+      return pieces.join(' ');
+    }
+    // Re-insert spaces according to wordLengths for multi-word letter scrambles
+    var lens = Array.isArray(q.wordLengths) && q.wordLengths.length ? q.wordLengths : [pieces.length];
+    var outWords = [];
+    var cursor = 0;
+    for (var w = 0; w < lens.length && cursor < pieces.length; w++) {
+      var take = lens[w];
+      outWords.push(pieces.slice(cursor, cursor + take).join(''));
+      cursor += take;
+    }
+    if (cursor < pieces.length) {
+      outWords.push(pieces.slice(cursor).join(''));
+    }
+    return outWords.join(' ');
+  }
+
+  function selectScrambleTile(tileId) {
+    if (state.status !== 'playing' || state.mode !== 'word_scramble' || !state.currentQuestion || !state.scrambleState) return getState();
+    if (state.currentQuestion.answered) return getState();
+    var exists = false;
+    for (var i = 0; i < state.currentQuestion.tiles.length; i++) {
+      if (state.currentQuestion.tiles[i].tileId === tileId) {
+        exists = true;
+        break;
+      }
+    }
+    if (!exists) return getState();
+    if (state.scrambleState.selectedTileIds.indexOf(tileId) === -1) {
+      state.scrambleState.selectedTileIds.push(tileId);
+      renderStage();
+    }
+    return getState();
+  }
+
+  function undoScrambleTile() {
+    if (state.status !== 'playing' || state.mode !== 'word_scramble' || !state.scrambleState) return getState();
+    if (state.currentQuestion && state.currentQuestion.answered) return getState();
+    if (state.scrambleState.selectedTileIds.length > 0) {
+      state.scrambleState.selectedTileIds.pop();
+      renderStage();
+    }
+    return getState();
+  }
+
+  function clearScrambleTiles() {
+    if (state.status !== 'playing' || state.mode !== 'word_scramble' || !state.scrambleState) return getState();
+    if (state.currentQuestion && state.currentQuestion.answered) return getState();
+    state.scrambleState.selectedTileIds = [];
+    renderStage();
+    return getState();
+  }
+
   function useHint() {
     if (state.status !== 'playing' || !state.currentQuestion) return null;
     var q = state.currentQuestion;
@@ -2152,7 +2968,87 @@
       renderStage();
       return cMsg;
     }
+    if (state.mode === 'word_scramble') {
+      q.hintRevealed = true;
+      var rawW = String(q.targetEn || '').split(/\s+/).filter(Boolean);
+      var pattern = rawW.map(function (w) {
+        if (w.length <= 2) return w.charAt(0) + '_';
+        return w.slice(0, 2) + Array(Math.max(1, w.length - 2)).join('_') + w.charAt(w.length - 1);
+      }).join('   ');
+      var scMsg = 'Khung chữ: ' + pattern + (q.pron ? '  •  IPA: ' + q.pron : '');
+      q.hintText = scMsg;
+      renderStage();
+      return scMsg;
+    }
     return null;
+  }
+
+  function requeueMissedQuestionIfNeeded(q, isCorrect, wordKey) {
+    if (wordKey) {
+      recordWordAttempt(wordKey, isCorrect);
+    }
+    if (isCorrect || !q || q._isRetry) return false;
+    var opts = state._options || {};
+    if (opts.requeueWrong === false) return false;
+    // Keep explicit seeded unit tests deterministic unless requeueWrong=true is passed
+    if (opts.seed != null && opts.requeueWrong !== true) return false;
+    if ((state._requeueCount || 0) >= (state._maxRequeues || 0)) return false;
+
+    var rng = state._rng || createRng();
+    var clone = deepClone(q);
+    clone._isRetry = true;
+    clone.answered = false;
+    clone.hintRevealed = false;
+    clone.hintUsed = false;
+    clone.hintText = '';
+    clone.id = String(q.id) + '_retry_' + (state._requeueCount + 1);
+
+    // Freshly re-shuffle tiles/options so the learner cannot memorize button positions!
+    if (Array.isArray(clone.tiles) && clone.tiles.length > 1) {
+      if (state.mode === 'word_scramble') {
+        var freshSc = createScrambledTilesForTarget(clone.targetEn, rng);
+        clone.tiles = freshSc.tiles;
+      } else {
+        clone.tiles = derangeArrayWithRng(clone.tiles, rng);
+      }
+    }
+    if (Array.isArray(clone.options) && clone.options.length > 1) {
+      if (state.mode === 'cloze') {
+        var cCorrectText = q.options[q.correctIndex];
+        var cPairs = clone.options.map(function (txt, idx) {
+          return { txt: txt, ok: idx === q.correctIndex || txt === cCorrectText };
+        });
+        cPairs = derangeArrayWithRng(cPairs, rng);
+        clone.options = cPairs.map(function (x) { return x.txt; });
+        for (var ci = 0; ci < cPairs.length; ci++) {
+          if (cPairs[ci].ok) clone.correctIndex = ci;
+        }
+      } else if (state.mode === 'spot_fix') {
+        clone.options = derangeArrayWithRng(clone.options, rng);
+        for (var sfi = 0; sfi < clone.options.length; sfi++) {
+          if (clone.options[sfi].isCorrect) clone.correctOptionIndex = sfi;
+        }
+      } else if (state.mode === 'dialogue_chain') {
+        var dcCorrectText = q.options[q.correctOptionIndex];
+        var dcPairs = clone.options.map(function (txt, idx) {
+          return { txt: txt, ok: idx === q.correctOptionIndex || txt === dcCorrectText };
+        });
+        dcPairs = derangeArrayWithRng(dcPairs, rng);
+        clone.options = dcPairs.map(function (x) { return x.txt; });
+        for (var dci = 0; dci < dcPairs.length; dci++) {
+          if (dcPairs[dci].ok) clone.correctOptionIndex = dci;
+        }
+      }
+    }
+
+    state._requeueCount = (state._requeueCount || 0) + 1;
+    state._questions.push(clone);
+    state.totalQuestions = state._questions.length;
+    if (state.mode === 'dialogue_chain' && state.dialogueState) {
+      clone.turnIndex = state._questions.length - 1;
+      state.dialogueState.totalTurns = state._questions.length;
+    }
+    return true;
   }
 
   // ==================== Submit Answer Handlers ====================
@@ -2180,6 +3076,8 @@
       res = handleSpotFixSubmit(p);
     } else if (state.mode === 'dialogue_chain') {
       res = handleDialogueChainSubmit(p);
+    } else if (state.mode === 'word_scramble') {
+      res = handleWordScrambleSubmit(p);
     } else {
       return { error: 'Unsupported mode' };
     }
@@ -2258,6 +3156,10 @@
         ? 'Chính xác! +' + delta + ' điểm'
         : (acc >= 75 ? 'Gần đúng trật tự từ (' + acc + '%). Đáp án: ' + q.targetEn : 'Chưa đúng. Đáp án: ' + q.targetEn)
     };
+    if (requeueMissedQuestionIfNeeded(q, isExact, q.word)) {
+      feedback.requeued = true;
+      feedback.messageVi += ' • 🔁 Sẽ đảo thẻ & hỏi lại ở cuối lượt!';
+    }
     state.lastFeedback = feedback;
     state.history.push({ questionId: q.id, isCorrect: isExact, scoreDelta: delta, userAnswer: feedback.userAnswer, correctAnswer: q.targetEn });
     return feedback;
@@ -2318,6 +3220,10 @@
         ? 'Chuẩn xác! +' + delta + ' điểm'
         : 'Chưa đúng. Đáp án đúng: "' + q.blankAnswer + '"'
     };
+    if (requeueMissedQuestionIfNeeded(q, isCorrect, q.word || q.blankAnswer)) {
+      feedback.requeued = true;
+      feedback.messageVi += ' • 🔁 Sẽ đảo đáp án & hỏi lại ở cuối lượt!';
+    }
     state.lastFeedback = feedback;
     state.history.push({ questionId: q.id, isCorrect: isCorrect, scoreDelta: delta, userAnswer: chosenText, correctAnswer: q.blankAnswer });
     return feedback;
@@ -2366,6 +3272,7 @@
         ? 'Nhanh & chuẩn! +' + delta + ' điểm' + (speedBonus ? ' (Thưởng tốc độ +' + speedBonus + ')' : '')
         : 'Sai rồi! Đáp án: ' + q.targetEn
     };
+    recordWordAttempt(q.targetEn, isCorrect);
     state.lastFeedback = feedback;
     state.history.push({ questionId: q.id, isCorrect: isCorrect, scoreDelta: delta, userAnswer: chosenText, correctAnswer: q.targetEn });
 
@@ -2493,6 +3400,9 @@
         ? (finished ? 'Hoàn thành tất cả cặp! Thưởng +' + bonus + ' điểm' : 'Khớp cặp! +100 điểm')
         : 'Chưa khớp cặp! (-10 điểm)'
     };
+    if (expectedEnItem && expectedEnItem.label) {
+      recordWordAttempt(expectedEnItem.label, isMatch);
+    }
     state.lastFeedback = feedback;
     state.history.push({
       questionId: viId + ':' + enId,
@@ -2548,6 +3458,10 @@
           ? 'Khá tốt (' + evalRes.accuracy + '%). Đáp án chuẩn: ' + q.targetEn
           : 'Độ chính xác ' + evalRes.accuracy + '%. Đáp án chuẩn: ' + q.targetEn)
     };
+    if (requeueMissedQuestionIfNeeded(q, evalRes.isCorrect, (q.keywords && q.keywords[0]) || q.targetEn)) {
+      feedback.requeued = true;
+      feedback.messageVi += ' • 🔁 Sẽ hỏi lại ở cuối lượt!';
+    }
     state.lastFeedback = feedback;
     state.history.push({ questionId: q.id, isCorrect: evalRes.isCorrect, accuracy: evalRes.accuracy, scoreDelta: delta, userAnswer: text, correctAnswer: q.targetEn });
     return feedback;
@@ -2616,6 +3530,7 @@
         wave: fs.wave,
         messageVi: 'Bắt trúng "' + caught.vi + '" → "' + caught.en + '"! +' + delta + ' điểm'
       };
+      recordWordAttempt(caught.en, true);
       state.lastFeedback = feedback;
       state.history.push({ questionId: caught.wordId, isCorrect: true, scoreDelta: delta, userAnswer: caught.en, correctAnswer: caught.en });
 
@@ -2700,13 +3615,17 @@
       correctToken: q.correctToken,
       fullCorrectedEn: q.fullCorrectedEn,
       explanationVi: q.explanationVi,
-      messageVi: isFullCorrect
-        ? 'Bắt & sửa lỗi chính xác! +' + delta + ' điểm'
-        : (isPartial
-          ? 'Đúng một phần (+40 điểm). Câu chuẩn: ' + q.fullCorrectedEn
-          : 'Chưa đúng. Câu chuẩn: ' + q.fullCorrectedEn)
-    };
-    state.lastFeedback = feedback;
+        messageVi: isFullCorrect
+          ? 'Bắt & sửa lỗi chính xác! +' + delta + ' điểm'
+          : (isPartial
+            ? 'Đúng một phần (+40 điểm). Câu chuẩn: ' + q.fullCorrectedEn
+            : 'Chưa đúng. Câu chuẩn: ' + q.fullCorrectedEn)
+      };
+      if (requeueMissedQuestionIfNeeded(q, isFullCorrect, q.correctToken)) {
+        feedback.requeued = true;
+        feedback.messageVi += ' • 🔁 Sẽ đảo phương án & hỏi lại ở cuối lượt!';
+      }
+      state.lastFeedback = feedback;
     state.history.push({ questionId: q.id, isCorrect: isFullCorrect, scoreDelta: delta, userAnswer: submittedFix, correctAnswer: q.fullCorrectedEn });
     return feedback;
   }
@@ -2768,8 +3687,85 @@
         ? 'Hoàn thành lượt ' + (q.turnIndex + 1) + '! +' + delta + ' điểm'
         : 'Lượt ' + (q.turnIndex + 1) + ' cần chỉnh lại: "' + q.targetEn + '"'
     };
+    if (requeueMissedQuestionIfNeeded(q, isCorrect, q.keyword)) {
+      feedback.requeued = true;
+      feedback.messageVi += ' • 🔁 Sẽ đảo câu & hỏi lại ở cuối lượt!';
+    }
     state.lastFeedback = feedback;
     state.history.push({ questionId: q.id, isCorrect: isCorrect, scoreDelta: delta, userAnswer: userAnswer, correctAnswer: q.targetEn });
+    return feedback;
+  }
+
+  function handleWordScrambleSubmit(p) {
+    var q = state.currentQuestion;
+    if (!q || q.answered) return { alreadyAnswered: true, isCorrect: false };
+
+    var userRaw = '';
+    if (typeof p.text === 'string' && p.text.trim()) {
+      userRaw = p.text.trim();
+    } else if (Array.isArray(p.tileIds) && p.tileIds.length) {
+      userRaw = reconstructScrambleAnswer(q, p.tileIds);
+    } else if (state.scrambleState && state.scrambleState.selectedTileIds.length) {
+      userRaw = reconstructScrambleAnswer(q, state.scrambleState.selectedTileIds);
+    }
+
+    if (!userRaw) {
+      var emptyFb = {
+        isCorrect: false,
+        emptySubmission: true,
+        scoreDelta: 0,
+        messageVi: 'Hãy chọn các ký tự/cụm bị đảo hoặc gõ từ tiếng Anh trước khi kiểm tra!'
+      };
+      state.lastFeedback = emptyFb;
+      return emptyFb;
+    }
+
+    var normUser = normalizeEnglishAnswer(userRaw);
+    var normUserCompact = normUser.replace(/\s+/g, '');
+    var accepted = [q.targetEn].concat(q.acceptedAnswers || []);
+    var isCorrect = false;
+    for (var i = 0; i < accepted.length; i++) {
+      var normAcc = normalizeEnglishAnswer(accepted[i]);
+      if (normAcc && (normUser === normAcc || normUserCompact === normAcc.replace(/\s+/g, ''))) {
+        isCorrect = true;
+        break;
+      }
+    }
+
+    q.answered = true;
+    var delta = 0;
+    if (isCorrect) {
+      state.streak++;
+      state.bestStreak = Math.max(state.bestStreak, state.streak);
+      state.correctCount++;
+      delta = Math.max(50, 105 + (state.streak - 1) * 15 - (q.hintRevealed ? 15 : 0));
+      state.score += delta;
+    } else {
+      state.streak = 0;
+      state.wrongCount++;
+    }
+
+    var feedback = {
+      isCorrect: isCorrect,
+      scoreDelta: delta,
+      userAnswer: userRaw,
+      correctAnswer: q.targetEn,
+      messageVi: isCorrect
+        ? 'Ghép chữ chuẩn xác: "' + q.targetEn + '"! +' + delta + ' điểm'
+        : 'Chưa khớp chính tả. Từ đúng: "' + q.targetEn + '"'
+    };
+    if (requeueMissedQuestionIfNeeded(q, isCorrect, q.word || q.targetEn)) {
+      feedback.requeued = true;
+      feedback.messageVi += ' • 🔁 Từ này sẽ được xáo chữ lại ở cuối lượt!';
+    }
+    state.lastFeedback = feedback;
+    state.history.push({
+      questionId: q.id,
+      isCorrect: isCorrect,
+      scoreDelta: delta,
+      userAnswer: userRaw,
+      correctAnswer: q.targetEn
+    });
     return feedback;
   }
 
@@ -2798,6 +3794,9 @@
     state.currentQuestion = state._questions[state.currentIndex];
     if (state.mode === 'word_tiles') {
       state.tilesState = { selectedTileIds: [] };
+    }
+    if (state.mode === 'word_scramble') {
+      state.scrambleState = { selectedTileIds: [] };
     }
     if (state.mode === 'dialogue_chain' && state.dialogueState) {
       state.dialogueState.currentTurnIndex = state.currentIndex;
@@ -2850,6 +3849,7 @@
           state.wrongCount++;
           state.streak = 0;
           fs.lives = Math.max(0, fs.lives - 1);
+          recordWordAttempt(aw.en, false);
           state.lastFeedback = {
             isCorrect: false,
             missedWord: aw,
@@ -3063,14 +4063,26 @@
     var css = [
       '#tab-games .veg-title, [data-veg-root] .veg-title { margin: 6px 0 0; font-size: 1.15rem; font-weight: 800; color: var(--ink, #1f2937); }',
       '#tab-games .veg-header-top, [data-veg-root] .veg-header-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }',
-      '#tab-games .veg-controls-row, [data-veg-root] .veg-controls-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding-top: 10px; border-top: 1px solid var(--rule, #e5dfd3); margin-bottom: 14px; }',
+      '#tab-games .veg-controls-row, [data-veg-root] .veg-controls-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 10px; border-top: 1px solid var(--rule, #e5dfd3); margin-bottom: 10px; max-width: 100%; }',
       '#tab-games .veg-label, [data-veg-root] .veg-label { font-size: 12.5px; font-weight: 700; color: var(--ink-2, #4b5563); white-space: nowrap; }',
-      '#tab-games .veg-unit-select, [data-veg-root] .veg-unit-select { flex: 1 1 240px; min-width: 200px; }',
+      '#tab-games .veg-unit-select, [data-veg-root] .veg-unit-select { flex: 1 1 220px; min-width: 0; max-width: 100%; }',
+      '#tab-games .veg-round-select, [data-veg-root] .veg-round-select { flex: 0 1 175px; min-width: 0; max-width: 100%; }',
+      '#tab-games .veg-mastery-bar, [data-veg-root] .veg-mastery-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; border-radius: 11px; background: var(--page, #f5f2eb); border: 1px solid var(--rule, #e5dfd3); margin-bottom: 12px; font-size: 12px; color: var(--ink-2, #4b5563); }',
+      '#tab-games .veg-mastery-track, [data-veg-root] .veg-mastery-track { width: 90px; height: 6px; border-radius: 999px; background: var(--rule, #e5dfd3); overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 6px; }',
+      '#tab-games .veg-mastery-fill, [data-veg-root] .veg-mastery-fill { height: 100%; background: var(--accent, #2f6f5e); transition: width .2s ease; }',
+      '#tab-games .veg-multi-drawer, [data-veg-root] .veg-multi-drawer { background: var(--page, #f5f2eb); border: 1px solid var(--rule, #e5dfd3); border-radius: 12px; padding: 12px; margin-bottom: 12px; max-width: 100%; }',
+      '#tab-games .veg-multi-list, [data-veg-root] .veg-multi-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 6px; max-height: 220px; overflow-y: auto; margin: 10px 0; padding-right: 4px; }',
+      '@media (max-width: 480px) { #tab-games .veg-multi-list, [data-veg-root] .veg-multi-list { grid-template-columns: 1fr; } }',
+      '#tab-games .veg-multi-item, [data-veg-root] .veg-multi-item { display: flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--rule, #e5dfd3); background: var(--sheet, #fcfbf7); font-size: 12px; color: var(--ink, #1f2937); cursor: pointer; min-width: 0; }',
+      '#tab-games .veg-multi-item span, [data-veg-root] .veg-multi-item span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }',
       '#tab-games .veg-score-hud, [data-veg-root] .veg-score-hud { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }',
       '#tab-games .veg-stat-pill, [data-veg-root] .veg-stat-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--page, #f5f2eb); border: 1px solid var(--rule, #e5dfd3); color: var(--ink, #1f2937); font-variant-numeric: tabular-nums; }',
       '#tab-games .veg-stat-pill.accent, [data-veg-root] .veg-stat-pill.accent { background: var(--accent-wash, #eaf3ef); color: var(--accent-ink, #1e4d40); border-color: transparent; }',
-      '#tab-games .veg-mode-grid, [data-veg-root] .veg-mode-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }',
+      '#tab-games .veg-mode-grid, [data-veg-root] .veg-mode-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }',
       '@media (max-width: 860px) { #tab-games .veg-mode-grid, [data-veg-root] .veg-mode-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }',
+      '@media (max-width: 360px) { #tab-games .veg-mode-grid, [data-veg-root] .veg-mode-grid { grid-template-columns: 1fr; } }',
+      '#tab-games .veg-scramble-divider, [data-veg-root] .veg-scramble-divider { display: inline-flex; align-items: center; justify-content: center; padding: 0 4px; font-weight: 800; color: var(--ink-3, #6b7280); user-select: none; }',
+      '#tab-games .veg-char-tile, [data-veg-root] .veg-char-tile { min-width: 34px; text-align: center; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 15px; font-weight: 800; padding: 7px 10px; }',
       '#tab-games .veg-mode-btn, [data-veg-root] .veg-mode-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--rule, #e5dfd3); background: var(--page, #f5f2eb); color: var(--ink, #1f2937); cursor: pointer; text-align: left; transition: border-color .15s, background .15s, transform .1s; }',
       '#tab-games .veg-mode-btn:hover, [data-veg-root] .veg-mode-btn:hover { background: var(--hover-bg, #eeeae0); border-color: var(--accent, #2f6f5e); }',
       '#tab-games .veg-mode-btn.is-active, [data-veg-root] .veg-mode-btn.is-active { background: var(--accent-wash, #eaf3ef); border-color: var(--accent, #2f6f5e); color: var(--accent-ink, #1e4d40); box-shadow: 0 0 0 1px var(--accent, #2f6f5e); }',
@@ -3158,16 +4170,27 @@
       '<div class="pv-card veg-header-card">',
       '  <div class="veg-header-top">',
       '    <div>',
-      '      <span class="ni-badge ni-badge-pink">🎮 Trò Chơi Dịch Việt → Anh Theo Unit</span>',
-      '      <h2 class="veg-title">8 Chế Độ Luyện Phản Xạ Dịch Câu &amp; Từ Vựng</h2>',
+      '      <span class="ni-badge ni-badge-pink">🎮 Kho Trò Chơi Từ Vựng &amp; Dịch Việt → Anh Toàn Hệ Thống</span>',
+      '      <h2 class="veg-title">9 Chế Độ Luyện Phản Xạ &amp; Đảo Từ Ghi Nhớ Sâu (Tất Cả Unit + Idioms + Bài Đọc)</h2>',
       '    </div>',
       '    <div id="vegScore" class="veg-score-hud"></div>',
       '  </div>',
       '  <div class="veg-controls-row">',
-      '    <label for="vegUnitSelect" class="veg-label">Chọn Unit:</label>',
+      '    <label for="vegUnitSelect" class="veg-label">Học phần:</label>',
       '    <select id="vegUnitSelect" class="ni-input veg-unit-select"></select>',
+      '    <select id="vegRoundSizeSelect" class="ni-input veg-round-select" title="Số câu / từ mỗi lượt">',
+      '      <option value="auto">Mặc định (8–15 câu)</option>',
+      '      <option value="15">15 câu / lượt</option>',
+      '      <option value="25">25 câu / lượt</option>',
+      '      <option value="40">40 câu / lượt</option>',
+      '      <option value="all">Quét hết học phần</option>',
+      '    </select>',
+      '    <button type="button" id="vegBtnShuffleDeck" class="ni-nav-btn" data-action="shuffle-new" title="Đảo ngẫu nhiên sang bộ từ khác chưa thuộc trong học phần">🔀 Đảo bộ từ mới</button>',
+      '    <button type="button" id="vegBtnToggleMultiUnit" class="ni-nav-btn" data-action="toggle-multi-unit" title="Chọn gộp nhiều Unit hoặc Idioms bất kỳ để trộn từ">➕ Gộp nhiều Unit</button>',
       '    <button type="button" id="vegBtnRestart" class="ni-nav-btn" data-action="restart">🔄 Chơi lại</button>',
       '  </div>',
+      '  <div id="vegMultiUnitDrawer" class="veg-multi-drawer hidden"></div>',
+      '  <div id="vegMasteryBar" class="veg-mastery-bar"></div>',
       '  <div id="vegModeGrid" class="veg-mode-grid"></div>',
       '</div>',
       '<div id="vegStage" class="pv-card veg-stage"></div>',
@@ -3179,17 +4202,122 @@
     var sel = findEl('vegUnitSelect');
     if (!sel) return;
     var units = getAvailableUnits(overrideAppData);
-    var html = '';
+    var groupsOrder = [];
+    var byGroup = {};
+
     for (var i = 0; i < units.length; i++) {
       var u = units[i];
-      var isSelected = (state.unitId && u.unitId === state.unitId) || (!state.unitId && i === 0);
-      html += '<option value="' + escapeHtml(u.unitId) + '"' + (isSelected ? ' selected' : '') + '>' +
-        escapeHtml(u.unitTitle) + ' (' + u.wordCount + ' từ)</option>';
+      var gKey = u.group || 'core_units';
+      if (!byGroup[gKey]) {
+        byGroup[gKey] = { label: u.groupLabel || 'Học phần', items: [] };
+        groupsOrder.push(gKey);
+      }
+      byGroup[gKey].items.push(u);
+    }
+
+    var html = '';
+    var useOptGroups = groupsOrder.length > 1;
+    var firstRendered = true;
+    for (var g = 0; g < groupsOrder.length; g++) {
+      var grp = byGroup[groupsOrder[g]];
+      if (useOptGroups) {
+        html += '<optgroup label="' + escapeHtml(grp.label) + '">';
+      }
+      for (var k = 0; k < grp.items.length; k++) {
+        var it = grp.items[k];
+        var isSelected = (state.unitId && it.unitId === state.unitId) || (!state.unitId && firstRendered);
+        firstRendered = false;
+        html += '<option value="' + escapeHtml(it.unitId) + '"' + (isSelected ? ' selected' : '') + '>' +
+          escapeHtml(it.unitTitle) + ' (' + it.wordCount + ' từ)</option>';
+      }
+      if (useOptGroups) {
+        html += '</optgroup>';
+      }
     }
     sel.innerHTML = html;
     if (state.unitId) {
       sel.value = state.unitId;
     }
+
+    var roundSel = findEl('vegRoundSizeSelect');
+    if (roundSel && roundSel.value !== roundSizeSetting) {
+      roundSel.value = roundSizeSetting;
+    }
+  }
+
+  function renderMasteryBar() {
+    var bar = findEl('vegMasteryBar');
+    if (!bar) return;
+    var unit = state._unit || resolveUnit(state.unitId, domInitAppData);
+    var m = computeUnitMasterySummary(unit);
+    var reviewPill = m.reviewCount > 0
+      ? ' • <span style="color:var(--incorrect-color,#b91c1c);font-weight:700;">⚠️ Cần ôn lại: ' + m.reviewCount + ' từ</span>'
+      : ' • <span>✨ Luôn tự động đảo từ &amp; ưu tiên từ chưa thuộc</span>';
+
+    bar.innerHTML = [
+      '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;">',
+      '  <span>🧠 Đã thuộc vững trong học phần: <strong>' + m.masteredCount + '/' + m.totalCount + ' từ</strong> (' + m.pct + '%)</span>',
+      '  <span class="veg-mastery-track"><span class="veg-mastery-fill" style="width:' + m.pct + '%;"></span></span>',
+      reviewPill,
+      '</div>',
+      '<div style="display:flex;align-items:center;gap:6px;">',
+      m.reviewCount > 0 ? '<button type="button" class="ni-nav-btn" style="padding:3px 9px;font-size:11.5px;" data-action="play-mistakes">🎯 Ôn từ hay sai</button>' : '',
+      (m.seenCount > 0 ? '<button type="button" class="ni-nav-btn" style="padding:3px 9px;font-size:11.5px;" data-action="reset-mastery">↺ Đặt lại tiến độ nhớ</button>' : ''),
+      '</div>'
+    ].join('');
+  }
+
+  function renderMultiUnitDrawer(overrideAppData) {
+    var drawer = findEl('vegMultiUnitDrawer');
+    if (!drawer) return;
+    if (!multiUnitDrawerOpen) {
+      if (drawer.classList && typeof drawer.classList.add === 'function') {
+        drawer.classList.add('hidden');
+      }
+      return;
+    }
+    if (drawer.classList && typeof drawer.classList.remove === 'function') {
+      drawer.classList.remove('hidden');
+    }
+
+    var concrete = getNormalizedUnits(overrideAppData || domInitAppData);
+    var selectedMap = {};
+    for (var s = 0; s < multiUnitSelectedIds.length; s++) {
+      selectedMap[String(multiUnitSelectedIds[s]).toLowerCase()] = true;
+    }
+    var qFilter = String(multiUnitSearchQuery || '').trim().toLowerCase();
+    var listHtml = '';
+    for (var i = 0; i < concrete.length; i++) {
+      var u = concrete[i];
+      if (qFilter && u.unitTitle.toLowerCase().indexOf(qFilter) === -1 && u.unitId.toLowerCase().indexOf(qFilter) === -1) {
+        continue;
+      }
+      var checked = selectedMap[u.unitId.toLowerCase()] ? ' checked' : '';
+      listHtml += '<label class="veg-multi-item">' +
+        '<input type="checkbox" data-multi-unit-check="1" value="' + escapeHtml(u.unitId) + '"' + checked + '>' +
+        '<span title="' + escapeHtml(u.unitTitle) + '">' + escapeHtml(u.unitTitle) + ' (' + u.wordCount + ')</span>' +
+        '</label>';
+    }
+
+    drawer.innerHTML = [
+      '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;">',
+      '  <strong id="vegMultiCountTitle" style="font-size:12.5px;color:var(--ink,#1f2937);">🧩 Chọn nhiều Unit / Phần Idioms / Bài Đọc để trộn đảo từ (' + multiUnitSelectedIds.length + ' đã chọn):</strong>',
+      '  <div style="display:flex;flex-wrap:wrap;gap:6px;">',
+      '    <button type="button" class="ni-nav-btn" style="padding:4px 8px;font-size:11.5px;" data-action="multi-select-core">Chọn 37 Unit</button>',
+      '    <button type="button" class="ni-nav-btn" style="padding:4px 8px;font-size:11.5px;" data-action="multi-select-idioms">Chọn 29 Idioms</button>',
+      '    <button type="button" class="ni-nav-btn" style="padding:4px 8px;font-size:11.5px;" data-action="multi-select-all">Chọn tất cả</button>',
+      '    <button type="button" class="ni-nav-btn" style="padding:4px 8px;font-size:11.5px;" data-action="multi-clear">Bỏ chọn</button>',
+      '  </div>',
+      '</div>',
+      '<div style="margin-top:8px;">',
+      '  <input type="text" id="vegMultiSearchInput" class="ni-input" placeholder="Tìm nhanh Unit, chủ đề hoặc Idioms..." value="' + escapeHtml(multiUnitSearchQuery) + '" style="padding:6px 10px;font-size:12.5px;">',
+      '</div>',
+      '<div class="veg-multi-list">' + (listHtml || '<div class="veg-hint">Không tìm thấy học phần phù hợp.</div>') + '</div>',
+      '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px;">',
+      '  <button type="button" class="ni-nav-btn" data-action="toggle-multi-unit">Đóng</button>',
+      '  <button type="button" id="vegMultiApplyBtn" class="ni-submit-btn" data-action="apply-multi-unit">✅ Áp dụng &amp; Đảo từ ngay (' + multiUnitSelectedIds.length + ')</button>',
+      '</div>'
+    ].join('\n');
   }
 
   function renderModeGrid() {
@@ -3537,6 +4665,73 @@
         '</div>',
         renderFeedbackHtml()
       ].join('\n');
+    } else if (state.mode === 'word_scramble') {
+      var scSelected = (state.scrambleState && state.scrambleState.selectedTileIds) || [];
+      var previewStr = reconstructScrambleAnswer(q, scSelected);
+      var scTrayHtml = '';
+      if (scSelected.length) {
+        var placedCursor = 0;
+        var wLens = Array.isArray(q.wordLengths) ? q.wordLengths : [];
+        var nextBreak = (q.scrambleKind === 'letters' && wLens.length > 1) ? wLens[0] : -1;
+        var wGroupIdx = 0;
+        for (var sci = 0; sci < scSelected.length; sci++) {
+          if (nextBreak > 0 && placedCursor === nextBreak && wGroupIdx + 1 < wLens.length) {
+            scTrayHtml += '<span class="veg-scramble-divider">/</span>';
+            wGroupIdx++;
+            nextBreak += wLens[wGroupIdx];
+          }
+          var scTid = scSelected[sci];
+          var scObj = null;
+          for (var sct = 0; sct < q.tiles.length; sct++) {
+            if (q.tiles[sct].tileId === scTid) { scObj = q.tiles[sct]; break; }
+          }
+          if (scObj) {
+            var extraTileCls = q.scrambleKind === 'letters' ? ' veg-char-tile' : '';
+            scTrayHtml += '<button type="button" class="veg-tile' + extraTileCls + '" data-action="undo-scramble-tile">' + escapeHtml(scObj.text) + '</button>';
+            placedCursor++;
+          }
+        }
+      }
+
+      var scBankHtml = '';
+      var prevGroup = 0;
+      for (var sb = 0; sb < q.tiles.length; sb++) {
+        var sbt = q.tiles[sb];
+        if (q.scrambleKind === 'letters' && sb > 0 && sbt.wordGroup !== prevGroup) {
+          scBankHtml += '<span class="veg-scramble-divider">•</span>';
+          prevGroup = sbt.wordGroup;
+        }
+        var scUsed = scSelected.indexOf(sbt.tileId) !== -1;
+        var bankExtraCls = (q.scrambleKind === 'letters' ? ' veg-char-tile' : '') + (scUsed ? ' is-used' : '');
+        scBankHtml += '<button type="button" class="veg-tile' + bankExtraCls + '" data-action="select-scramble-tile" data-tile-id="' + escapeHtml(sbt.tileId) + '">' +
+          escapeHtml(sbt.text) + '</button>';
+      }
+
+      var structureLabel = q.scrambleKind === 'letters'
+        ? (q.wordCount > 1
+          ? ('Cụm ' + q.wordCount + ' từ (' + q.wordLengths.join(' + ') + ' chữ cái — đã giữ ranh giới từng từ)')
+          : ('Từ đơn (' + (q.wordLengths[0] || q.targetEn.length) + ' chữ cái bị đảo)'))
+        : ('Thành ngữ / cụm dài (' + q.wordCount + ' từ bị đảo vị trí)');
+
+      html = [
+        '<div class="veg-prompt-box">',
+        '  <span class="ni-badge ni-badge-pink">🔤 Đảo chữ ghép từ • ' + escapeHtml(q.pos.toUpperCase()) + (q._isRetry ? ' • 🔁 Ôn lại từ sai' : '') + '</span>',
+        '  <div class="veg-prompt-vi" style="margin-top:6px;">' + escapeHtml(q.promptVi) + '</div>',
+        '  <div class="veg-hint">' + escapeHtml(structureLabel) + (q.pron ? ' • Phát âm: ' + escapeHtml(q.pron) : '') + '</div>',
+        q.hintText ? '<div class="veg-hint" style="color:var(--accent-ink,#1e4d40);font-weight:700;">💡 ' + escapeHtml(q.hintText) + '</div>' : '',
+        '</div>',
+        '<div class="veg-tile-zone" data-tray="1">' + (scTrayHtml || '<span class="veg-hint">Nhấn vào các ký tự/cụm bên dưới theo đúng thứ tự (hoặc gõ thẳng vào ô bên dưới)...</span>') + '</div>',
+        '<div class="veg-tile-bank">' + scBankHtml + '</div>',
+        '<div class="veg-actions-row">',
+        '  <input type="text" id="vegTextInput" class="ni-input" value="' + escapeHtml(previewStr) + '" placeholder="Hoặc gõ trực tiếp từ/cụm tiếng Anh vào đây..." style="flex:1;min-width:160px;">',
+        !q.answered ? '<button type="button" class="ni-submit-btn" data-action="submit-scramble">Kiểm tra</button>' : '<button type="button" class="ni-submit-btn" data-action="next-question">Câu tiếp theo →</button>',
+        '  <button type="button" class="ni-nav-btn" data-action="undo-scramble-tile">↩ Xóa 1 ô</button>',
+        '  <button type="button" class="ni-nav-btn" data-action="clear-scramble-tiles">🗑 Xóa hết</button>',
+        '  <button type="button" class="ni-nav-btn" data-action="use-hint">💡 Gợi ý</button>',
+        '  <button type="button" class="ni-nav-btn" data-action="speak" data-speak-text="' + escapeHtml(q.targetEn) + '">🔊 Nghe mẫu</button>',
+        '</div>',
+        renderFeedbackHtml()
+      ].join('\n');
     }
 
     stage.innerHTML = html;
@@ -3581,7 +4776,8 @@
       '</div>',
       mistakesHtml,
       '<div class="veg-actions-row" style="margin-top:14px;">',
-      '  <button type="button" class="ni-submit-btn" data-action="restart">🔄 Chơi lại lượt mới</button>',
+      '  <button type="button" class="ni-submit-btn" data-action="shuffle-new">🔀 Đảo bộ từ tiếp theo</button>',
+      '  <button type="button" class="ni-nav-btn" data-action="restart">🔄 Chơi lại lượt mới</button>',
       '  <button type="button" class="ni-nav-btn" data-action="next-mode">🎮 Chuyển chế độ tiếp theo</button>',
       '</div>'
     ].join('\n');
@@ -3593,6 +4789,12 @@
     if (sel && state.unitId && sel.value !== state.unitId) {
       sel.value = state.unitId;
     }
+    var roundSel = findEl('vegRoundSizeSelect');
+    if (roundSel && roundSel.value !== roundSizeSetting) {
+      roundSel.value = roundSizeSetting;
+    }
+    renderMasteryBar();
+    renderMultiUnitDrawer();
     renderModeGrid();
     renderScoreHud();
     renderStage();
@@ -3617,8 +4819,56 @@
       if (action === 'select-mode') {
         var newMode = target.dataset.mode;
         if (newMode) startGame(newMode, state.unitId || (getAvailableUnits(domInitAppData)[0] && getAvailableUnits(domInitAppData)[0].unitId), domOpts);
-      } else if (action === 'restart') {
+      } else if (action === 'restart' || action === 'shuffle-new') {
         startGame(state.mode, state.unitId || (getAvailableUnits(domInitAppData)[0] && getAvailableUnits(domInitAppData)[0].unitId), domOpts);
+      } else if (action === 'toggle-multi-unit') {
+        multiUnitDrawerOpen = !multiUnitDrawerOpen;
+        renderMultiUnitDrawer(domInitAppData);
+      } else if (action === 'multi-select-core') {
+        multiUnitSelectedIds = getNormalizedUnits(domInitAppData)
+          .filter(function (u) { return u.group === 'core_units'; })
+          .map(function (u) { return u.unitId; });
+        savePrefsSafe();
+        renderMultiUnitDrawer(domInitAppData);
+      } else if (action === 'multi-select-idioms') {
+        multiUnitSelectedIds = getNormalizedUnits(domInitAppData)
+          .filter(function (u) { return u.group === 'idioms'; })
+          .map(function (u) { return u.unitId; });
+        savePrefsSafe();
+        renderMultiUnitDrawer(domInitAppData);
+      } else if (action === 'multi-select-all') {
+        multiUnitSelectedIds = getNormalizedUnits(domInitAppData)
+          .map(function (u) { return u.unitId; });
+        savePrefsSafe();
+        renderMultiUnitDrawer(domInitAppData);
+      } else if (action === 'multi-clear') {
+        multiUnitSelectedIds = [];
+        savePrefsSafe();
+        renderMultiUnitDrawer(domInitAppData);
+      } else if (action === 'apply-multi-unit') {
+        if (!multiUnitSelectedIds.length) {
+          if (typeof window !== 'undefined' && typeof window.showToast === 'function') {
+            window.showToast('Vui lòng tích chọn ít nhất 1 Unit hoặc phần Idioms để gộp!', 'info');
+          }
+          return;
+        }
+        multiUnitDrawerOpen = false;
+        savePrefsSafe();
+        populateUnitSelect(domInitAppData);
+        startGame(state.mode, 'mix_custom', domOpts);
+        populateUnitSelect(domInitAppData);
+      } else if (action === 'play-mistakes') {
+        populateUnitSelect(domInitAppData);
+        startGame(state.mode, 'mix_mistakes', domOpts);
+        populateUnitSelect(domInitAppData);
+      } else if (action === 'reset-mastery') {
+        var curUnit = state._unit || resolveUnit(state.unitId, domInitAppData);
+        resetWordMastery(curUnit ? curUnit.words : null);
+        populateUnitSelect(domInitAppData);
+        renderMasteryBar();
+        if (typeof window !== 'undefined' && typeof window.showToast === 'function') {
+          window.showToast('Đã đặt lại tiến độ ghi nhớ cho học phần này!', 'info');
+        }
       } else if (action === 'next-mode') {
         var idx = 0;
         for (var i = 0; i < MODES.length; i++) {
@@ -3633,6 +4883,15 @@
         clearTiles();
       } else if (action === 'submit-tiles') {
         submitAnswer({});
+      } else if (action === 'select-scramble-tile') {
+        selectScrambleTile(target.dataset.tileId);
+      } else if (action === 'undo-scramble-tile') {
+        undoScrambleTile();
+      } else if (action === 'clear-scramble-tiles') {
+        clearScrambleTiles();
+      } else if (action === 'submit-scramble') {
+        var scInput = findEl('vegTextInput');
+        submitAnswer({ text: scInput && scInput.value ? scInput.value : '' });
       } else if (action === 'use-hint') {
         useHint();
       } else if (action === 'next-question') {
@@ -3665,9 +4924,41 @@
 
     var onChange = function (e) {
       var target = e && e.target;
-      if (target && target.id === 'vegUnitSelect') {
-        var domOpts = domInitAppData ? { appData: domInitAppData } : undefined;
+      if (!target) return;
+      var domOpts = domInitAppData ? { appData: domInitAppData } : undefined;
+      if (target.id === 'vegUnitSelect') {
         startGame(state.mode, target.value, domOpts);
+      } else if (target.id === 'vegRoundSizeSelect') {
+        roundSizeSetting = target.value || 'auto';
+        savePrefsSafe();
+        startGame(state.mode, state.unitId || (getAvailableUnits(domInitAppData)[0] && getAvailableUnits(domInitAppData)[0].unitId), domOpts);
+      } else if (target.dataset && target.dataset.multiUnitCheck) {
+        var uid = target.value;
+        if (!uid) return;
+        var posIdx = multiUnitSelectedIds.indexOf(uid);
+        if (target.checked && posIdx === -1) {
+          multiUnitSelectedIds.push(uid);
+        } else if (!target.checked && posIdx !== -1) {
+          multiUnitSelectedIds.splice(posIdx, 1);
+        }
+        savePrefsSafe();
+        var cntTitle = findEl('vegMultiCountTitle');
+        if (cntTitle) cntTitle.textContent = '🧩 Chọn nhiều Unit / Phần Idioms / Bài Đọc để trộn đảo từ (' + multiUnitSelectedIds.length + ' đã chọn):';
+        var applyBtn = findEl('vegMultiApplyBtn');
+        if (applyBtn) applyBtn.textContent = '✅ Áp dụng & Đảo từ ngay (' + multiUnitSelectedIds.length + ')';
+      }
+    };
+
+    var onInput = function (e) {
+      var target = e && e.target;
+      if (target && target.id === 'vegMultiSearchInput') {
+        multiUnitSearchQuery = target.value || '';
+        renderMultiUnitDrawer(domInitAppData);
+        var searchEl = findEl('vegMultiSearchInput');
+        if (searchEl && typeof searchEl.focus === 'function') {
+          searchEl.focus();
+          try { searchEl.setSelectionRange(multiUnitSearchQuery.length, multiUnitSearchQuery.length); } catch (err) {}
+        }
       }
     };
 
@@ -3690,9 +4981,11 @@
 
     root.addEventListener('click', onClick);
     root.addEventListener('change', onChange);
+    root.addEventListener('input', onInput);
     root.addEventListener('keydown', onKeyDown);
     boundListeners.push({ root: root, type: 'click', fn: onClick });
     boundListeners.push({ root: root, type: 'change', fn: onChange });
+    boundListeners.push({ root: root, type: 'input', fn: onInput });
     boundListeners.push({ root: root, type: 'keydown', fn: onKeyDown });
     if (root.dataset) root.dataset.vegBound = '1';
   }
@@ -3723,6 +5016,7 @@
 
   function init(containerEl, opts) {
     cancelAutoBoot();
+    readPrefsSafe();
     domInitAppData = (opts && opts.appData) || null;
     if (typeof document === 'undefined') {
       return getState();
@@ -3798,6 +5092,27 @@
     selectTile: selectTile,
     undoTile: undoTile,
     clearTiles: clearTiles,
+    selectScrambleTile: selectScrambleTile,
+    undoScrambleTile: undoScrambleTile,
+    clearScrambleTiles: clearScrambleTiles,
+    setMultiUnitSelection: function (ids) {
+      multiUnitSelectedIds = Array.isArray(ids) ? ids.filter(Boolean) : [];
+      savePrefsSafe();
+      return multiUnitSelectedIds.slice();
+    },
+    setRoundSize: function (sizeVal) {
+      roundSizeSetting = String(sizeVal || 'auto');
+      savePrefsSafe();
+      return roundSizeSetting;
+    },
+    getMasterySummary: function (unitIdOrNum, overrideAppData) {
+      var u = resolveUnit(unitIdOrNum || state.unitId, overrideAppData || domInitAppData);
+      return computeUnitMasterySummary(u);
+    },
+    resetMastery: function (unitIdOrNum, overrideAppData) {
+      var u = unitIdOrNum ? resolveUnit(unitIdOrNum, overrideAppData || domInitAppData) : null;
+      resetWordMastery(u ? u.words : null);
+    },
     useHint: useHint,
     tickTimer: tickTimer,
     tickFallingWords: tickFallingWords,

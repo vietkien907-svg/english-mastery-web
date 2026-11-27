@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-mastery-v105.0';
+const CACHE_NAME = 'english-mastery-v106.0';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -73,9 +73,12 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Handle local app files
+  // Handle local app files (always bypass HTTP disk cache on navigation/core JS so updates take effect immediately)
+  const fetchOptions = (event.request.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname.endsWith('.js') || url.pathname.endsWith('.css'))
+    ? { cache: 'no-store' }
+    : undefined;
   event.respondWith(
-    fetch(event.request)
+    fetch(event.request, fetchOptions)
       .then((networkResponse) => {
         if (networkResponse && networkResponse.status === 200) {
           const responseToCache = networkResponse.clone();

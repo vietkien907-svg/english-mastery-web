@@ -620,6 +620,149 @@ function onReferralInputChanged() {
   }, 250);
 }
 
+const ACCOUNT_SCOPED_STUDY_KEYS = [
+  "EMH_MISSION_REGISTRY_V4",
+  "EMH_MISSION_REGISTRY_BACKUP",
+  "EMH_MISSION_REGISTRY_V3",
+  "EMH_DAILY_MISSION_V3",
+  "EMH_SRS_MAP_V3",
+  "EMH_SESSION_STREAKS_V3",
+  "EMH_CUSTOM_SAVED_WORDS_V2",
+  "EMH_CUSTOM_NOTEBOOK_V1",
+  "EMH_FORGOTTEN_WORDS_V1",
+  "EMH_SKIPPED_WORDS_V1",
+  "speaking_done_questions_v1",
+  "speaking_practice_history_v1",
+  "speaking_cue_card_notes_v1",
+  "emh_tr_history_v1",
+  "emh_tr_runtime_articles_v1",
+  "ra_practice_history_v1",
+  "EMH_VI_EN_GAMES_STATS_V1",
+  "EMH_VEG_WORD_MASTERY_V1",
+  "EMH_VEG_PREFS_V1",
+  "EMH_PAIR_SYNC_KEY_V3",
+  "EMH_STREAK",
+  "EMH_LAST_COMPLETED_DATE",
+  "EMH_LAST_ACTIVE_DATE",
+  "EMH_DEADLINE_STREAK_V2",
+  "EMH_OFFLINE_QUEUE_V2"
+];
+
+function getAccountWorkspaceStorageKey(email) {
+  return "EMH_USER_STUDY_SPACE_V1::" + String(email || "").trim().toLowerCase();
+}
+
+function snapshotAccountStudyWorkspace(email) {
+  const cleanEmail = String(email || "").trim().toLowerCase();
+  if (!cleanEmail) return;
+  try {
+    const snap = {};
+    ACCOUNT_SCOPED_STUDY_KEYS.forEach((k) => {
+      const val = localStorage.getItem(k);
+      if (val !== null && val !== undefined) {
+        snap[k] = val;
+      }
+    });
+    const streakKey = "EMH_REAL_STREAK_V96_" + cleanEmail;
+    const stVal = localStorage.getItem(streakKey);
+    if (stVal !== null && stVal !== undefined) {
+      snap[streakKey] = stVal;
+    }
+    localStorage.setItem(getAccountWorkspaceStorageKey(cleanEmail), JSON.stringify({
+      email: cleanEmail,
+      savedAt: new Date().toISOString(),
+      data: snap
+    }));
+  } catch (e) {}
+}
+
+function reloadInMemoryLearnerStateFromStorage() {
+  appState.dayVocabStudied = {};
+  appState.inSessionRetries = [];
+  try {
+    appState.offlineQueue = JSON.parse(localStorage.getItem(STORAGE_KEY_OFFLINE_QUEUE) || "[]");
+  } catch (e) {
+    appState.offlineQueue = [];
+  }
+  try {
+    appState.customNotebook = JSON.parse(localStorage.getItem("EMH_CUSTOM_NOTEBOOK_V1") || "[]");
+  } catch (e) {
+    appState.customNotebook = [];
+  }
+  missionRegistry = { currentDay: 1, history: {} };
+  if (typeof loadMissionRegistry === "function") {
+    loadMissionRegistry();
+  }
+  if (typeof updateDailyMissionUI === "function") updateDailyMissionUI();
+  if (typeof updateDailyGoalChecklist === "function") updateDailyGoalChecklist();
+  if (typeof refreshDailyStreakDeadlineUI === "function") refreshDailyStreakDeadlineUI();
+  if (typeof refreshProfileVocabularyStatsUI === "function") refreshProfileVocabularyStatsUI();
+}
+
+function activateAccountStudyWorkspace(nextEmail, options) {
+  const opts = options || {};
+  const cleanNext = String(nextEmail || "").trim().toLowerCase();
+  const prevEmail = String(
+    opts.previousEmail !== undefined
+      ? opts.previousEmail
+      : ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "")
+  ).trim().toLowerCase();
+
+  if (prevEmail && prevEmail !== cleanNext) {
+    snapshotAccountStudyWorkspace(prevEmail);
+  }
+
+  if (!cleanNext) {
+    ACCOUNT_SCOPED_STUDY_KEYS.forEach((k) => {
+      try { localStorage.removeItem(k); } catch (e) {}
+    });
+    reloadInMemoryLearnerStateFromStorage();
+    return;
+  }
+
+  const isSameAccountReload = (prevEmail === cleanNext && !opts.isNewRegistration);
+  if (!isSameAccountReload) {
+    ACCOUNT_SCOPED_STUDY_KEYS.forEach((k) => {
+      try { localStorage.removeItem(k); } catch (e) {}
+    });
+    if (opts.isNewRegistration) {
+      try { localStorage.removeItem(getAccountWorkspaceStorageKey(cleanNext)); } catch (e) {}
+      try { localStorage.removeItem("EMH_REAL_STREAK_V96_" + cleanNext); } catch (e) {}
+    } else {
+      try {
+        const rawSnap = localStorage.getItem(getAccountWorkspaceStorageKey(cleanNext));
+        if (rawSnap) {
+          const parsed = JSON.parse(rawSnap);
+          const data = (parsed && parsed.data && typeof parsed.data === "object") ? parsed.data : {};
+          Object.keys(data).forEach((k) => {
+            if (data[k] !== null && data[k] !== undefined) {
+              localStorage.setItem(k, String(data[k]));
+            }
+          });
+        }
+      } catch (e) {}
+    }
+  }
+
+  const srv = opts.serverUser || null;
+  if (srv) {
+    const srvStreak = parseInt(srv.streak_count ?? srv.streak ?? 0, 10) || 0;
+    const curLocalStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+    const finalStreak = opts.isNewRegistration ? srvStreak : Math.max(curLocalStreak, srvStreak);
+    localStorage.setItem("EMH_STREAK", String(finalStreak));
+    if (srv.last_active_date) {
+      localStorage.setItem("EMH_LAST_ACTIVE_DATE", String(srv.last_active_date));
+    }
+  } else if (opts.isNewRegistration) {
+    localStorage.setItem("EMH_STREAK", "0");
+  }
+
+  reloadInMemoryLearnerStateFromStorage();
+}
+
+window.snapshotAccountStudyWorkspace = snapshotAccountStudyWorkspace;
+window.activateAccountStudyWorkspace = activateAccountStudyWorkspace;
+
 async function handleAuthSubmit() {
   const email = (document.getElementById("authEmailInput")?.value || "").trim();
   const password = (document.getElementById("authPasswordInput")?.value || "").trim();
@@ -681,6 +824,7 @@ async function handleAuthSubmit() {
     }
   }
 
+  const outgoingEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
   let list = getSavedAccounts();
   const existingAcc = list.find(a => a.email.toLowerCase() === email.toLowerCase());
 
@@ -697,15 +841,24 @@ async function handleAuthSubmit() {
       return;
     }
 
+    activateAccountStudyWorkspace(email, {
+      previousEmail: outgoingEmail,
+      isNewRegistration: true,
+      serverUser: userObj || { streak: 0, streak_count: 0 }
+    });
+
+    const initStreak = parseInt((userObj && (userObj.streak_count ?? userObj.streak)) ?? 0, 10) || 0;
     const newAcc = {
-      id: "user_" + Date.now(),
+      id: (userObj && userObj.id) || ("user_" + Date.now()),
       email: email,
       full_name: displayName,
       target_exam: targetExam,
-      streak: 1,
+      streak: initStreak,
       mature_words: 0,
+      learning_words: 0,
+      total_started: 0,
       today_progress: 0,
-      xp: 200,
+      xp: 0,
       password_hash: btoa(password),
       token: token,
       isCurrent: true,
@@ -714,21 +867,27 @@ async function handleAuthSubmit() {
       referred_by: "Tô Nguyên Vũ (tonguyenvu@265.com)"
     };
 
-    list = list.map(a => ({ ...a, isCurrent: false }));
+    list = getSavedAccounts().map(a => ({ ...a, isCurrent: false }));
     list.push(newAcc);
     saveSavedAccounts(list);
 
     localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
     localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", displayName);
-    localStorage.setItem("EMH_STREAK", "1");
+    localStorage.setItem("EMH_STREAK", String(initStreak));
     localStorage.removeItem("EMH_GUEST_DISMISSED");
 
     appState.currentUser = {
+      ...(userObj || {}),
       id: newAcc.id,
       email: email,
       full_name: displayName,
       target_exam: targetExam,
-      streak_count: 1
+      streak_count: initStreak,
+      learned_words_count: 0,
+      learning_words_count: 0,
+      total_started_count: 0,
+      real_xp: 0,
+      today_progress_pct: 0
     };
 
     if (token) {
@@ -736,13 +895,13 @@ async function handleAuthSubmit() {
       localStorage.setItem(STORAGE_KEY_AUTH, token);
       localStorage.setItem("EMH_AUTH_TOKEN", token);
     } else {
-      // Đã xác thực mã giới thiệu offline hợp lệ -> cấp phiên local hợp lệ
       const localTok = "local_ref_" + Date.now();
       appState.authToken = localTok;
       localStorage.setItem(STORAGE_KEY_AUTH, localTok);
       localStorage.setItem("EMH_AUTH_TOKEN", localTok);
     }
 
+    snapshotAccountStudyWorkspace(email);
     updateAuthUI();
     closeAuthModal();
     renderProfileAccountsCompetition();
@@ -756,29 +915,50 @@ async function handleAuthSubmit() {
   } else {
     // Đăng nhập
     if (token && userObj) {
+      activateAccountStudyWorkspace(email, {
+        previousEmail: outgoingEmail,
+        isNewRegistration: false,
+        serverUser: userObj
+      });
+
+      const srvStreak = parseInt(userObj.streak_count ?? userObj.streak ?? 0, 10) || 0;
       localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
       localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", userObj.full_name || displayName);
-      localStorage.setItem("EMH_STREAK", String(userObj.streak || userObj.streak_count || 1));
+      localStorage.setItem("EMH_STREAK", String(Math.max(parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0, srvStreak)));
       localStorage.removeItem("EMH_GUEST_DISMISSED");
       appState.authToken = token;
       localStorage.setItem(STORAGE_KEY_AUTH, token);
       localStorage.setItem("EMH_AUTH_TOKEN", token);
       appState.currentUser = userObj;
 
-      list = list.map(a => {
+      const metrics = (typeof computeRealStudyMetrics === "function") ? computeRealStudyMetrics() : null;
+      list = getSavedAccounts().map(a => {
         const isCur = a.email.toLowerCase() === email.toLowerCase();
-        return isCur ? { ...a, isCurrent: true, token: token, password_hash: btoa(password) } : { ...a, isCurrent: false };
+        return isCur ? {
+          ...a,
+          isCurrent: true,
+          token: token,
+          password_hash: btoa(password),
+          streak: metrics ? metrics.streak : srvStreak,
+          mature_words: metrics ? metrics.mature : (userObj.learned_words_count || 0),
+          learning_words: metrics ? metrics.learning : (userObj.learning_words_count || 0),
+          total_started: metrics ? metrics.totalStarted : (userObj.total_started_count || 0),
+          today_progress: metrics ? metrics.todayProgressPct : (userObj.today_progress_pct || 0),
+          xp: metrics ? metrics.realXp : (userObj.real_xp || 0)
+        } : { ...a, isCurrent: false };
       });
       if (!list.some(a => a.email.toLowerCase() === email.toLowerCase())) {
         list.unshift({
-          id: "user_" + Date.now(),
+          id: userObj.id || ("user_" + Date.now()),
           email: email,
           full_name: userObj.full_name || displayName,
           target_exam: userObj.target_exam || targetExam,
-          streak: userObj.streak || userObj.streak_count || 1,
-          mature_words: getRealLearnedWordsCount(),
-          today_progress: 100,
-          xp: 1500,
+          streak: metrics ? metrics.streak : srvStreak,
+          mature_words: metrics ? metrics.mature : (userObj.learned_words_count || 0),
+          learning_words: metrics ? metrics.learning : (userObj.learning_words_count || 0),
+          total_started: metrics ? metrics.totalStarted : (userObj.total_started_count || 0),
+          today_progress: metrics ? metrics.todayProgressPct : (userObj.today_progress_pct || 0),
+          xp: metrics ? metrics.realXp : (userObj.real_xp || 0),
           password_hash: btoa(password),
           token: token,
           isCurrent: true,
@@ -787,8 +967,11 @@ async function handleAuthSubmit() {
       }
       saveSavedAccounts(list);
 
-      updateDailyStreak(userObj.streak || userObj.streak_count || 1, userObj.last_active_date);
+      updateDailyStreak(metrics ? metrics.streak : srvStreak, userObj.last_active_date);
       updateAuthUI();
+      if (typeof pullCloudSyncNow === "function") {
+        pullCloudSyncNow(true).catch(() => {});
+      }
       closeAuthModal();
       renderProfileAccountsCompetition();
       renderLeaderboard();
@@ -798,22 +981,32 @@ async function handleAuthSubmit() {
     } else if (existingAcc) {
       const expectedHash = existingAcc.password_hash || "";
       if (expectedHash && btoa(password) === expectedHash) {
+        activateAccountStudyWorkspace(existingAcc.email, {
+          previousEmail: outgoingEmail,
+          isNewRegistration: false,
+          serverUser: existingAcc
+        });
         const localTok = existingAcc.token || ("local_auth_" + Date.now());
         localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", existingAcc.email);
         localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", existingAcc.full_name);
-        localStorage.setItem("EMH_STREAK", String(existingAcc.streak || 1));
+        localStorage.setItem("EMH_STREAK", String(existingAcc.streak ?? 0));
         localStorage.setItem(STORAGE_KEY_AUTH, localTok);
         localStorage.setItem("EMH_AUTH_TOKEN", localTok);
         localStorage.removeItem("EMH_GUEST_DISMISSED");
+        appState.authToken = localTok;
         appState.currentUser = {
           id: existingAcc.id,
           email: existingAcc.email,
           full_name: existingAcc.full_name,
           target_exam: existingAcc.target_exam,
-          streak_count: existingAcc.streak
+          streak_count: existingAcc.streak ?? 0,
+          learned_words_count: existingAcc.mature_words ?? 0,
+          learning_words_count: existingAcc.learning_words ?? 0,
+          total_started_count: existingAcc.total_started ?? (existingAcc.mature_words ?? 0),
+          real_xp: existingAcc.xp ?? 0
         };
 
-        list = list.map(a => ({ ...a, isCurrent: (a.email.toLowerCase() === email.toLowerCase()) }));
+        list = getSavedAccounts().map(a => ({ ...a, isCurrent: (a.email.toLowerCase() === email.toLowerCase()) }));
         saveSavedAccounts(list);
 
         updateAuthUI();
@@ -832,6 +1025,10 @@ async function handleAuthSubmit() {
 }
 
 async function logoutUser() {
+  const outgoingEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  if (outgoingEmail) {
+    snapshotAccountStudyWorkspace(outgoingEmail);
+  }
   try {
     await apiCall("/api/auth/logout", "POST");
   } catch (e) {}
@@ -842,7 +1039,7 @@ async function logoutUser() {
   localStorage.removeItem("EMH_PRIMARY_HOST_SETUP");
   localStorage.removeItem("EMH_ACTIVE_ACCOUNT_EMAIL");
   localStorage.removeItem("EMH_ACTIVE_ACCOUNT_NAME");
-  localStorage.removeItem("EMH_STREAK");
+  activateAccountStudyWorkspace("", { previousEmail: "" });
   
   let list = getSavedAccounts();
   list = list.map(a => ({ ...a, isCurrent: false }));
@@ -1331,6 +1528,13 @@ async function handleKeycloakOidcCallback(oidcParams) {
       return;
     }
 
+    const outgoingEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+    activateAccountStudyWorkspace(res.user.email, {
+      previousEmail: outgoingEmail,
+      isNewRegistration: false,
+      serverUser: res.user
+    });
+
     appState.authToken = res.token;
     appState.currentUser = res.user;
     localStorage.setItem(STORAGE_KEY_AUTH, res.token);
@@ -1691,7 +1895,9 @@ function saveMissionRegistry() {
   if (typeof syncDeadlineStreak === "function") {
     syncDeadlineStreak();
   }
-  if (typeof triggerBackgroundCloudSync === "function") {
+  if (typeof scheduleLearnerDataSync === "function") {
+    scheduleLearnerDataSync(500);
+  } else if (typeof triggerBackgroundCloudSync === "function") {
     triggerBackgroundCloudSync();
   }
 }
@@ -2455,6 +2661,9 @@ window.markDailyStreakTaskCompleted = function (taskType, options) {
     saveStreakDeadlineState(res.state);
     refreshDailyStreakDeadlineUI();
     renderAllStreakUI(res.state.streak || 0, true);
+    if (typeof scheduleLearnerDataSync === "function") {
+      scheduleLearnerDataSync(350);
+    }
 
     if (res.streakIncremented) {
       if (typeof showToast === "function") {
@@ -2593,39 +2802,604 @@ function ensureHostVuProgressRestored() {
   refreshProfileVocabularyStatsUI();
 }
 
-function refreshProfileVocabularyStatsUI() {
-  const learned = (typeof getRealLearnedWordsCount === "function") ? getRealLearnedWordsCount() : 0;
-  let srsTotal = 0;
-  let srsLearning = 0;
+let _cachedDay1To14Set = null;
+function getHostDay1To14BaselineWordSet() {
+  if (_cachedDay1To14Set && _cachedDay1To14Set.size > 0) return _cachedDay1To14Set;
+  const set = new Set();
+  if (typeof buildDailyVocabPlan === "function") {
+    const plan = buildDailyVocabPlan() || [];
+    for (let d = 1; d <= Math.min(14, plan.length); d++) {
+      const slice = ((plan[d - 1] && plan[d - 1].words) || []).slice(0, 20);
+      slice.forEach((w) => {
+        const lw = String((w && w.word) || "").trim().toLowerCase();
+        if (lw) set.add(lw);
+      });
+    }
+  }
+  if (set.size > 0) _cachedDay1To14Set = set;
+  return set;
+}
+
+function computeRealStudyMetrics(serverStatsOverride) {
+  const authed = (typeof isStreakDeviceAuthenticated === "function") ? isStreakDeviceAuthenticated() : !!(appState && appState.authToken);
+  const curEmail = String(
+    (appState && appState.currentUser && appState.currentUser.email) ||
+    localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") ||
+    ""
+  ).trim().toLowerCase();
+  const isHostVu = authed && curEmail === "tonguyenvu@265.com";
+
+  if (!authed && !curEmail) {
+    return {
+      authenticated: false,
+      email: "",
+      totalStarted: 0,
+      mature: 0,
+      learning: 0,
+      dueToday: 0,
+      retentionRatePct: 0,
+      streak: 0,
+      completedDaysCount: 0,
+      currentDay: 1,
+      todayCompletedTasks: 0,
+      todayTotalTasks: 6,
+      todayProgressPct: 0,
+      readingsDoneCount: 0,
+      grammarDoneCount: 0,
+      listeningDoneCount: 0,
+      videosDoneCount: 0,
+      speakingDoneCount: 0,
+      speakingHistoryCount: 0,
+      translationDoneCount: 0,
+      translationAvgScore: 0,
+      readAloudDoneCount: 0,
+      readAloudAvgScore: 0,
+      gamesPlayedCount: 0,
+      gameMasteredWordsCount: 0,
+      gamesEarnedXp: 0,
+      notebookWordsCount: 0,
+      weakWordsCount: 0,
+      realXp: 0
+    };
+  }
+
+  const normWord = (w) => String(w || "").trim().toLowerCase();
+  const startedSet = new Set();
+  const matureSet = new Set();
+  const notebookSet = new Set();
+  const weakSet = new Set();
+  const gameMasteredSet = new Set();
+
+  let srsMap = {};
+  let srsDueCount = 0;
+  let srsTotalReviews = 0;
+  let srsPositiveReviews = 0;
   try {
-    const srsMap = JSON.parse(localStorage.getItem("EMH_SRS_MAP_V3") || "{}");
-    const vals = Object.values(srsMap);
-    srsTotal = vals.length;
-    srsLearning = vals.filter(v => v && (v.level || 1) < 4).length;
+    srsMap = JSON.parse(localStorage.getItem("EMH_SRS_MAP_V3") || "{}") || {};
+    Object.keys(srsMap).forEach((rawKey) => {
+      const lw = normWord(rawKey);
+      const entry = srsMap[rawKey];
+      if (!lw || !entry || typeof entry !== "object") return;
+      startedSet.add(lw);
+      const lvl = parseInt(entry.level || 1, 10) || 1;
+      if (lvl >= 4) {
+        matureSet.add(lw);
+      } else if (lvl <= 2) {
+        weakSet.add(lw);
+      }
+      if (entry.nextReviewSession === "immediate" || entry.nextReviewSession === "morning" || lvl <= 2) {
+        srsDueCount += 1;
+      }
+      if (Array.isArray(entry.history)) {
+        entry.history.forEach((sc) => {
+          srsTotalReviews += 1;
+          if ((parseInt(sc, 10) || 0) >= 3) srsPositiveReviews += 1;
+        });
+      } else if ((entry.reps || 0) > 0) {
+        srsTotalReviews += parseInt(entry.reps, 10) || 1;
+        if (lvl >= 3) srsPositiveReviews += parseInt(entry.reps, 10) || 1;
+      }
+    });
   } catch (e) {}
 
-  const totalStarted = Math.max(learned, srsTotal);
+  // Vocabulary & Translation Games mastery + stats
+  let gamesPlayedCount = 0;
+  let gamesEarnedXp = 0;
+  try {
+    const gStats = JSON.parse(localStorage.getItem("EMH_VI_EN_GAMES_STATS_V1") || "{}") || {};
+    gamesPlayedCount = Math.max(0, parseInt((gStats.totalGamesPlayed ?? gStats.totalPlayed) || 0, 10) || 0);
+    gamesEarnedXp = Math.max(0, parseInt(gStats.totalXp || 0, 10) || 0);
+  } catch (e) {}
+
+  try {
+    const vegRaw = JSON.parse(localStorage.getItem("EMH_VEG_WORD_MASTERY_V1") || "{}") || {};
+    const vegWords = (vegRaw && typeof vegRaw.words === "object" && vegRaw.words) ? vegRaw.words : vegRaw;
+    Object.keys(vegWords).forEach((rawKey) => {
+      if (rawKey === "seq" || rawKey === "words") return;
+      const m = vegWords[rawKey];
+      if (!m || typeof m !== "object") return;
+      const lw = normWord(m.word || rawKey.replace(/^w_/, "").replace(/_/g, " "));
+      if (!lw) return;
+      const c = parseInt((m.c ?? m.correct) || 0, 10) || 0;
+      const w = parseInt((m.w ?? m.wrong) || 0, 10) || 0;
+      if (c + w > 0) {
+        startedSet.add(lw);
+        if (c >= 3 && c > w) {
+          gameMasteredSet.add(lw);
+          matureSet.add(lw);
+        } else if (w > c) {
+          weakSet.add(lw);
+        }
+      }
+    });
+  } catch (e) {}
+
+  // Custom saved words, personal notebook, forgotten & skipped words
+  try {
+    const savedCustom = (typeof getSavedCustomWords === "function")
+      ? getSavedCustomWords()
+      : JSON.parse(localStorage.getItem("EMH_CUSTOM_SAVED_WORDS_V2") || "[]");
+    if (Array.isArray(savedCustom)) {
+      savedCustom.forEach((item) => {
+        const lw = normWord(item && item.word);
+        if (lw) {
+          notebookSet.add(lw);
+          startedSet.add(lw);
+        }
+      });
+    }
+  } catch (e) {}
+
+  try {
+    const nb = Array.isArray(appState && appState.customNotebook) && appState.customNotebook.length
+      ? appState.customNotebook
+      : JSON.parse(localStorage.getItem("EMH_CUSTOM_NOTEBOOK_V1") || "[]");
+    if (Array.isArray(nb)) {
+      nb.forEach((item) => {
+        const lw = normWord(typeof item === "string" ? item : (item && item.word));
+        if (lw) {
+          notebookSet.add(lw);
+          startedSet.add(lw);
+        }
+      });
+    }
+  } catch (e) {}
+
+  try {
+    const forg = JSON.parse(localStorage.getItem("EMH_FORGOTTEN_WORDS_V1") || "[]");
+    if (Array.isArray(forg)) {
+      forg.forEach((item) => {
+        const lw = normWord(typeof item === "string" ? item : (item && item.word));
+        if (lw) {
+          weakSet.add(lw);
+          startedSet.add(lw);
+        }
+      });
+    }
+    const skip = JSON.parse(localStorage.getItem("EMH_SKIPPED_WORDS_V1") || "[]");
+    if (Array.isArray(skip)) {
+      skip.forEach((item) => {
+        const lw = normWord(typeof item === "string" ? item : (item && item.word));
+        if (lw) startedSet.add(lw);
+      });
+    }
+  } catch (e) {}
+
+  // Mission Registry: studied words + multi-skill completions across all roadmap days
+  const readingsSet = new Set();
+  const grammarSet = new Set();
+  const listeningSet = new Set();
+  const videosSet = new Set();
+  let missionReadingDays = 0;
+  let missionGrammarDays = 0;
+  let missionListeningDays = 0;
+  let missionVideoDays = 0;
+  let missionTranslationDays = 0;
+  let missionReadAloudDays = 0;
+
+  if (typeof missionRegistry !== "undefined" && missionRegistry && missionRegistry.history) {
+    Object.keys(missionRegistry.history).forEach((dKey) => {
+      const dayNum = parseInt(dKey, 10) || 1;
+      const dData = missionRegistry.history[dKey];
+      if (!dData || typeof dData !== "object") return;
+
+      const assigned = (typeof getDailyAssignedVocab === "function") ? getDailyAssignedVocab(dayNum) : { words: [] };
+      const dayWords = Array.isArray(assigned && assigned.words) ? assigned.words : [];
+
+      if (dData.vocabDone) {
+        const targetCap = Math.min(dayWords.length, Math.max(20, parseInt(dData.vocabCount || 20, 10) || 20));
+        dayWords.slice(0, targetCap).forEach((wObj) => {
+          const lw = normWord(wObj && wObj.word);
+          if (!lw) return;
+          startedSet.add(lw);
+          if (isHostVu && dayNum <= 14 && !srsMap[lw]) {
+            matureSet.add(lw);
+          }
+        });
+        if (Array.isArray(dData.studiedIndices)) {
+          dData.studiedIndices.forEach((entry) => {
+            if (typeof entry === "number") {
+              const lw = normWord(dayWords[entry] && dayWords[entry].word);
+              if (lw) startedSet.add(lw);
+            } else if (typeof entry === "string" && entry.trim() && !/^\d+$/.test(entry.trim())) {
+              startedSet.add(normWord(entry));
+            }
+          });
+        }
+      } else {
+        let addedFromIndices = 0;
+        if (Array.isArray(dData.studiedIndices) && dData.studiedIndices.length > 0) {
+          dData.studiedIndices.forEach((entry) => {
+            if (typeof entry === "number") {
+              const wObj = dayWords[entry];
+              const lw = normWord(wObj && wObj.word);
+              if (lw) {
+                startedSet.add(lw);
+                addedFromIndices += 1;
+              }
+            } else if (typeof entry === "string" && entry.trim()) {
+              if (/^\d+$/.test(entry.trim())) {
+                const idx = parseInt(entry.trim(), 10);
+                const wObj = dayWords[idx];
+                const lw = normWord(wObj && wObj.word);
+                if (lw) {
+                  startedSet.add(lw);
+                  addedFromIndices += 1;
+                }
+              } else {
+                startedSet.add(normWord(entry));
+                addedFromIndices += 1;
+              }
+            }
+          });
+        }
+        if (addedFromIndices === 0) {
+          const vc = Math.min(dayWords.length, Math.max(0, parseInt(dData.vocabCount || 0, 10) || 0));
+          for (let i = 0; i < vc; i++) {
+            const lw = normWord(dayWords[i] && dayWords[i].word);
+            if (lw) startedSet.add(lw);
+          }
+        }
+      }
+
+      if (Array.isArray(dData.completedReadings)) {
+        dData.completedReadings.forEach((id) => { if (id) readingsSet.add(String(id)); });
+      }
+      if (dData.readingDone) missionReadingDays += Math.max(1, parseInt(dData.readingDoneCount || 1, 10) || 1);
+
+      if (Array.isArray(dData.completedGrammarTopics)) {
+        dData.completedGrammarTopics.forEach((id) => { if (id) grammarSet.add(String(id)); });
+      }
+      if (dData.grammarDone) missionGrammarDays += 1;
+
+      if (Array.isArray(dData.completedListeningTests)) {
+        dData.completedListeningTests.forEach((id) => { if (id) listeningSet.add(String(id)); });
+      }
+      if (dData.listeningDone) missionListeningDays += 1;
+
+      if (Array.isArray(dData.completedVideos)) {
+        dData.completedVideos.forEach((id) => { if (id) videosSet.add(String(id)); });
+      }
+      if (dData.videoDone) missionVideoDays += 1;
+
+      if (dData.translationDone || dData.translationReadaloudDone) missionTranslationDays += 1;
+      if (dData.readaloudDone || dData.translationReadaloudDone) missionReadAloudDays += 1;
+    });
+  }
+
+  // Current in-session studied words (before save)
+  if (appState && appState.dayVocabStudied && typeof appState.dayVocabStudied === "object") {
+    Object.keys(appState.dayVocabStudied).forEach((dKey) => {
+      const setOrArr = appState.dayVocabStudied[dKey];
+      const dayNum = parseInt(dKey, 10) || 1;
+      const assigned = (typeof getDailyAssignedVocab === "function") ? getDailyAssignedVocab(dayNum) : { words: [] };
+      const dayWords = Array.isArray(assigned && assigned.words) ? assigned.words : [];
+      if (setOrArr && typeof setOrArr.forEach === "function") {
+        setOrArr.forEach((entry) => {
+          if (typeof entry === "number") {
+            const lw = normWord(dayWords[entry] && dayWords[entry].word);
+            if (lw) startedSet.add(lw);
+          } else if (typeof entry === "string" && entry.trim()) {
+            startedSet.add(normWord(entry));
+          }
+        });
+      }
+    });
+  }
+
+  // Speaking, Translation & Read-Aloud histories
+  let speakingDoneCount = 0;
+  let speakingHistoryCount = 0;
+  try {
+    const doneQ = JSON.parse(localStorage.getItem("speaking_done_questions_v1") || "{}") || {};
+    const spHist = JSON.parse(localStorage.getItem("speaking_practice_history_v1") || "[]") || [];
+    speakingHistoryCount = Array.isArray(spHist) ? spHist.length : 0;
+    speakingDoneCount = Math.max(Object.keys(doneQ).length, speakingHistoryCount);
+  } catch (e) {}
+
+  let translationDoneCount = 0;
+  let translationAvgScore = 0;
+  try {
+    const trHist = JSON.parse(localStorage.getItem("emh_tr_history_v1") || "[]") || [];
+    if (Array.isArray(trHist) && trHist.length > 0) {
+      translationDoneCount = Math.max(trHist.length, missionTranslationDays);
+      const sum = trHist.reduce((acc, h) => acc + (parseFloat(h && h.score) || 0), 0);
+      translationAvgScore = Math.round(sum / trHist.length);
+    } else {
+      translationDoneCount = missionTranslationDays;
+    }
+  } catch (e) {
+    translationDoneCount = missionTranslationDays;
+  }
+
+  let readAloudDoneCount = 0;
+  let readAloudAvgScore = 0;
+  try {
+    const raHist = JSON.parse(localStorage.getItem("ra_practice_history_v1") || "[]") || [];
+    if (Array.isArray(raHist) && raHist.length > 0) {
+      readAloudDoneCount = Math.max(raHist.length, missionReadAloudDays);
+      const sum = raHist.reduce((acc, h) => acc + (parseFloat((h && (h.overallScore ?? h.score)) || 0) || 0), 0);
+      readAloudAvgScore = Math.round(sum / raHist.length);
+    } else {
+      readAloudDoneCount = missionReadAloudDays;
+    }
+  } catch (e) {
+    readAloudDoneCount = missionReadAloudDays;
+  }
+
+  // Server reconciliation (User object + optional /api/stats/summary payload)
+  const u = (appState && appState.currentUser) || {};
+  const srvCards = (serverStatsOverride && serverStatsOverride.cards) || {};
+  const srvSkills = (serverStatsOverride && serverStatsOverride.skills) || {};
+
+  const srvMature = Math.max(0, parseInt(srvCards.mature ?? u.learned_words_count ?? 0, 10) || 0);
+  const srvStarted = Math.max(0, parseInt(srvCards.total_started ?? u.total_started_count ?? 0, 10) || 0);
+
+  let finalMature = 0;
+  let finalTotalStarted = 0;
+
+  if (isHostVu) {
+    const base14 = getHostDay1To14BaselineWordSet();
+    let extraStartedBeyond14 = 0;
+    let extraMatureBeyond14 = 0;
+    startedSet.forEach((w) => {
+      if (!base14.has(w)) extraStartedBeyond14 += 1;
+    });
+    matureSet.forEach((w) => {
+      if (!base14.has(w)) extraMatureBeyond14 += 1;
+    });
+    finalMature = Math.max(matureSet.size, 280 + extraMatureBeyond14, srvMature);
+    finalTotalStarted = Math.max(startedSet.size, 367 + extraStartedBeyond14, srvStarted, finalMature);
+  } else {
+    // Ensure every mature word is in startedSet
+    matureSet.forEach((w) => startedSet.add(w));
+    finalMature = Math.max(matureSet.size, srvMature);
+    finalTotalStarted = Math.max(startedSet.size, srvStarted, finalMature);
+  }
+
+  const finalLearning = Math.max(0, finalTotalStarted - finalMature);
+
+  const completedDaysCount = Math.max(
+    (typeof countCompletedCurriculumDays === "function") ? countCompletedCurriculumDays() : 0,
+    parseInt(srvSkills.completed_days ?? u.completed_days_count ?? 0, 10) || 0,
+    isHostVu ? 14 : 0
+  );
+
+  const readingsDoneCount = Math.max(readingsSet.size, missionReadingDays, parseInt(srvSkills.readings_done ?? u.readings_done_count ?? 0, 10) || 0);
+  const grammarDoneCount = Math.max(grammarSet.size, missionGrammarDays, parseInt(srvSkills.grammar_done ?? u.grammar_done_count ?? 0, 10) || 0);
+  const listeningDoneCount = Math.max(listeningSet.size, missionListeningDays, parseInt(srvSkills.listening_done ?? u.listening_done_count ?? 0, 10) || 0);
+  const videosDoneCount = Math.max(videosSet.size, missionVideoDays, parseInt(srvSkills.videos_done ?? u.videos_done_count ?? 0, 10) || 0);
+  speakingDoneCount = Math.max(speakingDoneCount, parseInt(srvSkills.speaking_done ?? u.speaking_done_count ?? 0, 10) || 0);
+  translationDoneCount = Math.max(translationDoneCount, parseInt(srvSkills.translation_done ?? u.translation_done_count ?? 0, 10) || 0);
+  readAloudDoneCount = Math.max(readAloudDoneCount, parseInt(srvSkills.readaloud_done ?? u.readaloud_done_count ?? 0, 10) || 0);
+  gamesPlayedCount = Math.max(gamesPlayedCount, parseInt(srvSkills.games_played ?? u.games_played_count ?? 0, 10) || 0);
+
+  // Calendar streak strictly from EMH_STREAK / server streak_count (NEVER conflated with completedDaysCount)
+  const storedStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
+  const srvStreak = parseInt(u.streak_count ?? u.streak ?? 0, 10) || 0;
+  const finalStreak = authed ? Math.max(storedStreak, srvStreak, isHostVu ? 15 : 0) : 0;
+
+  // Today's actual mission progress percentage (0..100, never fake 70%)
+  const curDay = (typeof missionRegistry !== "undefined" && missionRegistry && missionRegistry.currentDay) ? missionRegistry.currentDay : 1;
+  let todayCompletedTasks = 0;
+  let todayTotalTasks = 6;
+  if (typeof getDayMissionStatus === "function") {
+    const st = getDayMissionStatus(curDay);
+    todayCompletedTasks = parseInt(st.completedCount || 0, 10) || 0;
+    todayTotalTasks = Math.max(1, parseInt(st.totalCount || 6, 10) || 6);
+  }
+  const todayProgressPct = Math.min(100, Math.max(0, Math.round((todayCompletedTasks / todayTotalTasks) * 100)));
+
+  // Retention rate (%)
+  let retentionRatePct = 0;
+  if (serverStatsOverride && typeof serverStatsOverride.retention_rate_pct === "number" && (serverStatsOverride.total_reviews_done || 0) > 0) {
+    retentionRatePct = Math.round(serverStatsOverride.retention_rate_pct);
+  } else if (srsTotalReviews > 0) {
+    retentionRatePct = Math.round((srsPositiveReviews / srsTotalReviews) * 100);
+  } else if (finalTotalStarted > 0) {
+    retentionRatePct = Math.round((finalMature / finalTotalStarted) * 100);
+  }
+
+  // Transparent Real XP (100% earned from real study actions, 0 fake base)
+  const formulaXp = (
+    (finalStreak * 100) +
+    (finalMature * 20) +
+    (finalLearning * 5) +
+    (completedDaysCount * 50) +
+    (readingsDoneCount * 30) +
+    (grammarDoneCount * 30) +
+    (listeningDoneCount * 30) +
+    (videosDoneCount * 20) +
+    (speakingDoneCount * 25) +
+    (translationDoneCount * 35) +
+    (readAloudDoneCount * 30) +
+    Math.max(gamesPlayedCount * 20, gamesEarnedXp)
+  );
+  const srvXp = Math.max(0, parseInt(u.real_xp ?? 0, 10) || 0);
+  const realXp = Math.max(0, formulaXp, srvXp);
+
+  return {
+    authenticated: authed,
+    email: curEmail,
+    totalStarted: finalTotalStarted,
+    mature: finalMature,
+    learning: finalLearning,
+    dueToday: Math.max(srsDueCount, parseInt(srvCards.due_today || 0, 10) || 0),
+    retentionRatePct,
+    streak: finalStreak,
+    completedDaysCount,
+    currentDay: curDay,
+    todayCompletedTasks,
+    todayTotalTasks,
+    todayProgressPct,
+    readingsDoneCount,
+    grammarDoneCount,
+    listeningDoneCount,
+    videosDoneCount,
+    speakingDoneCount,
+    speakingHistoryCount,
+    translationDoneCount,
+    translationAvgScore,
+    readAloudDoneCount,
+    readAloudAvgScore,
+    gamesPlayedCount,
+    gameMasteredWordsCount: gameMasteredSet.size,
+    gamesEarnedXp,
+    notebookWordsCount: notebookSet.size,
+    weakWordsCount: weakSet.size,
+    realXp
+  };
+}
+window.computeRealStudyMetrics = computeRealStudyMetrics;
+
+function renderRealStudySkillBreakdown(metricsInput) {
+  const m = metricsInput || computeRealStudyMetrics();
+  const box = document.getElementById("realStudySkillBreakdown");
+  if (!box) return;
+
+  const items = [
+    { icon: "📅", label: "Ngày lộ trình hoàn tất", val: `${m.completedDaysCount} / 90 ngày`, sub: `Đang học Ngày ${m.currentDay} (${m.todayCompletedTasks}/${m.todayTotalTasks} mục hôm nay)` },
+    { icon: "📖", label: "Bài Đọc hiểu & IELTS", val: `${m.readingsDoneCount} bài`, sub: `Ngữ pháp: ${m.grammarDoneCount} chủ điểm` },
+    { icon: "🎧", label: "Bài Nghe & Video thực tế", val: `${m.listeningDoneCount + m.videosDoneCount} bài`, sub: `Listening: ${m.listeningDoneCount} • Video: ${m.videosDoneCount}` },
+    { icon: "✍️", label: "Luyện Dịch Vi ➔ En", val: `${m.translationDoneCount} bài`, sub: m.translationAvgScore > 0 ? `Điểm TB: ${m.translationAvgScore}/100` : "Chấm điểm tự động" },
+    { icon: "🎙️", label: "Đọc lại & IELTS Speaking", val: `${m.readAloudDoneCount + m.speakingDoneCount} lượt`, sub: `Read-Aloud: ${m.readAloudDoneCount} • Speaking: ${m.speakingDoneCount} câu` },
+    { icon: "🎮", label: "9 Trò chơi Từ vựng", val: `${m.gamesPlayedCount} ván`, sub: `Thuộc qua game: ${m.gameMasteredWordsCount} từ • Sổ tay: ${m.notebookWordsCount} từ` }
+  ];
+
+  box.innerHTML = `
+    <div class="pt-2 border-t border-slate-800/80 space-y-2.5">
+      <div class="flex items-center justify-between gap-2 flex-wrap">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-300">📊 Chi Tiết Thực Học Đa Kỹ Năng (${m.realXp.toLocaleString("vi-VN")} XP)</span>
+        <button type="button" onclick="forceReconcileLearnerDataNow()" class="px-2.5 py-1 rounded-lg bg-indigo-600/20 hover:bg-indigo-600/35 border border-indigo-500/40 text-indigo-200 font-bold text-[11px] transition cursor-pointer">
+          🔄 Đồng bộ & Cập nhật số liệu thực học
+        </button>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        ${items.map((it) => `
+          <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start justify-between gap-2 min-w-0">
+            <div class="min-w-0">
+              <div class="text-xs font-bold text-slate-200 truncate">${it.icon} ${it.label}</div>
+              <div class="text-[10px] text-slate-400 truncate mt-0.5">${it.sub}</div>
+            </div>
+            <span class="text-xs font-extrabold text-amber-300 font-mono shrink-0">${it.val}</span>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function refreshProfileVocabularyStatsUI(serverStatsOverride) {
+  const m = computeRealStudyMetrics(serverStatsOverride);
   const statStartedEl = document.getElementById("statTotalStarted");
   const statMatureEl = document.getElementById("statMature");
   const statLearningEl = document.getElementById("statLearning");
-  if (statStartedEl) statStartedEl.innerText = String(totalStarted);
-  if (statMatureEl) statMatureEl.innerText = String(learned);
-  if (statLearningEl) statLearningEl.innerText = String(srsLearning);
+  const sRet = document.getElementById("metricRetention");
+  const profStreak = document.getElementById("statStreakDisplay");
+
+  if (statStartedEl) statStartedEl.innerText = String(m.totalStarted);
+  if (statMatureEl) statMatureEl.innerText = String(m.mature);
+  if (statLearningEl) statLearningEl.innerText = String(m.learning);
+  if (sRet) sRet.innerText = `${m.retentionRatePct}%`;
+  if (profStreak) profStreak.innerText = m.authenticated ? `${m.streak} ngày 🔥` : "0 ngày";
+
+  renderRealStudySkillBreakdown(m);
+  return m;
 }
 
-async function syncClientWordsToServer() {
-  refreshProfileVocabularyStatsUI();
-  if (!appState || !appState.authToken) return;
+let _learnerSyncTimer = null;
+async function syncClientWordsToServer(options) {
+  const opts = options || {};
+  const m = refreshProfileVocabularyStatsUI();
+  if (m.email) {
+    snapshotAccountStudyWorkspace(m.email);
+  }
+  if (!appState || !appState.authToken) return m;
   try {
-    const learned = (typeof getRealLearnedWordsCount === "function") ? getRealLearnedWordsCount() : 0;
-    const streak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
-    await apiCall("/api/stats/sync-client-summary", "POST", {
-      learned_words_count: learned,
-      total_started_count: learned,
-      streak_count: streak
+    const res = await apiCall("/api/stats/sync-client-summary", "POST", {
+      learned_words_count: m.mature,
+      learning_words_count: m.learning,
+      total_started_count: m.totalStarted,
+      streak_count: m.streak,
+      completed_days_count: m.completedDaysCount,
+      readings_done_count: m.readingsDoneCount,
+      grammar_done_count: m.grammarDoneCount,
+      listening_done_count: m.listeningDoneCount,
+      videos_done_count: m.videosDoneCount,
+      speaking_done_count: m.speakingDoneCount,
+      translation_done_count: m.translationDoneCount,
+      readaloud_done_count: m.readAloudDoneCount,
+      games_played_count: m.gamesPlayedCount,
+      real_xp: m.realXp,
+      today_progress_pct: m.todayProgressPct,
+      authoritative: true
     });
+    if (res && appState.currentUser) {
+      appState.currentUser.learned_words_count = res.learned_words_count;
+      appState.currentUser.learning_words_count = res.learning_words_count;
+      appState.currentUser.total_started_count = res.total_started_count;
+      appState.currentUser.completed_days_count = res.completed_days_count;
+      appState.currentUser.real_xp = res.real_xp;
+      appState.currentUser.today_progress_pct = res.today_progress_pct;
+    }
+    if (opts.refreshLeaderboard && typeof fetchServerLeaderboard === "function") {
+      await fetchServerLeaderboard();
+    } else {
+      if (typeof getSavedAccounts === "function") getSavedAccounts();
+      if (typeof renderProfileAccountsCompetition === "function") renderProfileAccountsCompetition();
+      if (typeof renderLeaderboard === "function") renderLeaderboard();
+      if (typeof renderHomeLeaderboardPreview === "function") renderHomeLeaderboardPreview();
+    }
   } catch (e) {}
+  return m;
 }
+
+function scheduleLearnerDataSync(delayMs = 450) {
+  refreshProfileVocabularyStatsUI();
+  clearTimeout(_learnerSyncTimer);
+  _learnerSyncTimer = setTimeout(() => {
+    syncClientWordsToServer({ refreshLeaderboard: false });
+    if (typeof triggerBackgroundCloudSync === "function") {
+      triggerBackgroundCloudSync();
+    }
+  }, delayMs);
+}
+
+window.notifyLearnerStudyActivity = function (source) {
+  scheduleLearnerDataSync(350);
+};
+
+window.forceReconcileLearnerDataNow = async function () {
+  const m = await syncClientWordsToServer({ refreshLeaderboard: true });
+  if (typeof pushCloudSyncNow === "function" && appState && appState.authToken) {
+    try { await pushCloudSyncNow(true); } catch (e) {}
+  }
+  await loadProfileAnalytics();
+  if (typeof showToast === "function") {
+    showToast(`✅ Đã đối soát & đồng bộ dữ liệu thực học: ${m.totalStarted} thẻ (${m.mature} vững vàng + ${m.learning} đang học) • ${m.realXp} XP!`, "success");
+  }
+  return m;
+};
 
 let realDeadlineIntervalStarted = false;
 function initDailyMissionEngine() {
@@ -2943,6 +3717,28 @@ function advanceToNextDay() {
   showToast(`🚀 Đã chuyển sang Ngày ${nextDay} (Học vượt lộ trình - Dữ liệu được ghi nhận)`, "success");
 }
 
+function normalizeStudiedDaySet(dayNum, rawEntries) {
+  const cleanSet = new Set();
+  const assigned = (typeof getDailyAssignedVocab === "function") ? getDailyAssignedVocab(dayNum) : { words: [] };
+  const dayWords = Array.isArray(assigned && assigned.words) ? assigned.words : [];
+  (Array.isArray(rawEntries) ? rawEntries : Array.from(rawEntries || [])).forEach((entry) => {
+    if (typeof entry === "number") {
+      const lw = String((dayWords[entry] && dayWords[entry].word) || "").trim().toLowerCase();
+      if (lw) cleanSet.add(lw);
+    } else if (typeof entry === "string" && entry.trim()) {
+      const t = entry.trim();
+      if (/^\d+$/.test(t)) {
+        const idx = parseInt(t, 10);
+        const lw = String((dayWords[idx] && dayWords[idx].word) || "").trim().toLowerCase();
+        if (lw) cleanSet.add(lw);
+      } else {
+        cleanSet.add(t.toLowerCase());
+      }
+    }
+  });
+  return cleanSet;
+}
+
 function startTodayVocabMission() {
   const curDay = missionRegistry.currentDay;
   const info = getDailyAssignedVocab(curDay);
@@ -2952,10 +3748,14 @@ function startTodayVocabMission() {
   appState.currentCardIndex = 0;
   appState.isFlipped = false;
 
-  // Track studied cards in this session
+  // Track studied cards in this session using normalized word keys only (never mix numeric 0 with strings)
   if (!appState.dayVocabStudied) appState.dayVocabStudied = {};
-  if (!appState.dayVocabStudied[curDay]) appState.dayVocabStudied[curDay] = new Set();
-  appState.dayVocabStudied[curDay].add(0);
+  const saved = missionRegistry.history[String(curDay)]?.studiedIndices || [];
+  appState.dayVocabStudied[curDay] = normalizeStudiedDaySet(curDay, saved);
+  const firstWord = info && Array.isArray(info.words) && info.words[0] ? String(info.words[0].word || "").trim().toLowerCase() : "";
+  if (firstWord) {
+    appState.dayVocabStudied[curDay].add(firstWord);
+  }
 
   const lockedBanner = document.getElementById("dailyMissionLockedBanner");
   if (lockedBanner) lockedBanner.classList.remove("hidden");
@@ -2966,11 +3766,14 @@ function startTodayVocabMission() {
 
   switchTab("flashcard");
   renderFlashcard();
-  updateDailyMissionUI();
-  updateDailyGoalChecklist();
+  onVocabCardViewed();
 }
 
 function onVocabCardViewed() {
+  if (appState.studyMode && appState.studyMode !== "daily_locked") {
+    if (typeof scheduleLearnerDataSync === "function") scheduleLearnerDataSync(500);
+    return;
+  }
   const curDay = missionRegistry.currentDay || 1;
   const words = getCurrentDayWords();
   if (!words || words.length === 0) return;
@@ -2981,13 +3784,16 @@ function onVocabCardViewed() {
   if (!appState.dayVocabStudied) appState.dayVocabStudied = {};
   if (!appState.dayVocabStudied[curDay]) {
     const saved = missionRegistry.history[String(curDay)]?.studiedIndices || [];
-    appState.dayVocabStudied[curDay] = new Set(saved);
+    appState.dayVocabStudied[curDay] = normalizeStudiedDaySet(curDay, saved);
+  } else {
+    appState.dayVocabStudied[curDay] = normalizeStudiedDaySet(curDay, appState.dayVocabStudied[curDay]);
   }
 
   // Nếu là từ của ngày đang học
   const isCoreWord = (curWord.cardOrigin === "today" || !curWord.cardOrigin || curWord.sourceDay === curDay);
-  if (isCoreWord) {
-    appState.dayVocabStudied[curDay].add((curWord.word || "").toLowerCase());
+  const cleanWord = String(curWord.word || "").trim().toLowerCase();
+  if (isCoreWord && cleanWord) {
+    appState.dayVocabStudied[curDay].add(cleanWord);
   }
 
   const studiedCount = appState.dayVocabStudied[curDay].size;
@@ -4597,8 +5403,8 @@ async function rateSRS(score) {
     srs.level = Math.max(3, srs.level || 1);
     srs.nextReviewSession = "tomorrow";
   } else if (score === 4) {
-    // [4] NHỚ: Tăng level + 1, rút ngắn chu kỳ nhắc lại: sau 2 - 3 ngày
-    srs.level = Math.min(5, (srs.level || 2) + 1);
+    // [4] NHỚ RÕ: Đạt ngay ngưỡng Mature (Cấp 4–5), chu kỳ nhắc lại: sau 2 - 3 ngày
+    srs.level = Math.max(4, Math.min(5, (srs.level || 3) + 1));
     srs.nextReviewSession = "3_days";
     removeForgottenWord(curWord.word);
     removeSkippedWord(curWord.word);
@@ -4612,28 +5418,51 @@ async function rateSRS(score) {
 
   saveWordSRSState(curWord.word, srs);
 
+  // Ghi nhận từ vừa đánh giá vào danh sách đã học của ngày hiện tại trước khi chuyển thẻ
+  if (appState.studyMode === "daily_locked") {
+    const curDay = missionRegistry.currentDay || 1;
+    if (!appState.dayVocabStudied) appState.dayVocabStudied = {};
+    if (!appState.dayVocabStudied[curDay]) {
+      const saved = missionRegistry.history[String(curDay)]?.studiedIndices || [];
+      appState.dayVocabStudied[curDay] = normalizeStudiedDaySet(curDay, saved);
+    }
+    const lw = String(curWord.word || "").trim().toLowerCase();
+    if (lw) appState.dayVocabStudied[curDay].add(lw);
+  }
+
   // Ghi nhận hoàn thành phiên tương ứng
   recordSessionDone(activeSession);
 
   // 1. TỰ ĐỘNG CHUYỂN THẺ NGAY LẬP TỨC (0ms latency, không cần bấm thêm nút nào)
   nextCard();
 
-  // 2. Tự động ghi nhận tiến độ học của ngày
+  // 2. Tự động ghi nhận tiến độ học của ngày & đồng bộ chỉ số thực học
   if (appState.studyMode === "daily_locked") {
     const curDay = missionRegistry.currentDay;
     const curStatus = getDayMissionStatus(curDay);
-    const studiedCount = appState.dayVocabStudied?.[curDay]?.size || Math.min(20, appState.currentCardIndex + 1);
+    const studiedCount = appState.dayVocabStudied?.[curDay]?.size || 0;
     const isDone = studiedCount >= Math.min(20, words.length);
     setDayMissionStatus(curDay, {
       vocabCount: studiedCount,
-      vocabDone: isDone || curStatus.vocabDone
+      vocabDone: isDone || curStatus.vocabDone,
+      studiedIndices: Array.from(appState.dayVocabStudied?.[curDay] || [])
     });
+  } else if (typeof scheduleLearnerDataSync === "function") {
+    scheduleLearnerDataSync(350);
   }
 
-  // 3. Gửi sự kiện đánh giá độ nhớ (SRS) chạy ngầm không làm gián đoạn lật thẻ
+  // 3. Gửi sự kiện đánh giá độ nhớ (SRS) kèm đầy đủ metadata để Backend không bao giờ 404
   const clientEventId = `evt_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
   const payload = {
-    item_id: curWord.id || `word_${curWord.word}`,
+    item_id: curWord.id || `word_${String(curWord.word || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_")}`,
+    word: String(curWord.word || "").trim(),
+    pos: String(curWord.pos || "").trim(),
+    pron: String(curWord.pron || "").trim(),
+    meaning_vi: String(curWord.meaning_vi || curWord.vi || curWord.meaning || "").trim(),
+    meaning_en: String(curWord.meaning_en || curWord.en || "").trim(),
+    example: String(curWord.example || "").trim(),
+    level: String(curWord.level || "B1").trim(),
+    unit: String(curWord.unitTitle || curWord.unit || "Curriculum").trim(),
     test_type: "recognition",
     rating: score,
     used_hint: false,
@@ -4647,6 +5476,9 @@ async function rateSRS(score) {
       if (res && res.streak !== undefined) {
         const el = document.getElementById("streakCount");
         if (el) el.innerText = `${res.streak} ngày`;
+      }
+      if (typeof scheduleLearnerDataSync === "function") {
+        scheduleLearnerDataSync(250);
       }
     }).catch(err => {
       appState.offlineQueue.push({ ...payload, created_at_client: new Date().toISOString() });
@@ -7498,23 +8330,18 @@ function checkQuizAnswer(qIdx, selectedIdx, correctIdx, wordId) {
 // ================= PROFILE & ANALYTICS =================
 async function loadProfileAnalytics() {
   if (typeof renderProfileAccountsCompetition === 'function') renderProfileAccountsCompetition();
-  const authed = isStreakDeviceAuthenticated();
-  const storedStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
-  const serverStreak = parseInt((appState.currentUser && (appState.currentUser.streak_count ?? appState.currentUser.streak)) || 0, 10) || 0;
-  const streakVal = authed ? Math.max(storedStreak, serverStreak) : 0;
-  const profileStreakEl = document.getElementById("statStreakDisplay");
-  if (profileStreakEl) profileStreakEl.innerText = authed ? `${streakVal} ngày 🔥` : "0 ngày";
+  refreshProfileVocabularyStatsUI();
 
   const stats = await apiCall("/api/stats/summary");
-  if (stats && stats.cards) {
-    const sStarted = document.getElementById("statTotalStarted");
-    const sMature = document.getElementById("statMature");
-    const sLearning = document.getElementById("statLearning");
-    const sRet = document.getElementById("metricRetention");
-    if (sStarted) sStarted.innerText = stats.cards.total_started;
-    if (sMature) sMature.innerText = stats.cards.mature;
-    if (sLearning) sLearning.innerText = stats.cards.learning;
-    if (sRet) sRet.innerText = `${stats.retention_rate_pct}%`;
+  const reconciled = refreshProfileVocabularyStatsUI(stats || null);
+  if (appState && appState.authToken && stats && stats.cards) {
+    if (
+      reconciled.totalStarted > (stats.cards.total_started || 0) ||
+      reconciled.mature > (stats.cards.mature || 0) ||
+      reconciled.learning !== (stats.cards.learning || 0)
+    ) {
+      syncClientWordsToServer({ refreshLeaderboard: false });
+    }
   }
 
   const sessions = await apiCall("/api/auth/sessions") || [];
@@ -8789,9 +9616,25 @@ function buildFullSyncPayload() {
   let doneQuestions = {};
   let practiceHistory = [];
   let cueNotes = {};
+  let srsMap = {};
+  let customNotebook = [];
+  let forgottenWords = [];
+  let skippedWords = [];
+  let translationHistory = [];
+  let readAloudHistory = [];
+  let gamesStats = {};
+  let gamesMastery = {};
   try { doneQuestions = JSON.parse(localStorage.getItem("speaking_done_questions_v1") || "{}"); } catch(e) {}
   try { practiceHistory = JSON.parse(localStorage.getItem("speaking_practice_history_v1") || "[]"); } catch(e) {}
   try { cueNotes = JSON.parse(localStorage.getItem("speaking_cue_card_notes_v1") || "{}"); } catch(e) {}
+  try { srsMap = JSON.parse(localStorage.getItem("EMH_SRS_MAP_V3") || "{}"); } catch(e) {}
+  try { customNotebook = JSON.parse(localStorage.getItem("EMH_CUSTOM_NOTEBOOK_V1") || "[]"); } catch(e) {}
+  try { forgottenWords = JSON.parse(localStorage.getItem("EMH_FORGOTTEN_WORDS_V1") || "[]"); } catch(e) {}
+  try { skippedWords = JSON.parse(localStorage.getItem("EMH_SKIPPED_WORDS_V1") || "[]"); } catch(e) {}
+  try { translationHistory = JSON.parse(localStorage.getItem("emh_tr_history_v1") || "[]"); } catch(e) {}
+  try { readAloudHistory = JSON.parse(localStorage.getItem("ra_practice_history_v1") || "[]"); } catch(e) {}
+  try { gamesStats = JSON.parse(localStorage.getItem("EMH_VI_EN_GAMES_STATS_V1") || "{}"); } catch(e) {}
+  try { gamesMastery = JSON.parse(localStorage.getItem("EMH_VEG_WORD_MASTERY_V1") || "{}"); } catch(e) {}
 
   return {
     missionRegistry: missionRegistry,
@@ -8800,11 +9643,19 @@ function buildFullSyncPayload() {
       lastActiveDate: localStorage.getItem("EMH_LAST_ACTIVE_DATE") || localStorage.getItem("EMH_LAST_COMPLETED_DATE") || getLocalDateStr(),
       deadlineState: deadlineState
     },
+    srsMap: srsMap,
     customWords: getSavedCustomWords(),
+    customNotebook: Array.isArray(customNotebook) ? customNotebook : [],
+    forgottenWords: Array.isArray(forgottenWords) ? forgottenWords : [],
+    skippedWords: Array.isArray(skippedWords) ? skippedWords : [],
     interleavedConfig: getInterleavedConfig(),
     speakingDoneQuestions: doneQuestions,
     speakingHistory: practiceHistory.slice(0, 50),
     speakingCueNotes: cueNotes,
+    translationHistory: Array.isArray(translationHistory) ? translationHistory.slice(0, 50) : [],
+    readAloudHistory: Array.isArray(readAloudHistory) ? readAloudHistory.slice(0, 50) : [],
+    gamesStats: gamesStats,
+    gamesMastery: gamesMastery,
     groqApiKey: localStorage.getItem("user_groq_api_key") || "",
     activeTheme: localStorage.getItem("emh_active_theme_palette") || "default",
     device: navigator.userAgent.includes("Mobile") ? "Điện thoại" : "Máy tính",
@@ -8991,6 +9842,129 @@ function applyFullSyncPayload(payload) {
       } catch (e) {}
     }
 
+    // 6b. Merge SRS Map, Personal Notebook, Translation, Read-Aloud & Games Progress
+    if (payload.srsMap && typeof payload.srsMap === "object") {
+      try {
+        const localSrs = JSON.parse(localStorage.getItem("EMH_SRS_MAP_V3") || "{}") || {};
+        Object.keys(payload.srsMap).forEach((k) => {
+          const r = payload.srsMap[k];
+          const l = localSrs[k];
+          if (!r || typeof r !== "object") return;
+          if (!l || (parseInt(r.updatedAt || 0, 10) > parseInt(l.updatedAt || 0, 10)) || ((r.reps || 0) > (l.reps || 0))) {
+            localSrs[k] = r;
+            hasChanges = true;
+          }
+        });
+        localStorage.setItem("EMH_SRS_MAP_V3", JSON.stringify(localSrs));
+      } catch (e) {}
+    }
+
+    if (Array.isArray(payload.customNotebook) && payload.customNotebook.length > 0) {
+      try {
+        const localNb = JSON.parse(localStorage.getItem("EMH_CUSTOM_NOTEBOOK_V1") || "[]") || [];
+        const byW = new Map();
+        localNb.forEach((it) => {
+          const w = String((it && it.word) || it || "").trim().toLowerCase();
+          if (w) byW.set(w, it);
+        });
+        payload.customNotebook.forEach((it) => {
+          const w = String((it && it.word) || it || "").trim().toLowerCase();
+          if (w && !byW.has(w)) {
+            byW.set(w, it);
+            hasChanges = true;
+          }
+        });
+        const mergedNb = Array.from(byW.values());
+        localStorage.setItem("EMH_CUSTOM_NOTEBOOK_V1", JSON.stringify(mergedNb));
+        appState.customNotebook = mergedNb;
+      } catch (e) {}
+    }
+
+    if (Array.isArray(payload.translationHistory) && payload.translationHistory.length > 0) {
+      try {
+        const localTr = JSON.parse(localStorage.getItem("emh_tr_history_v1") || "[]") || [];
+        const seenTr = new Set(localTr.map((h) => `${h.id || ""}_${h.timestamp || ""}`));
+        const combinedTr = [...localTr];
+        payload.translationHistory.forEach((h) => {
+          const sig = `${h.id || ""}_${h.timestamp || ""}`;
+          if (!seenTr.has(sig)) {
+            seenTr.add(sig);
+            combinedTr.push(h);
+            hasChanges = true;
+          }
+        });
+        combinedTr.sort((a, b) => new Date(b.timestamp || 0) - new Date(a.timestamp || 0));
+        localStorage.setItem("emh_tr_history_v1", JSON.stringify(combinedTr.slice(0, 50)));
+      } catch (e) {}
+    }
+
+    if (Array.isArray(payload.readAloudHistory) && payload.readAloudHistory.length > 0) {
+      try {
+        const localRa = JSON.parse(localStorage.getItem("ra_practice_history_v1") || "[]") || [];
+        const seenRa = new Set(localRa.map((h) => `${h.id || h.passageId || ""}_${h.timestamp || h.createdAt || ""}`));
+        const combinedRa = [...localRa];
+        payload.readAloudHistory.forEach((h) => {
+          const sig = `${h.id || h.passageId || ""}_${h.timestamp || h.createdAt || ""}`;
+          if (!seenRa.has(sig)) {
+            seenRa.add(sig);
+            combinedRa.push(h);
+            hasChanges = true;
+          }
+        });
+        localStorage.setItem("ra_practice_history_v1", JSON.stringify(combinedRa.slice(0, 50)));
+      } catch (e) {}
+    }
+
+    if (payload.gamesStats && typeof payload.gamesStats === "object") {
+      try {
+        const localGs = JSON.parse(localStorage.getItem("EMH_VI_EN_GAMES_STATS_V1") || "{}") || {};
+        const remotePlayed = payload.gamesStats.totalGamesPlayed ?? payload.gamesStats.totalPlayed ?? 0;
+        const localPlayed = localGs.totalGamesPlayed ?? localGs.totalPlayed ?? 0;
+        if (remotePlayed > localPlayed) {
+          const mergedPlayed = Math.max(localPlayed, remotePlayed);
+          localStorage.setItem("EMH_VI_EN_GAMES_STATS_V1", JSON.stringify({
+            ...localGs,
+            ...payload.gamesStats,
+            totalGamesPlayed: mergedPlayed,
+            totalCorrect: Math.max(localGs.totalCorrect || 0, payload.gamesStats.totalCorrect || 0),
+            totalXp: Math.max(localGs.totalXp || 0, payload.gamesStats.totalXp || 0)
+          }));
+          hasChanges = true;
+        }
+      } catch (e) {}
+    }
+
+    if (payload.gamesMastery && typeof payload.gamesMastery === "object") {
+      try {
+        const localGm = JSON.parse(localStorage.getItem("EMH_VEG_WORD_MASTERY_V1") || "{}") || {};
+        const localWords = (localGm && typeof localGm.words === "object" && localGm.words) ? localGm.words : {};
+        const remoteWords = (payload.gamesMastery && typeof payload.gamesMastery.words === "object" && payload.gamesMastery.words)
+          ? payload.gamesMastery.words
+          : payload.gamesMastery;
+        Object.keys(remoteWords).forEach((k) => {
+          if (k === "seq" || k === "words") return;
+          const r = remoteWords[k];
+          const l = localWords[k];
+          if (!r || typeof r !== "object") return;
+          if (!l) {
+            localWords[k] = r;
+            hasChanges = true;
+          } else {
+            const nextC = Math.max(l.c ?? l.correct ?? 0, r.c ?? r.correct ?? 0);
+            const nextW = Math.max(l.w ?? l.wrong ?? 0, r.w ?? r.wrong ?? 0);
+            if (nextC > (l.c ?? l.correct ?? 0) || nextW > (l.w ?? l.wrong ?? 0)) {
+              localWords[k] = { ...l, ...r, c: nextC, w: nextW, last: Math.max(l.last || 0, r.last || 0) };
+              hasChanges = true;
+            }
+          }
+        });
+        localStorage.setItem("EMH_VEG_WORD_MASTERY_V1", JSON.stringify({
+          seq: Math.max(localGm.seq || 0, payload.gamesMastery.seq || 0),
+          words: localWords
+        }));
+      } catch (e) {}
+    }
+
     // 7. Sync Groq API Key
     if (payload.groqApiKey && typeof payload.groqApiKey === "string" && payload.groqApiKey.trim()) {
       const localKey = localStorage.getItem("user_groq_api_key");
@@ -9012,6 +9986,9 @@ function applyFullSyncPayload(payload) {
       updateDailyGoalChecklist();
       if (typeof renderFlashcard === "function") renderFlashcard();
       if (typeof tickDeadlineCountdown === "function") tickDeadlineCountdown();
+    }
+    if (typeof refreshProfileVocabularyStatsUI === "function") {
+      refreshProfileVocabularyStatsUI();
     }
   } finally {
     isApplyingRemoteSync = false;
@@ -12176,29 +13153,12 @@ setInterval(updateSessionRoutineUI, 30000);
 const STORAGE_KEY_SAVED_ACCOUNTS_V2 = "EMH_REAL_ACCOUNTS_V3";
 let currentLeaderboardFilterMode = "all"; // 'all', 'streak', 'vocab'
 
-// Đếm số từ vựng thực tế đã học từ lộ trình ngày hoàn thành, thẻ SRS & sổ tay cá nhân
+// Đếm số từ vựng đã ghi nhớ vững vàng thực tế từ bộ đối soát thống nhất
 function getRealLearnedWordsCount() {
-  let curriculumCount = 0;
-  if (typeof missionRegistry !== "undefined" && missionRegistry.history) {
-    Object.keys(missionRegistry.history).forEach(d => {
-      const dayData = missionRegistry.history[d];
-      if (dayData) {
-        if (dayData.vocabDone) {
-          curriculumCount += 20;
-        } else if (dayData.vocabCount) {
-          curriculumCount += Math.min(20, parseInt(dayData.vocabCount) || 0);
-        }
-      }
-    });
+  if (typeof computeRealStudyMetrics === "function") {
+    return computeRealStudyMetrics().mature;
   }
-  let srsMatureCount = 0;
-  try {
-    const srsMap = JSON.parse(localStorage.getItem("EMH_SRS_MAP_V3") || "{}");
-    srsMatureCount = Object.values(srsMap).filter(v => v && (v.level || 0) >= 3).length;
-  } catch (e) {}
-
-  let notebookCount = Array.isArray(appState.customNotebook) ? appState.customNotebook.length : 0;
-  return Math.max(curriculumCount, srsMatureCount) + notebookCount;
+  return 0;
 }
 
 let serverLeaderboardCache = [];
@@ -12245,6 +13205,11 @@ function getCombinedLeaderboardAccounts() {
       byEmail.set(em, {
         ...row,
         full_name: row.full_name || row.name || row.email.split("@")[0],
+        mature_words: Math.max(0, parseInt(row.mature_words || 0, 10) || 0),
+        learning_words: Math.max(0, parseInt(row.learning_words || 0, 10) || 0),
+        total_started: Math.max(0, parseInt(row.total_started || row.mature_words || 0, 10) || 0),
+        streak: Math.max(0, parseInt(row.streak || 0, 10) || 0),
+        xp: Math.max(0, parseInt(row.xp || 0, 10) || 0),
         isCurrent: em === curEmail
       });
     });
@@ -12259,17 +13224,28 @@ function getCombinedLeaderboardAccounts() {
         isCurrent: em === curEmail
       });
     } else {
-      // Never let server overwrite local learned words / XP downward!
       const srv = byEmail.get(em);
-      const mergedWords = Math.max(srv.mature_words || 0, localAcc.mature_words || 0);
-      const mergedStreak = Math.max(srv.streak || 0, localAcc.streak || 0);
-      const mergedXp = Math.max(srv.xp || 0, localAcc.xp || 0, (mergedStreak * 120) + (mergedWords * 20) + 150);
+      const isActiveHere = (em === curEmail);
+      const mergedWords = isActiveHere
+        ? Math.max(srv.mature_words || 0, localAcc.mature_words || 0)
+        : (srv.mature_words ?? localAcc.mature_words ?? 0);
+      const mergedStarted = isActiveHere
+        ? Math.max(srv.total_started || 0, localAcc.total_started || 0, mergedWords)
+        : Math.max(srv.total_started || 0, mergedWords);
+      const mergedStreak = isActiveHere
+        ? Math.max(srv.streak || 0, localAcc.streak || 0)
+        : (srv.streak ?? localAcc.streak ?? 0);
+      const mergedXp = isActiveHere
+        ? Math.max(srv.xp || 0, localAcc.xp || 0)
+        : (srv.xp ?? localAcc.xp ?? 0);
       byEmail.set(em, {
         ...srv,
         mature_words: mergedWords,
+        total_started: mergedStarted,
+        learning_words: Math.max(0, mergedStarted - mergedWords),
         streak: mergedStreak,
         xp: mergedXp,
-        isCurrent: em === curEmail
+        isCurrent: isActiveHere
       });
     }
   });
@@ -12286,7 +13262,7 @@ function getSavedAccounts() {
   }
 
   // Lọc sạch 100% mọi tài khoản ảo, bot, mock peer cũ
-  list = list.filter(a => a && a.email && !a.id?.startsWith("peer_") && !a.email.includes("studygroup.vn") && a.email !== "hocvien.chinh@emh.edu.vn");
+  list = list.filter(a => a && a.email && !String(a.id || "").startsWith("peer_") && !String(a.email).includes("studygroup.vn") && a.email !== "hocvien.chinh@emh.edu.vn");
 
   // Chỉ xác định tài khoản khi thực sự đã đăng nhập (KHÔNG gán mặc định Tô Nguyên Vũ!)
   const activeEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
@@ -12296,25 +13272,32 @@ function getSavedAccounts() {
   const activeName = (appState.currentUser && appState.currentUser.full_name) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_NAME") || activeEmail.split("@")[0];
   const activeTarget = (appState.currentUser && appState.currentUser.target_exam) || "IELTS 7.5+";
 
-  const storedStreak = parseInt(localStorage.getItem("EMH_STREAK") || "0", 10) || 0;
-  const serverStreak = parseInt((appState.currentUser && (appState.currentUser.streak_count ?? appState.currentUser.streak)) || 0, 10) || 0;
-  const completedDays = (typeof countCompletedCurriculumDays === "function") ? countCompletedCurriculumDays() : 0;
-  const realStreak = Math.max(storedStreak, serverStreak, completedDays);
-  const realWords = (typeof getRealLearnedWordsCount === "function") ? getRealLearnedWordsCount() : 20;
-  const realXP = (realStreak * 150) + (realWords * 20) + (completedDays * 100);
-
-  const curDay = (typeof missionRegistry !== "undefined" && missionRegistry.currentDay) ? missionRegistry.currentDay : 1;
-  const missionDonePct = (typeof getDayMissionStatus === "function" && getDayMissionStatus(curDay).isAllDone) ? 100 : 70;
+  const m = (typeof computeRealStudyMetrics === "function") ? computeRealStudyMetrics() : {
+    streak: 0,
+    mature: 0,
+    learning: 0,
+    totalStarted: 0,
+    todayProgressPct: 0,
+    realXp: 0
+  };
+  const realStreak = m.streak;
+  const realWords = m.mature;
+  const realLearning = m.learning;
+  const realStarted = m.totalStarted;
+  const realXP = m.realXp;
+  const missionDonePct = m.todayProgressPct;
 
   // Nếu danh sách trống, khởi tạo tài khoản đầu tiên
   if (!Array.isArray(list) || list.length === 0) {
     const primaryAccount = {
-      id: "user_real_primary",
+      id: (appState.currentUser && appState.currentUser.id) || "user_real_primary",
       email: activeEmail,
       full_name: activeName,
       target_exam: activeTarget,
       streak: realStreak,
       mature_words: realWords,
+      learning_words: realLearning,
+      total_started: realStarted,
       today_progress: missionDonePct,
       xp: realXP,
       token: appState.authToken || "",
@@ -12324,8 +13307,7 @@ function getSavedAccounts() {
     list = [primaryAccount];
     saveSavedAccounts(list);
   } else {
-    // Đảm bảo KHÔNG ghi đè tài khoản khác!
-    // Chỉ cập nhật tiến độ thực tế cho đúng tài khoản đang active
+    // Chỉ cập nhật tiến độ thực tế chính xác cho đúng tài khoản đang active (không cộng giả 20 từ hay 200 XP)
     let foundActive = false;
     list = list.map(acc => {
       const isThisActive = (acc.email.toLowerCase() === activeEmail.toLowerCase());
@@ -12335,10 +13317,12 @@ function getSavedAccounts() {
           ...acc,
           full_name: acc.full_name || activeName,
           target_exam: acc.target_exam || activeTarget,
-          streak: Math.max(acc.streak || 1, realStreak),
-          mature_words: Math.max(acc.mature_words || 20, realWords),
+          streak: realStreak,
+          mature_words: realWords,
+          learning_words: realLearning,
+          total_started: realStarted,
           today_progress: missionDonePct,
-          xp: Math.max(acc.xp || 200, realXP),
+          xp: realXP,
           token: appState.authToken || acc.token || "",
           isCurrent: true,
           isReal: true
@@ -12349,12 +13333,14 @@ function getSavedAccounts() {
 
     if (!foundActive) {
       list.unshift({
-        id: "user_" + Date.now(),
+        id: (appState.currentUser && appState.currentUser.id) || ("user_" + Date.now()),
         email: activeEmail,
         full_name: activeName,
         target_exam: activeTarget,
         streak: realStreak,
         mature_words: realWords,
+        learning_words: realLearning,
+        total_started: realStarted,
         today_progress: missionDonePct,
         xp: realXP,
         token: appState.authToken || "",
@@ -12378,15 +13364,12 @@ window.addSpeakingXP = function(points = 50) {
   try {
     const curEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim().toLowerCase();
     if (!curEmail) return;
-    const list = getSavedAccounts();
-    const acc = list.find(a => a && (a.email || "").toLowerCase() === curEmail);
-    if (acc) {
-      acc.xp = (acc.xp || 200) + points;
-      saveSavedAccounts(list);
-      if (typeof renderHomeLeaderboardPreview === "function") renderHomeLeaderboardPreview();
-      if (typeof showToast === "function") {
-        showToast(`🎉 +${points} XP Speaking Champion! Đã ghi nhận bài luyện nói vào bảng thi đua.`, "success");
-      }
+    if (typeof scheduleLearnerDataSync === "function") {
+      scheduleLearnerDataSync(250);
+    }
+    if (typeof renderHomeLeaderboardPreview === "function") renderHomeLeaderboardPreview();
+    if (typeof showToast === "function") {
+      showToast(`🎉 +${points} XP Speaking Champion! Đã ghi nhận bài luyện nói vào hồ sơ thực học.`, "success");
     }
   } catch (e) {}
 };
@@ -12707,28 +13690,45 @@ async function switchAccount(email) {
   const target = list.find(a => a.email === email);
   if (!target) return;
 
+  const outgoingEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  activateAccountStudyWorkspace(target.email, {
+    previousEmail: outgoingEmail,
+    isNewRegistration: false,
+    serverUser: target
+  });
+
+  localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", target.email);
+  localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", target.full_name || target.email.split("@")[0]);
+
   list = list.map(a => ({ ...a, isCurrent: (a.email === email) }));
   saveSavedAccounts(list);
 
   if (target.token) {
     appState.authToken = target.token;
     localStorage.setItem(STORAGE_KEY_AUTH, target.token);
+    localStorage.setItem("EMH_AUTH_TOKEN", target.token);
     await checkAuthStatus();
   } else {
     appState.authToken = "";
     localStorage.removeItem(STORAGE_KEY_AUTH);
+    localStorage.removeItem("EMH_AUTH_TOKEN");
     appState.currentUser = {
       id: target.id,
       email: target.email,
       full_name: target.full_name,
       target_exam: target.target_exam,
-      streak_count: target.streak
+      streak_count: target.streak ?? 0,
+      learned_words_count: target.mature_words ?? 0,
+      learning_words_count: target.learning_words ?? 0,
+      total_started_count: target.total_started ?? (target.mature_words ?? 0),
+      real_xp: target.xp ?? 0
     };
-    updateDailyStreak(target.streak);
+    updateDailyStreak(target.streak ?? 0);
     updateAuthUI();
   }
 
   renderSavedAccounts();
+  renderProfileAccountsCompetition();
   renderLeaderboard();
   renderHomeLeaderboardPreview();
   closeMultiAccountModal();
@@ -12789,15 +13789,24 @@ async function createNewAccountFromModal() {
     }
   }
 
+  const outgoingEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  activateAccountStudyWorkspace(email, {
+    previousEmail: outgoingEmail,
+    isNewRegistration: true,
+    serverUser: { streak: 0, streak_count: 0 }
+  });
+
   const newAcc = {
     id: "user_" + Date.now(),
     email,
     full_name: name,
     target_exam: target,
-    streak: 1,
+    streak: 0,
     mature_words: 0,
+    learning_words: 0,
+    total_started: 0,
     today_progress: 0,
-    xp: 200,
+    xp: 0,
     password_hash: btoa(pass),
     token: token,
     isCurrent: true,
@@ -12806,13 +13815,13 @@ async function createNewAccountFromModal() {
     referred_by: "Tô Nguyên Vũ (tonguyenvu@265.com)"
   };
 
-  list = list.map(a => ({ ...a, isCurrent: false }));
+  list = getSavedAccounts().map(a => ({ ...a, isCurrent: false }));
   list.push(newAcc);
   saveSavedAccounts(list);
 
   localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", email);
   localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", name);
-  localStorage.setItem("EMH_STREAK", "1");
+  localStorage.setItem("EMH_STREAK", "0");
   localStorage.removeItem("EMH_GUEST_DISMISSED");
 
   appState.currentUser = {
@@ -12820,13 +13829,19 @@ async function createNewAccountFromModal() {
     email: email,
     full_name: name,
     target_exam: target,
-    streak_count: 1
+    streak_count: 0,
+    learned_words_count: 0,
+    learning_words_count: 0,
+    total_started_count: 0,
+    real_xp: 0
   };
 
   if (token) {
     appState.authToken = token;
     localStorage.setItem(STORAGE_KEY_AUTH, token);
+    localStorage.setItem("EMH_AUTH_TOKEN", token);
   }
+  snapshotAccountStudyWorkspace(email);
 
   if (nameInput) nameInput.value = "";
   if (emailInput) emailInput.value = "";
@@ -13257,13 +14272,13 @@ function renderProfileAccountsCompetition() {
             </div>
             <div>
               <div class="text-xs font-bold text-emerald-400 flex items-center justify-center gap-1">
-                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> ${acc.mature_words || 20} từ
+                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> ${acc.mature_words ?? 0} từ
               </div>
               <div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Đã thuộc</div>
             </div>
             <div>
               <div class="text-xs font-black text-indigo-300 flex items-center justify-center gap-1 font-mono">
-                <i data-lucide="zap" class="w-3.5 h-3.5 fill-indigo-400 text-indigo-400"></i> ${acc.xp || 200}
+                <i data-lucide="zap" class="w-3.5 h-3.5 fill-indigo-400 text-indigo-400"></i> ${acc.xp ?? 0}
               </div>
               <div class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Điểm XP</div>
             </div>
@@ -13699,6 +14714,8 @@ Vui lòng nhập mật khẩu tài khoản của bạn để đăng nhập:`);
     return;
   }
 
+  const outgoingEmail = ((appState.currentUser && appState.currentUser.email) || localStorage.getItem("EMH_ACTIVE_ACCOUNT_EMAIL") || "").trim();
+  let serverLoggedUser = null;
   // 1. Thử xác thực với Backend API nếu có
   let verified = false;
   let token = "";
@@ -13707,7 +14724,7 @@ Vui lòng nhập mật khẩu tài khoản của bạn để đăng nhập:`);
     if (res && res.token) {
       verified = true;
       token = res.token;
-      appState.currentUser = res.user;
+      serverLoggedUser = res.user;
     }
   } catch (e) {}
 
@@ -13724,22 +14741,32 @@ Vui lòng nhập mật khẩu tài khoản của bạn để đăng nhập:`);
   }
 
   if (verified) {
+    activateAccountStudyWorkspace(target.email, {
+      previousEmail: outgoingEmail,
+      isNewRegistration: false,
+      serverUser: serverLoggedUser || target
+    });
     // Đăng nhập thành công vào tài khoản này
     localStorage.setItem("EMH_ACTIVE_ACCOUNT_EMAIL", target.email);
-    localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", target.full_name);
+    localStorage.setItem("EMH_ACTIVE_ACCOUNT_NAME", (serverLoggedUser && serverLoggedUser.full_name) || target.full_name);
     if (token) {
       appState.authToken = token;
       localStorage.setItem(STORAGE_KEY_AUTH, token);
+      localStorage.setItem("EMH_AUTH_TOKEN", token);
     }
-    appState.currentUser = {
+    appState.currentUser = serverLoggedUser || {
       id: target.id,
       email: target.email,
       full_name: target.full_name,
       target_exam: target.target_exam,
-      streak_count: target.streak
+      streak_count: target.streak ?? 0,
+      learned_words_count: target.mature_words ?? 0,
+      learning_words_count: target.learning_words ?? 0,
+      total_started_count: target.total_started ?? (target.mature_words ?? 0),
+      real_xp: target.xp ?? 0
     };
 
-    const updatedList = list.map(a => ({
+    const updatedList = getSavedAccounts().map(a => ({
       ...a,
       isCurrent: (a.email.toLowerCase() === target.email.toLowerCase())
     }));

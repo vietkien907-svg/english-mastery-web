@@ -74,17 +74,36 @@ def bootstrap_host_admin():
     import auth as auth_mod
     import referral_service
     from sqlalchemy import text
+    extra_user_cols = [
+        ("learned_words_count", "INTEGER DEFAULT 0"),
+        ("learning_words_count", "INTEGER DEFAULT 0"),
+        ("total_started_count", "INTEGER DEFAULT 0"),
+        ("completed_days_count", "INTEGER DEFAULT 0"),
+        ("readings_done_count", "INTEGER DEFAULT 0"),
+        ("grammar_done_count", "INTEGER DEFAULT 0"),
+        ("listening_done_count", "INTEGER DEFAULT 0"),
+        ("videos_done_count", "INTEGER DEFAULT 0"),
+        ("speaking_done_count", "INTEGER DEFAULT 0"),
+        ("translation_done_count", "INTEGER DEFAULT 0"),
+        ("readaloud_done_count", "INTEGER DEFAULT 0"),
+        ("games_played_count", "INTEGER DEFAULT 0"),
+        ("real_xp", "INTEGER DEFAULT 0"),
+        ("today_progress_pct", "INTEGER DEFAULT 0"),
+    ]
     with engine.begin() as conn:
         cols = [row[1] for row in conn.execute(text("PRAGMA table_info(users)")).fetchall()]
-        if "learned_words_count" not in cols:
-            conn.execute(text("ALTER TABLE users ADD COLUMN learned_words_count INTEGER DEFAULT 0"))
-        if "total_started_count" not in cols:
-            conn.execute(text("ALTER TABLE users ADD COLUMN total_started_count INTEGER DEFAULT 0"))
+        for col_name, col_def in extra_user_cols:
+            if col_name not in cols:
+                conn.execute(text(f"ALTER TABLE users ADD COLUMN {col_name} {col_def}"))
 
     with SessionLocal() as db:
-        # Clean legacy unit-test bot accounts, test referral codes & testclient logs
+        # Clean legacy unit-test bot accounts, test referral codes, mock test vaults & testclient logs
         db.query(models.User).filter(models.User.email.like("%@example.com")).delete(synchronize_session=False)
         db.query(models.ReferralCode).filter(models.ReferralCode.used_by_email.like("%@example.com")).delete(synchronize_session=False)
+        db.query(models.CloudSyncVault).filter(
+            models.CloudSyncVault.user_id.is_(None),
+            models.CloudSyncVault.device_name.in_(["Test Phone", "Test PC"])
+        ).delete(synchronize_session=False)
         db.query(models.LoginAuditLog).filter(
             (models.LoginAuditLog.ip_address == "testclient") | (models.LoginAuditLog.user_email.like("%@example.com"))
         ).delete(synchronize_session=False)
@@ -101,7 +120,9 @@ def bootstrap_host_admin():
                 streak_count=15,
                 longest_streak=15,
                 learned_words_count=280,
-                total_started_count=367
+                learning_words_count=87,
+                total_started_count=367,
+                completed_days_count=14
             )
             db.add(vu)
         else:
@@ -109,6 +130,13 @@ def bootstrap_host_admin():
                 vu.learned_words_count = 280
             if (vu.total_started_count or 0) < 367:
                 vu.total_started_count = 367
+            if (vu.total_started_count or 0) < (vu.learned_words_count or 0):
+                vu.total_started_count = vu.learned_words_count or 0
+            expected_learning = max(0, (vu.total_started_count or 0) - (vu.learned_words_count or 0))
+            if (vu.learning_words_count or 0) != expected_learning:
+                vu.learning_words_count = expected_learning
+            if (vu.completed_days_count or 0) < 14:
+                vu.completed_days_count = 14
             if (vu.streak_count or 0) < 15:
                 vu.streak_count = 15
             if (vu.longest_streak or 0) < 15:

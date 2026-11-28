@@ -1580,6 +1580,9 @@
       if (typeof g.refreshDailyStreakDeadlineUI === 'function') {
         g.refreshDailyStreakDeadlineUI();
       }
+      if (typeof g.notifyLearnerStudyActivity === 'function') {
+        g.notifyLearnerStudyActivity('readaloud');
+      }
     } catch (e) {}
   }
 

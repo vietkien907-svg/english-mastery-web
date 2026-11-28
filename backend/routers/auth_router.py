@@ -99,9 +99,15 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
         full_name=req.full_name or req.email.split("@")[0],
         target_exam=req.target_exam,
         daily_new_target=req.daily_new_target,
-        streak_count=1,
-        longest_streak=1,
-        last_active_date=get_user_local_today().isoformat(),
+        streak_count=0,
+        longest_streak=0,
+        last_active_date=None,
+        learned_words_count=0,
+        learning_words_count=0,
+        total_started_count=0,
+        completed_days_count=0,
+        real_xp=0,
+        today_progress_pct=0,
         referred_by=referrer_email
     )
     db.add(user)
@@ -131,7 +137,16 @@ def register(req: RegisterRequest, request: Request, response: Response, db: Ses
             "full_name": user.full_name,
             "target_exam": user.target_exam,
             "daily_new_target": user.daily_new_target,
-            "streak": user.streak_count,
+            "streak": 0,
+            "streak_count": 0,
+            "longest_streak": 0,
+            "last_active_date": "",
+            "learned_words_count": 0,
+            "learning_words_count": 0,
+            "total_started_count": 0,
+            "completed_days_count": 0,
+            "real_xp": 0,
+            "today_progress_pct": 0,
             "referral_code": user.referral_code or "",
             "referred_by": user.referred_by or "",
             "referrer_name": referrer_info
@@ -266,8 +281,15 @@ def login(req: LoginRequest, request: Request, response: Response, db: Session =
             "target_exam": user.target_exam,
             "daily_new_target": user.daily_new_target,
             "streak": streak_info["streak"],
+            "streak_count": streak_info["streak"],
             "longest_streak": streak_info["longest_streak"],
-            "last_active_date": streak_info["last_active_date"]
+            "last_active_date": streak_info["last_active_date"],
+            "learned_words_count": user.learned_words_count or 0,
+            "learning_words_count": user.learning_words_count or 0,
+            "total_started_count": user.total_started_count or 0,
+            "completed_days_count": user.completed_days_count or 0,
+            "real_xp": user.real_xp or 0,
+            "today_progress_pct": user.today_progress_pct or 0,
         }
     }
 
@@ -470,6 +492,12 @@ def get_profile(current_user: models.User = Depends(auth.get_current_user), db: 
         "longest_streak": streak_info["longest_streak"],
         "last_active_date": streak_info["last_active_date"],
         "completed_today": streak_info["completed_today"],
+        "learned_words_count": current_user.learned_words_count or 0,
+        "learning_words_count": current_user.learning_words_count or 0,
+        "total_started_count": current_user.total_started_count or 0,
+        "completed_days_count": current_user.completed_days_count or 0,
+        "real_xp": current_user.real_xp or 0,
+        "today_progress_pct": current_user.today_progress_pct or 0,
         "timezone": current_user.timezone,
         "referral_code": ref_code,
         "referred_by": current_user.referred_by or ""

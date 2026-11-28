@@ -3936,6 +3936,10 @@
       awardAuthenticatedGameXp(xpEarned);
     }
 
+    if (typeof window !== 'undefined' && typeof window.notifyLearnerStudyActivity === 'function') {
+      try { window.notifyLearnerStudyActivity('games'); } catch (e) {}
+    }
+
     if (typeof window !== 'undefined' && typeof window.showToast === 'function') {
       try {
         window.showToast('Hoàn thành trò chơi: ' + state.score + ' điểm (' + state.accuracy + '%)', 'success');

@@ -6,15 +6,23 @@ from database import get_db
 import models
 import auth
 import srs
-from routers import auth_router
+from routers import auth_router, study_router
 
 router = APIRouter(prefix="/api/sync", tags=["Offline Sync & Event Merging"])
 
 class OfflineEventPayload(BaseModel):
     client_event_id: str
     item_id: str
+    word: str = ""
+    pos: str = ""
+    pron: str = ""
+    meaning_vi: str = ""
+    meaning_en: str = ""
+    example: str = ""
+    level: str = "B1"
+    unit: str = ""
     test_type: str = "recognition"
-    rating: int # 1..4
+    rating: int # 1..5
     used_hint: bool = False
     response_time_ms: int = 0
     device_id: str = "offline_client"
@@ -53,22 +61,36 @@ def sync_offline_events(req: BatchSyncRequest, current_user: models.User = Depen
         except Exception:
             client_dt = now
             
-        # Verify item exists
-        item = db.query(models.KnowledgeItem).filter(models.KnowledgeItem.id == evt.item_id).first()
+        # Resolve or create item so zero offline study reviews are ever dropped
+        item = study_router.resolve_or_create_knowledge_item(
+            db,
+            item_id=evt.item_id,
+            word=evt.word,
+            pos=evt.pos,
+            pron=evt.pron,
+            meaning_vi=evt.meaning_vi,
+            meaning_en=evt.meaning_en,
+            example=evt.example,
+            level=evt.level,
+            unit=evt.unit,
+            user_id=current_user.id,
+        )
         if not item:
             continue
-            
+
+        resolved_item_id = item.id
+
         # Get progress
         progress = db.query(models.UserItemProgress).filter(
             models.UserItemProgress.user_id == current_user.id,
-            models.UserItemProgress.item_id == evt.item_id,
+            models.UserItemProgress.item_id == resolved_item_id,
             models.UserItemProgress.test_type == evt.test_type
         ).first()
         
         if not progress:
             progress = models.UserItemProgress(
                 user_id=current_user.id,
-                item_id=evt.item_id,
+                item_id=resolved_item_id,
                 test_type=evt.test_type,
                 ease_factor=2.5,
                 interval_days=0,
@@ -101,7 +123,7 @@ def sync_offline_events(req: BatchSyncRequest, current_user: models.User = Depen
         db_evt = models.ReviewEvent(
             client_event_id=evt.client_event_id,
             user_id=current_user.id,
-            item_id=evt.item_id,
+            item_id=resolved_item_id,
             test_type=evt.test_type,
             rating=evt.rating,
             response_time_ms=evt.response_time_ms,
@@ -112,8 +134,9 @@ def sync_offline_events(req: BatchSyncRequest, current_user: models.User = Depen
         )
         db.add(db_evt)
         processed_count += 1
-        updated_items.append(evt.item_id)
+        updated_items.append(resolved_item_id)
 
+    study_router.sync_user_word_counters_from_db(db, current_user)
     db.commit()
     
     return {
@@ -162,12 +185,37 @@ def cloud_save(
 
     safe_payload = dict(req.payload) if isinstance(req.payload, dict) else {}
     if current_user:
-        streak_info = auth_router.evaluate_daily_streak(current_user, db, increment_if_completed=False)
+        has_completed_mission_task = False
+        mr = safe_payload.get("missionRegistry")
+        if isinstance(mr, dict) and isinstance(mr.get("history"), dict):
+            for day_val in mr["history"].values():
+                if isinstance(day_val, dict) and any(
+                    bool(day_val.get(flag))
+                    for flag in (
+                        "vocabDone",
+                        "readingDone",
+                        "grammarDone",
+                        "listeningDone",
+                        "videoDone",
+                        "translationDone",
+                        "readaloudDone",
+                        "translationReadaloudDone",
+                    )
+                ):
+                    has_completed_mission_task = True
+                    break
+
+        should_inc = has_completed_mission_task and (current_user.streak_count or 0) == 0
+        streak_info = auth_router.evaluate_daily_streak(current_user, db, increment_if_completed=should_inc)
         server_streak = streak_info["streak"]
         if isinstance(safe_payload.get("streak"), dict):
             streak_obj = dict(safe_payload["streak"])
             client_count = _safe_int(streak_obj.get("count"), 0)
-            if client_count < server_streak:
+            if client_count > (current_user.streak_count or 0):
+                current_user.streak_count = client_count
+                current_user.longest_streak = max(current_user.longest_streak or 0, client_count)
+                server_streak = client_count
+            elif client_count < server_streak:
                 streak_obj["count"] = server_streak
             if not streak_obj.get("lastActiveDate") and streak_info.get("last_active_date"):
                 streak_obj["lastActiveDate"] = streak_info["last_active_date"]

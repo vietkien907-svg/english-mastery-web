@@ -721,6 +721,9 @@
         if (typeof window.markDailyStreakTaskCompleted === 'function') {
           window.markDailyStreakTaskCompleted('speaking');
         }
+        if (typeof window.notifyLearnerStudyActivity === 'function') {
+          window.notifyLearnerStudyActivity('speaking');
+        }
       }
     } catch (err) {
       console.error('Scoring error:', err);

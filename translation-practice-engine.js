@@ -2051,6 +2051,9 @@
       if (typeof g.refreshDailyStreakDeadlineUI === 'function') {
         g.refreshDailyStreakDeadlineUI();
       }
+      if (typeof g.notifyLearnerStudyActivity === 'function') {
+        g.notifyLearnerStudyActivity(taskType || 'translation');
+      }
     } catch (e) {}
   }
 

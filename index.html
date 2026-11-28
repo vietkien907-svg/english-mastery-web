@@ -37,7 +37,7 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="./style.css?v=106.0">
+  <link rel="stylesheet" href="./style.css?v=107.0">
   <script>
     // Immediate Theme Initialization (Zero flicker — Default: Warm Paper Eye-Care)
     (function() {
@@ -2353,7 +2353,7 @@
     </div>
 
 
-    <section id="tab-profile" class="hidden space-y-6">
+    <section id="tab-profile" class="hidden space-y-6 overflow-x-hidden">
         <!-- BẢNG XẾP HẠNG & THI ĐUA TẤT CẢ TÀI KHOẢN ĐANG SỬ DỤNG -->
         <div id="profileAccountsCompetitionContainer" class="glass-card rounded-2xl p-6 space-y-4 col-span-full border border-amber-500/40 bg-gradient-to-br from-amber-950/20 via-slate-900 to-slate-950 shadow-xl">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
@@ -2389,13 +2389,13 @@
         </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="glass-card rounded-2xl p-6 space-y-4">
+        <div class="glass-card rounded-2xl p-4 sm:p-6 space-y-4 min-w-0">
           <h3 class="font-bold text-lg text-white flex items-center gap-2">
             <i data-lucide="activity" class="w-5 h-5 text-indigo-400"></i> Tiến Độ & Thống Kê Học Tập
           </h3>
           <div class="space-y-3 text-xs sm:text-sm">
             <!-- Streak Tracker Box -->
-            <div class="flex justify-between items-center p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30">
+            <div class="flex flex-wrap justify-between items-center gap-2 p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30">
               <div class="flex items-center gap-2.5">
                 <i data-lucide="flame" class="w-6 h-6 text-amber-400 fill-amber-400"></i>
                 <div>
@@ -2404,7 +2404,7 @@
                 </div>
               </div>
               <div class="flex items-center gap-2">
-                <span id="statStreakDisplay" class="text-base font-extrabold text-amber-400">14 ngày 🔥</span>
+                <span id="statStreakDisplay" class="text-base font-extrabold text-amber-400">0 ngày</span>
                 <button onclick="triggerDailyCheckin()" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 transition shadow-sm">Điểm danh ngay</button>
               </div>
             </div>
@@ -2426,7 +2426,7 @@
               <span id="statTotalStarted" class="font-bold text-white">0</span>
             </div>
             <div class="flex justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span class="text-slate-400">Thẻ đã ghi nhớ vững vàng (Mature ≥ 21 ngày):</span>
+              <span class="text-slate-400">Thẻ đã ghi nhớ vững vàng (Mature / Cấp SRS 4–5):</span>
               <span id="statMature" class="font-bold text-emerald-400">0</span>
             </div>
             <div class="flex justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
@@ -2437,10 +2437,11 @@
               <span class="text-slate-400">Mục tiêu từ mới mỗi ngày:</span>
               <span id="statDailyTarget" class="font-bold text-indigo-300">20 từ</span>
             </div>
+            <div id="realStudySkillBreakdown" class="mt-2"></div>
           </div>
         </div>
 
-        <div class="glass-card rounded-2xl p-6 space-y-4">
+        <div class="glass-card rounded-2xl p-4 sm:p-6 space-y-4 min-w-0">
           <h3 class="font-bold text-lg text-white flex items-center gap-2">
             <i data-lucide="smartphone" class="w-5 h-5 text-cyan-400"></i> Thiết Bị & Phiên Đăng Nhập
           </h3>
@@ -3673,32 +3674,32 @@
   </div>
 
 <!-- LOAD APPLICATION SCRIPTS -->
-  <script src="./data.js?v=106.0"></script>
-  <script src="./listening_data.js?v=106.0"></script>
-  <script src="./vietnam_today_data.js?v=106.0"></script>
-  <script src="./educational_channels_data.js?v=106.0"></script>
-  <script src="./international_news_videos.js?v=106.0"></script>
-  <script src="./bilingual_news_data.js?v=106.0"></script>
-  <script src="./reading_lexicon.js?v=106.0"></script>
-  <script src="./conversation_data.js?v=106.0"></script>
-  <script src="./speaking-forecast.js?v=106.0"></script>
-  <script src="./speaking-knowledge-bank.js?v=106.0"></script>
-  <script src="./speakout-speaking-data.js?v=106.0"></script>
-  <script src="./speaking-engine.js?v=106.0"></script>
-  <script src="./translation_bank_units.js?v=106.0"></script>
-  <script src="./translation_bank_media.js?v=106.0"></script>
-  <script src="./translation_bank_ielts.js?v=106.0"></script>
-  <script src="./translation_bank_trends.js?v=106.0"></script>
-  <script src="./translation-practice-engine.js?v=106.0"></script>
-  <script src="./read-aloud-engine.js?v=106.0"></script>
-  <script src="./vi-en-games-engine.js?v=106.0"></script>
-  <script src="./ocr-vocab-engine.js?v=106.0"></script>
-  <script src="./unit-review-engine.js?v=106.0"></script>
-  <script src="./focus-session-engine.js?v=106.0"></script>
-  <script src="./security-guard-engine.js?v=106.0"></script>
-  <script src="./auth-gate-engine.js?v=106.0"></script>
-  <script src="./streak-deadline-engine.js?v=106.0"></script>
-  <script src="./app.js?v=106.0"></script>
+  <script src="./data.js?v=107.0"></script>
+  <script src="./listening_data.js?v=107.0"></script>
+  <script src="./vietnam_today_data.js?v=107.0"></script>
+  <script src="./educational_channels_data.js?v=107.0"></script>
+  <script src="./international_news_videos.js?v=107.0"></script>
+  <script src="./bilingual_news_data.js?v=107.0"></script>
+  <script src="./reading_lexicon.js?v=107.0"></script>
+  <script src="./conversation_data.js?v=107.0"></script>
+  <script src="./speaking-forecast.js?v=107.0"></script>
+  <script src="./speaking-knowledge-bank.js?v=107.0"></script>
+  <script src="./speakout-speaking-data.js?v=107.0"></script>
+  <script src="./speaking-engine.js?v=107.0"></script>
+  <script src="./translation_bank_units.js?v=107.0"></script>
+  <script src="./translation_bank_media.js?v=107.0"></script>
+  <script src="./translation_bank_ielts.js?v=107.0"></script>
+  <script src="./translation_bank_trends.js?v=107.0"></script>
+  <script src="./translation-practice-engine.js?v=107.0"></script>
+  <script src="./read-aloud-engine.js?v=107.0"></script>
+  <script src="./vi-en-games-engine.js?v=107.0"></script>
+  <script src="./ocr-vocab-engine.js?v=107.0"></script>
+  <script src="./unit-review-engine.js?v=107.0"></script>
+  <script src="./focus-session-engine.js?v=107.0"></script>
+  <script src="./security-guard-engine.js?v=107.0"></script>
+  <script src="./auth-gate-engine.js?v=107.0"></script>
+  <script src="./streak-deadline-engine.js?v=107.0"></script>
+  <script src="./app.js?v=107.0"></script>
   <script>
     lucide.createIcons();
     if (window.SpeakingEngine && typeof window.SpeakingEngine.init === 'function') {
@@ -3715,7 +3716,7 @@
         });
       }
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js?v=106.0', { updateViaCache: 'none' })
+        navigator.serviceWorker.register('/sw.js?v=107.0', { updateViaCache: 'none' })
           .then(reg => {
             try { reg.update(); } catch (e) {}
             document.addEventListener('visibilitychange', () => {
